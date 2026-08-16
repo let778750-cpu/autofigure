@@ -17,7 +17,8 @@ FROZEN_REFERENCE
   → PERCEPTION_CAPTURE → PERCEPTION_GATE
   → SPEC_FROZEN → PREFLIGHT_PASS
   → FIRST_RENDER → ACCEPTANCE_AUDIT
-  → CANDIDATE | CANDIDATE_WITH_SLOTS → APPROVED
+  → CANDIDATE | CANDIDATE_WITH_SLOTS | CANDIDATE_WITH_REFERENCE_PREVIEWS
+  → USER_FILLED_SLOTS → APPROVED
 ```
 
 - `PERCEPTION_GATE` 有未决关键项：停在 `INCONCLUSIVE`，获取用户/原文证据后再冻结 spec。
@@ -96,6 +97,17 @@ FROZEN_REFERENCE
 | `strategy` | `native_editable/manual_asset_slot/source_ambiguity` |
 | `allowed_overlap` | 仅列语义上允许相交的对象 ID；默认空数组 |
 | `status` | `pending/mapped/verified/intentional_deviation/blocked` |
+
+`type=manual_asset_slot` 还必须包含 `slot_contract`。槽位四态为
+`empty/reference_preview/user_filled/backfilled_verified`：
+
+- `reference_preview` 只允许 `reconstruct_1to1`，且必须引用由
+  `tools/materialize_reference_preview.py` 生成的 hash-bound receipt；
+- 裁片 bbox 与 element/slot bbox 必须逐值一致，零 padding、零 resampling、PNG lossless；
+- preview 只准承载不可合理原生化的最小照片级视觉场，禁止文字、公式、connector、轴/图例、panel border 和定量证据；
+- slot 必须记录 PowerPoint/draw.io 能力审计；shape 数量大本身不构成降级理由；
+- preview 在成品中必须有原生可见 `REFERENCE PREVIEW — REPLACE ME` 标签，且不计 native coverage、从相似度诊断中遮罩、阻断 `APPROVED`；
+- `manual_asset_slot` 与 `native_editable` 一一互斥，禁止同一 element 同时用原生对象和截图重复覆盖。
 
 `text_style` 必须足以在绘制前做文字测量；缺字体、无法测量或预计溢出时 preflight 不能 PASS。
 

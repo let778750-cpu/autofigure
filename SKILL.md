@@ -15,7 +15,7 @@ description: "把用户确认的科研图 PNG 高保真重建为可编辑 PowerP
 - 允许本机锁定的 PaddleOCR；禁止远程 VLM/OCR API、生成式 OCR 代替事实来源，禁止下载未锁定模型。外层 Agent 原生视觉按 `agent-vision-config.json` 协议执行：任务包由管线生成、产物哈希绑定、经 `validate_agent_vision.py` 校验，永不自证。记录 `NETWORK_NOT_REQUESTED_BY_PIPELINE`，除非有进程/操作系统级阻断证据，不得声称已断网。
 - OCR 是候选证据，不是语义真值。低置信、冲突、旋转文字和公式必须标为 `INCONCLUSIVE` 或交用户确认，禁止猜字。
 - Phase-1 `geometry_refinement` 是确定性的像素观测层，不是原始 PowerPoint 几何真值。它只报告字形墨迹框、受限的 ink-bottom alignment（不是字体 baseline）、可靠文字对间距和框体候选及其不确定性；未经 gold fixture 与 promotion gate 验证，不得直接冻结为 spec 坐标。
-- 复杂照片级子元素走 `manual_asset_slot`；禁止参考裁片、整图 wrapper、面板截图或生成图冒充可编辑完成品。
+- 复杂照片级子元素走 `manual_asset_slot`。默认留 `empty` 槽；仅 `RECONSTRUCT_1TO1` 可在能力审计后使用哈希绑定的 `reference_preview` 无损最小裁片，让用户先看到完整候选。preview 必须显式 `REPLACE_ME`、不计原生覆盖率、从相似度诊断遮罩、阻断 `APPROVED`；整图 wrapper、面板截图、含可重建文字/公式/连接器/轴/图例/边框/定量证据的裁片仍禁止。
 - VBA 不是默认后端，仅用户明确要求时作为可选导出。
 
 ## 最小加载
@@ -38,7 +38,7 @@ FROZEN_REFERENCE
   → PERCEPTION_CAPTURE → PERCEPTION_GATE
   → SPEC_FROZEN → PREFLIGHT_PASS
   → FIRST_RENDER → ACCEPTANCE_AUDIT
-  → CANDIDATE | CANDIDATE_WITH_SLOTS
+  → CANDIDATE | CANDIDATE_WITH_SLOTS | CANDIDATE_WITH_REFERENCE_PREVIEWS
   → USER_FILLED_SLOTS → APPROVED
 ```
 
@@ -90,7 +90,7 @@ ACCEPTANCE_AUDIT --MINOR--> MINOR_PATCH → ACCEPTANCE_AUDIT
 2. Drawer 只执行冻结 spec，不重新读图猜文字或改变拓扑。
 3. 按区域和 z-index 从背景到前景构建原生 textbox/shape/table/chart；connector 只从冻结的 `edges` 集合构建，对象名必须绑定 element/edge ID。
 4. 当前 scientific-illustrator 的 formula→textbox 是 capability gap，禁止调用它交付公式。先为每条公式建立稳定 ID placeholder；保存并关闭 deck 后，由 `tools/powerpoint_native_math.py` 在 run 内候选副本上事务注入原生 `a14:m` + OMML。injection plan 的每个 math run 必须绑定 `formula_id + receipt_path + receipt_sha256`。最终只能调用同一工具的 one-shot `finalize`：由当前进程生成随机 challenge 并直接启动固定 PowerShell 子进程，经 PowerPoint 保存、关闭、只读重开，现场取得 MathZones、可见性/遮挡扫描和连续两份稳定 fresh render；每个 math run 还必须从同一文件独立重开、只隐藏其对应 MathZone 并取得对象内像素差为正且对象外像素差为零的控制图。禁止修改正被 PowerPoint 打开的 PPTX，也禁止用脱离当前事务的 receipt 授权通过。
-5. `manual_asset_slot` 只建立诚实可替换的占位组，不嵌入参考裁片。
+5. `manual_asset_slot` 按四态执行：`empty/reference_preview/user_filled/backfilled_verified`。`reference_preview` 只能由 `tools/materialize_reference_preview.py` 从当前 SHA 绑定参考生成 exact-pixel PNG，并在 PowerPoint 中与原生可见标签 `REFERENCE PREVIEW — REPLACE ME` 组成可替换组；不得把它当最终素材、证据或原生对象。
 6. 区域构建后取结构读回和 fresh render；重大偏差立即回到 `REGION_REPLAN`，不把坏布局继续扩散。
 
 ### 4. Reviewer：首稿验收
@@ -116,10 +116,10 @@ Reviewer 使用 fresh、只读证据，不相信 Drawer 的自报。至少核对
 
 ## 硬约束
 
-禁止：把 target crop 用作绘制/交付资产、整图 wrapper、`data:image`、`roi_trace_*`、位图公式、SVG/EMF 公式、普通 textbox 公式、未验证 OLE 公式、手写 SVG 冒充、装饰模板化、编造科研事实。感知阶段可在 run 内做哈希绑定的临时分块/旋转识别，但不得嵌入成品。语义维度零容差；视觉维度按冻结参考和明确阈值验收。`compare_images` 一类会静默缩放或无条件通过的相似度脚本不能作为 gate。
+禁止：把 target crop 冒充最终素材或可编辑完成品、整图 wrapper、面板截图、`data:image`、`roi_trace_*`、位图公式、SVG/EMF 公式、普通 textbox 公式、未验证 OLE 公式、手写 SVG 冒充、装饰模板化、编造科研事实。唯一例外是受控 `reference_preview`：只服务于候选可视化，必须是最小无损裁片、哈希/bbox 绑定、显式待替换、QA 遮罩且阻断审批。感知阶段可在 run 内做哈希绑定的临时分块/旋转识别。语义维度零容差；视觉维度按冻结参考和明确阈值验收。`compare_images` 一类会静默缩放或无条件通过的相似度脚本不能作为 gate。
 
 ## 交付
 
 保存 `.pptx` 和 fresh 预览 PNG，并报告：run ID、参考/模型/规格哈希、画布尺寸、感知门禁、preflight、公式 converter/injection/readback receipts、原生 Office Math 数、区域/全图 gate、可编辑对象数、素材槽、残余 uncertainty、Reviewer 是 `NO_OP` 还是小修。
 
-自动化最多标记 `CANDIDATE`；有未填必需槽时为 `CANDIDATE_WITH_SLOTS`；只有用户审核并填完必要槽后才是 `APPROVED`。
+自动化最多标记 `CANDIDATE`；有未填/未验证槽时为 `CANDIDATE_WITH_SLOTS`；存在任一参考裁片预览时只能为 `CANDIDATE_WITH_REFERENCE_PREVIEWS`。只有用户替换全部 preview、填完必要槽并通过 backfill 验证后才可 `APPROVED`。

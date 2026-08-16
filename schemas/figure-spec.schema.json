@@ -230,6 +230,7 @@
         },
         "formula_id": {"type": "string", "minLength": 1},
         "formula_style": {"$ref": "#/$defs/formula_style"},
+        "slot_contract": {"$ref": "#/$defs/slot_contract"},
         "content_runs": {
           "type": "array",
           "minItems": 1,
@@ -250,9 +251,181 @@
         {
           "if": {"properties": {"type": {"const": "formula"}}, "required": ["type"]},
           "then": {"required": ["formula_id", "formula_style"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "manual_asset_slot"}}, "required": ["type"]},
+          "then": {
+            "required": ["slot_contract"],
+            "properties": {"strategy": {"const": "manual_asset_slot"}},
+            "not": {
+              "anyOf": [
+                {"required": ["text"]},
+                {"required": ["content_runs"]},
+                {"required": ["formula_id"]}
+              ]
+            }
+          }
+        },
+        {
+          "if": {"properties": {"strategy": {"const": "manual_asset_slot"}}, "required": ["strategy"]},
+          "then": {"properties": {"type": {"const": "manual_asset_slot"}}}
         }
       ],
       "additionalProperties": true
+    },
+    "slot_contract": {
+      "type": "object",
+      "required": [
+        "slot_id",
+        "mode",
+        "classification",
+        "required_content",
+        "forbidden_content",
+        "bbox_source",
+        "aspect_ratio",
+        "fit_mode",
+        "rotation_deg",
+        "replacement_object_name",
+        "native_capability_audit",
+        "preview"
+      ],
+      "properties": {
+        "slot_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"},
+        "mode": {
+          "enum": ["empty", "reference_preview", "user_filled", "backfilled_verified"]
+        },
+        "classification": {
+          "enum": ["creative_raster", "brand_asset", "user_keep_as_image"]
+        },
+        "required_content": {"type": "string", "minLength": 1},
+        "forbidden_content": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "text",
+              "formula",
+              "connector",
+              "axis_or_legend",
+              "panel_border",
+              "quantitative_evidence"
+            ]
+          }
+        },
+        "bbox_source": {"$ref": "#/$defs/bbox"},
+        "aspect_ratio": {"type": "number", "exclusiveMinimum": 0},
+        "fit_mode": {"enum": ["contain", "cover"]},
+        "rotation_deg": {"const": 0},
+        "replacement_object_name": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*_REPLACE_ME$"
+        },
+        "native_capability_audit": {"$ref": "#/$defs/native_capability_audit"},
+        "preview": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/reference_preview_binding"}
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"mode": {"const": "reference_preview"}}, "required": ["mode"]},
+          "then": {"properties": {"preview": {"$ref": "#/$defs/reference_preview_binding"}}},
+          "else": {"properties": {"preview": {"type": "null"}}}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "native_capability_audit": {
+      "type": "object",
+      "required": [
+        "backend",
+        "outcome",
+        "tested_families",
+        "reason_codes",
+        "assessed_at_utc"
+      ],
+      "properties": {
+        "backend": {"enum": ["powerpoint", "drawio"]},
+        "outcome": {"const": "SLOT_REQUIRED"},
+        "tested_families": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "primitive_shapes",
+              "freeform_paths",
+              "builtin_icons",
+              "native_text",
+              "native_office_math",
+              "native_chart"
+            ]
+          }
+        },
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "PHOTOGRAPHIC_CONTINUOUS_TONE",
+              "COMPLEX_TEXTURE",
+              "BRAND_FIDELITY",
+              "USER_KEEP_AS_IMAGE",
+              "NONSEPARABLE_OCCLUSION"
+            ]
+          }
+        },
+        "estimated_native_shape_count": {"type": "integer", "minimum": 0},
+        "backend_capabilities_sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "assessed_at_utc": {"type": "string", "format": "date-time"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "reference_preview_binding": {
+      "type": "object",
+      "required": [
+        "manifest_path",
+        "manifest_sha256",
+        "decomposition_mode",
+        "decomposition_note",
+        "contains_reconstructable_text",
+        "contains_formula",
+        "contains_connector",
+        "contains_axis_or_legend",
+        "contains_panel_border",
+        "contains_quantitative_evidence",
+        "visible_disclosure_required",
+        "disclosure_text",
+        "qa_similarity_masked",
+        "native_coverage_credit",
+        "replace_before_approval"
+      ],
+      "properties": {
+        "manifest_path": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "decomposition_mode": {"enum": ["ATOMIC", "MINIMALLY_NONSEPARABLE"]},
+        "decomposition_note": {"type": "string", "minLength": 1},
+        "contains_reconstructable_text": {"const": false},
+        "contains_formula": {"const": false},
+        "contains_connector": {"const": false},
+        "contains_axis_or_legend": {"const": false},
+        "contains_panel_border": {"const": false},
+        "contains_quantitative_evidence": {"const": false},
+        "visible_disclosure_required": {"const": true},
+        "disclosure_text": {"const": "REFERENCE PREVIEW — REPLACE ME"},
+        "qa_similarity_masked": {"const": true},
+        "native_coverage_credit": {"const": false},
+        "replace_before_approval": {"const": true}
+      },
+      "additionalProperties": false
     },
     "text_run": {
       "oneOf": [

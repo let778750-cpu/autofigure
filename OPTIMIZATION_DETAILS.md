@@ -54,12 +54,12 @@
 
 ### 1.4 素材槽边界
 
-下列照片级内容不得从参考 PNG 裁切后嵌入成品：
+下列照片级内容不得从参考 PNG 裁切后冒充终稿素材或原生可编辑对象：
 
 - `observation` 区域中的照片拼图；
 - 若无法用原生矢量合理重建的照片级图标。
 
-它们必须进入 `manual_asset_slot`。空槽存在时纵切片状态为 `CANDIDATE_WITH_SLOTS`；槽位外的所有文字、框、箭头、公式和图例仍必须原生可编辑。常规 avatar、奖杯、action、地球图标优先用原生形状或后端 stencil 重建，不默认占位。
+它们必须进入 `manual_asset_slot`。本纵切片为让用户直接看到完整候选，允许 observation 照片拼图使用受控 `reference_preview`：只能由当前 source SHA+bbox 生成 exact-pixel PNG，必须原生标注 `REFERENCE PREVIEW — REPLACE ME`，不计原生覆盖率、从相似度诊断遮罩，并把整体状态限制为 `CANDIDATE_WITH_REFERENCE_PREVIEWS`。用户替换且 backfill 验证后才可继续升级。槽位外的所有文字、框、箭头、公式和图例仍必须原生可编辑。常规 avatar、奖杯、action、地球图标优先用原生形状或后端 stencil 重建，不默认占位。
 
 ## 2. 不可修改清单
 
@@ -169,7 +169,7 @@ compiler 只做确定性组装和绑定，不重新看图、不猜拓扑、不�
 
 - Drawer 只消费 PASS preflight 指向的 deck 与 frozen spec；
 - 按 z-index 自后向前构建原生对象；
-- 照片区只放诚实 manual asset slot；
+- 照片区只放诚实 manual asset slot；本纵切片 observation 槽可放 hash-bound reference preview，并叠加原生待替换标签；
 - 内联/显示公式使用 stable placeholder，关闭 PPTX 后再走 native Office Math transaction；
 - 所有 save/export 使用当前 run 的绝对路径。
 
@@ -182,10 +182,10 @@ Reviewer 使用 fresh readback/render 核对：
 - connector 方向、分支、反馈和交叉正确；
 - native object mapping 一一对应；
 - 公式通过 PowerPoint finalize 与独立控制图；
-- 不含参考裁片、整图 wrapper、位图公式或伪可编辑对象；
+- 除声明并遮罩的 reference preview 外，不含参考裁片；绝不含整图 wrapper、位图公式或伪可编辑对象；
 - manual slots 的位置、比例、层级和替换接口正确。
 
-允许结论：`NO_OP / MINOR / SPEC_INVALID / INCONCLUSIVE`。有空槽时最高状态为 `CANDIDATE_WITH_SLOTS`。
+允许结论：`NO_OP / MINOR / SPEC_INVALID / INCONCLUSIVE`。有空槽时最高状态为 `CANDIDATE_WITH_SLOTS`；存在 reference preview 时最高状态为 `CANDIDATE_WITH_REFERENCE_PREVIEWS`。
 
 ## 4. 四图 Pilot 的重新定位
 
@@ -299,7 +299,7 @@ PILOT_ONLY_NO_PRODUCTION_CHANGE
 2. PowerPoint 候选的非照片主体原生可编辑；
 3. 公式为原生 Office Math；
 4. 双向拓扑和 connector 方向通过 Reviewer；
-5. 照片素材槽诚实标记，整体为 `CANDIDATE_WITH_SLOTS`；
+5. observation 照片素材槽以 reference preview 诚实标记，整体为 `CANDIDATE_WITH_REFERENCE_PREVIEWS`；用户替换后转入 `CANDIDATE_WITH_SLOTS/backfilled_verified` 闭环；
 6. 四图 Pilot 工具通过测试并输出不越权的描述性报告；
 7. 全量 pytest、ruff、hygiene PASS；
 8. 独立 Git worktree clean，所有证据可追溯到提交哈希。

@@ -117,6 +117,21 @@ def test_native_office_math_tool_and_dependencies_are_declared() -> None:
     assert "lxml==6.1.0" in requirements
 
 
+def test_reference_preview_is_explicitly_candidate_only_and_has_a_public_tool() -> None:
+    skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+    slots = (ROOT / "references" / "06-manual-asset-slots.md").read_text(encoding="utf-8")
+    qa = (ROOT / "references" / "02-qa-gates.md").read_text(encoding="utf-8")
+    tool = ROOT / "tools" / "materialize_reference_preview.py"
+
+    assert tool.is_file()
+    for contract in (skill, slots, qa):
+        assert "reference_preview" in contract
+        assert "REPLACE_ME" in contract
+    assert "CANDIDATE_WITH_REFERENCE_PREVIEWS" in skill
+    assert "不计原生覆盖率" in skill
+    assert "整图 wrapper" in slots
+
+
 def test_source_authority_validator_is_public_and_non_self_authorizing() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     schema = ROOT / "schemas" / "source-authority.schema.json"
@@ -143,6 +158,7 @@ def test_json_contract_files_parse() -> None:
         ROOT / "schemas" / "perception-manifest.schema.json",
         ROOT / "schemas" / "source-authority.schema.json",
         ROOT / "schemas" / "source-authority-review.schema.json",
+        ROOT / "schemas" / "reference-preview-asset.schema.json",
         ROOT / "examples" / "modularagent.source-authority.json",
         ROOT / "examples" / "target_figure.fixture.json",
     ]

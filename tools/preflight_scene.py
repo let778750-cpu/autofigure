@@ -54,6 +54,9 @@ DEFAULT_GEOMETRY_SCHEMA_PATH = (
 DEFAULT_HOST_RUNTIME_RECEIPT_SCHEMA_PATH = (
     Path(__file__).resolve().parents[1] / "schemas" / "host-runtime-receipt.schema.json"
 )
+DEFAULT_REFERENCE_PREVIEW_SCHEMA_PATH = (
+    Path(__file__).resolve().parents[1] / "schemas" / "reference-preview-asset.schema.json"
+)
 DEFAULT_GEOMETRY_SCRIPT_PATH = Path(__file__).resolve().parent / "geometry_refinement.py"
 TEXT_TYPES = {"text", "formula"}
 NON_COLLIDING_TYPES = {"background"}
@@ -923,6 +926,7 @@ def preflight_scene(
     text_measurements: list[dict[str, Any]] = []
     formula_measurements: list[dict[str, Any]] = []
     formula_converter_receipts: list[dict[str, Any]] = []
+    slot_records: list[dict[str, Any]] = []
     finding_counter = 0
     evidence_snapshots: list[tuple[str, Path, bytes]] = []
 
@@ -977,7 +981,7 @@ def preflight_scene(
             if schema is not None
             else snapshot_schema(Path(schema_path or DEFAULT_SCHEMA_PATH), label="figure schema")
         )
-        validator = Draft202012Validator(loaded_schema)
+        validator = Draft202012Validator(loaded_schema, format_checker=FormatChecker())
         for error in sorted(validator.iter_errors(spec), key=lambda item: list(item.absolute_path)):
             location = "/".join(str(part) for part in error.absolute_path) or "$"
             add_finding(
@@ -997,6 +1001,10 @@ def preflight_scene(
         (
             DEFAULT_HOST_RUNTIME_RECEIPT_SCHEMA_PATH,
             "host runtime receipt schema",
+        ),
+        (
+            DEFAULT_REFERENCE_PREVIEW_SCHEMA_PATH,
+            "reference preview asset schema",
         ),
     ):
         try:
@@ -2953,6 +2961,347 @@ def preflight_scene(
             )
             continue
         valid_boxes[element_id] = box
+        if str(element.get("type", "")).casefold() == "manual_asset_slot":
+            slot = element.get("slot_contract")
+            if not isinstance(slot, Mapping):
+                add_finding(
+                    "SPEC_INVALID",
+                    "SLOT_CONTRACT_MISSING",
+                    "A manual_asset_slot requires a structured slot_contract.",
+                    element_ids=[element_id],
+                )
+            else:
+                slot_id = str(slot.get("slot_id", ""))
+                if slot_id != element_id:
+                    add_finding(
+                        "SPEC_INVALID",
+                        "SLOT_ID_MISMATCH",
+                        "slot_contract.slot_id must equal the owning element id.",
+                        element_ids=[element_id],
+                        evidence={"slot_id": slot_id},
+                    )
+                slot_bbox = slot.get("bbox_source")
+                slot_box = _bbox({"bbox": slot_bbox}) if isinstance(slot_bbox, Mapping) else None
+                if slot_box is None or any(
+                    abs(slot_box[index] - box[index]) > 1e-9 for index in range(4)
+                ):
+                    add_finding(
+                        "SPEC_INVALID",
+                        "SLOT_BBOX_MISMATCH",
+                        "slot_contract.bbox_source must exactly match the element bbox.",
+                        element_ids=[element_id],
+                        evidence={"element_bbox": box, "slot_bbox": slot_box},
+                    )
+                expected_aspect = box[2] / box[3]
+                declared_aspect = slot.get("aspect_ratio")
+                if not isinstance(declared_aspect, (int, float)) or isinstance(declared_aspect, bool):
+                    add_finding(
+                        "SPEC_INVALID",
+                        "SLOT_ASPECT_INVALID",
+                        "slot_contract.aspect_ratio must be numeric.",
+                        element_ids=[element_id],
+                    )
+                elif abs(float(declared_aspect) / expected_aspect - 1.0) > 0.02:
+                    add_finding(
+                        "SPEC_INVALID",
+                        "SLOT_ASPECT_MISMATCH",
+                        "The declared slot aspect ratio differs from its bbox by more than 2%.",
+                        element_ids=[element_id],
+                        evidence={
+                            "declared_aspect_ratio": float(declared_aspect),
+                            "bbox_aspect_ratio": expected_aspect,
+                        },
+                    )
+                mandatory_forbidden = {
+                    "text",
+                    "formula",
+                    "connector",
+                    "axis_or_legend",
+                    "panel_border",
+                    "quantitative_evidence",
+                }
+                forbidden = {str(item) for item in slot.get("forbidden_content", []) or []}
+                missing_forbidden = sorted(mandatory_forbidden - forbidden)
+                if missing_forbidden:
+                    add_finding(
+                        "SPEC_INVALID",
+                        "SLOT_FORBIDDEN_CONTENT_POLICY_INCOMPLETE",
+                        "The slot must explicitly forbid all reconstructable scientific content classes.",
+                        element_ids=[element_id],
+                        evidence={"missing": missing_forbidden},
+                    )
+                capability_audit = slot.get("native_capability_audit")
+                tested = {
+                    str(item)
+                    for item in (
+                        capability_audit.get("tested_families", [])
+                        if isinstance(capability_audit, Mapping)
+                        else []
+                    )
+                }
+                required_native_families = {
+                    "primitive_shapes",
+                    "freeform_paths",
+                    "builtin_icons",
+                }
+                missing_families = sorted(required_native_families - tested)
+                if missing_families:
+                    add_finding(
+                        "SPEC_INVALID",
+                        "NATIVE_CAPABILITY_AUDIT_INCOMPLETE",
+                        "A slot is allowed only after primitive, freeform, and built-in icon routes are assessed.",
+                        element_ids=[element_id],
+                        evidence={"missing_tested_families": missing_families},
+                    )
+
+                mode = str(slot.get("mode", ""))
+                slot_record: dict[str, Any] = {
+                    "element_id": element_id,
+                    "slot_id": slot_id,
+                    "mode": mode,
+                    "replacement_object_name": slot.get("replacement_object_name"),
+                    "native_coverage_credit": False,
+                    "approval_blocking": mode in {"empty", "reference_preview", "user_filled"},
+                }
+                if mode == "reference_preview":
+                    if str(spec.get("mode", "")) != "reconstruct_1to1":
+                        add_finding(
+                            "SPEC_INVALID",
+                            "REFERENCE_PREVIEW_MODE_FORBIDDEN",
+                            "Reference-derived preview crops are allowed only in reconstruct_1to1 mode.",
+                            element_ids=[element_id],
+                            evidence={"figure_mode": spec.get("mode")},
+                        )
+                    if slot.get("fit_mode") != "contain":
+                        add_finding(
+                            "SPEC_INVALID",
+                            "REFERENCE_PREVIEW_FIT_MODE_INVALID",
+                            "Reference previews must use contain; cover would silently crop evidence.",
+                            element_ids=[element_id],
+                        )
+                    preview = slot.get("preview")
+                    if isinstance(preview, Mapping):
+                        if (
+                            preview.get("decomposition_mode") == "MINIMALLY_NONSEPARABLE"
+                            and "NONSEPARABLE_OCCLUSION"
+                            not in (
+                                capability_audit.get("reason_codes", [])
+                                if isinstance(capability_audit, Mapping)
+                                else []
+                            )
+                        ):
+                            add_finding(
+                                "SPEC_INVALID",
+                                "NONSEPARABLE_PREVIEW_REASON_MISSING",
+                                "A minimally nonseparable preview requires the NONSEPARABLE_OCCLUSION audit reason.",
+                                element_ids=[element_id],
+                            )
+                        manifest_value = preview.get("manifest_path")
+                        if manifest_value:
+                            manifest_path = _resolve_path(str(manifest_value), resolved_base)
+                            try:
+                                manifest_bytes = snapshot_bytes(
+                                    manifest_path,
+                                    label=f"reference preview manifest {element_id}",
+                                )
+                                expected_manifest_sha = str(
+                                    preview.get("manifest_sha256", "")
+                                ).casefold()
+                                observed_manifest_sha = _sha256_bytes(manifest_bytes).casefold()
+                                if observed_manifest_sha != expected_manifest_sha:
+                                    add_finding(
+                                        "SPEC_INVALID",
+                                        "REFERENCE_PREVIEW_MANIFEST_HASH_MISMATCH",
+                                        "The reference-preview manifest hash differs from the Figure Spec binding.",
+                                        element_ids=[element_id],
+                                        evidence={
+                                            "expected": expected_manifest_sha,
+                                            "actual": observed_manifest_sha,
+                                        },
+                                    )
+                                manifest = _strict_json_bytes(
+                                    manifest_bytes,
+                                    label=f"reference preview manifest {element_id}",
+                                )
+                                reference_schema = snapshot_schema(
+                                    DEFAULT_REFERENCE_PREVIEW_SCHEMA_PATH,
+                                    label="reference preview asset schema",
+                                )
+                                reference_validator = Draft202012Validator(
+                                    reference_schema,
+                                    format_checker=FormatChecker(),
+                                )
+                                for error in sorted(
+                                    reference_validator.iter_errors(manifest),
+                                    key=lambda item: list(item.absolute_path),
+                                ):
+                                    location = "/".join(
+                                        str(part) for part in error.absolute_path
+                                    ) or "$"
+                                    add_finding(
+                                        "SPEC_INVALID",
+                                        "REFERENCE_PREVIEW_MANIFEST_SCHEMA_INVALID",
+                                        f"{location}: {error.message}",
+                                        element_ids=[element_id],
+                                    )
+                                if isinstance(manifest, Mapping):
+                                    manifest_source = (
+                                        manifest.get("source")
+                                        if isinstance(manifest.get("source"), Mapping)
+                                        else {}
+                                    )
+                                    if str(manifest_source.get("sha256", "")).casefold() != str(
+                                        source_spec.get("sha256", "")
+                                    ).casefold():
+                                        add_finding(
+                                            "SPEC_INVALID",
+                                            "REFERENCE_PREVIEW_SOURCE_MISMATCH",
+                                            "The preview crop is not bound to the current frozen reference.",
+                                            element_ids=[element_id],
+                                        )
+                                    manifest_crop = (
+                                        manifest.get("crop")
+                                        if isinstance(manifest.get("crop"), Mapping)
+                                        else {}
+                                    )
+                                    manifest_bbox = manifest_crop.get("bbox_source")
+                                    manifest_box = (
+                                        _bbox({"bbox": manifest_bbox})
+                                        if isinstance(manifest_bbox, Mapping)
+                                        else None
+                                    )
+                                    if manifest_box is None or any(
+                                        abs(manifest_box[index] - box[index]) > 1e-9
+                                        for index in range(4)
+                                    ):
+                                        add_finding(
+                                            "SPEC_INVALID",
+                                            "REFERENCE_PREVIEW_CROP_BBOX_MISMATCH",
+                                            "The lossless crop bbox must exactly equal the owning slot bbox.",
+                                            element_ids=[element_id],
+                                            evidence={
+                                                "slot_bbox": box,
+                                                "manifest_bbox": manifest_box,
+                                            },
+                                        )
+                                    source_dimensions = (
+                                        int(source_spec.get("width_px", 0) or 0),
+                                        int(source_spec.get("height_px", 0) or 0),
+                                    )
+                                    if manifest_box == (
+                                        0.0,
+                                        0.0,
+                                        float(source_dimensions[0]),
+                                        float(source_dimensions[1]),
+                                    ):
+                                        add_finding(
+                                            "SPEC_INVALID",
+                                            "WHOLE_REFERENCE_PREVIEW_FORBIDDEN",
+                                            "A reference-preview slot may never wrap the whole target image.",
+                                            element_ids=[element_id],
+                                        )
+                                    asset_record = (
+                                        manifest.get("asset")
+                                        if isinstance(manifest.get("asset"), Mapping)
+                                        else {}
+                                    )
+                                    asset_value = asset_record.get("path")
+                                    if asset_value:
+                                        asset_path = _resolve_path(
+                                            str(asset_value), manifest_path.parent
+                                        )
+                                        asset_bytes = snapshot_bytes(
+                                            asset_path,
+                                            label=f"reference preview asset {element_id}",
+                                        )
+                                        expected_asset_sha = str(
+                                            asset_record.get("sha256", "")
+                                        ).casefold()
+                                        observed_asset_sha = _sha256_bytes(asset_bytes).casefold()
+                                        if expected_asset_sha != observed_asset_sha:
+                                            add_finding(
+                                                "SPEC_INVALID",
+                                                "REFERENCE_PREVIEW_ASSET_HASH_MISMATCH",
+                                                "The preview PNG hash differs from its manifest.",
+                                                element_ids=[element_id],
+                                                evidence={
+                                                    "expected": expected_asset_sha,
+                                                    "actual": observed_asset_sha,
+                                                },
+                                            )
+                                        with Image.open(io.BytesIO(asset_bytes)) as preview_image:
+                                            if preview_image.format != "PNG":
+                                                add_finding(
+                                                    "SPEC_INVALID",
+                                                    "REFERENCE_PREVIEW_ASSET_FORMAT_INVALID",
+                                                    "Reference-preview assets must be lossless PNG files.",
+                                                    element_ids=[element_id],
+                                                )
+                                            actual_asset_size = preview_image.size
+                                        expected_asset_size = (
+                                            int(asset_record.get("width_px", 0) or 0),
+                                            int(asset_record.get("height_px", 0) or 0),
+                                        )
+                                        if actual_asset_size != expected_asset_size:
+                                            add_finding(
+                                                "SPEC_INVALID",
+                                                "REFERENCE_PREVIEW_ASSET_SIZE_MISMATCH",
+                                                "The preview PNG dimensions differ from its manifest.",
+                                                element_ids=[element_id],
+                                                evidence={
+                                                    "expected": expected_asset_size,
+                                                    "actual": actual_asset_size,
+                                                },
+                                            )
+                                        if manifest_box is not None and actual_asset_size != (
+                                            int(round(manifest_box[2])),
+                                            int(round(manifest_box[3])),
+                                        ):
+                                            add_finding(
+                                                "SPEC_INVALID",
+                                                "REFERENCE_PREVIEW_NOT_EXACT_PIXELS",
+                                                "The preview PNG must preserve the exact source crop dimensions without resampling.",
+                                                element_ids=[element_id],
+                                            )
+                                        slot_record.update(
+                                            {
+                                                "manifest_path": str(manifest_path),
+                                                "manifest_sha256": observed_manifest_sha.upper(),
+                                                "asset_path": str(asset_path),
+                                                "asset_sha256": observed_asset_sha.upper(),
+                                                "qa_similarity_masked": True,
+                                                "visible_disclosure_required": True,
+                                            }
+                                        )
+                                    else:
+                                        add_finding(
+                                            "SPEC_INVALID",
+                                            "REFERENCE_PREVIEW_ASSET_PATH_MISSING",
+                                            "The reference-preview manifest lacks its PNG path.",
+                                            element_ids=[element_id],
+                                        )
+                            except (OSError, ValueError, json.JSONDecodeError) as exc:
+                                add_finding(
+                                    "SPEC_INVALID",
+                                    "REFERENCE_PREVIEW_EVIDENCE_INVALID",
+                                    str(exc),
+                                    element_ids=[element_id],
+                                )
+                        else:
+                            add_finding(
+                                "SPEC_INVALID",
+                                "REFERENCE_PREVIEW_MANIFEST_MISSING",
+                                "reference_preview mode requires a hash-bound crop manifest.",
+                                element_ids=[element_id],
+                            )
+                    else:
+                        add_finding(
+                            "SPEC_INVALID",
+                            "REFERENCE_PREVIEW_BINDING_MISSING",
+                            "reference_preview mode requires a preview binding.",
+                            element_ids=[element_id],
+                        )
+                slot_records.append(slot_record)
         disposition = str(element.get("disposition", ""))
         if (
             disposition in {"INCONCLUSIVE", "UNREADABLE"}
@@ -3605,10 +3954,15 @@ def preflight_scene(
             for path, payload in sorted(schema_payloads.items(), key=lambda item: str(item[0]))
         },
         "formula_converter_receipts": formula_converter_receipts,
+        "manual_asset_slots": slot_records,
         "summary": {
             "element_count": len(elements),
             "edge_count": len(edges),
             "formula_count": len(formulas),
+            "manual_asset_slot_count": len(slot_records),
+            "reference_preview_slot_count": sum(
+                record.get("mode") == "reference_preview" for record in slot_records
+            ),
             "finding_count": len(findings),
             "spec_invalid": counts["SPEC_INVALID"],
             "region_replan": counts["REGION_REPLAN"],

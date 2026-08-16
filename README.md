@@ -56,6 +56,7 @@
 - 画布从 PNG 实测并预生成同纵横比 PPTX，绕开后端没有 slide-size setter 的限制。
 - Figure Spec 在绘制前检查 source/hash-bound OCR review、合法容器、z-order、普通 shape/text/formula 碰撞、connector 路径净空、字体与公式容量，以及实际空白 PPTX 的 PageSetup/hash。
 - 公式不再由普通文本框或 PNG/SVG 冒充：权威 LaTeX 经受限解析、MathML 和 Office `MML2OMML.XSL` 编译为 PowerPoint 原生 `a14:m/m:oMath`，保存重开后仍可用 Equation Tools 编辑。
+- 不可合理原生化的照片级局部可进入 `manual_asset_slot`。为先展示完整候选，`reconstruct_1to1` 可使用 source SHA+bbox 绑定的 exact-pixel `reference_preview`；它必须显式待替换、不计原生覆盖率、从像素相似度诊断遮罩，并阻断 `APPROVED`。
 - major finding 回 `REGION_REPLAN`；Corrector 只处理 minor patch，不能掩盖错误规格。
 
 ## 目录
@@ -77,6 +78,7 @@ AI autofigure/
     output_policy.py               # 项目内输出只能进入 examples/generated
     check_project_hygiene.py       # 阻止 work、根缓存和未知根级产物回归
     create_canvas_pptx.py          # 同比例空白 PowerPoint
+    materialize_reference_preview.py # 生成仅限候选的无损局部预览及哈希收据
     preflight_scene.py             # 绘制前场景、文字/公式、连线与真实画布硬门
     powerpoint_native_math.py      # LaTeX→OMML、原生公式注入与结构读回
     powerpoint_native_math_roundtrip.ps1 # PowerPoint 保存/重开与 MathZones 收据
@@ -154,6 +156,12 @@ hash-bound review manifest；绿色是原文已确认项，橙色是待人工确
 候选未全覆盖、决策非终态、公式无权威证据或 raw manifest 非 `OCR_HYPOTHESES_REVIEW_REQUIRED` 时，receipt 必须保持 `INCONCLUSIVE`。Figure spec 只能从当前 raw manifest + `PERCEPTION_REVIEW_PASS` receipt 映射，且对外 `disposition` 只使用 `CONFIRMED / INCONCLUSIVE / UNREADABLE / NOT_TEXT`。
 
 ### 3. 生成正确比例画布并预检
+
+若 Figure Spec 把照片级局部声明为 `reference_preview`，先从当前冻结参考生成 exact-pixel 裁片。它不是最终素材；PPT 中还必须叠加原生 `REFERENCE PREVIEW — REPLACE ME` 标签：
+
+```powershell
+& $HostPython -I -B -X utf8 tools\materialize_reference_preview.py --source examples\target_figure.png --expected-source-sha256 <sha256> --bbox <x> <y> <w> <h> --asset examples\generated\runs\<run_id>\assets\<slot>.png --receipt examples\generated\runs\<run_id>\assets\<slot>.reference-preview.json --source-user-confirmed
+```
 
 ```powershell
 & $HostPython -I -B -X utf8 tools\create_canvas_pptx.py examples\target_figure.png examples\generated\runs\<run_id>\canvas.pptx --pretty

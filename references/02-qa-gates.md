@@ -30,7 +30,7 @@
 - frozen text 逐条绑定 review candidate ID、值和 bbox；关键文字还绑定用户/可靠原文；
 - 纯 prose 使用 `text`；混合内容使用有序 `content_runs`，每个 math run 恰好引用一条 inline formula；`IL-6`、`p53`、`α-SMA` 等实体标签不因连字符/数字/希腊字母被误判；
 - 公式 canonical LaTeX/hash、inline/display、唯一所有者、`native_office_math` 和 `strict_no_raster_no_svg` 均完整；
-- 每个对象映射到 `native_editable`、`manual_asset_slot` 或明确歧义；无整图 wrapper。
+- 每个对象映射到 `native_editable`、`manual_asset_slot` 或明确歧义；无整图 wrapper。`reference_preview` 槽还必须闭合 source/crop/asset SHA、exact bbox、零重采样、能力审计、禁止内容声明、原生可见 `REFERENCE PREVIEW — REPLACE ME` disclosure、`*_REPLACE_ME` 图片对象名和 QA mask。
 
 ### G3 · Preflight
 
@@ -54,7 +54,7 @@ G0–G3 全部 PASS 后，才允许 `FIRST_RENDER`。任何 major finding 必须
 | geometry | 无裁切、越界、失真、非语义重叠；containment 成立 |
 | connectors | 端点绑定边界、路径不穿受保护对象、无未声明交叉 |
 | text_formula | 文本不溢出/不异常换行；readback 在合法段落位置命中 `a14:m` 且含 mode 对应的 `m:oMath`/`m:oMathPara`；canonical LaTeX hash、semantic OMML hash、唯一 formula ID 和有序 text/math runs 一致；one-shot PowerPoint finalize 现场读到的 MathZone 数量、顺序、字符范围和文本哈希一致；每条公式的独立控制图只在所属对象内产生像素差；shape 可见、不透明、在画布内、无高层图片/OLE/普通文本覆盖；公式有净空 |
-| slot_integrity | 槽边界、比例、语义、层级、替换接口和状态诚实 |
+| slot_integrity | 槽边界、比例、语义、层级、替换接口和状态诚实；reference preview 与 frozen source/crop hash 闭合、无禁载内容、有可见待替换标签且不计 native coverage |
 | render | PowerPoint 首次 warm-up 导出丢弃；随后连续两份 fresh PNG 的尺寸与解码 RGBA 像素哈希一致，并与最终 PPTX/input/plan/injection report/工具哈希闭合；无丢字、白屏、丢对象、字体异常或修复弹窗 |
 | regression | 当前修正未破坏已通过区域；证据与最新 revision/hash 绑定 |
 
@@ -69,7 +69,7 @@ Reviewer 结论：
 
 命中任一项即 FAIL：
 
-- final 包含 target PNG、参考裁片、panel 截图、整图 wrapper、`data:image` 或 `roi_trace_*`；感知 run 内的临时 OCR 分块不得进入 final；
+- final 包含 target PNG、未声明参考裁片、panel 截图、整图 wrapper、`data:image` 或 `roi_trace_*`；唯一例外是状态明确为 `CANDIDATE_WITH_REFERENCE_PREVIEWS` 的 hash-bound 最小裁片槽，且必须显式待替换、QA 遮罩并阻断审批。感知 run 内的临时 OCR 分块不得进入 final；
 - 以位图/伪文字冒充公式，以截图冒充可编辑对象；
 - 以普通 textbox、PNG/JPEG、SVG/EMF、整式图片或未验证 OLE 对象冒充原生公式；公式 readback 缺少合法位置的 `a14:m`/`m:oMath`、外部 receipt 绑定、semantic OMML hash、one-shot PowerPoint 逐 MathZone/可见性/fresh-render/独立控制图证据或 canonical LaTeX 元数据；
 - 以手写、重放或事后修改的 detached receipt 冒充当前 PowerPoint 执行；静态 audit 不得高于 `STRUCTURE_PASS_REQUIRES_POWERPOINT_FINALIZE`，机械门禁也不得自授 `APPROVED`；
