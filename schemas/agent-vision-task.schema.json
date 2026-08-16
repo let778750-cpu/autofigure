@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-autofigure.local/schemas/agent-vision-task.schema.json",
+  "title": "AI AutoFigure agent-vision task package",
+  "description": "Deterministic, hash-bound work package that the outer agent fills with native-vision observations. The package only ever carries candidate evidence; it grants no text or coordinate authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "document_type",
+    "created_at_utc",
+    "run_id",
+    "status",
+    "source",
+    "inputs",
+    "degradations",
+    "policy",
+    "limits",
+    "prompt_templates",
+    "queries",
+    "summary",
+    "implementation"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "document_type": { "const": "AGENT_VISION_TASK_PACKAGE" },
+    "created_at_utc": { "type": "string", "format": "date-time" },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+    },
+    "status": {
+      "enum": ["TASK_PACKAGE_READY", "TASK_PACKAGE_DEGRADED"]
+    },
+    "degradations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "source": { "$ref": "#/$defs/source" },
+    "inputs": { "$ref": "#/$defs/inputs" },
+    "policy": { "$ref": "#/$defs/policy" },
+    "limits": { "$ref": "#/$defs/limits" },
+    "prompt_templates": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/promptTemplate" }
+    },
+    "queries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/query" }
+    },
+    "summary": { "$ref": "#/$defs/summary" },
+    "implementation": { "$ref": "#/$defs/implementation" }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "runIdPattern": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "width_px", "height_px", "pixel_mode", "format"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "pixel_mode": { "type": "string", "minLength": 1 },
+        "format": { "const": "PNG" }
+      }
+    },
+    "manifestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "size_bytes", "sha256", "schema_version", "run_id", "source_sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "schema_version": { "const": "1.0.0" },
+        "run_id": { "$ref": "#/$defs/runIdPattern" },
+        "source_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "receiptBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "size_bytes",
+        "sha256",
+        "schema_version",
+        "status",
+        "context",
+        "runtime"
+      ],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "schema_version": { "const": "1.0.0" },
+        "status": { "const": "PASS" },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["run_id", "source_sha256"],
+          "properties": {
+            "run_id": { "$ref": "#/$defs/runIdPattern" },
+            "source_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["runtime_id", "python_executable", "python_version"],
+          "properties": {
+            "runtime_id": { "type": "string", "minLength": 1 },
+            "python_executable": { "type": "string", "minLength": 1 },
+            "python_version": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "fileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "size_bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "nullableFileBinding": {
+      "oneOf": [
+        { "$ref": "#/$defs/fileBinding" },
+        { "type": "null" }
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ocr_manifest",
+        "geometry_manifest",
+        "host_runtime_receipt",
+        "segmentation",
+        "config"
+      ],
+      "properties": {
+        "ocr_manifest": { "$ref": "#/$defs/manifestBinding" },
+        "geometry_manifest": { "$ref": "#/$defs/manifestBinding" },
+        "host_runtime_receipt": { "$ref": "#/$defs/receiptBinding" },
+        "segmentation": { "$ref": "#/$defs/nullableFileBinding" },
+        "config": { "$ref": "#/$defs/fileBinding" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vlm_is_ground_truth",
+        "coordinates_advisory_only",
+        "may_not_invent_text",
+        "agent_must_observe_images_directly"
+      ],
+      "properties": {
+        "vlm_is_ground_truth": { "const": false },
+        "coordinates_advisory_only": { "const": true },
+        "may_not_invent_text": { "const": true },
+        "agent_must_observe_images_directly": { "const": true }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_conflict_queries",
+        "max_formula_queries",
+        "max_miss_scan_queries",
+        "max_panel_proposals",
+        "min_region_area_px",
+        "max_miss_region_aspect_ratio",
+        "min_miss_region_ocr_containment",
+        "max_text_length_chars",
+        "formula_samples"
+      ],
+      "properties": {
+        "max_conflict_queries": { "const": 48 },
+        "max_formula_queries": { "const": 16 },
+        "max_miss_scan_queries": { "const": 24 },
+        "max_panel_proposals": { "const": 24 },
+        "min_region_area_px": { "const": 256 },
+        "max_miss_region_aspect_ratio": { "const": 8.0 },
+        "min_miss_region_ocr_containment": { "const": 0.1 },
+        "max_text_length_chars": { "const": 512 },
+        "formula_samples": { "const": 3 }
+      }
+    },
+    "promptTemplate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template_id", "version", "language", "sha256"],
+      "properties": {
+        "template_id": {
+          "enum": [
+            "structure_global",
+            "conflict_arbitration",
+            "formula_transcription",
+            "miss_scan"
+          ]
+        },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "language": { "const": "zh-CN" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "cropArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relative_path",
+        "sha256",
+        "size_bytes",
+        "width_px",
+        "height_px"
+      ],
+      "properties": {
+        "relative_path": { "type": "string", "pattern": "^crops/[A-Za-z0-9_./-]+\\.png$" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "cropBox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0 },
+        "y": { "type": "number", "minimum": 0 },
+        "w": { "type": "number", "exclusiveMinimum": 0 },
+        "h": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "selectionItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "text"],
+      "properties": {
+        "index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "structurePayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["view", "quadrant_crop_relative_paths"],
+      "properties": {
+        "view": { "const": "FULL_IMAGE" },
+        "quadrant_crop_relative_paths": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^crops/[A-Za-z0-9_./-]+\\.png$" }
+        }
+      }
+    },
+    "conflictPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_id", "crop_bbox_source", "selections"],
+      "properties": {
+        "candidate_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+        "crop_bbox_source": { "$ref": "#/$defs/cropBox" },
+        "selections": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/selectionItem" }
+        }
+      }
+    },
+    "formulaPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_id", "crop_bbox_source", "samples_required"],
+      "properties": {
+        "candidate_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+        "crop_bbox_source": { "$ref": "#/$defs/cropBox" },
+        "samples_required": { "const": 3 }
+      }
+    },
+    "missScanPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["region_candidate_id", "crop_bbox_source"],
+      "properties": {
+        "region_candidate_id": {
+          "type": "string",
+          "pattern": "^region-candidate-[0-9]{3}$"
+        },
+        "crop_bbox_source": { "$ref": "#/$defs/cropBox" }
+      }
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query_id", "task_type", "image", "prompt_template", "payload"],
+      "properties": {
+        "query_id": { "type": "string", "pattern": "^V[0-9]{4}$" },
+        "task_type": {
+          "enum": [
+            "STRUCTURE_GLOBAL",
+            "CONFLICT_ARBITRATION",
+            "FORMULA_TRANSCRIPTION",
+            "MISS_SCAN"
+          ]
+        },
+        "image": { "$ref": "#/$defs/cropArtifact" },
+        "prompt_template": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["template_id", "version"],
+          "properties": {
+            "template_id": {
+              "enum": [
+                "structure_global",
+                "conflict_arbitration",
+                "formula_transcription",
+                "miss_scan"
+              ]
+            },
+            "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" }
+          }
+        },
+        "payload": {
+          "oneOf": [
+            { "$ref": "#/$defs/structurePayload" },
+            { "$ref": "#/$defs/conflictPayload" },
+            { "$ref": "#/$defs/formulaPayload" },
+            { "$ref": "#/$defs/missScanPayload" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "task_type": { "const": "STRUCTURE_GLOBAL" } },
+            "required": ["task_type"]
+          },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/structurePayload" } } }
+        },
+        {
+          "if": {
+            "properties": { "task_type": { "const": "CONFLICT_ARBITRATION" } },
+            "required": ["task_type"]
+          },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/conflictPayload" } } }
+        },
+        {
+          "if": {
+            "properties": { "task_type": { "const": "FORMULA_TRANSCRIPTION" } },
+            "required": ["task_type"]
+          },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/formulaPayload" } } }
+        },
+        {
+          "if": {
+            "properties": { "task_type": { "const": "MISS_SCAN" } },
+            "required": ["task_type"]
+          },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/missScanPayload" } } }
+        }
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "query_count",
+        "structure_query_count",
+        "conflict_query_count",
+        "formula_query_count",
+        "miss_scan_query_count",
+        "crop_count"
+      ],
+      "properties": {
+        "query_count": { "type": "integer", "minimum": 1 },
+        "structure_query_count": { "type": "integer", "minimum": 1, "maximum": 1 },
+        "conflict_query_count": { "type": "integer", "minimum": 0, "maximum": 48 },
+        "formula_query_count": { "type": "integer", "minimum": 0, "maximum": 16 },
+        "miss_scan_query_count": { "type": "integer", "minimum": 0, "maximum": 24 },
+        "crop_count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "implementationFileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "relative_path", "size_bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "relative_path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm_id", "version", "script", "schema"],
+      "properties": {
+        "algorithm_id": { "const": "agent_vision_task_package_builder" },
+        "version": { "const": "1.0.0" },
+        "script": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": {
+                "relative_path": { "const": "tools/prepare_agent_vision_task.py" }
+              }
+            }
+          ]
+        },
+        "schema": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": {
+                "relative_path": {
+                  "const": "schemas/agent-vision-task.schema.json"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

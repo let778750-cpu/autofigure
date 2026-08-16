@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.2.0",
+  "fixtureId": "target-figure-transformer-mamba-holdout",
+  "referenceFile": "target_figure.png",
+  "sha256": "239e74f150e1ba224d578183eef8d7194556607bc0375a9cf1a4828ce7c6ce04",
+  "image": {
+    "format": "png",
+    "widthPx": 1536,
+    "heightPx": 1024,
+    "aspectRatio": "3:2",
+    "bitDepth": 8,
+    "colorType": "rgb",
+    "hasAlpha": false,
+    "interlaced": false,
+    "embeddedPhysicalDpi": null
+  },
+  "referencePolicy": {
+    "taskMode": "RECONSTRUCT_1TO1",
+    "referenceUsage": "measurement_only",
+    "referenceEmbedded": false,
+    "approvedAsTestFixture": true,
+    "rightsStatus": "unknown",
+    "c2paClaim": {
+      "present": true,
+      "cryptographicallyVerified": false,
+      "declaredDigitalSourceType": "trainedAlgorithmicMedia",
+      "declaredSoftwareAgent": "gpt-imageg 2.0",
+      "treatment": "declarative_provenance_only"
+    }
+  },
+  "expectedRegions": [
+    "panel_a_multisource_input",
+    "panel_b_preprocessing",
+    "panel_c_embedding_temporal_features",
+    "panel_d_transformer_mamba_encoder",
+    "panel_e_feature_fusion",
+    "panel_f_forecast_head",
+    "panel_g_multihorizon_outputs",
+    "panel_h_model_advantages",
+    "global_legend"
+  ],
+  "expectedPrimaryFlow": [
+    "panel_a_multisource_input",
+    "panel_b_preprocessing",
+    "panel_c_embedding_temporal_features",
+    "panel_d_transformer_mamba_encoder",
+    "panel_e_feature_fusion",
+    "panel_f_forecast_head",
+    "panel_g_multihorizon_outputs"
+  ],
+  "ocrSmokeExpectations": {
+    "minimumDetectedTextBoxes": 120,
+    "requiredExactAnchors": [
+      "(a) 多源潮汐输入",
+      "(b) 数据预处理",
+      "(c) 嵌入与时序特征",
+      "(d) Transformer-Mamba 混合编码器（并行建模）",
+      "(e) 特征融合",
+      "(f) 预测头",
+      "数据流向",
+      "残差连接"
+    ],
+    "mustRemainFormulaCandidates": [
+      "H^{Tr",
+      "X_{0 X_{1 X2",
+      "gt = σ(Wg [HTr3 HMb1)",
+      "st = A∆st−1 + B∆xt",
+      "ot = C∆st + D_t"
+    ],
+    "formulaCandidateSimilarityMin": 0.65
+  },
+  "agentVisionExpectations": {
+    "structureQueryCount": 1,
+    "panelProposalRange": [6, 24],
+    "conflictQueryMaximum": 48,
+    "formulaQueryMinimum": 5,
+    "formulaQueryMaximum": 16,
+    "formulaSamplesRequired": 3,
+    "missScanQueryMaximum": 24
+  },
+  "fusionExpectations": {
+    "exactAnchorsAllowedTiers": ["TRIPLE", "PAIR"],
+    "formulaCandidatesMustRemainProposals": true,
+    "proposalStatus": "PROPOSAL_ONLY_NOT_AUTHORITATIVE",
+    "reviewQueueBands": [
+      "FOCUS_CONFLICT",
+      "FOCUS_UNSUPPORTED",
+      "FOCUS_SINGLE",
+      "ROUTINE",
+      "LOW"
+    ],
+    "tripleDoesNotWaiveHumanReview": true,
+    "everyOcrCandidateHasFact": true
+  },
+  "requiredUnknowns": [
+    "exact_transcript_for_all_small_text",
+    "authoritative_latex_for_all_formulas",
+    "underlying_values_or_conceptual_declaration_for_input_sparklines",
+    "underlying_values_or_conceptual_declaration_for_attention_and_fusion_heatmaps",
+    "underlying_values_or_conceptual_declaration_for_forecast_curves",
+    "definition_and_source_for_forecast_uncertainty_bands",
+    "whether_feature_fusion_steps_1_2_3_are_sequential_or_alternative",
+    "target_profile_and_physical_size",
+    "font_inventory",
+    "asset_rights_and_license"
+  ],
+  "expectedPolicy": {
+    "mayUseReferenceCrop": false,
+    "mayEmbedWholeReference": false,
+    "mayAutoApprove": false,
+    "mayClaimRecoveredDataWithoutSource": false,
+    "mayGuessFormulaFromPixels": false,
+    "requiredNativeOrDeterministicFamilies": [
+      "text",
+      "formula",
+      "shape",
+      "connector",
+      "table",
+      "ordinary_chart",
+      "axis",
+      "legend",
+      "topology"
+    ],
+    "expectedVerifiedRasterCountBeforeUserAssets": 0
+  },
+  "expectedCurrentVerdict": "PERCEPTION_SMOKE_AND_POLICY_HOLDOUT_NO_E2E_GOLD_AUTHORITY"
+}

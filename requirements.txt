@@ -1,0 +1,16 @@
+# Host-side analysis, preflight, canvas creation, QA, and tests.
+# This lock requires Python 3.12+ (SciPy 1.18.0) and is installed in
+# D:\opencv\env.  The separately pinned PaddleOCR Python remains untouched.
+# PaddleOCR runs in the separately pinned D:\paddle ocr environment.
+numpy==2.4.4
+Pillow==12.2.0
+scipy==1.18.0
+opencv-python==4.13.0.92
+scikit-image==0.26.0
+python-pptx==1.0.2
+jsonschema==4.25.1
+matplotlib==3.11.0
+latex2mathml==3.81.0
+lxml==6.1.0
+pytest==8.4.2
+ruff==0.14.10

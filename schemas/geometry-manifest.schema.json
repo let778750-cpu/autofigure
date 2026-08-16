@@ -1,0 +1,808 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-autofigure.local/schemas/geometry-manifest.schema.json",
+  "title": "AI AutoFigure Phase-1 geometry observation manifest",
+  "description": "Hash-bound, observation-only OCR-guided pixel geometry. No text, font baseline, frame semantics, panel semantics, or arrow is promoted to truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "created_at_utc",
+    "status",
+    "mode",
+    "degradations",
+    "coordinate_system",
+    "policy",
+    "source",
+    "inputs",
+    "implementation",
+    "runtime",
+    "text_geometry",
+    "neighbor_pairs",
+    "frame_candidates",
+    "summary",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+    },
+    "created_at_utc": { "type": "string", "format": "date-time" },
+    "status": {
+      "enum": ["GEOMETRY_OBSERVATIONS_READY", "GEOMETRY_INCONCLUSIVE"]
+    },
+    "mode": { "const": "observation_only" },
+    "degradations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "coordinate_system": { "$ref": "#/$defs/coordinateSystem" },
+    "policy": { "$ref": "#/$defs/policy" },
+    "source": { "$ref": "#/$defs/source" },
+    "inputs": { "$ref": "#/$defs/inputs" },
+    "implementation": { "$ref": "#/$defs/implementation" },
+    "runtime": { "$ref": "#/$defs/runtime" },
+    "text_geometry": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/textGeometry" }
+    },
+    "neighbor_pairs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/neighborPair" }
+    },
+    "frame_candidates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/frameCandidate" }
+    },
+    "summary": { "$ref": "#/$defs/summary" },
+    "artifacts": { "$ref": "#/$defs/artifacts" }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "point": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "number", "minimum": 0 }
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x0", "y0", "x1", "y1"],
+      "properties": {
+        "x0": { "type": "integer", "minimum": 0 },
+        "y0": { "type": "integer", "minimum": 0 },
+        "x1": { "type": "integer", "minimum": 1 },
+        "y1": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "nullableBox": {
+      "oneOf": [
+        { "$ref": "#/$defs/box" },
+        { "type": "null" }
+      ]
+    },
+    "ocrBox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0 },
+        "y": { "type": "number", "minimum": 0 },
+        "w": { "type": "number", "minimum": 0 },
+        "h": { "type": "number", "minimum": 0 }
+      }
+    },
+    "fileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "size_bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "implementationFileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "relative_path", "size_bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "relative_path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "coordinateSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "unit", "box_convention", "pixel_distance_reference"],
+      "properties": {
+        "origin": { "const": "TOP_LEFT" },
+        "unit": { "const": "SOURCE_PIXEL" },
+        "box_convention": { "const": "HALF_OPEN_X0_Y0_X1_Y1" },
+        "pixel_distance_reference": { "const": "PIXEL_CENTER_EUCLIDEAN" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "promotion_allowed",
+        "human_review_required",
+        "ocr_text_is_ground_truth",
+        "ink_bottom_alignment_is_font_baseline",
+        "frame_semantics_verified",
+        "arrow_detection_performed"
+      ],
+      "properties": {
+        "promotion_allowed": { "const": false },
+        "human_review_required": { "const": true },
+        "ocr_text_is_ground_truth": { "const": false },
+        "ink_bottom_alignment_is_font_baseline": { "const": false },
+        "frame_semantics_verified": { "const": false },
+        "arrow_detection_performed": { "const": false }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "width_px", "height_px", "pixel_mode", "format"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "pixel_mode": { "type": "string", "minLength": 1 },
+        "format": { "const": "PNG" }
+      }
+    },
+    "ocrInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "size_bytes", "sha256", "schema_version", "run_id", "source_sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "schema_version": { "const": "1.0.0" },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+        },
+        "source_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "receiptContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "source_sha256"],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+        },
+        "source_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "receiptRuntime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_id", "python_executable", "python_version"],
+      "properties": {
+        "runtime_id": { "type": "string", "minLength": 1 },
+        "python_executable": { "type": "string", "minLength": 1 },
+        "python_version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "receiptInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "size_bytes", "sha256", "schema_version", "status", "context", "runtime"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "schema_version": { "const": "1.0.0" },
+        "status": { "const": "PASS" },
+        "context": { "$ref": "#/$defs/receiptContext" },
+        "runtime": { "$ref": "#/$defs/receiptRuntime" }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ocr_manifest", "host_runtime_receipt"],
+      "properties": {
+        "ocr_manifest": { "$ref": "#/$defs/ocrInput" },
+        "host_runtime_receipt": { "$ref": "#/$defs/receiptInput" }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bbox_padding_px",
+        "sauvola_window_px",
+        "sauvola_k",
+        "lab_min_delta",
+        "lab_background_mad_multiplier",
+        "foreground_vote_min",
+        "minimum_ink_area_px",
+        "maximum_foreground_fraction",
+        "minimum_pairwise_mask_iou",
+        "line_contamination_span_fraction",
+        "line_contamination_max_thickness_px",
+        "vertical_text_aspect_ratio",
+        "multiline_gap_fraction",
+        "minimum_baseline_components",
+        "baseline_minimum_ocr_confidence",
+        "baseline_max_spread_px",
+        "baseline_max_spread_height_fraction",
+        "baseline_max_angle_degrees",
+        "baseline_minimum_inlier_fraction",
+        "baseline_maximum_rmse_px",
+        "minimum_edge_uncertainty_px",
+        "same_alignment_tolerance_px",
+        "local_pair_max_gap_height_multiplier",
+        "local_pair_absolute_max_gap_px",
+        "canny_low_threshold",
+        "canny_high_threshold",
+        "text_mask_dilation_px",
+        "frame_minimum_width_px",
+        "frame_minimum_height_px",
+        "frame_side_support_fraction",
+        "frame_minimum_supported_sides",
+        "frame_minimum_lsd_sides",
+        "frame_deduplication_iou",
+        "frame_border_exclusion_px",
+        "frame_maximum_interior_foreground_fraction",
+        "frame_maximum_stroke_to_min_dimension_ratio",
+        "frame_maximum_aspect_ratio",
+        "grid_cell_size_relative_tolerance",
+        "grid_cell_adjacency_tolerance_px",
+        "grid_cell_minimum_cluster_size",
+        "frame_nested_contour_minimum_iou",
+        "frame_nested_contour_center_tolerance_px",
+        "frame_nested_contour_maximum_inset_px"
+      ],
+      "properties": {
+        "bbox_padding_px": { "const": 4 },
+        "sauvola_window_px": { "const": 15 },
+        "sauvola_k": { "const": 0.2 },
+        "lab_min_delta": { "const": 7.0 },
+        "lab_background_mad_multiplier": { "const": 4.0 },
+        "foreground_vote_min": { "const": 2 },
+        "minimum_ink_area_px": { "const": 2 },
+        "maximum_foreground_fraction": { "const": 0.78 },
+        "minimum_pairwise_mask_iou": { "const": 0.3 },
+        "line_contamination_span_fraction": { "const": 0.78 },
+        "line_contamination_max_thickness_px": { "const": 3 },
+        "vertical_text_aspect_ratio": { "const": 1.35 },
+        "multiline_gap_fraction": { "const": 0.16 },
+        "minimum_baseline_components": { "const": 3 },
+        "baseline_minimum_ocr_confidence": { "const": 0.7 },
+        "baseline_max_spread_px": { "const": 2.0 },
+        "baseline_max_spread_height_fraction": { "const": 0.15 },
+        "baseline_max_angle_degrees": { "const": 3.0 },
+        "baseline_minimum_inlier_fraction": { "const": 0.75 },
+        "baseline_maximum_rmse_px": { "const": 1.5 },
+        "minimum_edge_uncertainty_px": { "const": 1.0 },
+        "same_alignment_tolerance_px": { "const": 2.0 },
+        "local_pair_max_gap_height_multiplier": { "const": 4.0 },
+        "local_pair_absolute_max_gap_px": { "const": 160 },
+        "canny_low_threshold": { "const": 40 },
+        "canny_high_threshold": { "const": 120 },
+        "text_mask_dilation_px": { "const": 2 },
+        "frame_minimum_width_px": { "const": 16 },
+        "frame_minimum_height_px": { "const": 10 },
+        "frame_side_support_fraction": { "const": 0.3 },
+        "frame_minimum_supported_sides": { "const": 3 },
+        "frame_minimum_lsd_sides": { "const": 2 },
+        "frame_deduplication_iou": { "const": 0.82 },
+        "frame_border_exclusion_px": { "const": 1 },
+        "frame_maximum_interior_foreground_fraction": { "const": 0.35 },
+        "frame_maximum_stroke_to_min_dimension_ratio": { "const": 0.2 },
+        "frame_maximum_aspect_ratio": { "const": 8.0 },
+        "grid_cell_size_relative_tolerance": { "const": 0.2 },
+        "grid_cell_adjacency_tolerance_px": { "const": 3.0 },
+        "grid_cell_minimum_cluster_size": { "const": 4 },
+        "frame_nested_contour_minimum_iou": { "const": 0.65 },
+        "frame_nested_contour_center_tolerance_px": { "const": 2.5 },
+        "frame_nested_contour_maximum_inset_px": { "const": 4.0 }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm_id", "version", "random_seed", "parameters", "script", "schema"],
+      "properties": {
+        "algorithm_id": { "const": "ocr_guided_phase1_geometry_refinement" },
+        "version": { "const": "1.0.0" },
+        "random_seed": { "const": 24638 },
+        "parameters": { "$ref": "#/$defs/parameters" },
+        "script": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": { "relative_path": { "const": "tools/geometry_refinement.py" } }
+            }
+          ]
+        },
+        "schema": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": { "relative_path": { "const": "schemas/geometry-manifest.schema.json" } }
+            }
+          ]
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_id", "python_executable", "python_version", "isolated", "opencv", "numpy", "scipy", "scikit_image", "pillow"],
+      "properties": {
+        "runtime_id": { "type": "string", "minLength": 1 },
+        "python_executable": { "type": "string", "minLength": 1 },
+        "python_version": { "type": "string", "minLength": 1 },
+        "isolated": { "type": "boolean" },
+        "opencv": { "type": "string", "minLength": 1 },
+        "numpy": { "type": "string", "minLength": 1 },
+        "scipy": { "type": "string", "minLength": 1 },
+        "scikit_image": { "type": "string", "minLength": 1 },
+        "pillow": { "type": "string", "minLength": 1 }
+      }
+    },
+    "methodEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "status", "area_px", "bbox_source"],
+      "properties": {
+        "method": { "enum": ["OTSU_GRAY", "SAUVOLA_GRAY", "LAB_BACKGROUND_DELTA"] },
+        "status": { "enum": ["MEASURED", "INCONCLUSIVE"] },
+        "area_px": { "type": "integer", "minimum": 0 },
+        "bbox_source": { "$ref": "#/$defs/nullableBox" }
+      }
+    },
+    "edgeUncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["left", "top", "right", "bottom"],
+      "properties": {
+        "left": { "type": "number", "minimum": 1 },
+        "top": { "type": "number", "minimum": 1 },
+        "right": { "type": "number", "minimum": 1 },
+        "bottom": { "type": "number", "minimum": 1 }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "MEASURED" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "y_source_px": { "type": "number", "minimum": 0 },
+              "uncertainty_px": { "type": "number", "minimum": 1 },
+              "support_component_count": { "type": "integer", "minimum": 3 },
+              "endpoints_source": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": { "$ref": "#/$defs/point" }
+              },
+              "angle_degrees": { "type": "number", "minimum": -3, "maximum": 3 },
+              "inlier_fraction": { "type": "number", "minimum": 0.75, "maximum": 1 },
+              "rmse_px": { "type": "number", "minimum": 0, "maximum": 1.5 },
+              "reason": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "INCONCLUSIVE" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "y_source_px": { "type": "null" },
+              "uncertainty_px": { "type": "null" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
+      "required": ["status", "meaning", "y_source_px", "uncertainty_px", "support_component_count", "endpoints_source", "angle_degrees", "inlier_fraction", "rmse_px", "method", "reason"],
+      "properties": {
+        "status": { "enum": ["MEASURED", "INCONCLUSIVE"] },
+        "meaning": { "const": "INK_BOTTOM_ALIGNMENT_ONLY" },
+        "y_source_px": {
+          "oneOf": [{ "type": "number", "minimum": 0 }, { "type": "null" }]
+        },
+        "uncertainty_px": {
+          "oneOf": [{ "type": "number", "minimum": 1 }, { "type": "null" }]
+        },
+        "support_component_count": { "type": "integer", "minimum": 0 },
+        "endpoints_source": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "$ref": "#/$defs/point" }
+            },
+            { "type": "null" }
+          ]
+        },
+        "angle_degrees": {
+          "oneOf": [{ "type": "number" }, { "type": "null" }]
+        },
+        "inlier_fraction": {
+          "oneOf": [
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "type": "null" }
+          ]
+        },
+        "rmse_px": {
+          "oneOf": [{ "type": "number", "minimum": 0 }, { "type": "null" }]
+        },
+        "method": { "const": "CONNECTED_COMPONENT_BOTTOM_ROBUST_LINEAR_FIT" },
+        "reason": {
+          "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        }
+      }
+    },
+    "detectorRepeatability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supporting_observation_count", "left", "top", "right", "bottom"],
+      "properties": {
+        "supporting_observation_count": { "type": "integer", "minimum": 0 },
+        "left": { "type": "number", "minimum": 0 },
+        "top": { "type": "number", "minimum": 0 },
+        "right": { "type": "number", "minimum": 0 },
+        "bottom": { "type": "number", "minimum": 0 }
+      }
+    },
+    "textGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "MEASURED" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "ink_bbox": { "$ref": "#/$defs/box" },
+              "ink_area_px": { "type": "integer", "minimum": 2 },
+              "mask_label": { "type": "integer", "minimum": 1, "maximum": 65534 },
+              "edge_uncertainty_px": { "$ref": "#/$defs/edgeUncertainty" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "INCONCLUSIVE" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "ink_bbox": { "type": "null" },
+              "ink_area_px": { "const": 0 },
+              "mask_label": { "type": "null" },
+              "edge_uncertainty_px": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "baseline": {
+                "properties": { "status": { "const": "MEASURED" } },
+                "required": ["status"]
+              }
+            },
+            "required": ["baseline"]
+          },
+          "then": { "properties": { "status": { "const": "MEASURED" } } }
+        }
+      ],
+      "required": [
+        "candidate_id",
+        "primary_observation_id",
+        "text",
+        "ocr_confidence",
+        "input_bbox_source",
+        "input_polygon_source",
+        "detector_bbox",
+        "detector_polygon",
+        "detector_repeatability_px",
+        "roi_bbox",
+        "status",
+        "ink_bbox",
+        "ink_area_px",
+        "mask_label",
+        "method_evidence",
+        "edge_uncertainty_px",
+        "baseline",
+        "quality_flags",
+        "reasons"
+      ],
+      "properties": {
+        "candidate_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+        "primary_observation_id": { "type": "string", "pattern": "^O[0-9]{5}$" },
+        "text": { "type": "string" },
+        "ocr_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "input_bbox_source": { "$ref": "#/$defs/ocrBox" },
+        "input_polygon_source": {
+          "type": "array",
+          "minItems": 4,
+          "items": { "$ref": "#/$defs/point" }
+        },
+        "detector_bbox": { "$ref": "#/$defs/nullableBox" },
+        "detector_polygon": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/point" }
+        },
+        "detector_repeatability_px": {
+          "$ref": "#/$defs/detectorRepeatability"
+        },
+        "roi_bbox": { "$ref": "#/$defs/nullableBox" },
+        "status": { "enum": ["MEASURED", "INCONCLUSIVE"] },
+        "ink_bbox": { "$ref": "#/$defs/nullableBox" },
+        "ink_area_px": { "type": "integer", "minimum": 0 },
+        "mask_label": {
+          "oneOf": [
+            { "type": "integer", "minimum": 1, "maximum": 65534 },
+            { "type": "null" }
+          ]
+        },
+        "method_evidence": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/methodEvidence" }
+        },
+        "edge_uncertainty_px": {
+          "oneOf": [{ "$ref": "#/$defs/edgeUncertainty" }, { "type": "null" }]
+        },
+        "baseline": { "$ref": "#/$defs/baseline" },
+        "quality_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "neighborPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pair_id", "candidate_a_id", "candidate_b_id", "relationship", "status", "signed_horizontal_gap_px", "signed_vertical_gap_px", "minimum_ink_distance_px", "uncertainty_px"],
+      "properties": {
+        "pair_id": { "type": "string", "pattern": "^G[0-9]{4}$" },
+        "candidate_a_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+        "candidate_b_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+        "relationship": { "const": "LOCAL_PAIR_UNVERIFIED_CONTAINER" },
+        "status": { "const": "MEASURED" },
+        "signed_horizontal_gap_px": { "type": "number" },
+        "signed_vertical_gap_px": { "type": "number" },
+        "minimum_ink_distance_px": { "type": "number", "minimum": 0 },
+        "uncertainty_px": { "type": "number", "minimum": 1 }
+      }
+    },
+    "sideDensity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["top", "right", "bottom", "left"],
+      "properties": {
+        "top": { "type": "number", "minimum": 0, "maximum": 1 },
+        "right": { "type": "number", "minimum": 0, "maximum": 1 },
+        "bottom": { "type": "number", "minimum": 0, "maximum": 1 },
+        "left": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "stroke": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "width_px", "uncertainty_px", "method"],
+      "properties": {
+        "status": { "enum": ["MEASURED", "INCONCLUSIVE"] },
+        "width_px": {
+          "oneOf": [{ "type": "number", "minimum": 0 }, { "type": "null" }]
+        },
+        "uncertainty_px": {
+          "oneOf": [{ "type": "number", "minimum": 1 }, { "type": "null" }]
+        },
+        "method": {
+          "enum": ["EDGE_TRANSITION_BAND", "PAIRED_NESTED_CONTOURS"]
+        }
+      }
+    },
+    "frameCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "MEASURED" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "closed_contour_evidence": { "const": true },
+              "interior_foreground_fraction": { "type": "number", "minimum": 0, "maximum": 0.35 },
+              "quality_flags": { "type": "array", "maxItems": 0 },
+              "reasons": { "type": "array", "maxItems": 0 },
+              "edge_supported_sides": {
+                "type": "array",
+                "minItems": 4,
+                "maxItems": 4,
+                "uniqueItems": true
+              },
+              "lsd_supported_sides": {
+                "type": "array",
+                "minItems": 2,
+                "uniqueItems": true
+              },
+              "stroke": {
+                "properties": {
+                  "status": { "const": "MEASURED" },
+                  "width_px": { "type": "number", "minimum": 0 },
+                  "uncertainty_px": { "type": "number", "minimum": 1 }
+                },
+                "required": ["status", "width_px", "uncertainty_px"]
+              }
+            }
+          }
+        }
+      ],
+      "required": ["frame_id", "status", "semantic_role", "shape_hint", "bbox_source", "corners_source", "uncertainty_px", "contour_rectangularity", "contour_vertex_count", "closed_contour_evidence", "contour_pair_count", "paired_contour_inset_px", "interior_foreground_fraction", "quality_flags", "reasons", "edge_supported_sides", "edge_side_density", "lsd_supported_sides", "stroke"],
+      "properties": {
+        "frame_id": { "type": "string", "pattern": "^F[0-9]{4}$" },
+        "status": { "enum": ["MEASURED", "INCONCLUSIVE"] },
+        "semantic_role": { "const": "UNVERIFIED" },
+        "shape_hint": { "const": "RECTANGLE_OR_ROUNDED_RECTANGLE" },
+        "bbox_source": { "$ref": "#/$defs/box" },
+        "corners_source": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/point" }
+        },
+        "uncertainty_px": { "type": "number", "minimum": 1 },
+        "contour_rectangularity": { "type": "number", "minimum": 0 },
+        "contour_vertex_count": { "type": "integer", "minimum": 4 },
+        "closed_contour_evidence": { "type": "boolean" },
+        "contour_pair_count": { "type": "integer", "minimum": 1 },
+        "paired_contour_inset_px": {
+          "oneOf": [
+            { "type": "number", "exclusiveMinimum": 0, "maximum": 4 },
+            { "type": "null" }
+          ]
+        },
+        "interior_foreground_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "quality_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "edge_supported_sides": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["top", "right", "bottom", "left"] }
+        },
+        "edge_side_density": { "$ref": "#/$defs/sideDensity" },
+        "lsd_supported_sides": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["top", "right", "bottom", "left"] }
+        },
+        "stroke": { "$ref": "#/$defs/stroke" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_count", "measured_ink_count", "inconclusive_ink_count", "reliable_ink_bottom_alignment_count", "neighbor_pair_count", "frame_candidate_count", "measured_frame_count", "ambiguous_pixel_count", "degradations"],
+      "properties": {
+        "candidate_count": { "type": "integer", "minimum": 0 },
+        "measured_ink_count": { "type": "integer", "minimum": 0 },
+        "inconclusive_ink_count": { "type": "integer", "minimum": 0 },
+        "reliable_ink_bottom_alignment_count": { "type": "integer", "minimum": 0 },
+        "neighbor_pair_count": { "type": "integer", "minimum": 0 },
+        "frame_candidate_count": { "type": "integer", "minimum": 0 },
+        "measured_frame_count": { "type": "integer", "minimum": 0 },
+        "ambiguous_pixel_count": { "type": "integer", "minimum": 0 },
+        "degradations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "baseArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relative_path", "size_bytes", "sha256", "media_type", "width_px", "height_px", "encoding"],
+      "properties": {
+        "relative_path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "media_type": { "const": "image/png" },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "encoding": { "type": "string", "minLength": 1 }
+      }
+    },
+    "overlayArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relative_path", "size_bytes", "sha256", "media_type", "width_px", "height_px", "encoding"],
+      "properties": {
+        "relative_path": { "const": "geometry-overlay.png" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "media_type": { "const": "image/png" },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "encoding": { "const": "rgb8_png" }
+      }
+    },
+    "labelArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relative_path", "size_bytes", "sha256", "media_type", "width_px", "height_px", "encoding", "background_label"],
+      "properties": {
+        "relative_path": { "const": "geometry-label-atlas.png" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "media_type": { "const": "image/png" },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "encoding": { "const": "uint16_label_png" },
+        "background_label": { "const": 0 }
+      }
+    },
+    "ambiguityArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relative_path", "size_bytes", "sha256", "media_type", "width_px", "height_px", "encoding", "ambiguous_value"],
+      "properties": {
+        "relative_path": { "const": "geometry-ambiguity-mask.png" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "media_type": { "const": "image/png" },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "encoding": { "const": "uint8_binary_png" },
+        "ambiguous_value": { "const": 255 }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overlay", "label_atlas", "ambiguity_mask"],
+      "properties": {
+        "overlay": { "$ref": "#/$defs/overlayArtifact" },
+        "label_atlas": { "$ref": "#/$defs/labelArtifact" },
+        "ambiguity_mask": { "$ref": "#/$defs/ambiguityArtifact" }
+      }
+    }
+  }
+}

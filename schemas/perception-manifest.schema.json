@@ -1,0 +1,1200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-autofigure.local/schemas/perception-manifest.schema.json",
+  "title": "AI autofigure perception manifest",
+  "description": "Provenance-bound OCR hypotheses. OCR output is never user-confirmed truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "created_at_utc",
+    "status",
+    "degradations",
+    "acceptance_checks",
+    "policy",
+    "source",
+    "runtime",
+    "models",
+    "configuration",
+    "scripts",
+    "upstream_stages",
+    "views",
+    "timings",
+    "raw_observations",
+    "text_candidates",
+    "summary",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "OCR_HYPOTHESES_REVIEW_REQUIRED",
+        "OCR_HYPOTHESES_INCONCLUSIVE"
+      ]
+    },
+    "degradations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptance_checks": {
+      "$ref": "#/$defs/acceptanceChecks"
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ocr_is_ground_truth",
+        "all_candidates_require_human_review",
+        "formula_ocr_may_not_be_promoted_without_confirmed_source",
+        "network_access",
+        "model_downloads"
+      ],
+      "properties": {
+        "ocr_is_ground_truth": {
+          "const": false
+        },
+        "all_candidates_require_human_review": {
+          "const": true
+        },
+        "formula_ocr_may_not_be_promoted_without_confirmed_source": {
+          "const": true
+        },
+        "network_access": {
+          "const": "NETWORK_NOT_REQUESTED_BY_PIPELINE"
+        },
+        "model_downloads": {
+          "const": "DISABLED"
+        }
+      }
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "runtime": {
+      "$ref": "#/$defs/runtime"
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text_detection",
+        "text_recognition",
+        "textline_orientation"
+      ],
+      "properties": {
+        "text_detection": {
+          "$ref": "#/$defs/model"
+        },
+        "text_recognition": {
+          "$ref": "#/$defs/model"
+        },
+        "textline_orientation": {
+          "$ref": "#/$defs/model"
+        }
+      }
+    },
+    "configuration": {
+      "$ref": "#/$defs/configuration"
+    },
+    "scripts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/hashedFile"
+      }
+    },
+    "upstream_stages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/upstreamStage"
+      }
+    },
+    "views": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/view"
+      }
+    },
+    "timings": {
+      "$ref": "#/$defs/timings"
+    },
+    "raw_observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rawObservation"
+      }
+    },
+    "text_candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate"
+      }
+    },
+    "summary": {
+      "$ref": "#/$defs/summary"
+    },
+    "artifacts": {
+      "$ref": "#/$defs/artifacts"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0
+        },
+        "w": {
+          "type": "number",
+          "minimum": 0
+        },
+        "h": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "w",
+        "h"
+      ],
+      "properties": {
+        "w": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "h": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "point": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "polygon": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "$ref": "#/$defs/point"
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes",
+        "width_px",
+        "height_px",
+        "pixel_mode",
+        "format"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "width_px": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height_px": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pixel_mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "packageRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "distribution",
+        "expected_version",
+        "actual_version",
+        "expected_import_version"
+      ],
+      "properties": {
+        "distribution": {
+          "type": "string"
+        },
+        "expected_version": {
+          "type": "string"
+        },
+        "actual_version": {
+          "type": "string"
+        },
+        "expected_import_version": {
+          "type": "string"
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python_executable",
+        "python_version",
+        "packages",
+        "imported_versions",
+        "device_requested",
+        "device_resolved",
+        "backend",
+        "enable_hpi",
+        "use_tensorrt",
+        "download_fallbacks_disabled",
+        "compiled_with_cuda",
+        "cuda_device_count",
+        "cuda_version",
+        "cudnn_version",
+        "gpu_name"
+      ],
+      "properties": {
+        "python_executable": {
+          "type": "string"
+        },
+        "python_version": {
+          "type": "string"
+        },
+        "packages": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "paddleocr",
+            "paddlex",
+            "paddle",
+            "numpy",
+            "pillow",
+            "scipy",
+            "opencv"
+          ],
+          "properties": {
+            "paddleocr": {
+              "$ref": "#/$defs/packageRecord"
+            },
+            "paddlex": {
+              "$ref": "#/$defs/packageRecord"
+            },
+            "paddle": {
+              "$ref": "#/$defs/packageRecord"
+            },
+            "numpy": {
+              "$ref": "#/$defs/packageRecord"
+            },
+            "pillow": {
+              "$ref": "#/$defs/packageRecord"
+            },
+            "scipy": {
+              "$ref": "#/$defs/packageRecord"
+            },
+            "opencv": {
+              "$ref": "#/$defs/packageRecord"
+            }
+          }
+        },
+        "imported_versions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "paddle",
+            "paddleocr",
+            "paddlex",
+            "numpy",
+            "pillow",
+            "scipy",
+            "opencv"
+          ],
+          "properties": {
+            "paddle": {
+              "type": "string"
+            },
+            "paddleocr": {
+              "type": "string"
+            },
+            "paddlex": {
+              "type": "string"
+            },
+            "numpy": {
+              "type": "string"
+            },
+            "pillow": {
+              "type": "string"
+            },
+            "scipy": {
+              "type": "string"
+            },
+            "opencv": {
+              "type": "string"
+            }
+          }
+        },
+        "device_requested": {
+          "type": "string",
+          "pattern": "^(auto|cpu|gpu(:[0-9]+)?)$"
+        },
+        "device_resolved": {
+          "type": "string",
+          "pattern": "^(cpu|gpu:[0-9]+)$"
+        },
+        "backend": {
+          "const": "native_paddle_inference"
+        },
+        "enable_hpi": {
+          "type": "boolean"
+        },
+        "use_tensorrt": {
+          "type": "boolean"
+        },
+        "download_fallbacks_disabled": {
+          "const": true
+        },
+        "compiled_with_cuda": {
+          "type": "boolean"
+        },
+        "cuda_device_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cuda_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cudnn_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gpu_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "modelArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "filename",
+        "path",
+        "size_bytes",
+        "sha256"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "name",
+        "path",
+        "artifacts"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "text_detection",
+            "text_recognition",
+            "textline_orientation"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "artifacts": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/modelArtifact"
+          }
+        },
+        "supported_angles_degrees": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "manifest_schema_path",
+        "manifest_schema_sha256",
+        "inference",
+        "tiling",
+        "quarter_turn_review",
+        "acceptance_fixture",
+        "confidence",
+        "deduplication"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "manifest_schema_path": {
+          "type": "string"
+        },
+        "manifest_schema_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "inference": {
+          "type": "object"
+        },
+        "tiling": {
+          "type": "object"
+        },
+        "quarter_turn_review": {
+          "type": "object"
+        },
+        "acceptance_fixture": {
+          "$ref": "#/$defs/acceptanceFixture"
+        },
+        "confidence": {
+          "type": "object"
+        },
+        "deduplication": {
+          "type": "object"
+        }
+      }
+    },
+    "acceptanceFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "schema_version",
+        "fixture_id",
+        "reference_path",
+        "source_sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fixture_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "hashedFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "relative_path",
+        "size_bytes",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "relative_path": {
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "upstreamArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relative_path",
+        "size_bytes",
+        "sha256"
+      ],
+      "properties": {
+        "relative_path": {
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "upstreamStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "path",
+        "files"
+      ],
+      "properties": {
+        "name": {
+          "enum": [
+            "host_runtime",
+            "analysis",
+            "segmentation"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/upstreamArtifact"
+          }
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "view_id",
+        "kind",
+        "bbox_source",
+        "upscale",
+        "rotation_degrees",
+        "trigger_candidate_id",
+        "trigger_view_id",
+        "source_aspect_ratio_min",
+        "ocr_input_size"
+      ],
+      "properties": {
+        "view_id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "full",
+            "tile",
+            "rotation_review"
+          ]
+        },
+        "bbox_source": {
+          "$ref": "#/$defs/box"
+        },
+        "upscale": {
+          "type": "number",
+          "minimum": 1
+        },
+        "rotation_degrees": {
+          "enum": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "trigger_candidate_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trigger_view_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_aspect_ratio_min": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "ocr_input_size": {
+          "$ref": "#/$defs/size"
+        }
+      }
+    },
+    "viewTiming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "view_id",
+        "seconds",
+        "observation_count"
+      ],
+      "properties": {
+        "view_id": {
+          "type": "string"
+        },
+        "seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "observation_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "timings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "initialization_seconds",
+        "views",
+        "prediction_seconds"
+      ],
+      "properties": {
+        "initialization_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/viewTiming"
+          }
+        },
+        "prediction_seconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "rawObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_id",
+        "view_id",
+        "view_kind",
+        "text",
+        "ocr_confidence",
+        "polygon_source",
+        "bbox_source",
+        "textline_orientation_degrees",
+        "input_rotation_degrees",
+        "evidence_kind",
+        "verification_status"
+      ],
+      "properties": {
+        "observation_id": {
+          "type": "string",
+          "pattern": "^O[0-9]{5}$"
+        },
+        "view_id": {
+          "type": "string"
+        },
+        "view_kind": {
+          "enum": [
+            "full",
+            "tile",
+            "rotation_review"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "ocr_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "polygon_source": {
+          "$ref": "#/$defs/polygon"
+        },
+        "bbox_source": {
+          "$ref": "#/$defs/box"
+        },
+        "textline_orientation_degrees": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "input_rotation_degrees": {
+          "enum": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "evidence_kind": {
+          "const": "OCR_HYPOTHESIS"
+        },
+        "verification_status": {
+          "const": "UNVERIFIED"
+        }
+      }
+    },
+    "observationEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_id",
+        "view_id",
+        "text",
+        "ocr_confidence",
+        "bbox_source",
+        "polygon_source",
+        "textline_orientation_degrees",
+        "input_rotation_degrees"
+      ],
+      "properties": {
+        "observation_id": {
+          "type": "string"
+        },
+        "view_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "ocr_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "bbox_source": {
+          "$ref": "#/$defs/box"
+        },
+        "polygon_source": {
+          "$ref": "#/$defs/polygon"
+        },
+        "textline_orientation_degrees": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "input_rotation_degrees": {
+          "enum": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "user_confirmed_text"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "UNVERIFIED",
+            "CONFLICT"
+          ]
+        },
+        "user_confirmed_text": {
+          "type": "null"
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "text",
+        "normalized_text",
+        "ocr_confidence",
+        "confidence_band",
+        "bbox_source",
+        "bbox_envelope_source",
+        "polygon_source",
+        "primary_observation_id",
+        "source_views",
+        "agreement_count",
+        "observations",
+        "alternatives",
+        "review_flags",
+        "evidence_kind",
+        "requires_human_review",
+        "verification"
+      ],
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "pattern": "^T[0-9]{4}$"
+        },
+        "text": {
+          "type": "string"
+        },
+        "normalized_text": {
+          "type": "string"
+        },
+        "ocr_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence_band": {
+          "enum": [
+            "OCR_HIGH",
+            "OCR_MEDIUM",
+            "OCR_LOW",
+            "OCR_CONFLICT"
+          ]
+        },
+        "bbox_source": {
+          "$ref": "#/$defs/box"
+        },
+        "bbox_envelope_source": {
+          "$ref": "#/$defs/box"
+        },
+        "polygon_source": {
+          "$ref": "#/$defs/polygon"
+        },
+        "primary_observation_id": {
+          "type": "string"
+        },
+        "source_views": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "agreement_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "observations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/observationEvidence"
+          }
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observationEvidence"
+          }
+        },
+        "review_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_kind": {
+          "const": "OCR_HYPOTHESIS"
+        },
+        "requires_human_review": {
+          "const": true
+        },
+        "verification": {
+          "$ref": "#/$defs/verification"
+        }
+      }
+    },
+    "scoreStats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "mean",
+        "median",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "median": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "acceptanceCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "required",
+        "passed",
+        "detail"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "detail": {
+          "type": "string"
+        }
+      }
+    },
+    "acceptanceChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixture_applied",
+        "passed",
+        "checks"
+      ],
+      "properties": {
+        "fixture_applied": {
+          "type": "boolean"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acceptanceCheck"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_observation_count",
+        "candidate_count",
+        "deduplicated_observation_count",
+        "conflict_count",
+        "confidence_band_counts",
+        "ocr_confidence_stats",
+        "user_confirmed_count",
+        "review_required"
+      ],
+      "properties": {
+        "raw_observation_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "deduplicated_observation_count": {
+          "type": "integer"
+        },
+        "conflict_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "confidence_band_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "OCR_HIGH",
+            "OCR_MEDIUM",
+            "OCR_LOW",
+            "OCR_CONFLICT"
+          ],
+          "properties": {
+            "OCR_HIGH": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "OCR_MEDIUM": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "OCR_LOW": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "OCR_CONFLICT": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "ocr_confidence_stats": {
+          "$ref": "#/$defs/scoreStats"
+        },
+        "user_confirmed_count": {
+          "const": 0
+        },
+        "review_required": {
+          "const": true
+        }
+      }
+    },
+    "artifactRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "manifest",
+        "text_review",
+        "overlay"
+      ],
+      "properties": {
+        "manifest": {
+          "$ref": "#/$defs/artifactRecord"
+        },
+        "text_review": {
+          "$ref": "#/$defs/artifactRecord"
+        },
+        "overlay": {
+          "$ref": "#/$defs/artifactRecord"
+        }
+      }
+    }
+  }
+}

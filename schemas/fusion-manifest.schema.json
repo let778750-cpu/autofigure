@@ -1,0 +1,714 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-autofigure.local/schemas/fusion-manifest.schema.json",
+  "title": "AI AutoFigure cross-modal perception fusion manifest",
+  "description": "Observation-only alignment of OCR candidates, deterministic CV measurements, and protocolized agent-vision observations into per-fact consistency tiers plus a prioritized human review queue. Fusion reorders review attention only; it never waives human review and never grants text or coordinate authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "document_type",
+    "run_id",
+    "created_at_utc",
+    "status",
+    "mode",
+    "degradations",
+    "policy",
+    "source",
+    "inputs",
+    "implementation",
+    "runtime",
+    "facts",
+    "review_queue",
+    "summary",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "document_type": { "const": "PERCEPTION_FUSION_MANIFEST" },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+    },
+    "created_at_utc": { "type": "string", "format": "date-time" },
+    "status": {
+      "enum": ["FUSION_REVIEW_QUEUE_READY", "FUSION_INCONCLUSIVE"]
+    },
+    "mode": { "const": "observation_only" },
+    "degradations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "policy": { "$ref": "#/$defs/policy" },
+    "source": { "$ref": "#/$defs/source" },
+    "inputs": { "$ref": "#/$defs/inputs" },
+    "implementation": { "$ref": "#/$defs/implementation" },
+    "runtime": { "$ref": "#/$defs/runtime" },
+    "facts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fact" }
+    },
+    "review_queue": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/queueItem" }
+    },
+    "summary": { "$ref": "#/$defs/summary" },
+    "artifacts": { "$ref": "#/$defs/artifacts" }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "runIdPattern": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "promotion_allowed",
+        "human_review_required",
+        "vlm_is_ground_truth",
+        "triple_agreement_does_not_waive_review",
+        "coordinates_authority",
+        "text_authority"
+      ],
+      "properties": {
+        "promotion_allowed": { "const": false },
+        "human_review_required": { "const": true },
+        "vlm_is_ground_truth": { "const": false },
+        "triple_agreement_does_not_waive_review": { "const": true },
+        "coordinates_authority": {
+          "const": "CV_AND_OCR_MEASUREMENT_ONLY"
+        },
+        "text_authority": { "const": "USER_OR_SOURCE_TEXT_ONLY" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes",
+        "width_px",
+        "height_px",
+        "pixel_mode",
+        "format"
+      ],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "pixel_mode": { "type": "string", "minLength": 1 },
+        "format": { "const": "PNG" }
+      }
+    },
+    "manifestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "size_bytes",
+        "sha256",
+        "schema_version",
+        "run_id",
+        "source_sha256"
+      ],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "schema_version": { "const": "1.0.0" },
+        "run_id": { "$ref": "#/$defs/runIdPattern" },
+        "source_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "taskPackageBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "size_bytes",
+        "sha256",
+        "run_id",
+        "source_sha256"
+      ],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "run_id": { "$ref": "#/$defs/runIdPattern" },
+        "source_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "visionDocumentBinding": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "size_bytes",
+            "sha256",
+            "document_type",
+            "run_id",
+            "source_sha256",
+            "task_package_sha256"
+          ],
+          "properties": {
+            "path": { "type": "string", "minLength": 1 },
+            "size_bytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "document_type": { "const": "AGENT_VISION_OBSERVATIONS" },
+            "run_id": { "$ref": "#/$defs/runIdPattern" },
+            "source_sha256": { "$ref": "#/$defs/sha256" },
+            "task_package_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "fileBinding": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "size_bytes", "sha256"],
+          "properties": {
+            "path": { "type": "string", "minLength": 1 },
+            "size_bytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ocr_manifest",
+        "geometry_manifest",
+        "task_package",
+        "agent_vision_document",
+        "segmentation",
+        "config"
+      ],
+      "properties": {
+        "ocr_manifest": { "$ref": "#/$defs/manifestBinding" },
+        "geometry_manifest": { "$ref": "#/$defs/manifestBinding" },
+        "task_package": { "$ref": "#/$defs/taskPackageBinding" },
+        "agent_vision_document": { "$ref": "#/$defs/visionDocumentBinding" },
+        "segmentation": { "$ref": "#/$defs/fileBinding" },
+        "config": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "size_bytes", "sha256"],
+          "properties": {
+            "path": { "type": "string", "minLength": 1 },
+            "size_bytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      }
+    },
+    "implementationFileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "relative_path", "size_bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "relative_path": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "alignmentParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "region_match_iou",
+        "region_match_containment",
+        "region_containment_min_area_ratio",
+        "region_weak_score",
+        "text_align_containment",
+        "text_align_similarity"
+      ],
+      "properties": {
+        "region_match_iou": { "const": 0.45 },
+        "region_match_containment": { "const": 0.72 },
+        "region_containment_min_area_ratio": { "const": 0.25 },
+        "region_weak_score": { "const": 0.3 },
+        "text_align_containment": { "const": 0.62 },
+        "text_align_similarity": { "const": 0.88 }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm_id",
+        "version",
+        "script",
+        "schema",
+        "evidence_metrics",
+        "alignment_parameters"
+      ],
+      "properties": {
+        "algorithm_id": { "const": "cross_modal_perception_fusion" },
+        "version": { "const": "1.0.0" },
+        "script": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": {
+                "relative_path": { "const": "tools/cross_modal_fusion.py" }
+              }
+            }
+          ]
+        },
+        "schema": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": {
+                "relative_path": {
+                  "const": "schemas/fusion-manifest.schema.json"
+                }
+              }
+            }
+          ]
+        },
+        "evidence_metrics": {
+          "allOf": [
+            { "$ref": "#/$defs/implementationFileBinding" },
+            {
+              "properties": {
+                "relative_path": { "const": "tools/evidence_metrics.py" }
+              }
+            }
+          ]
+        },
+        "alignment_parameters": { "$ref": "#/$defs/alignmentParameters" }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtime_id",
+        "python_executable",
+        "python_version",
+        "isolated"
+      ],
+      "properties": {
+        "runtime_id": { "type": "string", "minLength": 1 },
+        "python_executable": { "type": "string", "minLength": 1 },
+        "python_version": { "type": "string", "minLength": 1 },
+        "isolated": { "type": "boolean" }
+      }
+    },
+    "integerBox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x0", "y0", "x1", "y1"],
+      "properties": {
+        "x0": { "type": "integer", "minimum": 0 },
+        "y0": { "type": "integer", "minimum": 0 },
+        "x1": { "type": "integer", "minimum": 1 },
+        "y1": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "nullableIntegerBox": {
+      "oneOf": [{ "$ref": "#/$defs/integerBox" }, { "type": "null" }]
+    },
+    "textDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "ocr_text",
+        "ocr_confidence_band",
+        "ocr_alternative_count",
+        "cv_geometry_status",
+        "vlm_source_query_id",
+        "vlm_opinion"
+      ],
+      "properties": {
+        "candidate_id": {
+          "oneOf": [
+            { "type": "string", "pattern": "^T[0-9]{4}$" },
+            { "type": "null" }
+          ]
+        },
+        "ocr_text": {
+          "oneOf": [{ "type": "string" }, { "type": "null" }]
+        },
+        "ocr_confidence_band": {
+          "oneOf": [
+            { "enum": ["OCR_HIGH", "OCR_MEDIUM", "OCR_LOW", "OCR_CONFLICT"] },
+            { "type": "null" }
+          ]
+        },
+        "ocr_alternative_count": { "type": "integer", "minimum": 0 },
+        "cv_geometry_status": {
+          "oneOf": [
+            { "enum": ["MEASURED", "INCONCLUSIVE"] },
+            { "type": "null" }
+          ]
+        },
+        "vlm_source_query_id": {
+          "oneOf": [
+            { "type": "string", "pattern": "^V[0-9]{4}$" },
+            { "type": "null" }
+          ]
+        },
+        "vlm_opinion": {
+          "oneOf": [
+            {
+              "enum": [
+                "ARBITRATION_SELECT_PRIMARY",
+                "ARBITRATION_SELECT_ALTERNATIVE",
+                "ARBITRATION_REJECT_ALL",
+                "ARBITRATION_NOT_OBSERVABLE",
+                "CONFIRMS_TEXT",
+                "NEW_TEXT_HYPOTHESIS",
+                "NO_TEXT_CONFIRMED"
+              ]
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "regionDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vlm_panel_id",
+        "vlm_kind",
+        "vlm_bbox_source",
+        "anchored",
+        "anchor_source",
+        "anchor_id",
+        "anchored_bbox_source",
+        "match_score",
+        "contained_candidate_ids"
+      ],
+      "properties": {
+        "vlm_panel_id": { "type": "string", "pattern": "^P[0-9]{3}$" },
+        "vlm_kind": {
+          "enum": ["PANEL", "AXIS", "LEGEND", "TITLE_BLOCK", "DIAGRAM_GROUP"]
+        },
+        "vlm_bbox_source": { "$ref": "#/$defs/integerBox" },
+        "anchored": { "type": "boolean" },
+        "anchor_source": {
+          "oneOf": [
+            { "enum": ["CV_REGION_CANDIDATE", "CV_FRAME_CANDIDATE"] },
+            { "type": "null" }
+          ]
+        },
+        "anchor_id": {
+          "oneOf": [
+            { "type": "string", "minLength": 1, "maxLength": 64 },
+            { "type": "null" }
+          ]
+        },
+        "anchored_bbox_source": { "$ref": "#/$defs/nullableIntegerBox" },
+        "match_score": {
+          "oneOf": [
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "type": "null" }
+          ]
+        },
+        "contained_candidate_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^T[0-9]{4}$" }
+        }
+      }
+    },
+    "formulaDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "source_query_id",
+        "self_consistency",
+        "proposal_latex",
+        "proposal_latex_sha256",
+        "proposal_status"
+      ],
+      "properties": {
+        "candidate_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+        "source_query_id": {
+          "oneOf": [
+            { "type": "string", "pattern": "^V[0-9]{4}$" },
+            { "type": "null" }
+          ]
+        },
+        "self_consistency": {
+          "oneOf": [
+            { "enum": ["SELF_CONSISTENT_K3", "INCONSISTENT"] },
+            { "type": "null" }
+          ]
+        },
+        "proposal_latex": {
+          "oneOf": [
+            { "type": "string", "minLength": 1, "maxLength": 512 },
+            { "type": "null" }
+          ]
+        },
+        "proposal_latex_sha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "proposal_status": {
+          "const": "PROPOSAL_ONLY_NOT_AUTHORITATIVE"
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_id",
+        "fact_kind",
+        "subject_id",
+        "channels",
+        "consistency_tier",
+        "conflict_reasons",
+        "detail"
+      ],
+      "properties": {
+        "fact_id": { "type": "string", "pattern": "^FUSE-[0-9]{4}$" },
+        "fact_kind": {
+          "enum": [
+            "TEXT_CANDIDATE",
+            "REGION_STRUCTURE",
+            "FORMULA_TRANSCRIPTION"
+          ]
+        },
+        "subject_id": {
+          "type": "string",
+          "pattern": "^(T[0-9]{4}|V[0-9]{4}|P[0-9]{3})$"
+        },
+        "channels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ocr", "cv", "vlm"],
+          "properties": {
+            "ocr": { "type": "boolean" },
+            "cv": { "type": "boolean" },
+            "vlm": { "type": "boolean" }
+        }
+        },
+        "consistency_tier": {
+          "enum": [
+            "TRIPLE",
+            "PAIR",
+            "SINGLE",
+            "CONFLICT",
+            "UNSUPPORTED_VLM_CLAIM"
+          ]
+        },
+        "conflict_reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "detail": {
+          "oneOf": [
+            { "$ref": "#/$defs/textDetail" },
+            { "$ref": "#/$defs/regionDetail" },
+            { "$ref": "#/$defs/formulaDetail" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "fact_kind": { "const": "TEXT_CANDIDATE" } },
+            "required": ["fact_kind"]
+          },
+          "then": {
+            "properties": {
+              "subject_id": {
+                "type": "string",
+                "pattern": "^(T[0-9]{4}|V[0-9]{4})$"
+              },
+              "detail": { "$ref": "#/$defs/textDetail" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "fact_kind": { "const": "REGION_STRUCTURE" } },
+            "required": ["fact_kind"]
+          },
+          "then": {
+            "properties": {
+              "subject_id": { "type": "string", "pattern": "^P[0-9]{3}$" },
+              "detail": { "$ref": "#/$defs/regionDetail" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "fact_kind": { "const": "FORMULA_TRANSCRIPTION" }
+            },
+            "required": ["fact_kind"]
+          },
+          "then": {
+            "properties": {
+              "subject_id": { "type": "string", "pattern": "^T[0-9]{4}$" },
+              "detail": { "$ref": "#/$defs/formulaDetail" }
+            }
+          }
+        }
+      ]
+    },
+    "queueItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rank",
+        "fact_id",
+        "subject_id",
+        "priority",
+        "band",
+        "reasons"
+      ],
+      "properties": {
+        "rank": { "type": "integer", "minimum": 1 },
+        "fact_id": { "type": "string", "pattern": "^FUSE-[0-9]{4}$" },
+        "subject_id": {
+          "type": "string",
+          "pattern": "^(T[0-9]{4}|V[0-9]{4}|P[0-9]{3})$"
+        },
+        "priority": { "type": "integer", "minimum": 0, "maximum": 1000 },
+        "band": {
+          "enum": [
+            "FOCUS_CONFLICT",
+            "FOCUS_UNSUPPORTED",
+            "FOCUS_SINGLE",
+            "ROUTINE",
+            "LOW"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_count",
+        "text_fact_count",
+        "region_fact_count",
+        "formula_fact_count",
+        "tier_counts",
+        "focus_item_count",
+        "vlm_query_count",
+        "vlm_observed_count",
+        "formula_proposal_count",
+        "self_consistent_formula_proposal_count",
+        "degradations"
+      ],
+      "properties": {
+        "fact_count": { "type": "integer", "minimum": 0 },
+        "text_fact_count": { "type": "integer", "minimum": 0 },
+        "region_fact_count": { "type": "integer", "minimum": 0 },
+        "formula_fact_count": { "type": "integer", "minimum": 0 },
+        "tier_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "TRIPLE",
+            "PAIR",
+            "SINGLE",
+            "CONFLICT",
+            "UNSUPPORTED_VLM_CLAIM"
+          ],
+          "properties": {
+            "TRIPLE": { "type": "integer", "minimum": 0 },
+            "PAIR": { "type": "integer", "minimum": 0 },
+            "SINGLE": { "type": "integer", "minimum": 0 },
+            "CONFLICT": { "type": "integer", "minimum": 0 },
+            "UNSUPPORTED_VLM_CLAIM": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "focus_item_count": { "type": "integer", "minimum": 0 },
+        "vlm_query_count": { "type": "integer", "minimum": 0 },
+        "vlm_observed_count": { "type": "integer", "minimum": 0 },
+        "formula_proposal_count": { "type": "integer", "minimum": 0 },
+        "self_consistent_formula_proposal_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "degradations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["review_queue_markdown", "overlay"],
+      "properties": {
+        "review_queue_markdown": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "relative_path",
+            "size_bytes",
+            "sha256",
+            "media_type",
+            "encoding"
+          ],
+          "properties": {
+            "relative_path": { "const": "fusion-review-queue.md" },
+            "size_bytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "media_type": { "const": "text/markdown" },
+            "encoding": { "const": "utf8_no_bom_lf" }
+          }
+        },
+        "overlay": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "relative_path",
+            "size_bytes",
+            "sha256",
+            "media_type",
+            "width_px",
+            "height_px",
+            "encoding"
+          ],
+          "properties": {
+            "relative_path": { "const": "fusion-overlay.png" },
+            "size_bytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "media_type": { "const": "image/png" },
+            "width_px": { "type": "integer", "minimum": 1 },
+            "height_px": { "type": "integer", "minimum": 1 },
+            "encoding": { "const": "rgb8_png" }
+          }
+        }
+      }
+    }
+  }
+}

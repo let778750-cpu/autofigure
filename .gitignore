@@ -1,0 +1,10 @@
+examples/generated/runs/
+examples/generated/.cache/
+examples/generated/.tmp/
+.ruff_cache/
+.pytest_cache/
+**/__pycache__/
+*.py[cod]
+.tmp-paddle/
+*.tmp
+~$*.pptx

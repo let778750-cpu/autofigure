@@ -1,0 +1,533 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-autofigure.local/schemas/perception-review.schema.json",
+  "title": "AI autofigure perception review documents",
+  "description": "Strict review decisions and the hash-bound receipt derived from them. OCR hypotheses can never confirm themselves.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/decisionsDocument"
+    },
+    {
+      "$ref": "#/$defs/receiptDocument"
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "manifest_path",
+        "manifest_sha256",
+        "manifest_schema_path",
+        "manifest_schema_sha256",
+        "run_id",
+        "source_path",
+        "source_sha256"
+      ],
+      "properties": {
+        "manifest_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "manifest_schema_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifest_schema_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$"
+        },
+        "source_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "emptyEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "detail"
+      ],
+      "properties": {
+        "kind": {
+          "type": "null"
+        },
+        "detail": {
+          "type": "null"
+        }
+      }
+    },
+    "authoritativeEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "detail"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "user_confirmed",
+            "source_text"
+          ]
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "ocr_text",
+        "ocr_confidence",
+        "review_flags",
+        "formula_like",
+        "status",
+        "confirmed_text",
+        "authoritative_latex",
+        "evidence",
+        "review_note"
+      ],
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "pattern": "^T[0-9]{4}$"
+        },
+        "ocr_text": {
+          "type": "string"
+        },
+        "ocr_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "review_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "formula_like": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "PENDING",
+            "INCONCLUSIVE",
+            "CONFIRMED",
+            "CORRECTED",
+            "NOT_TEXT",
+            "FORMULA_CONFIRMED"
+          ]
+        },
+        "confirmed_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authoritative_latex": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/emptyEvidence"
+            },
+            {
+              "$ref": "#/$defs/authoritativeEvidence"
+            }
+          ]
+        },
+        "review_note": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "PENDING",
+                  "INCONCLUSIVE"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "confirmed_text": {
+                "type": "null"
+              },
+              "authoritative_latex": {
+                "type": "null"
+              },
+              "evidence": {
+                "$ref": "#/$defs/emptyEvidence"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "CONFIRMED",
+                  "CORRECTED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "confirmed_text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "authoritative_latex": {
+                "type": "null"
+              },
+              "evidence": {
+                "$ref": "#/$defs/authoritativeEvidence"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "NOT_TEXT"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "confirmed_text": {
+                "type": "null"
+              },
+              "authoritative_latex": {
+                "type": "null"
+              },
+              "evidence": {
+                "$ref": "#/$defs/authoritativeEvidence"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "FORMULA_CONFIRMED"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "formula_like": {
+                "const": true
+              },
+              "confirmed_text": {
+                "type": "null"
+              },
+              "authoritative_latex": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "$ref": "#/$defs/authoritativeEvidence"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "formula_like": {
+                "const": true
+              }
+            },
+            "required": [
+              "formula_like"
+            ]
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "PENDING",
+                  "INCONCLUSIVE",
+                  "NOT_TEXT",
+                  "FORMULA_CONFIRMED"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "decisionsDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "document_type",
+        "created_at_utc",
+        "status",
+        "raw_manifest",
+        "decisions"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "document_type": {
+          "const": "PERCEPTION_REVIEW_DECISIONS"
+        },
+        "created_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "const": "REVIEW_PENDING"
+        },
+        "raw_manifest": {
+          "$ref": "#/$defs/binding"
+        },
+        "decisions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      }
+    },
+    "reviewInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ocr_is_ground_truth",
+        "ocr_may_self_confirm",
+        "all_terminal_text_requires_authoritative_evidence",
+        "formula_requires_authoritative_latex"
+      ],
+      "properties": {
+        "ocr_is_ground_truth": {
+          "const": false
+        },
+        "ocr_may_self_confirm": {
+          "const": false
+        },
+        "all_terminal_text_requires_authoritative_evidence": {
+          "const": true
+        },
+        "formula_requires_authoritative_latex": {
+          "const": true
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_candidates",
+        "input_decisions",
+        "terminal_count",
+        "confirmed_count",
+        "corrected_count",
+        "not_text_count",
+        "formula_confirmed_count",
+        "pending_count",
+        "inconclusive_count",
+        "missing_count",
+        "unresolved_count",
+        "gate_blocker_count"
+      ],
+      "properties": {
+        "total_candidates": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "input_decisions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "terminal_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "confirmed_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "corrected_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "not_text_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "formula_confirmed_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pending_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "inconclusive_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unresolved_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gate_blocker_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "receiptDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "document_type",
+        "created_at_utc",
+        "status",
+        "raw_manifest",
+        "review_input",
+        "policy",
+        "decisions",
+        "counts",
+        "missing_candidate_ids",
+        "unresolved_candidate_ids",
+        "gate_blockers"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "document_type": {
+          "const": "PERCEPTION_REVIEW_RECEIPT"
+        },
+        "created_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "enum": [
+            "INCONCLUSIVE",
+            "PERCEPTION_REVIEW_PASS"
+          ]
+        },
+        "raw_manifest": {
+          "$ref": "#/$defs/binding"
+        },
+        "review_input": {
+          "$ref": "#/$defs/reviewInput"
+        },
+        "policy": {
+          "$ref": "#/$defs/policy"
+        },
+        "decisions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/decision"
+          }
+        },
+        "counts": {
+          "$ref": "#/$defs/counts"
+        },
+        "missing_candidate_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^T[0-9]{4}$"
+          }
+        },
+        "unresolved_candidate_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^T[0-9]{4}$"
+          }
+        },
+        "gate_blockers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

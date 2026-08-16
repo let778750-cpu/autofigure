@@ -1,0 +1,401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ai-autofigure/schemas/figure-spec.schema.json",
+  "title": "AI AutoFigure render-ready figure specification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mode",
+    "source",
+    "perception",
+    "coordinate_system",
+    "canvas",
+    "measurement_dpi",
+    "elements",
+    "edges",
+    "formulas",
+    "uncertainties"
+  ],
+  "properties": {
+    "schema_version": {"const": "3.0"},
+    "mode": {"enum": ["reconstruct_1to1", "publication_normalize"]},
+    "source": {
+      "type": "object",
+      "required": ["path", "sha256", "width_px", "height_px", "pixel_format", "user_confirmed"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1},
+        "pixel_format": {"type": "string", "minLength": 1},
+        "user_confirmed": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "perception": {
+      "type": "object",
+      "required": ["manifest_path", "manifest_sha256", "review_receipt_path", "review_receipt_sha256"],
+      "properties": {
+        "manifest_path": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "review_receipt_path": {"type": "string", "minLength": 1},
+        "review_receipt_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"}
+      },
+      "additionalProperties": true
+    },
+    "geometry": {
+      "description": "Optional binding to Phase-1 observation-only geometry evidence. Presence never grants Drawer authority.",
+      "type": "object",
+      "required": ["manifest_path", "manifest_sha256"],
+      "properties": {
+        "manifest_path": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "coordinate_system": {
+      "type": "object",
+      "required": ["origin", "unit", "bbox_order"],
+      "properties": {
+        "origin": {"const": "top-left"},
+        "unit": {"const": "source_pixel"},
+        "bbox_order": {"const": ["x", "y", "w", "h"]}
+      },
+      "additionalProperties": false
+    },
+    "canvas": {
+      "type": "object",
+      "required": [
+        "width_px",
+        "height_px",
+        "background",
+        "background_evidence",
+        "pptx_path",
+        "pptx_sha256",
+        "slide_width_emu",
+        "slide_height_emu"
+      ],
+      "properties": {
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1},
+        "background": {"type": "string", "pattern": "^#[A-Fa-f0-9]{6}$"},
+        "background_evidence": {"enum": ["measured_reference", "intentional_deviation"]},
+        "background_reason": {"type": "string", "minLength": 1},
+        "pptx_path": {"type": "string", "minLength": 1},
+        "pptx_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "slide_width_emu": {"type": "integer", "minimum": 1},
+        "slide_height_emu": {"type": "integer", "minimum": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"background_evidence": {"const": "intentional_deviation"}}},
+          "then": {"required": ["background_reason"]}
+        }
+      ],
+      "additionalProperties": true
+    },
+    "measurement_dpi": {"type": "number", "exclusiveMinimum": 0},
+    "elements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/element"}
+    },
+    "edges": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/edge"}
+    },
+    "formulas": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/formula"}
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/uncertainty"}
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "bbox": {
+      "type": "object",
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "w": {"type": "number", "exclusiveMinimum": 0},
+        "h": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "source_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["target_visual", "local_ocr", "user_confirmed", "source_text", "latex", "manual_measurement"]
+      }
+    },
+    "margin": {
+      "oneOf": [
+        {"type": "number", "minimum": 0},
+        {
+          "type": "object",
+          "properties": {
+            "left": {"type": "number", "minimum": 0},
+            "right": {"type": "number", "minimum": 0},
+            "top": {"type": "number", "minimum": 0},
+            "bottom": {"type": "number", "minimum": 0}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "text_style": {
+      "type": "object",
+      "required": ["font_family"],
+      "properties": {
+        "font_family": {"type": "string", "minLength": 1},
+        "font_path": {"type": "string", "minLength": 1},
+        "font_size_px": {"type": "number", "exclusiveMinimum": 0},
+        "font_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "margin_px": {"$ref": "#/$defs/margin"},
+        "wrap": {"type": "boolean"},
+        "line_spacing": {"type": "number", "minimum": 0.5, "maximum": 3.0},
+        "rotation_deg": {"type": "number"}
+      },
+      "anyOf": [
+        {"required": ["font_size_px"]},
+        {"required": ["font_size_pt"]}
+      ],
+      "additionalProperties": true
+    },
+    "formula_style": {
+      "type": "object",
+      "properties": {
+        "font_size_px": {"type": "number", "exclusiveMinimum": 0},
+        "font_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "margin_px": {"$ref": "#/$defs/margin"},
+        "rotation_deg": {"type": "number"}
+      },
+      "anyOf": [
+        {"required": ["font_size_px"]},
+        {"required": ["font_size_pt"]}
+      ],
+      "additionalProperties": false
+    },
+    "element": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "parent_id",
+        "bbox",
+        "z_index",
+        "semantic_role",
+        "source_evidence",
+        "disposition",
+        "confidence",
+        "uncertainty_px",
+        "strategy",
+        "allowed_overlap",
+        "status"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"},
+        "type": {
+          "enum": ["background", "panel", "text", "shape", "formula", "icon", "plot", "legend", "micro_asset", "manual_asset_slot"]
+        },
+        "bbox": {"$ref": "#/$defs/bbox"},
+        "parent_id": {"type": ["string", "null"]},
+        "region_id": {"type": ["string", "null"]},
+        "z_index": {"type": "integer", "minimum": 0},
+        "semantic_role": {"type": "string", "minLength": 1},
+        "source_evidence": {"$ref": "#/$defs/source_evidence"},
+        "disposition": {"enum": ["CONFIRMED", "INCONCLUSIVE", "UNREADABLE", "NOT_TEXT"]},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "uncertainty_px": {"type": "number", "minimum": 0},
+        "strategy": {"enum": ["native_editable", "manual_asset_slot", "source_ambiguity"]},
+        "allowed_overlap": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "status": {"enum": ["pending", "mapped", "verified", "intentional_deviation", "blocked"]},
+        "text": {"type": "string"},
+        "text_style": {"$ref": "#/$defs/text_style"},
+        "criticality": {"enum": ["critical", "ordinary"]},
+        "perception_candidate_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^T[0-9]{4}$"}
+        },
+        "formula_id": {"type": "string", "minLength": 1},
+        "formula_style": {"$ref": "#/$defs/formula_style"},
+        "content_runs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/text_run"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "text"}}, "required": ["type"]},
+          "then": {
+            "required": ["text_style", "criticality", "perception_candidate_ids"],
+            "oneOf": [
+              {"required": ["text"], "not": {"required": ["content_runs"]}},
+              {"required": ["content_runs"], "not": {"required": ["text"]}}
+            ]
+          }
+        },
+        {
+          "if": {"properties": {"type": {"const": "formula"}}, "required": ["type"]},
+          "then": {"required": ["formula_id", "formula_style"]}
+        }
+      ],
+      "additionalProperties": true
+    },
+    "text_run": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "text"],
+          "properties": {
+            "kind": {"const": "text"},
+            "text": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "formula_id"],
+          "properties": {
+            "kind": {"const": "math"},
+            "formula_id": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "id",
+        "from",
+        "to",
+        "source_anchor",
+        "target_anchor",
+        "route",
+        "meaning",
+        "clearance_px",
+        "allowed_crossings",
+        "allowed_edge_crossings"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"},
+        "from": {"type": "string", "minLength": 1},
+        "to": {"type": "string", "minLength": 1},
+        "source_anchor": {"enum": ["top", "right", "bottom", "left", "center", "free"]},
+        "target_anchor": {"enum": ["top", "right", "bottom", "left", "center", "free"]},
+        "route": {"enum": ["straight", "orthogonal", "polyline", "curve"]},
+        "allow_self_loop": {"type": "boolean", "default": false},
+        "meaning": {"enum": ["data_flow", "control_flow", "interaction", "feedback", "association"]},
+        "clearance_px": {"type": "number", "minimum": 0},
+        "allowed_crossings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "allowed_edge_crossings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "style": {"type": "object"},
+        "source_point": {"$ref": "#/$defs/point_object"},
+        "target_point": {"$ref": "#/$defs/point_object"},
+        "via": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["x", "y"],
+            "properties": {"x": {"type": "number"}, "y": {"type": "number"}},
+            "additionalProperties": false
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"source_anchor": {"const": "free"}}},
+          "then": {"required": ["source_point"]}
+        },
+        {
+          "if": {"properties": {"target_anchor": {"const": "free"}}},
+          "then": {"required": ["target_point"]}
+        },
+        {
+          "if": {"properties": {"route": {"enum": ["orthogonal", "polyline"]}}},
+          "then": {"required": ["via"], "properties": {"via": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"route": {"const": "straight"}}},
+          "then": {"properties": {"via": {"maxItems": 0}}}
+        }
+      ],
+      "additionalProperties": true
+    },
+    "formula": {
+      "type": "object",
+      "required": [
+        "id",
+        "element_id",
+        "canonical_latex",
+        "latex_sha256",
+        "mode",
+        "render_kind",
+        "fallback_policy",
+        "converter_receipt_path",
+        "converter_receipt_sha256",
+        "source_evidence",
+        "disposition"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "element_id": {"type": "string", "minLength": 1},
+        "canonical_latex": {"type": "string", "minLength": 1},
+        "latex_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "mode": {"enum": ["inline", "display"]},
+        "render_kind": {"const": "native_office_math"},
+        "fallback_policy": {"const": "strict_no_raster_no_svg"},
+        "converter_receipt_path": {"type": "string", "minLength": 1},
+        "converter_receipt_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "source_evidence": {"$ref": "#/$defs/source_evidence"},
+        "disposition": {"const": "CONFIRMED"},
+        "perception_candidate_id": {
+          "type": "string",
+          "pattern": "^T[0-9]{4}$"
+        }
+      },
+      "additionalProperties": true
+    },
+    "uncertainty": {
+      "type": "object",
+      "required": ["id", "element_id", "critical", "description"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "element_id": {"type": "string", "minLength": 1},
+        "critical": {"const": false},
+        "description": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "point_object": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

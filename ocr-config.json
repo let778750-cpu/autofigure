@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "paddle_root": "D:\\paddle ocr",
+  "runtime": {
+    "python_relative_path": "env\\python.exe",
+    "require_expected_python": true,
+    "python_version": "3.11.15",
+    "device": "auto",
+    "download_fallbacks_disabled": true,
+    "enable_hpi": false,
+    "use_tensorrt": false,
+    "packages": {
+      "paddleocr": {
+        "distribution": "paddleocr",
+        "version": "3.7.0"
+      },
+      "paddlex": {
+        "distribution": "paddlex",
+        "version": "3.7.2"
+      },
+      "paddle": {
+        "distribution": "paddlepaddle-gpu",
+        "version": "3.2.2"
+      },
+      "numpy": {
+        "distribution": "numpy",
+        "version": "2.3.5"
+      },
+      "pillow": {
+        "distribution": "Pillow",
+        "version": "12.3.0"
+      },
+      "scipy": {
+        "distribution": "scipy",
+        "version": "1.17.1"
+      },
+      "opencv": {
+        "distribution": "opencv-contrib-python",
+        "version": "4.10.0.84",
+        "import_version": "4.10.0"
+      }
+    }
+  },
+  "models_root_relative_path": "models\\official_models",
+  "models": {
+    "text_detection": {
+      "name": "PP-OCRv6_medium_det",
+      "relative_path": "PP-OCRv6_medium_det",
+      "files": {
+        "inference.json": "0F1A7EC35DA36173529C7A60238B7F7919E3831929C3F700AD90AD4896ADECD5",
+        "inference.pdiparams": "85218D2E3D98F5A21C58B4220627BE923A97AEE5DB3CC71F39536AB31AC53960",
+        "inference.yml": "7298D5EAD546584AF2504D03355F881AC7A7BC0EB1E282D3E159277C1D0AF871"
+      }
+    },
+    "text_recognition": {
+      "name": "PP-OCRv6_medium_rec",
+      "relative_path": "PP-OCRv6_medium_rec",
+      "files": {
+        "inference.json": "0B2E25E990BD072F1BF77D59D67D508BCE6C4BD44AF6624E0FB27D6DA2CD00E8",
+        "inference.pdiparams": "1B01C79A914587933F615569E75DE54F2E638EBB5D3F3B3C1B38C24EDE8C7319",
+        "inference.yml": "991B700FACF5B50A7DE193468207D5F4255B538DDE0D312AE3B7C7A9B6873129"
+      }
+    },
+    "textline_orientation": {
+      "name": "PP-LCNet_x1_0_textline_ori",
+      "relative_path": "PP-LCNet_x1_0_textline_ori",
+      "supported_angles_degrees": [
+        0,
+        180
+      ],
+      "files": {
+        "inference.json": "B81929EEAFF8E52DB0FAFB49C9FBFC5BC0572F81641FE0179CC52096323FB4D4",
+        "inference.pdiparams": "0DE2BCF996CF553E2B848DD7B1769DAFFFC6917B1CCDF55C1D8EFE7909FBF743",
+        "inference.yml": "8D5120D0E1A30A9DF7ED46AA9119DA3796ED066777089D1C1D705F132D5E90F9"
+      }
+    }
+  },
+  "inference": {
+    "use_doc_orientation_classify": false,
+    "use_doc_unwarping": false,
+    "use_textline_orientation": true,
+    "textline_orientation_batch_size": 16,
+    "text_recognition_batch_size": 16,
+    "text_det_limit_side_len": 1536,
+    "text_det_limit_type": "max",
+    "text_det_thresh": 0.2,
+    "text_det_box_thresh": 0.45,
+    "text_det_unclip_ratio": 1.5,
+    "text_rec_score_thresh": 0.0,
+    "return_word_box": true
+  },
+  "tiling": {
+    "enabled": true,
+    "rows": 2,
+    "columns": 2,
+    "overlap_px": 96,
+    "upscale": 2.0
+  },
+  "quarter_turn_review": {
+    "enabled": true,
+    "tile_sweep_enabled": true,
+    "tile_sweep_upscale": 1.0,
+    "candidate_crop_enabled": false,
+    "rotations_degrees": [
+      90,
+      270
+    ],
+    "vertical_aspect_ratio_min": 1.35,
+    "padding_px": 12,
+    "upscale": 2.0,
+    "max_regions": 48
+  },
+  "acceptance_fixture_relative_path": "examples\\target_figure.fixture.json",
+  "confidence": {
+    "high_min": 0.97,
+    "medium_min": 0.85
+  },
+  "deduplication": {
+    "iou_threshold": 0.45,
+    "containment_threshold": 0.72,
+    "conflict_iou_threshold": 0.3,
+    "conflict_containment_threshold": 0.62,
+    "text_similarity_threshold": 0.88
+  },
+  "provenance_scripts": [
+    "tools/paddle_ocr_manifest.py",
+    "tools/run_perception_gate.ps1",
+    "tools/analyze_target.py",
+    "tools/segment_panels.py"
+  ],
+  "manifest_schema": "schemas/perception-manifest.schema.json"
+}
