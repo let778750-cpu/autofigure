@@ -52,6 +52,9 @@ BENCHMARK_SOURCE_IMAGES = {
     "02_2026_CVPR_2026_Thinking_Diffusion_Penalize_and_Guide_Visual-Grounde.png",
     "03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png",
 }
+STABLE_AUTHORITY_DOCUMENTS = {
+    "modularagent.source-authority.json",
+}
 
 
 def _normalized(path: Path) -> str:
@@ -107,7 +110,12 @@ def inspect_project(root: Path) -> dict[str, object]:
             candidate = examples / fixture
             if not candidate.is_file():
                 add("CANONICAL_FIXTURE_MISSING", candidate, "A stable source fixture is missing.")
-        allowed_entries = REQUIRED_FIXTURES | BENCHMARK_SOURCE_IMAGES | {"generated"}
+        allowed_entries = (
+            REQUIRED_FIXTURES
+            | BENCHMARK_SOURCE_IMAGES
+            | STABLE_AUTHORITY_DOCUMENTS
+            | {"generated"}
+        )
         for child in sorted(examples.iterdir(), key=lambda item: item.name.casefold()):
             if child.name not in allowed_entries:
                 add(

@@ -37,6 +37,18 @@ def test_named_benchmark_source_images_are_stable_inputs(tmp_path: Path) -> None
     assert report["findings"] == []
 
 
+def test_named_source_authority_is_a_stable_contract(tmp_path: Path) -> None:
+    root = _project(tmp_path)
+    (root / "examples" / "modularagent.source-authority.json").write_text(
+        "{}", encoding="utf-8"
+    )
+
+    report = inspect_project(root)
+
+    assert report["status"] == "PASS"
+    assert report["findings"] == []
+
+
 def test_transient_root_directories_and_bytecode_fail(tmp_path: Path) -> None:
     root = _project(tmp_path)
     (root / "work").mkdir()

@@ -13,6 +13,7 @@ from tools.validate_source_authority import SourceAuthorityError, validate_autho
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schemas" / "source-authority.schema.json"
+MODULARAGENT_AUTHORITY_PATH = ROOT / "examples" / "modularagent.source-authority.json"
 
 
 def _latex_hash(latex: str) -> str:
@@ -153,6 +154,25 @@ def _case(tmp_path: Path) -> tuple[Path, Path, dict[str, object]]:
 def test_schema_is_valid_draft_2020_12() -> None:
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     Draft202012Validator.check_schema(schema)
+
+
+def test_modularagent_authority_draft_is_bound_and_review_gated() -> None:
+    document = json.loads(MODULARAGENT_AUTHORITY_PATH.read_text(encoding="utf-8"))
+
+    result = validate_authority(MODULARAGENT_AUTHORITY_PATH)
+
+    assert result["status"] == "PASS"
+    assert result["authority_status"] == "DRAFT"
+    assert result["item_count"] == 52
+    assert document["review"] is None
+    assert all(
+        not item["source_evidence"]
+        for item in document["items"]
+        if item["disposition"] == "INCONCLUSIVE"
+    )
+    manual_assets = [item for item in document["items"] if item["kind"] == "MANUAL_ASSET"]
+    assert [item["subject_id"] for item in manual_assets] == ["asset.observation-montage"]
+    assert "manual_asset_slot" in manual_assets[0]["notes"]
 
 
 def test_frozen_authority_validates_source_formula_and_relations(tmp_path: Path) -> None:
