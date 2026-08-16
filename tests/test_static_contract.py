@@ -125,6 +125,12 @@ def test_source_authority_validator_is_public_and_non_self_authorizing() -> None
     assert schema.is_file()
     assert validator.is_file()
     assert "validate_source_authority.py" in readme
+    assert "render_source_authority_review.py" in readme
+    assert "validate_source_authority_review.py" in readme
+    assert (ROOT / "schemas" / "source-authority-review.schema.json").is_file()
+    assert (ROOT / "tools" / "render_source_authority_review.py").is_file()
+    assert (ROOT / "tools" / "validate_source_authority_review.py").is_file()
+    assert "DRAFT` 权威不得直接改成 `FROZEN" in readme
     assert "OCR、VLM 或 PNG 像素均不能成为 authority evidence" in readme
 
 
@@ -135,6 +141,9 @@ def test_json_contract_files_parse() -> None:
         ROOT / "schemas" / "figure-spec.schema.json",
         ROOT / "schemas" / "geometry-manifest.schema.json",
         ROOT / "schemas" / "perception-manifest.schema.json",
+        ROOT / "schemas" / "source-authority.schema.json",
+        ROOT / "schemas" / "source-authority-review.schema.json",
+        ROOT / "examples" / "modularagent.source-authority.json",
         ROOT / "examples" / "target_figure.fixture.json",
     ]
     for path in paths:

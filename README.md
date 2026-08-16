@@ -136,6 +136,15 @@ OCR 表格中的高分仍是模型自报。识图三模融合按 `references/11-
 & $HostPython -I -B -X utf8 tools\validate_source_authority.py --authority examples\<case>.source-authority.json --pretty
 ```
 
+`DRAFT` 权威不得直接改成 `FROZEN`。先生成当前 run 独占的分色叠图和
+hash-bound review manifest；绿色是原文已确认项，橙色是待人工确认候选，紫色是
+`manual_asset_slot`，蓝色关系只列入右侧索引。叠图只用于审阅，不会回写 authority：
+
+```powershell
+& $HostPython -I -B -X utf8 tools\render_source_authority_review.py --authority examples\modularagent.source-authority.json --run-id <run_id> --output-dir examples\generated\runs\<run_id>\authority-review --pretty
+& $HostPython -I -B -X utf8 tools\validate_source_authority_review.py --manifest examples\generated\runs\<run_id>\authority-review\review-manifest.json --pretty
+```
+
 ```powershell
 & $HostPython -I -B -X utf8 tools\finalize_perception_review.py --manifest examples\generated\runs\<run_id>\ocr\perception-manifest.json --decisions examples\generated\runs\<run_id>\perception-review-decisions.json --init --fusion-manifest examples\generated\runs\<run_id>\fusion\fusion-manifest.json
 # 编辑 decisions；公式必须提供可追溯 LaTeX/原文证据（融合预填的 LaTeX 提议仅供参考比对，永不自证）
