@@ -79,6 +79,7 @@ AI autofigure/
     check_project_hygiene.py       # 阻止 work、根缓存和未知根级产物回归
     create_canvas_pptx.py          # 同比例空白 PowerPoint
     materialize_reference_preview.py # 生成仅限候选的无损局部预览及哈希收据
+    compile_figure_spec.py         # 冻结 authority/review/canvas/math 与 Designer scene
     preflight_scene.py             # 绘制前场景、文字/公式、连线与真实画布硬门
     powerpoint_native_math.py      # LaTeX→OMML、原生公式注入与结构读回
     powerpoint_native_math_roundtrip.ps1 # PowerPoint 保存/重开与 MathZones 收据
@@ -171,8 +172,11 @@ authority 冻结后，先用确定性匹配器生成 review decisions。它只�
 
 ```powershell
 & $HostPython -I -B -X utf8 tools\create_canvas_pptx.py examples\target_figure.png examples\generated\runs\<run_id>\canvas.pptx --pretty
+& $HostPython -I -B -X utf8 tools\compile_figure_spec.py --scene examples\generated\runs\<run_id>\scene-declaration.json --output examples\generated\runs\<run_id>\figure-spec.json
 & $HostPython -I -B -X utf8 tools\preflight_scene.py examples\generated\runs\<run_id>\figure-spec.json --canvas-pptx examples\generated\runs\<run_id>\canvas.pptx --output examples\generated\runs\<run_id>\preflight.json --pretty
 ```
+
+`scene-declaration.json` 是 Designer 的局部层级声明；编译器会验证 FROZEN authority、PASS review、空白画布、全部 CONFIRMED 公式及各自 converter receipt，并把父容器内的局部 `z_index` 编译为全局层级，同时保留 `scene_z_index` 供审计。authority 标为 `inline` 的公式必须进入仅含一个 `math` run 的原生文本容器；不能伪装成 display formula 对象。
 
 只有同时绑定当前 source、raw perception manifest、perception review receipt、spec、schema、script 和空白 canvas PPTX 哈希，且 `authorized_for_drawer=true` 的 `PASS` preflight receipt 才允许 Drawer 打开 PowerPoint 绘制；Drawer 只能打开 receipt 指向的那一份 deck。OCR 派生文字还必须逐条绑定 review candidate ID，文字值与候选位置都一致；标签字符串本身不能自证。
 
