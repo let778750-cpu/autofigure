@@ -156,20 +156,29 @@ def test_schema_is_valid_draft_2020_12() -> None:
     Draft202012Validator.check_schema(schema)
 
 
-def test_modularagent_authority_draft_is_bound_and_review_gated() -> None:
+def test_modularagent_authority_is_frozen_after_explicit_user_review() -> None:
     document = json.loads(MODULARAGENT_AUTHORITY_PATH.read_text(encoding="utf-8"))
 
     result = validate_authority(MODULARAGENT_AUTHORITY_PATH)
 
     assert result["status"] == "PASS"
-    assert result["authority_status"] == "DRAFT"
+    assert result["authority_status"] == "FROZEN"
     assert result["item_count"] == 52
-    assert document["review"] is None
-    assert all(
-        not item["source_evidence"]
+    assert document["review"]["approved"] is True
+    assert document["review"]["reviewed_by"] == "project user"
+    assert all(item["disposition"] == "CONFIRMED" for item in document["items"])
+    user_confirmed_ids = {
+        item["authority_item_id"]
         for item in document["items"]
-        if item["disposition"] == "INCONCLUSIVE"
-    )
+        if any(evidence["kind"] == "user_confirmed" for evidence in item["source_evidence"])
+    }
+    assert {
+        "AUTH-0016",
+        "AUTH-0017",
+        "AUTH-0020",
+        "AUTH-0021",
+        "AUTH-0033",
+    }.issubset(user_confirmed_ids)
     manual_assets = [item for item in document["items"] if item["kind"] == "MANUAL_ASSET"]
     assert [item["subject_id"] for item in manual_assets] == ["asset.observation-montage"]
     assert "manual_asset_slot" in manual_assets[0]["notes"]

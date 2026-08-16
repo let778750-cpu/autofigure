@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "document_type": "SOURCE_AUTHORITY",
   "authority_id": "modularagent-figure2-critical-v1",
-  "status": "DRAFT",
+  "status": "FROZEN",
   "source": {
     "relative_path": "examples/01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png",
     "sha256": "792A16D4BD2C26CCA9FCA79668395A987825AB75EB2BC8A65F2D42A47C38A340",
@@ -269,7 +269,7 @@
       "authority_item_id": "AUTH-0016",
       "subject_id": "text.task-prompts",
       "kind": "TEXT",
-      "disposition": "INCONCLUSIVE",
+      "disposition": "CONFIRMED",
       "criticality": "ordinary",
       "bbox_source": {"x": 113, "y": 29, "w": 258, "h": 54},
       "text": "Task 1: Turn on lamp\nTask 2: Close top drawer ...",
@@ -278,14 +278,14 @@
       "latex_sha256": null,
       "formula_mode": null,
       "relation": null,
-      "source_evidence": [],
-      "notes": "Agent visual candidate for overlay review; target pixels alone do not authorize the wording."
+      "source_evidence": [{"kind": "user_confirmed", "locator": "ChatGPT session 2026-08-17", "detail": "The project user explicitly confirmed AUTH-0016 and authorized promotion to CONFIRMED while freezing this authority."}],
+      "notes": "The target wording was explicitly confirmed by the project user after review of the hash-bound authority overlay."
     },
     {
       "authority_item_id": "AUTH-0017",
       "subject_id": "text.modular-joint-heading",
       "kind": "TEXT",
-      "disposition": "INCONCLUSIVE",
+      "disposition": "CONFIRMED",
       "criticality": "critical",
       "bbox_source": {"x": 41, "y": 138, "w": 326, "h": 29},
       "text": "Task-Aware Modular Joint",
@@ -294,8 +294,8 @@
       "latex_sha256": null,
       "formula_mode": null,
       "relation": null,
-      "source_evidence": [],
-      "notes": "Visible candidate differs from the longer method-section name and requires explicit review."
+      "source_evidence": [{"kind": "user_confirmed", "locator": "ChatGPT session 2026-08-17", "detail": "The project user explicitly confirmed AUTH-0017 and authorized promotion to CONFIRMED while freezing this authority."}],
+      "notes": "The shorter visible heading, rather than the longer method-section name, was explicitly confirmed by the project user."
     },
     {
       "authority_item_id": "AUTH-0018",
@@ -333,7 +333,7 @@
       "authority_item_id": "AUTH-0020",
       "subject_id": "text.wm-encoder",
       "kind": "TEXT",
-      "disposition": "INCONCLUSIVE",
+      "disposition": "CONFIRMED",
       "criticality": "critical",
       "bbox_source": {"x": 216, "y": 416, "w": 90, "h": 54},
       "text": "WM\nEncoder",
@@ -342,14 +342,14 @@
       "latex_sha256": null,
       "formula_mode": null,
       "relation": null,
-      "source_evidence": [],
-      "notes": "The paper confirms World Model Encoder; the abbreviated target wording awaits overlay review."
+      "source_evidence": [{"kind": "user_confirmed", "locator": "ChatGPT session 2026-08-17", "detail": "The project user explicitly confirmed AUTH-0020 and authorized promotion to CONFIRMED while freezing this authority."}],
+      "notes": "The abbreviated target wording was explicitly confirmed by the project user."
     },
     {
       "authority_item_id": "AUTH-0021",
       "subject_id": "text.observation",
       "kind": "TEXT",
-      "disposition": "INCONCLUSIVE",
+      "disposition": "CONFIRMED",
       "criticality": "ordinary",
       "bbox_source": {"x": 28, "y": 385, "w": 112, "h": 25},
       "text": "observation",
@@ -358,8 +358,8 @@
       "latex_sha256": null,
       "formula_mode": null,
       "relation": null,
-      "source_evidence": [],
-      "notes": "Agent visual candidate for overlay review."
+      "source_evidence": [{"kind": "user_confirmed", "locator": "ChatGPT session 2026-08-17", "detail": "The project user explicitly confirmed AUTH-0021 and authorized promotion to CONFIRMED while freezing this authority."}],
+      "notes": "The target wording was explicitly confirmed by the project user after overlay review."
     },
     {
       "authority_item_id": "AUTH-0022",
@@ -541,7 +541,7 @@
       "authority_item_id": "AUTH-0033",
       "subject_id": "formula.reward-sequence",
       "kind": "FORMULA",
-      "disposition": "INCONCLUSIVE",
+      "disposition": "CONFIRMED",
       "criticality": "critical",
       "bbox_source": {"x": 1009, "y": 225, "w": 250, "h": 45},
       "text": null,
@@ -550,8 +550,8 @@
       "latex_sha256": "6c34b1722dd9959b456dbd5cd108ce985fe96f0efab03fc52c65055052c82450",
       "formula_mode": "inline",
       "relation": null,
-      "source_evidence": [],
-      "notes": "Paper Eq. (10) confirms r_t semantics, but the exact repeated target subscripts require overlay review."
+      "source_evidence": [{"kind": "user_confirmed", "locator": "ChatGPT session 2026-08-17", "detail": "The project user explicitly confirmed AUTH-0033 and authorized promotion to CONFIRMED while freezing this authority."}],
+      "notes": "The exact repeated reward subscripts were explicitly confirmed by the project user after overlay review."
     },
     {
       "authority_item_id": "AUTH-0034",
@@ -858,5 +858,10 @@
       "notes": "This is the backward half of the paper's bidirectional coupling claim."
     }
   ],
-  "review": null
+  "review": {
+    "approved": true,
+    "reviewed_by": "project user",
+    "reviewed_at_utc": "2026-08-16T16:08:53Z",
+    "method": "The project user reviewed run modularagent-authority-review-20260816-002 (review manifest SHA-256 6A47EC55B28A13262DEE9119B1879993D6FAC6EC42753FF2F4226C157CDDDF30) and explicitly confirmed AUTH-0016, AUTH-0017, AUTH-0020, AUTH-0021, and AUTH-0033 for promotion to CONFIRMED and authority freeze in the ChatGPT session on 2026-08-17."
+  }
 }

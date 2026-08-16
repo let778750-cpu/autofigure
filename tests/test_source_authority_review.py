@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
 from pathlib import Path
@@ -31,6 +30,26 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest().upper()
 
 
+def _draft_authority(tmp_path: Path) -> Path:
+    document = json.loads(AUTHORITY_PATH.read_text(encoding="utf-8"))
+    document["status"] = "DRAFT"
+    document["review"] = None
+    pending_ids = {
+        "AUTH-0016",
+        "AUTH-0017",
+        "AUTH-0020",
+        "AUTH-0021",
+        "AUTH-0033",
+    }
+    for item in document["items"]:
+        if item["authority_item_id"] in pending_ids:
+            item["disposition"] = "INCONCLUSIVE"
+            item["source_evidence"] = []
+    authority_path = tmp_path / "modularagent.source-authority.draft.json"
+    authority_path.write_text(json.dumps(document), encoding="utf-8")
+    return authority_path
+
+
 def test_review_schema_is_valid_draft_2020_12() -> None:
     schema = json.loads(REVIEW_SCHEMA_PATH.read_text(encoding="utf-8"))
 
@@ -39,9 +58,10 @@ def test_review_schema_is_valid_draft_2020_12() -> None:
 
 def test_real_modularagent_draft_renders_hash_bound_review_package(tmp_path: Path) -> None:
     output_dir = tmp_path.resolve() / "authority-review"
+    authority_path = _draft_authority(tmp_path)
 
     result = render_review_package(
-        AUTHORITY_PATH,
+        authority_path,
         run_id="modularagent-review-test",
         output_dir=output_dir,
     )
@@ -81,8 +101,9 @@ def test_real_modularagent_draft_renders_hash_bound_review_package(tmp_path: Pat
 
 def test_review_package_is_fresh_only(tmp_path: Path) -> None:
     output_dir = tmp_path.resolve() / "authority-review"
+    authority_path = _draft_authority(tmp_path)
     render_review_package(
-        AUTHORITY_PATH,
+        authority_path,
         run_id="modularagent-review-fresh",
         output_dir=output_dir,
     )
@@ -90,7 +111,7 @@ def test_review_package_is_fresh_only(tmp_path: Path) -> None:
 
     with pytest.raises(ReviewPackageError, match="already exists"):
         render_review_package(
-            AUTHORITY_PATH,
+            authority_path,
             run_id="modularagent-review-fresh",
             output_dir=output_dir,
         )
@@ -100,8 +121,9 @@ def test_review_package_is_fresh_only(tmp_path: Path) -> None:
 
 def test_review_verifier_rejects_overlay_tampering(tmp_path: Path) -> None:
     output_dir = tmp_path.resolve() / "authority-review"
+    authority_path = _draft_authority(tmp_path)
     render_review_package(
-        AUTHORITY_PATH,
+        authority_path,
         run_id="modularagent-review-overlay-tamper",
         output_dir=output_dir,
     )
@@ -117,8 +139,9 @@ def test_review_verifier_rejects_overlay_tampering(tmp_path: Path) -> None:
 
 def test_review_verifier_rejects_index_tampering(tmp_path: Path) -> None:
     output_dir = tmp_path.resolve() / "authority-review"
+    authority_path = _draft_authority(tmp_path)
     render_review_package(
-        AUTHORITY_PATH,
+        authority_path,
         run_id="modularagent-review-index-tamper",
         output_dir=output_dir,
     )
@@ -145,21 +168,9 @@ def test_project_local_review_output_is_run_bound(tmp_path: Path) -> None:
 
 
 def test_frozen_authority_cannot_be_misrepresented_as_pending_review(tmp_path: Path) -> None:
-    document = json.loads(AUTHORITY_PATH.read_text(encoding="utf-8"))
-    changed = copy.deepcopy(document)
-    changed["status"] = "FROZEN"
-    changed["review"] = {
-        "approved": True,
-        "reviewed_by": "test-reviewer",
-        "reviewed_at_utc": "2026-08-16T00:00:00Z",
-        "method": "test fixture",
-    }
-    frozen_path = tmp_path / "frozen-authority.json"
-    frozen_path.write_text(json.dumps(changed), encoding="utf-8")
-
     with pytest.raises(ReviewPackageError, match="DRAFT authority only"):
         render_review_package(
-            frozen_path,
+            AUTHORITY_PATH,
             run_id="frozen-review-test",
             output_dir=tmp_path.resolve() / "review",
         )
