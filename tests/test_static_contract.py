@@ -117,6 +117,17 @@ def test_native_office_math_tool_and_dependencies_are_declared() -> None:
     assert "lxml==6.1.0" in requirements
 
 
+def test_source_authority_validator_is_public_and_non_self_authorizing() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    schema = ROOT / "schemas" / "source-authority.schema.json"
+    validator = ROOT / "tools" / "validate_source_authority.py"
+
+    assert schema.is_file()
+    assert validator.is_file()
+    assert "validate_source_authority.py" in readme
+    assert "OCR、VLM 或 PNG 像素均不能成为 authority evidence" in readme
+
+
 def test_json_contract_files_parse() -> None:
     paths = [
         ROOT / "host-runtime.json",

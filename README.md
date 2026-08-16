@@ -130,6 +130,12 @@ OCR 表格中的高分仍是模型自报。识图三模融合按 `references/11-
 
 先生成与 raw manifest 哈希绑定的决策模板（有融合产物时按分歧优先级排序并预填 `review_note`），再用用户确认或可靠原文逐项完成：
 
+当确认依据来自论文、图注或其他可靠原文时，先用 `source-authority` 合同冻结参考 PNG、精确文字/LaTeX、语义关系和来源定位。校验器会复验 JSON Schema、参考 SHA/尺寸/颜色模式、bbox、公式 hash、关系端点和人工复核状态；OCR、VLM 或 PNG 像素均不能成为 authority evidence：
+
+```powershell
+& $HostPython -I -B -X utf8 tools\validate_source_authority.py --authority examples\<case>.source-authority.json --pretty
+```
+
 ```powershell
 & $HostPython -I -B -X utf8 tools\finalize_perception_review.py --manifest examples\generated\runs\<run_id>\ocr\perception-manifest.json --decisions examples\generated\runs\<run_id>\perception-review-decisions.json --init --fusion-manifest examples\generated\runs\<run_id>\fusion\fusion-manifest.json
 # 编辑 decisions；公式必须提供可追溯 LaTeX/原文证据（融合预填的 LaTeX 提议仅供参考比对，永不自证）

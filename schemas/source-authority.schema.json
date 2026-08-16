@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ai-autofigure/schemas/source-authority.schema.json",
+  "title": "AI AutoFigure source authority contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "document_type",
+    "authority_id",
+    "status",
+    "source",
+    "provenance",
+    "policy",
+    "items",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "document_type": {"const": "SOURCE_AUTHORITY"},
+    "authority_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$"
+    },
+    "status": {"enum": ["DRAFT", "FROZEN"]},
+    "source": {"$ref": "#/$defs/source"},
+    "provenance": {"$ref": "#/$defs/provenance"},
+    "policy": {"$ref": "#/$defs/policy"},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/item"}
+    },
+    "review": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/review"}
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"status": {"const": "FROZEN"}},
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "allOf": [
+              {"$ref": "#/$defs/review"},
+              {"properties": {"approved": {"const": true}}}
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relative_path",
+        "sha256",
+        "width_px",
+        "height_px",
+        "pixel_format",
+        "user_confirmed"
+      ],
+      "properties": {
+        "relative_path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1},
+        "pixel_format": {"type": "string", "minLength": 1},
+        "user_confirmed": {"const": true}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_kind",
+        "title",
+        "bibliographic_citation",
+        "source_url",
+        "figure_locator"
+      ],
+      "properties": {
+        "authority_kind": {
+          "enum": ["PAPER_SOURCE", "USER_CONFIRMED", "MIXED"]
+        },
+        "title": {"type": "string", "minLength": 1},
+        "bibliographic_citation": {"type": "string", "minLength": 1},
+        "source_url": {"type": ["string", "null"], "format": "uri"},
+        "figure_locator": {"type": ["string", "null"]}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ocr_may_confirm",
+        "vlm_may_confirm",
+        "pixels_may_authorize_text",
+        "unmatched_candidates"
+      ],
+      "properties": {
+        "ocr_may_confirm": {"const": false},
+        "vlm_may_confirm": {"const": false},
+        "pixels_may_authorize_text": {"const": false},
+        "unmatched_candidates": {"const": "INCONCLUSIVE"}
+      }
+    },
+    "bbox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": {"type": "number", "minimum": 0},
+        "y": {"type": "number", "minimum": 0},
+        "w": {"type": "number", "exclusiveMinimum": 0},
+        "h": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "locator", "detail"],
+      "properties": {
+        "kind": {"enum": ["source_text", "user_confirmed"]},
+        "locator": {"type": "string", "minLength": 1},
+        "detail": {"type": "string", "minLength": 1}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_subject_id",
+        "to_subject_id",
+        "direction",
+        "meaning"
+      ],
+      "properties": {
+        "from_subject_id": {"type": "string", "minLength": 1},
+        "to_subject_id": {"type": "string", "minLength": 1},
+        "direction": {"enum": ["FORWARD", "BACKWARD", "BIDIRECTIONAL"]},
+        "meaning": {
+          "enum": ["DATA_FLOW", "CONTROL_FLOW", "FEEDBACK", "INTERACTION", "ASSOCIATION"]
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_item_id",
+        "subject_id",
+        "kind",
+        "disposition",
+        "criticality",
+        "bbox_source",
+        "text",
+        "label",
+        "canonical_latex",
+        "latex_sha256",
+        "formula_mode",
+        "relation",
+        "source_evidence",
+        "notes"
+      ],
+      "properties": {
+        "authority_item_id": {
+          "type": "string",
+          "pattern": "^AUTH-[0-9]{4}$"
+        },
+        "subject_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "kind": {
+          "enum": ["TEXT", "FORMULA", "SEMANTIC_REGION", "RELATION", "MANUAL_ASSET"]
+        },
+        "disposition": {"enum": ["CONFIRMED", "INCONCLUSIVE", "NOT_APPLICABLE"]},
+        "criticality": {"enum": ["critical", "ordinary"]},
+        "bbox_source": {
+          "oneOf": [{"$ref": "#/$defs/bbox"}, {"type": "null"}]
+        },
+        "text": {"type": ["string", "null"]},
+        "label": {"type": ["string", "null"]},
+        "canonical_latex": {"type": ["string", "null"]},
+        "latex_sha256": {
+          "oneOf": [
+            {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+            {"type": "null"}
+          ]
+        },
+        "formula_mode": {
+          "oneOf": [{"enum": ["inline", "display"]}, {"type": "null"}]
+        },
+        "relation": {
+          "oneOf": [{"$ref": "#/$defs/relation"}, {"type": "null"}]
+        },
+        "source_evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "notes": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"disposition": {"const": "CONFIRMED"}}},
+          "then": {"properties": {"source_evidence": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"kind": {"const": "TEXT"}}},
+          "then": {
+            "properties": {
+              "bbox_source": {"$ref": "#/$defs/bbox"},
+              "text": {"type": ["string", "null"], "minLength": 1},
+              "label": {"type": "null"},
+              "canonical_latex": {"type": "null"},
+              "latex_sha256": {"type": "null"},
+              "formula_mode": {"type": "null"},
+              "relation": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"kind": {"const": "FORMULA"}}},
+          "then": {
+            "properties": {
+              "bbox_source": {"$ref": "#/$defs/bbox"},
+              "text": {"type": "null"},
+              "label": {"type": "null"},
+              "relation": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {"const": "TEXT"},
+              "disposition": {"const": "CONFIRMED"}
+            },
+            "required": ["kind", "disposition"]
+          },
+          "then": {
+            "properties": {"text": {"type": "string", "minLength": 1}}
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {"const": "FORMULA"},
+              "disposition": {"const": "CONFIRMED"}
+            },
+            "required": ["kind", "disposition"]
+          },
+          "then": {
+            "properties": {
+              "canonical_latex": {"type": "string", "minLength": 1},
+              "latex_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+              "formula_mode": {"enum": ["inline", "display"]}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"kind": {"enum": ["SEMANTIC_REGION", "MANUAL_ASSET"]}}
+          },
+          "then": {
+            "properties": {
+              "bbox_source": {"$ref": "#/$defs/bbox"},
+              "text": {"type": "null"},
+              "label": {"type": "string", "minLength": 1},
+              "canonical_latex": {"type": "null"},
+              "latex_sha256": {"type": "null"},
+              "formula_mode": {"type": "null"},
+              "relation": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"kind": {"const": "RELATION"}}},
+          "then": {
+            "properties": {
+              "bbox_source": {"type": "null"},
+              "text": {"type": "null"},
+              "label": {"type": "null"},
+              "canonical_latex": {"type": "null"},
+              "latex_sha256": {"type": "null"},
+              "formula_mode": {"type": "null"},
+              "relation": {"$ref": "#/$defs/relation"}
+            }
+          }
+        }
+      ]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approved", "reviewed_by", "reviewed_at_utc", "method"],
+      "properties": {
+        "approved": {"type": "boolean"},
+        "reviewed_by": {"type": "string", "minLength": 1},
+        "reviewed_at_utc": {"type": "string", "format": "date-time"},
+        "method": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
