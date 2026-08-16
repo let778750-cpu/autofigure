@@ -194,7 +194,7 @@ PowerPoint 内的交付对象必须是 Office Math，而不是“保存了 LaTeX
 & $HostPython -s -B -X utf8 tools\powerpoint_native_math.py finalize --input examples\generated\runs\<run_id>\math\injected.pptx --plan examples\generated\runs\<run_id>\math\injection-plan.json --injection-report examples\generated\runs\<run_id>\math\injection.json --output-pptx examples\generated\runs\<run_id>\math\roundtripped.pptx --roundtrip-receipt examples\generated\runs\<run_id>\math\roundtrip-receipt.json --render-directory examples\generated\runs\<run_id>\math\renders --output examples\generated\runs\<run_id>\math\native-math-finalize.json --pretty
 ```
 
-`finalize` 拒绝覆盖已有输出，必须使用新的 run ID；成功状态是 `MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW`，不是 `APPROVED`。保存时 PowerPoint 会补字体属性、拆分 run，并把普通变量正规化为数学字母 Unicode，因此原始 OMML 字节哈希预期会变化。审计保留编译期精确哈希，同时使用版本化 `office-math-semantic-v2` token AST 只容忍这些已验证的等价变化；粗体、花体、双线体、上下标结构、分子/分母、数字或符号改变仍会失败。项目内实机样例的唯一权威索引是 `examples/generated/native-math-poc/case-manifest.json`；当前闭环指向 `roundtripped-final.pptx`、`renders-final/slide-1.png`、`roundtrip-receipt-final.json` 和 `audit-final.json`，manifest 逐文件记录字节数与 SHA-256。历史或失败收据保留用于回归，但不得冒充当前 PASS。
+`finalize` 拒绝覆盖已有输出，必须使用新的 run ID；成功状态是 `MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW`，不是 `APPROVED`。保存时 PowerPoint 会补字体属性、拆分 run，并把普通变量正规化为数学字母 Unicode，因此原始 OMML 字节哈希预期会变化。审计保留编译期精确哈希，同时使用版本化 `office-math-semantic-v2` token AST 只容忍这些已验证的等价变化；粗体、花体、双线体、上下标结构、分子/分母、数字或符号改变仍会失败。项目内实机样例的唯一权威索引是 `examples/generated/native-math-poc/case-manifest.json`；当前闭环由该 manifest 指向一个隔离、版本化的 revision，并逐文件记录 PPTX、渲染、回读收据和审计证据的字节数与 SHA-256。调用者不得硬编码某个历史 revision 的文件名；历史或失败收据保留用于回归，但不得冒充当前 PASS。
 
 ### 5. 测试
 

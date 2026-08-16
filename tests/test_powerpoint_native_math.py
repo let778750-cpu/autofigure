@@ -23,6 +23,7 @@ from tools.powerpoint_native_math import (
     _atomic_write_json_fresh,
     _counterfactual_pixel_evidence,
     _decode_metadata,
+    _load_mml2omml_transform,
     _metadata_value,
     _powershell_executable,
     _semantic_omml_sha256,
@@ -32,6 +33,23 @@ from tools.powerpoint_native_math import (
     inject_plan,
     main,
 )
+
+
+def test_mml2omml_stylesheet_is_cached_per_resolved_path(tmp_path: Path) -> None:
+    stylesheet = tmp_path / "identity.xsl"
+    stylesheet.write_text(
+        """<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/"><result/></xsl:template>
+</xsl:stylesheet>
+""",
+        encoding="utf-8",
+    )
+    _load_mml2omml_transform.cache_clear()
+    first = _load_mml2omml_transform(str(stylesheet.resolve()))
+    second = _load_mml2omml_transform(str(stylesheet.resolve()))
+    assert first is second
+    assert _load_mml2omml_transform.cache_info().hits == 1
 
 
 def write_json(path: Path, payload: object) -> Path:
@@ -211,6 +229,21 @@ def test_semantic_hash_preserves_math_variants_and_compatibility_characters() ->
     assert _semantic_omml_sha256(literal("½")) != _semantic_omml_sha256(literal("1⁄2"))
 
 
+def test_semantic_hash_accepts_powerpoint_plain_style_on_encoded_script_glyph() -> None:
+    receipt = compile_formula("ELL", r"\ell", "inline")
+    original = etree.fromstring(receipt["artifacts"]["omml_xml"].encode())
+    normalized = etree.fromstring(receipt["artifacts"]["omml_xml"].encode())
+    run = normalized.find("m:r", namespaces=NS)
+    assert run is not None
+    properties = etree.Element(f"{{{M_NS}}}rPr")
+    etree.SubElement(properties, f"{{{M_NS}}}sty").set(f"{{{M_NS}}}val", "p")
+    run.insert(0, properties)
+    assert _semantic_omml_sha256(normalized) == _semantic_omml_sha256(original)
+
+    etree.SubElement(properties, f"{{{M_NS}}}scr").set(f"{{{M_NS}}}val", "roman")
+    assert _semantic_omml_sha256(normalized) != _semantic_omml_sha256(original)
+
+
 @pytest.mark.parametrize(
     "latex",
     [
@@ -303,6 +336,57 @@ def test_inject_display_and_mixed_math_preserves_order_and_audits(tmp_path: Path
     assert not audit["findings"]
     assert audit["native_formula_count"] == 3
     assert audit["native_shape_count"] == 2
+
+
+def test_audit_accepts_powerpoint_standalone_inline_wrapper_normalization(
+    tmp_path: Path,
+) -> None:
+    source = make_placeholder_deck(tmp_path / "source.pptx")
+    receipt_path = write_json(
+        tmp_path / "inline.json", compile_formula("INLINE", r"f_{\mathrm{map}}", "inline")
+    )
+    plan_path = write_json(
+        tmp_path / "plan.json",
+        {
+            "schema_version": "1.0",
+            "operations": [
+                {
+                    "slide_index": 1,
+                    "placeholder_name": "formula-EQ1",
+                    "formula_id": "INLINE",
+                    "receipt_path": receipt_path.name,
+                    "receipt_sha256": sha256_file(receipt_path),
+                }
+            ],
+        },
+    )
+    native = tmp_path / "native.pptx"
+    inject_plan(source, plan_path, native)
+
+    def wrap_as_powerpoint_paragraph(root: etree._Element) -> None:
+        wrapper = root.xpath(
+            ".//mc:Choice[@Requires='a14']/p:sp"
+            "[p:nvSpPr/p:cNvPr[@name='formula-EQ1']]"
+            "/p:txBody/a:p/a14:m",
+            namespaces=NS,
+        )[0]
+        inline_root = wrapper.find("m:oMath", namespaces=NS)
+        assert inline_root is not None
+        wrapper.remove(inline_root)
+        paragraph_root = etree.SubElement(wrapper, f"{{{M_NS}}}oMathPara")
+        paragraph_root.append(inline_root)
+
+    normalized = rewrite_first_slide(
+        native, tmp_path / "powerpoint-normalized.pptx", wrap_as_powerpoint_paragraph
+    )
+    audit = audit_pptx(normalized, plan_path)
+    assert audit["status"] == "STRUCTURE_PASS_REQUIRES_POWERPOINT_FINALIZE"
+    assert not audit["findings"]
+    formula = audit["inventory"][0]["formulas"][0]
+    assert formula["root"] == "m:oMathPara"
+    assert formula["powerpoint_mode_normalized"] is True
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    assert formula["semantic_omml_sha256"] == receipt["semantic_omml_sha256"]
 
 
 def test_plain_textbox_cannot_masquerade_as_native_formula(tmp_path: Path) -> None:
@@ -510,6 +594,66 @@ def test_audit_rejects_deleted_mixed_text_run(tmp_path: Path) -> None:
     }
 
 
+def test_audit_accepts_powerpoint_fallback_metadata_normalization_but_not_text_drift(
+    tmp_path: Path,
+) -> None:
+    native, plan_path = inject_single_formula(tmp_path)
+
+    def copy_choice_metadata_to_fallback(root: etree._Element) -> None:
+        alternate = root.xpath(".//mc:AlternateContent", namespaces=NS)[0]
+        choice_properties = alternate.find(
+            "./mc:Choice/p:sp/p:nvSpPr/p:cNvPr", namespaces=NS
+        )
+        fallback_properties = alternate.find(
+            "./mc:Fallback/p:sp/p:nvSpPr/p:cNvPr", namespaces=NS
+        )
+        fallback_text = alternate.find(
+            "./mc:Fallback/p:sp/p:txBody/a:p/a:r/a:t", namespaces=NS
+        )
+        assert (
+            choice_properties is not None
+            and fallback_properties is not None
+            and fallback_text is not None
+        )
+        fallback_properties.set("descr", str(choice_properties.get("descr")))
+        fallback_text.text = "\u00a0"
+
+    normalized = rewrite_first_slide(
+        native, tmp_path / "normalized-fallback.pptx", copy_choice_metadata_to_fallback
+    )
+    normalized_audit = audit_pptx(normalized, plan_path)
+    assert normalized_audit["status"] == "STRUCTURE_PASS_REQUIRES_POWERPOINT_FINALIZE"
+    assert normalized_audit["inventory"][0][
+        "powerpoint_fallback_metadata_normalized"
+    ] is True
+
+    def corrupt_fallback_text(root: etree._Element) -> None:
+        alternate = root.xpath(".//mc:AlternateContent", namespaces=NS)[0]
+        choice_properties = alternate.find(
+            "./mc:Choice/p:sp/p:nvSpPr/p:cNvPr", namespaces=NS
+        )
+        fallback_properties = alternate.find(
+            "./mc:Fallback/p:sp/p:nvSpPr/p:cNvPr", namespaces=NS
+        )
+        fallback_text = alternate.find("./mc:Fallback/p:sp/p:txBody/a:p/a:r/a:t", namespaces=NS)
+        assert (
+            choice_properties is not None
+            and fallback_properties is not None
+            and fallback_text is not None
+        )
+        fallback_properties.set("descr", str(choice_properties.get("descr")))
+        fallback_text.text = "forged fallback"
+
+    corrupted = rewrite_first_slide(
+        native, tmp_path / "corrupt-fallback.pptx", corrupt_fallback_text
+    )
+    corrupted_audit = audit_pptx(corrupted, plan_path)
+    assert corrupted_audit["status"] == "FAIL"
+    assert "NATIVE_MATH_FALLBACK_INVALID" in {
+        finding["code"] for finding in corrupted_audit["findings"]
+    }
+
+
 def test_plan_rejects_duplicate_json_keys_and_duplicate_targets(tmp_path: Path) -> None:
     source = make_placeholder_deck(tmp_path / "source.pptx")
     duplicate_key_plan = tmp_path / "duplicate-key.json"
@@ -534,6 +678,77 @@ def test_plan_rejects_duplicate_json_keys_and_duplicate_targets(tmp_path: Path) 
     )
     with pytest.raises(NativeMathError, match="duplicate plan target"):
         inject_plan(source, duplicate_target_plan, tmp_path / "out-target.pptx")
+
+
+def test_plan_binds_runtime_target_font_style_and_rejects_partial_style(
+    tmp_path: Path,
+) -> None:
+    source = make_placeholder_deck(tmp_path / "source.pptx")
+    receipt_path = write_json(
+        tmp_path / "eq.json", compile_formula("EQ1", r"z_t^\tau", "display")
+    )
+    operation = {
+        "slide_index": 1,
+        "placeholder_name": "formula-EQ1",
+        "formula_id": "EQ1",
+        "receipt_path": receipt_path.name,
+        "receipt_sha256": sha256_file(receipt_path),
+        "target_font_size_pt": 9.75,
+        "target_font_color": "#17324D",
+    }
+    plan = write_json(
+        tmp_path / "styled-plan.json",
+        {"schema_version": "1.0", "operations": [operation]},
+    )
+    styled_native = tmp_path / "styled-native.pptx"
+    report = inject_plan(source, plan, styled_native)
+    assert report["operations"][0]["target_font_size_pt"] == 9.75
+    assert report["operations"][0]["target_font_color"] == "#17324D"
+    with zipfile.ZipFile(styled_native, "r") as package:
+        root = etree.fromstring(package.read("ppt/slides/slide1.xml"))
+    body_properties = root.xpath(
+        ".//mc:AlternateContent[mc:Choice/p:sp/p:nvSpPr/p:cNvPr[@name='formula-EQ1']]"
+        "//a:bodyPr|"
+        ".//mc:AlternateContent[mc:Fallback/p:sp/p:nvSpPr/p:cNvPr[@name='formula-EQ1']]"
+        "//a:bodyPr",
+        namespaces=NS,
+    )
+    assert len(body_properties) == 2
+    assert all(
+        properties.get(inset_name) == "0"
+        for properties in body_properties
+        for inset_name in ("lIns", "rIns", "tIns", "bIns")
+    )
+    styled_properties = root.xpath(
+        ".//mc:AlternateContent[mc:Choice/p:sp/p:nvSpPr/p:cNvPr[@name='formula-EQ1']]"
+        "//a:rPr|"
+        ".//mc:AlternateContent[mc:Choice/p:sp/p:nvSpPr/p:cNvPr[@name='formula-EQ1']]"
+        "//a:endParaRPr",
+        namespaces=NS,
+    )
+    assert styled_properties
+    assert {properties.get("sz") for properties in styled_properties} == {"975"}
+    assert {
+        value
+        for properties in styled_properties
+        for value in properties.xpath("./a:solidFill/a:srgbClr/@val", namespaces=NS)
+    } == {"17324D"}
+
+    partial_plan = write_json(
+        tmp_path / "partial-style-plan.json",
+        {
+            "schema_version": "1.0",
+            "operations": [
+                {
+                    key: value
+                    for key, value in operation.items()
+                    if key != "target_font_color"
+                }
+            ],
+        },
+    )
+    with pytest.raises(NativeMathError, match="both target font style fields"):
+        inject_plan(source, partial_plan, tmp_path / "partial-style-native.pptx")
 
 
 def test_injection_and_finalize_require_fresh_output_paths(tmp_path: Path) -> None:
@@ -647,6 +862,32 @@ def test_counterfactual_pixel_evidence_requires_local_formula_ink_delta(
     assert outside_evidence["outside_changed_pixels"] > 0
 
 
+def test_counterfactual_pixel_evidence_allows_resolution_scaled_glyph_overhang(
+    tmp_path: Path,
+) -> None:
+    baseline_path = tmp_path / "baseline-large.png"
+    control_path = tmp_path / "control-large.png"
+    Image.new("RGB", (1000, 1000), "white").save(control_path)
+    baseline = Image.new("RGB", (1000, 1000), "white")
+    # The ink starts six pixels left of the nominal text box.  That is outside
+    # the former fixed two-pixel allowance but within the 1% render halo.
+    ImageDraw.Draw(baseline).rectangle((194, 240, 201, 249), fill="black")
+    baseline.save(baseline_path)
+    evidence = _counterfactual_pixel_evidence(
+        baseline_path,
+        control_path,
+        left=200,
+        top=200,
+        shape_width=100,
+        shape_height=100,
+        slide_width=1000,
+        slide_height=1000,
+    )
+    assert evidence["padding_pixels"] == 10
+    assert evidence["pass"] is True
+    assert evidence["outside_changed_pixels"] == 0
+
+
 @pytest.mark.skipif(os.name != "nt", reason="PowerPoint finalizer is Windows-only")
 def test_roundtrip_render_commit_refuses_raced_destination_and_preserves_sentinel(
     tmp_path: Path,
@@ -690,6 +931,38 @@ def test_roundtrip_render_commit_refuses_raced_destination_and_preserves_sentine
     assert result.returncode != 0
     assert sentinel.read_text(encoding="utf-8") == "must-survive"
     assert (staging / "render.png").read_bytes() == b"transaction-owned"
+
+
+def test_roundtrip_underlay_resolution_skips_only_tiny_opaque_boundary_contacts() -> None:
+    script_text = (
+        Path(__file__).parents[1] / "tools" / "powerpoint_native_math_roundtrip.ps1"
+    ).read_text(encoding="utf-8")
+
+    picture_guard = "if ($lowerShape.is_picture -or $lowerShape.is_ole)"
+    boundary_guard = (
+        "if ($isReliableSolidFill -and $underlayOverlap -lt 0.02) { continue }"
+    )
+    material_partial_guard = (
+        "if ($underlayOverlap -lt 0.995 -or -not $isReliableSolidFill)"
+    )
+
+    assert picture_guard in script_text
+    assert boundary_guard in script_text
+    assert material_partial_guard in script_text
+    assert script_text.index(picture_guard) < script_text.index(boundary_guard)
+    assert script_text.index(boundary_guard) < script_text.index(material_partial_guard)
+
+
+def test_roundtrip_verifies_hash_bound_formula_styles_without_mutating_mathzones() -> None:
+    script_text = (
+        Path(__file__).parents[1] / "tools" / "powerpoint_native_math_roundtrip.ps1"
+    ).read_text(encoding="utf-8")
+
+    assert "$observedSize = [double]$styleZones.Font.Size" in script_text
+    assert "$styleZones.Font.Size =" not in script_text
+    assert "$styleZones.Font.Fill.ForeColor.RGB =" not in script_text
+    assert "formula_styles_verified_at_open = $false" in script_text
+    assert "NATIVE_MATH_STYLE_MISMATCH" in script_text
 
 
 @pytest.mark.skipif(os.name != "nt", reason="PowerShell output policy is Windows-only")

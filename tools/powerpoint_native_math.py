@@ -12,9 +12,11 @@ import argparse
 import base64
 import copy
 import ctypes
+import functools
 import hashlib
 import importlib.metadata
 import json
+import math
 import os
 import posixpath
 import re
@@ -233,9 +235,23 @@ def _semantic_run_tokens(run: etree._Element) -> list[dict[str, Any]] | None:
         if encoded is not None:
             base, encoded_script, encoded_style = encoded
             declared_nondefault = script_node is not None or style_node is not None
-            if declared_nondefault and (declared_script, declared_style) != (
-                encoded_script,
-                encoded_style,
+            # PowerPoint commonly adds ``m:sty m:val="p"`` to a glyph whose
+            # Unicode code point already carries its mathematical alphabet
+            # (for example U+2113 SCRIPT SMALL L).  With no explicit script,
+            # normal, or literal flag this is a neutral "do not add another
+            # style" marker, not a request to turn the glyph into roman text.
+            powerpoint_neutral_style = (
+                script_node is None
+                and style_node is not None
+                and declared_style == "p"
+                and normal_node is None
+                and literal_node is None
+            )
+            if (
+                declared_nondefault
+                and not powerpoint_neutral_style
+                and (declared_script, declared_style)
+                != (encoded_script, encoded_style)
             ):
                 tokens.append(
                     {
@@ -422,6 +438,12 @@ def discover_mml2omml_xsl(explicit: str | os.PathLike[str] | None = None) -> Pat
     )
 
 
+@functools.lru_cache(maxsize=4)
+def _load_mml2omml_transform(xsl_path: str) -> etree.XSLT:
+    """Parse the large Office stylesheet once per resolved path and process."""
+    return etree.XSLT(etree.parse(xsl_path))
+
+
 def _latex_expression(canonical_latex: str) -> str:
     value = canonical_latex.strip()
     pairs = (("$$", "$$"), ("$", "$"), (r"\(", r"\)"), (r"\[", r"\]"))
@@ -486,7 +508,7 @@ def compile_formula(
 
     xsl = discover_mml2omml_xsl(xsl_path)
     try:
-        transform = etree.XSLT(etree.parse(str(xsl)))
+        transform = _load_mml2omml_transform(str(xsl.resolve()))
         transformed = transform(mathml)
     except (etree.XMLSyntaxError, etree.XSLTError, OSError) as exc:
         raise NativeMathError(f"MathML to OMML conversion failed: {exc}") from exc
@@ -606,6 +628,15 @@ def _rgb_contrast_ratio(first_rgb: int, second_rgb: int) -> float:
     return (lighter + 0.05) / (darker + 0.05)
 
 
+def _hex_to_office_rgb(value: str) -> int:
+    if not re.fullmatch(r"#[A-Fa-f0-9]{6}", value):
+        raise NativeMathError("target font color must be #RRGGBB")
+    red = int(value[1:3], 16)
+    green = int(value[3:5], 16)
+    blue = int(value[5:7], 16)
+    return red + (green << 8) + (blue << 16)
+
+
 def _counterfactual_pixel_evidence(
     baseline_path: Path,
     control_path: Path,
@@ -626,10 +657,23 @@ def _counterfactual_pixel_evidence(
     if baseline.size != control.size or slide_width <= 0 or slide_height <= 0:
         raise NativeMathError("counterfactual PNG dimensions or slide geometry are invalid")
     image_width, image_height = baseline.size
-    x0 = max(0, int(left / slide_width * image_width) - 2)
-    y0 = max(0, int(top / slide_height * image_height) - 2)
-    x1 = min(image_width, int((left + shape_width) / slide_width * image_width + 0.999) + 2)
-    y1 = min(image_height, int((top + shape_height) / slide_height * image_height + 0.999) + 2)
+    # Office Math glyphs may overhang the nominal text-box rectangle (italic
+    # correction, accents, and sub/superscripts are the common cases).  Treat
+    # a small resolution-scaled halo as part of the formula evidence region;
+    # changes beyond that halo remain forbidden.  A fixed two-pixel halo was
+    # too small at the canonical 1600 px export and made valid counterfactual
+    # controls fail solely because of glyph antialiasing outside the box.
+    padding = max(2, int(image_height * 0.01 + 0.999))
+    x0 = max(0, int(left / slide_width * image_width) - padding)
+    y0 = max(0, int(top / slide_height * image_height) - padding)
+    x1 = min(
+        image_width,
+        int((left + shape_width) / slide_width * image_width + 0.999) + padding,
+    )
+    y1 = min(
+        image_height,
+        int((top + shape_height) / slide_height * image_height + 0.999) + padding,
+    )
     if x1 <= x0 or y1 <= y0:
         raise NativeMathError("counterfactual formula bounding box is empty")
     difference = ImageChops.difference(baseline, control)
@@ -647,12 +691,42 @@ def _counterfactual_pixel_evidence(
     required_changed = max(8, int(region_area * 0.0001))
     return {
         "pixel_bbox": [x0, y0, x1, y1],
+        "padding_pixels": padding,
         "inside_changed_pixels": inside_changed,
         "outside_changed_pixels": outside_changed,
         "required_changed_pixels": required_changed,
         "pass": inside_changed >= required_changed
         and outside_changed <= max(10, int(inside_changed * 0.05)),
     }
+
+
+def _project_powerpoint_normalized_inline_root(
+    root: etree._Element, expected_mode: str
+) -> tuple[etree._Element, bool]:
+    """Project PowerPoint's standalone-inline storage rewrite back to m:oMath.
+
+    PowerPoint rewrites a text box whose only content is one inline ``m:oMath``
+    run as ``m:oMathPara/m:oMath`` during Save As.  The inner expression is
+    unchanged and the external plan/metadata still bind it as inline.  Accept
+    only that narrow, empirically observed wrapper normalization; mixed text
+    runs and malformed/multi-expression paragraphs remain strict failures.
+    """
+    if expected_mode != "inline" or etree.QName(root).localname != "oMathPara":
+        return root, False
+    direct_math = [
+        child
+        for child in root
+        if child.tag == _qn(M_NS, "oMath")
+    ]
+    unexpected = [
+        child
+        for child in root
+        if etree.QName(child).namespace != M_NS
+        or etree.QName(child).localname not in {"oMathParaPr", "oMath"}
+    ]
+    if len(direct_math) != 1 or unexpected:
+        return root, False
+    return direct_math[0], True
 
 
 def _validated_receipt(path: Path) -> dict[str, Any]:
@@ -987,6 +1061,8 @@ def _validated_plan_operations(
         "receipt_path",
         "receipt_sha256",
         "runs",
+        "target_font_size_pt",
+        "target_font_color",
     }
     allowed_run_keys = {"kind", "text", "formula_id", "receipt_path", "receipt_sha256"}
     for index, operation in enumerate(raw_operations):
@@ -1001,6 +1077,28 @@ def _validated_plan_operations(
             raise NativeMathError(f"{label} operation {index} slide_index must be a positive integer")
         if not isinstance(name, str) or not name:
             raise NativeMathError(f"{label} operation {index} placeholder_name must be non-empty")
+        target_font_size = operation.get("target_font_size_pt")
+        target_font_color = operation.get("target_font_color")
+        if (target_font_size is None) != (target_font_color is None):
+            raise NativeMathError(
+                f"{label} operation {index} must provide both target font style fields"
+            )
+        if target_font_size is not None:
+            if (
+                isinstance(target_font_size, bool)
+                or not isinstance(target_font_size, (int, float))
+                or not math.isfinite(float(target_font_size))
+                or not 6.0 <= float(target_font_size) <= 72.0
+            ):
+                raise NativeMathError(
+                    f"{label} operation {index} target_font_size_pt must be 6..72"
+                )
+            if not isinstance(target_font_color, str) or not re.fullmatch(
+                r"#[A-Fa-f0-9]{6}", target_font_color
+            ):
+                raise NativeMathError(
+                    f"{label} operation {index} target_font_color must be #RRGGBB"
+                )
         key = (slide_index, name)
         if key in seen:
             raise NativeMathError(
@@ -1038,9 +1136,20 @@ def _build_alternate_content(
     template_shape: etree._Element,
     runs: Sequence[Mapping[str, Any]],
     placeholder_name: str,
+    *,
+    target_font_size_pt: float | None = None,
+    target_font_color: str | None = None,
 ) -> tuple[etree._Element, dict[str, Any]]:
     choice_shape = copy.deepcopy(template_shape)
     fallback_shape = copy.deepcopy(template_shape)
+    for shape in (choice_shape, fallback_shape):
+        body_properties = shape.find("p:txBody/a:bodyPr", namespaces=NS)
+        if body_properties is None:
+            raise NativeMathError(
+                f"formula placeholder has no DrawingML body properties: {placeholder_name}"
+            )
+        for inset_name in ("lIns", "rIns", "tIns", "bIns"):
+            body_properties.set(inset_name, "0")
     formulas, content_runs = _replace_shape_text(choice_shape, runs, native=True)
     _replace_shape_text(fallback_shape, runs, native=False)
     metadata = {
@@ -1058,6 +1167,36 @@ def _build_alternate_content(
     choice.append(choice_shape)
     fallback = etree.SubElement(alternate, _qn(MC_NS, "Fallback"))
     fallback.append(fallback_shape)
+    if target_font_size_pt is not None and target_font_color is not None:
+        size_hundredths = str(round(target_font_size_pt * 100))
+        color_value = target_font_color[1:].upper()
+        run_properties = alternate.xpath(
+            ".//a:rPr|.//a:defRPr|.//a:endParaRPr", namespaces=NS
+        )
+        if not run_properties:
+            raise NativeMathError(
+                f"target font style has no DrawingML run properties: {placeholder_name}"
+            )
+        fill_tags = {
+            _qn(A_NS, local_name)
+            for local_name in (
+                "noFill",
+                "solidFill",
+                "gradFill",
+                "blipFill",
+                "pattFill",
+                "grpFill",
+            )
+        }
+        for properties in run_properties:
+            properties.set("sz", size_hundredths)
+            for child in list(properties):
+                if child.tag in fill_tags:
+                    properties.remove(child)
+            solid_fill = etree.Element(_qn(A_NS, "solidFill"))
+            color = etree.SubElement(solid_fill, _qn(A_NS, "srgbClr"))
+            color.set("val", color_value)
+            properties.insert(0, solid_fill)
     return alternate, metadata
 
 
@@ -1285,12 +1424,38 @@ def inject_plan(
                 if parent is None:
                     raise NativeMathError(f"placeholder has no parent: {name}")
                 runs = _operation_runs(operation, plan_file.parent)
-                alternate, metadata = _build_alternate_content(template_shape, runs, name)
+                alternate, metadata = _build_alternate_content(
+                    template_shape,
+                    runs,
+                    name,
+                    target_font_size_pt=(
+                        float(operation["target_font_size_pt"])
+                        if "target_font_size_pt" in operation
+                        else None
+                    ),
+                    target_font_color=(
+                        str(operation["target_font_color"])
+                        if "target_font_color" in operation
+                        else None
+                    ),
+                )
                 parent.replace(target, alternate)
                 results.append(
                     {
                         "slide_index": slide_index,
                         "placeholder_name": name,
+                        **(
+                            {
+                                "target_font_size_pt": float(
+                                    operation["target_font_size_pt"]
+                                ),
+                                "target_font_color": str(
+                                    operation["target_font_color"]
+                                ).upper(),
+                            }
+                            if "target_font_size_pt" in operation
+                            else {}
+                        ),
                         "formula_ids": [item["formula_id"] for item in metadata["formulas"]],
                         "latex_sha256": [item["latex_sha256"] for item in metadata["formulas"]],
                         "omml_sha256": [item["omml_sha256"] for item in metadata["formulas"]],
@@ -1359,6 +1524,17 @@ def _expected_from_plan(plan_path: Path) -> dict[tuple[int, str], dict[str, Any]
             "formula_ids": [
                 str(run["formula_id"]) for run in expected_runs if run["kind"] == "math"
             ],
+            **(
+                {
+                    "target_font_size_pt": float(operation["target_font_size_pt"]),
+                    "target_font_color": str(operation["target_font_color"]).upper(),
+                    "target_font_color_rgb": _hex_to_office_rgb(
+                        str(operation["target_font_color"])
+                    ),
+                }
+                if "target_font_size_pt" in operation
+                else {}
+            ),
         }
     return expected
 
@@ -1380,6 +1556,14 @@ def _expected_injection_operations(
             {
                 "slide_index": slide_index,
                 "placeholder_name": name,
+                **(
+                    {
+                        "target_font_size_pt": shape["target_font_size_pt"],
+                        "target_font_color": shape["target_font_color"],
+                    }
+                    if "target_font_size_pt" in shape
+                    else {}
+                ),
                 "formula_ids": [run["formula_id"] for run in formulas],
                 "latex_sha256": [run["latex_sha256"] for run in formulas],
                 "omml_sha256": [run["omml_sha256"] for run in formulas],
@@ -1531,6 +1715,7 @@ def _validate_runtime_roundtrip_receipt(
     stages = payload.get("stages") if isinstance(payload.get("stages"), Mapping) else {}
     required_stages = (
         "opened",
+        "formula_styles_verified_at_open",
         "saved_as_staging_pptx",
         "first_close",
         "reopened_read_only",
@@ -1615,6 +1800,19 @@ def _validate_runtime_roundtrip_receipt(
             color_values = (
                 [int(value) for value in raw_colors] if isinstance(raw_colors, list) else []
             )
+            expected_shape = expected.get(key, {})
+            style_valid = True
+            if "target_font_size_pt" in expected_shape:
+                target_size = float(expected_shape["target_font_size_pt"])
+                target_color = str(expected_shape["target_font_color"])
+                target_color_rgb = int(expected_shape["target_font_color_rgb"])
+                style_valid = (
+                    abs(float(item.get("target_font_size_pt")) - target_size) <= 1e-6
+                    and str(item.get("target_font_color")) == target_color
+                    and int(item.get("target_font_color_rgb")) == target_color_rgb
+                    and abs(minimum_font_size - target_size) <= 0.15
+                    and color_values == [target_color_rgb]
+                )
             recomputed_contrast = min(
                 (_rgb_contrast_ratio(color, background_rgb) for color in color_values),
                 default=0.0,
@@ -1683,6 +1881,7 @@ def _validate_runtime_roundtrip_receipt(
             or checked_character_count < 1
             or item.get("ink_evidence_error") not in {None, ""}
             or not zone_inventory_valid
+            or not style_valid
         ):
             invalid_shape_rows.append(dict(item))
             continue
@@ -1706,6 +1905,60 @@ def _validate_runtime_roundtrip_receipt(
                     {"slide_index": key[0], "shape_name": key[1], "math_zone_count": count}
                     for key, count in sorted(observed.items())
                 ],
+            }
+        )
+
+    expected_styles = [
+        {
+            "slide_index": slide_index,
+            "shape_name": shape_name,
+            "target_font_size_pt": shape["target_font_size_pt"],
+            "target_font_color": shape["target_font_color"],
+            "target_font_color_rgb": shape["target_font_color_rgb"],
+        }
+        for (slide_index, shape_name), shape in sorted(expected.items())
+        if "target_font_size_pt" in shape
+    ]
+    raw_verified_styles = payload.get("verified_input_formula_styles")
+    verified_styles = (
+        [dict(item) for item in raw_verified_styles if isinstance(item, Mapping)]
+        if isinstance(raw_verified_styles, list)
+        else []
+    )
+    verified_styles.sort(
+        key=lambda item: (int(item.get("slide_index", 0)), str(item.get("shape_name", "")))
+    )
+    verified_targets: list[dict[str, Any]] = []
+    invalid_verified_styles: list[dict[str, Any]] = []
+    for item in verified_styles:
+        try:
+            target = {
+                "slide_index": int(item["slide_index"]),
+                "shape_name": str(item["shape_name"]),
+                "target_font_size_pt": float(item["target_font_size_pt"]),
+                "target_font_color": str(item["target_font_color"]),
+                "target_font_color_rgb": int(item["target_font_color_rgb"]),
+            }
+            observed_valid = (
+                abs(float(item["observed_font_size_pt"]) - target["target_font_size_pt"])
+                <= 0.15
+                and int(item["observed_font_color_rgb"])
+                == target["target_font_color_rgb"]
+                and 0 <= float(item["observed_font_transparency"]) <= 0.05
+            )
+        except (KeyError, TypeError, ValueError):
+            invalid_verified_styles.append(item)
+            continue
+        verified_targets.append(target)
+        if not observed_valid:
+            invalid_verified_styles.append(item)
+    if verified_targets != expected_styles or invalid_verified_styles:
+        findings.append(
+            {
+                "code": "POWERPOINT_RUNTIME_FORMULA_STYLE_BINDING_INVALID",
+                "expected": expected_styles,
+                "actual": verified_styles,
+                "invalid": invalid_verified_styles,
             }
         )
 
@@ -2445,7 +2698,16 @@ def audit_pptx(
                         continue
                     root_name = etree.QName(roots[0]).localname
                     omml_hash = _sha256_bytes(_canonical_xml(roots[0]))
-                    semantic_omml_hash = _semantic_omml_sha256(roots[0])
+                    projected_root = roots[0]
+                    powerpoint_mode_normalized = False
+                    if expected_formula is not None:
+                        projected_root, powerpoint_mode_normalized = (
+                            _project_powerpoint_normalized_inline_root(
+                                roots[0], str(expected_formula["mode"])
+                            )
+                        )
+                    semantic_omml_hash = _semantic_omml_sha256(projected_root)
+                    storage_semantic_omml_hash = _semantic_omml_sha256(roots[0])
                     if expected_formula is None:
                         findings.append(
                             {
@@ -2459,7 +2721,7 @@ def audit_pptx(
                         expected_root = (
                             "oMathPara" if expected_formula["mode"] == "display" else "oMath"
                         )
-                        if root_name != expected_root:
+                        if root_name != expected_root and not powerpoint_mode_normalized:
                             findings.append(
                                 {
                                     "code": "NATIVE_FORMULA_MODE_ROOT_MISMATCH",
@@ -2524,8 +2786,10 @@ def audit_pptx(
                                 expected_formula is not None
                                 and omml_hash != expected_formula["omml_sha256"]
                             ),
+                            "powerpoint_mode_normalized": powerpoint_mode_normalized,
                             "semantic_omml_profile": SEMANTIC_OMML_PROFILE,
                             "semantic_omml_sha256": semantic_omml_hash,
+                            "storage_semantic_omml_sha256": storage_semantic_omml_hash,
                             "root": f"m:{root_name}",
                         }
                     )
@@ -2590,17 +2854,93 @@ def audit_pptx(
 
                 fallback = alternate.find("mc:Fallback", namespaces=NS)
                 fallback_shapes = [] if fallback is None else fallback.xpath("./p:sp", namespaces=NS)
-                if (
-                    fallback is None
-                    or len(fallback_shapes) != 1
-                    or fallback.xpath(".//p:pic|.//a:blip|.//p:oleObj", namespaces=NS)
-                    or not _shape_description(fallback_shapes[0]).startswith(FALLBACK_PREFIX)
-                ):
+                fallback_valid = fallback is not None and len(fallback_shapes) == 1
+                fallback_metadata_normalized = False
+                fallback_diagnostics: dict[str, Any] = {
+                    "fallback_present": fallback is not None,
+                    "shape_count": len(fallback_shapes),
+                }
+                if fallback_valid:
+                    fallback_shape = fallback_shapes[0]
+                    fallback_description = _shape_description(fallback_shape)
+                    fallback_metadata = _decode_metadata(
+                        fallback_description, prefix=FALLBACK_PREFIX
+                    )
+                    if fallback_metadata is None:
+                        # PowerPoint copies the active Choice description into the
+                        # fallback while saving a styled MathZone.  Accept only that
+                        # exact, observed normalization: the metadata must still equal
+                        # the Choice and the fallback must remain plain DrawingML text.
+                        fallback_metadata = _decode_metadata(fallback_description)
+                        fallback_metadata_normalized = fallback_metadata is not None
+                    forbidden_fallback_content = fallback.xpath(
+                        ".//p:pic|.//a:blip|.//p:oleObj|.//a14:m|.//m:oMath|.//m:oMathPara",
+                        namespaces=NS,
+                    )
+                    fallback_paragraphs = fallback_shape.xpath(
+                        "./p:txBody/a:p", namespaces=NS
+                    )
+                    fallback_text = "".join(
+                        fallback_shape.xpath("./p:txBody/a:p//a:t/text()", namespaces=NS)
+                    )
+                    expected_fallback_text = "".join(
+                        (
+                            str(run["text"])
+                            if run["kind"] == "text"
+                            else (
+                                ("\\[" if run["mode"] == "display" else "\\(")
+                                + str(run["canonical_latex"])
+                                + ("\\]" if run["mode"] == "display" else "\\)")
+                            )
+                        )
+                        for run in expected_runs
+                    )
+                    fallback_text_matches = (
+                        expected_shape is None
+                        or fallback_text == expected_fallback_text
+                        or (
+                            fallback_metadata_normalized
+                            and not fallback_text.strip(" \t\r\n\u00a0")
+                        )
+                    )
+                    fallback_valid = (
+                        not forbidden_fallback_content
+                        and len(fallback_paragraphs) == 1
+                        and fallback_metadata == metadata
+                        and fallback_text_matches
+                    )
+                    fallback_diagnostics.update(
+                        {
+                            "description_prefix": (
+                                META_PREFIX
+                                if fallback_description.startswith(META_PREFIX)
+                                else (
+                                    FALLBACK_PREFIX
+                                    if fallback_description.startswith(FALLBACK_PREFIX)
+                                    else "UNRECOGNIZED"
+                                )
+                            ),
+                            "metadata_equal": fallback_metadata == metadata,
+                            "forbidden_content_count": len(forbidden_fallback_content),
+                            "forbidden_content_tags": [
+                                etree.QName(node).localname
+                                for node in forbidden_fallback_content
+                            ],
+                            "paragraph_count": len(fallback_paragraphs),
+                            "text_sha256": _sha256_text(fallback_text),
+                            "text_is_normalized_blank": not fallback_text.strip(
+                                " \t\r\n\u00a0"
+                            ),
+                            "text_matches_expected": fallback_text == expected_fallback_text,
+                        }
+                    )
+                if not fallback_valid:
                     findings.append(
                         {
                             "code": "NATIVE_MATH_FALLBACK_INVALID",
                             "slide_index": slide_index,
                             "shape": shape_name,
+                            "diagnostics": fallback_diagnostics,
                         }
                     )
                 seen[key] = formula_ids
@@ -2613,6 +2953,9 @@ def audit_pptx(
                         "geometry": geometry,
                         "content_runs": actual_signature,
                         "formulas": formula_rows,
+                        "powerpoint_fallback_metadata_normalized": (
+                            fallback_metadata_normalized
+                        ),
                     }
                 )
             masquerade_findings, masquerade_rows = _slide_masquerade_findings(

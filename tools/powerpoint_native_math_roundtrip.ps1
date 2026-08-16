@@ -304,6 +304,16 @@ function Get-ContrastRatio([int64]$FirstRgb, [int64]$SecondRgb) {
     return ($lighter + 0.05) / ($darker + 0.05)
 }
 
+function Convert-HexToOfficeRgb([string]$HexColor) {
+    if ($HexColor -notmatch '^#[0-9A-Fa-f]{6}$') {
+        throw "Invalid target font color: $HexColor"
+    }
+    $red = [Convert]::ToInt32($HexColor.Substring(1, 2), 16)
+    $green = [Convert]::ToInt32($HexColor.Substring(3, 2), 16)
+    $blue = [Convert]::ToInt32($HexColor.Substring(5, 2), 16)
+    return [int64]($red + 256 * $green + 65536 * $blue)
+}
+
 function Get-TextInkEvidence([object]$TextRange, [int64]$BackgroundRgb) {
     $minimumFontSize = [double]::PositiveInfinity
     $minimumContrast = [double]::PositiveInfinity
@@ -380,6 +390,8 @@ if ([StringComparer]::OrdinalIgnoreCase.Equals($renderFull.TrimEnd('\'), $render
 }
 $injectionReportText = [System.IO.File]::ReadAllText($injectionReportFull, [System.Text.Encoding]::UTF8)
 $injectionReport = $injectionReportText | ConvertFrom-Json
+$planText = [System.IO.File]::ReadAllText($planFull, [System.Text.Encoding]::UTF8)
+$expectedPlan = $planText | ConvertFrom-Json
 $inputHash = Get-Sha256 $inputFull
 $planHash = Get-Sha256 $planFull
 $injectionReportHash = Get-Sha256 $injectionReportFull
@@ -388,6 +400,35 @@ if ($injectionReport.document_type -ne 'NATIVE_OFFICE_MATH_INJECTION_REPORT' -or
     $injectionReport.output_sha256 -ne $inputHash -or
     $injectionReport.plan_sha256 -ne $planHash) {
     throw 'Injection report is not bound to the exact input PPTX and expected plan.'
+}
+$expectedFormulaStyles = @{}
+$styleOperations = @()
+foreach ($operation in @($expectedPlan.operations)) {
+    $hasTargetSize = $null -ne $operation.PSObject.Properties['target_font_size_pt']
+    $hasTargetColor = $null -ne $operation.PSObject.Properties['target_font_color']
+    if ($hasTargetSize -ne $hasTargetColor) {
+        throw "Expected plan has an incomplete target font style for $($operation.placeholder_name)."
+    }
+    if (-not $hasTargetSize) { continue }
+    $targetSize = [double]$operation.target_font_size_pt
+    $targetColor = [string]$operation.target_font_color
+    if ([double]::IsNaN($targetSize) -or [double]::IsInfinity($targetSize) -or
+        $targetSize -lt 6.0 -or $targetSize -gt 72.0) {
+        throw "Expected plan has an invalid target font size for $($operation.placeholder_name)."
+    }
+    $styleKey = ([string]$operation.slide_index) + "`n" + [string]$operation.placeholder_name
+    if ($expectedFormulaStyles.ContainsKey($styleKey)) {
+        throw "Expected plan repeats a target font style for $($operation.placeholder_name)."
+    }
+    $style = [pscustomobject][ordered]@{
+        slide_index = [int]$operation.slide_index
+        shape_name = [string]$operation.placeholder_name
+        target_font_size_pt = $targetSize
+        target_font_color = $targetColor.ToUpperInvariant()
+        target_font_color_rgb = Convert-HexToOfficeRgb $targetColor
+    }
+    $expectedFormulaStyles[$styleKey] = $style
+    $styleOperations += $style
 }
 if (Test-Path -LiteralPath $outputFull) {
     throw "Output already exists; this probe requires a fresh path: $outputFull"
@@ -438,9 +479,11 @@ $templateInventory = @()
 $slideBackgroundColors = @{}
 $renders = @()
 $counterfactualRenders = @()
+$verifiedInputFormulaStyles = @()
 $violations = @()
 $stages = [ordered]@{
     opened = $false
+    formula_styles_verified_at_open = $false
     saved_as_staging_pptx = $false
     first_close = $false
     reopened_read_only = $false
@@ -494,6 +537,35 @@ try {
 
     $presentation = $application.Presentations.Open($inputFull, $false, $false, $true)
     $stages.opened = $true
+    foreach ($style in $styleOperations) {
+        $styleSlide = $presentation.Slides.Item([int]$style.slide_index)
+        $styleShape = $styleSlide.Shapes.Item([string]$style.shape_name)
+        $styleTextRange = $styleShape.TextFrame2.TextRange
+        $styleZones = $styleTextRange.MathZones(-1, -1)
+        if ([int]$styleZones.Count -lt 1) {
+            throw "Target font style shape has no MathZone: $($style.shape_name)"
+        }
+        $observedSize = [double]$styleZones.Font.Size
+        $observedColor = [int64]$styleZones.Font.Fill.ForeColor.RGB
+        $observedTransparency = [double]$styleZones.Font.Fill.Transparency
+        if ($observedSize -le 0 -or
+            [Math]::Abs($observedSize - [double]$style.target_font_size_pt) -gt 0.15 -or
+            $observedColor -ne [int64]$style.target_font_color_rgb -or
+            $observedTransparency -lt 0 -or $observedTransparency -gt 0.05) {
+            throw "Injected MathZone target font style was not materialized for $($style.shape_name)."
+        }
+        $verifiedInputFormulaStyles += [pscustomobject][ordered]@{
+            slide_index = [int]$style.slide_index
+            shape_name = [string]$style.shape_name
+            target_font_size_pt = [double]$style.target_font_size_pt
+            target_font_color = [string]$style.target_font_color
+            target_font_color_rgb = [int64]$style.target_font_color_rgb
+            observed_font_size_pt = $observedSize
+            observed_font_color_rgb = $observedColor
+            observed_font_transparency = $observedTransparency
+        }
+    }
+    $stages.formula_styles_verified_at_open = $true
     $presentation.SaveAs($stagingOutput, 24)
     $stages.saved_as_staging_pptx = $true
     $presentation.Close()
@@ -723,6 +795,11 @@ try {
             catch {
                 $zoneError = $_.Exception.Message
             }
+            $styleKey = ([string]$slideIndex) + "`n" + [string]$row.shape_name
+            $expectedStyle = if ($expectedFormulaStyles.ContainsKey($styleKey)) {
+                $expectedFormulaStyles[$styleKey]
+            }
+            else { $null }
             $mathRow = [pscustomobject][ordered]@{
                 slide_index = $slideIndex
                 shape_name = $row.shape_name
@@ -741,6 +818,9 @@ try {
                 slide_width = $slideWidth
                 slide_height = $slideHeight
                 text_fill_transparency = $textFillTransparency
+                target_font_size_pt = if ($null -ne $expectedStyle) { [double]$expectedStyle.target_font_size_pt } else { $null }
+                target_font_color = if ($null -ne $expectedStyle) { [string]$expectedStyle.target_font_color } else { $null }
+                target_font_color_rgb = if ($null -ne $expectedStyle) { [int64]$expectedStyle.target_font_color_rgb } else { $null }
                 background_rgb = $null
                 background_source = $null
                 minimum_font_size = $null
@@ -804,9 +884,17 @@ try {
                 }
                 continue
             }
-            if ($underlayOverlap -lt 0.995 -or $lowerShape.fill_type -ne 1 -or $null -eq $lowerShape.fill_transparency -or
-                $lowerShape.fill_transparency -gt 0.05 -or $null -eq $lowerShape.fill_color_rgb -or
-                $lowerShape.fill_color_rgb -lt 0 -or $lowerShape.fill_color_rgb -gt 16777215) {
+            $isReliableSolidFill = $lowerShape.fill_type -eq 1 -and
+                $null -ne $lowerShape.fill_transparency -and $lowerShape.fill_transparency -le 0.05 -and
+                $null -ne $lowerShape.fill_color_rgb -and $lowerShape.fill_color_rgb -ge 0 -and
+                $lowerShape.fill_color_rgb -le 16777215
+            # Arrowheads and rounded corners can touch a formula box by a few pixels
+            # even though they are foreground decoration, not its effective background.
+            # Ignore only a narrow, opaque-solid boundary contact and continue looking
+            # for the first shape that actually covers the complete formula box.  Raster,
+            # OLE, transparent/gradient, and material partial underlays remain fatal.
+            if ($isReliableSolidFill -and $underlayOverlap -lt 0.02) { continue }
+            if ($underlayOverlap -lt 0.995 -or -not $isReliableSolidFill) {
                 $violations += [pscustomobject]@{
                     code = 'NATIVE_MATH_UNDERLAY_UNVERIFIABLE'
                     slide_index = $mathRow.slide_index
@@ -858,6 +946,25 @@ try {
                 minimum_contrast_ratio = $inkEvidence.minimum_contrast_ratio
                 maximum_character_transparency = $inkEvidence.maximum_character_transparency
                 error = $inkEvidence.error
+            }
+        }
+        if ($null -ne $mathRow.target_font_size_pt -and $null -eq $inkEvidence.error) {
+            $sizeDelta = [Math]::Abs(
+                [double]$inkEvidence.minimum_font_size - [double]$mathRow.target_font_size_pt
+            )
+            $observedColors = @($inkEvidence.color_rgb_values)
+            $colorMatches = $observedColors.Count -eq 1 -and
+                [int64]$observedColors[0] -eq [int64]$mathRow.target_font_color_rgb
+            if ($sizeDelta -gt 0.15 -or -not $colorMatches) {
+                $violations += [pscustomobject]@{
+                    code = 'NATIVE_MATH_STYLE_MISMATCH'
+                    slide_index = $mathRow.slide_index
+                    shape_name = $mathRow.shape_name
+                    target_font_size_pt = $mathRow.target_font_size_pt
+                    observed_minimum_font_size = $inkEvidence.minimum_font_size
+                    target_font_color_rgb = $mathRow.target_font_color_rgb
+                    observed_color_rgb_values = $observedColors
+                }
             }
         }
     }
@@ -1115,6 +1222,7 @@ $payload = [ordered]@{
     render_directory = $renderFull
     powerpoint_version = $powerPointVersion
     stages = $stages
+    verified_input_formula_styles = $verifiedInputFormulaStyles
     math_shapes = $mathShapes
     shape_inventory = $shapeInventory
     template_inventory = $templateInventory

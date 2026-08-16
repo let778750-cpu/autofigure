@@ -16,63 +16,67 @@
   "current": {
     "status": "MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW",
     "injected_pptx": {
-      "path": "native-final.pptx",
-      "bytes": 30627,
-      "sha256": "ca7a08ddfb3cadc2cb9d79f614547337bdab0cd51f85e5e636461d41a8376838"
+      "path": "revisions/20260817-zero-insets-cache/native.pptx",
+      "bytes": 30649,
+      "sha256": "48107ec9c83fb48fc3b620dd83d69dccb11461a057f2b9297652a66a53da0340"
     },
     "injection_report": {
-      "path": "injection-report-final.json",
-      "bytes": 2018,
-      "sha256": "c6f6c2ec9528daa514c583b88e883539acf4b752357239aa33e18e82a2936314"
+      "path": "revisions/20260817-zero-insets-cache/injection-report.json",
+      "bytes": 2051,
+      "sha256": "6424bdf9bbdbb74f50f007e9f358333e54e10900e32ee75ecd6d221b2203b93d"
     },
     "roundtripped_pptx": {
-      "path": "roundtripped-final.pptx",
-      "bytes": 35001,
-      "sha256": "9c03e7b93ea3aff7a60e6c27782907f3b46bbb90079d1ee4ba31176827be5a16"
+      "path": "revisions/20260817-zero-insets-cache/roundtripped.pptx",
+      "bytes": 35032,
+      "sha256": "ea6cf13c01e7134595be1aab8fc86ed7615d8101b56d3016bd9c55614003b862"
     },
     "roundtrip_receipt": {
-      "path": "roundtrip-receipt-final.json",
-      "bytes": 35881,
-      "sha256": "185cfbe32dc451275980cf590f150f4058fbc2e975f7d2173c47e07051b95127"
+      "path": "revisions/20260817-zero-insets-cache/roundtrip-receipt.json",
+      "bytes": 36679,
+      "sha256": "5da064a6fa294935322847af66b969352fa5c563e0a5215d155cfd0e835c13f2"
     },
     "renders": [
       {
-        "path": "renders-final/control-slide-1-shape-3-zone-1.png",
-        "bytes": 6687,
-        "sha256": "df85a9c801f1e10b9f723ec12b97ceaf26a9b0368871bb1776dba39222384301"
+        "path": "revisions/20260817-zero-insets-cache/renders/control-slide-1-shape-3-zone-1.png",
+        "bytes": 6683,
+        "sha256": "2fee340bdfc76722e1e9395feed15dc443fc6f7b0a2bdb39d79afff1f6185377"
       },
       {
-        "path": "renders-final/control-slide-1-shape-4-zone-1.png",
-        "bytes": 7831,
-        "sha256": "184846d6b82993ff396bbff2f2d4e8d075f3e7c0657075e8f08dedf66ef62861"
+        "path": "revisions/20260817-zero-insets-cache/renders/control-slide-1-shape-4-zone-1.png",
+        "bytes": 7830,
+        "sha256": "5974fcae50ad8346325d21fb6eac4fc008774f893338b74abefd71d6c10dce6b"
       },
       {
-        "path": "renders-final/control-slide-1-shape-4-zone-2.png",
-        "bytes": 7241,
-        "sha256": "c5c795e9bf1fb9c8b82caec679a3536afcb6b2bd73c7c5c4f18c30d64608c191"
+        "path": "revisions/20260817-zero-insets-cache/renders/control-slide-1-shape-4-zone-2.png",
+        "bytes": 7240,
+        "sha256": "8e816d3030c7dfd223cb18c71906b43157b8c5f25bfb401a5c455d585f860a03"
       },
       {
-        "path": "renders-final/slide-1.png",
-        "bytes": 8190,
-        "sha256": "eddfde2cd71890368ed689fffe382cc8178f45243f23d19efb4360a0371d3903"
+        "path": "revisions/20260817-zero-insets-cache/renders/slide-1.png",
+        "bytes": 8189,
+        "sha256": "05924356d149eff477082fd75937a1c65098547487bc771c5d7a3cca98bf27a4"
       },
       {
-        "path": "renders-final/slide-1.verify.png",
-        "bytes": 8190,
-        "sha256": "eddfde2cd71890368ed689fffe382cc8178f45243f23d19efb4360a0371d3903"
+        "path": "revisions/20260817-zero-insets-cache/renders/slide-1.verify.png",
+        "bytes": 8189,
+        "sha256": "05924356d149eff477082fd75937a1c65098547487bc771c5d7a3cca98bf27a4"
       }
     ],
     "audit": {
-      "path": "audit-final.json",
-      "bytes": 30125,
-      "sha256": "4970caeb45021ef2d63be7562e421512ac81a1570d301b2b3c27989a5f6962b6",
-      "evidence_binding_sha256": "3c18bfd28ffb65924d1d9cd9284d6146a513dd2d17b88f8eec61691e19538318"
+      "path": "revisions/20260817-zero-insets-cache/audit.json",
+      "bytes": 31372,
+      "sha256": "0ad97f43d19f075ba0942aa6b0b62eae7bc7d69b0e58bd3787212bfa5a80d752",
+      "evidence_binding_sha256": "d2ae39a55a27a780f843825f09bc47a2d61626538cad63f59b4b14ae7eed68c7"
     },
-    "finalizer_python_sha256": "0b802ba44620636dc49ff4eb4ab25a4e29de5168a40c7818bc8ba009203a60af",
-    "roundtrip_script_sha256": "6efe6ea965e9c6b8d370fd57172c30ab51c8c064faeee95079f083944c970976",
+    "finalizer_python_sha256": "5e83b478f83e8293cfd6c1de0d74bc5ce41ef3dd4f41f17c5b035cdacc11c13d",
+    "roundtrip_script_sha256": "550f53ab49e52f94f5e794e74866de90a513b19d3a6f57cd7722087be07877dc",
     "output_policy_sha256": "31b2a46881e3252123d76c4159e3bdb91e84c82e028078fec6cea2da5fbce1ce"
   },
   "non_authoritative_history": [
+    {
+      "audit": "audit-final.json",
+      "reason": "read-only historical PASS bound to the pre-zero-inset, pre-XSLT-cache finalizer; this record is not current"
+    },
     {
       "audit": "history/pre-output-policy/audit.json",
       "reason": "read-only historical PASS bound to a pre-output-policy finalizer; embedded absolute paths are archival and this record is not current"

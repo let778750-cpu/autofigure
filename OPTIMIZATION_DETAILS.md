@@ -303,3 +303,11 @@ PILOT_ONLY_NO_PRODUCTION_CHANGE
 6. 四图 Pilot 工具通过测试并输出不越权的描述性报告；
 7. 全量 pytest、ruff、hygiene PASS；
 8. 独立 Git worktree clean，所有证据可追溯到提交哈希。
+
+## 8. ModularAgent 纵切片当前证据（2026-08-17）
+
+当前实现以 `perception-20260816T144433Z-792a16d4-8e9217` 为隔离 run，冻结 authority SHA-256 为 `1899393A1AC72FFCEB1CA02570E03E035217061C657014AFC1433D3ADA810945`。用户明确确认的 `AUTH-0016`、`AUTH-0017`、`AUTH-0020`、`AUTH-0021`、`AUTH-0033` 已晋升为 `CONFIRMED`，authority 未由下游绘制或审计环节改写。
+
+当前 PowerPoint 候选是 `powerpoint-case/build/candidates/modularagent-final-candidate-projected-v7.pptx`，SHA-256 为 `D3F889F96FF8DCADAEAB5465213FC7164B551A1FFDD82E8D60835831DE406D0A`。fresh PowerPoint readback/render 的机械证据为：236 个 shape、15 条两端均附着的 connector、23 个原生 Office Math 公式、1 个图片对象、0 个 hard failure、0 个 warning；目标尺寸渲染为 1429×627。全量测试为 289 passed、1 skipped，ruff、PowerShell 语法检查和项目 hygiene 均通过。
+
+这些结果只证明当前候选的结构、原生性、公式事务和机械门禁已经闭环，不等于像素级 1:1，也不等于独立 Reviewer 已批准。唯一图片对象仍是 observation 槽的哈希绑定 reference preview，并有原生 `REFERENCE PREVIEW — REPLACE ME` 标记；因此最高状态继续限定为 `CANDIDATE_WITH_REFERENCE_PREVIEWS`。在用户替换该素材并完成 fresh 独立复核前，不得宣称 `APPROVED` 或完成最终交付。
