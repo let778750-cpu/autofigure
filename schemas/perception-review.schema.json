@@ -56,6 +56,26 @@
         }
       }
     },
+    "authorityBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "schema_path",
+        "schema_sha256",
+        "authority_id",
+        "source_sha256"
+      ],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "schema_path": {"type": "string", "minLength": 1},
+        "schema_sha256": {"$ref": "#/$defs/sha256"},
+        "authority_id": {"type": "string", "minLength": 1},
+        "source_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
     "emptyEvidence": {
       "type": "object",
       "additionalProperties": false,
@@ -101,6 +121,7 @@
         "ocr_confidence",
         "review_flags",
         "formula_like",
+        "authority_item_id",
         "status",
         "confirmed_text",
         "authoritative_latex",
@@ -129,6 +150,12 @@
         },
         "formula_like": {
           "type": "boolean"
+        },
+        "authority_item_id": {
+          "oneOf": [
+            {"type": "string", "pattern": "^AUTH-[0-9]{4}$"},
+            {"type": "null"}
+          ]
         },
         "status": {
           "enum": [
@@ -262,9 +289,6 @@
           },
           "then": {
             "properties": {
-              "formula_like": {
-                "const": true
-              },
               "confirmed_text": {
                 "type": "null"
               },
@@ -313,6 +337,7 @@
         "created_at_utc",
         "status",
         "raw_manifest",
+        "source_authority",
         "decisions"
       ],
       "properties": {
@@ -331,6 +356,12 @@
         },
         "raw_manifest": {
           "$ref": "#/$defs/binding"
+        },
+        "source_authority": {
+          "oneOf": [
+            {"$ref": "#/$defs/authorityBinding"},
+            {"type": "null"}
+          ]
         },
         "decisions": {
           "type": "array",
@@ -459,6 +490,7 @@
         "created_at_utc",
         "status",
         "raw_manifest",
+        "source_authority",
         "review_input",
         "policy",
         "decisions",
@@ -486,6 +518,12 @@
         },
         "raw_manifest": {
           "$ref": "#/$defs/binding"
+        },
+        "source_authority": {
+          "oneOf": [
+            {"$ref": "#/$defs/authorityBinding"},
+            {"type": "null"}
+          ]
         },
         "review_input": {
           "$ref": "#/$defs/reviewInput"

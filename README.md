@@ -147,6 +147,12 @@ hash-bound review manifest；绿色是原文已确认项，橙色是待人工确
 & $HostPython -I -B -X utf8 tools\validate_source_authority_review.py --manifest examples\generated\runs\<run_id>\authority-review\review-manifest.json --pretty
 ```
 
+authority 冻结后，先用确定性匹配器生成 review decisions。它只会提升“标准化文字精确一致且空间唯一”的候选，或“中心点只落入一个 CONFIRMED 公式 bbox”的候选；其余项目保持 `INCONCLUSIVE`，不得靠 OCR/VLM 自动补全。公式 authority 绑定可以把未被 OCR flags 识别为公式的候选安全提升为 `FORMULA_CONFIRMED`，最终校验器会重验 frozen authority 的路径、schema、SHA、source SHA、item disposition 与 canonical LaTeX：
+
+```powershell
+& $HostPython -I -B -X utf8 tools\prepare_authoritative_perception_review.py --manifest examples\generated\runs\<run_id>\ocr\perception-manifest.json --authority examples\<case>.source-authority.json --fusion-manifest examples\generated\runs\<run_id>\fusion\fusion-manifest.json --output examples\generated\runs\<run_id>\perception-review-decisions.authoritative.json
+```
+
 ```powershell
 & $HostPython -I -B -X utf8 tools\finalize_perception_review.py --manifest examples\generated\runs\<run_id>\ocr\perception-manifest.json --decisions examples\generated\runs\<run_id>\perception-review-decisions.json --init --fusion-manifest examples\generated\runs\<run_id>\fusion\fusion-manifest.json
 # 编辑 decisions；公式必须提供可追溯 LaTeX/原文证据（融合预填的 LaTeX 提议仅供参考比对，永不自证）

@@ -14,8 +14,10 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = PROJECT_ROOT / "tools" / "finalize_perception_review.py"
+PREPARER_PATH = PROJECT_ROOT / "tools" / "prepare_authoritative_perception_review.py"
 RAW_SCHEMA_PATH = PROJECT_ROOT / "schemas" / "perception-manifest.schema.json"
 REVIEW_SCHEMA_PATH = PROJECT_ROOT / "schemas" / "perception-review.schema.json"
+AUTHORITY_PATH = PROJECT_ROOT / "examples" / "modularagent.source-authority.json"
 
 
 def load_adapter():
@@ -30,6 +32,20 @@ def load_adapter():
 
 
 adapter = load_adapter()
+
+
+def load_preparer():
+    module_name = "ai_autofigure_prepare_authoritative_review_test"
+    spec = importlib.util.spec_from_file_location(module_name, PREPARER_PATH)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("Unable to load prepare_authoritative_perception_review.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+preparer = load_preparer()
 
 
 def _resolve_ref(root: Mapping[str, Any], reference: str) -> Mapping[str, Any]:
@@ -209,6 +225,59 @@ def test_finalize_passes_only_after_normal_text_and_formula_authority(tmp_path: 
     assert receipt["raw_manifest"]["manifest_sha256"] == adapter.sha256_file(raw_path)
     assert receipt["review_input"]["sha256"] == adapter.sha256_file(decisions_path)
     assert receipt_path.is_file()
+
+
+def test_frozen_formula_authority_can_promote_unflagged_ocr_candidate(tmp_path: Path):
+    manifest = build_raw_manifest()
+    authority = json.loads(AUTHORITY_PATH.read_text(encoding="utf-8"))
+    manifest["source"]["path"] = str(
+        PROJECT_ROOT
+        / "examples"
+        / "01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png"
+    )
+    manifest["source"]["sha256"] = authority["source"]["sha256"]
+    ordinary, formula = manifest["text_candidates"]
+    ordinary.update(
+        {
+            "text": "MLLM",
+            "normalized_text": "mllm",
+            "bbox_source": {"x": 216.0, "y": 256.0, "w": 65.0, "h": 21.0},
+            "review_flags": [],
+        }
+    )
+    formula.update(
+        {
+            "text": "π",
+            "normalized_text": "π",
+            "bbox_source": {"x": 1022.0, "y": 416.0, "w": 18.0, "h": 17.0},
+            "review_flags": [],
+        }
+    )
+    raw_path = write_raw(tmp_path, manifest)
+    decisions_path = tmp_path / "authoritative-decisions.json"
+
+    document = preparer.prepare_authoritative_review(
+        raw_path,
+        AUTHORITY_PATH,
+        decisions_path,
+    )
+
+    by_id = {item["candidate_id"]: item for item in document["decisions"]}
+    assert by_id["T0001"]["status"] == "CONFIRMED"
+    assert by_id["T0001"]["authority_item_id"] == "AUTH-0019"
+    assert by_id["T0002"]["status"] == "FORMULA_CONFIRMED"
+    assert by_id["T0002"]["formula_like"] is False
+    assert by_id["T0002"]["authority_item_id"] == "AUTH-0036"
+    assert by_id["T0002"]["authoritative_latex"] == r"\pi"
+
+    receipt, exit_code = adapter.finalize_review(
+        raw_path,
+        decisions_path,
+        tmp_path / "receipt.json",
+    )
+    assert exit_code == 0
+    assert receipt["status"] == "PERCEPTION_REVIEW_PASS"
+    assert receipt["source_authority"] == document["source_authority"]
 
 
 def test_pending_and_missing_decisions_write_inconclusive_receipt_and_exit_3(tmp_path: Path):

@@ -28,17 +28,21 @@ if str(TOOLS_DIRECTORY) not in sys.path:
 
 try:
     from output_policy import resolve_output_path
+    from validate_source_authority import SourceAuthorityError, validate_authority
 except ModuleNotFoundError:  # Support: python -m tools.finalize_perception_review
     try:
         from .output_policy import resolve_output_path
+        from .validate_source_authority import SourceAuthorityError, validate_authority
     except ImportError:  # Support importlib loading a standalone file from the project root.
         from tools.output_policy import resolve_output_path
+        from tools.validate_source_authority import SourceAuthorityError, validate_authority
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RAW_SCHEMA = PROJECT_ROOT / "schemas" / "perception-manifest.schema.json"
 DEFAULT_REVIEW_SCHEMA = PROJECT_ROOT / "schemas" / "perception-review.schema.json"
 DEFAULT_FUSION_SCHEMA = PROJECT_ROOT / "schemas" / "fusion-manifest.schema.json"
+DEFAULT_AUTHORITY_SCHEMA = PROJECT_ROOT / "schemas" / "source-authority.schema.json"
 
 TERMINAL_STATUSES = {
     "CONFIRMED",
@@ -132,6 +136,7 @@ def _candidate_decision(candidate: Mapping[str, Any], status: str = "PENDING") -
         "ocr_confidence": candidate["ocr_confidence"],
         "review_flags": list(candidate["review_flags"]),
         "formula_like": is_formula_like(candidate),
+        "authority_item_id": None,
         "status": status,
         "confirmed_text": None,
         "authoritative_latex": None,
@@ -290,6 +295,7 @@ def initialize_review(
         "created_at_utc": utc_now(),
         "status": "REVIEW_PENDING",
         "raw_manifest": make_binding(manifest, resolved_manifest, resolved_raw_schema),
+        "source_authority": None,
         "decisions": decisions,
     }
     validate_json(document, review_schema, "generated perception review decisions")
@@ -347,11 +353,27 @@ def _validate_authoritative_evidence(
 
 
 def _validate_decision_policy(
-    decision: Mapping[str, Any], candidate: Mapping[str, Any]
+    decision: Mapping[str, Any],
+    candidate: Mapping[str, Any],
+    authority_items: Mapping[str, Mapping[str, Any]],
 ) -> None:
     candidate_id = candidate["candidate_id"]
     status = decision["status"]
     formula_like = is_formula_like(candidate)
+    authority_item_id = decision["authority_item_id"]
+    authority_item = (
+        authority_items.get(str(authority_item_id))
+        if authority_item_id is not None
+        else None
+    )
+    if authority_item_id is not None and authority_item is None:
+        raise ReviewError(
+            f"{candidate_id} references unavailable authority item {authority_item_id}"
+        )
+    if authority_item is not None and authority_item["disposition"] != "CONFIRMED":
+        raise ReviewError(
+            f"{candidate_id} references non-CONFIRMED authority item {authority_item_id}"
+        )
     if status in TERMINAL_STATUSES:
         _validate_authoritative_evidence(decision, candidate_id)
     if status in {"CONFIRMED", "CORRECTED"}:
@@ -369,13 +391,55 @@ def _validate_decision_policy(
                 "use CORRECTED for changed text"
             )
     elif status == "FORMULA_CONFIRMED":
-        if not formula_like:
+        authority_is_formula = authority_item is not None and authority_item["kind"] == "FORMULA"
+        if not formula_like and not authority_is_formula:
             raise ReviewError(
-                f"{candidate_id} is not FORMULA_LIKE and cannot use FORMULA_CONFIRMED"
+                f"{candidate_id} is not FORMULA_LIKE and lacks a bound FORMULA authority"
             )
-        _require_nonblank(decision["authoritative_latex"], "authoritative_latex", candidate_id)
+        latex = _require_nonblank(
+            decision["authoritative_latex"], "authoritative_latex", candidate_id
+        )
+        if authority_is_formula and latex != authority_item["canonical_latex"]:
+            raise ReviewError(
+                f"{candidate_id} authoritative_latex differs from {authority_item_id}"
+            )
     elif status not in TERMINAL_STATUSES | UNRESOLVED_STATUSES:
         raise ReviewError(f"{candidate_id} has unsupported status {status!r}")
+
+
+def _validate_bound_authority(
+    authority_binding: Mapping[str, Any] | None,
+    manifest: Mapping[str, Any],
+) -> tuple[dict[str, Mapping[str, Any]], Mapping[str, Any] | None]:
+    if authority_binding is None:
+        return {}, None
+    authority_path = Path(str(authority_binding["path"])).resolve(strict=True)
+    schema_path = Path(str(authority_binding["schema_path"])).resolve(strict=True)
+    try:
+        validation = validate_authority(
+            authority_path,
+            schema_path=schema_path,
+            project_root=PROJECT_ROOT,
+        )
+    except (SourceAuthorityError, OSError) as exc:
+        raise ReviewError(f"Source authority binding is invalid: {exc}") from exc
+    authority = load_json_object(authority_path, "source authority")
+    expected = {
+        "path": str(authority_path),
+        "sha256": validation["authority_sha256"],
+        "schema_path": str(schema_path),
+        "schema_sha256": sha256_file(schema_path),
+        "authority_id": validation["authority_id"],
+        "source_sha256": validation["source_sha256"],
+    }
+    if dict(authority_binding) != expected:
+        raise ReviewError("Source authority binding is stale or inconsistent")
+    if validation["authority_status"] != "FROZEN":
+        raise ReviewError("Source authority must be FROZEN")
+    if expected["source_sha256"] != manifest["source"]["sha256"]:
+        raise ReviewError("Source authority does not bind the raw manifest source")
+    items = {str(item["authority_item_id"]): item for item in authority["items"]}
+    return items, expected
 
 
 def _index_input_decisions(
@@ -424,6 +488,9 @@ def finalize_review(
 
     binding = make_binding(manifest, resolved_manifest, resolved_raw_schema)
     _require_binding(review_input["raw_manifest"], binding)
+    authority_items, authority_binding = _validate_bound_authority(
+        review_input["source_authority"], manifest
+    )
 
     candidates = manifest["text_candidates"]
     expected_ids = {item["candidate_id"] for item in candidates}
@@ -440,7 +507,7 @@ def finalize_review(
         decision["review_flags"] = list(decision["review_flags"])
         decision["evidence"] = dict(decision["evidence"])
         _validate_snapshot(decision, candidate)
-        _validate_decision_policy(decision, candidate)
+        _validate_decision_policy(decision, candidate, authority_items)
         complete_decisions.append(decision)
 
     status_counts = Counter(item["status"] for item in complete_decisions)
@@ -474,6 +541,7 @@ def finalize_review(
         "created_at_utc": utc_now(),
         "status": receipt_status,
         "raw_manifest": binding,
+        "source_authority": authority_binding,
         "review_input": {
             "path": str(resolved_decisions),
             "sha256": sha256_file(resolved_decisions),
