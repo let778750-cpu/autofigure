@@ -16,7 +16,7 @@
 
 - 图像分析未把白/近白背景整体误判为前景；
 - OCR 已完成全图和重叠分块 pass，原始候选、框、score、方向和冲突均可追溯；
-- 关键标题、数字、单位、箭头标签无未决冲突；
+- 公式、数字、单位、标题、轴/图例/连接器标签无未决冲突；普通文本的 `consensus_auto` 已绑定版本化校准 receipt、Agent 主候选选择、结构区域与 source-SHA 固定抽样；
 - 公式候选未被普通 OCR 自动确认为 LaTeX；
 - OCR 后的 Phase-1 geometry manifest 与当前 source/run/OCR/runtime/script/schema 哈希闭合，overlay、lossless label atlas 与 ambiguity mask 均存在且哈希一致；manifest 固定 `mode=observation_only`、`policy.promotion_allowed=false`；
 - 阶段只报告 ink bbox、ink-bottom alignment（不是字体 baseline）、可靠 pair gap 与 frame candidate；公式、纵排、多行、低分辨率或受框线/图形污染的观测已显式降级，不存在伪精确数值；`GEOMETRY_INCONCLUSIVE` 使 G1 保持 `INCONCLUSIVE`；
@@ -30,7 +30,7 @@
 - frozen text 逐条绑定 review candidate ID、值和 bbox；关键文字还绑定用户/可靠原文；
 - 纯 prose 使用 `text`；混合内容使用有序 `content_runs`，每个 math run 恰好引用一条 inline formula；`IL-6`、`p53`、`α-SMA` 等实体标签不因连字符/数字/希腊字母被误判；
 - 公式 canonical LaTeX/hash、inline/display、唯一所有者、`native_office_math` 和 `strict_no_raster_no_svg` 均完整；
-- 每个对象映射到 `native_editable`、`manual_asset_slot` 或明确歧义；无整图 wrapper。`reference_preview` 槽还必须闭合 source/crop/asset SHA、exact bbox、零重采样、能力审计、禁止内容声明、原生可见 `REFERENCE PREVIEW — REPLACE ME` disclosure、`*_REPLACE_ME` 图片对象名和 QA mask。
+- 每个对象在绘制前分类为 `native_required/native_preferred/reference_atomic_asset/manual_asset_slot`；无 `micro_asset`、无整图 wrapper。原子素材必须闭合 source/bbox/mask/asset SHA、无失真变换、原子性与权利依据；`reference_preview` 对象名必须带 `_REPLACE_ME`、画面必须有可见 `REPLACE ME`，且阻断批准。
 
 ### G3 · Preflight
 
@@ -53,7 +53,8 @@ G0–G3 全部 PASS 后，才允许 `FIRST_RENDER`。任何 major finding 必须
 | editability | 主体模块、文字、连接线、关键公式、图例和轴是可编辑对象；每条公式是 Office Math，不是文本/图片/SVG/OLE 伪装 |
 | geometry | 无裁切、越界、失真、非语义重叠；containment 成立 |
 | connectors | 端点绑定边界、路径不穿受保护对象、无未声明交叉 |
-| text_formula | 文本不溢出/不异常换行；readback 在合法段落位置命中 `a14:m` 且含 mode 对应的 `m:oMath`/`m:oMathPara`；canonical LaTeX hash、semantic OMML hash、唯一 formula ID 和有序 text/math runs 一致；one-shot PowerPoint finalize 现场读到的 MathZone 数量、顺序、字符范围和文本哈希一致；每条公式的独立控制图只在所属对象内产生像素差；shape 可见、不透明、在画布内、无高层图片/OLE/普通文本覆盖；公式有净空 |
+| text_formula | 文本不溢出/不异常换行；readback 命中 `a14:m` 与 `m:oMath|m:oMathPara`；canonical LaTeX、semantic OMML、formula ID 和 text/math 顺序一致；MathZone 数量/顺序/文本哈希一致；shape 可见、不透明、在画布内且无覆盖；两份 fresh render 一致。`strict` 还要求每个 MathZone 的独立反事实图通过 |
+| atomic_asset | 单一语义对象，无正式文字/公式/轴图例/边框/定量证据；source bbox、asset/mask SHA、内部像素、边界 ring、透明边缘与等比显示通过 |
 | slot_integrity | 槽边界、比例、语义、层级、替换接口和状态诚实；reference preview 与 frozen source/crop hash 闭合、无禁载内容、有可见待替换标签且不计 native coverage |
 | render | PowerPoint 首次 warm-up 导出丢弃；随后连续两份 fresh PNG 的尺寸与解码 RGBA 像素哈希一致，并与最终 PPTX/input/plan/injection report/工具哈希闭合；无丢字、白屏、丢对象、字体异常或修复弹窗 |
 | regression | 当前修正未破坏已通过区域；证据与最新 revision/hash 绑定 |
@@ -69,7 +70,7 @@ Reviewer 结论：
 
 命中任一项即 FAIL：
 
-- final 包含 target PNG、未声明参考裁片、panel 截图、整图 wrapper、`data:image` 或 `roi_trace_*`；唯一例外是状态明确为 `CANDIDATE_WITH_REFERENCE_PREVIEWS` 的 hash-bound 最小裁片槽，且必须显式待替换、QA 遮罩并阻断审批。感知 run 内的临时 OCR 分块不得进入 final；
+- final 包含 target PNG、未声明参考裁片、panel 截图、整图 wrapper、`data:image` 或 `roi_trace_*`。只有通过原子性和边界安全检查的 `reference_atomic_asset` 可作终稿例外；复合 preview 仍必须显式待替换并阻断审批。
 - 以位图/伪文字冒充公式，以截图冒充可编辑对象；
 - 以普通 textbox、PNG/JPEG、SVG/EMF、整式图片或未验证 OLE 对象冒充原生公式；公式 readback 缺少合法位置的 `a14:m`/`m:oMath`、外部 receipt 绑定、semantic OMML hash、one-shot PowerPoint 逐 MathZone/可见性/fresh-render/独立控制图证据或 canonical LaTeX 元数据；
 - 以手写、重放或事后修改的 detached receipt 冒充当前 PowerPoint 执行；静态 audit 不得高于 `STRUCTURE_PASS_REQUIRES_POWERPOINT_FINALIZE`，机械门禁也不得自授 `APPROVED`；

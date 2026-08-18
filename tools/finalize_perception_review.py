@@ -28,13 +28,46 @@ if str(TOOLS_DIRECTORY) not in sys.path:
 
 try:
     from output_policy import resolve_output_path
+    from perception_policy import (
+        PerceptionPolicyError,
+        consensus_eligible,
+        deterministic_sample_ids,
+        find_text_fact,
+        load_profile,
+        region_for_candidate,
+        sampled_error_regions,
+        semantic_role_for_candidate,
+        validate_calibration,
+    )
     from validate_source_authority import SourceAuthorityError, validate_authority
 except ModuleNotFoundError:  # Support: python -m tools.finalize_perception_review
     try:
         from .output_policy import resolve_output_path
+        from .perception_policy import (
+            PerceptionPolicyError,
+            consensus_eligible,
+            deterministic_sample_ids,
+            find_text_fact,
+            load_profile,
+            region_for_candidate,
+            sampled_error_regions,
+            semantic_role_for_candidate,
+            validate_calibration,
+        )
         from .validate_source_authority import SourceAuthorityError, validate_authority
     except ImportError:  # Support importlib loading a standalone file from the project root.
         from tools.output_policy import resolve_output_path
+        from tools.perception_policy import (
+            PerceptionPolicyError,
+            consensus_eligible,
+            deterministic_sample_ids,
+            find_text_fact,
+            load_profile,
+            region_for_candidate,
+            sampled_error_regions,
+            semantic_role_for_candidate,
+            validate_calibration,
+        )
         from tools.validate_source_authority import SourceAuthorityError, validate_authority
 
 
@@ -352,10 +385,70 @@ def _validate_authoritative_evidence(
     _require_nonblank(evidence["detail"], "evidence.detail", candidate_id)
 
 
+def _consensus_context(
+    decision: Mapping[str, Any],
+    candidate: Mapping[str, Any],
+    manifest: Mapping[str, Any],
+    manifest_path: Path,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], set[str], str]:
+    evidence = decision["evidence"]
+    detail = evidence.get("detail")
+    if evidence.get("kind") != "consensus_auto" or not isinstance(detail, Mapping):
+        raise ReviewError(f"{candidate['candidate_id']} has malformed consensus evidence")
+    calibration_path = Path(str(detail["calibration_receipt_path"])).resolve(strict=True)
+    fusion_path = Path(str(detail["fusion_manifest_path"])).resolve(strict=True)
+    if sha256_file(calibration_path) != detail["calibration_receipt_sha256"]:
+        raise ReviewError(f"{candidate['candidate_id']} calibration receipt hash is stale")
+    if sha256_file(fusion_path) != detail["fusion_manifest_sha256"]:
+        raise ReviewError(f"{candidate['candidate_id']} fusion manifest hash is stale")
+    profile_name = str(detail["policy_profile"])
+    profile = load_profile(profile_name)
+    try:
+        calibration = validate_calibration(calibration_path, profile_name, profile)
+    except PerceptionPolicyError as exc:
+        raise ReviewError(str(exc)) from exc
+    fusion = load_json_object(fusion_path, "fusion manifest")
+    if str(fusion.get("run_id")) != str(manifest["run_id"]):
+        raise ReviewError("consensus fusion run_id differs from OCR manifest")
+    if str(fusion.get("source", {}).get("sha256", "")).upper() != str(manifest["source"]["sha256"]).upper():
+        raise ReviewError("consensus fusion source differs from OCR manifest")
+    if str(fusion.get("inputs", {}).get("ocr_manifest", {}).get("sha256", "")).upper() != sha256_file(manifest_path):
+        raise ReviewError("consensus fusion is not bound to the exact OCR manifest")
+    eligible_ids: list[str] = []
+    for item in manifest["text_candidates"]:
+        item_id = str(item["candidate_id"])
+        region = region_for_candidate(item, fusion)
+        allowed, _ = consensus_eligible(
+            item,
+            find_text_fact(item_id, fusion),
+            calibration,
+            semantic_role=semantic_role_for_candidate(item_id, fusion),
+        )
+        if allowed and region != "UNASSIGNED":
+            eligible_ids.append(item_id)
+    sampled = deterministic_sample_ids(
+        str(manifest["source"]["sha256"]),
+        eligible_ids,
+        fraction=float(profile["ocr"]["deterministic_sample_fraction"]),
+        minimum=int(profile["ocr"]["deterministic_sample_minimum"]),
+    )
+    candidate_id = str(candidate["candidate_id"])
+    region = region_for_candidate(candidate, fusion)
+    if candidate_id not in eligible_ids:
+        raise ReviewError(f"{candidate_id} is not eligible for ordinary-text consensus")
+    if candidate_id in sampled or detail.get("sampled") is not False:
+        raise ReviewError(f"{candidate_id} is a deterministic audit sample and needs authority")
+    if detail.get("region_id") != region:
+        raise ReviewError(f"{candidate_id} consensus region binding is stale")
+    return profile, calibration, fusion, sampled, region
+
+
 def _validate_decision_policy(
     decision: Mapping[str, Any],
     candidate: Mapping[str, Any],
     authority_items: Mapping[str, Mapping[str, Any]],
+    manifest: Mapping[str, Any],
+    manifest_path: Path,
 ) -> None:
     candidate_id = candidate["candidate_id"]
     status = decision["status"]
@@ -375,7 +468,12 @@ def _validate_decision_policy(
             f"{candidate_id} references non-CONFIRMED authority item {authority_item_id}"
         )
     if status in TERMINAL_STATUSES:
-        _validate_authoritative_evidence(decision, candidate_id)
+        if decision["evidence"].get("kind") == "consensus_auto":
+            if status != "CONFIRMED":
+                raise ReviewError(f"{candidate_id} consensus may only produce CONFIRMED")
+            _consensus_context(decision, candidate, manifest, manifest_path)
+        else:
+            _validate_authoritative_evidence(decision, candidate_id)
     if status in {"CONFIRMED", "CORRECTED"}:
         confirmed_text = _require_nonblank(
             decision["confirmed_text"], "confirmed_text", candidate_id
@@ -507,8 +605,49 @@ def finalize_review(
         decision["review_flags"] = list(decision["review_flags"])
         decision["evidence"] = dict(decision["evidence"])
         _validate_snapshot(decision, candidate)
-        _validate_decision_policy(decision, candidate, authority_items)
+        _validate_decision_policy(
+            decision, candidate, authority_items, manifest, resolved_manifest
+        )
         complete_decisions.append(decision)
+
+    candidates_by_id = {str(item["candidate_id"]): item for item in candidates}
+    decisions_by_id = {str(item["candidate_id"]): item for item in complete_decisions}
+    escalated_regions: set[str] = set()
+    escalated_candidate_ids: set[str] = set()
+    consensus_contexts: list[tuple[dict[str, Any], dict[str, Any], set[str], str]] = []
+    for decision in complete_decisions:
+        if decision["evidence"].get("kind") != "consensus_auto":
+            continue
+        candidate = candidates_by_id[str(decision["candidate_id"])]
+        _, _, fusion, sampled, region = _consensus_context(
+            decision, candidate, manifest, resolved_manifest
+        )
+        consensus_contexts.append((decision, fusion, sampled, region))
+
+    for decision, fusion, sampled, region in consensus_contexts:
+        failed_regions = sampled_error_regions(
+            decisions_by_id, candidates_by_id, fusion, sampled
+        )
+        if region not in failed_regions:
+            continue
+        candidate_id = str(decision["candidate_id"])
+        escalated_regions.add(region)
+        escalated_candidate_ids.add(candidate_id)
+
+    for candidate_id in escalated_candidate_ids:
+        decision = decisions_by_id[candidate_id]
+        decision.update(
+            {
+                "status": "INCONCLUSIVE",
+                "confirmed_text": None,
+                "authoritative_latex": None,
+                "evidence": {"kind": None, "detail": None},
+                "review_note": (
+                    "Deterministic OCR audit found an error in this structural region; "
+                    "authoritative review is required for every consensus item in the region."
+                ),
+            }
+        )
 
     status_counts = Counter(item["status"] for item in complete_decisions)
     unresolved_ids = [
@@ -518,6 +657,9 @@ def finalize_review(
     ]
     terminal_count = sum(status_counts[item] for item in TERMINAL_STATUSES)
     blockers = _raw_gate_blockers(manifest)
+    blockers.extend(
+        f"consensus_sample_error_region={region}" for region in sorted(escalated_regions)
+    )
     receipt_status = (
         "PERCEPTION_REVIEW_PASS" if not unresolved_ids and not blockers else "INCONCLUSIVE"
     )
@@ -549,7 +691,9 @@ def finalize_review(
         "policy": {
             "ocr_is_ground_truth": False,
             "ocr_may_self_confirm": False,
-            "all_terminal_text_requires_authoritative_evidence": True,
+            "all_terminal_text_requires_authoritative_evidence": False,
+            "ordinary_consensus_may_confirm": True,
+            "critical_text_requires_authoritative_evidence": True,
             "formula_requires_authoritative_latex": True,
         },
         "decisions": complete_decisions,

@@ -543,7 +543,22 @@ def test_collision_text_overflow_containment_and_z_require_replan(tmp_path: Path
     assert "SHAPE_SHAPE_COLLISION" in codes
     assert "TEXT_OVERFLOW" in codes
     assert "PARENT_CONTAINMENT" in codes
-    assert "AMBIGUOUS_Z_INDEX" in codes
+    assert "AMBIGUOUS_Z_INDEX" not in codes
+
+
+def test_same_z_only_requires_replan_when_siblings_overlap(tmp_path: Path) -> None:
+    source = make_png(tmp_path / "reference.png")
+    spec = base_spec(
+        source,
+        elements=[
+            {"id": "S1", "type": "shape", "bbox": {"x": 20, "y": 20, "w": 80, "h": 80}, "z_index": 1},
+            {"id": "S2", "type": "shape", "bbox": {"x": 70, "y": 70, "w": 80, "h": 80}, "z_index": 1},
+        ],
+    )
+
+    report = preflight_scene(spec, source_path=source, base_dir=tmp_path)
+
+    assert "AMBIGUOUS_Z_INDEX" in {finding["code"] for finding in report["findings"]}
 
 
 def test_explicit_allowed_overlap_suppresses_collision(tmp_path: Path) -> None:
@@ -890,7 +905,7 @@ def test_formula_conflict_envelope_cannot_replace_primary_ocr_geometry(
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24, "margin_px": 2},
+                "formula_style": {"font_size_px": 24, "color": "#000000", "margin_px": 2},
             },
         ],
     )
@@ -1515,7 +1530,7 @@ def test_mathtext_formula_fit_is_measured_before_drawing(
                 "bbox": bbox,
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24, "margin_px": 2},
+                "formula_style": {"font_size_px": 24, "color": "#000000", "margin_px": 2},
             },
         ],
     )
@@ -1548,7 +1563,7 @@ def test_unparseable_mathtext_formula_is_inconclusive(tmp_path: Path) -> None:
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             },
         ],
     )
@@ -1699,7 +1714,7 @@ def test_parseable_mathtext_cannot_replace_native_converter_receipt(tmp_path: Pa
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             }
         ],
     )
@@ -1734,7 +1749,7 @@ def test_self_signed_formula_receipt_cannot_authorize_different_omml(tmp_path: P
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             }
         ],
     )
@@ -1778,7 +1793,7 @@ def test_formula_receipt_missing_embedded_xml_cannot_pass(tmp_path: Path) -> Non
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             }
         ],
     )
@@ -1816,7 +1831,7 @@ def test_formula_receipt_bound_fields_and_all_hashes_are_hard_gates(tmp_path: Pa
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             }
         ],
     )
@@ -1877,7 +1892,7 @@ def test_formula_receipt_sha_is_verified_even_when_receipt_is_genuine(tmp_path: 
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             }
         ],
     )
@@ -1911,7 +1926,7 @@ def test_formula_hash_and_no_fallback_policy_are_hard_gates(tmp_path: Path) -> N
                 "bbox": {"x": 40, "y": 40, "w": 240, "h": 80},
                 "z_index": 0,
                 "formula_id": "EQ1",
-                "formula_style": {"font_size_px": 24},
+                "formula_style": {"font_size_px": 24, "color": "#000000"},
             }
         ],
     )

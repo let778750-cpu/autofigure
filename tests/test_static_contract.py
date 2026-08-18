@@ -17,8 +17,7 @@ def test_canonical_reference_set_exists_and_legacy_names_are_gone() -> None:
         "03-style-principles.md",
         "04-publication-journal-standards.md",
         "05-png-authority-boundary.md",
-        "06-manual-asset-slots.md",
-        "07-microasset-classification.md",
+        "06-asset-policy.md",
         "08-anti-hallucination.md",
         "09-backend.md",
         "10-source-synthesis.md",
@@ -37,25 +36,24 @@ def test_canonical_reference_set_exists_and_legacy_names_are_gone() -> None:
     assert references.isdisjoint(legacy)
 
 
-def test_skill_requires_local_ocr_and_major_replan() -> None:
+def test_skill_is_a_concise_entrypoint_with_current_red_lines() -> None:
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
     assert "PaddleOCR" in skill
     assert "PREFLIGHT_PASS" in skill
-    assert "REGION_REPLAN" in skill
-    assert "PASS/NO_OP" in skill
-    assert "native_office_math" in skill
-    assert "a14:m" in skill
-    assert "MathZones" in skill
+    assert "STALLED" in skill
+    assert "reference_atomic_asset" in skill
+    assert "Office Math" in skill
+    assert "MathZone" in skill
     assert "autofigure.cmd" in skill
     assert "geometry_refinement" in skill
     assert "ink-bottom alignment" in skill
-    assert "promotion gate" in skill
-    assert "不得要求用户手动输入 Python/PowerShell 命令" in skill
+    assert "promotion receipt" in skill
+    assert "不得要求用户手动激活环境" in skill
     assert "只用当前模型原生视觉" not in skill
     for filename in (
         "01-workflow-contract.md",
         "02-qa-gates.md",
-        "06-manual-asset-slots.md",
+        "06-asset-policy.md",
         "08-anti-hallucination.md",
         "09-backend.md",
     ):
@@ -119,7 +117,7 @@ def test_native_office_math_tool_and_dependencies_are_declared() -> None:
 
 def test_reference_preview_is_explicitly_candidate_only_and_has_a_public_tool() -> None:
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
-    slots = (ROOT / "references" / "06-manual-asset-slots.md").read_text(encoding="utf-8")
+    slots = (ROOT / "references" / "06-asset-policy.md").read_text(encoding="utf-8")
     qa = (ROOT / "references" / "02-qa-gates.md").read_text(encoding="utf-8")
     tool = ROOT / "tools" / "materialize_reference_preview.py"
 
@@ -127,8 +125,8 @@ def test_reference_preview_is_explicitly_candidate_only_and_has_a_public_tool() 
     for contract in (skill, slots, qa):
         assert "reference_preview" in contract
         assert "REPLACE_ME" in contract
-    assert "CANDIDATE_WITH_REFERENCE_PREVIEWS" in skill
-    assert "不计原生覆盖率" in skill
+    assert "降低发布上限" in skill
+    assert "不计 native coverage" in slots
     assert "整图 wrapper" in slots
 
 
@@ -159,6 +157,11 @@ def test_json_contract_files_parse() -> None:
         ROOT / "schemas" / "source-authority.schema.json",
         ROOT / "schemas" / "source-authority-review.schema.json",
         ROOT / "schemas" / "reference-preview-asset.schema.json",
+        ROOT / "schemas" / "reference-atomic-asset.schema.json",
+        ROOT / "schemas" / "run-state.schema.json",
+        ROOT / "schemas" / "geometry-calibration.schema.json",
+        ROOT / "schemas" / "geometry-promotion.schema.json",
+        ROOT / "schemas" / "ocr-consensus-calibration.schema.json",
         ROOT / "examples" / "modularagent.source-authority.json",
         ROOT / "examples" / "target_figure.fixture.json",
     ]
@@ -203,12 +206,13 @@ def test_generated_artifact_layout_is_explicit_and_legacy_work_is_forbidden() ->
     assert "python tools\\" not in readme
 
 
-def test_curated_native_math_manifest_points_only_to_current_hash_bound_evidence() -> None:
+def test_curated_native_math_manifest_is_internally_bound_but_not_reusable_after_tool_change() -> None:
     case_root = ROOT / "examples" / "generated" / "native-math-poc"
     manifest = json.loads((case_root / "case-manifest.json").read_text(encoding="utf-8"))
     current = manifest["current"]
 
-    assert manifest["authority"] == "current"
+    assert manifest["authority"] == "historical-tool-hash-invalidated"
+    assert manifest["reuse_status"] == "READ_ONLY_REQUIRES_FRESH_STANDARD_OR_STRICT_RUN"
     assert current["status"] == "MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW"
     primary_records = (
         manifest["source"],
@@ -247,8 +251,8 @@ def test_curated_native_math_manifest_points_only_to_current_hash_bound_evidence
     output_policy_digest = hashlib.sha256(
         (ROOT / "tools" / "output_policy.py").read_bytes()
     ).hexdigest()
-    assert current["finalizer_python_sha256"] == finalizer_digest
-    assert current["roundtrip_script_sha256"] == roundtrip_digest
+    assert current["finalizer_python_sha256"] != finalizer_digest
+    assert current["roundtrip_script_sha256"] != roundtrip_digest
     assert current["output_policy_sha256"] == output_policy_digest
 
     receipt = json.loads(
@@ -279,11 +283,17 @@ def test_curated_native_math_manifest_points_only_to_current_hash_bound_evidence
         (case_root / record["path"]).resolve(): (record["bytes"], record["sha256"])
         for record in render_records
     }
-    assert receipt["roundtrip_script_sha256"] == roundtrip_digest
+    assert receipt["roundtrip_script_sha256"] == current["roundtrip_script_sha256"]
 
     audit = json.loads((case_root / current["audit"]["path"]).read_text(encoding="utf-8"))
     assert audit["status"] == current["status"]
     assert audit["findings"] == []
     assert audit["evidence_binding_sha256"] == current["audit"]["evidence_binding_sha256"]
-    assert audit["evidence_binding"]["finalizer_python_sha256"] == finalizer_digest
-    assert audit["evidence_binding"]["roundtrip_script_sha256"] == roundtrip_digest
+    assert (
+        audit["evidence_binding"]["finalizer_python_sha256"]
+        == current["finalizer_python_sha256"]
+    )
+    assert (
+        audit["evidence_binding"]["roundtrip_script_sha256"]
+        == current["roundtrip_script_sha256"]
+    )

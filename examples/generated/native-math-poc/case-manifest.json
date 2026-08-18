@@ -2,7 +2,9 @@
   "document_type": "AI_AUTOFIGURE_CURATED_EXAMPLE_MANIFEST",
   "schema_version": "1.1",
   "case_id": "native-math-poc",
-  "authority": "current",
+  "authority": "historical-tool-hash-invalidated",
+  "reuse_status": "READ_ONLY_REQUIRES_FRESH_STANDARD_OR_STRICT_RUN",
+  "invalidated_reason": "The native-math Python and PowerShell tools changed when policy profiles were introduced; the retained artifact set remains internally hash-bound but is not current execution evidence.",
   "source": {
     "path": "source.pptx",
     "bytes": 28423,

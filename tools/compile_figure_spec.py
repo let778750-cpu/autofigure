@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import sys
 from collections import Counter
@@ -27,6 +28,8 @@ from validate_source_authority import (  # noqa: E402
     SourceAuthorityError,
     validate_authority,
 )
+from migrate_figure_spec_v3_to_v4 import upgrade_edges, upgrade_elements  # noqa: E402
+from render_strategy import RenderStrategyError, validate_render_strategy_contract  # noqa: E402
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -87,6 +90,66 @@ def _authority_evidence(item: Mapping[str, Any]) -> list[str]:
             f"{item['authority_item_id']} lacks authoritative source evidence"
         )
     return list(dict.fromkeys(kinds))
+
+
+def _latex_sequence_terms(expression: str) -> list[str]:
+    """Return top-level terms from a parenthesized LaTeX sequence.
+
+    Source authority may deliberately freeze a visual row as one semantic
+    formula, while PowerPoint needs one native Office Math object per spatially
+    separated label.  This parser supports only that narrow, deterministic
+    decomposition; it does not accept arbitrary formula rewrites.
+    """
+
+    value = expression.strip()
+    if len(value) < 2 or value[0] != "(" or value[-1] != ")":
+        raise FigureSpecCompileError(
+            "sequence_term_index requires a parenthesized authoritative LaTeX sequence"
+        )
+    body = value[1:-1]
+    terms: list[str] = []
+    current: list[str] = []
+    brace_depth = 0
+    paren_depth = 0
+    escaped = False
+    for character in body:
+        if escaped:
+            current.append(character)
+            escaped = False
+            continue
+        if character == "\\":
+            current.append(character)
+            escaped = True
+            continue
+        if character == "{":
+            brace_depth += 1
+        elif character == "}":
+            brace_depth -= 1
+        elif character == "(":
+            paren_depth += 1
+        elif character == ")":
+            paren_depth -= 1
+        if brace_depth < 0 or paren_depth < 0:
+            raise FigureSpecCompileError("unbalanced authoritative LaTeX sequence")
+        if character == "," and brace_depth == 0 and paren_depth == 0:
+            term = "".join(current).strip()
+            if not term:
+                raise FigureSpecCompileError("authoritative LaTeX sequence contains an empty term")
+            terms.append(term)
+            current = []
+        else:
+            current.append(character)
+    if brace_depth or paren_depth or escaped:
+        raise FigureSpecCompileError("unbalanced authoritative LaTeX sequence")
+    final = "".join(current).strip()
+    if not final:
+        raise FigureSpecCompileError("authoritative LaTeX sequence contains an empty term")
+    terms.append(final)
+    if len(terms) < 2:
+        raise FigureSpecCompileError(
+            "sequence_term_index requires an authoritative sequence with at least two terms"
+        )
+    return terms
 
 
 def _validate_scene_structure(
@@ -161,6 +224,22 @@ def _formula_records(
         raise FigureSpecCompileError(
             f"formula bindings must exhaust CONFIRMED authority formulas: missing={missing}, extra={extra}"
         )
+    bindings_by_authority: dict[str, list[Mapping[str, Any]]] = {}
+    for binding in bindings:
+        bindings_by_authority.setdefault(str(binding["authority_item_id"]), []).append(binding)
+    for authority_id, authority_bindings in bindings_by_authority.items():
+        indexed = [binding for binding in authority_bindings if "sequence_term_index" in binding]
+        if indexed and len(indexed) != len(authority_bindings):
+            raise FigureSpecCompileError(
+                f"{authority_id} cannot mix whole-formula and sequence-term bindings"
+            )
+        if indexed:
+            terms = _latex_sequence_terms(str(authority_items[authority_id]["canonical_latex"]))
+            indexes = [int(binding["sequence_term_index"]) for binding in indexed]
+            if sorted(indexes) != list(range(len(terms))):
+                raise FigureSpecCompileError(
+                    f"{authority_id} sequence bindings must exhaust indexes 0..{len(terms) - 1}"
+                )
     formula_ids = [str(binding["formula_id"]) for binding in bindings]
     element_ids = [str(binding["element_id"]) for binding in bindings]
     if len(formula_ids) != len(set(formula_ids)):
@@ -171,6 +250,11 @@ def _formula_records(
     records: list[dict[str, Any]] = []
     for binding in bindings:
         item = authority_items[str(binding["authority_item_id"])]
+        canonical_latex = str(item["canonical_latex"])
+        if "sequence_term_index" in binding:
+            terms = _latex_sequence_terms(canonical_latex)
+            canonical_latex = terms[int(binding["sequence_term_index"])]
+        latex_sha256 = hashlib.sha256(canonical_latex.encode("utf-8")).hexdigest()
         element_id = str(binding["element_id"])
         element = by_element.get(element_id)
         if element is None:
@@ -203,8 +287,8 @@ def _formula_records(
             "document_type": "NATIVE_OFFICE_MATH_CONVERTER_RECEIPT",
             "status": "PASS",
             "formula_id": binding["formula_id"],
-            "canonical_latex": item["canonical_latex"],
-            "latex_sha256": str(item["latex_sha256"]).lower(),
+            "canonical_latex": canonical_latex,
+            "latex_sha256": latex_sha256,
             "mode": item["formula_mode"],
         }
         for field, value in expected.items():
@@ -230,8 +314,8 @@ def _formula_records(
         record = {
             "id": binding["formula_id"],
             "element_id": element_id,
-            "canonical_latex": item["canonical_latex"],
-            "latex_sha256": item["latex_sha256"],
+            "canonical_latex": canonical_latex,
+            "latex_sha256": latex_sha256,
             "mode": item["formula_mode"],
             "render_kind": "native_office_math",
             "fallback_policy": "strict_no_raster_no_svg",
@@ -241,6 +325,12 @@ def _formula_records(
             "disposition": "CONFIRMED",
             "authority_item_id": binding["authority_item_id"],
         }
+        if "sequence_term_index" in binding:
+            record["authority_derivation"] = {
+                "kind": "sequence_term",
+                "term_index": int(binding["sequence_term_index"]),
+                "source_latex_sha256": item["latex_sha256"],
+            }
         if binding.get("perception_candidate_id") is not None:
             record["perception_candidate_id"] = binding["perception_candidate_id"]
         records.append(record)
@@ -352,7 +442,7 @@ def compile_figure_spec(
     manifest_path = Path(str(review["raw_manifest"]["manifest_path"])).resolve(strict=True)
 
     spec: dict[str, Any] = {
-        "schema_version": "3.0",
+        "schema_version": "4.0",
         "mode": scene["mode"],
         "source": {
             "path": str(source_path),
@@ -384,8 +474,9 @@ def compile_figure_spec(
             "slide_height_emu": presentation.slide_height,
         },
         "measurement_dpi": scene["measurement_dpi"],
-        "elements": _materialize_elements(scene),
-        "edges": scene["edges"],
+        "policy_profile": scene.get("policy_profile", "standard"),
+        "elements": upgrade_elements(_materialize_elements(scene)),
+        "edges": upgrade_edges(scene["edges"]),
         "formulas": formulas,
         "uncertainties": scene["uncertainties"],
         "authority": {
@@ -410,6 +501,10 @@ def compile_figure_spec(
         }
     if scene["canvas"].get("background_reason") is not None:
         spec["canvas"]["background_reason"] = scene["canvas"]["background_reason"]
+    try:
+        validate_render_strategy_contract(spec["elements"], spec["edges"])
+    except RenderStrategyError as exc:
+        raise FigureSpecCompileError(str(exc)) from exc
     _validate_json(spec, figure_schema_path.resolve(strict=True), "compiled Figure Spec")
     atomic_write_json(output_path, spec)
     return spec

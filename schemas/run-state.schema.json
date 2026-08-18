@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ai-autofigure/schemas/run-state.schema.json",
+  "title": "AI AutoFigure current run state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "document_type", "run_id", "mode", "policy_profile", "source", "current_state", "last_successful_state", "release_ceiling", "approval_status", "event_log", "updated_at_utc"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "document_type": {"const": "AUTOFIGURE_RUN_STATE"},
+    "run_id": {"type": "string", "minLength": 1},
+    "mode": {"const": "RECONSTRUCT_1TO1"},
+    "policy_profile": {"enum": ["standard", "strict"]},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"}
+      }
+    },
+    "current_state": {"$ref": "#/$defs/state"},
+    "last_successful_state": {"$ref": "#/$defs/state"},
+    "release_ceiling": {"enum": ["INDEPENDENT_REVIEW_REQUIRED", "CANDIDATE", "CANDIDATE_WITH_SLOTS", "CANDIDATE_WITH_REFERENCE_PREVIEWS"]},
+    "approval_status": {"enum": ["PENDING", "HUMAN_APPROVED"]},
+    "event_log": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "event_count"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "event_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "updated_at_utc": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "state": {
+      "enum": ["REFERENCE_FROZEN", "PERCEPTION_COMPLETE", "REVIEWED", "SPEC_DRAFT", "SPEC_FROZEN", "PREFLIGHT_PASS", "RENDERED", "MECHANICAL_PASS", "INDEPENDENT_REVIEW_PASS", "RELEASE_CANDIDATE", "APPROVED", "STALLED"]
+    }
+  }
+}

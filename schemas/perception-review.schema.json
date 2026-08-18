@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ai-autofigure.local/schemas/perception-review.schema.json",
   "title": "AI autofigure perception review documents",
-  "description": "Strict review decisions and the hash-bound receipt derived from them. OCR hypotheses can never confirm themselves.",
+  "description": "Hash-bound OCR review. Critical text requires authority; calibrated ordinary-text consensus is distinct from user confirmation.",
   "oneOf": [
     {
       "$ref": "#/$defs/decisionsDocument"
@@ -112,6 +112,31 @@
         }
       }
     },
+    "consensusEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "detail"],
+      "properties": {
+        "kind": {"const": "consensus_auto"},
+        "detail": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "policy_profile", "calibration_receipt_path", "calibration_receipt_sha256",
+            "fusion_manifest_path", "fusion_manifest_sha256", "region_id", "sampled"
+          ],
+          "properties": {
+            "policy_profile": {"const": "standard"},
+            "calibration_receipt_path": {"type": "string", "minLength": 1},
+            "calibration_receipt_sha256": {"$ref": "#/$defs/sha256"},
+            "fusion_manifest_path": {"type": "string", "minLength": 1},
+            "fusion_manifest_sha256": {"$ref": "#/$defs/sha256"},
+            "region_id": {"type": "string", "minLength": 1},
+            "sampled": {"const": false}
+          }
+        }
+      }
+    },
     "decision": {
       "type": "object",
       "additionalProperties": false,
@@ -186,6 +211,9 @@
             },
             {
               "$ref": "#/$defs/authoritativeEvidence"
+            },
+            {
+              "$ref": "#/$defs/consensusEvidence"
             }
           ]
         },
@@ -225,11 +253,8 @@
         {
           "if": {
             "properties": {
-              "status": {
-                "enum": [
-                  "CONFIRMED",
-                  "CORRECTED"
-                ]
+                "status": {
+                "const": "CONFIRMED"
               }
             },
             "required": [
@@ -246,8 +271,21 @@
                 "type": "null"
               },
               "evidence": {
-                "$ref": "#/$defs/authoritativeEvidence"
+                "oneOf": [
+                  {"$ref": "#/$defs/authoritativeEvidence"},
+                  {"$ref": "#/$defs/consensusEvidence"}
+                ]
               }
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "CORRECTED"}}, "required": ["status"]},
+          "then": {
+            "properties": {
+              "confirmed_text": {"type": "string", "minLength": 1},
+              "authoritative_latex": {"type": "null"},
+              "evidence": {"$ref": "#/$defs/authoritativeEvidence"}
             }
           }
         },
@@ -406,8 +444,10 @@
           "const": false
         },
         "all_terminal_text_requires_authoritative_evidence": {
-          "const": true
+          "type": "boolean"
         },
+        "ordinary_consensus_may_confirm": {"type": "boolean"},
+        "critical_text_requires_authoritative_evidence": {"type": "boolean"},
         "formula_requires_authoritative_latex": {
           "const": true
         }

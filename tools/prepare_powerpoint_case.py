@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import shutil
 import sys
 from datetime import datetime, timezone
@@ -22,6 +23,8 @@ if str(TOOLS_DIRECTORY) not in sys.path:
     sys.path.insert(0, str(TOOLS_DIRECTORY))
 
 from finalize_perception_review import atomic_write_json, sha256_file  # noqa: E402
+from powerpoint_path_geometry import anchor_point  # noqa: E402
+from run_state import release_ceiling_for_elements  # noqa: E402
 
 
 class PowerPointCaseError(RuntimeError):
@@ -64,15 +67,22 @@ def _node_kind(element: Mapping[str, Any]) -> str:
     kind = str(element.get("type", ""))
     if kind in {"background", "panel"}:
         return "panel"
-    if kind in {"micro_asset"}:
+    if kind in {"group", "micro_asset"}:
         return "container"
-    if kind in {"shape", "icon"}:
+    if kind in {"shape", "native_shape", "icon"}:
+        if str(element.get("shape_kind", "")) == "line":
+            return "line"
         return "shape"
     if kind == "legend":
         return "legend"
-    if kind == "manual_asset_slot":
+    if kind in {"manual_asset_slot", "reference_atomic_asset"}:
         return "asset"
+    if kind == "formula":
+        return "formula"
     if kind == "text":
+        text_style = element.get("text_style")
+        if isinstance(text_style, Mapping) and float(text_style.get("rotation_deg", 0) or 0):
+            return "shape"
         runs = element.get("content_runs", [])
         if any(isinstance(run, Mapping) and run.get("kind") == "math" for run in runs):
             return "formula"
@@ -111,15 +121,33 @@ def _text_spec(
     formulas_by_element: Mapping[str, Mapping[str, Any]],
     scale: float,
 ) -> dict[str, Any]:
-    style = element.get("text_style") if isinstance(element.get("text_style"), Mapping) else {}
-    align = str(element.get("align", "left"))
+    raw_style = (
+        element.get("formula_style")
+        if _node_kind(element) == "formula"
+        else element.get("text_style")
+    )
+    style = raw_style if isinstance(raw_style, Mapping) else {}
+    # Figure Spec point sizes are already in PowerPoint's native unit.  Only
+    # pixel-valued sizes participate in the source-pixel -> point mapping.
+    # Scaling font_size_pt here made every rendered label about one third too
+    # small while leaving its measured bbox unchanged.
+    if isinstance(style.get("font_size_pt"), (int, float)) and not isinstance(
+        style.get("font_size_pt"), bool
+    ):
+        font_size = round(float(style["font_size_pt"]), 6)
+    elif isinstance(style.get("font_size_px"), (int, float)) and not isinstance(
+        style.get("font_size_px"), bool
+    ):
+        font_size = _scale(style["font_size_px"], scale)
+    else:
+        font_size = 12.0
+    align = str(style.get("horizontal_align", element.get("align", "left")))
+    font_weight = str(element.get("font_weight", "regular"))
     return {
         "text": _plain_or_formula_text(element, formulas_by_element),
         "fontToken": "font.math" if _node_kind(element) == "formula" else "font.body",
-        "fontSize": _scale(
-            style.get("font_size_px", style.get("font_size_pt", 18)), scale
-        ),
-        "fontWeight": "semibold" if element.get("criticality") == "critical" else "normal",
+        "fontSize": font_size,
+        "fontWeight": "semibold" if font_weight in {"bold", "semibold"} else "normal",
         "horizontalAlign": align if align in {"left", "center", "right"} else "left",
         "verticalAlign": "middle",
         "margins": _margins(style, scale),
@@ -146,6 +174,8 @@ def _style_tokens(element: Mapping[str, Any]) -> dict[str, str | float | bool]:
         "reward_stroke",
         "policy_fill",
         "action_fill",
+        "rotation_deg",
+        "opacity",
     )
     return {
         key: value
@@ -156,9 +186,26 @@ def _style_tokens(element: Mapping[str, Any]) -> dict[str, str | float | bool]:
 
 def _edge_direction(edge: Mapping[str, Any]) -> str:
     style = edge.get("style") if isinstance(edge.get("style"), Mapping) else {}
-    if style.get("arrowhead") == "both" or edge.get("meaning") == "interaction":
+    if (
+        style.get("arrowhead") == "both"
+        or (
+            str(style.get("start_arrowhead", "none")) != "none"
+            and str(style.get("end_arrowhead", "none")) != "none"
+        )
+        or edge.get("meaning") == "interaction"
+    ):
         return "bidirectional"
     return "forward"
+
+
+def _visual_carrier_kind(edge: Mapping[str, Any]) -> str | None:
+    """Select one native visual carrier without discarding explicit path geometry."""
+
+    if edge.get("via"):
+        return "line_chain"
+    if str(edge.get("arrow_class", "thin_connector")) == "filled_native":
+        return "filled_shape"
+    return None
 
 
 def _scientific_relation_kind(meaning: str) -> str:
@@ -187,6 +234,171 @@ def _validate_document(document: Mapping[str, Any], schema_path: Path, label: st
         raise PowerPointCaseError(f"{label} rejected at {location}: {first.message}")
 
 
+def _asset_projection(
+    element: Mapping[str, Any],
+    *,
+    resolved_spec: Path,
+    assets_dir: Path,
+    bbox: Mapping[str, Any],
+    coordinate_scale: float,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any] | None, str]:
+    """Project one explicit v4 raster route without inferring scientific content."""
+    element_id = str(element["id"])
+    element_type = str(element.get("type", ""))
+    if element_type == "reference_atomic_asset":
+        binding = element.get("asset_binding")
+        if not isinstance(binding, Mapping):
+            raise PowerPointCaseError(f"{element_id} lacks asset_binding")
+        receipt_path = _resolve(str(binding["receipt_path"]), resolved_spec.parent)
+        _require_hash(
+            receipt_path, str(binding["receipt_sha256"]), f"{element_id} atomic receipt"
+        )
+        receipt = _load(receipt_path, f"{element_id} atomic receipt")
+        if receipt.get("document_type") != "REFERENCE_ATOMIC_ASSET_RECEIPT" or receipt.get("status") != "MECHANICAL_PASS_REQUIRES_INDEPENDENT_REVIEW":
+            raise PowerPointCaseError(f"{element_id} atomic receipt has an invalid status")
+        source_asset = _resolve(str(binding["asset_path"]), resolved_spec.parent)
+        asset_sha = _require_hash(
+            source_asset, str(binding["asset_sha256"]), f"{element_id} atomic asset"
+        )
+        if str(receipt.get("asset", {}).get("sha256", "")).casefold() != asset_sha.casefold():
+            raise PowerPointCaseError(f"{element_id} atomic asset differs from its receipt")
+        copied_name = f"{element_id}.reference-atomic.png"
+        shutil.copyfile(source_asset, assets_dir / copied_name)
+        asset_record = {
+            "assetId": element_id,
+            "responsibilityClass": "verified_source",
+            "selectedFile": f"assets/{copied_name}",
+            "processingSteps": [
+                "Deterministic source-bound crop from the frozen designated reference.",
+                "No generative processing or resampling; optional deterministic alpha mask is receipt-bound.",
+            ],
+            "sha256": asset_sha.lower(),
+            "mime": "image/png",
+            "width": float(receipt["asset"]["width_px"]),
+            "height": float(receipt["asset"]["height_px"]),
+            "targetSlot": element_id,
+            "embeddedObjectId": None,
+            "provenance": {
+                "route": "verified_import",
+                "status": "verified_source",
+                "license": None,
+                "rightsBasis": str(receipt["rights_basis"]),
+            },
+            "reviewStatus": "PENDING",
+        }
+        node_asset = {
+            "assetId": element_id,
+            "fitMode": "contain",
+            "crop": {"left": 0, "top": 0, "right": 0, "bottom": 0},
+            "atomicRasterUnit": True,
+            "containsReconstructableContent": False,
+        }
+        aspect_ratio = float(receipt["asset"]["width_px"]) / float(
+            receipt["asset"]["height_px"]
+        )
+        route = "reference_atomic_asset"
+    elif element_type == "manual_asset_slot":
+        slot = element.get("slot_contract")
+        if not isinstance(slot, Mapping):
+            raise PowerPointCaseError(f"{element_id} lacks slot_contract")
+        mode = str(slot.get("mode", ""))
+        node_asset = {
+            "assetId": element_id,
+            "fitMode": str(slot.get("fit_mode", "contain")),
+            "crop": {"left": 0, "top": 0, "right": 0, "bottom": 0},
+            "atomicRasterUnit": True,
+            "containsReconstructableContent": False,
+        }
+        aspect_ratio = float(slot["aspect_ratio"])
+        asset_record = None
+        route = mode
+        if mode == "reference_preview":
+            preview = slot.get("preview")
+            if not isinstance(preview, Mapping):
+                raise PowerPointCaseError(f"{element_id} reference_preview lacks binding")
+            manifest_path = _resolve(str(preview["manifest_path"]), resolved_spec.parent)
+            _require_hash(
+                manifest_path,
+                str(preview["manifest_sha256"]),
+                f"{element_id} preview manifest",
+            )
+            preview_manifest = _load(manifest_path, f"{element_id} preview manifest")
+            preview_path = _resolve(
+                str(preview_manifest["asset"]["path"]), manifest_path.parent
+            )
+            preview_sha = _require_hash(
+                preview_path,
+                str(preview_manifest["asset"]["sha256"]),
+                f"{element_id} preview image",
+            )
+            copied_name = f"{element_id}.reference-preview.png"
+            shutil.copyfile(preview_path, assets_dir / copied_name)
+            asset_record = {
+                "assetId": element_id,
+                "responsibilityClass": "verified_source",
+                "selectedFile": f"assets/{copied_name}",
+                "processingSteps": [
+                    "Exact-pixel crop from the frozen designated reference.",
+                    "Candidate-only preview; visible disclosure and replacement are required.",
+                ],
+                "sha256": preview_sha.lower(),
+                "mime": "image/png",
+                "width": float(preview_manifest["asset"]["width_px"]),
+                "height": float(preview_manifest["asset"]["height_px"]),
+                "targetSlot": element_id,
+                "embeddedObjectId": None,
+                "provenance": {
+                    "route": "verified_import",
+                    "status": "verified_source",
+                    "license": None,
+                    "rightsBasis": "User-supplied designated reference; candidate preview only.",
+                },
+                "reviewStatus": "PENDING",
+            }
+        elif mode in {"user_filled", "backfilled_verified"}:
+            filled = slot.get("filled_asset")
+            if not isinstance(filled, Mapping):
+                raise PowerPointCaseError(f"{element_id} {mode} slot lacks filled_asset binding")
+            filled_path = _resolve(str(filled["path"]), resolved_spec.parent)
+            filled_sha = _require_hash(filled_path, str(filled["sha256"]), f"{element_id} filled asset")
+            copied_name = f"{element_id}.{mode}.png"
+            shutil.copyfile(filled_path, assets_dir / copied_name)
+            asset_record = {
+                "assetId": element_id,
+                "responsibilityClass": "verified_source" if mode == "backfilled_verified" else "creative_raster",
+                "selectedFile": f"assets/{copied_name}",
+                "processingSteps": ["Bound slot asset copied without content modification."],
+                "sha256": filled_sha.lower(),
+                "mime": "image/png",
+                "width": float(filled["width_px"]),
+                "height": float(filled["height_px"]),
+                "targetSlot": element_id,
+                "embeddedObjectId": None,
+                "provenance": {
+                    "route": "verified_import",
+                    "status": "verified_source" if mode == "backfilled_verified" else "user_supplied",
+                    "license": None,
+                    "rightsBasis": str(filled["rights_basis"]),
+                },
+                "reviewStatus": "PENDING",
+            }
+        elif mode != "empty":
+            raise PowerPointCaseError(f"{element_id} has unsupported slot mode {mode!r}")
+    else:
+        raise PowerPointCaseError(f"{element_id} is not one supported raster route")
+    slot_record = {
+        "slotId": element_id,
+        "semanticAnchor": _semantic_id(element_id),
+        "x": _scale(bbox["x"], coordinate_scale),
+        "y": _scale(bbox["y"], coordinate_scale),
+        "width": _scale(bbox["w"], coordinate_scale),
+        "height": _scale(bbox["h"], coordinate_scale),
+        "overlaySafeArea": "Formal text, formulas, axes, legends, and topology remain separate native objects.",
+        "expectedAspectRatio": aspect_ratio,
+    }
+    return node_asset, slot_record, asset_record, route
+
+
 def prepare_powerpoint_case(
     spec_path: Path,
     preflight_path: Path,
@@ -194,7 +406,7 @@ def prepare_powerpoint_case(
     *,
     project_id: str,
     target_id: str,
-    profile_id: str = "presentation-16x9",
+    profile_id: str = "journal-double-column",
     schema_root: Path | None = None,
 ) -> dict[str, Any]:
     if output_case.exists():
@@ -253,6 +465,7 @@ def prepare_powerpoint_case(
     asset_slots: list[dict[str, Any]] = []
     asset_records: list[dict[str, Any]] = []
     preview_asset_ids: list[str] = []
+    atomic_asset_ids: list[str] = []
     for element in spec["elements"]:
         element_id = str(element["id"])
         kind = _node_kind(element)
@@ -272,7 +485,7 @@ def prepare_powerpoint_case(
         tokens = _style_tokens(element)
         if tokens:
             node["styleTokens"] = tokens
-        if kind in {"text", "formula"}:
+        if kind in {"text", "formula"} or element.get("type") == "text":
             node["label"] = _plain_or_formula_text(element, formulas_by_element)
             node["textSpec"] = _text_spec(
                 element, formulas_by_element, coordinate_scale
@@ -287,72 +500,21 @@ def prepare_powerpoint_case(
                 ),
             }
         if kind == "asset":
-            slot = element["slot_contract"]
-            asset_id = element_id
-            preview = slot.get("preview")
-            if slot.get("mode") != "reference_preview" or not isinstance(preview, Mapping):
-                raise PowerPointCaseError(
-                    f"{element_id} must be one controlled reference_preview for this adapter"
-                )
-            manifest_path = _resolve(str(preview["manifest_path"]), resolved_spec.parent)
-            _require_hash(
-                manifest_path,
-                str(preview["manifest_sha256"]),
-                f"{element_id} preview manifest",
+            node_asset, slot_record, asset_record, asset_route = _asset_projection(
+                element,
+                resolved_spec=resolved_spec,
+                assets_dir=assets_dir,
+                bbox=bbox,
+                coordinate_scale=coordinate_scale,
             )
-            preview_manifest = _load(manifest_path, f"{element_id} preview manifest")
-            preview_path = _resolve(str(preview_manifest["asset"]["path"]), manifest_path.parent)
-            preview_sha = _require_hash(
-                preview_path,
-                str(preview_manifest["asset"]["sha256"]),
-                f"{element_id} preview image",
-            )
-            copied_name = f"{element_id}.reference-preview.png"
-            shutil.copyfile(preview_path, assets_dir / copied_name)
-            preview_asset_ids.append(asset_id)
-            asset_records.append(
-                {
-                    "assetId": asset_id,
-                    "responsibilityClass": "creative_raster",
-                    "selectedFile": f"assets/{copied_name}",
-                    "processingSteps": [
-                        "Exact-pixel crop from the frozen designated reference.",
-                        "Candidate-only preview; visible disclosure and manual replacement required.",
-                    ],
-                    "sha256": preview_sha.lower(),
-                    "mime": "image/png",
-                    "width": float(preview_manifest["asset"]["width_px"]),
-                    "height": float(preview_manifest["asset"]["height_px"]),
-                    "targetSlot": element_id,
-                    "embeddedObjectId": None,
-                    "provenance": {
-                        "route": "verified_import",
-                        "status": "verified_source",
-                        "license": None,
-                        "rightsBasis": "User-supplied designated reference; candidate preview only.",
-                    },
-                    "reviewStatus": "PENDING",
-                }
-            )
-            node["assetSpec"] = {
-                "assetId": asset_id,
-                "fitMode": "contain",
-                "crop": {"left": 0, "top": 0, "right": 0, "bottom": 0},
-                "atomicRasterUnit": True,
-                "containsReconstructableContent": False,
-            }
-            asset_slots.append(
-                {
-                    "slotId": element_id,
-                    "semanticAnchor": _semantic_id(element_id),
-                    "x": _scale(bbox["x"], coordinate_scale),
-                    "y": _scale(bbox["y"], coordinate_scale),
-                    "width": _scale(bbox["w"], coordinate_scale),
-                    "height": _scale(bbox["h"], coordinate_scale),
-                    "overlaySafeArea": "Visible disclosure is a separate native text object below the crop.",
-                    "expectedAspectRatio": float(slot["aspect_ratio"]),
-                }
-            )
+            node["assetSpec"] = node_asset
+            asset_slots.append(slot_record)
+            if asset_record is not None:
+                asset_records.append(asset_record)
+            if asset_route == "reference_preview":
+                preview_asset_ids.append(element_id)
+            elif asset_route == "reference_atomic_asset":
+                atomic_asset_ids.append(element_id)
         nodes.append(node)
         entities.append(
             {
@@ -373,24 +535,216 @@ def prepare_powerpoint_case(
             }
         )
 
+    # Backend-native grouping is intentionally limited to safe leaf
+    # composites.  Connector endpoints, formulas, assets, and nested groups
+    # remain ungrouped so topology, native-math readback, and provenance stay
+    # directly addressable.  The wrapper is a derived backend node; it does
+    # not invent a new scientific object.
+    endpoints = {
+        str(edge[key])
+        for edge in spec.get("edges", [])
+        if isinstance(edge, Mapping)
+        for key in ("from", "to")
+        if isinstance(edge.get(key), str)
+    }
+    children_by_parent: dict[str, list[Mapping[str, Any]]] = {}
+    for element in spec["elements"]:
+        parent_id = element.get("parent_id")
+        if isinstance(parent_id, str):
+            children_by_parent.setdefault(parent_id, []).append(element)
+    for group in spec["elements"]:
+        group_id = str(group["id"])
+        children = children_by_parent.get(group_id, [])
+        if (
+            group.get("type") != "group"
+            or group_id in endpoints
+            or len(children) < 2
+            or any(
+                str(child["id"]) in endpoints
+                or child.get("type") in {"formula", "reference_atomic_asset", "manual_asset_slot", "group", "panel"}
+                for child in children
+            )
+        ):
+            continue
+        wrapper_id = f"nativegroup.{group_id}"
+        bbox = group["bbox"]
+        # Figure Spec groups are semantic containers, not necessarily drawn
+        # PowerPoint shapes.  Only their rendered direct children can be
+        # passed to PowerPoint's native Group command.
+        member_ids = [str(child["id"]) for child in children]
+        nodes.append(
+            {
+                "id": wrapper_id,
+                "semanticId": _semantic_id(wrapper_id),
+                "parentId": group.get("parent_id"),
+                "kind": "container",
+                "x": _scale(bbox["x"], coordinate_scale),
+                "y": _scale(bbox["y"], coordinate_scale),
+                "width": _scale(bbox["w"], coordinate_scale),
+                "height": _scale(bbox["h"], coordinate_scale),
+                "editable": True,
+                "zIndex": int(group["z_index"]) + 500000,
+                "styleTokens": {
+                    "nativeGroupFor": group_id,
+                    "nativeGroupMemberIds": "|".join(member_ids),
+                },
+            }
+        )
+        entities.append(
+            {
+                "entityId": _semantic_id(wrapper_id),
+                "label": f"Native PowerPoint group for {group_id}",
+                "kind": "component",
+                "sourceIds": ["reference-image", "source-authority"],
+                "required": True,
+                "editable": True,
+            }
+        )
+
     scene_edges: list[dict[str, Any]] = []
     relations: list[dict[str, Any]] = []
+    element_by_id = {str(element["id"]): element for element in spec["elements"]}
     for edge in spec.get("edges", []):
         edge_id = str(edge["id"])
-        route = "straight" if edge.get("route") == "straight" else "orthogonal"
+        route = {
+            "straight": "straight",
+            "curve": "curved",
+            "orthogonal": "orthogonal",
+            "polyline": "orthogonal",
+        }.get(str(edge.get("route")), "orthogonal")
+        edge_style = edge.get("style") if isinstance(edge.get("style"), Mapping) else {}
+        relation_id = _relation_id(edge_id)
         scene_edge: dict[str, Any] = {
             "id": edge_id,
-            "semanticRelationId": _relation_id(edge_id),
+            "semanticRelationIds": [relation_id],
+            "geometryOnly": False,
             "source": str(edge["from"]),
             "target": str(edge["to"]),
             "direction": _edge_direction(edge),
             "route": route,
             "styleTokens": {
                 "strokePattern": "dashed"
-                if edge.get("style", {}).get("dash")
-                else "solid"
+                if str(edge_style.get("dash", "solid")) not in {"", "none", "solid"}
+                else "solid",
+                "strokeColor": str(edge_style.get("stroke_color", "#000000")),
+                "strokeWidthPx": float(edge_style.get("stroke_width_px", 1.5)),
+                "startArrowhead": str(edge_style.get("start_arrowhead", "none")),
+                "endArrowhead": str(edge_style.get("end_arrowhead", "triangle")),
+                "representation": str(edge.get("representation", "native_connector")),
+                "arrowClass": str(edge.get("arrow_class", "thin_connector")),
             },
         }
+        carrier_ids: list[str] = []
+        carrier_kind = _visual_carrier_kind(edge)
+        if carrier_kind is not None:
+            source_box = element_by_id[str(edge["from"])]["bbox"]
+            target_box = element_by_id[str(edge["to"])]["bbox"]
+            start_source = anchor_point(
+                source_box,
+                str(edge.get("source_anchor", "right")),
+                edge.get("source_point"),
+            )
+            end_source = anchor_point(
+                target_box,
+                str(edge.get("target_anchor", "left")),
+                edge.get("target_point"),
+            )
+            start = tuple(_scale(value, coordinate_scale) for value in start_source)
+            end = tuple(_scale(value, coordinate_scale) for value in end_source)
+            if carrier_kind == "filled_shape":
+                dx, dy = end[0] - start[0], end[1] - start[1]
+                length = math.hypot(dx, dy)
+                if length <= 0:
+                    raise PowerPointCaseError(f"{edge_id} filled arrow has zero length")
+                style = edge.get("style") if isinstance(edge.get("style"), Mapping) else {}
+                thickness = max(
+                    4.0, float(style.get("shaft_width_px", 10.0)) * coordinate_scale
+                )
+                carrier_id = f"carrier.{edge_id}.filled"
+                carrier_ids.append(carrier_id)
+                nodes.append(
+                    {
+                        "id": carrier_id,
+                        "semanticId": _semantic_id(carrier_id),
+                        "parentId": None,
+                        "kind": "shape",
+                        "x": round((start[0] + end[0] - length) / 2, 6),
+                        "y": round((start[1] + end[1] - thickness) / 2, 6),
+                        "width": round(length, 6),
+                        "height": round(thickness, 6),
+                        "rotation": round(math.degrees(math.atan2(dy, dx)), 6),
+                        "editable": True,
+                        "zIndex": 900000 + len(nodes),
+                        "shapeSpec": {"shapeType": "right_arrow", "cornerRadius": 0},
+                        "styleTokens": {
+                            "fillColor": str(style.get("fill_color", style.get("stroke_color", "#68707A"))),
+                            "visualCarrierFor": edge_id,
+                        },
+                    }
+                )
+            else:
+                points = [
+                    start,
+                    *[
+                        (
+                            _scale(point["x"], coordinate_scale),
+                            _scale(point["y"], coordinate_scale),
+                        )
+                        for point in edge.get("via", [])
+                    ],
+                    end,
+                ]
+                for index, (begin, finish) in enumerate(
+                    zip(points, points[1:], strict=False), start=1
+                ):
+                    carrier_id = f"carrier.{edge_id}.segment.{index}"
+                    carrier_ids.append(carrier_id)
+                    nodes.append(
+                        {
+                            "id": carrier_id,
+                            "semanticId": _semantic_id(carrier_id),
+                            "parentId": None,
+                            "kind": "line",
+                            "x": round(min(begin[0], finish[0]), 6),
+                            "y": round(min(begin[1], finish[1]), 6),
+                            "width": round(max(abs(finish[0] - begin[0]), 0.01), 6),
+                            "height": round(max(abs(finish[1] - begin[1]), 0.01), 6),
+                            "editable": True,
+                            "zIndex": 900000 + len(nodes),
+                            "nativePrimitiveSpec": {
+                                "schemaVersion": "1.0.0",
+                                "coordinateSpace": "canvas",
+                                "primitive": {
+                                    "family": "line",
+                                    "style": {
+                                        "strokeColor": str(
+                                            edge_style.get("stroke_color", "#68707A")
+                                        ),
+                                        "strokeWidthPx": float(
+                                            edge_style.get("stroke_width_px", 2.0)
+                                        ),
+                                    },
+                                    "points": [
+                                        {"x": round(begin[0], 6), "y": round(begin[1], 6)},
+                                        {"x": round(finish[0], 6), "y": round(finish[1], 6)},
+                                    ],
+                                },
+                            },
+                            "styleTokens": {"visualCarrierFor": edge_id},
+                        }
+                    )
+            for carrier_id in carrier_ids:
+                entities.append(
+                    {
+                        "entityId": _semantic_id(carrier_id),
+                        "label": f"Native visual carrier for {edge_id}",
+                        "kind": "annotation",
+                        "sourceIds": ["reference-image", "source-authority"],
+                        "required": True,
+                        "editable": True,
+                    }
+                )
+            scene_edge["styleTokens"]["visualCarrierIds"] = "|".join(carrier_ids)
         if edge.get("via"):
             scene_edge["waypoints"] = [
                 {
@@ -400,6 +754,10 @@ def prepare_powerpoint_case(
                 }
                 for point in edge["via"]
             ]
+        elif str(edge.get("route")) == "curve":
+            raise PowerPointCaseError(
+                f"{edge_id} needs an explicit cubic path contract before PowerPoint rendering"
+            )
         scene_edges.append(scene_edge)
         relations.append(
             {
@@ -415,7 +773,7 @@ def prepare_powerpoint_case(
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     scene_version = f"autofg-{spec_sha[:16].lower()}"
     scene_graph = {
-        "schemaVersion": "2.0.0",
+        "schemaVersion": "2.1.0",
         "projectId": project_id,
         "version": scene_version,
         "canvas": {
@@ -430,23 +788,47 @@ def prepare_powerpoint_case(
         "assetSlots": asset_slots,
     }
     all_semantic_ids = [node["semanticId"] for node in nodes] + [
-        edge["semanticRelationId"] for edge in scene_edges
+        semantic_id
+        for edge in scene_edges
+        for semantic_id in edge["semanticRelationIds"]
     ]
+    authored_claims = []
+    for index, claim in enumerate(spec.get("claims", []), start=1):
+        if isinstance(claim, str) and claim.strip():
+            authored_claims.append(
+                {
+                    "claimId": f"claim-{index:04d}",
+                    "text": claim.strip(),
+                    "evidenceType": "cited",
+                    "sourceIds": ["reference-image", "source-authority"],
+                    "mustShow": True,
+                }
+            )
+        elif isinstance(claim, Mapping) and str(claim.get("text", "")).strip():
+            authored_claims.append(
+                {
+                    "claimId": str(claim.get("id", f"claim-{index:04d}")),
+                    "text": str(claim["text"]).strip(),
+                    "evidenceType": str(claim.get("evidence_type", "cited")),
+                    "sourceIds": ["reference-image", "source-authority"],
+                    "mustShow": bool(claim.get("must_show", True)),
+                }
+            )
+    unknowns = [
+        str(item.get("description", "")).strip()
+        for item in spec.get("uncertainties", [])
+        if isinstance(item, Mapping) and str(item.get("description", "")).strip()
+    ]
+    if preview_asset_ids:
+        unknowns.append(
+            "One or more compound reference previews remain replace-before-approval assets."
+        )
     scientific_spec = {
         "schemaVersion": "1.0.0",
         "projectId": project_id,
-        "figureRole": "system_architecture",
-        "language": "en",
-        "audience": "Computer vision and embodied-agent researchers",
-        "claims": [
-            {
-                "claimId": "claim-modularagent-figure2",
-                "text": "Task-aware modular fusion couples semantic and dynamics experts with task-conditioned imagination and behavior learning.",
-                "evidenceType": "cited",
-                "sourceIds": ["reference-image", "source-authority"],
-                "mustShow": True,
-            }
-        ],
+        "figureRole": str(spec.get("figure_role", "system_architecture")),
+        "language": str(spec.get("language", "en")),
+        "claims": authored_claims,
         "entities": entities,
         "relations": relations,
         "formulas": [
@@ -467,32 +849,46 @@ def prepare_powerpoint_case(
                 "rationale": "All visible scientific content is bound to the frozen paper figure, source authority, and PASS AutoFigure review.",
             }
         ],
-        "unknowns": [
-            "The photographic observation montage remains a disclosed candidate-only preview pending user replacement."
-        ],
+        "unknowns": unknowns,
         "approval": {
-            "status": "APPROVED",
-            "approvedBy": "project user via frozen AutoFigure source authority",
-            "approvedAt": now,
-            "notes": f"Bound to AutoFigure authority {authority_sha} and PASS spec {spec_sha}.",
+            "status": "PENDING",
+            "notes": f"Generated without self-approval; bound to authority {authority_sha} and Figure Spec {spec_sha}.",
         },
     }
+    if isinstance(spec.get("audience"), str) and str(spec["audience"]).strip():
+        scientific_spec["audience"] = str(spec["audience"]).strip()
     render_elements = []
     for node in nodes:
-        renderer = "verified_raster" if node["kind"] == "asset" else "backend_native"
+        is_asset = node["kind"] == "asset"
+        asset_route = (
+            "reference_atomic_asset"
+            if node["id"] in atomic_asset_ids
+            else "reference_preview"
+            if node["id"] in preview_asset_ids
+            else ""
+        )
+        renderer = "verified_raster" if is_asset else "backend_native"
+        if asset_route == "reference_atomic_asset":
+            reason = "Source-bound atomic raster preserves reference-specific visual detail; formal content remains native."
+        elif is_asset:
+            reason = "Compound or unresolved asset route remains replace-before-approval."
+        else:
+            reason = "Native editable PowerPoint object required."
         render_elements.append(
             {
                 "elementId": node["id"],
-                "mustRemainEditable": True,
-                "qualityOwner": "asset" if node["kind"] == "asset" else "layout",
-                "reason": "Controlled reference preview; replace before approval."
-                if node["kind"] == "asset"
-                else "Native editable PowerPoint object required.",
+                "mustRemainEditable": not is_asset,
+                "qualityOwner": "asset" if is_asset else "layout",
+                "reason": reason,
                 "routes": [
                     {
                         "targetId": target_id,
                         "renderer": renderer,
-                        **({"fallbackRenderer": "manual"} if node["kind"] == "asset" else {}),
+                        **(
+                            {"fallbackRenderer": "manual"}
+                            if is_asset and asset_route != "reference_atomic_asset"
+                            else {}
+                        ),
                     }
                 ],
             }
@@ -591,15 +987,15 @@ def prepare_powerpoint_case(
                 + [edge["id"] for edge in scene_edges],
                 "evidenceType": "conceptual",
                 "basisType": "reference_visual_reconstruction",
-                "visualBasis": "Frozen ModularAgent Figure 2 reference plus frozen AutoFigure authority and PASS preflight.",
+                "visualBasis": "Frozen designated reference plus frozen AutoFigure authority and PASS preflight.",
                 "underlyingData": {
                     "status": "SOURCE_DATA_SUPPLIED",
                     "sourceIds": ["reference-image", "source-authority"],
                     "datasetPaths": [],
                 },
                 "scientificUse": "QUALITATIVE_VISUAL_ONLY",
-                "interpretationLimit": "This reconstruction communicates the cited architecture; the observation montage is a disclosed replace-before-approval preview and quantitative inference is prohibited.",
-                "relatedAssetIds": preview_asset_ids,
+                "interpretationLimit": "This is a source-bound visual reconstruction. Atomic source assets carry no new scientific claims; compound previews remain replace-before-approval.",
+                "relatedAssetIds": preview_asset_ids + atomic_asset_ids,
                 "reviewStatus": "PENDING",
             }
         ],
@@ -617,9 +1013,9 @@ def prepare_powerpoint_case(
         "blockedReason": None,
         "gates": {
             "environment": "PASS",
-            "scientificApproval": "PASS",
+            "scientificApproval": "PENDING",
             "assetDirection": "PASS",
-            "styleApproval": "PASS",
+            "styleApproval": "PENDING",
             "assetIntegrity": "PENDING",
             "backendAudit": "PENDING",
             "artifactSetIntegrity": "PENDING",
@@ -654,7 +1050,7 @@ def prepare_powerpoint_case(
             "project_state.json": "project-state-v2.schema.json",
             "input/source_manifest.json": "source-manifest.schema.json",
             "design/scientific_spec.json": "scientific-spec.schema.json",
-            "design/scene_graph.json": "scene-graph-v2.schema.json",
+            "design/scene_graph.json": "scene-graph-v2.1.schema.json",
             "design/render_plan.json": "render-plan-v2.schema.json",
             "assets/asset_manifest.json": "asset-manifest.schema.json",
             "assets/evidence_provenance.json": "evidence-provenance.schema.json",
@@ -670,7 +1066,7 @@ def prepare_powerpoint_case(
     receipt = {
         "schema_version": "1.0.0",
         "document_type": "AUTOFIGURE_POWERPOINT_CASE_RECEIPT",
-        "status": "POWERPOINT_CASE_READY",
+        "status": "POWERPOINT_CASE_PREPARED_REQUIRES_REVIEW",
         "created_at_utc": now,
         "project_id": project_id,
         "target_id": target_id,
@@ -700,7 +1096,7 @@ def prepare_powerpoint_case(
             "edges": len(scene_edges),
             "asset_slots": len(asset_slots),
         },
-        "release_status": "CANDIDATE_WITH_REFERENCE_PREVIEWS",
+        "release_status": release_ceiling_for_elements(spec["elements"]),
     }
     atomic_write_json(output_case / "case-receipt.json", receipt)
     return receipt
@@ -713,7 +1109,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-case", required=True, type=Path)
     parser.add_argument("--project-id", required=True)
     parser.add_argument("--target-id", required=True)
-    parser.add_argument("--profile-id", default="presentation-16x9")
+    parser.add_argument("--profile-id", default="journal-double-column")
     parser.add_argument("--schema-root", type=Path)
     return parser
 

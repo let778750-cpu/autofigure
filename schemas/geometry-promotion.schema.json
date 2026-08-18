@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ai-autofigure/schemas/geometry-promotion.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "document_type", "status", "raw_geometry", "calibration", "promotions", "excluded_counts"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "document_type": {"const": "GEOMETRY_PROMOTION_RECEIPT"},
+    "status": {"enum": ["PROMOTIONS_READY", "OBSERVATION_ONLY"]},
+    "raw_geometry": {"$ref": "#/$defs/binding"},
+    "calibration": {"$ref": "#/$defs/binding"},
+    "promotions": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["observation_id", "class_id", "geometry", "confidence", "confidence_basis", "source_quality_flags"],
+        "properties": {
+          "observation_id": {"type": "string", "minLength": 1},
+          "class_id": {"enum": ["horizontal_single_line_ink_bbox", "clear_frame", "same_row_gap"]},
+          "geometry": {"type": "object"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "confidence_basis": {"const": "1/(1+calibrated_p95_error_px)"},
+          "source_quality_flags": {"type": "array", "maxItems": 0}
+        }
+      }
+    },
+    "excluded_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+  },
+  "$defs": {
+    "binding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      }
+    }
+  }
+}

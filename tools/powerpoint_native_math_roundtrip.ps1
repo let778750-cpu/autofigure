@@ -24,12 +24,17 @@ param(
 
     [Parameter(Mandatory = $true)]
     [ValidateRange(1, [int]::MaxValue)]
-    [int]$ParentProcessId
+    [int]$ParentProcessId,
+
+    [Parameter(Mandatory = $false)]
+    [ValidateSet('standard', 'strict')]
+    [string]$AuditProfile = 'standard'
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding($false)
+$minimumContrastRatioRequired = if ($AuditProfile -eq 'strict') { 4.5 } else { 1.8 }
 
 Add-Type @'
 using System;
@@ -825,6 +830,7 @@ try {
                 background_source = $null
                 minimum_font_size = $null
                 minimum_contrast_ratio = $null
+                minimum_contrast_ratio_required = $minimumContrastRatioRequired
                 maximum_character_transparency = $null
                 color_rgb_values = @()
                 checked_character_count = 0
@@ -884,6 +890,14 @@ try {
                 }
                 continue
             }
+            # A semantic container may have a visible outline but a fully
+            # transparent interior. It contributes no background ink, so it
+            # must not hide the real solid underlay or slide background.
+            if ($null -ne $lowerShape.fill_transparency -and
+                $lowerShape.fill_transparency -ge 0.95 -and
+                -not $lowerShape.is_picture -and -not $lowerShape.is_ole) {
+                continue
+            }
             $isReliableSolidFill = $lowerShape.fill_type -eq 1 -and
                 $null -ne $lowerShape.fill_transparency -and $lowerShape.fill_transparency -le 0.05 -and
                 $null -ne $lowerShape.fill_color_rgb -and $lowerShape.fill_color_rgb -ge 0 -and
@@ -930,12 +944,13 @@ try {
         $mathRow.background_source = $backgroundSource
         $mathRow.minimum_font_size = $inkEvidence.minimum_font_size
         $mathRow.minimum_contrast_ratio = $inkEvidence.minimum_contrast_ratio
+        $mathRow.minimum_contrast_ratio_required = $minimumContrastRatioRequired
         $mathRow.maximum_character_transparency = $inkEvidence.maximum_character_transparency
         $mathRow.color_rgb_values = $inkEvidence.color_rgb_values
         $mathRow.checked_character_count = $inkEvidence.checked_character_count
         $mathRow.ink_evidence_error = $inkEvidence.error
         if ($null -ne $inkEvidence.error -or $inkEvidence.minimum_font_size -lt 6.0 -or
-            $inkEvidence.minimum_contrast_ratio -lt 4.5 -or
+            $inkEvidence.minimum_contrast_ratio -lt $minimumContrastRatioRequired -or
             $inkEvidence.maximum_character_transparency -gt 0.05 -or
             $inkEvidence.checked_character_count -lt 1) {
             $violations += [pscustomobject]@{
@@ -1063,6 +1078,7 @@ try {
     $reopened.Close()
     $reopened = $null
     $stages.second_close = $true
+    if ($AuditProfile -eq 'strict') {
     foreach ($mathRow in $mathShapes) {
         $matchingOperations = @($injectionReport.operations | Where-Object {
             [int]$_.slide_index -eq [int]$mathRow.slide_index -and
@@ -1156,6 +1172,7 @@ try {
             }
         }
     }
+    }
     $stages.counterfactual_rendered = $true
 
     [System.IO.Directory]::Move($stagingRender, $renderFull)
@@ -1195,6 +1212,8 @@ $payload = [ordered]@{
     challenge = $Challenge
     powershell_process_id = [int]$PID
     parent_process_id = $ParentProcessId
+    audit_profile = $AuditProfile
+    minimum_contrast_ratio_required = $minimumContrastRatioRequired
     powerpoint_process_id = $powerPointProcessId
     powerpoint_executable_path = $powerPointExecutablePath
     powerpoint_executable_sha256 = $powerPointExecutableHash

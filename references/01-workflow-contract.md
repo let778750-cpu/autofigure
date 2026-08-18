@@ -13,13 +13,13 @@
 ## 1. 状态与回退
 
 ```text
-FROZEN_REFERENCE
-  → PERCEPTION_CAPTURE → PERCEPTION_GATE
-  → SPEC_FROZEN → PREFLIGHT_PASS
-  → FIRST_RENDER → ACCEPTANCE_AUDIT
-  → CANDIDATE | CANDIDATE_WITH_SLOTS | CANDIDATE_WITH_REFERENCE_PREVIEWS
-  → USER_FILLED_SLOTS → APPROVED
+REFERENCE_FROZEN → PERCEPTION_COMPLETE → REVIEWED
+→ SPEC_DRAFT → SPEC_FROZEN → PREFLIGHT_PASS
+→ RENDERED → MECHANICAL_PASS → INDEPENDENT_REVIEW_PASS
+→ RELEASE_CANDIDATE → APPROVED
 ```
+
+`run-state.json` 是唯一当前状态，`run-events.jsonl` 只追加阶段历史；两者必须哈希闭合。
 
 - `PERCEPTION_GATE` 有未决关键项：停在 `INCONCLUSIVE`，获取用户/原文证据后再冻结 spec。
 - `ACCEPTANCE_AUDIT` 发现 minor：`MINOR_PATCH` 后重审。
@@ -30,7 +30,8 @@ FROZEN_REFERENCE
 
 ```jsonc
 {
-  "schema_version": "3.0",
+  "schema_version": "4.0",
+  "policy_profile": "standard",
   "mode": "reconstruct_1to1",
   "source": {
     "path": "<absolute reference path>",
@@ -78,7 +79,7 @@ FROZEN_REFERENCE
 | 字段 | 要求 |
 |---|---|
 | `id` | 当前 spec 内唯一，稳定且有语义前缀 |
-| `type` | `background/panel/text/shape/formula/icon/plot/legend/micro_asset/manual_asset_slot`；connector 只在 `edges[]` 中定义 |
+| `type` | `background/panel/group/text/native_shape/formula/icon/plot/legend/reference_atomic_asset/manual_asset_slot`；connector 只在 `edges[]` 中定义 |
 | `parent_id` | 根对象为 `null`；其余引用已存在容器 |
 | `bbox` | `{x,y,w,h}`，source pixel，有限且非负 |
 | `z_index` | 整数；同父级绘制顺序明确 |
@@ -94,9 +95,13 @@ FROZEN_REFERENCE
 | `disposition` | `CONFIRMED/INCONCLUSIVE/UNREADABLE/NOT_TEXT` |
 | `confidence` | 感知可靠性 0..1，不是 QA 分数 |
 | `uncertainty_px` | 边界不清时的诚实误差范围 |
-| `strategy` | `native_editable/manual_asset_slot/source_ambiguity` |
+| `render_strategy` | `native_required/native_preferred/reference_atomic_asset/manual_asset_slot/source_ambiguity` |
+| `geometry_source` | `designer_authored/target_visual/manual_measurement/calibrated_phase1`；晋升项必须绑定 promotion 与 calibration receipt |
+| `review_risk` | `critical/ordinary` |
 | `allowed_overlap` | 仅列语义上允许相交的对象 ID；默认空数组 |
 | `status` | `pending/mapped/verified/intentional_deviation/blocked` |
+
+`reference_atomic_asset` 必须包含 `asset_binding`，完整绑定 source bbox、输出/mask SHA、尺寸、原子性、无失真变换和权利依据。它只能承载单一视觉对象，正式文字/公式/轴图例/边框/定量证据必须拆为原生对象。
 
 `type=manual_asset_slot` 还必须包含 `slot_contract`。槽位四态为
 `empty/reference_preview/user_filled/backfilled_verified`：
@@ -107,13 +112,15 @@ FROZEN_REFERENCE
 - preview 只准承载不可合理原生化的最小照片级视觉场，禁止文字、公式、connector、轴/图例、panel border 和定量证据；
 - slot 必须记录 PowerPoint/draw.io 能力审计；shape 数量大本身不构成降级理由；
 - preview 在成品中必须有原生可见 `REFERENCE PREVIEW — REPLACE ME` 标签，且不计 native coverage、从相似度诊断中遮罩、阻断 `APPROVED`；
-- `manual_asset_slot` 与 `native_editable` 一一互斥，禁止同一 element 同时用原生对象和截图重复覆盖。
+- `manual_asset_slot` 与任一已完成表示互斥，禁止同一 element 同时用原生对象和位图重复覆盖。
+
+详细准入、裁片和回填约束只在 `06-asset-policy.md` 维护。
 
 `text_style` 必须足以在绘制前做文字测量；缺字体、无法测量或预计溢出时 preflight 不能 PASS。
 
 ## 4. edges[]
 
-每条边至少包含 `id`、`from`、`to`、源/目标锚边、路径类型、`clearance_px`、显式 crossing 白名单、线型语义和必要的 via 点。orthogonal/polyline 不得省略 via；自由锚点必须给出坐标。
+每条边至少包含 `id`、`from`、`to`、`representation`、`arrow_class`、首尾箭头、线宽、虚线、端帽、连接方式和必要的 `via`。普通连接使用 PowerPoint connector；有 `via` 的路径使用可编辑线段链，只在首末段应用对应箭头。
 
 - `from/to` 必须引用现有元素，禁止靠近但不绑定的“视觉箭头”。
 - 箭头端点触达边界，不进入受保护对象内部、不压文字。
@@ -133,7 +140,7 @@ FROZEN_REFERENCE
 }
 ```
 
-候选全文、冲突和 bbox 保存在 raw manifest/review receipt，不复制成第二份真值。spec 的文字必须等于 review 的 `confirmed_text`，其 bbox 必须覆盖对应候选位置。关键项还须显式带 `user_confirmed` 或 `source_text`；Drawer 无权自行补全。OCR 识别框和 score 不可伪装成用户确认。
+候选全文、冲突和 bbox 保存在 raw manifest/review receipt，不复制成第二份真值。spec 的文字必须等于 review 的 `confirmed_text`，其 bbox 必须覆盖对应候选位置。公式、数字、单位、标题、轴/图例/连接器标签等关键项须显式带 `user_confirmed` 或 `source_text`。普通文本只有在版本化 fixture 校准通过、本地 OCR + Agent 选择 + 结构上下文一致，且 source-SHA 固定抽样未命中时才能标记 `consensus_auto`；不得伪装成 `user_confirmed`。
 
 raw manifest 的每个 candidate ID 必须在 hash-bound perception review receipt 中恰好出现一次。Review 内部的 `CONFIRMED/CORRECTED/FORMULA_CONFIRMED` 只有在证据类型与内容合法时才可映射到 spec `CONFIRMED`；`NOT_TEXT` 映射到 `NOT_TEXT`；`PENDING/INCONCLUSIVE` 不得进入可绘制 spec。像素本身无法辨认时，spec 记 `UNREADABLE` 并保持 gate `INCONCLUSIVE`。对外 spec `disposition` 只有 `CONFIRMED/INCONCLUSIVE/UNREADABLE/NOT_TEXT` 四值。
 
@@ -141,7 +148,7 @@ raw manifest 的每个 candidate ID 必须在 hash-bound perception review recei
 
 OCR manifest 生成后，canonical runner 必须在同一 run 内调用 Host CV 的 `tools/geometry_refinement.py`，输出 `geometry/geometry-manifest.json`、overlay、lossless label atlas 与 ambiguity mask。manifest 必须绑定 frozen source、run ID、OCR manifest、host runtime receipt、脚本/schema 及三个图像产物哈希；gate summary 在外层绑定 manifest 自身哈希，避免自引用。exit 3 只允许携带并核验 `GEOMETRY_INCONCLUSIVE`，公开入口最终仍以 exit 3 fail closed；其他非零退出、缺失产物或哈希不闭合直接失败。
 
-Phase-1 只报告四类观测：逐候选字形 ink bbox、严格筛选的水平单行 ink-bottom alignment、可靠同容器/同排候选对的 signed/minimum gap，以及矩形/圆角框候选。ink-bottom alignment 只是光栅墨迹下缘的对齐观测，不是 PNG 无法恢复的字体排印 baseline。公式、纵排、多行、低分辨率或受框线/图形污染的区域必须保留为 `INCONCLUSIVE`，不得输出伪精确值。即使状态为 `GEOMETRY_OBSERVATIONS_READY`，manifest 仍必须是 `mode=observation_only`、`policy.promotion_allowed=false`：在独立 gold fixture 和 promotion gate 通过前，任何观测都不得自动覆盖 OCR bbox、进入 frozen spec 或绕过视觉/来源/用户交叉确认。箭头、箭杆、端点和 connector 拓扑精测属于 Phase-2。
+Phase-1 只报告四类观测：逐候选字形 ink bbox、严格筛选的水平单行 ink-bottom alignment、可靠同容器/同排候选对的 signed/minimum gap，以及矩形/圆角框候选。ink-bottom alignment 只是光栅墨迹下缘的对齐观测，不是 PNG 无法恢复的字体排印 baseline。公式、纵排、多行、低分辨率或受框线/图形污染的区域必须保留为 `INCONCLUSIVE`。原始 manifest 始终为 `mode=observation_only`、`policy.promotion_allowed=false`；晋升只通过独立 receipt，要求至少四类稳定图例，每个可晋升类不少于 30 个实例，median≤1 px、P95≤2 px、高风险误晋升为 0。箭头、箭杆、端点和 connector 拓扑精测属于 Phase-2。
 
 普通文字与行内公式必须分离，例如：
 
@@ -167,7 +174,7 @@ preflight 以保守规则拦截普通 `text` 中的 LaTeX 定界符/命令、明
 - 冻结 spec 前先用 `tools/powerpoint_native_math.py` 做无 PPTX 变更的 LaTeX→MathML→OMML 编译。每条公式绑定一个 hash-bound `NATIVE_OFFICE_MATH_CONVERTER_RECEIPT`，至少含 canonical LaTeX/hash、formula ID、mode、MathML hash、精确编译 OMML hash、`office-math-semantic-v2` profile/hash、转换器版本、MML2OMML.XSL hash 和 `native_target={kind:office_math,wrapper:a14:m,omml_root:m:oMath|m:oMathPara}`。validator 必须用当前固定转换器和可信 XSL 重编译，不接受仅内部哈希自洽的自签 JSON。receipt 缺失、非 PASS 或绑定不一致均阻断 Drawer。
 - MathText 仅做近似容量诊断；其解析成功**不证明** PowerPoint 能插入原生公式，其解析失败也不能被 PNG/SVG fallback 掩盖。最终容量仍以保存/重开后的 Office Math 结构与 fresh render 为准。
 - 公式编号、`\tag`、`\label`、`\ref` 及 Office 不支持的排版不得静默丢失；编号另建可编辑文本，转换器出现语义降级时停在 `INCONCLUSIVE`。
-- 注入 plan 的每个 math run 必须绑定 `formula_id + converter receipt 路径 + receipt SHA-256`；混合说明必须保留有序 text/math run。注入后状态只能是 `INJECTED_REQUIRES_POWERPOINT_ROUNDTRIP`。脱离当前进程的 receipt 不能授权通过；one-shot `finalize` 必须现场生成随机 challenge 并直接启动 PowerPoint 子进程，绑定 input/output/plan/injection report/工具哈希，执行保存、关闭、只读重开，核对每个 shape 的有效 OMML、text/math 顺序、逐 MathZone 的字符范围/文本哈希、可见性/遮挡与连续两份像素一致的 fresh render；每个 math run 还必须有只隐藏自身 MathZone 的独立控制图，并仅在所属对象内产生像素差。机械成功状态只能为 `MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW`。
+- 注入 plan 的每个 math run 必须绑定 `formula_id + converter receipt 路径 + receipt SHA-256`；混合说明必须保留有序 text/math run。注入后状态只能是 `INJECTED_REQUIRES_POWERPOINT_ROUNDTRIP`。one-shot `finalize` 必须现场生成 challenge，绑定当前事务，并执行保存、关闭、只读重开、MathZone/可见性读回与连续两份 fresh render。`standard` 对无风险通过项不长期保留逐 MathZone 控制图；`strict` 保留全部独立反事实图。机械成功状态只能为 `MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW`。
 
 最小记录：
 
@@ -198,6 +205,6 @@ preflight 以保守规则拦截普通 `text` 中的 LaTeX 定界符/命令、明
 | 必须精确 | 源哈希/尺寸、全部 frozen 文字、节点数量和归属、拓扑与箭头方向、画布比例、对象映射 |
 | 阈值容差 | 字体度量、抗锯齿、纯色采样、非语义曲线控制点、细小装饰 |
 | 观察而非真值 | Phase-1 ink bbox、ink-bottom alignment、可靠 pair gap、frame candidate；必须携带不确定性并经过后续 promotion |
-| 永不复用 | 原图本体、参考裁片、整 panel 截图或以背景方式嵌入参考 |
+| 来源绑定例外 | 合规 `reference_atomic_asset` 可作终稿位图；整图、整 panel、复合 preview 仍禁止冒充完成品 |
 
 像素差、SSIM 和 ROI 只作诊断；不得用背景面积平均掉文字、拓扑或重叠错误，也不得先静默缩放不同尺寸的图再宣称通过。

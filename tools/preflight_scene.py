@@ -27,10 +27,14 @@ if str(TOOLS_DIRECTORY) not in sys.path:
 
 try:
     from create_canvas_pptx import inspect_png, sha256_file, slide_size_for_aspect
+    from finalize_perception_review import ReviewError, _consensus_context
     from powerpoint_native_math import NativeMathError, _validated_receipt
+    from render_strategy import RenderStrategyError, validate_render_strategy_contract
 except ModuleNotFoundError:  # Support: python -m tools.preflight_scene
     from .create_canvas_pptx import inspect_png, sha256_file, slide_size_for_aspect
+    from .finalize_perception_review import ReviewError, _consensus_context
     from .powerpoint_native_math import NativeMathError, _validated_receipt
+    from .render_strategy import RenderStrategyError, validate_render_strategy_contract
 
 try:
     from output_policy import resolve_output_path
@@ -57,10 +61,19 @@ DEFAULT_HOST_RUNTIME_RECEIPT_SCHEMA_PATH = (
 DEFAULT_REFERENCE_PREVIEW_SCHEMA_PATH = (
     Path(__file__).resolve().parents[1] / "schemas" / "reference-preview-asset.schema.json"
 )
+DEFAULT_REFERENCE_ATOMIC_ASSET_SCHEMA_PATH = (
+    Path(__file__).resolve().parents[1] / "schemas" / "reference-atomic-asset.schema.json"
+)
+DEFAULT_GEOMETRY_CALIBRATION_SCHEMA_PATH = (
+    Path(__file__).resolve().parents[1] / "schemas" / "geometry-calibration.schema.json"
+)
+DEFAULT_GEOMETRY_PROMOTION_SCHEMA_PATH = (
+    Path(__file__).resolve().parents[1] / "schemas" / "geometry-promotion.schema.json"
+)
 DEFAULT_GEOMETRY_SCRIPT_PATH = Path(__file__).resolve().parent / "geometry_refinement.py"
 TEXT_TYPES = {"text", "formula"}
 NON_COLLIDING_TYPES = {"background"}
-CONTAINER_TYPES = {"background", "panel", "plot", "legend", "micro_asset"}
+CONTAINER_TYPES = {"background", "panel", "plot", "legend", "group", "micro_asset"}
 STATUS_PRECEDENCE = {"PASS": 0, "INCONCLUSIVE": 1, "REGION_REPLAN": 2, "SPEC_INVALID": 3}
 FONT_ALIASES = {
     "arial": ["arial.ttf"],
@@ -927,6 +940,7 @@ def preflight_scene(
     formula_measurements: list[dict[str, Any]] = []
     formula_converter_receipts: list[dict[str, Any]] = []
     slot_records: list[dict[str, Any]] = []
+    atomic_asset_records: list[dict[str, Any]] = []
     finding_counter = 0
     evidence_snapshots: list[tuple[str, Path, bytes]] = []
 
@@ -1006,6 +1020,12 @@ def preflight_scene(
             DEFAULT_REFERENCE_PREVIEW_SCHEMA_PATH,
             "reference preview asset schema",
         ),
+        (
+            DEFAULT_REFERENCE_ATOMIC_ASSET_SCHEMA_PATH,
+            "reference atomic asset schema",
+        ),
+        (DEFAULT_GEOMETRY_CALIBRATION_SCHEMA_PATH, "geometry calibration schema"),
+        (DEFAULT_GEOMETRY_PROMOTION_SCHEMA_PATH, "geometry promotion schema"),
     ):
         try:
             snapshot_schema(canonical_schema_path, label=canonical_label)
@@ -1026,6 +1046,20 @@ def preflight_scene(
             evidence={"path": non_finite_location},
             repair="Use finite standards-compliant JSON numbers only.",
         )
+
+    if spec.get("schema_version") == "4.0":
+        try:
+            validate_render_strategy_contract(
+                spec.get("elements", []) if isinstance(spec.get("elements"), list) else [],
+                spec.get("edges", []) if isinstance(spec.get("edges"), list) else [],
+            )
+        except RenderStrategyError as exc:
+            add_finding(
+                "SPEC_INVALID",
+                "RENDER_STRATEGY_INVALID",
+                str(exc),
+                repair="Classify the object before drawing and bind its selected representation.",
+            )
 
     resolved_base = Path(base_dir).resolve() if base_dir is not None else Path.cwd().resolve()
     source_spec = spec.get("source") if isinstance(spec.get("source"), Mapping) else {}
@@ -1175,6 +1209,8 @@ def preflight_scene(
     perception_manifest_sha256: str | None = None
     candidate_by_id: dict[str, Mapping[str, Any]] = {}
     decision_by_id: dict[str, Mapping[str, Any]] = {}
+    bound_perception_review_path: Path | None = None
+    bound_perception_review_sha256: str | None = None
     perception_spec = spec.get("perception") if isinstance(spec.get("perception"), Mapping) else {}
     manifest_value = perception_spec.get("manifest_path")
     if manifest_value:
@@ -1324,8 +1360,10 @@ def preflight_scene(
                 )
             else:
                 receipt_path = _resolve_path(str(receipt_value), resolved_base)
+                bound_perception_review_path = receipt_path
                 receipt_bytes = snapshot_bytes(receipt_path, label="perception review receipt")
                 actual_receipt_hash = _sha256_bytes(receipt_bytes)
+                bound_perception_review_sha256 = actual_receipt_hash
                 expected_receipt_hash = str(perception_spec.get("review_receipt_sha256", ""))
                 if actual_receipt_hash.casefold() != expected_receipt_hash.casefold():
                     add_finding(
@@ -1460,16 +1498,36 @@ def preflight_scene(
                             "CORRECTED",
                             "NOT_TEXT",
                             "FORMULA_CONFIRMED",
-                        } and evidence_kind not in {
-                            "user_confirmed",
-                            "source_text",
-                        }:
+                        } and evidence_kind not in {"user_confirmed", "source_text", "consensus_auto"}:
                             add_finding(
                                 "SPEC_INVALID",
                                 "PERCEPTION_REVIEW_AUTHORITY_MISSING",
                                 "Terminal review decisions require user_confirmed or source_text evidence.",
                                 evidence={"candidate_id": candidate_id, "status": status_value},
                             )
+                        if evidence_kind == "consensus_auto":
+                            if status_value != "CONFIRMED":
+                                add_finding(
+                                    "SPEC_INVALID",
+                                    "PERCEPTION_CONSENSUS_STATUS_INVALID",
+                                    "Calibrated consensus may only confirm unchanged ordinary text.",
+                                    evidence={"candidate_id": candidate_id, "status": status_value},
+                                )
+                            else:
+                                try:
+                                    _consensus_context(
+                                        decision,
+                                        candidate,
+                                        loaded_manifest,
+                                        perception_manifest_path,
+                                    )
+                                except (ReviewError, OSError, KeyError) as exc:
+                                    add_finding(
+                                        "SPEC_INVALID",
+                                        "PERCEPTION_CONSENSUS_BINDING_INVALID",
+                                        str(exc),
+                                        evidence={"candidate_id": candidate_id},
+                                    )
                         if status_value == "CONFIRMED" and decision.get(
                             "confirmed_text"
                         ) != candidate.get("text"):
@@ -2855,8 +2913,12 @@ def preflight_scene(
             )
         else:
             reference = references[0]
-            expected_mode = "inline" if reference["kind"] == "inline_run" else "display"
-            if formula.get("mode") != expected_mode:
+            # A standalone formula box may contain either inline or display
+            # Office Math; the mode controls the OMML wrapper, not whether the
+            # box is a separate scene element.  A formula embedded in a prose
+            # run, however, must use inline OMML.
+            expected_mode = "inline" if reference["kind"] == "inline_run" else None
+            if expected_mode is not None and formula.get("mode") != expected_mode:
                 add_finding(
                     "SPEC_INVALID",
                     "FORMULA_MODE_REFERENCE_MISMATCH",
@@ -2961,6 +3023,212 @@ def preflight_scene(
             )
             continue
         valid_boxes[element_id] = box
+        geometry_source_binding = element.get("geometry_source")
+        if (
+            isinstance(geometry_source_binding, Mapping)
+            and geometry_source_binding.get("kind") == "calibrated_phase1"
+        ):
+            try:
+                promotion_path = _resolve_path(
+                    str(geometry_source_binding["manifest_path"]), resolved_base
+                )
+                promotion_payload = snapshot_bytes(
+                    promotion_path, label=f"{element_id} geometry promotion receipt"
+                )
+                if _sha256_bytes(promotion_payload).casefold() != str(
+                    geometry_source_binding["manifest_sha256"]
+                ).casefold():
+                    raise ValueError("geometry promotion receipt SHA-256 mismatch")
+                promotion = _strict_json_bytes(
+                    promotion_payload, label=f"{element_id} geometry promotion receipt"
+                )
+                promotion_errors = sorted(
+                    Draft202012Validator(
+                        schema_payloads[DEFAULT_GEOMETRY_PROMOTION_SCHEMA_PATH.resolve()]
+                    ).iter_errors(promotion),
+                    key=lambda item: list(item.absolute_path),
+                )
+                if promotion_errors:
+                    raise ValueError(promotion_errors[0].message)
+                calibration_path = _resolve_path(
+                    str(geometry_source_binding["calibration_receipt_path"]), resolved_base
+                )
+                if calibration_path != Path(str(promotion["calibration"]["path"])).resolve(strict=True):
+                    raise ValueError("calibration path differs from the promotion receipt")
+                calibration_payload = snapshot_bytes(
+                    calibration_path, label=f"{element_id} geometry calibration receipt"
+                )
+                calibration_sha = _sha256_bytes(calibration_payload)
+                if calibration_sha.casefold() != str(
+                    geometry_source_binding["calibration_receipt_sha256"]
+                ).casefold() or calibration_sha.casefold() != str(
+                    promotion["calibration"]["sha256"]
+                ).casefold():
+                    raise ValueError("geometry calibration receipt SHA-256 mismatch")
+                calibration = _strict_json_bytes(
+                    calibration_payload, label=f"{element_id} geometry calibration receipt"
+                )
+                calibration_errors = sorted(
+                    Draft202012Validator(
+                        schema_payloads[DEFAULT_GEOMETRY_CALIBRATION_SCHEMA_PATH.resolve()]
+                    ).iter_errors(calibration),
+                    key=lambda item: list(item.absolute_path),
+                )
+                if calibration_errors or calibration.get("status") != "PASS":
+                    raise ValueError(
+                        calibration_errors[0].message
+                        if calibration_errors
+                        else "geometry calibration did not pass"
+                    )
+                observation = next(
+                    (
+                        item for item in promotion["promotions"]
+                        if item["observation_id"] == geometry_source_binding["observation_id"]
+                    ),
+                    None,
+                )
+                if observation is None:
+                    raise ValueError("observation_id is absent from the promotion receipt")
+                if float(observation["confidence"]) != float(
+                    geometry_source_binding["confidence"]
+                ):
+                    raise ValueError("geometry confidence differs from its promotion receipt")
+                if spec.get("geometry") and str(
+                    promotion["raw_geometry"]["sha256"]
+                ).casefold() != str(spec["geometry"]["manifest_sha256"]).casefold():
+                    raise ValueError("promotion receipt binds a different raw geometry manifest")
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                add_finding(
+                    "SPEC_INVALID",
+                    "CALIBRATED_GEOMETRY_BINDING_INVALID",
+                    f"Calibrated Phase-1 geometry binding is invalid: {exc}",
+                    element_ids=[element_id],
+                    repair="Regenerate the promotion sidecar from current gold calibration and raw geometry evidence.",
+                )
+        if str(element.get("type", "")).casefold() == "reference_atomic_asset":
+            binding = element.get("asset_binding")
+            if not isinstance(binding, Mapping):
+                add_finding(
+                    "SPEC_INVALID",
+                    "ATOMIC_ASSET_BINDING_MISSING",
+                    "A reference_atomic_asset requires a hash-bound asset receipt.",
+                    element_ids=[element_id],
+                )
+            else:
+                try:
+                    receipt_path = _resolve_path(
+                        str(binding.get("receipt_path", "")), resolved_base
+                    )
+                    receipt_payload = snapshot_bytes(
+                        receipt_path, label=f"{element_id} reference atomic asset receipt"
+                    )
+                    receipt_sha = _sha256_bytes(receipt_payload)
+                    if receipt_sha.casefold() != str(binding.get("receipt_sha256", "")).casefold():
+                        raise ValueError("receipt SHA-256 mismatch")
+                    receipt_document = _strict_json_bytes(
+                        receipt_payload, label=f"{element_id} reference atomic asset receipt"
+                    )
+                    atomic_schema = schema_documents[
+                        DEFAULT_REFERENCE_ATOMIC_ASSET_SCHEMA_PATH.resolve()
+                    ]
+                    atomic_validator = Draft202012Validator(
+                        atomic_schema, format_checker=FormatChecker()
+                    )
+                    atomic_errors = sorted(
+                        atomic_validator.iter_errors(receipt_document),
+                        key=lambda item: list(item.absolute_path),
+                    )
+                    if atomic_errors:
+                        raise ValueError(atomic_errors[0].message)
+                    receipt_source = receipt_document["source"]
+                    if str(receipt_source["sha256"]).casefold() != str(
+                        spec.get("source", {}).get("sha256", "")
+                    ).casefold():
+                        raise ValueError("receipt belongs to a different designated reference")
+                    raw_overlap_ids = set(
+                        str(value)
+                        for value in receipt_document["classification"].get(
+                            "ocr_overlap_candidate_ids", []
+                        )
+                    )
+                    reviewed_not_text_ids = set(
+                        str(value)
+                        for value in receipt_document["classification"].get(
+                            "reviewed_not_text_candidate_ids", []
+                        )
+                    )
+                    if raw_overlap_ids != reviewed_not_text_ids:
+                        raise ValueError(
+                            "raw OCR overlaps are not fully closed by reviewed NOT_TEXT decisions"
+                        )
+                    if raw_overlap_ids:
+                        candidate_binding = receipt_document["candidate"]
+                        review_path_value = candidate_binding.get(
+                            "perception_review_receipt_path"
+                        )
+                        review_sha_value = candidate_binding.get(
+                            "perception_review_receipt_sha256"
+                        )
+                        if bound_perception_review_path is None:
+                            raise ValueError("atomic OCR overlap lacks a bound perception review")
+                        if (
+                            Path(str(review_path_value)).resolve(strict=True)
+                            != bound_perception_review_path
+                        ):
+                            raise ValueError(
+                                "atomic asset uses a different perception review receipt"
+                            )
+                        if str(review_sha_value).casefold() != str(
+                            bound_perception_review_sha256
+                        ).casefold():
+                            raise ValueError("atomic perception review receipt hash is stale")
+                        invalid_not_text = sorted(
+                            candidate_id
+                            for candidate_id in raw_overlap_ids
+                            if decision_by_id.get(candidate_id, {}).get("status") != "NOT_TEXT"
+                        )
+                        if invalid_not_text:
+                            raise ValueError(
+                                "atomic OCR overlaps are not NOT_TEXT in the frozen review: "
+                                + ", ".join(invalid_not_text)
+                            )
+                    receipt_asset = receipt_document["asset"]
+                    asset_path = _resolve_path(
+                        str(binding.get("asset_path", "")), resolved_base
+                    )
+                    if asset_path != Path(str(receipt_asset["path"])).resolve(strict=True):
+                        raise ValueError("asset path differs from its receipt")
+                    asset_sha = sha256_file(asset_path)
+                    if asset_sha.casefold() != str(binding.get("asset_sha256", "")).casefold() or asset_sha.casefold() != str(receipt_asset["sha256"]).casefold():
+                        raise ValueError("asset SHA-256 mismatch")
+                    if binding.get("source_bbox") != receipt_document["candidate"]["bbox_source"]:
+                        raise ValueError("source bbox differs from its receipt")
+                    display_aspect = box[2] / box[3]
+                    source_aspect = float(receipt_asset["width_px"]) / float(receipt_asset["height_px"])
+                    rotation = abs(float(binding.get("transform", {}).get("rotation_deg", 0.0))) % 180.0
+                    if abs(rotation - 90.0) < 1e-6:
+                        source_aspect = 1.0 / source_aspect
+                    if abs(display_aspect / source_aspect - 1.0) > 0.02:
+                        raise ValueError("display bbox would distort the atomic asset aspect ratio")
+                    atomic_asset_records.append(
+                        {
+                            "element_id": element_id,
+                            "receipt_path": str(receipt_path),
+                            "receipt_sha256": receipt_sha,
+                            "asset_path": str(asset_path),
+                            "asset_sha256": asset_sha,
+                            "classification": receipt_document["classification"]["result"],
+                            "approval_blocking": False,
+                        }
+                    )
+                except (OSError, ValueError, KeyError, TypeError) as exc:
+                    add_finding(
+                        "SPEC_INVALID",
+                        "ATOMIC_ASSET_BINDING_INVALID",
+                        f"Reference atomic asset binding is invalid: {exc}",
+                        element_ids=[element_id],
+                        repair="Regenerate the deterministic atomic asset from the current reference and bind its exact receipt.",
+                    )
         if str(element.get("type", "")).casefold() == "manual_asset_slot":
             slot = element.get("slot_contract")
             if not isinstance(slot, Mapping):
@@ -3572,12 +3840,23 @@ def preflight_scene(
             z_by_scope[scope][z_index].append(element_id)
     for scope, z_values in z_by_scope.items():
         for z_index, scoped_ids in z_values.items():
-            if len(scoped_ids) > 1:
+            overlapping_ids = sorted(
+                {
+                    element_id
+                    for index, element_id in enumerate(scoped_ids)
+                    for other_id in scoped_ids[index + 1 :]
+                    if element_id in valid_boxes
+                    and other_id in valid_boxes
+                    and _intersection(valid_boxes[element_id], valid_boxes[other_id]) is not None
+                    for element_id in (element_id, other_id)
+                }
+            )
+            if overlapping_ids:
                 add_finding(
                     "REGION_REPLAN",
                     "AMBIGUOUS_Z_INDEX",
                     "Sibling elements share the same z_index.",
-                    element_ids=scoped_ids,
+                    element_ids=overlapping_ids,
                     evidence={"parent_id": scope, "z_index": z_index},
                     repair="Give siblings deterministic, distinct z_index values.",
                 )
@@ -3601,6 +3880,10 @@ def preflight_scene(
         for element_id, element in by_id.items()
         if element_id in valid_boxes
         and str(element.get("type", "")).casefold() not in NON_COLLIDING_TYPES
+        and not (
+            str(element.get("type", "")).casefold() == "group"
+            and not any(key in element for key in ("shape_kind", "fill", "stroke"))
+        )
     ]
     for index, first_id in enumerate(collidable):
         for second_id in collidable[index + 1 :]:
@@ -3735,8 +4018,20 @@ def preflight_scene(
         for obstacle_id, obstacle_box in valid_boxes.items():
             if obstacle_id in {source_id, target_id} or obstacle_id in allowed_crossings:
                 continue
+            if obstacle_id in ancestors(source_id) or obstacle_id in ancestors(target_id):
+                continue
+            if _contains(valid_boxes[source_id], obstacle_box) or _contains(
+                valid_boxes[target_id], obstacle_box
+            ):
+                # Labels and glyph components geometrically owned by an edge
+                # endpoint are not intervening obstacles.
+                continue
             obstacle_type = str(by_id[obstacle_id].get("type", "")).casefold()
             if obstacle_type in obstacle_types_ignored:
+                continue
+            if obstacle_type == "group" and not any(
+                key in by_id[obstacle_id] for key in ("shape_kind", "fill", "stroke")
+            ):
                 continue
             expanded = _inflate_rect(obstacle_box, clearance)
             if any(
@@ -3954,12 +4249,14 @@ def preflight_scene(
             for path, payload in sorted(schema_payloads.items(), key=lambda item: str(item[0]))
         },
         "formula_converter_receipts": formula_converter_receipts,
+        "reference_atomic_assets": atomic_asset_records,
         "manual_asset_slots": slot_records,
         "summary": {
             "element_count": len(elements),
             "edge_count": len(edges),
             "formula_count": len(formulas),
             "manual_asset_slot_count": len(slot_records),
+            "reference_atomic_asset_count": len(atomic_asset_records),
             "reference_preview_slot_count": sum(
                 record.get("mode") == "reference_preview" for record in slot_records
             ),

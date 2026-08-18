@@ -628,6 +628,21 @@ def _rgb_contrast_ratio(first_rgb: int, second_rgb: int) -> float:
     return (lighter + 0.05) / (darker + 0.05)
 
 
+def _minimum_native_math_contrast(audit_profile: str) -> float:
+    """Return the visibility floor enforced by the selected audit profile.
+
+    ``standard`` is the source-faithful reconstruction profile. It still
+    rejects effectively invisible ink, but it does not replace a verified
+    reference palette with an accessibility redesign. ``strict`` retains the
+    4.5:1 publication/accessibility gate.
+    """
+    if audit_profile == "standard":
+        return 1.8
+    if audit_profile == "strict":
+        return 4.5
+    raise NativeMathError("audit_profile must be standard or strict")
+
+
 def _hex_to_office_rgb(value: str) -> int:
     if not re.fullmatch(r"#[A-Fa-f0-9]{6}", value):
         raise NativeMathError("target font color must be #RRGGBB")
@@ -1662,6 +1677,7 @@ def _validate_runtime_roundtrip_receipt(
     render_directory: Path,
     expected: Mapping[tuple[int, str], Mapping[str, Any]],
     slide_count: int,
+    audit_profile: str = "strict",
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Validate evidence created by the child process launched by ``finalize``.
 
@@ -1692,6 +1708,8 @@ def _validate_runtime_roundtrip_receipt(
         "failure": None,
         "violations": [],
     }
+    if "audit_profile" in payload or audit_profile != "strict":
+        expected_values["audit_profile"] = audit_profile
     mismatches = {
         key: {"expected": value, "actual": payload.get(key)}
         for key, value in expected_values.items()
@@ -1775,6 +1793,7 @@ def _validate_runtime_roundtrip_receipt(
     observed: dict[tuple[int, str], int] = {}
     zone_inventory_by_shape: dict[tuple[int, str], dict[int, dict[str, Any]]] = {}
     invalid_shape_rows: list[dict[str, Any]] = []
+    minimum_contrast_required = _minimum_native_math_contrast(audit_profile)
     for item in shape_rows:
         try:
             key = (int(item.get("slide_index", 0)), str(item.get("shape_name", "")))
@@ -1791,6 +1810,9 @@ def _validate_runtime_roundtrip_receipt(
             text_transparency = float(item.get("text_fill_transparency", 1.0))
             minimum_font_size = float(item.get("minimum_font_size", 0))
             minimum_contrast = float(item.get("minimum_contrast_ratio", 0))
+            observed_contrast_requirement = float(
+                item.get("minimum_contrast_ratio_required", 0)
+            )
             maximum_character_transparency = float(
                 item.get("maximum_character_transparency", 1.0)
             )
@@ -1874,8 +1896,9 @@ def _validate_runtime_roundtrip_receipt(
             or z_order < 1
             or text_transparency > 0.05
             or minimum_font_size < 6.0
-            or minimum_contrast < 4.5
-            or recomputed_contrast < 4.5
+            or minimum_contrast < minimum_contrast_required
+            or recomputed_contrast < minimum_contrast_required
+            or abs(observed_contrast_requirement - minimum_contrast_required) > 0.001
             or abs(minimum_contrast - recomputed_contrast) > 0.001
             or maximum_character_transparency > 0.05
             or checked_character_count < 1
@@ -2040,15 +2063,16 @@ def _validate_runtime_roundtrip_receipt(
         else []
     )
     expected_control_keys: set[tuple[int, str, int, str]] = set()
-    for (slide_index, shape_name), expected_shape in expected.items():
-        math_run_index = 0
-        for run in expected_shape["content_runs"]:
-            if run["kind"] != "math":
-                continue
-            math_run_index += 1
-            expected_control_keys.add(
-                (slide_index, shape_name, math_run_index, str(run["formula_id"]))
-            )
+    if audit_profile == "strict":
+        for (slide_index, shape_name), expected_shape in expected.items():
+            math_run_index = 0
+            for run in expected_shape["content_runs"]:
+                if run["kind"] != "math":
+                    continue
+                math_run_index += 1
+                expected_control_keys.add(
+                    (slide_index, shape_name, math_run_index, str(run["formula_id"]))
+                )
     validated_controls: list[dict[str, Any]] = []
     invalid_controls: list[dict[str, Any]] = []
     seen_control_keys: set[tuple[int, str, int, str]] = set()
@@ -2174,6 +2198,7 @@ def _validate_runtime_roundtrip_receipt(
             "template_inventory": payload.get("template_inventory"),
             "renders": renders,
             "counterfactual_renders": validated_controls,
+            "audit_profile": audit_profile,
         },
         findings,
     )
@@ -3045,6 +3070,7 @@ def finalize_native_math(
     *,
     overwrite: bool = False,
     timeout_seconds: int = 240,
+    audit_profile: str = "standard",
 ) -> dict[str, Any]:
     """Run the only transaction that can produce a final native-math PASS.
 
@@ -3062,6 +3088,8 @@ def finalize_native_math(
         raise NativeMathError(
             "fresh finalization refuses overwrite; use a new run_id and new evidence paths"
         )
+    if audit_profile not in {"standard", "strict"}:
+        raise NativeMathError("audit_profile must be standard or strict")
     for candidate, label in (
         (input_path, "injected input PPTX"),
         (plan_file, "expected plan"),
@@ -3187,6 +3215,8 @@ def finalize_native_math(
         challenge,
         "-ParentProcessId",
         str(os.getpid()),
+        "-AuditProfile",
+        audit_profile,
     ]
     child = subprocess.Popen(  # noqa: S603 - fixed local PowerShell helper and argv list.
         command,
@@ -3280,6 +3310,7 @@ def finalize_native_math(
         render_directory=render_dir,
         expected=expected,
         slide_count=slide_count,
+        audit_profile=audit_profile,
     )
     structural_output = audit_pptx(output_path, plan_file)
     findings = [*runtime_findings]
@@ -3337,6 +3368,8 @@ def finalize_native_math(
             }
             for item in runtime_record["counterfactual_renders"]
         ],
+        "audit_profile": audit_profile,
+        "fresh_render_count": 2,
     }
     return {
         "document_type": AUDIT_TYPE,
@@ -3353,6 +3386,7 @@ def finalize_native_math(
         "evidence_binding_sha256": _sha256_bytes(
             json.dumps(evidence_binding, sort_keys=True, separators=(",", ":")).encode("utf-8")
         ),
+        "audit_profile": audit_profile,
         "findings": [],
     }
 
@@ -3399,6 +3433,9 @@ def _build_parser() -> argparse.ArgumentParser:
     finalize_parser.add_argument("--render-directory", type=Path, required=True)
     finalize_parser.add_argument("--output", type=Path)
     finalize_parser.add_argument("--timeout-seconds", type=int, default=240)
+    finalize_parser.add_argument(
+        "--audit-profile", choices=("standard", "strict"), default="standard"
+    )
     finalize_parser.add_argument("--pretty", action="store_true")
     return parser
 
@@ -3454,6 +3491,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 args.roundtrip_receipt,
                 args.render_directory,
                 timeout_seconds=args.timeout_seconds,
+                audit_profile=args.audit_profile,
             )
             if final_audit_output:
                 _atomic_write_json_fresh(final_audit_output, payload, pretty=args.pretty)

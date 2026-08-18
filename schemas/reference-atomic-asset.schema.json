@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ai-autofigure/schemas/reference-atomic-asset.schema.json",
+  "title": "AI AutoFigure deterministic reference atomic asset receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "document_type", "status", "created_at_utc", "source", "candidate", "classification", "asset", "transform", "qa", "policy", "rights_basis"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "document_type": {"const": "REFERENCE_ATOMIC_ASSET_RECEIPT"},
+    "status": {"const": "MECHANICAL_PASS_REQUIRES_INDEPENDENT_REVIEW"},
+    "created_at_utc": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "width_px", "height_px", "pixel_format", "user_confirmed"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1},
+        "pixel_format": {"type": "string", "minLength": 1},
+        "user_confirmed": {"const": true}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "bbox_source", "semantic_object_count", "perception_manifest_path", "perception_manifest_sha256"],
+      "properties": {
+        "role": {"enum": ["photo", "texture", "complex_icon", "style_arrow"]},
+        "bbox_source": {"$ref": "#/$defs/integer_bbox"},
+        "semantic_object_count": {"const": 1},
+        "perception_manifest_path": {"type": ["string", "null"]},
+        "perception_manifest_sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "perception_review_receipt_path": {"type": ["string", "null"]},
+        "perception_review_receipt_sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]}
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "algorithm", "foreground_component_count", "dominant_component_fraction", "border_foreground_fraction", "ocr_overlap_candidate_ids"],
+      "properties": {
+        "result": {"enum": ["ISOLATED", "SEPARABLE"]},
+        "algorithm": {"const": "deterministic-border-background-v1"},
+        "foreground_component_count": {"type": "integer", "minimum": 0},
+        "dominant_component_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "border_foreground_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "ocr_overlap_candidate_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^T[0-9]{4}$"}
+        },
+        "reviewed_not_text_candidate_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^T[0-9]{4}$"}
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "width_px", "height_px", "pixel_format", "media_type", "mask_path", "mask_sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1},
+        "pixel_format": {"type": "string", "minLength": 1},
+        "media_type": {"const": "image/png"},
+        "mask_path": {"type": ["string", "null"]},
+        "mask_sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]}
+      }
+    },
+    "transform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preserve_aspect_ratio", "resampled_file", "rotation_deg", "translate_x_px", "translate_y_px"],
+      "properties": {
+        "preserve_aspect_ratio": {"const": true},
+        "resampled_file": {"const": false},
+        "rotation_deg": {"type": "number"},
+        "translate_x_px": {"type": "number"},
+        "translate_y_px": {"type": "number"}
+      }
+    },
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["opaque_pixel_rgb_mae", "decoded_size_matches_crop", "crop_loss_detected", "edge_discontinuity_requires_review"],
+      "properties": {
+        "opaque_pixel_rgb_mae": {"const": 0.0},
+        "decoded_size_matches_crop": {"const": true},
+        "crop_loss_detected": {"const": false},
+        "edge_discontinuity_requires_review": {"type": "boolean"}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["derived_from_current_reference", "presentation_use", "visible_disclosure_required", "qa_similarity_masked", "hybrid_editability_credit", "replace_before_approval", "generative_processing"],
+      "properties": {
+        "derived_from_current_reference": {"const": true},
+        "presentation_use": {"const": "FINAL_ATOMIC_ASSET"},
+        "visible_disclosure_required": {"const": false},
+        "qa_similarity_masked": {"const": false},
+        "hybrid_editability_credit": {"const": true},
+        "replace_before_approval": {"const": false},
+        "generative_processing": {"const": false}
+      }
+    },
+    "rights_basis": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "integer_bbox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": {"type": "integer", "minimum": 0},
+        "y": {"type": "integer", "minimum": 0},
+        "w": {"type": "integer", "minimum": 1},
+        "h": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

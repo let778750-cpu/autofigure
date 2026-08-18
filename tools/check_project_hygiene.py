@@ -24,7 +24,6 @@ ALLOWED_ROOT_ENTRIES = {
     ".git",
     ".gitignore",
     "AGENTS.md",
-    "OPTIMIZATION_DETAILS.md",
     "PROJECT_ARCHITECTURE.md",
     "README.md",
     "SKILL.md",
@@ -34,6 +33,7 @@ ALLOWED_ROOT_ENTRIES = {
     "host-runtime.json",
     "mcp.json",
     "ocr-config.json",
+    "policy-profiles.json",
     "publication-profiles.yaml",
     "pyproject.toml",
     "references",
@@ -41,7 +41,6 @@ ALLOWED_ROOT_ENTRIES = {
     "schemas",
     "tests",
     "tools",
-    "优化方案参考",
 }
 REQUIRED_FIXTURES = {
     "target_figure.fixture.json",

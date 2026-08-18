@@ -15,6 +15,17 @@ param(
     [ValidatePattern('^(auto|cpu|gpu(:[0-9]+)?)$')]
     [string]$Device = 'auto',
 
+    [ValidateSet('standard', 'strict')]
+    [string]$PolicyProfile = 'standard',
+
+    [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$')]
+    [string]$ResumeRun,
+
+    [switch]$Status,
+
+    [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]{5,127}$')]
+    [string]$RunId,
+
     [switch]$NoTiles,
 
     [switch]$NoQuarterTurnReview,
@@ -162,6 +173,26 @@ if ([string]::IsNullOrWhiteSpace($HostRuntimeConfigPath)) {
     $HostRuntimeConfigPath = Join-Path $ProjectRoot 'host-runtime.json'
 }
 
+if ($Status) {
+    if ([string]::IsNullOrWhiteSpace($RunId)) {
+        throw '-Status requires -RunId.'
+    }
+    if (-not [string]::IsNullOrWhiteSpace($ResumeRun)) {
+        throw '-Status and -ResumeRun are mutually exclusive.'
+    }
+    $StatusRuntimeConfig = (Resolve-Path -LiteralPath $HostRuntimeConfigPath).Path
+    $StatusRuntime = Get-Content -LiteralPath $StatusRuntimeConfig -Raw -Encoding UTF8 | ConvertFrom-Json
+    $StatusPython = Join-Path ([string]$StatusRuntime.root) ([string]$StatusRuntime.python_relative_path)
+    $StatusRunRoot = Resolve-SafeOutputPath $OutputRoot 'StatusOutputRoot'
+    $StatusRunDirectory = Resolve-SafeOutputPath (Join-Path $StatusRunRoot $RunId) 'StatusRunDirectory'
+    $ExpectedStatusPrefix = $StatusRunRoot.TrimEnd('\') + '\'
+    if (-not $StatusRunDirectory.StartsWith($ExpectedStatusPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw 'Requested status run escaped OutputRoot.'
+    }
+    & $StatusPython -I -B -X utf8 (Join-Path $ProjectRoot 'tools\run_state.py') status --run-dir $StatusRunDirectory
+    exit $LASTEXITCODE
+}
+
 $Source = (Resolve-Path -LiteralPath $InputPath).Path
 $Config = (Resolve-Path -LiteralPath $ConfigPath).Path
 $HostRuntimeConfig = (Resolve-Path -LiteralPath $HostRuntimeConfigPath).Path
@@ -248,6 +279,27 @@ if ($OutputIsInsideProject -and -not $OutputIsAllowedRunRoot) {
 }
 if (-not $OutputIsInsideProject -and -not $OutputRootWasAbsolute) {
     throw 'OutputRoot outside the project must be an explicit absolute path'
+}
+if (-not [string]::IsNullOrWhiteSpace($ResumeRun)) {
+    $ResumeDirectory = Resolve-SafeOutputPath (Join-Path $OutputRoot $ResumeRun) 'ResumeRunDirectory'
+    $ResumePrefix = $OutputRoot.TrimEnd('\') + '\'
+    if (-not $ResumeDirectory.StartsWith($ResumePrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw 'ResumeRun escaped OutputRoot.'
+    }
+    $ResumeStatePath = Join-Path $ResumeDirectory 'run-state.json'
+    $ResumeSummaryPath = Join-Path $ResumeDirectory 'gate-summary.json'
+    if (-not (Test-Path -LiteralPath $ResumeStatePath -PathType Leaf)) {
+        throw "ResumeRun has no canonical run-state.json: $ResumeDirectory"
+    }
+    if (-not (Test-Path -LiteralPath $ResumeSummaryPath -PathType Leaf)) {
+        throw 'ResumeRun is partial. Safe in-place replay is refused; start a fresh run so stale stage bytes cannot be mistaken for evidence.'
+    }
+    & $HostPython -I -B -X utf8 (Join-Path $ProjectRoot 'tools\run_state.py') status --run-dir $ResumeDirectory
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    Write-Output "RESUMED_EXISTING_RUN=$ResumeRun"
+    Write-Output "RUN_DIRECTORY=$ResumeDirectory"
+    Write-Output "GATE_SUMMARY=$ResumeSummaryPath"
+    exit 0
 }
 $ConfigDirectory = Split-Path -Parent $Config
 $AcceptanceFixture = [System.IO.Path]::GetFullPath((Join-Path $ConfigDirectory ([string]$ConfigObject.acceptance_fixture_relative_path)))
@@ -358,6 +410,14 @@ $EvidenceSnapshots += $FrozenSourceSnapshot
 $FrozenHash = [string]$FrozenSourceSnapshot.Sha256
 if ($FrozenHash -ne $SourceHash) {
     throw "Frozen source hash mismatch: expected $SourceHash, got $FrozenHash"
+}
+$RunStateScript = Join-Path $ProjectRoot 'tools\run_state.py'
+$RunStateInitLog = Join-Path $LogDirectory 'run-state-init.log'
+& $HostPython -I -B -X utf8 $RunStateScript init `
+    --run-dir $RunDirectory --source $FrozenSource --source-sha256 $FrozenHash `
+    --policy-profile $PolicyProfile *> $RunStateInitLog
+if ($LASTEXITCODE -ne 0) {
+    throw "Failed to initialize run-state.json. See $RunStateInitLog"
 }
 
 # Keep mutable caches inside the isolated run. These settings suppress library download
@@ -1182,6 +1242,7 @@ $Summary = [ordered]@{
     schema_version = '1.3.0'
     run_id = $RunId
     status = $GateStatus
+    policy_profile = $PolicyProfile
     created_at_utc = [DateTime]::UtcNow.ToString('o')
     source = [ordered]@{
         original_path = $Source
@@ -1294,6 +1355,16 @@ $SummaryJson = $Summary | ConvertTo-Json -Depth 8
 $Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 [System.IO.File]::WriteAllText($TemporarySummary, $SummaryJson + [Environment]::NewLine, $Utf8NoBom)
 [System.IO.File]::Move($TemporarySummary, $SummaryPath)
+
+$RunStateAdvanceLog = Join-Path $LogDirectory 'run-state-perception-complete.log'
+& $HostPython -I -B -X utf8 $RunStateScript advance `
+    --run-dir $RunDirectory --to-state PERCEPTION_COMPLETE --actor runner `
+    --stage perception --evidence $SummaryPath `
+    --note 'Canonical OCR, Phase-1 geometry, and task-package stages completed.' `
+    *> $RunStateAdvanceLog
+if ($LASTEXITCODE -ne 0) {
+    throw "Failed to advance run-state.json. See $RunStateAdvanceLog"
+}
 
 Write-Output "RUN_ID=$RunId"
 Write-Output "RUN_DIRECTORY=$RunDirectory"

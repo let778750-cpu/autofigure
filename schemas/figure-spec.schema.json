@@ -17,7 +17,7 @@
     "uncertainties"
   ],
   "properties": {
-    "schema_version": {"const": "3.0"},
+    "schema_version": {"enum": ["3.0", "4.0"]},
     "mode": {"enum": ["reconstruct_1to1", "publication_normalize"]},
     "source": {
       "type": "object",
@@ -95,6 +95,7 @@
       "additionalProperties": true
     },
     "measurement_dpi": {"type": "number", "exclusiveMinimum": 0},
+    "policy_profile": {"enum": ["standard", "strict"]},
     "elements": {
       "type": "array",
       "minItems": 1,
@@ -113,6 +114,41 @@
       "items": {"$ref": "#/$defs/uncertainty"}
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"schema_version": {"const": "4.0"}},
+        "required": ["schema_version"]
+      },
+      "then": {
+        "required": ["policy_profile"],
+        "properties": {
+          "elements": {
+            "items": {
+              "allOf": [
+                {"required": ["render_strategy", "geometry_source", "review_risk"]},
+                {"not": {"properties": {"type": {"const": "micro_asset"}}, "required": ["type"]}}
+              ]
+            }
+          },
+          "edges": {
+            "items": {"required": ["representation", "arrow_class", "style"]}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"schema_version": {"const": "3.0"}},
+        "required": ["schema_version"]
+      },
+      "then": {
+        "properties": {
+          "elements": {"items": {"required": ["strategy"]}}
+        }
+      }
+    }
+  ],
   "additionalProperties": true,
   "$defs": {
     "bbox": {
@@ -131,7 +167,7 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "enum": ["target_visual", "local_ocr", "user_confirmed", "source_text", "latex", "manual_measurement"]
+        "enum": ["target_visual", "local_ocr", "consensus_auto", "user_confirmed", "source_text", "latex", "manual_measurement", "calibrated_geometry"]
       }
     },
     "margin": {
@@ -170,9 +206,11 @@
     },
     "formula_style": {
       "type": "object",
+      "required": ["color"],
       "properties": {
         "font_size_px": {"type": "number", "exclusiveMinimum": 0},
         "font_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "color": {"type": "string", "pattern": "^#[A-Fa-f0-9]{6}$"},
         "margin_px": {"$ref": "#/$defs/margin"},
         "rotation_deg": {"type": "number"}
       },
@@ -195,14 +233,13 @@
         "disposition",
         "confidence",
         "uncertainty_px",
-        "strategy",
         "allowed_overlap",
         "status"
       ],
       "properties": {
         "id": {"type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"},
         "type": {
-          "enum": ["background", "panel", "text", "shape", "formula", "icon", "plot", "legend", "micro_asset", "manual_asset_slot"]
+          "enum": ["background", "panel", "group", "text", "shape", "native_shape", "formula", "icon", "plot", "legend", "reference_atomic_asset", "micro_asset", "manual_asset_slot"]
         },
         "bbox": {"$ref": "#/$defs/bbox"},
         "parent_id": {"type": ["string", "null"]},
@@ -214,6 +251,11 @@
         "confidence": {"type": "number", "minimum": 0, "maximum": 1},
         "uncertainty_px": {"type": "number", "minimum": 0},
         "strategy": {"enum": ["native_editable", "manual_asset_slot", "source_ambiguity"]},
+        "render_strategy": {
+          "enum": ["native_required", "native_preferred", "reference_atomic_asset", "manual_asset_slot", "source_ambiguity"]
+        },
+        "geometry_source": {"$ref": "#/$defs/geometry_source"},
+        "review_risk": {"enum": ["critical", "ordinary"]},
         "allowed_overlap": {
           "type": "array",
           "items": {"type": "string", "minLength": 1},
@@ -231,6 +273,7 @@
         "formula_id": {"type": "string", "minLength": 1},
         "formula_style": {"$ref": "#/$defs/formula_style"},
         "slot_contract": {"$ref": "#/$defs/slot_contract"},
+        "asset_binding": {"$ref": "#/$defs/reference_atomic_asset_binding"},
         "content_runs": {
           "type": "array",
           "minItems": 1,
@@ -269,6 +312,24 @@
         {
           "if": {"properties": {"strategy": {"const": "manual_asset_slot"}}, "required": ["strategy"]},
           "then": {"properties": {"type": {"const": "manual_asset_slot"}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "reference_atomic_asset"}}, "required": ["type"]},
+          "then": {
+            "required": ["asset_binding", "render_strategy"],
+            "properties": {"render_strategy": {"const": "reference_atomic_asset"}},
+            "not": {
+              "anyOf": [
+                {"required": ["text"]},
+                {"required": ["content_runs"]},
+                {"required": ["formula_id"]}
+              ]
+            }
+          }
+        },
+        {
+          "if": {"properties": {"type": {"enum": ["text", "formula"]}}, "required": ["type"]},
+          "then": {"properties": {"render_strategy": {"const": "native_required"}}}
         }
       ],
       "additionalProperties": true
@@ -327,6 +388,12 @@
             {"type": "null"},
             {"$ref": "#/$defs/reference_preview_binding"}
           ]
+        },
+        "filled_asset": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/slot_asset_binding"}
+          ]
         }
       },
       "allOf": [
@@ -334,9 +401,27 @@
           "if": {"properties": {"mode": {"const": "reference_preview"}}, "required": ["mode"]},
           "then": {"properties": {"preview": {"$ref": "#/$defs/reference_preview_binding"}}},
           "else": {"properties": {"preview": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"mode": {"enum": ["user_filled", "backfilled_verified"]}}, "required": ["mode"]},
+          "then": {"required": ["filled_asset"], "properties": {"filled_asset": {"$ref": "#/$defs/slot_asset_binding"}}},
+          "else": {"properties": {"filled_asset": {"type": "null"}}}
         }
       ],
       "additionalProperties": false
+    },
+    "slot_asset_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "width_px", "height_px", "rights_basis", "provenance"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1},
+        "rights_basis": {"type": "string", "minLength": 1},
+        "provenance": {"enum": ["user_supplied", "verified_source_backfill"]}
+      }
     },
     "native_capability_audit": {
       "type": "object",
@@ -427,6 +512,74 @@
       },
       "additionalProperties": false
     },
+    "geometry_source": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {"enum": ["designer_authored", "target_visual", "manual_measurement", "calibrated_phase1"]},
+        "manifest_path": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "observation_id": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "calibration_receipt_path": {"type": "string", "minLength": 1},
+        "calibration_receipt_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "calibrated_phase1"}}, "required": ["kind"]},
+          "then": {
+            "required": ["manifest_path", "manifest_sha256", "observation_id", "confidence", "calibration_receipt_path", "calibration_receipt_sha256"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "reference_atomic_asset_binding": {
+      "type": "object",
+      "required": [
+        "receipt_path", "receipt_sha256", "asset_path", "asset_sha256",
+        "source_bbox", "decoded_width_px", "decoded_height_px", "atomicity",
+        "semantic_object_count", "contains_reconstructable_text", "contains_formula",
+        "contains_axis_or_legend", "contains_panel_border", "contains_quantitative_evidence",
+        "transform", "rights_basis"
+      ],
+      "properties": {
+        "receipt_path": {"type": "string", "minLength": 1},
+        "receipt_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "asset_path": {"type": "string", "minLength": 1},
+        "asset_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "source_bbox": {"$ref": "#/$defs/bbox"},
+        "decoded_width_px": {"type": "integer", "minimum": 1},
+        "decoded_height_px": {"type": "integer", "minimum": 1},
+        "atomicity": {"enum": ["ISOLATED", "SEPARABLE"]},
+        "semantic_object_count": {"const": 1},
+        "contains_reconstructable_text": {"const": false},
+        "contains_formula": {"const": false},
+        "contains_axis_or_legend": {"const": false},
+        "contains_panel_border": {"const": false},
+        "contains_quantitative_evidence": {"const": false},
+        "mask_path": {"type": "string", "minLength": 1},
+        "mask_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        "transform": {
+          "type": "object",
+          "required": ["preserve_aspect_ratio", "resampled_file", "rotation_deg", "translate_x_px", "translate_y_px"],
+          "properties": {
+            "preserve_aspect_ratio": {"const": true},
+            "resampled_file": {"const": false},
+            "rotation_deg": {"type": "number"},
+            "translate_x_px": {"type": "number"},
+            "translate_y_px": {"type": "number"}
+          },
+          "additionalProperties": false
+        },
+        "rights_basis": {"type": "string", "minLength": 1}
+      },
+      "dependentRequired": {
+        "mask_path": ["mask_sha256"],
+        "mask_sha256": ["mask_path"]
+      },
+      "additionalProperties": false
+    },
     "text_run": {
       "oneOf": [
         {
@@ -484,6 +637,9 @@
           "items": {"type": "string", "minLength": 1}
         },
         "style": {"type": "object"},
+        "representation": {"enum": ["native_connector", "native_line_chain", "reference_atomic_asset"]},
+        "arrow_class": {"enum": ["thin_connector", "filled_native", "style_asset"]},
+        "visual_asset_id": {"type": "string", "minLength": 1},
         "source_point": {"$ref": "#/$defs/point_object"},
         "target_point": {"$ref": "#/$defs/point_object"},
         "via": {
@@ -512,6 +668,10 @@
         {
           "if": {"properties": {"route": {"const": "straight"}}},
           "then": {"properties": {"via": {"maxItems": 0}}}
+        },
+        {
+          "if": {"properties": {"representation": {"const": "reference_atomic_asset"}}, "required": ["representation"]},
+          "then": {"required": ["visual_asset_id"], "properties": {"arrow_class": {"const": "style_asset"}}}
         }
       ],
       "additionalProperties": true

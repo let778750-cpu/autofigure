@@ -3,8 +3,9 @@
 把用户确认的科研图 PNG 高保真重建为可编辑 PowerPoint。项目采用 **perception-first**：在第一次绘制前完成本地 OCR、参考测量、规格冻结、文字容量和场景碰撞预检；绘制后的 Reviewer 只做验收或少量对象级修正。
 
 ```text
-参考冻结 → 图像分析 + OCR → Phase-1 几何观测 → 人/证据处理歧义 → Figure Spec
-→ Scene Preflight → 首个可见版本 → 验收（NO_OP 或 MINOR）
+REFERENCE_FROZEN → PERCEPTION_COMPLETE → REVIEWED → SPEC_DRAFT → SPEC_FROZEN
+→ PREFLIGHT_PASS → RENDERED → MECHANICAL_PASS → INDEPENDENT_REVIEW_PASS
+→ RELEASE_CANDIDATE → APPROVED
 ```
 
 ## 已核验的本机 OCR 基线
@@ -56,7 +57,7 @@
 - 画布从 PNG 实测并预生成同纵横比 PPTX，绕开后端没有 slide-size setter 的限制。
 - Figure Spec 在绘制前检查 source/hash-bound OCR review、合法容器、z-order、普通 shape/text/formula 碰撞、connector 路径净空、字体与公式容量，以及实际空白 PPTX 的 PageSetup/hash。
 - 公式不再由普通文本框或 PNG/SVG 冒充：权威 LaTeX 经受限解析、MathML 和 Office `MML2OMML.XSL` 编译为 PowerPoint 原生 `a14:m/m:oMath`，保存重开后仍可用 Equation Tools 编辑。
-- 不可合理原生化的照片级局部可进入 `manual_asset_slot`。为先展示完整候选，`reconstruct_1to1` 可使用 source SHA+bbox 绑定的 exact-pixel `reference_preview`；它必须显式待替换、不计原生覆盖率、从像素相似度诊断遮罩，并阻断 `APPROVED`。
+- 对象在绘制前分类。文字、公式、轴/图例和普通箭头必须原生；单一照片/纹理/复杂图标/特殊风格箭头可用无失真、来源绑定的 `reference_atomic_asset`作为终稿表现。复合或不可安全分离的区域仍是 `manual_asset_slot/reference_preview`，显式待替换并阻断 `APPROVED`。
 - major finding 回 `REGION_REPLAN`；Corrector 只处理 minor patch，不能掩盖错误规格。
 
 ## 目录
@@ -79,6 +80,9 @@ AI autofigure/
     check_project_hygiene.py       # 阻止 work、根缓存和未知根级产物回归
     create_canvas_pptx.py          # 同比例空白 PowerPoint
     materialize_reference_preview.py # 生成仅限候选的无损局部预览及哈希收据
+    materialize_reference_atomic_asset.py # 生成来源绑定的终稿原子素材
+    migrate_figure_spec_v3_to_v4.py # 旧 spec 只读迁移到新 run
+    run_state.py                   # 唯一当前状态与追加式事件账本
     compile_figure_spec.py         # 冻结 authority/review/canvas/math 与 Designer scene
     preflight_scene.py             # 绘制前场景、文字/公式、连线与真实画布硬门
     powerpoint_native_math.py      # LaTeX→OMML、原生公式注入与结构读回
@@ -117,7 +121,9 @@ $env:PYTHONNOUSERSITE = '1'
 一键入口会创建新的 run 目录，依次运行结构分析、区域候选、PP-OCRv6、Host CV Phase-1 `geometry_refinement`，以及 agent-vision 任务包生成，并输出 OCR `perception-manifest.json`、`text_review.md`、OCR overlay、`geometry/geometry-manifest.json`、`geometry/geometry-overlay.png`、lossless label atlas/ambiguity mask、`agent-vision/task-package.json`（含裁剪图、提示词、应答骨架）及所有上游哈希。几何阶段 exit 3 只用于保留并核验 `GEOMETRY_INCONCLUSIVE` 证据，公开入口最终仍以 exit 3 fail closed；其他非零退出直接失败。agent-vision 阶段是增强层，其 `INCONCLUSIVE` 不降低感知门状态（可用 `-SkipAgentVisionPkg` 跳过）。其 manifest 只允许 `GEOMETRY_OBSERVATIONS_READY` 或 `GEOMETRY_INCONCLUSIVE`，并固定 `mode=observation_only`、`policy.promotion_allowed=false`。Paddle 运行缓存仅服务当前阶段，成功生成证据后由入口在核验 owned run 边界后删除，不保留空缓存树。可复现调用如下（通常由 Codex 执行）：
 
 ```bat
-.\autofigure.cmd -InputPath .\examples\target_figure.png -Device auto
+.\autofigure.cmd -InputPath .\examples\target_figure.png -Device auto -PolicyProfile standard
+.\autofigure.cmd -Status -RunId <run_id>
+.\autofigure.cmd -ResumeRun <run_id>
 ```
 
 维护者需要查看底层参数时可运行 `Get-Help .\tools\run_perception_gate.ps1 -Detailed`，但不得建立第二套 Python 编排入口。
@@ -164,10 +170,11 @@ authority 冻结后，先用确定性匹配器生成 review decisions。它只�
 
 ### 3. 生成正确比例画布并预检
 
-若 Figure Spec 把照片级局部声明为 `reference_preview`，先从当前冻结参考生成 exact-pixel 裁片。它不是最终素材；PPT 中还必须叠加原生 `REFERENCE PREVIEW — REPLACE ME` 标签：
+照片级局部先判断是否为可安全分离的单一视觉对象。合格项使用 `reference_atomic_asset`；复合项只能生成待替换 preview：
 
 ```powershell
 & $HostPython -I -B -X utf8 tools\materialize_reference_preview.py --source examples\target_figure.png --expected-source-sha256 <sha256> --bbox <x> <y> <w> <h> --asset examples\generated\runs\<run_id>\assets\<slot>.png --receipt examples\generated\runs\<run_id>\assets\<slot>.reference-preview.json --source-user-confirmed
+& $HostPython -I -B -X utf8 tools\materialize_reference_atomic_asset.py --source examples\target_figure.png --expected-source-sha256 <sha256> --bbox <x> <y> <w> <h> --asset examples\generated\runs\<run_id>\assets\<asset>.png --receipt examples\generated\runs\<run_id>\assets\<asset>.atomic.json --role complex_icon --semantic-object-count 1 --rights-basis "User-supplied designated reference" --source-user-confirmed
 ```
 
 ```powershell
@@ -186,15 +193,15 @@ PowerPoint 内的交付对象必须是 Office Math，而不是“保存了 LaTeX
 
 本机主路径使用已安装的 `latex2mathml` 和 Office 自带的 `C:\Program Files\Microsoft Office\root\Office16\MML2OMML.XSL`。不支持或有危险的 LaTeX 命令必须阻断，不得静默退回普通文本、PNG、SVG 或旧 Equation OLE。MathText 只能作几何近似诊断，不能证明公式可被 PowerPoint 原生编辑。
 
-每个 injection plan 的 math run 必须同时绑定 `formula_id`、`receipt_path` 和该 receipt 的 `receipt_sha256`。`inject` 成功只返回 `INJECTED_REQUIRES_POWERPOINT_ROUNDTRIP`；脱离当前进程的 receipt 只是日志，静态 `audit` 最多返回 `STRUCTURE_PASS_REQUIRES_POWERPOINT_FINALIZE`，不能授权最终门禁。唯一授权入口是 one-shot `finalize`：它在当前进程生成随机 challenge，直接启动固定 PowerShell 子进程，完成 PowerPoint 保存/关闭/只读重开、MathZones/可见性/遮挡扫描、一次 warm-up 与两次稳定 fresh render；随后对每个 math run 分别从同一 PPTX 只读重开，只隐藏该 MathZone 并导出控制图，要求仅公式区域产生像素变化。父进程立即闭包验证 input/output/plan/injection report/script/finalizer/render 与全部控制图哈希：
+每个 injection plan 的 math run 必须同时绑定 `formula_id`、`receipt_path` 和该 receipt 的 `receipt_sha256`。`inject` 成功只返回 `INJECTED_REQUIRES_POWERPOINT_ROUNDTRIP`；脱离当前进程的 receipt 只是日志，静态 `audit` 最多返回 `STRUCTURE_PASS_REQUIRES_POWERPOINT_FINALIZE`。唯一授权入口是 one-shot `finalize`：它现场生成 challenge，完成 PowerPoint 保存/关闭/只读重开、MathZones/可见性/遮挡扫描与两次 fresh render。默认 `standard` 不长期保留通过项的逐公式控制图；高风险或回归使用 `--audit-profile strict`，对每个 math run 隐藏对应 MathZone 并验证对象内像素差。父进程闭包验证全部事务哈希：
 
 ```powershell
 & $HostPython -s -B -X utf8 tools\powerpoint_native_math.py inject --input examples\generated\runs\<run_id>\candidate.closed.pptx --plan examples\generated\runs\<run_id>\math\injection-plan.json --output examples\generated\runs\<run_id>\math\injected.pptx --report examples\generated\runs\<run_id>\math\injection.json --pretty
 
-& $HostPython -s -B -X utf8 tools\powerpoint_native_math.py finalize --input examples\generated\runs\<run_id>\math\injected.pptx --plan examples\generated\runs\<run_id>\math\injection-plan.json --injection-report examples\generated\runs\<run_id>\math\injection.json --output-pptx examples\generated\runs\<run_id>\math\roundtripped.pptx --roundtrip-receipt examples\generated\runs\<run_id>\math\roundtrip-receipt.json --render-directory examples\generated\runs\<run_id>\math\renders --output examples\generated\runs\<run_id>\math\native-math-finalize.json --pretty
+& $HostPython -s -B -X utf8 tools\powerpoint_native_math.py finalize --input examples\generated\runs\<run_id>\math\injected.pptx --plan examples\generated\runs\<run_id>\math\injection-plan.json --injection-report examples\generated\runs\<run_id>\math\injection.json --output-pptx examples\generated\runs\<run_id>\math\roundtripped.pptx --roundtrip-receipt examples\generated\runs\<run_id>\math\roundtrip-receipt.json --render-directory examples\generated\runs\<run_id>\math\renders --output examples\generated\runs\<run_id>\math\native-math-finalize.json --audit-profile standard --pretty
 ```
 
-`finalize` 拒绝覆盖已有输出，必须使用新的 run ID；成功状态是 `MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW`，不是 `APPROVED`。保存时 PowerPoint 会补字体属性、拆分 run，并把普通变量正规化为数学字母 Unicode，因此原始 OMML 字节哈希预期会变化。审计保留编译期精确哈希，同时使用版本化 `office-math-semantic-v2` token AST 只容忍这些已验证的等价变化；粗体、花体、双线体、上下标结构、分子/分母、数字或符号改变仍会失败。项目内实机样例的唯一权威索引是 `examples/generated/native-math-poc/case-manifest.json`；当前闭环由该 manifest 指向一个隔离、版本化的 revision，并逐文件记录 PPTX、渲染、回读收据和审计证据的字节数与 SHA-256。调用者不得硬编码某个历史 revision 的文件名；历史或失败收据保留用于回归，但不得冒充当前 PASS。
+`finalize` 拒绝覆盖已有输出，必须使用新的 run ID；成功状态是 `MECHANICAL_GATE_PASS_REQUIRES_INDEPENDENT_REVIEW`，不是 `APPROVED`。保存时 PowerPoint 会补字体属性、拆分 run，并把普通变量正规化为数学字母 Unicode，因此原始 OMML 字节哈希预期会变化。审计保留编译期精确哈希，同时使用版本化 `office-math-semantic-v2` token AST 只容忍这些已验证的等价变化；粗体、花体、双线体、上下标结构、分子/分母、数字或符号改变仍会失败。`examples/generated/native-math-poc/case-manifest.json` 只保留一套内部哈希闭合的实机历史样例；因本次 standard/strict 工具升级改变了脚本 SHA，它已明确标记为不可复用，必须在新 run 中重跑后才能成为当前证据。调用者不得硬编码某个历史 revision 的文件名；历史或失败收据保留用于回归，但不得冒充当前 PASS。
 
 ### 5. 测试
 
@@ -209,7 +216,7 @@ PowerPoint 内的交付对象必须是 Office Math，而不是“保存了 LaTeX
 - Phase-1 几何输出是对冻结 PNG 的确定性像素观测，不是原始 PPTX 文本框、字体基线或矢量坐标的绝对还原。ink bbox、ink-bottom alignment、可靠 pair gap 和 frame candidate 在 gold fixture 与 promotion gate 完成前不能直接冻结为 Figure Spec；公式、纵排、多行、抗锯齿/框线污染区域会诚实降级。箭头、箭杆、端点与连接器拓扑精测属于 Phase-2。
 - 本机没有 PP-FormulaNet；复杂公式必须使用可靠 LaTeX/原文或人工确认。未来加入公式模型时也必须“识别→语法检查→回渲染对比”，不能直接自证。
 - PowerPoint 原生公式是 OMML，不是完整 TeX 引擎；canonical LaTeX 永久保留在 spec/对象元数据中。Office 不支持或会有损处理的命令必须显式失败或由用户改写，不能拿“看起来像”作为通过证据。
-- 可编辑性机械证据不是 shape 类型或备注，而是 one-shot finalizer 对同一 hash-bound 候选现场执行 PowerPoint 保存、关闭、重开，确认有效 OMML、结构化 text/math runs、逐 MathZone 的 COM readback、可见性/遮挡扫描、两份像素一致的 fresh render，以及每条公式单独隐藏后只在本对象内出现的像素差。持久 JSON 在同一权限域内不是密码学证明，最终仍需独立 Reviewer；如需可转交的不可抵赖证明，必须另接受保护的外部签名服务。
+- 可编辑性机械证据来自 one-shot finalizer 对同一 hash-bound 候选的保存、关闭、重开、OMML/text-math readback、MathZone、可见性/遮挡和两份 fresh render。`strict` 额外要求逐公式反事实像素证据。持久 JSON 在同一权限域内不是密码学证明，最终仍需独立 Reviewer。
 - 公式 finalizer 是“该 authority set 中的公式确为原生、可编辑且可见”的机械子门，不单独证明整图与 frozen figure spec 一致。当前 injection plan 不重复保存整图 bbox/字号合同；非重叠且中性命名的伪装对象、多块微小遮挡等仍由 hash-bound 全图 artifact set 与独立 Reviewer 审核，所以该工具永远不能返回 `APPROVED`。
 - OCR 降低文字幻觉，不负责 panel 语义、科研拓扑或照片内容；这些仍需视觉结构盘点和来源确认。外层 Agent 原生视觉已按 `references/11-agent-vision-protocol.md` 协议化接入：结构提议、冲突仲裁（只选不写）、公式 LaTeX 提议（多采样自一致、恒为 PROPOSAL_ONLY_NOT_AUTHORITATIVE）与漏检巡查四类查询经任务包/校验/融合成为可审计证据；视觉坐标仅 advisory（锚定后采用 CV 实测 bbox），TRIPLE 一致不豁免人审，视觉缺失时融合退化为 OCR+CV 双通道。
 - `scientific-illustrator` v1.5.4 继续负责 PowerPoint/draw.io 原生对象操作和真实渲染；本项目补上其缺失的感知门、通用碰撞、文字容量、正确画布与 major replan。

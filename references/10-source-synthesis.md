@@ -23,8 +23,7 @@
 4. `04-publication-journal-standards.md`：期刊逐刊数值（深表）。
 5. `publication-profiles.yaml`：可执行 profile（物理单位）。
 6. `05-png-authority-boundary.md`：权威拆分。
-7. `06-manual-asset-slots.md`：人工素材槽契约。
-8. `07-microasset-classification.md`：元素三/四分类 + atomic raster。
+7. `06-asset-policy.md`：表示分类、原子素材与临时槽的唯一契约。
 9. `08-anti-hallucination.md`：反幻觉 + 对旧逻辑的反驳。
 10. `09-backend.md`：后端复用边界 + MCP 注册。
 11. `11-agent-vision-protocol.md`：外层 Agent 原生视觉协议（任务包/四类查询/校验/融合/不变量）。

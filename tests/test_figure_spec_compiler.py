@@ -12,6 +12,7 @@ sys.path.insert(0, str(TOOLS))
 
 from compile_figure_spec import (  # noqa: E402
     FigureSpecCompileError,
+    _latex_sequence_terms,
     _materialize_elements,
     compile_figure_spec,
 )
@@ -98,7 +99,7 @@ def test_compiler_closes_authority_review_canvas_and_all_formula_receipts(
                 "allowed_overlap": [],
                 "status": "pending",
                 "formula_id": item["subject_id"],
-                "formula_style": {"font_size_px": 20, "margin_px": 0, "rotation_deg": 0},
+                "formula_style": {"font_size_px": 20, "color": "#000000", "margin_px": 0, "rotation_deg": 0},
                 "authority_item_id": item["authority_item_id"],
             }
         if index == 1:
@@ -191,3 +192,15 @@ def test_materialize_elements_preserves_local_order_and_puts_children_above_pare
 
     assert [root["scene_z_index"], panel["scene_z_index"], label["scene_z_index"]] == [0, 7, 2]
     assert root["z_index"] < panel["z_index"] < label["z_index"]
+
+
+def test_latex_sequence_terms_preserve_nested_subscripts_and_commands() -> None:
+    assert _latex_sequence_terms(
+        r"(z_t^\tau,z_{t+1}^\tau,\ldots,z_{t+h}^\tau)"
+    ) == [r"z_t^\tau", r"z_{t+1}^\tau", r"\ldots", r"z_{t+h}^\tau"]
+
+
+@pytest.mark.parametrize("expression", [r"z_t", r"(x)", r"(x,,y)", r"(x,{y)"])
+def test_latex_sequence_terms_reject_non_sequences(expression: str) -> None:
+    with pytest.raises(FigureSpecCompileError):
+        _latex_sequence_terms(expression)
