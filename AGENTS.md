@@ -1,28 +1,18 @@
-# AI AutoFigure — 独立绘图工具
+# AI AutoFigure v2 — 独立绘图工具
 
-本目录是独立工具项目，与 `D:\AI+科研\课题研究` 的研究 Infra 状态、Gate、handoff、Task Packet 和 Result Envelope 无关。根目录针对该研究仓的治理规则不适用于这里，也不得修改该研究仓的任何文件或状态。
+本目录是独立工具项目。v2（2026-08-18 起）架构为 **VLM-first, verify-light**：GPT 网页端把参考图重绘为 SVG，本工具确定性地转换为原生可编辑 PPTX 并轻量核验。旧重型管线整体归档在 `legacy/`，除注明仍使用的部分外不维护、不修改。
 
 ## 本地运行隔离
 
-不需要研究 Infra 的 Run/Attempt，但**每次 AutoFigure 执行必须有自己的本地 run ID**：
-
-```text
-examples/generated/runs/<run_id>/
-```
-
-感知 manifest、OCR 候选、分析图、spec、preflight、渲染和审计证据都写入该目录。不得把 `examples/_analysis/` 或其他历史输出当作当前证据；参考 SHA、模型 SHA 或脚本 SHA 不一致时必须重跑。
+每次执行必须有自己的 run 目录：`examples/generated/runs/v2-<UTC>-<sha8>/`，prepare/convert/check 的产物全部写入该目录；旧 run 只读。
 
 ## 授权与边界
 
-- 允许直接读写本项目的 `SKILL.md`、`references/`、`schemas/`、`tools/`、`tests/` 和 `examples/`。
-- 允许运行本项目工具及 `mcp.json` 注册的 scientific-illustrator PowerPoint/draw.io MCP。
-- `D:\paddle ocr` 是只读的已安装运行时；本项目不得在其中下载、覆盖或更新模型。
-- `D:\opencv\env\python.exe` 是宿主 CV/QA 的锁定 Conda 解释器；CV/QA 新入口必须使用绝对路径和 `-I -B -X utf8`。已被实机公式证据绑定的 `powerpoint_native_math.py` 暂用绝对解释器、`PYTHONNOUSERSITE=1` 与 `-s -B -X utf8`，避免为纯导入路径调整破坏当前证据哈希。升级仅能作为显式维护任务执行，且会使依赖旧 runtime receipt 的下游证据失效。
-- 宿主环境只允许 `opencv-python`，不得与 contrib/headless wheel、Torch 或 Paddle 混装；PaddleOCR 只由其独立解释器执行。
-- PNG 重绘的感知阶段必须由 Codex 自行调用项目根 `autofigure.cmd`；不得要求用户手动激活 Conda、输入 Python/PowerShell 命令，或绕过 canonical runner 直调分析/OCR 子脚本。该 `.cmd` 仅解决 Windows 启动与当前进程执行策略，不复制任何感知逻辑。
-- canonical runner 在 OCR 后必须自动用 Host CV 执行 Phase-1 `geometry_refinement`；不得要求用户另跑脚本。其 `geometry-manifest.json`、overlay、lossless label atlas 与 ambiguity mask 只属于当前 run 的观察证据：公式、纵排、多行和污染区域必须显式降级，在 gold fixture 与 promotion gate 建立前不得作为 spec 几何真值。所谓对齐线是 ink-bottom alignment，不是可从 PNG 恢复的字体 baseline；箭头/连接器精测留给 Phase-2。
-- Agent 视觉任务包（`agent-vision/`）、应答、盖章文档与融合产物只属于当前 run 的隔离证据。`agent-vision-response.json` 必须由外层 Agent 在会话内**亲自看图**填写，禁止从 OCR manifest 抄写答案（Q1 结构盘点独立性）；应答必须经 `validate_agent_vision.py` 校验、融合必须经 `cross_modal_fusion.py`，两者与 `prepare_agent_vision_task.py` 一样走 Host Python `-I -B -X utf8` 与 `output_policy`。视觉产物永不进入成品。
-- 默认输出放到当前 run 目录，用户确认交付后再复制到明确的目标位置。
-- `mcp.json` 中 Draw.io/PowerPoint 服务的工作目录位于项目外；所有 MCP save/export 参数必须传入当前 run 内经解析的**绝对路径**，不得依赖相对路径或服务端当前工作目录。
+- 允许直接读写本项目的 `SKILL.md`、`README.md`、`references/`、`tools/`、`tests/`、`examples/`、`legacy/`。
+- v2 代码一律在项目内 `.venv` 运行（基座 `D:\anaconda\python.exe`，依赖见 `requirements-v2.txt`）；不得装进其他环境。
+- `D:\paddle ocr` 是只读运行时：OCR 仅 `check` 环节经 `tools/v2/ocr_texts.py` 单次调用，模型/配置以 `legacy/ocr-config.json` 为准，不下载、不更新。
+- `D:\opencv\env` 保持锁定（仅 `opencv-python`），v2 不依赖它。
+- fresh render 经 `tools/v2/render_export.py`（pywin32 直驱本机 PowerPoint COM），不得用截图冒充 render。
+- `mcp.json` 注册的 MCP 服务是 v1 遗产，v2 不依赖；`autofigure math` 例外复用 `tools/powerpoint_native_math.py`（其解释器纪律见该文件头注释与 legacy 文档）。
 
-正式工作指令是 `SKILL.md` 及其按需引用的 `references/`。图像相似度只能作诊断；感知门禁、场景 preflight、对象结构与 fresh render 才能构成通过证据。
+正式工作指令是 `SKILL.md` 与 `references/v2-prompt-contract.md`。像素指标只作诊断；文本可编辑读回 + check 报告人审才是通过证据。

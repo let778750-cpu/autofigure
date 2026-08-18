@@ -323,6 +323,9 @@ def load_reference_preview_exclusions(
     receipt_paths: Sequence[str | Path],
     target_path: Path,
 ) -> tuple[list[dict[str, int]], list[dict[str, Any]]]:
+    if not receipt_paths:
+        # v2：无 preview receipt 时不加载 schema（schemas 已归档 legacy/）
+        return [], []
     target_sha = sha256_file(target_path)
     with Image.open(target_path) as target_image:
         target_size = target_image.size

@@ -1,0 +1,8 @@
+# AI AutoFigure v2 依赖（隔离 .venv 使用，基座 D:\anaconda\python.exe 3.12）
+python-pptx>=1.0
+pywin32>=306          # fresh render 直驱 PowerPoint COM
+numpy>=1.26           # figure_lint
+jsonschema>=4.0       # figure_lint
+scikit-image>=0.22    # figure_lint SSIM
+pytest>=8.0
+ruff>=0.6
