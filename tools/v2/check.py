@@ -125,7 +125,7 @@ def _build_preview(run: common.Run) -> Path:
         draw = ImageDraw.Draw(canvas)
         draw.text((4, 4), "REFERENCE", fill=(255, 255, 255))
         draw.text((4, ref_img.height + 24), "RENDER", fill=(255, 255, 255))
-        out = run.qa_dir / "preview.png"
+        out = run.preview_png
         canvas.save(out)
         return out
 
@@ -154,7 +154,7 @@ def main(argv: list[str] | None = None) -> int:
         ocr_texts = json.loads(ocr_json.read_text(encoding="utf-8"))
         unmatched_svg, unmatched_ocr = _match_texts(_svg_texts(run.redraw_svg), ocr_texts)
 
-    report = run.qa_dir / "check-report.md"
+    report = run.report_md
     lines = [
         f"# check 报告（advisory，非门禁） — {run.root.name}",
         "",

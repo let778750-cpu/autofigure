@@ -12,7 +12,7 @@
 用法：
   python figure_lint.py 参考图.png 渲染图.png [--mode benchmark|strict] [--pretty]
   python figure_lint.py 参考图.png 渲染图.png \
-    --diff-out examples/generated/runs/<run_id>/qa/diff.png        # 输出差异热图
+    --diff-out examples/<case>/qa/diff.png                          # 输出差异热图
 """
 
 from __future__ import annotations

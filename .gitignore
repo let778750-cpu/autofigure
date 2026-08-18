@@ -1,7 +1,6 @@
 .venv/
-examples/generated/runs/
-examples/generated/.cache/
-examples/generated/.tmp/
+.cache/
+examples/generated/
 .ruff_cache/
 .pytest_cache/
 **/__pycache__/

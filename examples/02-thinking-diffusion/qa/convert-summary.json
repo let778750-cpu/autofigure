@@ -1,0 +1,16 @@
+{
+  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\generated\\runs\\v2-20260818T131107Z-3e66655a\\input\\redraw.svg",
+  "pptx": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\generated\\runs\\v2-20260818T131107Z-3e66655a\\build\\redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 162,
+  "textbox_with_text": 46,
+  "emitted": {
+    "text": 46,
+    "freeform": 20,
+    "rect": 66,
+    "ellipse": 24,
+    "line": 6,
+    "marker": 6
+  },
+  "warnings": []
+}

@@ -17,7 +17,7 @@ autofigure check  <run_dir>    → 文本比对（advisory）+ figure_lint 诊�
 autofigure math   <run_dir>    →（可选）公式文本升级为原生 Office Math
 ```
 
-run 目录：`examples/generated/runs/v2-<UTC>-<sha8>/`，含 run.json（source SHA/尺寸）、input、prompt、build、qa。
+案例目录：`examples/<case>/`（每个案例一个扁平目录，含 run.json 清单、reference.png、prompt.md、redraw.svg、redraw.pptx、render.png、preview.png、check-report.md、qa/）。案例目录即工作单元，重跑覆盖当前最佳，历史由 git 承担。
 
 ## 关键合同
 

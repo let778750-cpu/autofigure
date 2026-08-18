@@ -2,7 +2,7 @@
 """Fail-closed output-path policy for AI AutoFigure writers.
 
 Generated files that resolve inside the project tree belong under
-``examples/generated``.  Callers may still choose an explicit *absolute* path
+``examples/``（v2 案例目录）.  Callers may still choose an explicit *absolute* path
 outside the project (for example pytest's temporary directory or a user
 delivery folder); relative paths never spill into an arbitrary caller CWD.
 """
@@ -16,7 +16,9 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-GENERATED_ROOT = PROJECT_ROOT / "examples" / "generated"
+CASES_ROOT = PROJECT_ROOT / "examples"
+# 兼容旧名（v1 的 examples/generated 已随案例平铺布局退役）
+GENERATED_ROOT = CASES_ROOT
 
 
 class OutputPolicyError(ValueError):
@@ -84,10 +86,10 @@ def resolve_output_path(
     requested_root = _ordinary_path(project_root, label="project root")
     root_lexical = _absolute_without_symlink_resolution(requested_root)
     root_resolved = root_lexical.resolve(strict=False)
-    allowed_resolved = (root_resolved / "examples" / "generated").resolve(strict=False)
+    allowed_resolved = (root_resolved / "examples").resolve(strict=False)
     if not _is_within(allowed_resolved, root_resolved):
         raise OutputPolicyError(
-            "invalid output-policy configuration: examples/generated resolves "
+            "invalid output-policy configuration: examples resolves "
             f"outside the project tree: {allowed_resolved}"
         )
 
@@ -116,6 +118,7 @@ def resolve_output_path(
 
 
 __all__ = [
+    "CASES_ROOT",
     "GENERATED_ROOT",
     "OutputPolicyError",
     "PROJECT_ROOT",

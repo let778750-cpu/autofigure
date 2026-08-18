@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1513" height="554" viewBox="0 0 1513 554">
+<defs>
+  <marker id="arr-k" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L9,5 L1,9 Z" fill="#333333"/></marker>
+</defs>
+
+<!-- ================= Panel A ================= -->
+<text x="81" y="28" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="middle">Image</text>
+<text x="227" y="28" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="middle">Prompt</text>
+<text x="487" y="28" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="middle">Response</text>
+
+<path d="M 20 48 c 0 -7 2 -8 7 -8 L 72 40 q 2 -5 9 -5 q 7 0 9 5 L 135 40 c 5 0 7 1 7 8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<path d="M 161 48 c 0 -7 2 -8 7 -8 L 218 40 q 2 -5 9 -5 q 7 0 9 5 L 278 40 c 5 0 7 1 7 8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<path d="M 300 48 c 0 -7 2 -8 7 -8 L 478 40 q 2 -5 9 -5 q 7 0 9 5 L 663 40 c 5 0 7 1 7 8" fill="none" stroke="#333333" stroke-width="1.5"/>
+
+<rect x="20" y="61" width="36" height="26" rx="5" fill="#FFFAE6" stroke="#E0D5B8"/>
+<rect x="63" y="61" width="36" height="26" rx="5" fill="#FFFAE6" stroke="#E0D5B8"/>
+<rect x="106" y="61" width="36" height="26" rx="5" fill="#FFFAE6" stroke="#E0D5B8"/>
+<rect x="161" y="61" width="36" height="26" rx="5" fill="#D5E8D4" stroke="#97C794"/>
+<rect x="204" y="61" width="36" height="26" rx="5" fill="#D5E8D4" stroke="#97C794"/>
+<rect x="247" y="61" width="36" height="26" rx="5" fill="#D5E8D4" stroke="#97C794"/>
+<rect x="300" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="343" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="386" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="429" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<circle cx="478" cy="74" r="2.2" fill="#666666"/><circle cx="486" cy="74" r="2.2" fill="#666666"/><circle cx="494" cy="74" r="2.2" fill="#666666"/>
+<rect x="505" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="548" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="591" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="634" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+
+<line x1="487" y1="95" x2="487" y2="118" stroke="#333333" stroke-width="2" marker-end="url(#arr-k)"/>
+
+<rect x="15" y="122" width="665" height="40" rx="8" fill="#F8CECC" stroke="#DCA3A3"/>
+<text x="347" y="149" font-family="Times New Roman, serif" font-size="22" font-weight="700" fill="#1a1a1a" text-anchor="middle">Diffusion Multimodal Language Model</text>
+
+<line x1="487" y1="166" x2="487" y2="200" stroke="#333333" stroke-width="2" marker-end="url(#arr-k)"/>
+<text x="512" y="210" font-family="Times New Roman, serif" font-size="20" font-weight="700" fill="#1a1a1a" text-anchor="middle">Base</text>
+
+<!-- early row -->
+<rect x="300" y="229" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="343" y="229" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="386" y="229" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="429" y="229" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<circle cx="478" cy="243" r="2.2" fill="#666666"/><circle cx="486" cy="243" r="2.2" fill="#666666"/><circle cx="494" cy="243" r="2.2" fill="#666666"/>
+<rect x="507" y="229" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="550" y="229" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<rect x="593" y="229" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<rect x="636" y="229" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<text x="568" y="272" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">answer</text>
+<text x="611" y="272" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">is</text>
+<text x="654" y="272" font-family="Times New Roman, serif" font-size="15" font-weight="700" fill="#F00000" text-anchor="middle">B</text>
+<path d="M 555 287 c 0 7 2 8 7 8 L 602 295 q 2 5 9 5 q 7 0 9 -5 L 661 295 c 5 0 7 -1 7 -8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<text x="712" y="256" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a" text-anchor="middle" transform="rotate(270 712 256)">Early Step</text>
+<path d="M 682 205 c 7 0 8 2 8 7 L 690 236 q 5 2 5 8 q 0 6 -5 8 L 690 275 c 0 5 -1 7 -8 7" fill="none" stroke="#333333" stroke-width="1.5"/>
+
+<text x="540" y="318" font-family="Times New Roman, serif" font-size="24" font-weight="700" fill="#F00000" text-anchor="middle">Generate answer</text>
+<text x="537" y="348" font-family="Times New Roman, serif" font-size="24" font-weight="700" fill="#F00000" text-anchor="middle">before reasoning</text>
+
+<circle cx="486" cy="330" r="2.2" fill="#666666"/><circle cx="486" cy="340" r="2.2" fill="#666666"/><circle cx="486" cy="350" r="2.2" fill="#666666"/>
+<line x1="487" y1="362" x2="487" y2="384" stroke="#333333" stroke-width="2" marker-end="url(#arr-k)"/>
+
+<!-- later row -->
+<rect x="300" y="387" width="37" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<rect x="343" y="387" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<rect x="386" y="387" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="429" y="387" width="37" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<circle cx="478" cy="401" r="2.2" fill="#666666"/><circle cx="486" cy="401" r="2.2" fill="#666666"/><circle cx="494" cy="401" r="2.2" fill="#666666"/>
+<rect x="507" y="387" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="550" y="387" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<rect x="593" y="387" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<rect x="636" y="387" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<text x="318" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">The</text>
+<text x="361" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">stove</text>
+<text x="447" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">broken</text>
+<text x="568" y="430" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">answer</text>
+<text x="611" y="430" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">is</text>
+<text x="654" y="430" font-family="Times New Roman, serif" font-size="15" font-weight="700" fill="#F00000" text-anchor="middle">B</text>
+<path d="M 305 445 c 0 7 2 8 7 8 L 376 453 q 2 5 9 5 q 7 0 9 -5 L 458 453 c 5 0 7 -1 7 -8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<text x="712" y="414" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a" text-anchor="middle" transform="rotate(270 712 414)">Later Step</text>
+<path d="M 682 363 c 7 0 8 2 8 7 L 690 394 q 5 2 5 8 q 0 6 -5 8 L 690 433 c 0 5 -1 7 -8 7" fill="none" stroke="#333333" stroke-width="1.5"/>
+
+<text x="312" y="468" font-family="Times New Roman, serif" font-size="24" font-weight="700" fill="#F00000" text-anchor="middle">Generate rationale</text>
+<text x="315" y="498" font-family="Times New Roman, serif" font-size="24" font-weight="700" fill="#F00000" text-anchor="middle">after answering</text>
+
+<!-- legend -->
+<rect x="27" y="235" width="253" height="180" rx="15" fill="#FFFFFF" stroke="#808080" stroke-width="1.5"/>
+<rect x="40" y="257" width="37" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<text x="85" y="276" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a">Mask Token</text>
+<rect x="40" y="305" width="37" height="28" rx="5" fill="#DAE8FC" stroke="#9AB8E0"/>
+<text x="85" y="322" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a">Less Visual-grounded</text>
+<text x="85" y="344" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a">Output Token</text>
+<rect x="40" y="355" width="37" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<text x="85" y="372" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a">More Visual-grounded</text>
+<text x="85" y="394" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a">Output Token</text>
+
+<text x="300" y="545" font-family="Times New Roman, serif" font-size="20" fill="#1a1a1a" text-anchor="middle">(a) Baseline dMLLM Inference.</text>
+
+<!-- ================= Panel B ================= -->
+<text x="838" y="28" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="middle">Image</text>
+<text x="979" y="28" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="middle">Prompt</text>
+<text x="1244" y="28" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="middle">Response</text>
+
+<path d="M 777 48 c 0 -7 2 -8 7 -8 L 829 40 q 2 -5 9 -5 q 7 0 9 5 L 892 40 c 5 0 7 1 7 8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<path d="M 918 48 c 0 -7 2 -8 7 -8 L 970 40 q 2 -5 9 -5 q 7 0 9 5 L 1033 40 c 5 0 7 1 7 8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<path d="M 1057 48 c 0 -7 2 -8 7 -8 L 1235 40 q 2 -5 9 -5 q 7 0 9 5 L 1420 40 c 5 0 7 1 7 8" fill="none" stroke="#333333" stroke-width="1.5"/>
+
+<rect x="777" y="61" width="36" height="26" rx="5" fill="#FFFAE6" stroke="#E0D5B8"/>
+<rect x="820" y="61" width="36" height="26" rx="5" fill="#FFFAE6" stroke="#E0D5B8"/>
+<rect x="863" y="61" width="36" height="26" rx="5" fill="#FFFAE6" stroke="#E0D5B8"/>
+<rect x="918" y="61" width="36" height="26" rx="5" fill="#D5E8D4" stroke="#97C794"/>
+<rect x="961" y="61" width="36" height="26" rx="5" fill="#D5E8D4" stroke="#97C794"/>
+<rect x="1004" y="61" width="36" height="26" rx="5" fill="#D5E8D4" stroke="#97C794"/>
+<rect x="1057" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1100" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1143" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1186" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<circle cx="1235" cy="74" r="2.2" fill="#666666"/><circle cx="1243" cy="74" r="2.2" fill="#666666"/><circle cx="1251" cy="74" r="2.2" fill="#666666"/>
+<rect x="1262" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1305" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1348" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1391" y="61" width="36" height="26" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+
+<line x1="1244" y1="95" x2="1244" y2="118" stroke="#333333" stroke-width="2" marker-end="url(#arr-k)"/>
+
+<rect x="772" y="122" width="665" height="40" rx="8" fill="#F8CECC" stroke="#DCA3A3"/>
+<text x="1204" y="149" font-family="Times New Roman, serif" font-size="22" font-weight="700" fill="#1a1a1a" text-anchor="middle">Diffusion Multimodal Language Model</text>
+
+<line x1="1257" y1="166" x2="1257" y2="198" stroke="#333333" stroke-width="2" marker-end="url(#arr-k)"/>
+<text x="1358" y="207" font-family="Times New Roman, serif" font-size="20" font-weight="700" fill="#1a1a1a" text-anchor="middle">Ours (PSP &amp; VRG)</text>
+
+<!-- early row B -->
+<rect x="1072" y="227" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1115" y="227" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<rect x="1158" y="227" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1201" y="227" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<circle cx="1250" cy="241" r="2.2" fill="#666666"/><circle cx="1258" cy="241" r="2.2" fill="#666666"/><circle cx="1266" cy="241" r="2.2" fill="#666666"/>
+<rect x="1277" y="227" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1320" y="227" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1363" y="227" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1406" y="227" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<text x="1134" y="267" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">stove</text>
+<text x="1220" y="267" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">old</text>
+<path d="M 1122 287 c 0 7 2 8 7 8 L 1169 295 q 2 5 9 5 q 7 0 9 -5 L 1228 295 c 5 0 7 -1 7 -8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<text x="1489" y="240" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a" text-anchor="middle" transform="rotate(270 1489 240)">Early Step</text>
+<path d="M 1460 205 c 7 0 8 2 8 7 L 1468 232 q 5 2 5 8 q 0 6 -5 8 L 1468 273 c 0 5 -1 7 -8 7" fill="none" stroke="#333333" stroke-width="1.5"/>
+
+<text x="1178" y="315" font-family="Times New Roman, serif" font-size="22" font-weight="700" fill="#00A651" text-anchor="middle">Generate rationale</text>
+<text x="1178" y="343" font-family="Times New Roman, serif" font-size="22" font-weight="700" fill="#00A651" text-anchor="middle">before answering</text>
+
+<circle cx="1257" cy="332" r="2.2" fill="#666666"/><circle cx="1257" cy="342" r="2.2" fill="#666666"/><circle cx="1257" cy="352" r="2.2" fill="#666666"/>
+<line x1="1257" y1="358" x2="1257" y2="380" stroke="#333333" stroke-width="2" marker-end="url(#arr-k)"/>
+
+<!-- later row B -->
+<rect x="1070" y="385" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<rect x="1113" y="385" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<rect x="1156" y="385" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<rect x="1199" y="385" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<circle cx="1250" cy="399" r="2.2" fill="#666666"/><circle cx="1258" cy="399" r="2.2" fill="#666666"/><circle cx="1266" cy="399" r="2.2" fill="#666666"/>
+<rect x="1282" y="385" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1325" y="385" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<rect x="1368" y="385" width="38" height="28" rx="5" fill="#F5F5F5" stroke="#B3B3B3"/>
+<rect x="1411" y="385" width="38" height="28" rx="5" fill="#2D9CDB" stroke="#1E7FB8"/>
+<text x="1089" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">The</text>
+<text x="1132" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">stove</text>
+<text x="1175" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">is</text>
+<text x="1218" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">old</text>
+<text x="1344" y="425" font-family="Times New Roman, serif" font-size="15" fill="#1a1a1a" text-anchor="middle">answer</text>
+<text x="1430" y="425" font-family="Times New Roman, serif" font-size="15" font-weight="700" fill="#00A651" text-anchor="middle">C</text>
+<path d="M 1327 442 c 0 7 2 8 7 8 L 1374 450 q 2 5 9 5 q 7 0 9 -5 L 1433 450 c 5 0 7 -1 7 -8" fill="none" stroke="#333333" stroke-width="1.5"/>
+<text x="1489" y="398" font-family="Times New Roman, serif" font-size="17" font-weight="700" fill="#1a1a1a" text-anchor="middle" transform="rotate(270 1489 398)">Later Step</text>
+<path d="M 1460 363 c 7 0 8 2 8 7 L 1468 390 q 5 2 5 8 q 0 6 -5 8 L 1468 431 c 0 5 -1 7 -8 7" fill="none" stroke="#333333" stroke-width="1.5"/>
+
+<text x="1382" y="475" font-family="Times New Roman, serif" font-size="22" font-weight="700" fill="#00A651" text-anchor="middle">Generate answer</text>
+<text x="1382" y="503" font-family="Times New Roman, serif" font-size="22" font-weight="700" fill="#00A651" text-anchor="middle">after reasoning</text>
+
+<text x="1050" y="545" font-family="Times New Roman, serif" font-size="20" fill="#1a1a1a" text-anchor="middle">(b) Our proposed dMLLM inference.</text>
+</svg>

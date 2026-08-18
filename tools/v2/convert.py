@@ -738,7 +738,7 @@ def convert(run: common.Run) -> dict:
     ctx = ConvertContext(slide, defs, source_png)
     _walk(ctx, root, {}, Matrix())
 
-    run.build_dir.mkdir(exist_ok=True)
+    run.qa_dir.mkdir(exist_ok=True)
     prs.save(run.pptx_path)
 
     # 读回统计（机械验收的基础）
@@ -756,7 +756,7 @@ def convert(run: common.Run) -> dict:
         "emitted": ctx.counts,
         "warnings": ctx.warnings,
     }
-    (run.build_dir / "convert-summary.json").write_text(
+    (run.qa_dir / "convert-summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     return summary

@@ -1,21 +1,26 @@
-"""v2 公共约定：run 目录、哈希、路径。
+"""v2 公共约定：案例目录、哈希、路径。
 
-每个 run 的目录布局：
+每个案例一个扁平目录（参考样板项目的 per-case 约定，更精炼）：
 
-    examples/generated/runs/v2-<UTC>-<sha8>/
-    ├── run.json              元数据（run_id、source SHA-256、尺寸、创建时间）
-    ├── input/source.png      参考图拷贝
-    ├── input/redraw.svg      用户从 GPT 取回的 SVG（convert 的输入）
-    ├── prompt/prompt.md      prepare 生成的提示词包
-    ├── build/redraw.pptx     convert 产物（原生可编辑）
-    ├── build/render.png      PowerPoint fresh render
-    └── qa/                   check 产物（metrics.json / diff.png / preview.png / text-diff.md）
+    examples/<case>/
+    ├── run.json              案例清单（case、source SHA-256、尺寸、创建时间）
+    ├── reference.png         参考图（prepare 复制）
+    ├── prompt.md             prepare 生成的提示词包
+    ├── redraw.svg            用户从 VLM 取回的 SVG（convert 的输入）
+    ├── redraw.pptx           convert 产物（原生可编辑交付物）
+    ├── render.png            PowerPoint fresh render
+    ├── preview.png           check 对照预览
+    ├── check-report.md       check 核验报告（人审入口）
+    └── qa/                   机器诊断（metrics.json / diff.png / ocr-texts.json / convert-summary.json）
+
+案例目录即工作单元：重跑覆盖当前最佳，历史由 git 承担。
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
+import re
 import shutil
 import sys
 from dataclasses import dataclass
@@ -23,7 +28,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-RUNS_ROOT = PROJECT_ROOT / "examples" / "generated" / "runs"
+CASES_ROOT = PROJECT_ROOT / "examples"
 
 
 def fail(message: str) -> SystemExit:
@@ -45,8 +50,16 @@ def image_size(path: Path) -> tuple[int, int]:
         return image.size
 
 
+def slugify(name: str, limit: int = 32) -> str:
+    """从文件名推导默认案例名：小写字母数字连字符。"""
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    return slug[:limit].strip("-") or "case"
+
+
 @dataclass(frozen=True)
 class Run:
+    """一个案例目录（命名保留 Run 以避免大面积改名）。"""
+
     root: Path
 
     @property
@@ -55,27 +68,35 @@ class Run:
 
     @property
     def source_png(self) -> Path:
-        return self.root / "input" / "source.png"
+        return self.root / "reference.png"
 
     @property
     def redraw_svg(self) -> Path:
-        return self.root / "input" / "redraw.svg"
+        return self.root / "redraw.svg"
 
     @property
     def prompt_md(self) -> Path:
-        return self.root / "prompt" / "prompt.md"
+        return self.root / "prompt.md"
 
     @property
     def build_dir(self) -> Path:
-        return self.root / "build"
+        return self.root
 
     @property
     def pptx_path(self) -> Path:
-        return self.build_dir / "redraw.pptx"
+        return self.root / "redraw.pptx"
 
     @property
     def render_png(self) -> Path:
-        return self.build_dir / "render.png"
+        return self.root / "render.png"
+
+    @property
+    def preview_png(self) -> Path:
+        return self.root / "preview.png"
+
+    @property
+    def report_md(self) -> Path:
+        return self.root / "check-report.md"
 
     @property
     def qa_dir(self) -> Path:
@@ -83,27 +104,27 @@ class Run:
 
     def load_meta(self) -> dict:
         if not self.meta_path.is_file():
-            raise fail(f"run 元数据不存在: {self.meta_path}")
+            raise fail(f"案例清单不存在: {self.meta_path}")
         return json.loads(self.meta_path.read_text(encoding="utf-8"))
 
 
-def create_run(reference: Path, runs_root: Path | None = None) -> Run:
+def create_run(reference: Path, case: str | None = None, cases_root: Path | None = None) -> Run:
     reference = reference.resolve()
     if not reference.is_file():
         raise fail(f"参考图不存在: {reference}")
+    case_name = case or slugify(reference.stem)
+    root = (cases_root or CASES_ROOT) / case_name
+    if root.exists() and any(root.iterdir()):
+        raise fail(f"案例目录已存在且非空: {root}（重跑请直接覆盖文件，或先清理）")
+    (root / "qa").mkdir(parents=True, exist_ok=True)
     sha = sha256_file(reference)
     width, height = image_size(reference)
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_id = f"v2-{stamp}-{sha[:8]}"
-    root = (runs_root or RUNS_ROOT) / run_id
-    if root.exists():
-        raise fail(f"run 目录已存在（同一分钟内同图）: {root}")
-    (root / "input").mkdir(parents=True)
-    (root / "prompt").mkdir()
-    shutil.copy2(reference, root / "input" / "source.png")
+    target = root / "reference.png"
+    if not target.exists():
+        shutil.copy2(reference, target)
     meta = {
-        "run_id": run_id,
-        "created_at": stamp,
+        "case": case_name,
+        "created_at": datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
         "source_abspath": str(reference),
         "source_sha256": sha,
         "width": width,

@@ -37,15 +37,16 @@ FOLLOW_UP = """
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="autofigure prepare", description=__doc__)
     parser.add_argument("reference", type=Path, help="参考图 PNG 路径")
-    parser.add_argument("--runs-root", type=Path, default=None, help="run 根目录（默认项目内）")
+    parser.add_argument("--case", default=None, help="案例名（默认从文件名推导）")
+    parser.add_argument("--cases-root", type=Path, default=None, help="案例根目录（默认项目 examples/）")
     args = parser.parse_args(argv)
 
-    run = common.create_run(args.reference, args.runs_root)
+    run = common.create_run(args.reference, case=args.case, cases_root=args.cases_root)
     meta = run.load_meta()
     prompt = PROMPT_TEMPLATE.format(width=meta["width"], height=meta["height"])
     run.prompt_md.write_text(prompt, encoding="utf-8")
 
-    sys.stdout.write(f"run 已创建: {run.root}\n")
+    sys.stdout.write(f"案例已创建: {run.root}\n")
     sys.stdout.write(f"提示词包: {run.prompt_md}\n")
     sys.stdout.write(
         FOLLOW_UP.format(svg_path=run.redraw_svg, run_root=run.root) + "\n"

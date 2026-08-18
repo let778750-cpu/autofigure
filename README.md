@@ -22,11 +22,11 @@ D:\anaconda\python.exe -m venv .venv
 .venv\Scripts\pip install -r requirements-v2.txt
 
 REM 四步
-autofigure prepare <参考图.png>
-REM   → 按提示把 prompt.md 全文 + PNG 发给 GPT 网页端，取回 SVG 存入 run 的 input\redraw.svg
-autofigure convert examples\generated\runs\<run_id>
-autofigure check   examples\generated\runs\<run_id>
-autofigure math    examples\generated\runs\<run_id>   REM 可选：公式升级原生 Office Math
+autofigure prepare <参考图.png> --case 01-my-figure
+REM   → 按提示把 prompt.md 全文 + PNG 发给 GPT 网页端，取回 SVG 存入案例目录的 redraw.svg
+autofigure convert examples\01-my-figure
+autofigure check   examples\01-my-figure
+autofigure math    examples\01-my-figure   REM 可选：公式升级原生 Office Math
 ```
 
 ## 环境
@@ -53,4 +53,5 @@ autofigure math    examples\generated\runs\<run_id>   REM 可选：公式升级�
 - `tools/powerpoint_native_math.py`：`math` 命令的公式升级引擎
 - `references/v2-prompt-contract.md`：VLM 输出合同（提示词规范）
 - `tests/v2/`：v2 测试套件
+- `examples/`：每案例一个扁平目录（参考图/SVG/交付 PPTX/渲染/核验报告 + qa/ 诊断），索引见 `examples/README.md`
 - `legacy/`：v1 重型管线归档（2026-08-18）

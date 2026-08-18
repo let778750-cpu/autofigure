@@ -4,7 +4,7 @@
 
 ## 本地运行隔离
 
-每次执行必须有自己的 run 目录：`examples/generated/runs/v2-<UTC>-<sha8>/`，prepare/convert/check 的产物全部写入该目录；旧 run 只读。
+每个案例一个扁平目录：`examples/<case>/`，prepare/convert/check 的产物全部写入该目录（诊断明细在 `qa/` 子目录）。案例目录即工作单元：重跑覆盖当前最佳，历史由 git 承担；不得在同一案例下堆叠历史版本子目录。
 
 ## 授权与边界
 

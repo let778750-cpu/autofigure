@@ -27,4 +27,4 @@ VLM 一次性完成了 v1 约 60% machinery（双解释器 OCR、几何精炼、
 - `legacy/tools/powerpoint_native_math.py`（+roundtrip ps1）：v2 `autofigure math` 可选命令的公式升级引擎，通过 `tools/` 根下的同名保留副本调用。
 - `legacy/ocr-config.json`：v2 check 的 OCR 模型/推理参数来源（`D:\paddle ocr` 只读运行时）。
 
-旧 run 证据在 `examples/generated/runs/`（被 .gitignore 排除，本地保留）。v1 的两次保护性提交：`a59b78e`（转型前现场）、`5e3d9b2`（归档）。
+旧 run 证据（143MB）已于 2026-08-18 晚清理；v1 最终交付物三件套（R10 PPTX + 目标尺寸渲染 + 差异图）存档于 `legacy/v1-final-evidence/`。v1 的两次保护性提交：`a59b78e`（转型前现场）、`5e3d9b2`（归档）。
