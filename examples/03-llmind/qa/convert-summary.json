@@ -1,0 +1,19 @@
+{
+  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\03-llmind\\redraw.svg",
+  "pptx": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\03-llmind\\redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 201,
+  "textbox_with_text": 34,
+  "emitted": {
+    "rect": 47,
+    "text": 34,
+    "freeform": 56,
+    "atomic": 2,
+    "line": 60,
+    "ellipse": 2
+  },
+  "warnings": [
+    "未知元素已跳过: {http://www.w3.org/2000/svg}title",
+    "未知元素已跳过: {http://www.w3.org/2000/svg}desc"
+  ]
+}

@@ -21,8 +21,9 @@
 ### `03-llmind/`
 
 - 论文：*LLMind: Bio-inspired Training-free Adaptive Visual Reasoning*（CVPR 2026）
-- 来源文件：`03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png`
-- 状态：**prepare 完成，待 VLM 取回 SVG**（含照片区域，检验 `atomic:` 占位裁剪约定）
+- 来源文件：`03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png`（1357×656）
+- SVG 来源：GPT 网页端直出（2026-08-19，用户自定义提示词；其中 2 处 `<image>` 内嵌照片经确定性正则改写为 `atomic:` 占位符，由 convert 从原图裁剪嵌入）
+- 状态：**完成**。201 个原生对象（含 2 处 atomic 照片裁剪）、34 个文本框读回；mean_abs_rgb_delta=6.7743、SSIM=0.8697、changed=12.90%、top_roi=7.44%（三案例最佳）。SVG 侧未匹配 12 条经人审判读主要为 OCR 噪声（竖排文字、低对比面板文字、公式符号）
 
 ## 文件约定
 
