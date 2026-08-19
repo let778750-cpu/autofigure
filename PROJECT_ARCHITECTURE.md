@@ -142,6 +142,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | 无文字写实元素（照片/截图/写实图标/纹理装饰） | `<rect id="atomic:语义名" …>` 占位，不重绘；含文字/公式内容与几何元素禁止占位 | convert 自动从参考图裁剪嵌入（唯一位图来源） |
 | 直接内嵌 `<image>` | 容错：不读内嵌数据，按 bbox 从参考图裁剪替代 | 记 warning；覆盖画布 ≥50% 直接拒绝 |
 | 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓 | 走 check 人审对照 |
+| 版面纪律 | 文字不得与文字/图形重叠；箭头与连接线端点落在形状边缘或间隙，不得压盖文字；间距留白以原图为准 | 走 check 人审对照 |
 | 结构 | 渐变 `<linearGradient>`、虚线 `stroke-dasharray` | radialGradient/marker-mid 暂不支持，记 warning 降级 |
 
 ### 4.3 convert（`tools/v2/convert.py`，核心）

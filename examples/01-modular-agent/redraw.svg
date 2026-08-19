@@ -61,7 +61,7 @@
 <line x1="315" y1="274" x2="341" y2="274" stroke="#ef7d2b" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arr-orange)"/>
 <line x1="316" y1="436" x2="341" y2="436" stroke="#3567b7" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arr-blue)"/>
 <rect x="346" y="213" width="42" height="127" fill="white" stroke="#233a64" stroke-width="3"/>
-<text x="367" y="201" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#111" text-anchor="middle" font-style="italic">eᵥ</text>
+<text x="367" y="201" font-family="Times New Roman, serif" font-size="19" font-weight="700" fill="#111" text-anchor="middle"><tspan font-style="italic">e</tspan><tspan baseline-shift="sub" font-size="13" font-style="italic">v</tspan></text>
 <circle cx="367" cy="239" r="17" fill="#f2a36e" stroke="none" stroke-width="0"/>
 <circle cx="367" cy="285" r="17" fill="#f2a36e" stroke="none" stroke-width="0"/>
 <circle cx="367" cy="321" r="17" fill="#f2a36e" stroke="none" stroke-width="0"/>
