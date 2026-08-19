@@ -1,16 +1,17 @@
 {
-  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\generated\\runs\\v2-20260818T114611Z-792a16d4\\input\\redraw.svg",
-  "pptx": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\generated\\runs\\v2-20260818T114611Z-792a16d4\\build\\redraw.pptx",
+  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\redraw.svg",
+  "pptx": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\redraw.pptx",
   "slide_count": 1,
-  "shape_count": 255,
+  "shape_count": 243,
   "textbox_with_text": 66,
   "emitted": {
-    "rect": 50,
-    "ellipse": 31,
-    "freeform": 77,
+    "rect": 43,
+    "ellipse": 28,
+    "freeform": 75,
     "text": 66,
-    "line": 31,
-    "marker": 42
+    "line": 30,
+    "marker": 42,
+    "atomic": 1
   },
   "warnings": []
 }

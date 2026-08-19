@@ -8,8 +8,8 @@
 
 - 论文：*ModularAgent: A Task-Aware Modular Framework for Joint Reasoning*（CVPR 2026）
 - 来源文件：`01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png`（1429×627）
-- SVG 来源：GPT 网页端直出（2026-08-18）
-- 状态：**完成**。255 个原生对象、66 个文本全部可编辑读回；mean_abs_rgb_delta=17.40、SSIM=0.727、changed=38.97%（诊断口径，全面优于 v1 R10 的 19.9987/0.6535/46.55%）
+- SVG 来源：GPT 网页端直出 R1（2026-08-18）；R2 自批评修订（2026-08-19，Kimi 充当 VLM 环节：箭头全部改实心三角头 + 杆宽贴原图，修复 R1 细杆空心头违约；observation 照片矢量卡通 13 元素收敛为 1 处 `atomic:` 原图裁剪）
+- 状态：**完成（R2 覆盖 R1）**。243 个原生对象、66 个文本读回、SVG 侧未匹配仅 1 条；mean_abs_rgb_delta=16.5748、SSIM=0.7347、changed=38.27%（R1 为 17.3963/0.727/38.97%，v1 R10 为 19.9987/0.6535/46.55%）。R2.1 追加修复人审发现的三处版面问题：粉色箭头杆宽/头部尺寸、专家列黑箭头压字、mapping 与 ƒ_map 间距重叠
 
 ### `02-thinking-diffusion/`
 

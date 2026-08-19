@@ -1,10 +1,10 @@
 # check 报告（advisory，非门禁） — 01-modular-agent
 
 ## 像素诊断（figure_lint，软信号）
-- mean_abs_rgb_delta: 17.3963
-- changed_pixel_ratio: 38.9692%
-- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 147}, 'mean_abs_rgb_delta': 29.7631, 'loss_contribution_pct': 9.2494}
-- ssim: 0.727
+- mean_abs_rgb_delta: 16.5748
+- changed_pixel_ratio: 38.265%
+- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 147}, 'mean_abs_rgb_delta': 29.7743, 'loss_contribution_pct': 9.7035}
+- ssim: 0.7347
 - diff 图: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\qa\diff.png
 - 对照预览: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\preview.png
 

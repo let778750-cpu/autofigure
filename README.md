@@ -16,7 +16,7 @@ Each preview: top = original paper figure, bottom = native PowerPoint render of 
 
 | 案例 Case | 原生对象 Shapes | 文本读回 Texts | mean↓ | SSIM↑ | changed↓ |
 |---|---:|---:|---:|---:|---:|
-| 01 ModularAgent (1429×627) | 255 | 66 | 17.40 | 0.727 | 38.97% |
+| 01 ModularAgent (1429×627) | 243 | 66 | 16.57 | 0.735 | 38.27% |
 | 02 Thinking Diffusion (1513×554) | 162 | 46 | 13.55 | 0.720 | 17.97% |
 | 03 LLMind (1357×656) | 201 | 34 | **6.77** | **0.870** | **12.90%** |
 
@@ -25,7 +25,7 @@ Each preview: top = original paper figure, bottom = native PowerPoint render of 
 > 对照 v1 重型确定性管线（4 天 / ~30 轮 / 27k LOC）：mean 19.9987 / SSIM 0.6535 / changed 46.55%，已归档 `legacy/`。
 > vs. the archived v1 heavyweight deterministic pipeline (4 days / ~30 rounds / 27k LOC): 19.9987 / 0.6535 / 46.55%.
 
-### 01 · ModularAgent（GPT 直出 SVG → PPTX）
+### 01 · ModularAgent（GPT 直出 SVG + 第二圈自批评修订：箭头实心化贴原图、照片 atomic 裁剪）
 
 ![01-modular-agent](examples/01-modular-agent/preview.png)
 
