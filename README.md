@@ -1,6 +1,6 @@
 # AI AutoFigure v2
 
-把科研图 PNG 高保真重建为**原生可编辑 PowerPoint**。架构：**VLM-first, verify-light**——GPT 网页端负责看图重绘为 SVG，本工具负责确定性地把 SVG 转换为原生 PPTX 对象，并用轻量核验（文本比对 + 像素诊断 + 人审）兜底。
+把科研图 PNG 高保真重建为**原生可编辑 PowerPoint**。架构：**VLM-first, verify-light**——多模态大模型网页端（GPT / Kimi / Claude 等）负责看图重绘为 SVG，本工具负责确定性地把 SVG 转换为原生 PPTX 对象，并用轻量核验（文本比对 + 像素诊断 + 人审）兜底。
 
 ## 为什么是这个架构（2026-08-18 实测）
 
@@ -23,7 +23,7 @@ D:\anaconda\python.exe -m venv .venv
 
 REM 四步
 autofigure prepare <参考图.png> --case 01-my-figure
-REM   → 按提示把 prompt.md 全文 + PNG 发给 GPT 网页端，取回 SVG 存入案例目录的 redraw.svg
+REM   → 按提示把 prompt.md 全文 + PNG 发给多模态大模型网页端（GPT / Kimi / Claude 等），取回 SVG 存入案例目录的 redraw.svg
 autofigure convert examples\01-my-figure
 autofigure check   examples\01-my-figure
 autofigure math    examples\01-my-figure   REM 可选：公式升级原生 Office Math

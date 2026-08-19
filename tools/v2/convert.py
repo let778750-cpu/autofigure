@@ -5,6 +5,7 @@
 - text/tspan → 原生文本框 runs（italic、字号、颜色、baseline-shift → 上下标）
 - linearGradient → a:gradFill；stroke-dasharray → prstDash；marker → 自由曲线箭头
 - <rect id="atomic:*"> 占位符 → 从参考图裁剪对应 bbox 嵌入为位图
+- <image> 容错：按 bbox 从参考图裁剪替代并记 warning；覆盖画布 ≥50% 直接拒绝（防整图截图冒充矢量）
 - <g> 无变换时转原生分组，其余情况拍平（当前 VLM 输出实测无 <g>）
 """
 
@@ -273,10 +274,11 @@ def _resolve_fill_url(style: dict[str, str], defs: dict[str, ET.Element]) -> ET.
 
 
 class ConvertContext:
-    def __init__(self, slide, defs: dict[str, ET.Element], source_png: Path | None):
+    def __init__(self, slide, defs: dict[str, ET.Element], source_png: Path | None, canvas_area: float):
         self.slide = slide
         self.defs = defs
         self.source_png = source_png
+        self.canvas_area = canvas_area
         self.warnings: list[str] = []
         self.counts: dict[str, int] = {}
 
@@ -553,6 +555,27 @@ def _emit_atomic(ctx: ConvertContext, element_id: str, x: float, y: float, w: fl
     ctx.bump("atomic")
 
 
+IMAGE_MAX_AREA_RATIO = 0.5  # 护栏：<image> 覆盖画布 ≥ 该比例即拒绝（防整图截图冒充矢量交付）
+
+
+def _emit_image(ctx: ConvertContext, el: ET.Element, matrix: Matrix) -> None:
+    """<image> 合同容错：不读内嵌数据，按 bbox 从参考图裁剪替代（等价 atomic 占位符）。"""
+    x = float(el.get("x", 0))
+    y = float(el.get("y", 0))
+    w = float(el.get("width", 0))
+    h = float(el.get("height", 0))
+    if w <= 0 or h <= 0:
+        ctx.warn("<image> 缺少有效 x/y/width/height，已跳过")
+        return
+    ratio = w * h / ctx.canvas_area
+    if ratio >= IMAGE_MAX_AREA_RATIO:
+        raise common.fail(
+            f"<image> 覆盖画布 {ratio:.0%}（≥{IMAGE_MAX_AREA_RATIO:.0%}），疑似整图截图冒充矢量，已拒绝"
+        )
+    ctx.warn('<image> 已按 bbox 从参考图裁剪替代（建议改用 <rect id="atomic:*"> 占位符）')
+    _emit_atomic(ctx, "<image>", x, y, w, h, matrix)
+
+
 # ---------------------------------------------------------------- 文本
 
 _CHAR_WIDTHS = {
@@ -707,7 +730,7 @@ def _walk(ctx: ConvertContext, element: ET.Element, style: dict[str, str], matri
     elif tag == f"{SVG_NS}text":
         _emit_text(ctx, element, own_style, own_matrix)
     elif tag == f"{SVG_NS}image":
-        ctx.warn("<image> 被合同禁止，已跳过（请用 atomic 占位符）")
+        _emit_image(ctx, element, own_matrix)
     else:
         ctx.warn(f"未知元素已跳过: {tag}")
 
@@ -735,7 +758,7 @@ def convert(run: common.Run) -> dict:
 
     defs = _collect_defs(root)
     source_png = run.source_png if run.source_png.is_file() else None
-    ctx = ConvertContext(slide, defs, source_png)
+    ctx = ConvertContext(slide, defs, source_png, float(width * height))
     _walk(ctx, root, {}, Matrix())
 
     run.qa_dir.mkdir(exist_ok=True)

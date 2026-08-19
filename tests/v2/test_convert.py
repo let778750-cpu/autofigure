@@ -187,3 +187,27 @@ def test_summary_counts_and_readback(run_factory):
     assert summary["shape_count"] == 2
     on_disk = json.loads((run.qa_dir / "convert-summary.json").read_text(encoding="utf-8"))
     assert on_disk["shape_count"] == 2
+
+
+def test_data_uri_image_tolerated_as_atomic_crop(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
+        ' width="200" height="100" viewBox="0 0 200 100">'
+        '<image x="20" y="20" width="40" height="30" preserveAspectRatio="none"'
+        ' xlink:href="data:image/png;base64,iVBORw0KGgo="/></svg>'
+    )
+    summary = convert(run)
+    (shape,) = _shapes(run)
+    assert shape.shape_type == MSO_SHAPE_TYPE.PICTURE  # 按 bbox 从参考图裁剪，不读内嵌数据
+    assert summary["emitted"].get("atomic") == 1
+    assert any("<image>" in w for w in summary["warnings"])
+
+
+def test_oversized_image_rejected_as_canvas_cheat(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
+        ' width="200" height="100" viewBox="0 0 200 100">'
+        '<image x="0" y="0" width="200" height="100" xlink:href="data:image/png;base64,iVBORw0KGgo="/></svg>'
+    )
+    with pytest.raises(SystemExit, match="整图截图"):
+        convert(run)

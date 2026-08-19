@@ -1,19 +1,20 @@
 # v2 提示词输出合同（VLM → SVG）
 
-本文件是 `autofigure prepare` 生成的 prompt.md 的规范来源。VLM 重绘输出必须满足本合同，否则 `convert` 拒绝或降级。
+本文件是 `autofigure prepare` 生成的 prompt.md 的规范来源。VLM（GPT / Kimi / Claude 等多模态大模型）重绘输出必须满足本合同，否则 `convert` 拒绝或降级。
 
 ## 硬性要求
 
 1. **画布精确**：`<svg>` 根元素必须带 `width="W" height="H" viewBox="0 0 W H"`（W/H = 原图像素尺寸），所有坐标以原图像素为基准，不得缩放。`convert` 校验 viewBox 与参考图尺寸，不一致即拒绝。
 2. **文字逐字**：所有文字逐字照抄原图（大小写、上下标、希腊字母、标点），用 `<text>`/`<tspan>` 表达；禁止把文字画成 `<path>`（否则文字不可编辑，直接违背项目目标）。
 3. **公式表达**：变量斜体 `font-style="italic"`；上下标用 `<tspan baseline-shift="sub|super" font-size="较小值">`。
-4. **照片/写实图标占位**：照片、真实场景截图、复杂写实图标**不要重绘**，放占位矩形：
+4. **写实元素占位**：照片、真实场景截图、复杂写实图标，以及任何**不含文字**且无法高质量矢量还原的写实/纹理装饰元素：**不要重绘**，放占位矩形：
    ```xml
    <rect id="atomic:observation-photo" x=".." y=".." width=".." height=".." fill="#EEEEEE" stroke="#999999" stroke-dasharray="4 3"/>
    ```
-   `convert` 会自动从参考图裁剪该 bbox 嵌入为位图。除此之外**禁止 `<image>`**（会被跳过并记 warning）。
-5. **结构特性**：渐变用 `<linearGradient>`；箭头用 `<marker>`（`orient="auto"`，`markerUnits="userSpaceOnUse"`）；虚线用 `stroke-dasharray`。
-6. **只输出 SVG 代码**，不要解释文字。
+   `convert` 会自动从参考图裁剪该 bbox 嵌入为位图（唯一允许的位图来源）。**含文字或公式的内容、以及一切几何图形/线条/箭头，禁止占位**——文字公式必须原生可编辑，几何元素必须矢量履约。直接内嵌 `<image>`（如 base64 裁切）会被 `convert` 按 bbox 从参考图裁剪替代并记 warning；单张位图覆盖画布 ≥50% 直接拒绝（防整图截图冒充矢量）。
+5. **箭头以原图为准**：箭头的粗细、头部样式、尺寸、弯折位置与连接关系一律复刻原图实际形态，**不得套用固定风格**（一律细线开口或一律实心大三角都是违约）。表达机制：实心三角头用**填充**的 marker path 或整体轮廓 path；开放折线头用描边 marker（`orient="auto"`，`markerUnits="userSpaceOnUse"`）；块状/楔形/弯折箭头画整体轮廓 path。
+6. **结构特性**：渐变用 `<linearGradient>`；虚线用 `stroke-dasharray`。
+7. **只输出 SVG 代码**，不要解释文字。
 
 ## 风格要求
 
@@ -34,6 +35,7 @@ GPT-5 按本合同对 1429×627 架构图直出的 SVG：66 个 `<text>`、公�
 ## 常见翻车点
 
 - 把照片画成卡通 → 用 `atomic:` 占位符。
+- 箭头套用固定风格（一刀切细线开口或实心三角）→ 头部样式与粗细必须逐条以原图为准。
 - 文字逐字错误（尤其公式符号、希腊字母）→ `check` 的文本比对报告会列出，必须人工逐条消除。
 - viewBox 用了 1024×768 等默认值 → `convert` 直接拒绝，重画。
 - 把多条文字合并进一个 `<text>` 并用 dy 换行 → 每行一个 `<text>` 更稳。

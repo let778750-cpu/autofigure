@@ -9,7 +9,7 @@
 
 架构原则一句话：**VLM-first, verify-light**——
 
-- **VLM 负责"看"**：GPT 网页端（多模态大模型）看参考图、按输出合同重绘为 SVG。感知能力外包给 VLM，工具链不做任何确定性图像感知（无 OCR 几何分析、无区域检测、无图像分割）。
+- **VLM 负责"看"**：多模态大模型网页端（GPT / Kimi / Claude 等）看参考图、按输出合同重绘为 SVG。感知能力外包给 VLM，工具链不做任何确定性图像感知（无 OCR 几何分析、无区域检测、无图像分割）。
 - **工具负责"确定性"**：本工具把 SVG 确定性地转换为原生 PPTX 对象，并做轻量核验（文本比对 + 像素诊断 + 对照预览）。
 - **验收靠人审**：所有机器输出都是 advisory（软信号），不设自动门禁。通过证据 = 文本可编辑读回 + check 报告逐条人审。
 
@@ -30,9 +30,9 @@ flowchart TD
 
     P1 --> P2
 
-    subgraph P2["② 人工 VLM 环节（工具之外，GPT 网页端）｜ 合同 references/v2-prompt-contract.md"]
-        C1["用户把 prompt.md 全文 + reference.png 发给 GPT"]
-        C2["GPT 按合同直出 SVG：viewBox = 原图像素；文字逐字 text/tspan；<br/>公式 baseline-shift 上下标；照片区域 rect id=atomic:* 占位；除此之外禁止 image"]
+    subgraph P2["② 人工 VLM 环节（工具之外，多模态大模型网页端）｜ 合同 references/v2-prompt-contract.md"]
+        C1["用户把 prompt.md 全文 + reference.png 发给多模态大模型（GPT / Kimi / Claude 等）"]
+        C2["模型按合同直出 SVG：viewBox = 原图像素；文字逐字 text/tspan；公式 baseline-shift 上下标；<br/>箭头样式以原图为准；无文字写实区域 rect id=atomic:* 占位；image 容错按 bbox 裁剪替代"]
         C3["用户把 SVG 保存为 redraw.svg"]
         C1 --> C2 --> C3
     end
@@ -139,9 +139,10 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | 画布精确 | `width/height/viewBox` = 原图像素，坐标不缩放 | convert 校验不符直接拒绝 |
 | 文字逐字 | 全部 `<text>`/`<tspan>`，禁止画成路径 | 文字不可编辑，违背项目目标 |
 | 公式 | 变量斜体；`<tspan baseline-shift="sub\|super">` 上下标 | check 文本比对逐条列出 |
-| 照片/写实图标 | `<rect id="atomic:语义名" …>` 占位，不重绘 | convert 自动从参考图裁剪嵌入 |
-| 其他位图 | 禁止 `<image>` | convert 跳过并记 warning |
-| 结构 | 渐变 `<linearGradient>`、箭头 `<marker>`、虚线 `stroke-dasharray` | radialGradient/marker-mid 暂不支持，记 warning 降级 |
+| 无文字写实元素（照片/截图/写实图标/纹理装饰） | `<rect id="atomic:语义名" …>` 占位，不重绘；含文字/公式内容与几何元素禁止占位 | convert 自动从参考图裁剪嵌入（唯一位图来源） |
+| 直接内嵌 `<image>` | 容错：不读内嵌数据，按 bbox 从参考图裁剪替代 | 记 warning；覆盖画布 ≥50% 直接拒绝 |
+| 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓 | 走 check 人审对照 |
+| 结构 | 渐变 `<linearGradient>`、虚线 `stroke-dasharray` | radialGradient/marker-mid 暂不支持，记 warning 降级 |
 
 ### 4.3 convert（`tools/v2/convert.py`，核心）
 
@@ -156,7 +157,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | `linearGradient` | `a:gradFill` 渐变填充 |
 | `stroke-dasharray` | OOXML 合法 `prstDash` 枚举 |
 | `marker` | 自由曲线箭头 |
-| `<rect id="atomic:*">` | 从 reference.png 裁 bbox 嵌入位图（唯一允许的位图） |
+| `<rect id="atomic:*">` / `<image>`（容错） | 从 reference.png 裁 bbox 嵌入位图（唯一允许的位图来源；`<image>` 覆盖画布 ≥50% 拒绝） |
 | `<g>` | 拍平处理（样式/变换正确继承，不产生原生 group） |
 
 **关键常量**：`EMU_PER_PX=9525`、`PT_PER_PX=0.75`（96 dpi）、`BASELINE_ASCENT=0.95`（实测标定的文本框顶到首行基线比例）。
@@ -233,7 +234,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 ## 10. 边界与红线（不可突破）
 
 - 交付 PPTX 文字必须 100% 原生文本可编辑读回；禁止整图截图、位图/SVG 冒充文字或公式。
-- 照片区域必须走 `atomic:` 裁剪，不得让 VLM 用矢量近似冒充照片。
+- 无文字写实区域必须走 `atomic:` 裁剪，不得让 VLM 用矢量近似冒充照片；含文字/公式内容与几何元素禁止位图占位。
 - 像素指标只是诊断，不得作为发布硬门；也不得以诊断良好替代人审。
 - `legacy/` 不维护、不修改（例外：OCR 配置 `legacy/ocr-config.json` 与公式引擎 `tools/powerpoint_native_math.py` 仍在役）。
 - git 历史：`a59b78e`（v1 快照）→ `5e3d9b2`（归档 legacy/）→ `fbaddb1`（v2 核心）→ `cd7c422`（examples 案例平铺）。
