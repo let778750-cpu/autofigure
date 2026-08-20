@@ -163,6 +163,77 @@ def test_marker_drawn_as_freeform(run_factory):
     assert MSO_SHAPE_TYPE.FREEFORM in kinds or any("freeform" in s.name for s in shapes)
 
 
+def _triangle_abs_points(shapes):
+    """返回第一个 3 顶点自由三角形在画布上的绝对坐标（px）。"""
+    emu = 9525.0
+    for shape in shapes:
+        sp_pr = shape._element.find(qn("p:spPr"))
+        if sp_pr is None:
+            continue
+        geom = sp_pr.find(qn("a:custGeom"))
+        if geom is None:
+            continue
+        path = geom.find(f"{qn('a:pathLst')}/{qn('a:path')}")
+        pts = [(int(pt.get("x")), int(pt.get("y"))) for pt in path.iter(qn("a:pt"))]
+        if len(pts) != 3:
+            continue
+        off = sp_pr.find(f"{qn('a:xfrm')}/{qn('a:off')}")
+        ox, oy = int(off.get("x")), int(off.get("y"))
+        return [((ox + x) / emu, (oy + y) / emu) for x, y in pts]
+    return None
+
+
+def _tip_and_base_mid(pts):
+    cx = sum(p[0] for p in pts) / 3
+    cy = sum(p[1] for p in pts) / 3
+    tip = max(pts, key=lambda p: (p[0] - cx) ** 2 + (p[1] - cy) ** 2)
+    base = [p for p in pts if p is not tip]
+    mid = ((base[0][0] + base[1][0]) / 2, (base[0][1] + base[1][1]) / 2)
+    return tip, mid
+
+
+def test_curved_path_marker_end_follows_end_tangent(run_factory):
+    # 末端切线 = end − 第二控制点 = (0,-80) 竖直向上；旧实现按弦方向（atan2(-80,160)≈-26.6°）
+    # 放置导致三角横甩脱开（01 案例 π/a 圆间曲线箭头 43-47° 偏差的真实根因）
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">'
+        '<defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"'
+        ' markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#000000" stroke="none"/></marker></defs>'
+        '<path d="M 20 100 C 100 100 180 100 180 20" stroke="#000000" fill="none" marker-end="url(#arr)"/></svg>'
+    )
+    convert(run)
+    pts = _triangle_abs_points(_shapes(run))
+    assert pts is not None
+    tip, base_mid = _tip_and_base_mid(pts)
+    # 头轴应沿切线竖直向上：tip 与底边中心同 x，tip 在上方
+    assert abs(tip[0] - base_mid[0]) < 1.0
+    assert tip[1] < base_mid[1]
+    # 锚点 (refX,refY)=(10,6) 落在端点 (180,20)：base_mid ≈ 端点沿切线下沉 10px
+    assert abs(base_mid[0] - 180.0) < 1.0 and abs(base_mid[1] - 30.0) < 1.0
+    # 尖端 ≈ 端点上方 2px（tipX 12 − refX 10）
+    assert abs(tip[0] - 180.0) < 1.0 and abs(tip[1] - 18.0) < 1.0
+
+
+def test_marker_start_oriented_along_travel(run_factory):
+    # SVG 语义：orient="auto" 在 marker-start 处沿行进方向放置；
+    # 定义朝 -x 的起始箭头（尖端 local x=0）→ 尖端应落在起点外侧（左侧）
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">'
+        '<defs><marker id="sarr" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto"'
+        ' markerUnits="userSpaceOnUse"><path d="M12,0 L0,6 L12,12 Z" fill="#000000" stroke="none"/></marker></defs>'
+        '<line x1="10" y1="50" x2="190" y2="50" stroke="#000000" marker-start="url(#sarr)"/></svg>'
+    )
+    convert(run)
+    pts = _triangle_abs_points(_shapes(run))
+    assert pts is not None
+    tip, base_mid = _tip_and_base_mid(pts)
+    # 尖端在底边左侧（朝线外），且尖端 ≈ 起点 (10,50) 左移 2px；底边沉入线内 10px
+    assert tip[0] < base_mid[0]
+    assert abs(tip[0] - 8.0) < 1.0 and abs(tip[1] - 50.0) < 1.0
+    assert abs(base_mid[0] - 20.0) < 1.0 and abs(base_mid[1] - 50.0) < 1.0
+
+
+
 def test_viewbox_mismatch_rejected(run_factory, tmp_path: Path):
     source = tmp_path / "ref2.png"
     Image.new("RGB", (100, 100), (255, 255, 255)).save(source)

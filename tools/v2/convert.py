@@ -368,7 +368,7 @@ def _emit_line(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
     _disable_shadow(connector)
     _apply_line(connector._element.spPr, style)
     ctx.bump("line")
-    _emit_markers(ctx, el, style, [(x1, y1), (x2, y2)])
+    _emit_markers(ctx, el, style, [("M", x1, y1), ("L", x2, y2)])
 
 
 def _emit_poly(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix, close: bool) -> None:
@@ -383,7 +383,7 @@ def _emit_poly(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
     if close:
         segments.append(("Z",))
     _emit_freeform(ctx, segments, style)
-    _emit_markers(ctx, el, style, [matrix.apply(points[i], points[i + 1]) for i in range(0, len(points) - 1, 2)])
+    _emit_markers(ctx, el, style, segments)
 
 
 def _emit_path(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix) -> None:
@@ -394,7 +394,7 @@ def _emit_path(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
     if matrix != Matrix():
         segments = _transform_segments(segments, matrix)
     _emit_freeform(ctx, segments, style)
-    _emit_markers(ctx, el, style, _segment_vertices(segments))
+    _emit_markers(ctx, el, style, segments)
 
 
 def _transform_segments(segments: list[tuple], matrix: Matrix) -> list[tuple]:
@@ -495,13 +495,21 @@ def _emit_markers(
     ctx: ConvertContext,
     el: ET.Element,
     style: dict[str, str],
-    vertices: list[tuple[float, float]],
+    segments: list[tuple],
 ) -> None:
+    """按 SVG marker 语义放置箭头：marker-start 沿行进方向，marker-end 沿末端切线。
+
+    末端切线取末段真实方向（C 段 = 端点 − 第二控制点），而非首末顶点弦方向——
+    弦方向在曲线路径上偏差可达 40°+（01 案例 π/a 圆间曲线箭头横甩脱开的根因）。
+    """
+    if len(segments) < 2:
+        return
+    vertices = _segment_vertices(segments)
     if len(vertices) < 2:
         return
-    for attr, point_index, neighbor_index in (
-        ("marker-start", 0, 1),
-        ("marker-end", len(vertices) - 1, len(vertices) - 2),
+    for attr, vertex, direction in (
+        ("marker-start", vertices[0], _start_tangent(segments) or _chord(vertices, forward=True)),
+        ("marker-end", vertices[-1], _end_tangent(segments) or _chord(vertices, forward=False)),
     ):
         ref = el.get(attr) or _parse_style_attr(el.get("style")).get(attr)
         match = re.match(r"url\(#([^)]+)\)", ref or "")
@@ -510,10 +518,47 @@ def _emit_markers(
         marker = ctx.defs.get(match.group(1))
         if marker is None:
             continue
-        px, py = vertices[point_index]
-        nx, ny = vertices[neighbor_index]
-        angle = math.atan2(py - ny, px - nx)
-        _draw_marker(ctx, marker, px, py, angle, style)
+        angle = math.atan2(direction[1], direction[0])
+        _draw_marker(ctx, marker, vertex[0], vertex[1], angle, style)
+
+
+def _start_tangent(segments: list[tuple]) -> tuple[float, float] | None:
+    """起点处行进方向：首个绘制段 C → c1 − 起点；L → 终点 − 起点。"""
+    start: tuple[float, float] | None = None
+    for seg in segments:
+        if seg[0] == "M":
+            start = (seg[1], seg[2])
+        elif start is not None and seg[0] in ("L", "C"):
+            other = (seg[1], seg[2])
+            direction = (other[0] - start[0], other[1] - start[1])
+            return direction if math.hypot(*direction) > 1e-9 else None
+    return None
+
+
+def _end_tangent(segments: list[tuple]) -> tuple[float, float] | None:
+    """末端切线方向：末段 C → 端点 − 第二控制点；L → 端点 − 前一 on-curve 点。"""
+    prev: tuple[float, float] | None = None
+    direction: tuple[float, float] | None = None
+    for seg in segments:
+        if seg[0] == "M":
+            prev = (seg[1], seg[2])
+        elif seg[0] == "L":
+            if prev is not None:
+                direction = (seg[1] - prev[0], seg[2] - prev[1])
+            prev = (seg[1], seg[2])
+        elif seg[0] == "C":
+            direction = (seg[5] - seg[3], seg[6] - seg[4])
+            prev = (seg[5], seg[6])
+    if direction is not None and math.hypot(*direction) <= 1e-9:
+        return None
+    return direction
+
+
+def _chord(vertices: list[tuple[float, float]], forward: bool) -> tuple[float, float]:
+    first, last = vertices[0], vertices[-1]
+    if forward:
+        return (last[0] - first[0], last[1] - first[1])
+    return (last[0] - first[0], last[1] - first[1])
 
 
 def _draw_marker(

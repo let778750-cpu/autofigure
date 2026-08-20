@@ -9,7 +9,7 @@
 - 论文：*ModularAgent: A Task-Aware Modular Framework for Joint Reasoning*（CVPR 2026）
 - 来源文件：`01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png`（1429×627）
 - SVG 来源：GPT 网页端直出 R1（2026-08-18）；R2 自批评修订（2026-08-19，Kimi 充当 VLM 环节：箭头全部改实心三角头 + 杆宽贴原图，修复 R1 细杆空心头违约；observation 照片矢量卡通 13 元素收敛为 1 处 `atomic:` 原图裁剪）
-- 状态：**完成（R2 覆盖 R1）**。243 个原生对象、66 个文本读回、SVG 侧未匹配仅 1 条；R2.1 追加修复人审发现的三处版面问题：粉色箭头杆宽/头部尺寸、专家列黑箭头压字、mapping 与 ƒ_map 间距重叠。math：22 个公式（18 strong + 4 weak）全量注入原生 OMML，0 失败。注入后 check 口径：mean_abs_rgb_delta=16.6261、SSIM=0.7331、changed=38.28%（R2 文本框版为 16.5776/0.7347/38.27%，R1 为 17.3963/0.727/38.97%，v1 R10 为 19.9987/0.6535/46.55%）
+- 状态：**完成（R2 覆盖 R1 + R3 箭头结构修复）**。243 个原生对象、66 个文本读回、SVG 侧未匹配仅 1 条；R2.1 追加修复人审发现的三处版面问题：粉色箭头杆宽/头部尺寸、专家列黑箭头压字、mapping 与 ƒ_map 间距重叠。math：22 个公式（18 strong + 4 weak）全量注入原生 OMML，0 失败。R3（2026-08-21）：convert 修复曲线末端切线放置（此前 π/a 圆间 6 支曲线箭头偏轴 43-47°）与 marker-start 方向（180° 反向）；`arrows --fix --clamp-ratio` 锚点 42→0、头/线宽中位 5.0→3.78。箭头修复后 check 口径：mean_abs_rgb_delta=16.6037、SSIM=0.7333、changed=38.27%（math 注入后文本框几何版为 16.6261/0.7331/38.28%，R2 为 16.5776/0.7347/38.27%，R1 为 17.3963/0.727/38.97%，v1 R10 为 19.9987/0.6535/46.55%）；遗留 F3 端点悬空 6 处（advisory，见 qa/arrows-audit.json）
 
 ### `02-thinking-diffusion/`
 
@@ -23,7 +23,7 @@
 - 论文：*LLMind: Bio-inspired Training-free Adaptive Visual Reasoning*（CVPR 2026）
 - 来源文件：`03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png`（1357×656）
 - SVG 来源：GPT 网页端直出（2026-08-19，用户自定义提示词；其中 2 处 `<image>` 内嵌照片经确定性正则改写为 `atomic:` 占位符，由 convert 从原图裁剪嵌入）
-- 状态：**完成**。201 个原生对象（含 2 处 atomic 照片裁剪）、34 个文本框读回；math：6 个公式（6 strong）全量注入原生 OMML，0 失败。注入后 check 口径：mean_abs_rgb_delta=6.8684、SSIM=0.8681、changed=12.97%、top_roi=7.34%（三案例最佳；文本框版为 6.7708/0.8698/12.90%/7.44%）。SVG 侧未匹配 12 条经人审判读主要为 OCR 噪声（竖排文字、低对比面板文字、公式符号）
+- 状态：**完成**。201 个原生对象（含 2 处 atomic 照片裁剪）、34 个文本框读回；math：6 个公式（6 strong）全量注入原生 OMML，0 失败。注入后 check 口径：mean_abs_rgb_delta=6.8684、SSIM=0.8681、changed=12.97%、top_roi=7.34%（三案例最佳；文本框版为 6.7708/0.8698/12.90%/7.44%）。SVG 侧未匹配 12 条经人审判读主要为 OCR 噪声（竖排文字、低对比面板文字、公式符号）。arrows 审计（2026-08-21）：12 组手折箭羽（主干+短线束手绘箭头，无 marker 定义；合同已禁止该写法，重绘时应改用 marker，审计只报不自动修）
 
 ## 文件约定
 

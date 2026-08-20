@@ -145,7 +145,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | 公式 | 变量斜体；`<tspan baseline-shift="sub\|super">` 上下标 | check 文本比对逐条列出 |
 | 无文字写实元素（照片/截图/写实图标/纹理装饰） | `<rect id="atomic:语义名" …>` 占位，不重绘；含文字/公式内容与几何元素禁止占位 | convert 自动从参考图裁剪嵌入（唯一位图来源） |
 | 直接内嵌 `<image>` | 容错：不读内嵌数据，按 bbox 从参考图裁剪替代 | 记 warning；覆盖画布 ≥50% 直接拒绝 |
-| 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓 | 走 check 人审对照 |
+| 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓；几何子句（refX=尖端、头/线宽 ∈ [1.5,4]、端点落形状边缘 ≤6px）机器可检 | `autofigure arrows` 审计 + check 人审对照 |
 | 版面纪律 | 文字不得与文字/图形重叠；箭头与连接线端点落在形状边缘或间隙，不得压盖文字；间距留白以原图为准 | 走 check 人审对照 |
 | 结构 | 渐变 `<linearGradient>`、虚线 `stroke-dasharray` | radialGradient/marker-mid 暂不支持，记 warning 降级 |
 
@@ -161,7 +161,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | `text` / `tspan` | 原生文本框 runs（字号/颜色/斜体/粗体/字体；`baseline-shift` → OOXML baseline 上下标 ±30000/-25000） |
 | `linearGradient` | `a:gradFill` 渐变填充 |
 | `stroke-dasharray` | OOXML 合法 `prstDash` 枚举 |
-| `marker` | 自由曲线箭头 |
+| `marker` | 自由曲线箭头（marker-start 沿行进方向、marker-end 沿末端真实切线放置——曲线路径取末段切线而非首末弦方向，2026-08-21 修复 43-47° 偏轴 bug） |
 | `<rect id="atomic:*">` / `<image>`（容错） | 从 reference.png 裁 bbox 嵌入位图（唯一允许的位图来源；`<image>` 覆盖画布 ≥50% 拒绝） |
 | `<g>` | 拍平处理（样式/变换正确继承，不产生原生 group） |
 
@@ -177,9 +177,16 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 2. **像素诊断**：`tools/figure_lint.py reference.png render.png --diff-out qa/diff.png`，指标（mean_abs_rgb_delta / SSIM / changed_pixel_ratio / top_roi）写 `qa/metrics.json`。
 3. **对照预览**：`preview.png` 上下拼接参考图与渲染图（红色分隔带标注 REFERENCE/RENDER）。
 
-汇总写 `check-report.md`：像素指标 + 双向未匹配文本清单，文末明确"逐条人工判断，不以本报告自动放行或拦截"。
+汇总写 `check-report.md`：像素指标 + 双向未匹配文本清单（若 `qa/arrows-audit.json` 存在，追加箭头结构审计节），文末明确"逐条人工判断，不以本报告自动放行或拦截"。
 
-### 4.5 math（可选）
+### 4.5 arrows（可选，2026-08-21 新增）
+
+`autofigure arrows <run_dir> [--fix] [--clamp-ratio]`：箭头**结构层**审计与确定性几何修复。存在的理由：箭头缺陷（头线脱开/偏轴/比例失调）在像素指标上不可分辨——一支箭头 ≈ 画布 0.04%，修好修坏 mean 只动 ~0.06（噪声级），top_roi 注意力又被大块差异区吞掉；OCR 文本比对也不覆盖几何。没有结构感知，该缺陷类对反馈回路不可见（01 案例"改了好几轮还是歪"的根因之一）。
+
+- **审计口径**与 convert 放置语义镜像（`canvas(p) = v + R(θ)·(p − ref)`）：F1 marker `refX/refY` ≠ 三角尖端局部坐标（convert 忠实复刻该偏差）；F2 头长/线宽比例超出 [1.5, 4]；F3 箭头线端点距最近形状边缘 >6px（合同版面纪律的机器可检化）；W4 `orient` 非 auto（convert 按 auto 处理）；feather 手折箭羽（无 marker 的主干+短线束手绘箭头，03 案例模式，只报不修）。产出 `qa/arrows-audit.json`，check 报告自动引用。
+- **`--fix` 确定性修复**：refX/refY 对齐三角尖端；`--clamp-ratio` 头长超带时按使用方中位线宽等比限幅。只动 marker 定义，**不改任何样式**（颜色/填充/线宽逐字节保留），幂等。修复后必须重跑 convert → math → check。
+
+### 4.6 math（可选）
 
 `autofigure math <run_dir> [--dry-run]`：把 convert 产出的公式文本框批量升级为原生 Office Math（OMML），薄封装 v1 保留件 `tools/powerpoint_native_math.py`（纯 zip/XML 操作，不走 finalize/COM 往返）。
 
@@ -202,7 +209,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | `render.png` | convert | PowerPoint fresh render |
 | `preview.png` | check | 参考/渲染对照预览 |
 | `check-report.md` | check | 核验报告（人审入口） |
-| `qa/` | convert/check/math | 机器诊断明细：convert-summary.json / metrics.json / diff.png / ocr-texts.json / math-summary.json / math/ |
+| `qa/` | convert/check/math/arrows | 机器诊断明细：convert-summary.json / metrics.json / diff.png / ocr-texts.json / math-summary.json / math/ / arrows-audit.json |
 
 ## 6. 环境与运行时隔离
 
@@ -220,6 +227,8 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 1. **spPr 子元素顺序**：填充必须出现在 `effectLst` 之前，否则 PowerPoint 判文件损坏。
 2. **prstDash 枚举**：只接受 OOXML 合法值（不存在 roundDot/squareDot）。
 3. **freeform path bbox**：必须包含贝塞尔控制点，否则渲染错位/损坏。
+4. **marker 放置角（2026-08-21 修复）**：曲线末端箭头必须按**末段真实切线**（C 段 = 端点 − 第二控制点）放置，不能用首末顶点弦方向——01 案例曾因此出现 43-47° 偏轴、三角头横甩脱开；marker-start 必须沿**行进方向**放置（起始箭头定义朝 −x 时尖端落线外），反向 180° 会让起始箭头指进线内。
+5. **箭头缺陷像素指标不可见**：一支箭头 ≈ 画布 0.04%，修好修坏 mean 仅动 ~0.06——凡"改了好几轮还是歪"的几何类缺陷，先补结构审计（`autofigure arrows`），不要继续靠像素指标或改样式硬凑。
 
 ## 8. 测试与质量
 
@@ -228,7 +237,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 .venv\Scripts\python -m ruff check tools\v2 tests\v2
 ```
 
-`tests/v2/`：test_convert.py（映射、三个 OOXML 坑的回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）、test_math.py（公式检测/LaTeX 重建纯函数 + 注入集成，缺 latex2mathml 或 MML2OMML.XSL 时集成项跳过）。
+`tests/v2/`：test_convert.py（映射、OOXML 坑回归、marker 切线/方向回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）、test_math.py（公式检测/LaTeX 重建纯函数 + 注入集成，缺 latex2mathml 或 MML2OMML.XSL 时集成项跳过）、test_arrows.py（F1/F2/F3/W4/箭羽审计、fix 幂等与样式不变、01 真实案例回归）。
 
 ## 9. 当前状态与基准（2026-08-19）
 

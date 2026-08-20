@@ -13,8 +13,9 @@ description: "VLM-first, verify-light：把科研图 PNG 经多模态大模型�
 autofigure prepare <ref.png>   → 建案例目录 + 生成提示词包 prompt.md
 （你把 prompt + PNG 喂多模态大模型网页端（GPT / Kimi / Claude 等），取回 SVG 存入案例目录 redraw.svg）
 autofigure convert <run_dir>   → SVG → 原生可编辑 PPTX + PowerPoint fresh render
-autofigure check  <run_dir>    → 文本比对（advisory）+ figure_lint 诊断 + 对照预览
+autofigure check  <run_dir>    → 文本比对（advisory）+ figure_lint 诊断 + 箭头结构审计（若有）+ 对照预览
 autofigure math   <run_dir>    →（可选）公式文本框批量升级为原生 Office Math（OMML；--dry-run 只检测不改文件）
+autofigure arrows <run_dir>    →（可选）箭头结构审计（F1 锚点/F2 头线比例/F3 端点悬空/手折箭羽）；--fix 几何归一，--clamp-ratio 头长限幅，改后重跑 convert→math→check
 ```
 
 案例目录：`examples/<case>/`（每个案例一个扁平目录，含 run.json 清单、reference.png、prompt.md、redraw.svg、redraw.pptx、render.png、preview.png、check-report.md、qa/）。案例目录即工作单元，重跑覆盖当前最佳，历史由 git 承担。
@@ -23,7 +24,7 @@ autofigure math   <run_dir>    →（可选）公式文本框批量升级为原�
 
 - VLM 输出合同见 `references/v2-prompt-contract.md`：viewBox 必须等于原图像素；文字逐字 `<text>/<tspan>`（禁止画成路径）；公式斜体 + `baseline-shift` 上下标；箭头粗细/头部样式/弯折以原图为准，不得套用固定风格；无文字的写实元素（照片/截图/写实图标/纹理装饰）用 `<rect id="atomic:*">` 占位（convert 自动从参考图裁剪嵌入），含文字/公式内容与几何元素禁止占位；`<image>` 容错按 bbox 裁剪替代（覆盖画布 ≥50% 拒绝）。
 - convert 映射：rect/circle/line/path → 原生形状或 custGeom 自由曲线（保留三次贝塞尔）；linearGradient → `a:gradFill`；dasharray → OOXML 合法 prstDash；marker → 自由曲线箭头；text → 原生文本框 runs。
-- check 三件套全是 advisory：SVG 文本 vs 参考图 OCR 比对（含模糊匹配）、figure_lint 像素诊断（软信号，非门禁）、side-by-side 预览。逐条人审，不自动放行。
+- check 三件套全是 advisory：SVG 文本 vs 参考图 OCR 比对（含模糊匹配）、figure_lint 像素诊断（软信号，非门禁）、side-by-side 预览。箭头缺陷在像素指标上不可分辨（一支箭头 ≈ 画布 0.04%），`autofigure arrows` 提供结构层审计（qa/arrows-audit.json，汇入 check 报告）与确定性几何修复。逐条人审，不自动放行。
 
 ## 不可突破红线
 

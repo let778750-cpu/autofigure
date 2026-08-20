@@ -13,12 +13,12 @@
     }
   },
   "size_mismatch": false,
-  "mean_abs_rgb_delta": 16.6261,
-  "rmse_rgb_delta": 48.2699,
-  "pixels_over_delta_10_pct": 16.2975,
-  "pixels_over_delta_25_pct": 12.8757,
-  "pixels_over_delta_50_pct": 10.6109,
-  "changed_pixel_ratio_pct": 38.2783,
+  "mean_abs_rgb_delta": 16.6037,
+  "rmse_rgb_delta": 48.2365,
+  "pixels_over_delta_10_pct": 16.2801,
+  "pixels_over_delta_25_pct": 12.8582,
+  "pixels_over_delta_50_pct": 10.595,
+  "changed_pixel_ratio_pct": 38.2667,
   "evaluated_pixel_count": 895983,
   "excluded_reference_preview_pixel_count": 0,
   "excluded_reference_preview_pct": 0.0,
@@ -30,12 +30,12 @@
       "w": 400,
       "h": 147
     },
-    "mean_abs_rgb_delta": 29.7743,
-    "loss_contribution_pct": 9.6736
+    "mean_abs_rgb_delta": 29.5891,
+    "loss_contribution_pct": 9.6869
   },
-  "ssim": 0.7331,
+  "ssim": 0.7333,
   "notes": [],
-  "summary": "mode=benchmark | mean_abs_rgb_delta=16.6261 | top_roi_loss=9.6736% | changed_pixel_ratio=38.2783% | excluded_preview=0.0% | ssim=0.7331 | diagnostic=WATCH",
+  "summary": "mode=benchmark | mean_abs_rgb_delta=16.6037 | top_roi_loss=9.6869% | changed_pixel_ratio=38.2667% | excluded_preview=0.0% | ssim=0.7333 | diagnostic=WATCH",
   "reference_preview_receipts": [],
   "diff_out": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\diff.png"
 }

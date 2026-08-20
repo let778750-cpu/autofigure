@@ -176,8 +176,16 @@ def main(argv: list[str] | None = None) -> int:
         "### OCR 侧未匹配",
         *[f"- {t}" for t in unmatched_ocr],
         "",
-        "> OCR 对公式/上下标本身不可靠，逐条人工判断，不以本报告自动放行或拦截。",
     ]
+
+    arrows_json = run.qa_dir / "arrows-audit.json"
+    if arrows_json.is_file():
+        from tools.v2.arrows import render_report
+
+        audit = json.loads(arrows_json.read_text(encoding="utf-8"))
+        lines.extend(render_report(audit) + [""])
+
+    lines.append("> OCR 对公式/上下标本身不可靠，逐条人工判断，不以本报告自动放行或拦截。")
     report.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     sys.stdout.write(f"像素诊断 mean={metrics.get('mean_abs_rgb_delta')} top_roi_loss={metrics.get('top_roi', {}).get('loss_contribution_pct')}%\n")

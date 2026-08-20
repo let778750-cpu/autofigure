@@ -1,4 +1,4 @@
-"""autofigure — v2 四命令入口（prepare/convert/check/math）。"""
+"""autofigure — v2 五命令入口（prepare/convert/check/math/arrows）。"""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ COMMANDS = {
     "convert": "tools.v2.convert",
     "check": "tools.v2.check",
     "math": "tools.v2.math",
+    "arrows": "tools.v2.arrows",
 }
 
 

@@ -1,0 +1,237 @@
+{
+  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\03-llmind\\redraw.svg",
+  "phase": "audit",
+  "arrows": 0,
+  "marker_refs": 0,
+  "marker_defs": 0,
+  "findings": [
+    {
+      "code": "feather",
+      "element": 0,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1159,
+        255
+      ],
+      "bbox": [
+        1153,
+        249,
+        12,
+        28
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 5,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1202,
+        280
+      ],
+      "bbox": [
+        1182,
+        274,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 10,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1202,
+        330
+      ],
+      "bbox": [
+        1182,
+        316,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 15,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1159,
+        355
+      ],
+      "bbox": [
+        1153,
+        333,
+        12,
+        28
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 20,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1116,
+        330
+      ],
+      "bbox": [
+        1110,
+        316,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 25,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1116,
+        280
+      ],
+      "bbox": [
+        1110,
+        274,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 30,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1159,
+        255
+      ],
+      "bbox": [
+        1153,
+        249,
+        12,
+        28
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 35,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1202,
+        280
+      ],
+      "bbox": [
+        1182,
+        274,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 40,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1202,
+        330
+      ],
+      "bbox": [
+        1182,
+        316,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 45,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1159,
+        355
+      ],
+      "bbox": [
+        1153,
+        333,
+        12,
+        28
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 50,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1116,
+        330
+      ],
+      "bbox": [
+        1110,
+        316,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 55,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1116,
+        280
+      ],
+      "bbox": [
+        1110,
+        274,
+        26,
+        20
+      ],
+      "marker": null,
+      "detail": "手折箭羽 4 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    }
+  ],
+  "counts": {
+    "feather": 12
+  },
+  "ratio_stats": {
+    "median": null,
+    "min": null,
+    "max": null,
+    "band": [
+      1.5,
+      4.0
+    ]
+  }
+}
