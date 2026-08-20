@@ -8,7 +8,7 @@
 <text x="116" y="31" text-anchor="start" font-family="Liberation Serif, Times New Roman, serif" font-size="23" font-weight="normal" font-style="normal" fill="#000" opacity="1">(SPSA Based Optimization)</text>
 <path d="M 70.0,160.0 L 70.0,43.0 L 840.0,43.0 L 840.0,79.0" fill="none" stroke="#FFC000" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" opacity="1"/>
 <path d="M 70.0,145.0 L 70.0,160.0" fill="none" stroke="#FFC000" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" opacity="1.0"/><path d="M 74.5,152.8 L 70.0,160.0 L 65.5,152.8" fill="none" stroke="#FFC000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
-<text x="55" y="119" text-anchor="middle" font-family="STIXGeneral, Cambria Math, Times New Roman, serif" font-size="19" font-style="italic" transform="rotate(-90 55 119)"><tspan>∇</tspan><tspan baseline-shift="sub" font-size="12">θ</tspan><tspan> ℒ</tspan><tspan baseline-shift="sub" font-size="12">ext</tspan></text>
+<text x="55" y="119" text-anchor="middle" font-family="STIXGeneral, Cambria Math, Times New Roman, serif" font-size="19" font-style="italic" transform="rotate(-90 55 119)"><tspan>∇</tspan><tspan baseline-shift="sub" font-size="12">θ</tspan><tspan> ℒ</tspan><tspan baseline-shift="sub" font-size="12">text</tspan></text>
 <rect x="52" y="164" width="37" height="37" rx="0" ry="0" fill="#F2CFEE" stroke="none" stroke-width="0" opacity="1"/>
 <rect x="52" y="204" width="37" height="37" rx="0" ry="0" fill="#F2CFEE" stroke="none" stroke-width="0" opacity="1"/>
 <rect x="52" y="244" width="37" height="37" rx="0" ry="0" fill="#F2CFEE" stroke="none" stroke-width="0" opacity="1"/>

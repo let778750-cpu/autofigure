@@ -1,10 +1,10 @@
 # check 报告（advisory，非门禁） — 03-llmind
 
 ## 像素诊断（figure_lint，软信号）
-- mean_abs_rgb_delta: 6.7708
-- changed_pixel_ratio: 12.8953%
-- top_roi: {'bbox': {'x': 120, 'y': 0, 'w': 280, 'h': 40}, 'mean_abs_rgb_delta': 40.0446, 'loss_contribution_pct': 7.4411}
-- ssim: 0.8698
+- mean_abs_rgb_delta: 6.8684
+- changed_pixel_ratio: 12.965%
+- top_roi: {'bbox': {'x': 120, 'y': 0, 'w': 280, 'h': 40}, 'mean_abs_rgb_delta': 40.0446, 'loss_contribution_pct': 7.3353}
+- ssim: 0.8681
 - diff 图: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\03-llmind\qa\diff.png
 - 对照预览: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\03-llmind\preview.png
 
@@ -14,7 +14,7 @@
 
 ### SVG 侧未匹配
 - CSF
-- ∇θ ℒext
+- ∇θ ℒtext
 - Pixel Budget
 - Latent Encoding Layer
 - Transformation

@@ -1,0 +1,30 @@
+{
+  "document_type": "NATIVE_OFFICE_MATH_CONVERTER_RECEIPT",
+  "schema_version": "1.1",
+  "status": "PASS",
+  "formula_id": "EQ003",
+  "mode": "inline",
+  "canonical_latex": "Î = \\mathbb{E}_{\\theta}(I)",
+  "latex_sha256": "c0d345db9e1cef5584557b5336e31a6e7bd29d572f23022eb2ae2a9d7ced68dd",
+  "mathml_sha256": "37c5ec98b44a419a21e431fec6cdb95c623e45f86eabf1d2b2fecf50e37a00ea",
+  "omml_sha256": "a69f4135c51911522323260312a5e179913273e03e105abcf801b399f72897ad",
+  "semantic_omml_profile": "office-math-semantic-v2",
+  "semantic_omml_sha256": "0889739d2da008237845df0880c589c9ee34d62262c8aa3ce8286b88223299be",
+  "converter": {
+    "name": "latex2mathml+office-mml2omml-xsl",
+    "latex2mathml_version": "3.81.0",
+    "lxml_version": "6.1.1",
+    "latex_normalization": "single-character-mathrm-empty-group-v1",
+    "xsl_path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\MML2OMML.XSL",
+    "xsl_sha256": "fdbb663cbbf0ab0b8387d1c65f6691ac6771e96bbb8b4a256af251834e35ed72"
+  },
+  "native_target": {
+    "kind": "office_math",
+    "wrapper": "a14:m",
+    "omml_root": "m:oMath"
+  },
+  "artifacts": {
+    "mathml_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>I</mi><mi>̂</mi><mo>=</mo><msub><mi>𝔼</mi><mrow><mi>θ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>I</mi><mo stretchy=\"false\">)</mo></mrow></math>",
+    "omml_xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>Î=</m:t></m:r><m:sSub><m:e><m:r><m:t>𝔼</m:t></m:r></m:e><m:sub><m:r><m:t>θ</m:t></m:r></m:sub></m:sSub><m:r><m:t>(I)</m:t></m:r></m:oMath>"
+  }
+}

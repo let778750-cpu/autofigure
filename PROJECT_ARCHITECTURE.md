@@ -63,8 +63,12 @@ flowchart TD
 
     P4 --> P5
 
-    subgraph P5["⑤ autofigure math（可选，未实现）｜ tools/v2/math.py"]
-        F1["规划：公式文本升级为原生 Office Math，薄封装 legacy 保留件<br/>powerpoint_native_math.py；当前为占位报错"]
+    subgraph P5["⑤ autofigure math（可选）｜ tools/v2/math.py + tools/powerpoint_native_math.py"]
+        F1["检测公式文本框：强信号 a:rPr@baseline 上下标；弱信号全斜体 ≤4 字符且含非 ASCII 数学字母"]
+        F2["run 序列重建 LaTeX（baseline → ^{}/_{} 分组；Unicode → LaTeX 命令映射）；命中形状改名 math:NNN 落盘"]
+        F3["薄封装 legacy 引擎：compile_formula（LaTeX→MathML→本机 MML2OMML.XSL→OMML，单个失败只 warn 跳过）<br/>→ inject_plan 批量注入（mc:AlternateContent 包裹，幂等）→ 临时 pptx 原子替换 redraw.pptx"]
+        F4["写 qa/math-summary.json + qa/math/（receipt + plan.json）；刷新 fresh render（COM 失败只 warn）"]
+        F1 --> F2 --> F3 --> F4
     end
 
     P5 --> G["交付：redraw.pptx（原生可编辑）+ render.png + preview.png + check-report.md"]
@@ -80,7 +84,7 @@ AI autofigure/
 ├── README.md                   项目门面（架构理由、基准指标、快速开始）
 ├── PROJECT_ARCHITECTURE.md     本文
 ├── pyproject.toml              ruff/pytest 配置
-├── requirements-v2.txt         v2 依赖（python-pptx/pywin32/numpy/jsonschema/scikit-image/pytest/ruff）
+├── requirements-v2.txt         v2 依赖（python-pptx/pywin32/latex2mathml/numpy/jsonschema/scikit-image/pytest/ruff）
 ├── requirements.txt            v1 遗产依赖（随 legacy 归档）
 ├── mcp.json                    v1 遗产 MCP 注册，v2 不依赖
 │
@@ -94,10 +98,10 @@ AI autofigure/
 │   │   ├── render_export.py    PowerPoint COM fresh render（pywin32 直驱）
 │   │   ├── check.py            verify-light 三件套 + check-report.md 生成
 │   │   ├── ocr_texts.py        OCR 助手（在 D:\paddle ocr 解释器下运行，只读）
-│   │   └── math.py             占位（薄封装 legacy 公式引擎，未实现）
+│   │   └── math.py             公式框检测 + LaTeX 重建 + 薄封装 legacy 引擎注入 OMML
 │   ├── figure_lint.py          像素诊断器（软信号，非门禁）
 │   ├── output_policy.py        输出允许域约束（examples/）
-│   └── powerpoint_native_math.py  v1 公式引擎保留件（3518 行，math 命令待用）
+│   └── powerpoint_native_math.py  v1 公式引擎保留件（3518 行，math 命令复用）
 │
 ├── references/
 │   └── v2-prompt-contract.md   ★ VLM→SVG 输出合同（prompt.md 的规范来源）
@@ -107,7 +111,7 @@ AI autofigure/
 │   ├── 02-thinking-diffusion/  完成（手写 SVG 验证合同可遵循性）
 │   └── 03-llmind/              prepare 完成，待 VLM 取回 SVG（含照片区域，检验 atomic: 约定）
 │
-├── tests/v2/                   pytest 套件（test_convert / test_check / test_svggeom）
+├── tests/v2/                   pytest 套件（test_convert / test_check / test_svggeom / test_math）
 │
 ├── legacy/                     v1 重型管线归档（2026-08-18），不维护、不修改
 │   ├── README.md               归档缘由
@@ -175,9 +179,14 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 
 汇总写 `check-report.md`：像素指标 + 双向未匹配文本清单，文末明确"逐条人工判断，不以本报告自动放行或拦截"。
 
-### 4.5 math（可选，未实现）
+### 4.5 math（可选）
 
-`tools/v2/math.py` 当前为占位报错。规划：把 PPTX 中声明的公式文本升级为原生 Office Math，薄封装 v1 保留件 `tools/powerpoint_native_math.py`（解释器纪律见该文件头注释与 legacy 文档）。
+`autofigure math <run_dir> [--dry-run]`：把 convert 产出的公式文本框批量升级为原生 Office Math（OMML），薄封装 v1 保留件 `tools/powerpoint_native_math.py`（纯 zip/XML 操作，不走 finalize/COM 往返）。
+
+- **检测**：强信号 = 任一 run 的 `a:rPr@baseline` ∈ {30000, -25000}（convert 对 `baseline-shift` 的落盘约定）；弱信号 = 全部 run 斜体、去空格 ≤4 字符且含非 ASCII 数学字母（τ π 𝔼 ℒ ∇ 等）——纯 ASCII 标签（GT Answers / B / I）不误收。
+- **LaTeX 重建**：run 序列按 baseline 进 `^{}`/`_{}` 分组（连续同向合并），Unicode → LaTeX 命令映射（τ→`\tau`、𝔼→`\mathbb{E}`、Î→`\hat{I}` 等），映射表外非 ASCII 字符原样保留，LaTeX 特殊字符转义。
+- **注入**：命中形状改名 `math:NNN` 落盘 → 逐公式 `compile_formula`（inline；单个失败只 warn 跳过、保留原文本框）→ `inject_plan` 到 `redraw.math-tmp.pptx` 后 `os.replace` 覆盖；全部失败/无公式框时不改 pptx。注入后形状被 `mc:AlternateContent` 包裹（Choice=OMML / Fallback=LaTeX 文本），重跑幂等。
+- **产出**：`qa/math-summary.json`（检测数、成功/失败清单含 LaTeX 与失败原因）、`qa/math/`（EQ*.json receipt + plan.json）；成功后刷新 fresh render（COM 失败只 warn）。已知差异：OMML 数学区不保留粗体（summary 注明）。`--dry-run` 只检测与重建，不改 PPTX。
 
 ## 5. 案例目录约定（examples/<case>/）
 
@@ -193,7 +202,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | `render.png` | convert | PowerPoint fresh render |
 | `preview.png` | check | 参考/渲染对照预览 |
 | `check-report.md` | check | 核验报告（人审入口） |
-| `qa/` | convert/check | 机器诊断明细：convert-summary.json / metrics.json / diff.png / ocr-texts.json |
+| `qa/` | convert/check/math | 机器诊断明细：convert-summary.json / metrics.json / diff.png / ocr-texts.json / math-summary.json / math/ |
 
 ## 6. 环境与运行时隔离
 
@@ -219,7 +228,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 .venv\Scripts\python -m ruff check tools\v2 tests\v2
 ```
 
-`tests/v2/`：test_convert.py（映射、三个 OOXML 坑的回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）。
+`tests/v2/`：test_convert.py（映射、三个 OOXML 坑的回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）、test_math.py（公式检测/LaTeX 重建纯函数 + 注入集成，缺 latex2mathml 或 MML2OMML.XSL 时集成项跳过）。
 
 ## 9. 当前状态与基准（2026-08-19）
 

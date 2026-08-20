@@ -14,7 +14,7 @@ autofigure prepare <ref.png>   → 建案例目录 + 生成提示词包 prompt.m
 （你把 prompt + PNG 喂多模态大模型网页端（GPT / Kimi / Claude 等），取回 SVG 存入案例目录 redraw.svg）
 autofigure convert <run_dir>   → SVG → 原生可编辑 PPTX + PowerPoint fresh render
 autofigure check  <run_dir>    → 文本比对（advisory）+ figure_lint 诊断 + 对照预览
-autofigure math   <run_dir>    →（可选）公式文本升级为原生 Office Math
+autofigure math   <run_dir>    →（可选）公式文本框批量升级为原生 Office Math（OMML；--dry-run 只检测不改文件）
 ```
 
 案例目录：`examples/<case>/`（每个案例一个扁平目录，含 run.json 清单、reference.png、prompt.md、redraw.svg、redraw.pptx、render.png、preview.png、check-report.md、qa/）。案例目录即工作单元，重跑覆盖当前最佳，历史由 git 承担。

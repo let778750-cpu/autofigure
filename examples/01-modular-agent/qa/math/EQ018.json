@@ -1,0 +1,30 @@
+{
+  "document_type": "NATIVE_OFFICE_MATH_CONVERTER_RECEIPT",
+  "schema_version": "1.1",
+  "status": "PASS",
+  "formula_id": "EQ018",
+  "mode": "inline",
+  "canonical_latex": "\\pi",
+  "latex_sha256": "f1cf04093d08b6dc0d58a87396405cb9093a22e9ed62a95bb95ed46e5da97097",
+  "mathml_sha256": "3fa9664e2232138579fd5e6b6ea4d97e6860790e5f6ae585179097fc6c52e73a",
+  "omml_sha256": "80b3790eed0319d51bfd6dd082d6a57a3c99e658677107d421627c1f748f7659",
+  "semantic_omml_profile": "office-math-semantic-v2",
+  "semantic_omml_sha256": "e89d141c40c6b52343b0638ef7f52816e848585f62551aac3058ced04f769eb6",
+  "converter": {
+    "name": "latex2mathml+office-mml2omml-xsl",
+    "latex2mathml_version": "3.81.0",
+    "lxml_version": "6.1.1",
+    "latex_normalization": "single-character-mathrm-empty-group-v1",
+    "xsl_path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\MML2OMML.XSL",
+    "xsl_sha256": "fdbb663cbbf0ab0b8387d1c65f6691ac6771e96bbb8b4a256af251834e35ed72"
+  },
+  "native_target": {
+    "kind": "office_math",
+    "wrapper": "a14:m",
+    "omml_root": "m:oMath"
+  },
+  "artifacts": {
+    "mathml_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>π</mi></mrow></math>",
+    "omml_xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>π</m:t></m:r></m:oMath>"
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "operations": [
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:001",
+      "formula_id": "EQ001",
+      "receipt_path": "EQ001.json",
+      "receipt_sha256": "ba15ba38a0c7e13fc18e655decd5e23c1bbd96347a0c9e2daf55bb96677632a5",
+      "target_font_size_pt": 16.5,
+      "target_font_color": "#111111"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:002",
+      "formula_id": "EQ002",
+      "receipt_path": "EQ002.json",
+      "receipt_sha256": "75975080187a146b64ed47f925441fda140867c90457f00db70281cf7c4609cc",
+      "target_font_size_pt": 13.5,
+      "target_font_color": "#111111"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:003",
+      "formula_id": "EQ003",
+      "receipt_path": "EQ003.json",
+      "receipt_sha256": "e8ca4d7cb5bfdefbc9567254ae7f8e0281fb0950f83d4f2e59a785ca767b97c7",
+      "target_font_size_pt": 14.25,
+      "target_font_color": "#111111"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:004",
+      "formula_id": "EQ004",
+      "receipt_path": "EQ004.json",
+      "receipt_sha256": "b16866f5902ab7f28b9bc88301f03437e6e8e48ff4ccc5e3a781a34b7716002b",
+      "target_font_size_pt": 13.5,
+      "target_font_color": "#111111"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:005",
+      "formula_id": "EQ005",
+      "receipt_path": "EQ005.json",
+      "receipt_sha256": "586acf67f8c8ec9f29d98c7f5ec664237116eb26209a37cc3996f7c6f3f6cc4b",
+      "target_font_size_pt": 13.5,
+      "target_font_color": "#111111"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:006",
+      "formula_id": "EQ006",
+      "receipt_path": "EQ006.json",
+      "receipt_sha256": "afeab5b8fde0e8281f866792bd5d12c4ab7e65d6c845d43ba1d40ad1ac22ecde",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:007",
+      "formula_id": "EQ007",
+      "receipt_path": "EQ007.json",
+      "receipt_sha256": "605e6bfc49ee85eef8f936c4d6409760bcac3827a8bc51e42b296b804e79fa18",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:008",
+      "formula_id": "EQ008",
+      "receipt_path": "EQ008.json",
+      "receipt_sha256": "602921166cd126de70d89fcd50e2b47a29e0b686dab28c341740139d9da81bc0",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:009",
+      "formula_id": "EQ009",
+      "receipt_path": "EQ009.json",
+      "receipt_sha256": "184d1b2c1f714d4fca20bc04bd8d798d5c2a402725c098627623e5ea79268a23",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:010",
+      "formula_id": "EQ010",
+      "receipt_path": "EQ010.json",
+      "receipt_sha256": "2ab0e43095d6ac8d129641e8192b5ffafc4e234aa1c1c3b50d8ce1ae911bc0de",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:011",
+      "formula_id": "EQ011",
+      "receipt_path": "EQ011.json",
+      "receipt_sha256": "fa268b7958a5c40d1bb6f0ac0c40fd7242d5a1db2e49041a57a971381744b559",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:012",
+      "formula_id": "EQ012",
+      "receipt_path": "EQ012.json",
+      "receipt_sha256": "53291ad507b6aaeb9df5b0dde5fd7114505bb35063a6715a134120a206b3bbf7",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:013",
+      "formula_id": "EQ013",
+      "receipt_path": "EQ013.json",
+      "receipt_sha256": "78ed103f25a21c97e2a7c4a3f3932227ffd5364574985c550850eda65344ab87",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:014",
+      "formula_id": "EQ014",
+      "receipt_path": "EQ014.json",
+      "receipt_sha256": "c5a4e357991e6a574332a2ecf51384d58b9c151bac55bf2f39f60e669a854626",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:015",
+      "formula_id": "EQ015",
+      "receipt_path": "EQ015.json",
+      "receipt_sha256": "02354bfd90e8ab019eb32e30a93d47a3281c28aef57a711b385cdde0ab1c1a9a",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:016",
+      "formula_id": "EQ016",
+      "receipt_path": "EQ016.json",
+      "receipt_sha256": "769271858f6a13e7e2856dc879bf8d6a61fc71c0a11e58108ef781fda8b4e540",
+      "target_font_size_pt": 12.75,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:017",
+      "formula_id": "EQ017",
+      "receipt_path": "EQ017.json",
+      "receipt_sha256": "66e570c4b9d3af9543aa30d022e8a8a0962dd0d3ec2f1de86992c27ed8672f4a",
+      "target_font_size_pt": 13.5,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:018",
+      "formula_id": "EQ018",
+      "receipt_path": "EQ018.json",
+      "receipt_sha256": "e1352e3c4a5194729771237d9e68baa5e187f66bd489949f9387f4b6ab5a51f6",
+      "target_font_size_pt": 13.5,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:019",
+      "formula_id": "EQ019",
+      "receipt_path": "EQ019.json",
+      "receipt_sha256": "da18125bfc9f76a1b07e716c0df606d67b0f4526421426e1dbbde6e475938526",
+      "target_font_size_pt": 13.5,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:020",
+      "formula_id": "EQ020",
+      "receipt_path": "EQ020.json",
+      "receipt_sha256": "8f336bdd2dbcbb66caf0e0d93fa7a1c82b970cdbbca8ac4ed7f9fde8bb0b809f",
+      "target_font_size_pt": 12.0,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:021",
+      "formula_id": "EQ021",
+      "receipt_path": "EQ021.json",
+      "receipt_sha256": "bc21d6df548051023d3f1591d8a2df7ae64778bc3b0f713493c193630c52f053",
+      "target_font_size_pt": 12.0,
+      "target_font_color": "#FFFFFF"
+    },
+    {
+      "slide_index": 1,
+      "placeholder_name": "math:022",
+      "formula_id": "EQ022",
+      "receipt_path": "EQ022.json",
+      "receipt_sha256": "3d6b9eddae7943887f663cf21a324b91b22186ac04fa861aead4455c38d67beb",
+      "target_font_size_pt": 12.0,
+      "target_font_color": "#FFFFFF"
+    }
+  ]
+}

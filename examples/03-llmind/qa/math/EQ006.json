@@ -1,0 +1,30 @@
+{
+  "document_type": "NATIVE_OFFICE_MATH_CONVERTER_RECEIPT",
+  "schema_version": "1.1",
+  "status": "PASS",
+  "formula_id": "EQ006",
+  "mode": "inline",
+  "canonical_latex": "<q_{1}, q_{2} ... q_{n}>",
+  "latex_sha256": "757473af0806d12b684d5c6b7ffc311b0b29e33924016b626eefcddb2ad7ca7c",
+  "mathml_sha256": "7469083cf500f7b32d50b5bc874b6a533e76b834428d580226d0e2ba1bbdb8c5",
+  "omml_sha256": "1f28c48a05a3941f24cab96abe42ea2748cc39f0cbc9604dd0a194d222f3a826",
+  "semantic_omml_profile": "office-math-semantic-v2",
+  "semantic_omml_sha256": "a061f9926865c9f94e1b4389376f7788edfed93526319da58d3db23e741da69e",
+  "converter": {
+    "name": "latex2mathml+office-mml2omml-xsl",
+    "latex2mathml_version": "3.81.0",
+    "lxml_version": "6.1.1",
+    "latex_normalization": "single-character-mathrm-empty-group-v1",
+    "xsl_path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\MML2OMML.XSL",
+    "xsl_sha256": "fdbb663cbbf0ab0b8387d1c65f6691ac6771e96bbb8b4a256af251834e35ed72"
+  },
+  "native_target": {
+    "kind": "office_math",
+    "wrapper": "a14:m",
+    "omml_root": "m:oMath"
+  },
+  "artifacts": {
+    "mathml_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mo>&lt;</mo><msub><mi>q</mi><mrow><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>q</mi><mrow><mn>2</mn></mrow></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>q</mi><mrow><mi>n</mi></mrow></msub><mo>&gt;</mo></mrow></math>",
+    "omml_xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:d><m:dPr><m:begChr m:val=\"&lt;\"/><m:sepChr m:val=\"\"/><m:endChr m:val=\"&gt;\"/></m:dPr><m:e><m:sSub><m:e><m:r><m:t>q</m:t></m:r></m:e><m:sub><m:r><m:t>1</m:t></m:r></m:sub></m:sSub><m:r><m:t>,</m:t></m:r><m:sSub><m:e><m:r><m:t>q</m:t></m:r></m:e><m:sub><m:r><m:t>2</m:t></m:r></m:sub></m:sSub><m:r><m:t>.</m:t></m:r><m:r><m:t>.</m:t></m:r><m:r><m:t>.</m:t></m:r><m:sSub><m:e><m:r><m:t>q</m:t></m:r></m:e><m:sub><m:r><m:t>n</m:t></m:r></m:sub></m:sSub></m:e></m:d></m:oMath>"
+  }
+}

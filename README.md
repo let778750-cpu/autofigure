@@ -55,11 +55,13 @@ flowchart LR
 2. **VLM（人工搬运）**：把 prompt + PNG 发给多模态大模型网页端，取回 `redraw.svg`。
 3. **convert**：SVG → 原生可编辑 PPTX + PowerPoint COM fresh render，并读回统计（对象数/文本框数）。
 4. **check**（全部 advisory）：SVG 文字 vs 原图 OCR 比对、figure_lint 像素诊断、对照预览，汇总 `check-report.md` 供人审。
+5. **math**（可选）：把 PPTX 里的公式文本框（上下标 / 全斜体短公式）批量升级为原生 Office Math（OMML），可在 PowerPoint 公式编辑器中再编辑；`--dry-run` 只检测不改文件。
 
 1. **prepare**: create the case directory and the prompt package (image size + output contract).
 2. **VLM (manual step)**: send prompt + PNG to a multimodal LLM web app; save the result as `redraw.svg`.
 3. **convert**: SVG → native editable PPTX + fresh render via PowerPoint COM, with read-back statistics.
 4. **check** (all advisory): SVG text vs. source-image OCR diff, pixel diagnostics, side-by-side preview → `check-report.md` for human review.
+5. **math** (optional): batch-upgrade formula text boxes (sub/superscripts, short italic formulas) in the PPTX to native Office Math (OMML), re-editable in PowerPoint's equation editor; `--dry-run` only detects.
 
 ## 快速开始 | Quick Start
 
@@ -73,6 +75,8 @@ autofigure prepare <参考图.png> --case 01-my-figure
 REM   → 把 prompt.md 全文 + PNG 发给多模态大模型网页端，SVG 存为 examples\01-my-figure\redraw.svg
 autofigure convert examples\01-my-figure
 autofigure check   examples\01-my-figure
+REM 可选 | Optional：公式框升级为原生 Office Math
+autofigure math    examples\01-my-figure
 ```
 
 ## 输出合同要点 | Output Contract Highlights

@@ -1,0 +1,30 @@
+{
+  "document_type": "NATIVE_OFFICE_MATH_CONVERTER_RECEIPT",
+  "schema_version": "1.1",
+  "status": "PASS",
+  "formula_id": "EQ011",
+  "mode": "inline",
+  "canonical_latex": "r_{t+1}",
+  "latex_sha256": "c5d0744b62ca38dd50800e27f420015ca7b1c7e2e3a93c891db8ec55a7710b31",
+  "mathml_sha256": "438f78cee401d087edf04b1ad74e4012ba101549194fc8728d6fe36245360809",
+  "omml_sha256": "eccb4b739b95d5b62b06b38b5b497a6b929fec532d557b6de7cc53995d2cf46d",
+  "semantic_omml_profile": "office-math-semantic-v2",
+  "semantic_omml_sha256": "d0af5591ec8cd9d83c08d4a2f139443d4518770dd841fd6a23b69f957e0a21cb",
+  "converter": {
+    "name": "latex2mathml+office-mml2omml-xsl",
+    "latex2mathml_version": "3.81.0",
+    "lxml_version": "6.1.1",
+    "latex_normalization": "single-character-mathrm-empty-group-v1",
+    "xsl_path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\MML2OMML.XSL",
+    "xsl_sha256": "fdbb663cbbf0ab0b8387d1c65f6691ac6771e96bbb8b4a256af251834e35ed72"
+  },
+  "native_target": {
+    "kind": "office_math",
+    "wrapper": "a14:m",
+    "omml_root": "m:oMath"
+  },
+  "artifacts": {
+    "mathml_xml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>r</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></math>",
+    "omml_xml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:sSub><m:e><m:r><m:t>r</m:t></m:r></m:e><m:sub><m:r><m:t>t+1</m:t></m:r></m:sub></m:sSub></m:oMath>"
+  }
+}
