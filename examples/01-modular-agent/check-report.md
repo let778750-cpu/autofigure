@@ -5,12 +5,12 @@
 - changed_pixel_ratio: 37.1845%
 - top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 31.3577, 'loss_contribution_pct': 7.1025}
 - ssim: 0.7762
-- diff 图: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\qa\diff.png
-- 对照预览: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\preview.png
+- diff 图: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\qa\diff.png
+- 对照预览: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\preview.png
 - 关键区域 strict_pass: False（6 个关键区域）
-- 区域明细: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\qa\regions-report.json
+- 区域明细: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\qa\regions-report.json
 - 布局合同: PASS（0 项）
-- 布局明细: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\qa\layout-audit.json
+- 布局明细: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\qa\layout-audit.json
 
 ## 文本比对（SVG 文字 vs 参考图 OCR）
 - SVG 侧未匹配 1 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）

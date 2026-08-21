@@ -37,5 +37,5 @@
   "notes": [],
   "summary": "mode=benchmark | mean_abs_rgb_delta=14.7877 | top_roi_loss=7.1025% | changed_pixel_ratio=37.1845% | excluded_preview=0.0% | ssim=0.7762 | diagnostic=WATCH",
   "reference_preview_receipts": [],
-  "diff_out": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\diff.png"
+  "diff_out": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\diff.png"
 }

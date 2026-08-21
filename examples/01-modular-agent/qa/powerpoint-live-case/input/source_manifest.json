@@ -11,7 +11,7 @@
     {
       "sourceId": "reference",
       "kind": "reference_image",
-      "pathOrUrl": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\reference.png",
+      "pathOrUrl": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\reference.png",
       "sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
       "authority": "user_supplied",
       "licenseStatus": "unknown",
@@ -21,7 +21,7 @@
     {
       "sourceId": "candidate-pptx",
       "kind": "prior_source",
-      "pathOrUrl": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
+      "pathOrUrl": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
       "sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d",
       "authority": "user_supplied",
       "licenseStatus": "unknown",

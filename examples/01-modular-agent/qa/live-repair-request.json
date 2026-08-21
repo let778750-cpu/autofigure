@@ -2,14 +2,14 @@
   "schema_version": "1.0.0",
   "kind": "powerpoint_live_repair_request",
   "created_at": "20260821T092657Z",
-  "case_root": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\powerpoint-live-case",
-  "autofigure_case_root": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent",
+  "case_root": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case",
+  "autofigure_case_root": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent",
   "project_id": "autofigure-01-modular-agent",
   "task_mode": "RECONSTRUCT_1TO1",
   "target_id": "autofigure-pptx",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "candidate_pptx": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
-  "template_path": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
+  "candidate_pptx": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
+  "template_path": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
   "visible": true,
   "failed_regions": [
     "task-guided-allocator-topology",
@@ -560,7 +560,7 @@
     "source_schema_version": "3.0.0",
     "adapter_schema_version": "2.1.0",
     "adapter_scene_sha256": "26281e23a9aadd3efdd7629c6c9a2bddc5831c32f3881a5f4e17ca8a2af58626",
-    "bridge_manifest": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\qa\\powerpoint-live-bridge.json",
+    "bridge_manifest": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-bridge.json",
     "direct_scene_v3_submission_forbidden": true
   },
   "completion_contract": {
