@@ -15,7 +15,7 @@
     "source_pptx_sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d",
     "render_sha256": "a3ecb65aac4f35ed725d6d8bdf0da63f50500659aadeab8bd95850ce0e1cf4f3",
     "live_export_sha256": "a3ecb65aac4f35ed725d6d8bdf0da63f50500659aadeab8bd95850ce0e1cf4f3",
-    "layout_audit_sha256": "1141e0a0fffcbb0079f2a7e7f716ad0dc2b3c580423793331437e3fb3b6826c7",
+    "layout_audit_sha256": "9f9eca8b225ee06f6d40692d1a0cfaf46600622a9f73be87190082447ba0026a",
     "live_preview": "qa/live-layout-preview.png"
   },
   "mapping": {
