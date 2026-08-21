@@ -7,7 +7,7 @@
   <marker id="arr-blue-sm" markerWidth="8.8" markerHeight="8.8" refX="8.8" refY="4.4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0,0 L 8.8,4.4 L 0,8.8 Z" fill="#3567b7" stroke="none"/></marker>
   <marker id="arr-orange" markerWidth="14" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L14,7 L0,14 Z" fill="#ef7d2b" stroke="none"/></marker>
   <marker id="arr-red" markerWidth="20" markerHeight="20" refX="20" refY="10" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L20,10 L0,20 Z" fill="#d87478" stroke="none"/></marker>
-  <marker id="arr-gold" markerWidth="6.8" markerHeight="6.8" refX="6.8" refY="3.4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0,0 L 6.8,3.4 L 0,6.8 Z" fill="#8d6a00" stroke="none"/></marker>
+  <marker id="arr-gold" markerWidth="9" markerHeight="9" refX="9" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0,0 L 9,4.5 L 0,9 Z" fill="#8d6a00" stroke="none"/></marker>
   <marker id="arr-black" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0,0 L 8,4 L 0,8 Z" fill="#111" stroke="none"/></marker>
   <marker id="arr-gray-start" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M12,0 L0,6 L12,12 Z" fill="#777" stroke="none"/></marker>
 </defs>

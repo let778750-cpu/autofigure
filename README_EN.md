@@ -17,13 +17,13 @@ Every preview below is "top: original paper figure ｜ bottom: native PowerPoint
 
 | Case (all CVPR 2026 figures) | Size | Native shapes | Text boxes | OMML equations | mean↓ | SSIM↑ | changed↓ |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 01 ModularAgent | 1429×627 | 243 | 66 | **22** | 16.60 | 0.733 | 38.27% |
+| 01 ModularAgent | 1429×627 | 243 | 66 | **22** | 16.62 | 0.733 | 38.27% |
 | 02 Thinking Diffusion | 1513×554 | 162 | 46 | — | 13.55 | 0.720 | 17.97% |
 | 03 LLMind | 1357×656 | 201 | 34 | **6** | **6.87** | **0.868** | **12.97%** |
 
 ### 01 · ModularAgent — the hardest one
 
-Redrawn by GPT in one shot, then refined in a second self-critique round (solid arrows matching the original, atomic photo crops), then deterministically repaired at the arrow-geometry level (42 anchor misalignments zeroed; curved arrowheads aligned to end tangents). All 243 native shapes are editable, and 22 formulas (𝔼, ∇, sub/superscripts) were upgraded to native Office Math.
+Redrawn by GPT in one shot, then refined in a second self-critique round (solid arrows matching the original, atomic photo crops), then deterministically repaired at the arrow-geometry level (42 anchor misalignments zeroed; curved arrowheads aligned to end tangents; gold arrowheads calibrated to the original's measured head length). All 243 native shapes are editable, and 22 formulas (𝔼, ∇, sub/superscripts) were upgraded to native Office Math.
 
 ![01-modular-agent](examples/01-modular-agent/preview.png)
 
@@ -128,7 +128,7 @@ autofigure math examples\01-my-figure
 REM Optional: audit / deterministically repair arrow geometry (rerun convert → math → check afterwards)
 autofigure arrows examples\01-my-figure --fix
 ```
-→ Audits arrow anchors, head/line-width ratios, and endpoint docking into the check report; `--fix` normalizes geometry without touching styles, `--clamp-ratio` caps head length.
+→ Audits arrow anchors, head/line-width ratios, and endpoint docking into the check report; `--fix` normalizes geometry without touching styles, `--clamp-ratio` caps head length, and `--calibrate ID=LEN` matches head length to the original's measured size.
 
 ## ❓ FAQ
 

@@ -15,7 +15,7 @@ autofigure prepare <ref.png>   → 建案例目录 + 生成提示词包 prompt.m
 autofigure convert <run_dir>   → SVG → 原生可编辑 PPTX + PowerPoint fresh render
 autofigure check  <run_dir>    → 文本比对（advisory）+ figure_lint 诊断 + 箭头结构审计（若有）+ 对照预览
 autofigure math   <run_dir>    →（可选）公式文本框批量升级为原生 Office Math（OMML；--dry-run 只检测不改文件）
-autofigure arrows <run_dir>    →（可选）箭头结构审计（F1 锚点/F2 头线比例/F3 端点悬空/手折箭羽）；--fix 几何归一，--clamp-ratio 头长限幅，改后重跑 convert→math→check
+autofigure arrows <run_dir>    →（可选）箭头结构审计（F1 锚点/F2 头线比例/F3 端点悬空/手折箭羽）；--fix 几何归一，--clamp-ratio 头长限幅，--calibrate ID=LEN 按原图实测校准头长，改后重跑 convert→math→check
 ```
 
 案例目录：`examples/<case>/`（每个案例一个扁平目录，含 run.json 清单、reference.png、prompt.md、redraw.svg、redraw.pptx、render.png、preview.png、check-report.md、qa/）。案例目录即工作单元，重跑覆盖当前最佳，历史由 git 承担。

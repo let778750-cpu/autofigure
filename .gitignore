@@ -8,3 +8,6 @@ examples/generated/
 .tmp-paddle/
 *.tmp
 ~$*.pptx
+
+# 改动记录仅本地留档，不入仓库（2026-08-21 用户指示）
+/history/

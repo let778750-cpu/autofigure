@@ -7,7 +7,9 @@
 审计口径与 convert 的放置语义镜像（canvas(p) = v + R(θ)·(p − ref)）：
 - F1 锚点未对齐尖端：marker refX/refY ≠ 三角尖端局部坐标（convert 忠实复刻，
   尖端越出端点 tipX−refX px，底边沉入 refX px）
-- F2 头/线宽比例失调：head_len / stroke-width 超出 [RATIO_MIN, RATIO_MAX] 带
+- F2 头/线宽比例失调：head_len / stroke-width 超出 [RATIO_MIN, RATIO_MAX] 带；
+  若该 marker 给了原图校准值（--calibrate ID=LEN），改按"头长偏离校准值 > CAL_TOL"
+  判定——合同总则是"以原图为准"，原图本身就是大头部细杆的风格时比例带让位
 - F3 端点悬空：箭头线端点距最近形状边缘 > DOCK_TOL px（合同要求落在形状边缘/间隙）
 - W4 orient 非 auto：convert 忽略该属性值，按 auto 处理，记 warning
 - feather 手折箭羽：无 marker 的手绘箭头（主干 + 短线束箭羽，03 案例模式），只报告不修复
@@ -15,6 +17,7 @@
 --fix 确定性修复，只动几何不动任何样式（颜色 / 填充 / 线宽一律不变）：
 - refX/refY 对齐三角尖端（尖端恰好落在端点上）
 - --clamp-ratio：头长超比例带时等比缩放 marker（按使用方的中位线宽定目标）
+- --calibrate ID=LEN：按原图实测头长校准（优先于 --clamp-ratio，可放大可缩小）
 """
 
 from __future__ import annotations
@@ -42,6 +45,7 @@ from tools.v2.svggeom import parse_path_d
 
 RATIO_MIN, RATIO_MAX = 1.5, 4.0
 REF_TOL = 0.5          # refX/refY 与尖端局部坐标容差（px）
+CAL_TOL = 1.0          # 头长与原图校准值的容差（px）
 DOCK_TOL = 6.0         # 端点距最近形状边缘的悬空阈值（px）
 FEATHER_LEN_MAX = 45.0  # 箭羽最大长度（px）
 FEATHER_RADIUS = 18.0   # 箭羽端点距主杆端点的聚簇半径（px）
@@ -212,12 +216,13 @@ class _EdgeIndex:
 # ---------------------------------------------------------------- 审计
 
 
-def audit_svg_text(svg_text: str) -> dict:
+def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> dict:
     root = ET.fromstring(svg_text)
     defs = _marker_defs(root)
     geometry = {mid: _marker_geometry(el) for mid, el in defs.items()}
     records = _arrow_records(root)
     edges = _EdgeIndex(root)
+    calibrate = calibrate or {}
 
     findings: list[dict] = []
     ratios: list[float] = []
@@ -247,7 +252,15 @@ def audit_svg_text(svg_text: str) -> dict:
                 ))
             ratio = geo["head_len"] / rec["sw"] if rec["sw"] > 0 else 0.0
             ratios.append(ratio)
-            if not RATIO_MIN <= ratio <= RATIO_MAX:
+            if mid in calibrate:
+                target = calibrate[mid]
+                if abs(geo["head_len"] - target) > CAL_TOL:
+                    findings.append(_finding(
+                        "F2", index, rec, side, vertex, mid,
+                        f"头长 {geo['head_len']:g} 偏离原图校准值 {target:g}"
+                        f"（容差 ±{CAL_TOL:g}，比例带让位于原图）",
+                    ))
+            elif not RATIO_MIN <= ratio <= RATIO_MAX:
                 findings.append(_finding(
                     "F2", index, rec, side, vertex, mid,
                     f"头长 {geo['head_len']:g} / 线宽 {rec['sw']:g} = {ratio:.1f}"
@@ -271,6 +284,7 @@ def audit_svg_text(svg_text: str) -> dict:
         "marker_defs": len(defs),
         "findings": findings,
         "counts": counts,
+        **({"calibrate": calibrate} if calibrate else {}),
         "ratio_stats": {
             "median": round(statistics.median(ratios), 2) if ratios else None,
             "min": round(min(ratios), 2) if ratios else None,
@@ -350,8 +364,12 @@ def _find_feathers(root: ET.Element) -> list[dict]:
 # ---------------------------------------------------------------- 修复
 
 
-def fix_svg_text(svg_text: str, clamp_ratio: bool = False) -> tuple[str, list[dict]]:
-    """确定性几何修复：refX/refY 对齐尖端；可选头长限幅。只动 marker 定义，不动样式。"""
+def fix_svg_text(
+    svg_text: str,
+    clamp_ratio: bool = False,
+    calibrate: dict[str, float] | None = None,
+) -> tuple[str, list[dict]]:
+    """确定性几何修复：refX/refY 对齐尖端；可选头长校准/限幅。只动 marker 定义，不动样式。"""
     try:
         from lxml import etree as letree
     except ImportError as exc:  # pragma: no cover - python-pptx 依赖链保证存在
@@ -375,7 +393,11 @@ def fix_svg_text(svg_text: str, clamp_ratio: bool = False) -> tuple[str, list[di
         ref_x, ref_y = geo["refX"], geo["refY"]
         tip_x, tip_y = geo["tip"]
         scale = 1.0
-        if clamp_ratio:
+        if mid in (calibrate or {}):
+            target = calibrate[mid]
+            if geo["head_len"] > 0 and abs(target - geo["head_len"]) > 0.05:
+                scale = target / geo["head_len"]
+        elif clamp_ratio:
             sws = usage.get(mid, [])
             target = RATIO_MAX * statistics.median(sws) if sws else None
             if target and geo["head_len"] > target > 0:
@@ -438,6 +460,11 @@ def render_report(audit: dict) -> list[str]:
         f"- 箭头单元 {audit.get('arrows', 0)}（marker 引用 {audit.get('marker_refs', 0)} 处，"
         f"marker 定义 {audit.get('marker_defs', 0)} 个）；头/线宽比例中位数 {stats.get('median')}"
         f"（合理带 {stats.get('band')}）",
+        *(
+            [f"- 原图校准：{'、'.join(f'{k}={v:g}px' for k, v in audit['calibrate'].items())}"
+             "（F2 按校准值 ±1px 判定，比例带让位于原图实测）"]
+            if audit.get("calibrate") else []
+        ),
         f"- F1 锚点未对齐尖端 {counts.get('F1', 0)} 处 · F2 头/线宽比例失调 {counts.get('F2', 0)} 处 ·"
         f" F3 端点悬空 {counts.get('F3', 0)} 处 · orient 非 auto {counts.get('W4', 0)} 处 ·"
         f" 手折箭羽 {counts.get('feather', 0)} 组",
@@ -453,7 +480,8 @@ def render_report(audit: dict) -> list[str]:
             )
         lines.append("")
     lines.append("> 箭头几何为定位辅助，不以本节自动放行或拦截；修复用 autofigure arrows --fix"
-                 "（几何归一，不改样式），头长限幅加 --clamp-ratio，改后需重跑 convert/math/check。")
+                 "（几何归一，不改样式），头长限幅加 --clamp-ratio，按原图实测校准加"
+                 " --calibrate ID=LEN，改后需重跑 convert/math/check。")
     return lines
 
 
@@ -462,7 +490,22 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("run_dir", type=Path, help="run 目录")
     parser.add_argument("--fix", action="store_true", help="确定性修复（refX/refY 对齐尖端；不改样式）")
     parser.add_argument("--clamp-ratio", action="store_true", help="配合 --fix：头长超出比例带时等比限幅")
+    parser.add_argument(
+        "--calibrate", action="append", default=[], metavar="ID=LEN",
+        help="原图实测头长校准，如 arr-gold=9.6（可重复；审计改按校准值±1px 判 F2，"
+             "配合 --fix 时头长缩放到校准值，优先于 --clamp-ratio）",
+    )
     args = parser.parse_args(argv)
+
+    calibrate: dict[str, float] = {}
+    for item in args.calibrate:
+        mid, sep, raw = item.partition("=")
+        try:
+            if not sep or not mid or float(raw) <= 0:
+                raise ValueError
+            calibrate[mid] = float(raw)
+        except ValueError:
+            raise common.fail(f"--calibrate 格式应为 ID=LEN（正数），收到: {item}") from None
 
     run = common.open_run(args.run_dir)
     if not run.redraw_svg.is_file():
@@ -470,19 +513,21 @@ def main(argv: list[str] | None = None) -> int:
     run.qa_dir.mkdir(exist_ok=True)
 
     svg_text = run.redraw_svg.read_text(encoding="utf-8")
-    before = audit_svg_text(svg_text)
+    before = audit_svg_text(svg_text, calibrate=calibrate)
     payload: dict = {"svg": str(run.redraw_svg), "phase": "audit", **before}
 
     if args.fix:
-        new_text, fixes = fix_svg_text(svg_text, clamp_ratio=args.clamp_ratio)
+        new_text, fixes = fix_svg_text(svg_text, clamp_ratio=args.clamp_ratio, calibrate=calibrate)
         run.redraw_svg.write_text(new_text, encoding="utf-8")
-        after = audit_svg_text(new_text)
+        after = audit_svg_text(new_text, calibrate=calibrate)
         payload = {
             "svg": str(run.redraw_svg),
             "phase": "fix",
             "fixes": fixes,
             "before": {k: before[k] for k in ("counts", "ratio_stats")},
-            **{k: after[k] for k in ("arrows", "marker_refs", "marker_defs", "findings", "counts", "ratio_stats")},
+            **{k: after[k] for k in (
+                "arrows", "marker_refs", "marker_defs", "findings", "counts", "ratio_stats", "calibrate",
+            ) if k in after},
         }
         out = run.qa_dir / "arrows-audit.json"
         out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

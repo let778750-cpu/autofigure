@@ -3,107 +3,26 @@
   "phase": "fix",
   "fixes": [
     {
-      "marker": "arr-gray",
-      "refX": [
-        10.0,
-        "12"
-      ],
-      "refY": [
-        6.0,
-        "6"
-      ]
-    },
-    {
-      "marker": "arr-blue",
-      "refX": [
-        12.0,
-        "14"
-      ],
-      "refY": [
-        7.0,
-        "7"
-      ]
-    },
-    {
-      "marker": "arr-blue-sm",
-      "refX": [
-        7.5,
-        "8.8"
-      ],
-      "refY": [
-        4.5,
-        "4.4"
-      ],
-      "head_scale": 0.978
-    },
-    {
-      "marker": "arr-orange",
-      "refX": [
-        12.0,
-        "14"
-      ],
-      "refY": [
-        7.0,
-        "7"
-      ]
-    },
-    {
-      "marker": "arr-red",
-      "refX": [
-        18.0,
-        "20"
-      ],
-      "refY": [
-        10.0,
-        "10"
-      ]
-    },
-    {
       "marker": "arr-gold",
       "refX": [
-        7.5,
-        "6.8"
+        9.6,
+        "9"
       ],
       "refY": [
-        4.5,
-        "3.4"
+        4.8,
+        "4.5"
       ],
-      "head_scale": 0.756
-    },
-    {
-      "marker": "arr-black",
-      "refX": [
-        7.5,
-        "8"
-      ],
-      "refY": [
-        4.5,
-        "4"
-      ],
-      "head_scale": 0.889
-    },
-    {
-      "marker": "arr-gray-start",
-      "refX": [
-        2.0,
-        "0"
-      ],
-      "refY": [
-        6.0,
-        "6"
-      ]
+      "head_scale": 0.938
     }
   ],
   "before": {
     "counts": {
-      "F1": 42,
-      "F3": 6,
-      "F2": 27
+      "F3": 6
     },
     "ratio_stats": {
-      "median": 5.0,
+      "median": 5.33,
       "min": 2.0,
-      "max": 5.62,
+      "max": 6.0,
       "band": [
         1.5,
         4.0
@@ -187,114 +106,6 @@
       "detail": "端点距最近形状边缘 8.0px（> 6，应落在形状边缘/间隙）"
     },
     {
-      "code": "F2",
-      "element": 25,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1033,
-        407
-      ],
-      "bbox": [
-        1009,
-        383,
-        48,
-        48
-      ],
-      "marker": "arr-gold",
-      "detail": "头长 6.8 / 线宽 1.6 = 4.2（合理带 [1.5, 4]，建议头长 ≤6.4）"
-    },
-    {
-      "code": "F2",
-      "element": 26,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1131,
-        407
-      ],
-      "bbox": [
-        1107,
-        383,
-        48,
-        48
-      ],
-      "marker": "arr-gold",
-      "detail": "头长 6.8 / 线宽 1.6 = 4.2（合理带 [1.5, 4]，建议头长 ≤6.4）"
-    },
-    {
-      "code": "F2",
-      "element": 27,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1230,
-        407
-      ],
-      "bbox": [
-        1206,
-        383,
-        48,
-        48
-      ],
-      "marker": "arr-gold",
-      "detail": "头长 6.8 / 线宽 1.6 = 4.2（合理带 [1.5, 4]，建议头长 ≤6.4）"
-    },
-    {
-      "code": "F2",
-      "element": 34,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1032,
-        268
-      ],
-      "bbox": [
-        1008,
-        244,
-        48,
-        48
-      ],
-      "marker": "arr-gold",
-      "detail": "头长 6.8 / 线宽 1.6 = 4.2（合理带 [1.5, 4]，建议头长 ≤6.4）"
-    },
-    {
-      "code": "F2",
-      "element": 35,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1129,
-        268
-      ],
-      "bbox": [
-        1105,
-        244,
-        48,
-        48
-      ],
-      "marker": "arr-gold",
-      "detail": "头长 6.8 / 线宽 1.6 = 4.2（合理带 [1.5, 4]，建议头长 ≤6.4）"
-    },
-    {
-      "code": "F2",
-      "element": 36,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1227,
-        268
-      ],
-      "bbox": [
-        1203,
-        244,
-        48,
-        48
-      ],
-      "marker": "arr-gold",
-      "detail": "头长 6.8 / 线宽 1.6 = 4.2（合理带 [1.5, 4]，建议头长 ≤6.4）"
-    },
-    {
       "code": "F3",
       "element": 40,
       "tag": "line",
@@ -332,16 +143,18 @@
     }
   ],
   "counts": {
-    "F3": 6,
-    "F2": 6
+    "F3": 6
   },
   "ratio_stats": {
-    "median": 3.78,
+    "median": 5.0,
     "min": 2.0,
-    "max": 4.25,
+    "max": 5.62,
     "band": [
       1.5,
       4.0
     ]
+  },
+  "calibrate": {
+    "arr-gold": 9.0
   }
 }

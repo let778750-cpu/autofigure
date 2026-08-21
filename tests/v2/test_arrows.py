@@ -150,6 +150,28 @@ def test_fix_clamp_ratio_scales_head():
     assert 'fill="#777777"' in fixed
 
 
+def test_calibrate_overrides_band():
+    """原图校准：大头部细杆（比例超带）按校准值豁免 F2；偏离校准值才报，fix 缩放到校准值。"""
+    svg = _svg(
+        _solid_marker("gold", 10, 10, color="#8d6a00"),
+        '<line x1="10" y1="60" x2="146" y2="60" stroke="#8d6a00" stroke-width="1.8"'
+        ' marker-end="url(#gold)"/>'
+        + BOX,
+    )
+    assert audit_svg_text(svg)["counts"]["F2"] == 1  # 10/1.8=5.6 超带，无校准时必报
+    # 校准值=当前头长 → 豁免，且校准表进入审计结果
+    calibrated = audit_svg_text(svg, calibrate={"gold": 10.0})
+    assert calibrated["counts"].get("F2", 0) == 0
+    assert calibrated["calibrate"] == {"gold": 10.0}
+    # 校准值 6 → 偏离 4 > ±1 → 报；fix 等比缩放到 6 后归零（颜色保留）
+    deviated = audit_svg_text(svg, calibrate={"gold": 6.0})
+    assert deviated["counts"]["F2"] == 1
+    fixed, fixes = fix_svg_text(svg, calibrate={"gold": 6.0})
+    assert fixes[0]["head_scale"] == 0.6
+    assert 'fill="#8d6a00"' in fixed
+    assert audit_svg_text(fixed, calibrate={"gold": 6.0})["counts"].get("F2", 0) == 0
+
+
 def test_case01_regression_baseline():
     """真实案例回归：仓库内交付的 01 必须保持零 F1；人为回退一个 marker 验证审计能抓住。"""
     from pathlib import Path

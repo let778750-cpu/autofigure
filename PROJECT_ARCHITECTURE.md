@@ -145,7 +145,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 | 公式 | 变量斜体；`<tspan baseline-shift="sub\|super">` 上下标 | check 文本比对逐条列出 |
 | 无文字写实元素（照片/截图/写实图标/纹理装饰） | `<rect id="atomic:语义名" …>` 占位，不重绘；含文字/公式内容与几何元素禁止占位 | convert 自动从参考图裁剪嵌入（唯一位图来源） |
 | 直接内嵌 `<image>` | 容错：不读内嵌数据，按 bbox 从参考图裁剪替代 | 记 warning；覆盖画布 ≥50% 直接拒绝 |
-| 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓；几何子句（refX=尖端、头/线宽 ∈ [1.5,4]、端点落形状边缘 ≤6px）机器可检 | `autofigure arrows` 审计 + check 人审对照 |
+| 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓；几何子句（refX=尖端、头/线宽 ∈ [1.5,4] 或原图校准值 ±1px、端点落形状边缘 ≤6px）机器可检 | `autofigure arrows` 审计 + check 人审对照 |
 | 版面纪律 | 文字不得与文字/图形重叠；箭头与连接线端点落在形状边缘或间隙，不得压盖文字；间距留白以原图为准 | 走 check 人审对照 |
 | 结构 | 渐变 `<linearGradient>`、虚线 `stroke-dasharray` | radialGradient/marker-mid 暂不支持，记 warning 降级 |
 
@@ -181,10 +181,10 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 
 ### 4.5 arrows（可选，2026-08-21 新增）
 
-`autofigure arrows <run_dir> [--fix] [--clamp-ratio]`：箭头**结构层**审计与确定性几何修复。存在的理由：箭头缺陷（头线脱开/偏轴/比例失调）在像素指标上不可分辨——一支箭头 ≈ 画布 0.04%，修好修坏 mean 只动 ~0.06（噪声级），top_roi 注意力又被大块差异区吞掉；OCR 文本比对也不覆盖几何。没有结构感知，该缺陷类对反馈回路不可见（01 案例"改了好几轮还是歪"的根因之一）。
+`autofigure arrows <run_dir> [--fix] [--clamp-ratio] [--calibrate ID=LEN]`：箭头**结构层**审计与确定性几何修复。存在的理由：箭头缺陷（头线脱开/偏轴/比例失调）在像素指标上不可分辨——一支箭头 ≈ 画布 0.04%，修好修坏 mean 只动 ~0.06（噪声级），top_roi 注意力又被大块差异区吞掉；OCR 文本比对也不覆盖几何。没有结构感知，该缺陷类对反馈回路不可见（01 案例"改了好几轮还是歪"的根因之一）。
 
-- **审计口径**与 convert 放置语义镜像（`canvas(p) = v + R(θ)·(p − ref)`）：F1 marker `refX/refY` ≠ 三角尖端局部坐标（convert 忠实复刻该偏差）；F2 头长/线宽比例超出 [1.5, 4]；F3 箭头线端点距最近形状边缘 >6px（合同版面纪律的机器可检化）；W4 `orient` 非 auto（convert 按 auto 处理）；feather 手折箭羽（无 marker 的主干+短线束手绘箭头，03 案例模式，只报不修）。产出 `qa/arrows-audit.json`，check 报告自动引用。
-- **`--fix` 确定性修复**：refX/refY 对齐三角尖端；`--clamp-ratio` 头长超带时按使用方中位线宽等比限幅。只动 marker 定义，**不改任何样式**（颜色/填充/线宽逐字节保留），幂等。修复后必须重跑 convert → math → check。
+- **审计口径**与 convert 放置语义镜像（`canvas(p) = v + R(θ)·(p − ref)`）：F1 marker `refX/refY` ≠ 三角尖端局部坐标（convert 忠实复刻该偏差）；F2 头长/线宽比例超出 [1.5, 4]——给了 `--calibrate ID=LEN`（原图实测头长）的 marker 改按校准值 ±1px 判定（合同总则"以原图为准"，原图本身即大头部细杆风格时比例带让位，01 金色箭头即此：9px/1.7 ≈ 5.3）；F3 箭头线端点距最近形状边缘 >6px（合同版面纪律的机器可检化）；W4 `orient` 非 auto（convert 按 auto 处理）；feather 手折箭羽（无 marker 的主干+短线束手绘箭头，03 案例模式，只报不修）。产出 `qa/arrows-audit.json`（含校准表），check 报告自动引用。
+- **`--fix` 确定性修复**：refX/refY 对齐三角尖端；`--clamp-ratio` 头长超带时按使用方中位线宽等比限幅；`--calibrate` 头长缩放到原图实测值（优先于 clamp，可放大可缩小）。只动 marker 定义，**不改任何样式**（颜色/填充/线宽逐字节保留），幂等。修复后必须重跑 convert → math → check。
 
 ### 4.6 math（可选）
 
@@ -237,7 +237,7 @@ autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
 .venv\Scripts\python -m ruff check tools\v2 tests\v2
 ```
 
-`tests/v2/`：test_convert.py（映射、OOXML 坑回归、marker 切线/方向回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）、test_math.py（公式检测/LaTeX 重建纯函数 + 注入集成，缺 latex2mathml 或 MML2OMML.XSL 时集成项跳过）、test_arrows.py（F1/F2/F3/W4/箭羽审计、fix 幂等与样式不变、01 真实案例回归）。
+`tests/v2/`：test_convert.py（映射、OOXML 坑回归、marker 切线/方向回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）、test_math.py（公式检测/LaTeX 重建纯函数 + 注入集成，缺 latex2mathml 或 MML2OMML.XSL 时集成项跳过）、test_arrows.py（F1/F2/F3/W4/箭羽审计、fix 幂等与样式不变、原图校准豁免/缩放、01 真实案例回归）。
 
 ## 9. 当前状态与基准（2026-08-19）
 
