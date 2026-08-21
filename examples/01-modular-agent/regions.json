@@ -1,0 +1,117 @@
+{
+  "schema_version": "3.0.0",
+  "kind": "regions",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "updated_at": "20260821T000000Z",
+  "defaults": {
+    "ssim_min": 0.85,
+    "edge_iou_min": 0.75
+  },
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [0, 0, 1429, 627],
+      "critical": false
+    },
+    {
+      "id": "task-guided-allocator-topology",
+      "label": "Task-Guided Expert Allocator and routing paths",
+      "bbox": [425, 124, 551, 389],
+      "critical": true,
+      "element_ids": [
+        "svg-path-0005",
+        "svg-path-0006",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge"
+      ]
+    },
+    {
+      "id": "six-bicolor-state-circles",
+      "label": "Six independently oriented bicolor circles",
+      "bbox": [898, 204, 51, 278],
+      "critical": true,
+      "element_ids": [
+        "svg-text-0037",
+        "svg-rect-0031",
+        "svg-circle-0012",
+        "svg-circle-0013",
+        "svg-circle-0014",
+        "svg-rect-0032",
+        "svg-circle-0015",
+        "svg-circle-0016",
+        "svg-circle-0017"
+      ],
+      "color_probes": [
+        {"id": "top-1-warm-nw", "point": [915, 225], "radius": 2, "max_delta_e": 5},
+        {"id": "top-1-cool-se", "point": [931, 241], "radius": 2, "max_delta_e": 5},
+        {"id": "top-2-warm-nw", "point": [915, 262], "radius": 2, "max_delta_e": 5},
+        {"id": "top-2-cool-se", "point": [931, 278], "radius": 2, "max_delta_e": 5},
+        {"id": "top-3-warm-nw", "point": [915, 298], "radius": 2, "max_delta_e": 5},
+        {"id": "top-3-cool-se", "point": [931, 314], "radius": 2, "max_delta_e": 5},
+        {"id": "bottom-1-warm-ne", "point": [931, 372], "radius": 2, "max_delta_e": 5},
+        {"id": "bottom-1-cool-sw", "point": [915, 388], "radius": 2, "max_delta_e": 5},
+        {"id": "bottom-2-warm-ne", "point": [931, 408], "radius": 2, "max_delta_e": 5},
+        {"id": "bottom-2-cool-sw", "point": [915, 424], "radius": 2, "max_delta_e": 5},
+        {"id": "bottom-3-warm-ne", "point": [931, 445], "radius": 2, "max_delta_e": 5},
+        {"id": "bottom-3-cool-sw", "point": [915, 461], "radius": 2, "max_delta_e": 5}
+      ]
+    },
+    {
+      "id": "rollout-arrow-topology",
+      "label": "Task-aware behavior rollout arrows",
+      "bbox": [988, 116, 410, 346],
+      "critical": true,
+      "element_ids": [
+        "task-conditioned-imagination",
+        "rollout-panel",
+        "imagination-z0-to-z1",
+        "imagination-z1-to-z2",
+        "imagination-z2-to-zh",
+        "imagination-z0-to-r0",
+        "imagination-z1-to-r1",
+        "imagination-z2-to-r2",
+        "rollout-z0-to-z1",
+        "rollout-z1-to-z2",
+        "rollout-z2-to-zh",
+        "rollout-z0-to-pi0",
+        "rollout-z1-to-pi1",
+        "rollout-z2-to-pi2",
+        "rollout-pi0-to-a0",
+        "rollout-pi1-to-a1",
+        "rollout-pi2-to-a2",
+        "rollout-a0-to-z1",
+        "rollout-a1-to-z2",
+        "rollout-a2-to-next",
+        "rollout-z0-to-r0",
+        "rollout-z1-to-r1",
+        "rollout-z2-to-r2"
+      ]
+    },
+    {
+      "id": "observation-creative-asset",
+      "label": "Reference-faithful observation microasset",
+      "bbox": [42, 290, 106, 86],
+      "critical": true,
+      "asset_id": "atomic:observation",
+      "thresholds": {"ssim_min": 0.95, "edge_iou_min": 0.75}
+    },
+    {
+      "id": "environment-globe-creative-asset",
+      "label": "Reference-faithful environment globe",
+      "bbox": [1188, 533, 80, 81],
+      "critical": true,
+      "asset_id": "atomic:environment-globe",
+      "thresholds": {"ssim_min": 0.95, "edge_iou_min": 0.75}
+    },
+    {
+      "id": "observation-arrows",
+      "label": "Observation to MLLM/WM arrows",
+      "bbox": [132, 232, 190, 254],
+      "critical": true,
+      "element_ids": ["observation-to-mllm", "observation-to-wm"]
+    }
+  ]
+}

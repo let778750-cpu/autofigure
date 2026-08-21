@@ -1,12 +1,16 @@
-# check 报告（advisory，非门禁） — 01-modular-agent
+# check 报告（strict） — 01-modular-agent
 
 ## 像素诊断（figure_lint，软信号）
-- mean_abs_rgb_delta: 16.6229
-- changed_pixel_ratio: 38.2717%
-- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 147}, 'mean_abs_rgb_delta': 29.5891, 'loss_contribution_pct': 9.6757}
-- ssim: 0.7329
-- diff 图: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\qa\diff.png
-- 对照预览: D:\AI+科研\AI智能绘图（最终版）\AI autofigure\examples\01-modular-agent\preview.png
+- mean_abs_rgb_delta: 14.7877
+- changed_pixel_ratio: 37.1845%
+- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 31.3577, 'loss_contribution_pct': 7.1025}
+- ssim: 0.7762
+- diff 图: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\qa\diff.png
+- 对照预览: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\preview.png
+- 关键区域 strict_pass: False（6 个关键区域）
+- 区域明细: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\qa\regions-report.json
+- 布局合同: PASS（0 项）
+- 布局明细: C:\Users\24638\Documents\Playground\autofigure-high-fidelity\examples\01-modular-agent\qa\layout-audit.json
 
 ## 文本比对（SVG 文字 vs 参考图 OCR）
 - SVG 侧未匹配 1 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）
@@ -44,17 +48,17 @@
 ## 箭头结构审计（arrows，advisory）
 
 - 箭头单元 41（marker 引用 42 处，marker 定义 8 个）；头/线宽比例中位数 5.0（合理带 [1.5, 4.0]）
-- 原图校准：arr-gold=9px（F2 按校准值 ±1px 判定，比例带让位于原图实测）
-- F1 锚点未对齐尖端 0 处 · F2 头/线宽比例失调 0 处 · F3 端点悬空 6 处 · orient 非 auto 0 处 · 手折箭羽 0 组
-
-### 逐条发现
-- [F3] line#0 end 端点 (422,55) marker=arr-gray: 端点距最近形状边缘 12.0px（> 6，应落在形状边缘/间隙）
-- [F3] line#1 end 端点 (589,55) marker=arr-gray: 端点距最近形状边缘 8.0px（> 6，应落在形状边缘/间隙）
-- [F3] line#2 end 端点 (758,55) marker=arr-gray: 端点距最近形状边缘 11.0px（> 6，应落在形状边缘/间隙）
-- [F3] line#4 end 端点 (661,125) marker=arr-blue-sm: 端点距最近形状边缘 8.0px（> 6，应落在形状边缘/间隙）
-- [F3] line#40 start 端点 (1018,572) marker=arr-gray-start: 端点距最近形状边缘 17.0px（> 6，应落在形状边缘/间隙）
-- [F3] line#40 end 端点 (1173,572) marker=arr-gray: 端点距最近形状边缘 17.0px（> 6，应落在形状边缘/间隙）
+- F1 锚点未对齐尖端 0 处 · F2 头/线宽比例失调 0 处 · F3 端点悬空 0 处 · orient 非 auto 0 处 · 手折箭羽 0 组
 
 > 箭头几何为定位辅助，不以本节自动放行或拦截；修复用 autofigure arrows --fix（几何归一，不改样式），头长限幅加 --clamp-ratio，按原图实测校准加 --calibrate ID=LEN，改后需重跑 convert/math/check。
 
-> OCR 对公式/上下标本身不可靠，逐条人工判断，不以本报告自动放行或拦截。
+
+## 验收状态（strict）
+- blockers: 5
+- region:task-guided-allocator-topology
+- region:six-bicolor-state-circles
+- region:rollout-arrow-topology
+- region:observation-arrows
+- live-evidence-missing
+
+> strict 使用关键区域、箭头结构与可选 live 回读共同门禁；全图均值不能覆盖局部失败。

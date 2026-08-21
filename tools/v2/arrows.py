@@ -23,6 +23,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import math
 import re
@@ -41,7 +42,7 @@ from tools.v2.convert import (
     _segment_vertices,
     _start_tangent,
 )
-from tools.v2.svggeom import parse_path_d
+from tools.v2.svggeom import Matrix, parse_path_d, parse_transform
 
 RATIO_MIN, RATIO_MAX = 1.5, 4.0
 REF_TOL = 0.5          # refX/refY 与尖端局部坐标容差（px）
@@ -158,6 +159,97 @@ def _poly_points(el: ET.Element) -> str:
     return d
 
 
+def _walk_svg_geometry(
+    element: ET.Element,
+    parent_style: dict[str, str] | None = None,
+    parent_matrix: Matrix = Matrix(),
+):
+    style = _element_style(element, parent_style or {})
+    transform_text = element.get("transform")
+    matrix = parent_matrix.multiply(parse_transform(transform_text))
+    yield element, style, matrix, _transform_is_valid(transform_text, matrix)
+    for child in element:
+        yield from _walk_svg_geometry(child, style, matrix)
+
+
+def _transform_is_valid(value: str | None, matrix: Matrix) -> bool:
+    if value:
+        remainder = re.sub(
+            r"(?:matrix|translate|scale|rotate|skewX|skewY)\s*\([^)]*\)",
+            "",
+            value,
+        )
+        if remainder.strip(" ,\t\r\n"):
+            return False
+    return abs(matrix.a * matrix.d - matrix.b * matrix.c) > 1e-9
+
+
+def _transform_segments_v3(segments: list[tuple], matrix: Matrix) -> list[tuple]:
+    result: list[tuple] = []
+    for part in segments:
+        if part[0] in ("M", "L"):
+            result.append((part[0], *matrix.apply(part[1], part[2])))
+        elif part[0] == "C":
+            c1 = matrix.apply(part[1], part[2])
+            c2 = matrix.apply(part[3], part[4])
+            end = matrix.apply(part[5], part[6])
+            result.append(("C", *c1, *c2, *end))
+        else:
+            result.append(part)
+    return result
+
+
+def _element_segments(el: ET.Element) -> list[tuple]:
+    if el.tag == f"{SVG_NS}line":
+        return [
+            ("M", float(el.get("x1", 0)), float(el.get("y1", 0))),
+            ("L", float(el.get("x2", 0)), float(el.get("y2", 0))),
+        ]
+    return parse_path_d(el.get("d") or _poly_points(el))
+
+
+def _arrow_records_v3(root: ET.Element) -> list[dict]:
+    records: list[dict] = []
+    for el, style, matrix, transform_valid in _walk_svg_geometry(root):
+        if el.tag not in ARROW_TAGS:
+            continue
+        refs = {side: _marker_ref(el, f"marker-{side}") for side in ("start", "end")}
+        if not any(refs.values()):
+            continue
+        segments = _transform_segments_v3(_element_segments(el), matrix)
+        vertices = _segment_vertices(segments)
+        if len(vertices) < 2:
+            continue
+        scale = math.sqrt(abs(matrix.a * matrix.d - matrix.b * matrix.c))
+        try:
+            stroke_width = float(style.get("stroke-width", "1")) * scale
+        except ValueError:
+            stroke_width = scale
+        element_id = el.get("id") or f"arrow-{len(records) + 1:04d}"
+        reference_d = el.get("data-reference-d")
+        records.append(
+            {
+                "element": el,
+                "id": element_id,
+                "tag": el.tag.replace(SVG_NS, ""),
+                "segments": segments,
+                "start": vertices[0],
+                "end": vertices[-1],
+                "start_dir": _start_tangent(segments) or _chord(vertices, forward=True),
+                "end_dir": _end_tangent(segments) or _chord(vertices, forward=False),
+                "sw": stroke_width,
+                "scale": scale,
+                "matrix": matrix,
+                "refs": refs,
+                "source_id": el.get("data-source-id"),
+                "target_id": el.get("data-target-id"),
+                "transform_valid": transform_valid,
+                "reference_segments": parse_path_d(reference_d) if reference_d else None,
+            }
+        )
+    return records
+
+
 # ---------------------------------------------------------------- F3 形状边缘
 
 
@@ -213,15 +305,179 @@ class _EdgeIndex:
         return best
 
 
+def _flatten_segments(segments: list[tuple], curve_steps: int = 24) -> list[tuple]:
+    flattened: list[tuple] = []
+    current: tuple[float, float] | None = None
+    start: tuple[float, float] | None = None
+    for part in segments:
+        if part[0] == "M":
+            current = (part[1], part[2])
+            start = current
+        elif part[0] == "L" and current is not None:
+            end = (part[1], part[2])
+            flattened.append((current, end))
+            current = end
+        elif part[0] == "C" and current is not None:
+            p0 = current
+            p1 = (part[1], part[2])
+            p2 = (part[3], part[4])
+            p3 = (part[5], part[6])
+            previous = p0
+            for index in range(1, curve_steps + 1):
+                t = index / curve_steps
+                mt = 1.0 - t
+                point = (
+                    mt**3 * p0[0]
+                    + 3 * mt**2 * t * p1[0]
+                    + 3 * mt * t**2 * p2[0]
+                    + t**3 * p3[0],
+                    mt**3 * p0[1]
+                    + 3 * mt**2 * t * p1[1]
+                    + 3 * mt * t**2 * p2[1]
+                    + t**3 * p3[1],
+                )
+                flattened.append((previous, point))
+                previous = point
+            current = p3
+        elif part[0] == "Z" and current is not None and start is not None:
+            flattened.append((current, start))
+            current = start
+    return flattened
+
+
+class _EdgeIndexV3:
+    """Identity-aware boundary index; arrow paths never dock to themselves."""
+
+    def __init__(self, root: ET.Element):
+        self.edges: list[dict] = []
+        anonymous = 0
+        for el, style, matrix, _ in _walk_svg_geometry(root):
+            if el.tag not in {
+                f"{SVG_NS}rect",
+                f"{SVG_NS}circle",
+                f"{SVG_NS}ellipse",
+                f"{SVG_NS}polygon",
+                f"{SVG_NS}path",
+                f"{SVG_NS}polyline",
+                f"{SVG_NS}line",
+            }:
+                continue
+            if _marker_ref(el, "marker-start") or _marker_ref(el, "marker-end"):
+                continue
+            role = el.get("data-role", "")
+            is_explicit_boundary = el.get("data-audit-boundary") == "true" or role in {
+                "node",
+                "target",
+                "boundary",
+                "container",
+            }
+            fill = style.get("fill")
+            if el.tag in {f"{SVG_NS}line", f"{SVG_NS}polyline"} and not is_explicit_boundary:
+                continue
+            if el.tag == f"{SVG_NS}path" and fill in (None, "none", "transparent"):
+                if not is_explicit_boundary:
+                    continue
+            anonymous += 1
+            owner_id = el.get("id") or f"boundary-{anonymous:04d}"
+            local_segments: list[tuple]
+            if el.tag == f"{SVG_NS}rect":
+                x = float(el.get("x", 0))
+                y = float(el.get("y", 0))
+                width = float(el.get("width", 0))
+                height = float(el.get("height", 0))
+                rx = min(float(el.get("rx", el.get("ry", 0)) or 0), width / 2)
+                ry = min(float(el.get("ry", el.get("rx", 0)) or 0), height / 2)
+                local_segments = _rounded_rect_segments(x, y, width, height, rx, ry)
+            elif el.tag in {f"{SVG_NS}circle", f"{SVG_NS}ellipse"}:
+                cx = float(el.get("cx", 0))
+                cy = float(el.get("cy", 0))
+                rx = float(el.get("r", el.get("rx", 0)))
+                ry = float(el.get("r", el.get("ry", 0)))
+                points = [
+                    (
+                        cx + rx * math.cos(2 * math.pi * index / 72),
+                        cy + ry * math.sin(2 * math.pi * index / 72),
+                    )
+                    for index in range(72)
+                ]
+                local_segments = [("M", *points[0])]
+                local_segments.extend(("L", *point) for point in points[1:])
+                local_segments.append(("Z",))
+            else:
+                local_segments = _element_segments(el)
+            transformed = _transform_segments_v3(local_segments, matrix)
+            for start, end in _flatten_segments(transformed):
+                self.edges.append(
+                    {"owner": el, "owner_id": owner_id, "start": start, "end": end}
+                )
+
+    def distance(
+        self,
+        point: tuple[float, float],
+        *,
+        exclude: ET.Element | None = None,
+        expected_id: str | None = None,
+    ) -> tuple[float, str | None]:
+        candidates = [
+            edge
+            for edge in self.edges
+            if edge["owner"] is not exclude
+            and (expected_id is None or edge["owner_id"] == expected_id)
+        ]
+        if not candidates:
+            return 1e9, None
+        nearest = min(
+            candidates,
+            key=lambda edge: _point_seg_dist(point, edge["start"], edge["end"]),
+        )
+        return (
+            _point_seg_dist(point, nearest["start"], nearest["end"]),
+            nearest["owner_id"],
+        )
+
+
+def _rounded_rect_segments(
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+    rx: float,
+    ry: float,
+) -> list[tuple]:
+    if rx <= 0 or ry <= 0:
+        return [
+            ("M", x, y),
+            ("L", x + width, y),
+            ("L", x + width, y + height),
+            ("L", x, y + height),
+            ("Z",),
+        ]
+    points: list[tuple[float, float]] = []
+    for cx, cy, start_angle in (
+        (x + width - rx, y + ry, -90),
+        (x + width - rx, y + height - ry, 0),
+        (x + rx, y + height - ry, 90),
+        (x + rx, y + ry, 180),
+    ):
+        points.extend(
+            (
+                cx + rx * math.cos(math.radians(start_angle + 90 * step / 8)),
+                cy + ry * math.sin(math.radians(start_angle + 90 * step / 8)),
+            )
+            for step in range(9)
+        )
+    return [("M", *points[0]), *[("L", *point) for point in points[1:]], ("Z",)]
+
+
 # ---------------------------------------------------------------- 审计
 
 
-def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> dict:
+def _audit_svg_text_legacy(svg_text: str, calibrate: dict[str, float] | None = None) -> dict:
     root = ET.fromstring(svg_text)
     defs = _marker_defs(root)
     geometry = {mid: _marker_geometry(el) for mid, el in defs.items()}
-    records = _arrow_records(root)
-    edges = _EdgeIndex(root)
+    records = _arrow_records_v3(root)
+    edges = _EdgeIndexV3(root)
     calibrate = calibrate or {}
 
     findings: list[dict] = []
@@ -285,6 +541,502 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
         "findings": findings,
         "counts": counts,
         **({"calibrate": calibrate} if calibrate else {}),
+        "ratio_stats": {
+            "median": round(statistics.median(ratios), 2) if ratios else None,
+            "min": round(min(ratios), 2) if ratios else None,
+            "max": round(max(ratios), 2) if ratios else None,
+            "band": [RATIO_MIN, RATIO_MAX],
+        },
+    }
+
+
+def _percentile95(values: list[float]) -> float:
+    if not values:
+        return 0.0
+    ordered = sorted(values)
+    return ordered[max(0, math.ceil(len(ordered) * 0.95) - 1)]
+
+
+def _nearest_segment_distance(
+    point: tuple[float, float],
+    segments: list[tuple[tuple[float, float], tuple[float, float]]],
+) -> float:
+    return min((_point_seg_dist(point, start, end) for start, end in segments), default=1e9)
+
+
+def _angle_error(first: tuple[float, float], second: tuple[float, float]) -> float:
+    first_len = math.hypot(*first)
+    second_len = math.hypot(*second)
+    if first_len <= 1e-9 or second_len <= 1e-9:
+        return 180.0
+    cosine = max(
+        -1.0,
+        min(1.0, (first[0] * second[0] + first[1] * second[1]) / (first_len * second_len)),
+    )
+    return math.degrees(math.acos(cosine))
+
+
+def _reference_metrics(rec: dict, diagonal: float) -> dict | None:
+    reference = rec.get("reference_segments")
+    if not reference:
+        return None
+    if rec["element"].get("data-reference-space") == "local":
+        reference = _transform_segments_v3(reference, rec["matrix"])
+    current_edges = _flatten_segments(rec["segments"])
+    reference_edges = _flatten_segments(reference)
+    if not current_edges or not reference_edges:
+        return None
+    current_points = [current_edges[0][0], *[edge[1] for edge in current_edges]]
+    reference_points = [reference_edges[0][0], *[edge[1] for edge in reference_edges]]
+    deviations = [
+        _nearest_segment_distance(point, reference_edges) for point in current_points
+    ] + [_nearest_segment_distance(point, current_edges) for point in reference_points]
+    reference_vertices = _segment_vertices(reference)
+    endpoint_error = max(
+        math.dist(rec["start"], reference_vertices[0]),
+        math.dist(rec["end"], reference_vertices[-1]),
+    )
+    angle_error = _angle_error(
+        rec["end_dir"],
+        _end_tangent(reference) or _chord(reference_vertices, forward=False),
+    )
+    centerline_limit = diagonal * 0.0035
+    endpoint_limit = diagonal * 0.0025
+    return {
+        "element_id": rec["id"],
+        "centerline_p95": round(_percentile95(deviations), 4),
+        "centerline_limit": round(centerline_limit, 4),
+        "endpoint_error": round(endpoint_error, 4),
+        "endpoint_limit": round(endpoint_limit, 4),
+        "head_angle_error": round(angle_error, 4),
+        "head_angle_limit": 3.0,
+    }
+
+
+def _segment_intersection(
+    a: tuple[float, float],
+    b: tuple[float, float],
+    c: tuple[float, float],
+    d: tuple[float, float],
+    *,
+    strict: bool,
+) -> tuple[float, float] | None:
+    r = (b[0] - a[0], b[1] - a[1])
+    s = (d[0] - c[0], d[1] - c[1])
+    denominator = r[0] * s[1] - r[1] * s[0]
+    if abs(denominator) <= 1e-9:
+        return None
+    offset = (c[0] - a[0], c[1] - a[1])
+    t = (offset[0] * s[1] - offset[1] * s[0]) / denominator
+    u = (offset[0] * r[1] - offset[1] * r[0]) / denominator
+    margin = 1e-5 if strict else -1e-5
+    if margin < t < 1.0 - margin and margin < u < 1.0 - margin:
+        return (a[0] + t * r[0], a[1] + t * r[1])
+    return None
+
+
+def _text_boxes(root: ET.Element) -> list[dict]:
+    boxes: list[dict] = []
+    for element, style, matrix, _ in _walk_svg_geometry(root):
+        if element.tag != f"{SVG_NS}text" or element.get("data-allow-arrow-overlap") == "true":
+            continue
+        content = "".join(element.itertext()).strip()
+        if not content:
+            continue
+        try:
+            font_size = float(style.get("font-size", "16"))
+        except ValueError:
+            font_size = 16.0
+        x = float(re.split(r"[\s,]+", element.get("x", "0").strip())[0])
+        y = float(re.split(r"[\s,]+", element.get("y", "0").strip())[0])
+        width = max(font_size * 0.55 * len(content), font_size * 0.5)
+        anchor = style.get("text-anchor", "start")
+        left = x - width / 2 if anchor == "middle" else x - width if anchor == "end" else x
+        corners = [
+            matrix.apply(left, y - font_size),
+            matrix.apply(left + width, y - font_size),
+            matrix.apply(left + width, y + font_size * 0.25),
+            matrix.apply(left, y + font_size * 0.25),
+        ]
+        xs = [point[0] for point in corners]
+        ys = [point[1] for point in corners]
+        boxes.append(
+            {
+                "id": element.get("id") or f"text-{len(boxes) + 1:04d}",
+                "owner_id": element.get("data-owner-id"),
+                "bbox": (min(xs), min(ys), max(xs), max(ys)),
+            }
+        )
+    return boxes
+
+
+def _line_hits_box(start, end, bbox) -> tuple[float, float] | None:
+    left, top, right, bottom = bbox
+    if left <= start[0] <= right and top <= start[1] <= bottom:
+        return start
+    if left <= end[0] <= right and top <= end[1] <= bottom:
+        return end
+    corners = [(left, top), (right, top), (right, bottom), (left, bottom)]
+    for index in range(4):
+        hit = _segment_intersection(
+            start,
+            end,
+            corners[index],
+            corners[(index + 1) % 4],
+            strict=False,
+        )
+        if hit:
+            return hit
+    return None
+
+
+def _finding_v3(
+    code: str,
+    index: int,
+    rec: dict,
+    side: str,
+    vertex,
+    marker: str | None,
+    detail: str,
+) -> dict:
+    x, y = vertex
+    return {
+        "code": code,
+        "element": rec["id"],
+        "element_index": index,
+        "tag": rec["tag"],
+        "side": side,
+        "endpoint": [round(x), round(y)],
+        "bbox": [round(x - 24), round(y - 24), 48, 48],
+        "marker": marker,
+        "detail": detail,
+    }
+
+
+def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> dict:
+    """Audit transformed arrow topology against identity-aware target boundaries."""
+    root = ET.fromstring(svg_text)
+    defs = _marker_defs(root)
+    geometry = {marker_id: _marker_geometry(marker) for marker_id, marker in defs.items()}
+    records = _arrow_records_v3(root)
+    edges = _EdgeIndexV3(root)
+    calibrate = calibrate or {}
+    view_box = [
+        float(value)
+        for value in re.split(r"[\s,]+", root.get("viewBox", "0 0 1 1").strip())
+        if value
+    ]
+    diagonal = math.hypot(view_box[2], view_box[3]) if len(view_box) == 4 else 1.0
+
+    findings: list[dict] = []
+    ratios: list[float] = []
+    arrow_metrics: list[dict] = []
+    calibration_scope: dict[str, str] = {}
+    marker_refs = 0
+    for index, rec in enumerate(records):
+        if not rec["transform_valid"]:
+            findings.append(
+                _finding_v3(
+                    "F8",
+                    index,
+                    rec,
+                    "path",
+                    rec["start"],
+                    None,
+                    "transform is singular or contains unsupported syntax",
+                )
+            )
+        for side, vertex in (("start", rec["start"]), ("end", rec["end"])):
+            marker_id = rec["refs"][side]
+            if marker_id:
+                marker_refs += 1
+                marker = defs.get(marker_id)
+                marker_geometry = geometry.get(marker_id)
+                if marker is None or marker_geometry is None:
+                    findings.append(
+                        _finding_v3(
+                            "W4",
+                            index,
+                            rec,
+                            side,
+                            vertex,
+                            marker_id,
+                            "marker is missing or is not a three-point arrowhead",
+                        )
+                    )
+                else:
+                    if marker.get("orient", "auto") not in ("auto", "auto-start-reverse"):
+                        findings.append(
+                            _finding_v3(
+                                "W4",
+                                index,
+                                rec,
+                                side,
+                                vertex,
+                                marker_id,
+                                f"unsupported marker orientation: {marker.get('orient')}",
+                            )
+                        )
+                    marker_scale = (
+                        rec["sw"]
+                        if marker.get("markerUnits", "strokeWidth") == "strokeWidth"
+                        else rec["scale"]
+                    )
+                    dx = (marker_geometry["tip"][0] - marker_geometry["refX"]) * marker_scale
+                    dy = (marker_geometry["tip"][1] - marker_geometry["refY"]) * marker_scale
+                    if abs(dx) > REF_TOL or abs(dy) > REF_TOL:
+                        findings.append(
+                            _finding_v3(
+                                "F1",
+                                index,
+                                rec,
+                                side,
+                                vertex,
+                                marker_id,
+                                f"arrowhead tip/ref mismatch ({dx:+.2f}, {dy:+.2f}) px",
+                            )
+                        )
+                    head_length = marker_geometry["head_len"] * marker_scale
+                    ratio = head_length / rec["sw"] if rec["sw"] > 0 else 0.0
+                    ratios.append(ratio)
+                    side_key = f"{rec['id']}:{side}"
+                    local_raw = (
+                        rec["element"].get(f"data-head-length-{side}")
+                        or rec["element"].get("data-head-length")
+                    )
+                    key = next(
+                        (
+                            candidate
+                            for candidate in (side_key, rec["id"], marker_id)
+                            if candidate in calibrate
+                        ),
+                        None,
+                    )
+                    target = None
+                    if local_raw is not None:
+                        try:
+                            target = float(local_raw)
+                            if target <= 0:
+                                raise ValueError
+                        except ValueError:
+                            findings.append(
+                                _finding_v3(
+                                    "F2",
+                                    index,
+                                    rec,
+                                    side,
+                                    vertex,
+                                    marker_id,
+                                    f"invalid per-arrow head calibration {local_raw!r}",
+                                )
+                            )
+                            target = None
+                        else:
+                            calibration_scope[side_key] = "element"
+                    elif key:
+                        calibration_scope[side_key] = (
+                            "arrow" if key in {side_key, rec["id"]} else "legacy-marker"
+                        )
+                        target = calibrate[key]
+                    if target is not None:
+                        if abs(head_length - target) > CAL_TOL:
+                            findings.append(
+                                _finding_v3(
+                                    "F2",
+                                    index,
+                                    rec,
+                                    side,
+                                    vertex,
+                                    marker_id,
+                                    f"head length {head_length:.2f}px differs from "
+                                    f"per-arrow calibration {target:.2f}px",
+                                )
+                            )
+                    elif not RATIO_MIN <= ratio <= RATIO_MAX:
+                        findings.append(
+                            _finding_v3(
+                                "F2",
+                                index,
+                                rec,
+                                side,
+                                vertex,
+                                marker_id,
+                                f"head/stroke ratio {ratio:.2f} is outside "
+                                f"[{RATIO_MIN:g}, {RATIO_MAX:g}]",
+                            )
+                        )
+
+            expected_id = rec["source_id"] if side == "start" else rec["target_id"]
+            if (marker_id or expected_id) and rec["element"].get("data-allow-floating") != "true":
+                expected_distance, expected_owner = edges.distance(
+                    vertex,
+                    exclude=rec["element"],
+                    expected_id=expected_id,
+                )
+                global_distance, global_owner = edges.distance(
+                    vertex,
+                    exclude=rec["element"],
+                )
+                gap_name = "data-source-gap" if side == "start" else "data-target-gap"
+                gap_value = rec["element"].get(gap_name)
+                expected_gap = float(gap_value) if gap_value is not None else None
+                gap_tolerance = float(rec["element"].get("data-gap-tolerance", "2"))
+                dock_distance = expected_distance if expected_id else global_distance
+                dock_error = (
+                    abs(expected_distance - expected_gap)
+                    if expected_id and expected_gap is not None
+                    else dock_distance
+                )
+                dock_limit = gap_tolerance if expected_gap is not None else DOCK_TOL
+                if expected_id and expected_owner is None:
+                    findings.append(
+                        _finding_v3(
+                            "F5",
+                            index,
+                            rec,
+                            side,
+                            vertex,
+                            marker_id,
+                            f"declared target identity {expected_id!r} does not exist",
+                        )
+                    )
+                elif expected_id and dock_error > dock_limit:
+                    findings.append(
+                        _finding_v3(
+                            "F5",
+                            index,
+                            rec,
+                            side,
+                            vertex,
+                            marker_id,
+                            f"endpoint clearance is {expected_distance:.2f}px from declared "
+                            f"object {expected_id!r} (expected {expected_gap or 0:.2f}px); "
+                            f"nearest object is {global_owner!r}",
+                        )
+                    )
+                if dock_error > dock_limit:
+                    findings.append(
+                        _finding_v3(
+                            "F3",
+                            index,
+                            rec,
+                            side,
+                            vertex,
+                            marker_id,
+                            f"endpoint boundary/gap error is {dock_error:.2f}px "
+                            f"(limit {dock_limit:.2f}px)",
+                        )
+                    )
+
+        metrics = _reference_metrics(rec, diagonal)
+        if metrics:
+            arrow_metrics.append(metrics)
+            if (
+                metrics["centerline_p95"] > metrics["centerline_limit"]
+                or metrics["endpoint_error"] > metrics["endpoint_limit"]
+            ):
+                findings.append(
+                    _finding_v3(
+                        "F7",
+                        index,
+                        rec,
+                        "path",
+                        rec["end"],
+                        rec["refs"]["end"],
+                        "reference path deviation exceeds the normalized fidelity limit",
+                    )
+                )
+            if metrics["head_angle_error"] > metrics["head_angle_limit"]:
+                findings.append(
+                    _finding_v3(
+                        "F10",
+                        index,
+                        rec,
+                        "end",
+                        rec["end"],
+                        rec["refs"]["end"],
+                        f"arrowhead tangent differs by {metrics['head_angle_error']:.2f} degrees",
+                    )
+                )
+
+    if root.get("data-check-label-collisions", "true") != "false":
+        for index, rec in enumerate(records):
+            ignored_owners = {rec["id"], rec["source_id"], rec["target_id"]}
+            ignored_owners.discard(None)
+            for box in _text_boxes(root):
+                if box["owner_id"] in ignored_owners:
+                    continue
+                hit = next(
+                    (
+                        point
+                        for start, end in _flatten_segments(rec["segments"])
+                        if (point := _line_hits_box(start, end, box["bbox"])) is not None
+                    ),
+                    None,
+                )
+                if hit:
+                    findings.append(
+                        _finding_v3(
+                            "F6",
+                            index,
+                            rec,
+                            "path",
+                            hit,
+                            None,
+                            f"arrow centerline intersects text box {box['id']!r}",
+                        )
+                    )
+                    break
+
+    for first_index, first in enumerate(records):
+        if first["element"].get("data-allow-crossing") == "true":
+            continue
+        for second in records[first_index + 1 :]:
+            if second["element"].get("data-allow-crossing") == "true":
+                continue
+            shared_ids = {first["source_id"], first["target_id"]} & {
+                second["source_id"],
+                second["target_id"],
+            }
+            shared_ids.discard(None)
+            if shared_ids:
+                continue
+            crossing = next(
+                (
+                    point
+                    for a, b in _flatten_segments(first["segments"])
+                    for c, d in _flatten_segments(second["segments"])
+                    if (point := _segment_intersection(a, b, c, d, strict=True)) is not None
+                ),
+                None,
+            )
+            if crossing:
+                findings.append(
+                    _finding_v3(
+                        "F9",
+                        first_index,
+                        first,
+                        "path",
+                        crossing,
+                        None,
+                        f"arrow path crosses {second['id']!r}",
+                    )
+                )
+
+    findings.extend(_find_feathers(root))
+    counts: dict[str, int] = {}
+    for item in findings:
+        counts[item["code"]] = counts.get(item["code"], 0) + 1
+    return {
+        "audit_version": "3.0.0",
+        "arrows": len(records),
+        "marker_refs": marker_refs,
+        "marker_defs": len(defs),
+        "findings": findings,
+        "counts": counts,
+        "arrow_metrics": arrow_metrics,
+        **({"calibrate": calibrate} if calibrate else {}),
+        **({"calibration_scope": calibration_scope} if calibration_scope else {}),
         "ratio_stats": {
             "median": round(statistics.median(ratios), 2) if ratios else None,
             "min": round(min(ratios), 2) if ratios else None,
@@ -379,12 +1131,87 @@ def fix_svg_text(
     ns = {"svg": "http://www.w3.org/2000/svg"}
     usage: dict[str, list[float]] = {}
     plain_root = ET.fromstring(svg_text)
-    for rec in _arrow_records(plain_root):
+    records = _arrow_records_v3(plain_root)
+    for rec in records:
         for mid in rec["refs"].values():
             if mid:
                 usage.setdefault(mid, []).append(rec["sw"])
 
     fixes: list[dict] = []
+    lxml_arrows = root.xpath(
+        ".//*[local-name()='line' or local-name()='path' or "
+        "local-name()='polyline' or local-name()='polygon']"
+        "[@marker-start or @marker-end or contains(@style, 'marker-start') or "
+        "contains(@style, 'marker-end')]"
+    )
+    for rec, arrow in zip(records, lxml_arrows):
+        for side in ("start", "end"):
+            marker_id = rec["refs"][side]
+            if not marker_id:
+                continue
+            side_key = f"{rec['id']}:{side}"
+            local_raw = (
+                rec["element"].get(f"data-head-length-{side}")
+                or rec["element"].get("data-head-length")
+            )
+            calibration_key = side_key if side_key in (calibrate or {}) else rec["id"]
+            if local_raw is not None:
+                try:
+                    target = float(local_raw)
+                except ValueError:
+                    continue
+                if target <= 0:
+                    continue
+            elif calibration_key in (calibrate or {}):
+                target = (calibrate or {})[calibration_key]
+            else:
+                continue
+            plain_marker = _find_plain_marker(plain_root, marker_id)
+            geometry = _marker_geometry(plain_marker)
+            if geometry is None or geometry["head_len"] <= 0:
+                continue
+            marker_scale = (
+                rec["sw"]
+                if plain_marker.get("markerUnits", "strokeWidth") == "strokeWidth"
+                else rec["scale"]
+            )
+            current_length = geometry["head_len"] * marker_scale
+            if abs(target - current_length) <= 0.05:
+                continue
+            candidates = root.xpath(".//svg:marker[@id=$marker_id]", namespaces=ns, marker_id=marker_id)
+            if not candidates:
+                continue
+            safe_arrow_id = re.sub(r"[^A-Za-z0-9_.-]+", "-", rec["id"])
+            suffix = f"--{safe_arrow_id}-{side}"
+            if marker_id.endswith(suffix):
+                dedicated = candidates[0]
+                new_marker_id = marker_id
+            else:
+                dedicated = copy.deepcopy(candidates[0])
+                new_marker_id = f"{marker_id}{suffix}"
+                dedicated.set("id", new_marker_id)
+                candidates[0].getparent().append(dedicated)
+            scale = target / current_length
+            tip_x = geometry["tip"][0] * scale
+            tip_y = geometry["tip"][1] * scale
+            dedicated.set("refX", _fmt(tip_x))
+            dedicated.set("refY", _fmt(tip_y))
+            for dimension in ("markerWidth", "markerHeight"):
+                if dedicated.get(dimension):
+                    dedicated.set(dimension, _fmt(float(dedicated.get(dimension)) * scale))
+            for child in dedicated.findall("svg:path", ns):
+                child.set("d", _scale_path_d(child.get("d", ""), scale))
+            _set_lxml_marker_reference(arrow, side, new_marker_id)
+            fixes.append(
+                {
+                    "arrow": rec["id"],
+                    "side": side,
+                    "marker": [marker_id, new_marker_id],
+                    "head_scale": round(scale, 3),
+                    "calibration": target,
+                }
+            )
+
     for marker in root.findall(".//svg:marker", ns):
         mid = marker.get("id")
         geo = _marker_geometry(_find_plain_marker(plain_root, mid))
@@ -420,6 +1247,22 @@ def fix_svg_text(
             **({"head_scale": round(scale, 3)} if scale != 1.0 else {}),
         })
     return letree.tostring(root, encoding="unicode"), fixes
+
+
+def _set_lxml_marker_reference(element, side: str, marker_id: str) -> None:
+    attribute = f"marker-{side}"
+    style = element.get("style")
+    if style and attribute in _parse_style_attr(style):
+        rewritten = []
+        for item in style.split(";"):
+            if ":" not in item:
+                rewritten.append(item)
+                continue
+            key, value = item.split(":", 1)
+            rewritten.append(f"{key}:url(#{marker_id})" if key.strip() == attribute else item)
+        element.set("style", ";".join(rewritten))
+    else:
+        element.set(attribute, f"url(#{marker_id})")
 
 
 def _find_plain_marker(plain_root: ET.Element, mid: str | None) -> ET.Element:

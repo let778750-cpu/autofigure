@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "read_only_powerpoint_zorder_review",
+  "formal_live_evidence": false,
+  "release_authority": "NONE",
+  "automatic_status": "INDEPENDENT_REVIEW_REQUIRED",
+  "session_id": "b6636c94-dc34-4116-9ba4-716e41d7a88a",
+  "revision": 0,
+  "session_closed": true,
+  "source_pptx_sha256": "bf2fd345e19fe383db42ea1712e37940515ad4eb89dd2acbe25084a336eff658",
+  "scene_graph_sha256": "99ba2fe16e69696a13bc6b9965c4f77746c4ad5e590e9b4b724c9c7f4c4019d2",
+  "objects": {
+    "task-conditioned-imagination": {
+      "shape_id": 107,
+      "shape_name": "af-task-conditioned-imagination-rect-01",
+      "powerpoint_type": 1,
+      "z_order_position": 106
+    },
+    "mapping-to-imagination": {
+      "shape_id": 108,
+      "shape_name": "af-mapping-to-imagination-connector-01",
+      "powerpoint_type": 9,
+      "z_order_position": 107,
+      "above_target_panel": true
+    },
+    "atomic:environment-globe": {
+      "shape_id": 196,
+      "shape_name": "af-atomic-environment-globe-atomic-raster-01",
+      "powerpoint_type": 13,
+      "z_order_position": 195,
+      "asset_source_sha256": "3bfe64f24f546aab0797223e0256f9da48314e668dc18d93a0b27347b84ba21d",
+      "atomic_raster_unit": true,
+      "contains_reconstructable_content": false
+    }
+  },
+  "powerpoint_audit": {
+    "hard_failure_count": 0,
+    "warning_count": 0
+  },
+  "renderer_capture": {
+    "path": "qa/live-zorder-preview.png",
+    "sha256": "a1efb41316f65f43eba8bd54e4790b3951129c79e46039155bcddce0905e0eba",
+    "capture_frame": "full-slide",
+    "width": 1429,
+    "height": 627
+  },
+  "note": "Read-only managed-session evidence for the reported z-order and raster identity defects. It is not saved/reopened repair evidence and cannot satisfy strict live-evidence gates."
+}

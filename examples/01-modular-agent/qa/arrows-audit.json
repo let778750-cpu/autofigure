@@ -1,149 +1,37 @@
 {
-  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\redraw.svg",
-  "phase": "fix",
-  "fixes": [
-    {
-      "marker": "arr-gold",
-      "refX": [
-        9.6,
-        "9"
-      ],
-      "refY": [
-        4.8,
-        "4.5"
-      ],
-      "head_scale": 0.938
-    }
-  ],
-  "before": {
-    "counts": {
-      "F3": 6
-    },
-    "ratio_stats": {
-      "median": 5.33,
-      "min": 2.0,
-      "max": 6.0,
-      "band": [
-        1.5,
-        4.0
-      ]
-    }
-  },
+  "svg": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\redraw.svg",
+  "phase": "audit",
+  "audit_version": "3.0.0",
   "arrows": 41,
   "marker_refs": 42,
   "marker_defs": 8,
-  "findings": [
-    {
-      "code": "F3",
-      "element": 0,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        422,
-        55
-      ],
-      "bbox": [
-        398,
-        31,
-        48,
-        48
-      ],
-      "marker": "arr-gray",
-      "detail": "端点距最近形状边缘 12.0px（> 6，应落在形状边缘/间隙）"
-    },
-    {
-      "code": "F3",
-      "element": 1,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        589,
-        55
-      ],
-      "bbox": [
-        565,
-        31,
-        48,
-        48
-      ],
-      "marker": "arr-gray",
-      "detail": "端点距最近形状边缘 8.0px（> 6，应落在形状边缘/间隙）"
-    },
-    {
-      "code": "F3",
-      "element": 2,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        758,
-        55
-      ],
-      "bbox": [
-        734,
-        31,
-        48,
-        48
-      ],
-      "marker": "arr-gray",
-      "detail": "端点距最近形状边缘 11.0px（> 6，应落在形状边缘/间隙）"
-    },
-    {
-      "code": "F3",
-      "element": 4,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        661,
-        125
-      ],
-      "bbox": [
-        637,
-        101,
-        48,
-        48
-      ],
-      "marker": "arr-blue-sm",
-      "detail": "端点距最近形状边缘 8.0px（> 6，应落在形状边缘/间隙）"
-    },
-    {
-      "code": "F3",
-      "element": 40,
-      "tag": "line",
-      "side": "start",
-      "endpoint": [
-        1018,
-        572
-      ],
-      "bbox": [
-        994,
-        548,
-        48,
-        48
-      ],
-      "marker": "arr-gray-start",
-      "detail": "端点距最近形状边缘 17.0px（> 6，应落在形状边缘/间隙）"
-    },
-    {
-      "code": "F3",
-      "element": 40,
-      "tag": "line",
-      "side": "end",
-      "endpoint": [
-        1173,
-        572
-      ],
-      "bbox": [
-        1149,
-        548,
-        48,
-        48
-      ],
-      "marker": "arr-gray",
-      "detail": "端点距最近形状边缘 17.0px（> 6，应落在形状边缘/间隙）"
-    }
-  ],
-  "counts": {
-    "F3": 6
+  "findings": [],
+  "counts": {},
+  "arrow_metrics": [],
+  "calibration_scope": {
+    "top-mixture-to-rollout:end": "element",
+    "bottom-mixture-to-rollout:end": "element",
+    "imagination-z0-to-z1:end": "element",
+    "imagination-z1-to-z2:end": "element",
+    "imagination-z2-to-zh:end": "element",
+    "imagination-z0-to-r0:end": "element",
+    "imagination-z1-to-r1:end": "element",
+    "imagination-z2-to-r2:end": "element",
+    "rollout-z0-to-z1:end": "element",
+    "rollout-z1-to-z2:end": "element",
+    "rollout-z2-to-zh:end": "element",
+    "rollout-z0-to-pi0:end": "element",
+    "rollout-z1-to-pi1:end": "element",
+    "rollout-z2-to-pi2:end": "element",
+    "rollout-pi0-to-a0:end": "element",
+    "rollout-pi1-to-a1:end": "element",
+    "rollout-pi2-to-a2:end": "element",
+    "rollout-a0-to-z1:end": "element",
+    "rollout-a1-to-z2:end": "element",
+    "rollout-a2-to-next:end": "element",
+    "rollout-z0-to-r0:end": "element",
+    "rollout-z1-to-r1:end": "element",
+    "rollout-z2-to-r2:end": "element"
   },
   "ratio_stats": {
     "median": 5.0,
@@ -153,8 +41,5 @@
       1.5,
       4.0
     ]
-  },
-  "calibrate": {
-    "arr-gold": 9.0
   }
 }

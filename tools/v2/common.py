@@ -102,13 +102,60 @@ class Run:
     def qa_dir(self) -> Path:
         return self.root / "qa"
 
+    @property
+    def scene_path(self) -> Path:
+        return self.root / "scene.json"
+
+    @property
+    def assets_path(self) -> Path:
+        return self.root / "assets.json"
+
+    @property
+    def regions_path(self) -> Path:
+        return self.root / "regions.json"
+
+    @property
+    def bindings_path(self) -> Path:
+        return self.root / "bindings.json"
+
+    @property
+    def region_tasks_path(self) -> Path:
+        return self.qa_dir / "region-tasks.json"
+
+    @property
+    def live_request_path(self) -> Path:
+        return self.qa_dir / "live-repair-request.json"
+
+    @property
+    def live_evidence_path(self) -> Path:
+        return self.qa_dir / "live-evidence.json"
+
+    @property
+    def live_case_dir(self) -> Path:
+        return self.qa_dir / "powerpoint-live-case"
+
+    @property
+    def live_bridge_path(self) -> Path:
+        return self.qa_dir / "powerpoint-live-bridge.json"
+
+    @property
+    def layout_audit_path(self) -> Path:
+        return self.qa_dir / "layout-audit.json"
+
     def load_meta(self) -> dict:
         if not self.meta_path.is_file():
             raise fail(f"案例清单不存在: {self.meta_path}")
         return json.loads(self.meta_path.read_text(encoding="utf-8"))
 
 
-def create_run(reference: Path, case: str | None = None, cases_root: Path | None = None) -> Run:
+def create_run(
+    reference: Path,
+    case: str | None = None,
+    cases_root: Path | None = None,
+    *,
+    source_mode: str = "svg_import",
+    fidelity_profile: str = "editable_native",
+) -> Run:
     reference = reference.resolve()
     if not reference.is_file():
         raise fail(f"参考图不存在: {reference}")
@@ -133,12 +180,27 @@ def create_run(reference: Path, case: str | None = None, cases_root: Path | None
     (root / "run.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    return Run(root)
+    run = Run(root)
+    from tools.v2.contracts import initialize_contracts
+
+    initialize_contracts(
+        run,
+        source_mode=source_mode,
+        fidelity_profile=fidelity_profile,
+    )
+    return run
 
 
 def open_run(run_dir: Path) -> Run:
     run = Run(run_dir.resolve())
     run.load_meta()
+    from tools.v2.contracts import ContractError, initialize_contracts, validate_reference
+
+    try:
+        validate_reference(run)
+        initialize_contracts(run)
+    except ContractError as exc:
+        raise fail(str(exc)) from exc
     return run
 
 

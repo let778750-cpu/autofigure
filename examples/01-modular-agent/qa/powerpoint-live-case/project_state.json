@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "2.0.0",
+  "contractVersion": "2.0.0",
+  "projectId": "autofigure-01-modular-agent",
+  "taskMode": "RECONSTRUCT_1TO1",
+  "state": "PLANNED",
+  "lastSuccessfulState": "PLANNED",
+  "profileId": "journal-double-column",
+  "requestedBackendIds": [
+    "powerpoint"
+  ],
+  "updatedAt": "2026-08-21T09:26:57.169314Z",
+  "blockedReason": null,
+  "gates": {
+    "environment": "PASS",
+    "scientificApproval": "PENDING",
+    "assetDirection": "PENDING",
+    "styleApproval": "PENDING",
+    "assetIntegrity": "PENDING",
+    "backendAudit": "PENDING",
+    "artifactSetIntegrity": "PENDING",
+    "backendReadback": "PENDING",
+    "crossBackendEquivalence": "PENDING",
+    "quality": "PENDING",
+    "humanApproval": "PENDING",
+    "exportReadback": "PENDING"
+  },
+  "history": [
+    {
+      "state": "PLANNED",
+      "at": "2026-08-21T09:26:57.170310Z",
+      "evidence": [
+        "derived from Autofigure v3 scene/bindings and current PPTX hash"
+      ],
+      "note": "Compatibility case only; releaseAuthority=NONE."
+    }
+  ]
+}

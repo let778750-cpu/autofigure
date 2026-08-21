@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import io
 import json
 import math
@@ -24,16 +25,24 @@ from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_CONNECTOR, MSO_SHAPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
+from pptx.opc.constants import CONTENT_TYPE as CT
+from pptx.opc.constants import RELATIONSHIP_TYPE as RT
+from pptx.opc.package import Part
 from pptx.oxml.ns import qn
+from pptx.oxml.xmlchemy import OxmlElement
 from pptx.util import Emu, Pt
 
 from tools.v2 import common
+from tools.v2.layout import Box, collect_svg_boxes
 from tools.v2.svggeom import Matrix, parse_path_d, parse_transform
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
+PML_NS = "http://schemas.openxmlformats.org/presentationml/2006/main"
 EMU_PER_PX = 9525
 PT_PER_PX = 0.75  # 96 dpi
 BASELINE_ASCENT = 0.95  # 实测标定：文本框顶到首行基线（Arial em 比例，含半行距）
+TEXT_BOX_PAD_X = 32.0  # 保持锚点不动的透明选择框余量；覆盖 live 实测最大 28.44 px 横向不足
+TEXT_BOX_PAD_Y = 20.0  # 覆盖旋转标签 live 实测最大 19.50 px 纵向不足
 
 NAMED_COLORS = {
     "black": "#000000", "white": "#FFFFFF", "red": "#FF0000", "green": "#008000",
@@ -172,6 +181,12 @@ def _apply_line(sp_pr, style: dict[str, str], default_width: float = 1.0) -> Non
     """按 style 在 spPr 上设置 a:ln（颜色/宽度/虚线/圆角）。无 stroke 则不建 a:ln。"""
     stroke = parse_color(style.get("stroke"))
     if stroke is None:
+        old = sp_pr.find(qn("a:ln"))
+        if old is not None:
+            sp_pr.remove(old)
+        line = sp_pr.makeelement(qn("a:ln"), {})
+        line.append(line.makeelement(qn("a:noFill"), {}))
+        _insert_before_any(sp_pr, line, _LINE_SUCCESSORS)
         return
     hex_color, stroke_alpha = stroke
     alpha = stroke_alpha * _opacity(style, "stroke-opacity") * _opacity(style, "opacity")
@@ -274,19 +289,276 @@ def _resolve_fill_url(style: dict[str, str], defs: dict[str, ET.Element]) -> ET.
 
 
 class ConvertContext:
-    def __init__(self, slide, defs: dict[str, ET.Element], source_png: Path | None, canvas_area: float):
+    def __init__(
+        self,
+        slide,
+        defs: dict[str, ET.Element],
+        source_png: Path | None,
+        canvas_width: int,
+        canvas_height: int,
+        asset_authorizations: dict[str, dict] | None = None,
+        layout_boxes: dict[str, Box] | None = None,
+    ):
         self.slide = slide
         self.defs = defs
         self.source_png = source_png
-        self.canvas_area = canvas_area
+        self.canvas_width = canvas_width
+        self.canvas_height = canvas_height
+        self.canvas_area = float(canvas_width * canvas_height)
+        self.asset_authorizations = asset_authorizations or {}
+        self.layout_boxes = layout_boxes or {}
         self.warnings: list[str] = []
         self.counts: dict[str, int] = {}
+        self.bindings: list[dict] = []
+        self.scene_elements: dict[str, dict] = {}
+        self.assets: list[dict] = []
+        self.current_element_id = ""
+        self.current_svg_tag = ""
+        self._element_counts: dict[str, int] = {}
+        self._binding_counts: dict[str, int] = {}
+        self.pending_connections: list[tuple[object, str | None, str | None, int, int]] = []
 
     def bump(self, kind: str) -> None:
         self.counts[kind] = self.counts.get(kind, 0) + 1
 
     def warn(self, message: str) -> None:
         self.warnings.append(message)
+
+    def begin_element(self, element: ET.Element, tag: str) -> tuple[str, str]:
+        previous = (self.current_element_id, self.current_svg_tag)
+        self._element_counts[tag] = self._element_counts.get(tag, 0) + 1
+        self.current_element_id = element.get("id") or f"svg-{tag}-{self._element_counts[tag]:04d}"
+        self.current_svg_tag = tag
+        role = element.get("data-role") or (
+            "edge" if tag in ("line", "path", "polyline") and _has_marker(element) else tag
+        )
+        topology = {
+            key: value
+            for key, value in (
+                ("source", element.get("data-source-id")),
+                ("target", element.get("data-target-id")),
+                ("source_gap", element.get("data-source-gap")),
+                ("target_gap", element.get("data-target-gap")),
+                ("attached", element.get("data-attach")),
+            )
+            if value
+        }
+        geometry = {
+            key: element.get(key)
+            for key in (
+                "x",
+                "y",
+                "width",
+                "height",
+                "cx",
+                "cy",
+                "r",
+                "rx",
+                "ry",
+                "x1",
+                "y1",
+                "x2",
+                "y2",
+                "points",
+                "d",
+                "transform",
+            )
+            if element.get(key) is not None
+        }
+        scene_element = {
+                "id": self.current_element_id,
+                "kind": role,
+                "role": role,
+                "svg_tag": tag,
+                "geometry": geometry,
+                "topology": topology,
+                "z_index": len(self.scene_elements),
+                "editable": True,
+            }
+        layout = {
+            key: value
+            for key, value in (
+                ("container_id", element.get("data-layout-container")),
+                ("padding", element.get("data-layout-padding")),
+                ("tolerance", element.get("data-layout-tolerance")),
+                ("repeat_group", element.get("data-repeat-group")),
+                ("repeat_axis", element.get("data-repeat-axis")),
+                ("repeat_order", element.get("data-repeat-order")),
+                ("repeat_size_tolerance", element.get("data-repeat-size-tolerance")),
+                ("repeat_axis_tolerance", element.get("data-repeat-axis-tolerance")),
+                ("repeat_spacing_tolerance", element.get("data-repeat-spacing-tolerance")),
+            )
+            if value is not None
+        }
+        if layout:
+            scene_element["layout"] = layout
+        self.scene_elements.setdefault(self.current_element_id, scene_element)
+        return previous
+
+    def end_element(self, previous: tuple[str, str]) -> None:
+        self.current_element_id, self.current_svg_tag = previous
+
+    def _shape_name(self, kind: str) -> str:
+        element_id = re.sub(r"[^A-Za-z0-9_.-]+", "-", self.current_element_id).strip("-")
+        element_id = element_id[:80] or "element"
+        key = f"{element_id}:{kind}"
+        self._binding_counts[key] = self._binding_counts.get(key, 0) + 1
+        return f"af-{element_id}-{kind}-{self._binding_counts[key]:02d}"
+
+    def register_shape(self, shape, kind: str, *, editable: bool = True) -> str:
+        name = self._shape_name(kind)
+        c_nv_pr = shape._element.find(f".//{qn('p:cNvPr')}")
+        if c_nv_pr is not None:
+            c_nv_pr.set("name", name)
+        self.register_raw(shape.shape_id, name, kind, editable=editable)
+        return name
+
+    def register_xml(self, shape, shape_id: int, kind: str, *, editable: bool = True) -> str:
+        name = self._shape_name(kind)
+        c_nv_pr = shape.find(f".//{qn('p:cNvPr')}")
+        if c_nv_pr is not None:
+            c_nv_pr.set("name", name)
+        self.register_raw(shape_id, name, kind, editable=editable)
+        return name
+
+    def register_raw(self, shape_id: int, name: str, kind: str, *, editable: bool = True) -> None:
+        self.bindings.append(
+            {
+                "element_id": self.current_element_id,
+                "shape_id": int(shape_id),
+                "shape_name": name,
+                "object_kind": kind,
+                "editable": editable,
+                "semantic_group_id": self.current_element_id,
+            }
+        )
+        self.scene_elements.setdefault(
+            self.current_element_id,
+            {
+                "id": self.current_element_id,
+                "kind": "edge" if kind in ("connector", "line", "freeform-arrow") else kind,
+                "svg_tag": self.current_svg_tag,
+                "editable": editable,
+            },
+        )
+        if not editable:
+            self.scene_elements[self.current_element_id]["editable"] = False
+
+    def register_asset(self, asset_id: str, bbox: list[int], source_sha256: str) -> None:
+        authorization = self.asset_authorizations.get(asset_id, {})
+        authorized = authorization.get("authorized") is True
+        raster_reason = authorization.get("raster_reason") or (
+            "Reference-faithful irreducible creative microasset authorized by the user."
+        )
+        decomposition_note = authorization.get("decomposition_note") or (
+            "No faithful native decomposition; formal text, formulas, nodes, and topology remain native."
+        )
+        record = {
+            **authorization,
+            "id": asset_id,
+            "source": "reference_crop",
+            "source_sha256": source_sha256,
+            "bbox": bbox,
+            "editable": False,
+            "authorized": authorized,
+            "source_tightly_cropped": True,
+            "atomic_raster_unit": True,
+            "contains_reconstructable_content": False,
+            "raster_reason": raster_reason,
+            "decomposition_note": decomposition_note,
+        }
+        self.assets.append(record)
+        if not authorized:
+            self.warn(
+                f"{asset_id}: atomic raster has no explicit assets.json authorization; "
+                "strict approval will fail"
+            )
+
+    def add_pending_connection(self, shape, element: ET.Element) -> None:
+        source = element.get("data-source-id")
+        target = element.get("data-target-id")
+        if (not source and not target) or element.get("data-attach") == "false":
+            return
+        self.pending_connections.append(
+            (
+                shape,
+                source,
+                target,
+                int(element.get("data-source-site", "0")),
+                int(element.get("data-target-site", "0")),
+            )
+        )
+
+    def resolve_connections(self) -> None:
+        shape_ids = {
+            binding["element_id"]: binding["shape_id"]
+            for binding in self.bindings
+            if binding["object_kind"] not in ("connector", "line", "freeform-arrow")
+        }
+        for connector, source, target, source_site, target_site in self.pending_connections:
+            c_nv = connector._element.find(f".//{qn('p:cNvCxnSpPr')}")
+            if c_nv is None:
+                self.warn(f"{self.current_element_id}: connector has no cNvCxnSpPr; attachment skipped")
+                continue
+            for tag, element_id, site in (
+                ("a:stCxn", source, source_site),
+                ("a:endCxn", target, target_site),
+            ):
+                if not element_id:
+                    continue
+                shape_id = shape_ids.get(element_id)
+                if shape_id is None:
+                    self.warn(f"connector target id not found: {element_id}")
+                    continue
+                c_nv.append(c_nv.makeelement(qn(tag), {"id": str(shape_id), "idx": str(site)}))
+
+    def group_arrow_parts(self, parts: list) -> None:
+        """Create a real PowerPoint group for a shaft plus custom arrowheads."""
+        unique = []
+        seen: set[int] = set()
+        for part in parts:
+            marker = id(part)
+            if marker not in seen:
+                seen.add(marker)
+                unique.append(part)
+        if len(unique) < 2:
+            return
+        shape_id = _next_shape_id(self.slide)
+        name = self._shape_name("arrow-group")
+        width_emu = round(self.canvas_width * EMU_PER_PX)
+        height_emu = round(self.canvas_height * EMU_PER_PX)
+        group_xml = (
+            '<p:grpSp xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" '
+            'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">'
+            f'<p:nvGrpSpPr><p:cNvPr id="{shape_id}" name="{name}"/>'
+            '<p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>'
+            '<p:grpSpPr><a:xfrm><a:off x="0" y="0"/>'
+            f'<a:ext cx="{width_emu}" cy="{height_emu}"/><a:chOff x="0" y="0"/>'
+            f'<a:chExt cx="{width_emu}" cy="{height_emu}"/></a:xfrm></p:grpSpPr>'
+            '</p:grpSp>'
+        )
+        group = _parse_sp_xml(group_xml)
+        for part in unique:
+            group.append(part)
+        self.slide.shapes._spTree.append(group)
+        child_ids = {
+            int(node.get("id"))
+            for part in unique
+            for node in part.findall(f".//{qn('p:cNvPr')}")
+            if node.get("id")
+        }
+        for binding in self.bindings:
+            if binding["shape_id"] in child_ids:
+                binding["group_shape_id"] = shape_id
+                binding["physically_grouped"] = True
+        self.register_raw(shape_id, name, "arrow-group", editable=True)
+        self.scene_elements[self.current_element_id]["physically_grouped"] = True
+        self.bump("arrow-group")
+
+
+def _has_marker(element: ET.Element) -> bool:
+    inline = _parse_style_attr(element.get("style"))
+    return any(element.get(key) or inline.get(key) for key in ("marker-start", "marker-end"))
 
 
 def _apply_fill_and_line(sp_pr, style: dict[str, str], ctx: ConvertContext) -> None:
@@ -337,6 +609,7 @@ def _emit_rect(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
             pass
     _disable_shadow(shape)
     _apply_fill_and_line(shape._element.spPr, style, ctx)
+    ctx.register_shape(shape, "rect")
     ctx.bump("rect")
 
 
@@ -356,19 +629,146 @@ def _emit_ellipse(ctx: ConvertContext, el: ET.Element, style: dict[str, str], ma
     )
     _disable_shadow(shape)
     _apply_fill_and_line(shape._element.spPr, style, ctx)
+    ctx.register_shape(shape, "ellipse")
     ctx.bump("ellipse")
 
 
-def _emit_line(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix) -> None:
-    x1, y1 = matrix.apply(float(el.get("x1", 0)), float(el.get("y1", 0)))
-    x2, y2 = matrix.apply(float(el.get("x2", 0)), float(el.get("y2", 0)))
+def _marker_reference(el: ET.Element, side: str) -> str | None:
+    attr = f"marker-{side}"
+    value = el.get(attr) or _parse_style_attr(el.get("style")).get(attr)
+    match = re.match(r"url\(#([^)]+)\)", value or "")
+    return match.group(1) if match else None
+
+
+def _native_marker_spec(
+    marker: ET.Element,
+    line_style: dict[str, str],
+    el: ET.Element,
+    side: str,
+) -> dict[str, str] | None:
+    """Map a simple SVG triangle to a real DrawingML line end.
+
+    Unsupported marker artwork is deliberately rejected here so the caller can
+    emit an explicit custom-freeform fallback instead of silently substituting a
+    default PowerPoint arrow.
+    """
+    if marker.get("orient", "auto") not in ("auto", "auto-start-reverse"):
+        return None
+    paths = [child for child in marker if child.tag == f"{SVG_NS}path"]
+    if len(paths) != 1 or paths[0].get("transform"):
+        return None
+    segments = parse_path_d(paths[0].get("d", ""))
+    points = [(part[1], part[2]) for part in segments if part[0] in ("M", "L")]
+    if len(points) != 3:
+        return None
+
+    marker_style = _element_style(paths[0], _element_style(marker, {}))
+    line_color = parse_color(line_style.get("stroke"))
+    marker_color = parse_color(marker_style.get("fill")) or parse_color(marker_style.get("stroke"))
+    if line_color is None or marker_color is None or line_color[0] != marker_color[0]:
+        return None
+
+    explicit_type = el.get(f"data-{side}-arrow-type") or el.get("data-arrow-type")
+    closed = any(part[0] == "Z" for part in segments) or marker_style.get("fill") not in (
+        None,
+        "none",
+        "transparent",
+    )
+    arrow_type = explicit_type or ("triangle" if closed else "arrow")
+    if arrow_type not in {"triangle", "arrow", "stealth", "diamond", "oval"}:
+        return None
+
+    xs = [point[0] for point in points]
+    ys = [point[1] for point in points]
+    try:
+        stroke_width = max(float(line_style.get("stroke-width", "1")), 0.01)
+    except ValueError:
+        stroke_width = 1.0
+    length_ratio = max(xs) - min(xs)
+    width_ratio = max(ys) - min(ys)
+
+    def bucket(value: float) -> str:
+        ratio = value / stroke_width
+        if ratio <= 2.25:
+            return "sm"
+        if ratio <= 4.0:
+            return "med"
+        return "lg"
+
+    width = el.get(f"data-{side}-arrow-width") or el.get("data-arrow-width")
+    length = el.get(f"data-{side}-arrow-length") or el.get("data-arrow-length")
+    width = width or bucket(width_ratio)
+    length = length or bucket(length_ratio)
+    if width not in {"sm", "med", "lg"} or length not in {"sm", "med", "lg"}:
+        return None
+    return {"type": arrow_type, "w": width, "len": length}
+
+
+def _apply_native_markers(
+    ctx: ConvertContext,
+    sp_pr,
+    el: ET.Element,
+    style: dict[str, str],
+) -> set[str]:
+    line = sp_pr.find(qn("a:ln"))
+    if line is None:
+        return set()
+    handled: set[str] = set()
+    for side, tag in (("start", "a:headEnd"), ("end", "a:tailEnd")):
+        marker_id = _marker_reference(el, side)
+        if not marker_id:
+            continue
+        marker = ctx.defs.get(marker_id)
+        spec = _native_marker_spec(marker, style, el, side) if marker is not None else None
+        if spec is None:
+            ctx.warn(
+                f"{ctx.current_element_id}:{side}: marker {marker_id} cannot be represented "
+                "as a native PowerPoint arrow; using grouped custom-freeform fallback"
+            )
+            continue
+        old = line.find(qn(tag))
+        if old is not None:
+            line.remove(old)
+        line.append(line.makeelement(qn(tag), spec))
+        handled.add(side)
+        ctx.bump("native-arrowhead")
+    return handled
+
+
+def _emit_straight_connector(
+    ctx: ConvertContext,
+    el: ET.Element,
+    style: dict[str, str],
+    start: tuple[float, float],
+    end: tuple[float, float],
+) -> None:
+    x1, y1 = start
+    x2, y2 = end
     connector = ctx.slide.shapes.add_connector(
         MSO_CONNECTOR.STRAIGHT, _px(x1), _px(y1), _px(x2), _px(y2)
     )
     _disable_shadow(connector)
     _apply_line(connector._element.spPr, style)
+    is_connector = _has_marker(el) or el.get("data-source-id") or el.get("data-target-id")
+    ctx.register_shape(connector, "connector" if is_connector else "line")
+    ctx.add_pending_connection(connector, el)
+    handled = _apply_native_markers(ctx, connector._element.spPr, el, style)
     ctx.bump("line")
-    _emit_markers(ctx, el, style, [("M", x1, y1), ("L", x2, y2)])
+    marker_shapes = _emit_markers(
+        ctx,
+        el,
+        style,
+        [("M", x1, y1), ("L", x2, y2)],
+        skip=handled,
+    )
+    if marker_shapes:
+        ctx.group_arrow_parts([connector._element, *marker_shapes])
+
+
+def _emit_line(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix) -> None:
+    start = matrix.apply(float(el.get("x1", 0)), float(el.get("y1", 0)))
+    end = matrix.apply(float(el.get("x2", 0)), float(el.get("y2", 0)))
+    _emit_straight_connector(ctx, el, style, start, end)
 
 
 def _emit_poly(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix, close: bool) -> None:
@@ -382,8 +782,18 @@ def _emit_poly(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
         segments.append(("L", *matrix.apply(points[i], points[i + 1])))
     if close:
         segments.append(("Z",))
-    _emit_freeform(ctx, segments, style)
-    _emit_markers(ctx, el, style, segments)
+    shape = _emit_freeform(
+        ctx,
+        segments,
+        style,
+        object_kind="freeform-arrow" if _has_marker(el) else "freeform",
+    )
+    if shape is None:
+        return
+    handled = _apply_native_markers(ctx, shape.find(qn("p:spPr")), el, style)
+    marker_shapes = _emit_markers(ctx, el, style, segments, skip=handled)
+    if marker_shapes:
+        ctx.group_arrow_parts([shape, *marker_shapes])
 
 
 def _emit_path(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix) -> None:
@@ -393,8 +803,27 @@ def _emit_path(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
     segments = parse_path_d(d)
     if matrix != Matrix():
         segments = _transform_segments(segments, matrix)
-    _emit_freeform(ctx, segments, style)
-    _emit_markers(ctx, el, style, segments)
+    if len(segments) == 2 and segments[0][0] == "M" and segments[1][0] == "L":
+        _emit_straight_connector(
+            ctx,
+            el,
+            style,
+            (segments[0][1], segments[0][2]),
+            (segments[1][1], segments[1][2]),
+        )
+        return
+    shape = _emit_freeform(
+        ctx,
+        segments,
+        style,
+        object_kind="freeform-arrow" if _has_marker(el) or el.get("data-role") == "arrow" else "freeform",
+    )
+    if shape is None:
+        return
+    handled = _apply_native_markers(ctx, shape.find(qn("p:spPr")), el, style)
+    marker_shapes = _emit_markers(ctx, el, style, segments, skip=handled)
+    if marker_shapes:
+        ctx.group_arrow_parts([shape, *marker_shapes])
 
 
 def _transform_segments(segments: list[tuple], matrix: Matrix) -> list[tuple]:
@@ -422,7 +851,14 @@ def _segment_vertices(segments: list[tuple]) -> list[tuple[float, float]]:
     return vertices
 
 
-def _emit_freeform(ctx: ConvertContext, segments: list[tuple], style: dict[str, str]) -> None:
+def _emit_freeform(
+    ctx: ConvertContext,
+    segments: list[tuple],
+    style: dict[str, str],
+    *,
+    object_kind: str = "freeform",
+    editable: bool = True,
+):
     # bbox 必须包含贝塞尔控制点：控制多边形永远包住曲线本体，
     # 否则坐标越出声明的 path w/h，PowerPoint 会判定文件损坏。
     xs: list[float] = []
@@ -435,7 +871,7 @@ def _emit_freeform(ctx: ConvertContext, segments: list[tuple], style: dict[str, 
             xs.extend((s[1], s[3], s[5]))
             ys.extend((s[2], s[4], s[6]))
     if not xs:
-        return
+        return None
     min_x, max_x = min(xs), max(xs)
     min_y, max_y = min(ys), max(ys)
     w = max(max_x - min_x, 0.01)
@@ -482,7 +918,9 @@ def _emit_freeform(ctx: ConvertContext, segments: list[tuple], style: dict[str, 
     ctx.slide.shapes._spTree.append(sp)
     sp_pr = sp.find(qn("p:spPr"))
     _apply_fill_and_line(sp_pr, style, ctx)
+    ctx.register_xml(sp, shape_id, object_kind, editable=editable)
     ctx.bump("freeform")
+    return sp
 
 
 def _parse_sp_xml(xml: str):
@@ -496,21 +934,37 @@ def _emit_markers(
     el: ET.Element,
     style: dict[str, str],
     segments: list[tuple],
-) -> None:
+    *,
+    skip: set[str] | None = None,
+) -> list:
     """按 SVG marker 语义放置箭头：marker-start 沿行进方向，marker-end 沿末端切线。
 
     末端切线取末段真实方向（C 段 = 端点 − 第二控制点），而非首末顶点弦方向——
     弦方向在曲线路径上偏差可达 40°+（01 案例 π/a 圆间曲线箭头横甩脱开的根因）。
     """
+    skip = skip or set()
+    emitted: list = []
     if len(segments) < 2:
-        return
+        return emitted
     vertices = _segment_vertices(segments)
     if len(vertices) < 2:
-        return
-    for attr, vertex, direction in (
-        ("marker-start", vertices[0], _start_tangent(segments) or _chord(vertices, forward=True)),
-        ("marker-end", vertices[-1], _end_tangent(segments) or _chord(vertices, forward=False)),
+        return emitted
+    for side, attr, vertex, direction in (
+        (
+            "start",
+            "marker-start",
+            vertices[0],
+            _start_tangent(segments) or _chord(vertices, forward=True),
+        ),
+        (
+            "end",
+            "marker-end",
+            vertices[-1],
+            _end_tangent(segments) or _chord(vertices, forward=False),
+        ),
     ):
+        if side in skip:
+            continue
         ref = el.get(attr) or _parse_style_attr(el.get("style")).get(attr)
         match = re.match(r"url\(#([^)]+)\)", ref or "")
         if not match:
@@ -519,7 +973,8 @@ def _emit_markers(
         if marker is None:
             continue
         angle = math.atan2(direction[1], direction[0])
-        _draw_marker(ctx, marker, vertex[0], vertex[1], angle, style)
+        emitted.extend(_draw_marker(ctx, marker, vertex[0], vertex[1], angle, style))
+    return emitted
 
 
 def _start_tangent(segments: list[tuple]) -> tuple[float, float] | None:
@@ -563,7 +1018,7 @@ def _chord(vertices: list[tuple[float, float]], forward: bool) -> tuple[float, f
 
 def _draw_marker(
     ctx: ConvertContext, marker: ET.Element, x: float, y: float, angle: float, line_style: dict[str, str]
-) -> None:
+) -> list:
     ref_x = float(marker.get("refX", 0))
     ref_y = float(marker.get("refY", 0))
     placement = (
@@ -571,14 +1026,67 @@ def _draw_marker(
         .multiply(Matrix(a=math.cos(angle), b=math.sin(angle), c=-math.sin(angle), d=math.cos(angle)))
         .multiply(Matrix(e=-ref_x, f=-ref_y))
     )
+    emitted: list = []
     for child in marker:
         if child.tag != f"{SVG_NS}path":
             continue
         marker_style = _element_style(child, {})
         segments = parse_path_d(child.get("d", ""))
         segments = _transform_segments(segments, placement)
-        _emit_freeform(ctx, segments, marker_style)
+        shape = _emit_freeform(
+            ctx,
+            segments,
+            marker_style,
+            object_kind="arrowhead-fallback",
+        )
+        if shape is not None:
+            emitted.append(shape)
     ctx.bump("marker")
+    return emitted
+
+
+def _attach_atomic_raster_tags(
+    ctx: ConvertContext,
+    picture,
+    asset_id: str,
+    source_sha256: str,
+) -> None:
+    """Persist the same hash-bound raster metadata read by powerpoint-live."""
+    authorization = ctx.asset_authorizations.get(asset_id, {})
+    if authorization.get("authorized") is not True:
+        return
+    tags = {
+        "AISCIENTIFICILLUSTRATORASSETID": asset_id,
+        "AISCIENTIFICILLUSTRATORSOURCESHA256": source_sha256,
+        "AISCIENTIFICILLUSTRATORRASTERREASON": authorization.get("raster_reason")
+        or "Reference-faithful irreducible creative microasset authorized by the user.",
+        "AISCIENTIFICILLUSTRATORSOURCETIGHTLYCROPPED": "True",
+        "AISCIENTIFICILLUSTRATORATOMICRASTERUNIT": "True",
+        "AISCIENTIFICILLUSTRATORCONTAINSRECONSTRUCTABLECONTENT": "False",
+        "AISCIENTIFICILLUSTRATORDECOMPOSITIONNOTE": authorization.get("decomposition_note")
+        or "No faithful native decomposition; formal text, formulas, nodes, and topology remain native.",
+    }
+    tag_list = ET.Element(f"{{{PML_NS}}}tagLst")
+    for name, value in tags.items():
+        ET.SubElement(tag_list, f"{{{PML_NS}}}tag", {"name": name, "val": str(value)})
+    tag_part = Part(
+        ctx.slide.part.package.next_partname("/ppt/tags/tag%d.xml"),
+        CT.PML_TAGS,
+        ctx.slide.part.package,
+        ET.tostring(tag_list, encoding="utf-8", xml_declaration=True),
+    )
+    relationship_id = ctx.slide.part.relate_to(tag_part, RT.TAGS)
+    nv_pr = picture._element.find(f"{qn('p:nvPicPr')}/{qn('p:nvPr')}")
+    if nv_pr is None:
+        raise common.fail(f"{asset_id}: picture has no p:nvPr for raster metadata")
+    old = nv_pr.find(qn("p:custDataLst"))
+    if old is not None:
+        nv_pr.remove(old)
+    custom_data = OxmlElement("p:custDataLst")
+    tag_reference = OxmlElement("p:tags")
+    tag_reference.set(qn("r:id"), relationship_id)
+    custom_data.append(tag_reference)
+    nv_pr.append(custom_data)
 
 
 def _emit_atomic(ctx: ConvertContext, element_id: str, x: float, y: float, w: float, h: float, matrix: Matrix) -> None:
@@ -596,7 +1104,22 @@ def _emit_atomic(ctx: ConvertContext, element_id: str, x: float, y: float, w: fl
         buffer = io.BytesIO()
         crop.save(buffer, format="PNG")
         buffer.seek(0)
-    ctx.slide.shapes.add_picture(buffer, _px(left), _px(top), _px(right - left), _px(bottom - top))
+    source_sha256 = hashlib.sha256(buffer.getvalue()).hexdigest()
+    picture = ctx.slide.shapes.add_picture(
+        buffer,
+        _px(left),
+        _px(top),
+        _px(right - left),
+        _px(bottom - top),
+    )
+    asset_id = ctx.current_element_id or element_id
+    _attach_atomic_raster_tags(ctx, picture, asset_id, source_sha256)
+    ctx.register_shape(picture, "atomic-raster", editable=False)
+    ctx.register_asset(
+        asset_id,
+        [left, top, right - left, bottom - top],
+        source_sha256,
+    )
     ctx.bump("atomic")
 
 
@@ -675,6 +1198,91 @@ def _collect_text_runs(el: ET.Element, base_style: dict[str, str]) -> list[dict]
     return runs
 
 
+def _layout_number(el: ET.Element, name: str, default: float) -> float:
+    raw = el.get(name)
+    if raw is None:
+        return default
+    try:
+        value = float(raw)
+    except ValueError as exc:
+        raise common.fail(f"{el.get('id') or 'text'}: {name} 必须是像素数值") from exc
+    if not math.isfinite(value) or value < 0:
+        raise common.fail(f"{el.get('id') or 'text'}: {name} 必须是有限非负数")
+    return value
+
+
+def _constrain_text_box(
+    ctx: ConvertContext,
+    el: ET.Element,
+    *,
+    anchor: str,
+    anchor_x: float,
+    left: float,
+    top: float,
+    width: float,
+    height: float,
+    rotation_deg: float,
+) -> tuple[float, float, float, float]:
+    """Constrain an explicitly annotated text box to its SVG container.
+
+    The anchor is preserved.  Only transparent selection-box surplus is
+    clipped; if the declared anchor itself lies outside the container the
+    source contract is invalid and conversion fails instead of silently moving
+    visible content.
+    """
+    container_id = el.get("data-layout-container")
+    if not container_id:
+        return left, top, width, height
+    container = ctx.layout_boxes.get(container_id)
+    if container is None:
+        raise common.fail(
+            f"{el.get('id') or 'text'}: data-layout-container={container_id!r} "
+            "未指向可测量的 SVG 形状"
+        )
+    if rotation_deg:
+        raise common.fail(
+            f"{el.get('id') or 'text'}: 旋转文字的容器约束必须先展平为明确 bbox"
+        )
+    padding = _layout_number(el, "data-layout-padding", 0.0)
+    inner_left = container.x + padding
+    inner_top = container.y + padding
+    inner_right = container.right - padding
+    inner_bottom = container.bottom - padding
+    if inner_right <= inner_left or inner_bottom <= inner_top:
+        raise common.fail(f"{el.get('id') or 'text'}: layout padding 抹空了容器 {container_id!r}")
+    if not inner_left <= anchor_x <= inner_right:
+        raise common.fail(
+            f"{el.get('id') or 'text'}: 文字锚点 x={anchor_x:.3f} 位于容器 {container_id!r} 外"
+        )
+    original = (left, top, width, height)
+    if anchor == "middle":
+        width = min(width, 2.0 * min(anchor_x - inner_left, inner_right - anchor_x))
+        left = anchor_x - width / 2.0
+    elif anchor == "end":
+        width = min(width, anchor_x - inner_left)
+        left = anchor_x - width
+    else:
+        left = max(left, inner_left)
+        width = min(width, inner_right - left)
+    if top < inner_top:
+        # A top shift would move the visible baseline and hide a source error.
+        raise common.fail(
+            f"{el.get('id') or 'text'}: 文本框上边界 {top:.3f} 越出容器 {container_id!r}"
+        )
+    height = min(height, inner_bottom - top)
+    if width <= 0 or height <= 0:
+        raise common.fail(
+            f"{el.get('id') or 'text'}: 容器 {container_id!r} 内没有可用文本区域"
+        )
+    constrained = (left, top, width, height)
+    if any(abs(before - after) > 0.01 for before, after in zip(original, constrained)):
+        ctx.warn(
+            f"{el.get('id') or 'text'}: transparent text box constrained to "
+            f"{container_id} (padding={padding:g}px)"
+        )
+    return constrained
+
+
 def _emit_text(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matrix: Matrix) -> None:
     x = float(el.get("x", 0))
     y = float(el.get("y", 0))
@@ -688,8 +1296,9 @@ def _emit_text(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
         return
 
     anchor = style.get("text-anchor", "start")
-    est_w = max(_estimate_width(full_text, font_size), 1.0)
-    box_h = font_size * 1.25
+    text_w = max(_estimate_width(full_text, font_size), 1.0)
+    box_w = text_w + TEXT_BOX_PAD_X
+    box_h = font_size * 1.25 + TEXT_BOX_PAD_Y
 
     rotation_deg = 0.0
     rot_match = re.fullmatch(r"rotate\(\s*(-?[\d.]+)[\s,]+(-?[\d.]+)[\s,]+(-?[\d.]+)\s*\)", el.get("transform", "").strip())
@@ -697,21 +1306,39 @@ def _emit_text(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
         rotation_deg = float(rot_match.group(1))
         cx, cy = float(rot_match.group(2)), float(rot_match.group(3))
         cx, cy = matrix.apply(cx, cy)
-        left, top = cx - est_w / 2, cy - box_h / 2
+        box_w = min(box_w, max(2 * min(cx, ctx.canvas_width - cx), 0.5))
+        box_h = min(box_h, max(2 * min(cy, ctx.canvas_height - cy), 0.5))
+        left, top = cx - box_w / 2, cy - box_h / 2
         align = PP_ALIGN.CENTER
         vertical = MSO_ANCHOR.MIDDLE
     else:
         x, y = matrix.apply(x, y)
         if anchor == "middle":
-            left, align = x - est_w / 2, PP_ALIGN.CENTER
+            box_w = min(box_w, max(2 * min(x, ctx.canvas_width - x), 0.5))
+            left, align = x - box_w / 2, PP_ALIGN.CENTER
         elif anchor == "end":
-            left, align = x - est_w, PP_ALIGN.RIGHT
+            box_w = min(box_w, max(x, 0.5))
+            left, align = x - box_w, PP_ALIGN.RIGHT
         else:
+            box_w = min(box_w, max(ctx.canvas_width - x, 0.5))
             left, align = x, PP_ALIGN.LEFT
         top = y - font_size * BASELINE_ASCENT
+        box_h = min(box_h, max(ctx.canvas_height - top, 0.5))
         vertical = MSO_ANCHOR.TOP
 
-    textbox = ctx.slide.shapes.add_textbox(_px(left), _px(top), _px(est_w), _px(box_h))
+    left, top, box_w, box_h = _constrain_text_box(
+        ctx,
+        el,
+        anchor=anchor,
+        anchor_x=x if not rotation_deg else left + box_w / 2.0,
+        left=left,
+        top=top,
+        width=box_w,
+        height=box_h,
+        rotation_deg=rotation_deg,
+    )
+
+    textbox = ctx.slide.shapes.add_textbox(_px(left), _px(top), _px(box_w), _px(box_h))
     _disable_shadow(textbox)
     if rotation_deg:
         textbox.rotation = rotation_deg
@@ -745,10 +1372,19 @@ def _emit_text(ctx: ConvertContext, el: ET.Element, style: dict[str, str], matri
             run._r.get_or_add_rPr().set("baseline", "30000")
         elif run_info["shift"] == "sub":
             run._r.get_or_add_rPr().set("baseline", "-25000")
+    ctx.register_shape(textbox, "text")
     ctx.bump("text")
 
 
 # ---------------------------------------------------------------- 树遍历与主流程
+
+
+def _emit_bound(ctx: ConvertContext, element: ET.Element, tag: str, emitter, *args) -> None:
+    previous = ctx.begin_element(element, tag)
+    try:
+        emitter(ctx, element, *args)
+    finally:
+        ctx.end_element(previous)
 
 
 def _walk(ctx: ConvertContext, element: ET.Element, style: dict[str, str], matrix: Matrix) -> None:
@@ -761,33 +1397,149 @@ def _walk(ctx: ConvertContext, element: ET.Element, style: dict[str, str], matri
         for child in element:
             _walk(ctx, child, own_style, own_matrix)
     elif tag == f"{SVG_NS}rect":
-        _emit_rect(ctx, element, own_style, own_matrix)
+        _emit_bound(ctx, element, "rect", _emit_rect, own_style, own_matrix)
     elif tag in (f"{SVG_NS}circle", f"{SVG_NS}ellipse"):
-        _emit_ellipse(ctx, element, own_style, own_matrix)
+        _emit_bound(ctx, element, tag.replace(SVG_NS, ""), _emit_ellipse, own_style, own_matrix)
     elif tag == f"{SVG_NS}line":
-        _emit_line(ctx, element, own_style, own_matrix)
+        _emit_bound(ctx, element, "line", _emit_line, own_style, own_matrix)
     elif tag == f"{SVG_NS}polyline":
-        _emit_poly(ctx, element, own_style, own_matrix, close=False)
+        _emit_bound(ctx, element, "polyline", _emit_poly, own_style, own_matrix, False)
     elif tag == f"{SVG_NS}polygon":
-        _emit_poly(ctx, element, own_style, own_matrix, close=True)
+        _emit_bound(ctx, element, "polygon", _emit_poly, own_style, own_matrix, True)
     elif tag == f"{SVG_NS}path":
-        _emit_path(ctx, element, own_style, own_matrix)
+        _emit_bound(ctx, element, "path", _emit_path, own_style, own_matrix)
     elif tag == f"{SVG_NS}text":
-        _emit_text(ctx, element, own_style, own_matrix)
+        _emit_bound(ctx, element, "text", _emit_text, own_style, own_matrix)
     elif tag == f"{SVG_NS}image":
-        _emit_image(ctx, element, own_matrix)
+        _emit_bound(ctx, element, "image", _emit_image, own_matrix)
     else:
         ctx.warn(f"未知元素已跳过: {tag}")
+
+
+def _svg_dimension(value: str | None) -> float | None:
+    if value is None:
+        return None
+    match = re.fullmatch(r"\s*([-+]?(?:\d*\.\d+|\d+\.?))(?:px)?\s*", value)
+    return float(match.group(1)) if match else None
+
+
+def _iter_readback_shapes(shapes):
+    for shape in shapes:
+        yield shape
+        children = getattr(shape, "shapes", None)
+        if children is not None:
+            yield from _iter_readback_shapes(children)
+
+
+def _write_conversion_contracts(run: common.Run, ctx: ConvertContext, reopened) -> dict:
+    from tools.v2.contracts import read_json, utc_now, write_json
+
+    pptx_hash = common.sha256_file(run.pptx_path)
+    readback_shapes = list(_iter_readback_shapes(reopened.slides[0].shapes))
+    readback_names = {shape.name for shape in readback_shapes}
+    for binding in ctx.bindings:
+        binding["readback_found"] = binding["shape_name"] in readback_names
+
+    scene = read_json(run.scene_path)
+    existing_elements = {item["id"]: item for item in scene.get("elements", [])}
+    merged_elements = []
+    for element_id, generated in ctx.scene_elements.items():
+        # Preserve model/operator annotations that are not regenerated from SVG,
+        # but keep rendered geometry, topology and z-order authoritative.  Letting
+        # a stale scene record override these fields made a corrected DOM order
+        # disagree with the actual PowerPoint shape stack on the next conversion.
+        merged_elements.append({**existing_elements.pop(element_id, {}), **generated})
+    # The current SVG is the complete offline scene carrier.  Retain manual
+    # annotations only for IDs that still exist; carrying unmatched historical
+    # elements creates stale scene objects with no PowerPoint binding.
+    merged_elements.sort(key=lambda item: (int(item.get("z_index", 0)), item["id"]))
+    scene.update(
+        {
+            "updated_at": utc_now(),
+            "elements": merged_elements,
+            "edges": [
+                {"id": item["id"], **item.get("topology", {})}
+                for item in merged_elements
+                if item.get("kind") == "edge" or item.get("topology")
+            ],
+            "artifact": {
+                "backend": "pptx-offline",
+                "path": str(run.pptx_path),
+                "sha256": pptx_hash,
+            },
+        }
+    )
+    write_json(run.scene_path, scene)
+
+    assets = read_json(run.assets_path)
+    existing_assets = {item["id"]: item for item in assets.get("assets", [])}
+    generated_assets = []
+    for generated in ctx.assets:
+        existing = existing_assets.pop(generated["id"], {})
+        generated_assets.append({**generated, **existing, "editable": False})
+    generated_assets.extend(existing_assets.values())
+    assets.update({"updated_at": utc_now(), "assets": generated_assets})
+    write_json(run.assets_path, assets)
+
+    bindings_complete = bool(ctx.bindings) and all(
+        binding["readback_found"] for binding in ctx.bindings
+    )
+    bindings = read_json(run.bindings_path)
+    bindings.update(
+        {
+            "updated_at": utc_now(),
+            "backend": "pptx-offline",
+            "artifact_sha256": pptx_hash,
+            "saved_reopened": True,
+            "bindings_complete": bindings_complete,
+            "bindings": ctx.bindings,
+        }
+    )
+    write_json(run.bindings_path, bindings)
+    return {
+        "pptx_sha256": pptx_hash,
+        "object_count": len(readback_shapes),
+        "bindings_complete": bindings_complete,
+    }
 
 
 def convert(run: common.Run) -> dict:
     if not run.redraw_svg.is_file():
         raise common.fail(f"未找到 SVG: {run.redraw_svg}（先把 GPT 输出保存到这里）")
-    meta = run.load_meta()
+    from tools.v2.contracts import initialize_contracts, read_json, transition
+
+    meta = initialize_contracts(run)
+    current_state = meta["workflow"]["state"]
+    if current_state in {"approved", "candidate", "qa_failed"}:
+        transition(run, "repairing", "offline-conversion-started")
     width, height = int(meta["width"]), int(meta["height"])
 
     tree = ET.parse(run.redraw_svg)
     root = tree.getroot()
+    required_view_box = root.get("viewBox", "")
+    required_parts = [
+        float(part) for part in re.split(r"[\s,]+", required_view_box.strip()) if part
+    ]
+    if len(required_parts) != 4:
+        raise common.fail("SVG viewBox is required and must contain four numbers")
+    if (
+        abs(required_parts[0]) > 1e-6
+        or abs(required_parts[1]) > 1e-6
+        or round(required_parts[2]) != width
+        or round(required_parts[3]) != height
+    ):
+        raise common.fail(
+            f"SVG viewBox {required_parts} must be [0, 0, {width}, {height}] "
+            "to preserve reference coordinates"
+        )
+    svg_width = _svg_dimension(root.get("width"))
+    svg_height = _svg_dimension(root.get("height"))
+    if svg_width is None or svg_height is None:
+        raise common.fail("SVG root width/height must be numeric pixel dimensions")
+    if round(svg_width) != width or round(svg_height) != height:
+        raise common.fail(
+            f"SVG root size {svg_width}x{svg_height} does not match reference {width}x{height}"
+        )
     view_box = root.get("viewBox", "")
     if view_box:
         parts = [float(p) for p in re.split(r"[\s,]+", view_box.strip())]
@@ -803,8 +1555,21 @@ def convert(run: common.Run) -> dict:
 
     defs = _collect_defs(root)
     source_png = run.source_png if run.source_png.is_file() else None
-    ctx = ConvertContext(slide, defs, source_png, float(width * height))
+    assets_document = read_json(run.assets_path)
+    asset_authorizations = {
+        item["id"]: item for item in assets_document.get("assets", []) if item.get("id")
+    }
+    ctx = ConvertContext(
+        slide,
+        defs,
+        source_png,
+        width,
+        height,
+        asset_authorizations=asset_authorizations,
+        layout_boxes=collect_svg_boxes(root),
+    )
     _walk(ctx, root, {}, Matrix())
+    ctx.resolve_connections()
 
     run.qa_dir.mkdir(exist_ok=True)
     prs.save(run.pptx_path)
@@ -812,9 +1577,13 @@ def convert(run: common.Run) -> dict:
     # 读回统计（机械验收的基础）
     reopened = Presentation(run.pptx_path)
     readback_texts = 0
-    for shape in reopened.slides[0].shapes:
+    for shape in _iter_readback_shapes(reopened.slides[0].shapes):
         if shape.has_text_frame and shape.text_frame.text.strip():
             readback_texts += 1
+    contract_summary = _write_conversion_contracts(run, ctx, reopened)
+    from tools.v2.layout import audit_layout
+
+    layout_report = audit_layout(run)
     summary = {
         "svg": str(run.redraw_svg),
         "pptx": str(run.pptx_path),
@@ -823,10 +1592,14 @@ def convert(run: common.Run) -> dict:
         "textbox_with_text": readback_texts,
         "emitted": ctx.counts,
         "warnings": ctx.warnings,
+        "layout_pass": layout_report["pass"],
+        "layout_findings": len(layout_report["findings"]),
+        **contract_summary,
     }
     (run.qa_dir / "convert-summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    transition(run, "candidate", "offline-conversion-complete", details=contract_summary)
     return summary
 
 

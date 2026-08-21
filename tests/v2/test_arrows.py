@@ -172,6 +172,32 @@ def test_calibrate_overrides_band():
     assert audit_svg_text(fixed, calibrate={"gold": 6.0})["counts"].get("F2", 0) == 0
 
 
+def test_element_head_length_is_per_arrow_calibration():
+    svg = _svg(
+        _solid_marker("gold", 10, 10, color="#8d6a00"),
+        '<line id="a1" data-head-length="10" x1="10" y1="40" x2="146" y2="40" '
+        'stroke="#8d6a00" stroke-width="1.8" marker-end="url(#gold)"/>'
+        '<line id="a2" x1="10" y1="80" x2="146" y2="80" '
+        'stroke="#8d6a00" stroke-width="1.8" marker-end="url(#gold)"/>'
+        + BOX,
+    )
+    audit = audit_svg_text(svg)
+    assert audit["counts"]["F2"] == 1
+    assert audit["calibration_scope"] == {"a1:end": "element"}
+
+
+def test_owned_ellipsis_does_not_trigger_label_collision():
+    svg = _svg(
+        _solid_marker("arr", 12, 12),
+        '<line id="skip-edge" x1="10" y1="60" x2="146" y2="60" '
+        'stroke="#777777" stroke-width="4" marker-end="url(#arr)"/>'
+        '<text id="skip-label" data-owner-id="skip-edge" x="70" y="65" '
+        'font-size="16">...</text>'
+        + BOX,
+    )
+    assert audit_svg_text(svg)["counts"].get("F6", 0) == 0
+
+
 def test_case01_regression_baseline():
     """真实案例回归：仓库内交付的 01 必须保持零 F1；人为回退一个 marker 验证审计能抓住。"""
     from pathlib import Path
@@ -186,3 +212,72 @@ def test_case01_regression_baseline():
     assert audit_svg_text(broken)["counts"]["F1"] >= 1
     fixed, _ = fix_svg_text(broken)
     assert audit_svg_text(fixed)["counts"].get("F1", 0) == 0
+
+
+def test_f3_does_not_use_arrow_own_path_as_boundary():
+    svg = _svg(
+        _solid_marker("arr", 12, 12),
+        '<path d="M10,60 L90,60" stroke="#777777" stroke-width="4" '
+        'fill="none" marker-end="url(#arr)"/>',
+    )
+    audit = audit_svg_text(svg)
+    assert audit["counts"]["F3"] == 1
+
+
+def test_nested_transform_is_applied_to_arrow_and_target():
+    svg = _svg(
+        _solid_marker("arr", 12, 12),
+        '<g transform="translate(30 0)">'
+        '<rect id="target" x="150" y="40" width="40" height="40"/>'
+        '<line id="edge" x1="10" y1="60" x2="150" y2="60" '
+        'stroke="#777777" stroke-width="4" marker-end="url(#arr)"/>'
+        '</g>',
+    )
+    audit = audit_svg_text(svg)
+    assert audit["counts"].get("F3", 0) == 0
+    finding = next((item for item in audit["findings"] if item["element"] == "edge"), None)
+    assert finding is None
+
+
+def test_declared_target_identity_cannot_be_satisfied_by_decoy():
+    svg = _svg(
+        _solid_marker("arr", 12, 12),
+        '<rect id="declared" x="150" y="10" width="40" height="20"/>'
+        '<rect id="decoy" x="150" y="40" width="40" height="40"/>'
+        '<line id="edge" data-target-id="declared" x1="10" y1="60" x2="150" y2="60" '
+        'stroke="#777777" stroke-width="4" marker-end="url(#arr)"/>',
+    )
+    audit = audit_svg_text(svg)
+    assert audit["counts"]["F5"] == 1
+
+
+def test_per_arrow_calibration_clones_shared_marker_idempotently():
+    svg = _svg(
+        _solid_marker("shared", 12, 12),
+        '<line id="a1" x1="10" y1="40" x2="146" y2="40" stroke="#777777" '
+        'stroke-width="4" marker-end="url(#shared)"/>'
+        '<line id="a2" x1="10" y1="80" x2="146" y2="80" stroke="#777777" '
+        'stroke-width="4" marker-end="url(#shared)"/>'
+        '<rect x="150" y="20" width="40" height="80"/>',
+    )
+    fixed, fixes = fix_svg_text(svg, calibrate={"a1": 6.0})
+    assert any(item.get("arrow") == "a1" for item in fixes)
+    assert 'id="shared--a1-end"' in fixed
+    assert 'id="a2"' in fixed and 'marker-end="url(#shared)"' in fixed
+    assert audit_svg_text(fixed, calibrate={"a1": 6.0})["counts"].get("F2", 0) == 0
+    fixed_again, fixes_again = fix_svg_text(fixed, calibrate={"a1": 6.0})
+    assert fixes_again == []
+    assert fixed_again == fixed
+
+
+def test_reference_path_and_label_collision_are_reported():
+    svg = _svg(
+        _solid_marker("arr", 12, 12),
+        '<rect x="150" y="40" width="40" height="40"/>'
+        '<line id="edge" data-reference-d="M10,20 L150,60" x1="10" y1="60" x2="150" y2="60" '
+        'stroke="#777777" stroke-width="4" marker-end="url(#arr)"/>'
+        '<text id="label" x="70" y="65" font-size="16">collision</text>',
+    )
+    audit = audit_svg_text(svg)
+    assert audit["counts"]["F7"] == 1
+    assert audit["counts"]["F6"] == 1

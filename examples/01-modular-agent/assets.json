@@ -1,0 +1,52 @@
+{
+  "schema_version": "3.0.0",
+  "kind": "assets",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "updated_at": "20260821T092440Z",
+  "policy": {
+    "formal_content_native": true,
+    "authorized_atomic_raster_only": true,
+    "whole_reference_forbidden": true
+  },
+  "assets": [
+    {
+      "id": "atomic:observation",
+      "source": "reference_crop",
+      "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
+      "authorized": true,
+      "authorization_basis": "user-requested reference-faithful reuse of creative microassets",
+      "editable": false,
+      "source_sha256": "61c6c0a2d3ee6722cb36713edacd8310a676e2855245e250f1f1a8cae56f5e9f",
+      "source_tightly_cropped": true,
+      "atomic_raster_unit": true,
+      "contains_reconstructable_content": false,
+      "raster_reason": "Reference-faithful irreducible creative microasset authorized by the user.",
+      "decomposition_note": "No faithful native decomposition; formal text, formulas, nodes, and topology remain native."
+    },
+    {
+      "id": "atomic:environment-globe",
+      "source": "reference_crop",
+      "bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
+      "authorized": true,
+      "authorization_basis": "user-requested reference-faithful reuse of creative microassets",
+      "editable": false,
+      "source_sha256": "3bfe64f24f546aab0797223e0256f9da48314e668dc18d93a0b27347b84ba21d",
+      "source_tightly_cropped": true,
+      "atomic_raster_unit": true,
+      "contains_reconstructable_content": false,
+      "raster_reason": "Reference-faithful irreducible creative microasset authorized by the user.",
+      "decomposition_note": "No faithful native decomposition; formal text, formulas, nodes, and topology remain native."
+    }
+  ]
+}

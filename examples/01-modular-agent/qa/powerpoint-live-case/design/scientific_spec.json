@@ -1,0 +1,1993 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-01-modular-agent",
+  "figureRole": "system_architecture",
+  "language": "en",
+  "audience": "Autofigure human review",
+  "claims": [
+    {
+      "claimId": "reference-correspondence",
+      "text": "This editable candidate reconstructs the designated reference; scientific interpretation remains source-bound.",
+      "evidenceType": "conceptual",
+      "sourceIds": [
+        "reference"
+      ],
+      "mustShow": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "svg-rect-0001",
+      "label": "svg-rect-0001",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-list",
+      "label": "task-list",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0001",
+      "label": "svg-circle-0001",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0002",
+      "label": "svg-circle-0002",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0001",
+      "label": "svg-path-0001",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0001",
+      "label": "Task 1: Turn on lamp",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0002",
+      "label": "Task 2: Close top drawer ...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-encoder",
+      "label": "task-encoder",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0003",
+      "label": "task",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0004",
+      "label": "Encoder",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-token-vector",
+      "label": "task-token-vector",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0003",
+      "label": "svg-circle-0003",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0004",
+      "label": "svg-circle-0004",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0005",
+      "label": "svg-circle-0005",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0005",
+      "label": "svg-text-0005",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-mapping",
+      "label": "task-mapping",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-mapping-label",
+      "label": "mapping",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-mapping-formula",
+      "label": "fmap",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0006",
+      "label": "svg-rect-0006",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0008",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0009",
+      "label": "semantic expert",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0007",
+      "label": "svg-rect-0007",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0010",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0011",
+      "label": "dynamics expert",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-aware-modular-joint-panel",
+      "label": "task-aware-modular-joint-panel",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-aware-behavior-panel",
+      "label": "task-aware-behavior-panel",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0012",
+      "label": "Task-Aware Modular Joint",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-header",
+      "label": "allocator-header",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0013",
+      "label": "Task-Guided Expert Allocator",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-polygon-0001",
+      "label": "svg-polygon-0001",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "atomic:observation",
+      "label": "atomic:observation",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": false
+    },
+    {
+      "entityId": "svg-text-0014",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0015",
+      "label": "observation",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mllm-encoder",
+      "label": "mllm-encoder",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0016",
+      "label": "MLLM",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0017",
+      "label": "Encoder",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "wm-encoder",
+      "label": "wm-encoder",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0018",
+      "label": "WM",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0019",
+      "label": "Encoder",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0005",
+      "label": "svg-line-0005",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0006",
+      "label": "svg-line-0006",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "e-v-vector",
+      "label": "e-v-vector",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0020",
+      "label": "svg-text-0020",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "e-v-circle-1",
+      "label": "e-v-circle-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "e-v-circle-2",
+      "label": "e-v-circle-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "e-v-circle-3",
+      "label": "e-v-circle-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0007",
+      "label": "svg-line-0007",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "s-t-vector",
+      "label": "s-t-vector",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0021",
+      "label": "svg-text-0021",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "s-t-circle-1",
+      "label": "s-t-circle-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "s-t-circle-2",
+      "label": "s-t-circle-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "s-t-circle-3",
+      "label": "s-t-circle-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0008",
+      "label": "svg-line-0008",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0016",
+      "label": "svg-rect-0016",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0017",
+      "label": "svg-rect-0017",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0022",
+      "label": "Task 1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0018",
+      "label": "svg-rect-0018",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0023",
+      "label": "Task 2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0019",
+      "label": "svg-rect-0019",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0020",
+      "label": "svg-rect-0020",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0021",
+      "label": "svg-rect-0021",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0024",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0025",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0026",
+      "label": "1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0022",
+      "label": "svg-rect-0022",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0023",
+      "label": "svg-rect-0023",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0024",
+      "label": "svg-rect-0024",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0027",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0028",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0029",
+      "label": "2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0025",
+      "label": "svg-rect-0025",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0026",
+      "label": "svg-rect-0026",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0027",
+      "label": "svg-rect-0027",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0030",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0031",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0032",
+      "label": "3",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0028",
+      "label": "svg-rect-0028",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0029",
+      "label": "svg-rect-0029",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0030",
+      "label": "svg-rect-0030",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0033",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0034",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0035",
+      "label": "l",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0036",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0004",
+      "label": "svg-path-0004",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0005",
+      "label": "svg-path-0005",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-task1-route-1",
+      "label": "allocator-task1-route-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-task1-route-2",
+      "label": "allocator-task1-route-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-task1-skip-edge",
+      "label": "allocator-task1-skip-edge",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0037",
+      "label": "svg-text-0037",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0031",
+      "label": "svg-rect-0031",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0012",
+      "label": "svg-circle-0012",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0013",
+      "label": "svg-circle-0013",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0014",
+      "label": "svg-circle-0014",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0032",
+      "label": "svg-rect-0032",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0015",
+      "label": "svg-circle-0015",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0016",
+      "label": "svg-circle-0016",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0017",
+      "label": "svg-circle-0017",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "top-mixture-to-rollout",
+      "label": "top-mixture-to-rollout",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "bottom-mixture-to-rollout",
+      "label": "bottom-mixture-to-rollout",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-conditioned-imagination",
+      "label": "task-conditioned-imagination",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0038",
+      "label": "task-conditioned imagination",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0034",
+      "label": "svg-rect-0034",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0039",
+      "label": "svg-text-0039",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0035",
+      "label": "svg-rect-0035",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0040",
+      "label": "svg-text-0040",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0036",
+      "label": "svg-rect-0036",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0041",
+      "label": "svg-text-0041",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0037",
+      "label": "svg-rect-0037",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0042",
+      "label": "svg-text-0042",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-z0-to-z1",
+      "label": "imagination-z0-to-z1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-z1-to-z2",
+      "label": "imagination-z1-to-z2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-z2-to-zh",
+      "label": "imagination-z2-to-zh",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0043",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-z0-to-r0",
+      "label": "imagination-z0-to-r0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-z1-to-r1",
+      "label": "imagination-z1-to-r1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-z2-to-r2",
+      "label": "imagination-z2-to-r2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0018",
+      "label": "svg-circle-0018",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0019",
+      "label": "svg-circle-0019",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0020",
+      "label": "svg-circle-0020",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0044",
+      "label": "svg-text-0044",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0045",
+      "label": "svg-text-0045",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0046",
+      "label": "svg-text-0046",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0012",
+      "label": "svg-path-0012",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0013",
+      "label": "svg-path-0013",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0014",
+      "label": "svg-path-0014",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0015",
+      "label": "svg-line-0015",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0016",
+      "label": "svg-line-0016",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0047",
+      "label": "dense",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0048",
+      "label": "reward",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-panel",
+      "label": "rollout-panel",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0039",
+      "label": "svg-rect-0039",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0049",
+      "label": "svg-text-0049",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0040",
+      "label": "svg-rect-0040",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0050",
+      "label": "svg-text-0050",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0041",
+      "label": "svg-rect-0041",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0051",
+      "label": "svg-text-0051",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0042",
+      "label": "svg-rect-0042",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0052",
+      "label": "svg-text-0052",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z0-to-z1",
+      "label": "rollout-z0-to-z1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z1-to-z2",
+      "label": "rollout-z1-to-z2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z2-to-zh",
+      "label": "rollout-z2-to-zh",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0053",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0021",
+      "label": "svg-circle-0021",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0054",
+      "label": "svg-text-0054",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0022",
+      "label": "svg-circle-0022",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0055",
+      "label": "svg-text-0055",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0023",
+      "label": "svg-circle-0023",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0056",
+      "label": "svg-text-0056",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0024",
+      "label": "svg-circle-0024",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0057",
+      "label": "svg-text-0057",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0025",
+      "label": "svg-circle-0025",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0058",
+      "label": "svg-text-0058",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0026",
+      "label": "svg-circle-0026",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0059",
+      "label": "svg-text-0059",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z0-to-pi0",
+      "label": "rollout-z0-to-pi0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z1-to-pi1",
+      "label": "rollout-z1-to-pi1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z2-to-pi2",
+      "label": "rollout-z2-to-pi2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-pi0-to-a0",
+      "label": "rollout-pi0-to-a0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-pi1-to-a1",
+      "label": "rollout-pi1-to-a1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-pi2-to-a2",
+      "label": "rollout-pi2-to-a2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-a0-to-z1",
+      "label": "rollout-a0-to-z1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-a1-to-z2",
+      "label": "rollout-a1-to-z2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-a2-to-next",
+      "label": "rollout-a2-to-next",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z0-to-r0",
+      "label": "rollout-z0-to-r0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z1-to-r1",
+      "label": "rollout-z1-to-r1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z2-to-r2",
+      "label": "rollout-z2-to-r2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0060",
+      "label": "rollout",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0061",
+      "label": "Task-Aware Behavior Learning",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-optimization",
+      "label": "joint-optimization",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0062",
+      "label": "MLLM-WM Joint Optimization",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "footer-reward-action",
+      "label": "footer-reward-action",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0022",
+      "label": "svg-path-0022",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0023",
+      "label": "svg-path-0023",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0024",
+      "label": "svg-path-0024",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0026",
+      "label": "svg-line-0026",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0027",
+      "label": "svg-line-0027",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0063",
+      "label": "dense reward",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0027",
+      "label": "svg-circle-0027",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0025",
+      "label": "svg-path-0025",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-path-0026",
+      "label": "svg-path-0026",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-line-0028",
+      "label": "svg-line-0028",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0064",
+      "label": "action",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0065",
+      "label": "interaction",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "atomic:environment-globe",
+      "label": "atomic:environment-globe",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": false
+    },
+    {
+      "entityId": "svg-text-0066",
+      "label": "Environment",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    }
+  ],
+  "relations": [
+    {
+      "relationId": "rel:task-list-to-encoder",
+      "source": "task-list",
+      "target": "task-encoder",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:task-encoder-to-token",
+      "source": "task-encoder",
+      "target": "task-token-vector",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:task-token-to-mapping",
+      "source": "task-token-vector",
+      "target": "task-mapping",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:task-token-to-allocator",
+      "source": "task-token-vector",
+      "target": "allocator-header",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:observation-to-mllm",
+      "source": "atomic:observation",
+      "target": "mllm-encoder",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:observation-to-wm",
+      "source": "atomic:observation",
+      "target": "wm-encoder",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:mapping-to-imagination",
+      "source": "task-mapping",
+      "target": "task-conditioned-imagination",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:joint-feedback-to-modular-panel",
+      "source": "joint-optimization",
+      "target": "task-aware-modular-joint-panel",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:reward-to-joint-optimization",
+      "source": "footer-reward-action",
+      "target": "joint-optimization",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:behavior-to-reward",
+      "source": "task-aware-behavior-panel",
+      "target": "footer-reward-action",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:interaction-arrow",
+      "source": "footer-reward-action",
+      "target": "atomic:environment-globe",
+      "kind": "flow",
+      "direction": "bidirectional",
+      "sourceIds": [
+        "reference"
+      ]
+    }
+  ],
+  "formulas": [],
+  "evidenceDeclarations": [],
+  "unknowns": [
+    "Independent scientific-semantic approval has not been supplied."
+  ],
+  "approval": {
+    "status": "PENDING",
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Bridge generation does not approve scientific content."
+  }
+}

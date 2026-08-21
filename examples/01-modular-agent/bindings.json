@@ -1,0 +1,1821 @@
+{
+  "schema_version": "3.0.0",
+  "kind": "bindings",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "updated_at": "20260821T092448Z",
+  "backend": "pptx-offline+native-math",
+  "saved_reopened": true,
+  "bindings_complete": true,
+  "bindings": [
+    {
+      "element_id": "svg-rect-0001",
+      "shape_id": 2,
+      "shape_name": "af-svg-rect-0001-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-list",
+      "shape_id": 3,
+      "shape_name": "af-task-list-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-list",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0001",
+      "shape_id": 4,
+      "shape_name": "af-svg-circle-0001-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0002",
+      "shape_id": 5,
+      "shape_name": "af-svg-circle-0002-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0001",
+      "shape_id": 6,
+      "shape_name": "af-svg-path-0001-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0001",
+      "shape_id": 7,
+      "shape_name": "af-svg-text-0001-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0002",
+      "shape_id": 8,
+      "shape_name": "af-svg-text-0002-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-list-to-encoder",
+      "shape_id": 9,
+      "shape_name": "af-task-list-to-encoder-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "task-list-to-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-encoder",
+      "shape_id": 10,
+      "shape_name": "af-task-encoder-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0003",
+      "shape_id": 11,
+      "shape_name": "af-svg-text-0003-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0003",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0004",
+      "shape_id": 12,
+      "shape_name": "af-svg-text-0004-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-encoder-to-token",
+      "shape_id": 13,
+      "shape_name": "af-task-encoder-to-token-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "task-encoder-to-token",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-token-vector",
+      "shape_id": 14,
+      "shape_name": "af-task-token-vector-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-token-vector",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0003",
+      "shape_id": 15,
+      "shape_name": "af-svg-circle-0003-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0003",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0004",
+      "shape_id": 16,
+      "shape_name": "af-svg-circle-0004-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0005",
+      "shape_id": 17,
+      "shape_name": "af-svg-circle-0005-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0005",
+      "shape_id": 18,
+      "shape_name": "math:001",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0005",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ001"
+    },
+    {
+      "element_id": "task-token-to-mapping",
+      "shape_id": 19,
+      "shape_name": "af-task-token-to-mapping-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "task-token-to-mapping",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-mapping",
+      "shape_id": 20,
+      "shape_name": "af-task-mapping-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-mapping",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-mapping-label",
+      "shape_id": 21,
+      "shape_name": "af-task-mapping-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-mapping-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-mapping-formula",
+      "shape_id": 22,
+      "shape_name": "math:002",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "task-mapping-formula",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ002"
+    },
+    {
+      "element_id": "task-token-to-allocator",
+      "shape_id": 23,
+      "shape_name": "af-task-token-to-allocator-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "task-token-to-allocator",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0006",
+      "shape_id": 24,
+      "shape_name": "af-svg-rect-0006-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0006",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0008",
+      "shape_id": 25,
+      "shape_name": "af-svg-text-0008-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0008",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0009",
+      "shape_id": 26,
+      "shape_name": "af-svg-text-0009-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0009",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0007",
+      "shape_id": 27,
+      "shape_name": "af-svg-rect-0007-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0007",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0010",
+      "shape_id": 28,
+      "shape_name": "af-svg-text-0010-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0010",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0011",
+      "shape_id": 29,
+      "shape_name": "af-svg-text-0011-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0011",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-aware-modular-joint-panel",
+      "shape_id": 30,
+      "shape_name": "af-task-aware-modular-joint-panel-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-aware-modular-joint-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-aware-behavior-panel",
+      "shape_id": 31,
+      "shape_name": "af-task-aware-behavior-panel-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-aware-behavior-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0012",
+      "shape_id": 32,
+      "shape_name": "af-svg-text-0012-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-header",
+      "shape_id": 33,
+      "shape_name": "af-allocator-header-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "allocator-header",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0013",
+      "shape_id": 34,
+      "shape_name": "af-svg-text-0013-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-polygon-0001",
+      "shape_id": 35,
+      "shape_name": "af-svg-polygon-0001-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-polygon-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "atomic:observation",
+      "shape_id": 36,
+      "shape_name": "af-atomic-observation-atomic-raster-01",
+      "object_kind": "atomic-raster",
+      "editable": false,
+      "semantic_group_id": "atomic:observation",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0014",
+      "shape_id": 37,
+      "shape_name": "af-svg-text-0014-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0015",
+      "shape_id": 38,
+      "shape_name": "af-svg-text-0015-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "observation-to-mllm",
+      "shape_id": 39,
+      "shape_name": "af-observation-to-mllm-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "observation-to-mllm",
+      "readback_found": true
+    },
+    {
+      "element_id": "observation-to-wm",
+      "shape_id": 40,
+      "shape_name": "af-observation-to-wm-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "observation-to-wm",
+      "readback_found": true
+    },
+    {
+      "element_id": "mllm-encoder",
+      "shape_id": 41,
+      "shape_name": "af-mllm-encoder-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "mllm-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0016",
+      "shape_id": 42,
+      "shape_name": "af-svg-text-0016-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0017",
+      "shape_id": 43,
+      "shape_name": "af-svg-text-0017-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "wm-encoder",
+      "shape_id": 44,
+      "shape_name": "af-wm-encoder-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "wm-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0018",
+      "shape_id": 45,
+      "shape_name": "af-svg-text-0018-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0019",
+      "shape_id": 46,
+      "shape_name": "af-svg-text-0019-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0019",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0005",
+      "shape_id": 47,
+      "shape_name": "af-svg-line-0005-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "svg-line-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0006",
+      "shape_id": 48,
+      "shape_name": "af-svg-line-0006-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "svg-line-0006",
+      "readback_found": true
+    },
+    {
+      "element_id": "e-v-vector",
+      "shape_id": 49,
+      "shape_name": "af-e-v-vector-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "e-v-vector",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0020",
+      "shape_id": 50,
+      "shape_name": "math:003",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0020",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ003"
+    },
+    {
+      "element_id": "e-v-circle-1",
+      "shape_id": 51,
+      "shape_name": "af-e-v-circle-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "e-v-circle-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "e-v-circle-2",
+      "shape_id": 52,
+      "shape_name": "af-e-v-circle-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "e-v-circle-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "e-v-circle-3",
+      "shape_id": 53,
+      "shape_name": "af-e-v-circle-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "e-v-circle-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0007",
+      "shape_id": 54,
+      "shape_name": "af-svg-line-0007-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "svg-line-0007",
+      "readback_found": true
+    },
+    {
+      "element_id": "s-t-vector",
+      "shape_id": 55,
+      "shape_name": "af-s-t-vector-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "s-t-vector",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0021",
+      "shape_id": 56,
+      "shape_name": "math:004",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0021",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ004"
+    },
+    {
+      "element_id": "s-t-circle-1",
+      "shape_id": 57,
+      "shape_name": "af-s-t-circle-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "s-t-circle-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "s-t-circle-2",
+      "shape_id": 58,
+      "shape_name": "af-s-t-circle-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "s-t-circle-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "s-t-circle-3",
+      "shape_id": 59,
+      "shape_name": "af-s-t-circle-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "s-t-circle-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0008",
+      "shape_id": 60,
+      "shape_name": "af-svg-line-0008-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "svg-line-0008",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0016",
+      "shape_id": 61,
+      "shape_name": "af-svg-rect-0016-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0017",
+      "shape_id": 62,
+      "shape_name": "af-svg-rect-0017-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0022",
+      "shape_id": 63,
+      "shape_name": "af-svg-text-0022-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0018",
+      "shape_id": 64,
+      "shape_name": "af-svg-rect-0018-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0023",
+      "shape_id": 65,
+      "shape_name": "af-svg-text-0023-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0019",
+      "shape_id": 66,
+      "shape_name": "af-svg-rect-0019-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0019",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0020",
+      "shape_id": 67,
+      "shape_name": "af-svg-rect-0020-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0020",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0021",
+      "shape_id": 68,
+      "shape_name": "af-svg-rect-0021-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0021",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0024",
+      "shape_id": 69,
+      "shape_name": "af-svg-text-0024-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0025",
+      "shape_id": 70,
+      "shape_name": "af-svg-text-0025-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0026",
+      "shape_id": 71,
+      "shape_name": "af-svg-text-0026-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0022",
+      "shape_id": 72,
+      "shape_name": "af-svg-rect-0022-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0023",
+      "shape_id": 73,
+      "shape_name": "af-svg-rect-0023-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0024",
+      "shape_id": 74,
+      "shape_name": "af-svg-rect-0024-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0027",
+      "shape_id": 75,
+      "shape_name": "af-svg-text-0027-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0028",
+      "shape_id": 76,
+      "shape_name": "af-svg-text-0028-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0029",
+      "shape_id": 77,
+      "shape_name": "af-svg-text-0029-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0029",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0025",
+      "shape_id": 78,
+      "shape_name": "af-svg-rect-0025-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0026",
+      "shape_id": 79,
+      "shape_name": "af-svg-rect-0026-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0027",
+      "shape_id": 80,
+      "shape_name": "af-svg-rect-0027-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0030",
+      "shape_id": 81,
+      "shape_name": "af-svg-text-0030-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0030",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0031",
+      "shape_id": 82,
+      "shape_name": "af-svg-text-0031-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0031",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0032",
+      "shape_id": 83,
+      "shape_name": "af-svg-text-0032-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0032",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0028",
+      "shape_id": 84,
+      "shape_name": "af-svg-rect-0028-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0029",
+      "shape_id": 85,
+      "shape_name": "af-svg-rect-0029-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0029",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0030",
+      "shape_id": 86,
+      "shape_name": "af-svg-rect-0030-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0030",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0033",
+      "shape_id": 87,
+      "shape_name": "af-svg-text-0033-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0033",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0034",
+      "shape_id": 88,
+      "shape_name": "af-svg-text-0034-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0034",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0035",
+      "shape_id": 89,
+      "shape_name": "af-svg-text-0035-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0035",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0036",
+      "shape_id": 90,
+      "shape_name": "af-svg-text-0036-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0036",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0004",
+      "shape_id": 91,
+      "shape_name": "af-svg-path-0004-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0005",
+      "shape_id": 92,
+      "shape_name": "af-svg-path-0005-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task1-route-1",
+      "shape_id": 93,
+      "shape_name": "af-allocator-task1-route-1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-route-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task1-route-2",
+      "shape_id": 94,
+      "shape_name": "af-allocator-task1-route-2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-route-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task1-skip-edge",
+      "shape_id": 95,
+      "shape_name": "af-allocator-task1-skip-edge-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-skip-edge",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0037",
+      "shape_id": 96,
+      "shape_name": "math:005",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0037",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ005"
+    },
+    {
+      "element_id": "svg-rect-0031",
+      "shape_id": 97,
+      "shape_name": "af-svg-rect-0031-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0031",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0012",
+      "shape_id": 98,
+      "shape_name": "af-svg-circle-0012-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0013",
+      "shape_id": 99,
+      "shape_name": "af-svg-circle-0013-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0014",
+      "shape_id": 100,
+      "shape_name": "af-svg-circle-0014-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0032",
+      "shape_id": 101,
+      "shape_name": "af-svg-rect-0032-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0032",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0015",
+      "shape_id": 102,
+      "shape_name": "af-svg-circle-0015-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0016",
+      "shape_id": 103,
+      "shape_name": "af-svg-circle-0016-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0017",
+      "shape_id": 104,
+      "shape_name": "af-svg-circle-0017-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "top-mixture-to-rollout",
+      "shape_id": 105,
+      "shape_name": "af-top-mixture-to-rollout-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "top-mixture-to-rollout",
+      "readback_found": true
+    },
+    {
+      "element_id": "bottom-mixture-to-rollout",
+      "shape_id": 106,
+      "shape_name": "af-bottom-mixture-to-rollout-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "bottom-mixture-to-rollout",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-conditioned-imagination",
+      "shape_id": 107,
+      "shape_name": "af-task-conditioned-imagination-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-conditioned-imagination",
+      "readback_found": true
+    },
+    {
+      "element_id": "mapping-to-imagination",
+      "shape_id": 108,
+      "shape_name": "af-mapping-to-imagination-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "mapping-to-imagination",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0038",
+      "shape_id": 109,
+      "shape_name": "af-svg-text-0038-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0038",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0034",
+      "shape_id": 110,
+      "shape_name": "af-svg-rect-0034-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0034",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0039",
+      "shape_id": 111,
+      "shape_name": "math:006",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0039",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ006"
+    },
+    {
+      "element_id": "svg-rect-0035",
+      "shape_id": 112,
+      "shape_name": "af-svg-rect-0035-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0035",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0040",
+      "shape_id": 113,
+      "shape_name": "math:007",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0040",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ007"
+    },
+    {
+      "element_id": "svg-rect-0036",
+      "shape_id": 114,
+      "shape_name": "af-svg-rect-0036-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0036",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0041",
+      "shape_id": 115,
+      "shape_name": "math:008",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0041",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ008"
+    },
+    {
+      "element_id": "svg-rect-0037",
+      "shape_id": 116,
+      "shape_name": "af-svg-rect-0037-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0037",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0042",
+      "shape_id": 117,
+      "shape_name": "math:009",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0042",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ009"
+    },
+    {
+      "element_id": "imagination-z0-to-z1",
+      "shape_id": 118,
+      "shape_name": "af-imagination-z0-to-z1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z0-to-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z1-to-z2",
+      "shape_id": 119,
+      "shape_name": "af-imagination-z1-to-z2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z1-to-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z2-to-zh",
+      "shape_id": 120,
+      "shape_name": "af-imagination-z2-to-zh-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z2-to-zh",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0043",
+      "shape_id": 121,
+      "shape_name": "af-svg-text-0043-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0043",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z0-to-r0",
+      "shape_id": 122,
+      "shape_name": "af-imagination-z0-to-r0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z0-to-r0",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z1-to-r1",
+      "shape_id": 123,
+      "shape_name": "af-imagination-z1-to-r1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z1-to-r1",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z2-to-r2",
+      "shape_id": 124,
+      "shape_name": "af-imagination-z2-to-r2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z2-to-r2",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0018",
+      "shape_id": 125,
+      "shape_name": "af-svg-circle-0018-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0019",
+      "shape_id": 126,
+      "shape_name": "af-svg-circle-0019-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0019",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0020",
+      "shape_id": 127,
+      "shape_name": "af-svg-circle-0020-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0020",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0044",
+      "shape_id": 128,
+      "shape_name": "math:010",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0044",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ010"
+    },
+    {
+      "element_id": "svg-text-0045",
+      "shape_id": 129,
+      "shape_name": "math:011",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0045",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ011"
+    },
+    {
+      "element_id": "svg-text-0046",
+      "shape_id": 130,
+      "shape_name": "math:012",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0046",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ012"
+    },
+    {
+      "element_id": "svg-path-0012",
+      "shape_id": 131,
+      "shape_name": "af-svg-path-0012-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0013",
+      "shape_id": 132,
+      "shape_name": "af-svg-path-0013-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0014",
+      "shape_id": 133,
+      "shape_name": "af-svg-path-0014-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0015",
+      "shape_id": 134,
+      "shape_name": "af-svg-line-0015-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0016",
+      "shape_id": 135,
+      "shape_name": "af-svg-line-0016-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0047",
+      "shape_id": 136,
+      "shape_name": "af-svg-text-0047-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0047",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0048",
+      "shape_id": 137,
+      "shape_name": "af-svg-text-0048-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0048",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-panel",
+      "shape_id": 138,
+      "shape_name": "af-rollout-panel-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "rollout-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0039",
+      "shape_id": 139,
+      "shape_name": "af-svg-rect-0039-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0039",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0049",
+      "shape_id": 140,
+      "shape_name": "math:013",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0049",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ013"
+    },
+    {
+      "element_id": "svg-rect-0040",
+      "shape_id": 141,
+      "shape_name": "af-svg-rect-0040-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0040",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0050",
+      "shape_id": 142,
+      "shape_name": "math:014",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0050",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ014"
+    },
+    {
+      "element_id": "svg-rect-0041",
+      "shape_id": 143,
+      "shape_name": "af-svg-rect-0041-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0041",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0051",
+      "shape_id": 144,
+      "shape_name": "math:015",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0051",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ015"
+    },
+    {
+      "element_id": "svg-rect-0042",
+      "shape_id": 145,
+      "shape_name": "af-svg-rect-0042-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0042",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0052",
+      "shape_id": 146,
+      "shape_name": "math:016",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0052",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ016"
+    },
+    {
+      "element_id": "rollout-z0-to-z1",
+      "shape_id": 147,
+      "shape_name": "af-rollout-z0-to-z1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-to-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1-to-z2",
+      "shape_id": 148,
+      "shape_name": "af-rollout-z1-to-z2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-to-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2-to-zh",
+      "shape_id": 149,
+      "shape_name": "af-rollout-z2-to-zh-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-to-zh",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0053",
+      "shape_id": 150,
+      "shape_name": "af-svg-text-0053-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0053",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0021",
+      "shape_id": 151,
+      "shape_name": "af-svg-circle-0021-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0021",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0054",
+      "shape_id": 152,
+      "shape_name": "math:017",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0054",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ017"
+    },
+    {
+      "element_id": "svg-circle-0022",
+      "shape_id": 153,
+      "shape_name": "af-svg-circle-0022-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0055",
+      "shape_id": 154,
+      "shape_name": "math:018",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0055",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ018"
+    },
+    {
+      "element_id": "svg-circle-0023",
+      "shape_id": 155,
+      "shape_name": "af-svg-circle-0023-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0056",
+      "shape_id": 156,
+      "shape_name": "math:019",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0056",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ019"
+    },
+    {
+      "element_id": "svg-circle-0024",
+      "shape_id": 157,
+      "shape_name": "af-svg-circle-0024-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0057",
+      "shape_id": 158,
+      "shape_name": "math:020",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0057",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ020"
+    },
+    {
+      "element_id": "svg-circle-0025",
+      "shape_id": 159,
+      "shape_name": "af-svg-circle-0025-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0058",
+      "shape_id": 160,
+      "shape_name": "math:021",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0058",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ021"
+    },
+    {
+      "element_id": "svg-circle-0026",
+      "shape_id": 161,
+      "shape_name": "af-svg-circle-0026-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0059",
+      "shape_id": 162,
+      "shape_name": "math:022",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0059",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ022"
+    },
+    {
+      "element_id": "rollout-z0-to-pi0",
+      "shape_id": 163,
+      "shape_name": "af-rollout-z0-to-pi0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-to-pi0",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1-to-pi1",
+      "shape_id": 164,
+      "shape_name": "af-rollout-z1-to-pi1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-to-pi1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2-to-pi2",
+      "shape_id": 165,
+      "shape_name": "af-rollout-z2-to-pi2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-to-pi2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-pi0-to-a0",
+      "shape_id": 166,
+      "shape_name": "af-rollout-pi0-to-a0-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-pi0-to-a0",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-pi1-to-a1",
+      "shape_id": 167,
+      "shape_name": "af-rollout-pi1-to-a1-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-pi1-to-a1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-pi2-to-a2",
+      "shape_id": 168,
+      "shape_name": "af-rollout-pi2-to-a2-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-pi2-to-a2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-a0-to-z1",
+      "shape_id": 169,
+      "shape_name": "af-rollout-a0-to-z1-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-a0-to-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-a1-to-z2",
+      "shape_id": 170,
+      "shape_name": "af-rollout-a1-to-z2-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-a1-to-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-a2-to-next",
+      "shape_id": 171,
+      "shape_name": "af-rollout-a2-to-next-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-a2-to-next",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z0-to-r0",
+      "shape_id": 172,
+      "shape_name": "af-rollout-z0-to-r0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-to-r0",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1-to-r1",
+      "shape_id": 173,
+      "shape_name": "af-rollout-z1-to-r1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-to-r1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2-to-r2",
+      "shape_id": 174,
+      "shape_name": "af-rollout-z2-to-r2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-to-r2",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0060",
+      "shape_id": 175,
+      "shape_name": "af-svg-text-0060-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0060",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0061",
+      "shape_id": 176,
+      "shape_name": "af-svg-text-0061-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0061",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-optimization",
+      "shape_id": 177,
+      "shape_name": "af-joint-optimization-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "joint-optimization",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0062",
+      "shape_id": 178,
+      "shape_name": "af-svg-text-0062-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0062",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-feedback-to-modular-panel",
+      "shape_id": 179,
+      "shape_name": "af-joint-feedback-to-modular-panel-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "joint-feedback-to-modular-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "footer-reward-action",
+      "shape_id": 180,
+      "shape_name": "af-footer-reward-action-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "footer-reward-action",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0022",
+      "shape_id": 181,
+      "shape_name": "af-svg-path-0022-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0023",
+      "shape_id": 182,
+      "shape_name": "af-svg-path-0023-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0024",
+      "shape_id": 183,
+      "shape_name": "af-svg-path-0024-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0026",
+      "shape_id": 184,
+      "shape_name": "af-svg-line-0026-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0027",
+      "shape_id": 185,
+      "shape_name": "af-svg-line-0027-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0063",
+      "shape_id": 186,
+      "shape_name": "af-svg-text-0063-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0063",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0027",
+      "shape_id": 187,
+      "shape_name": "af-svg-circle-0027-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0025",
+      "shape_id": 188,
+      "shape_name": "af-svg-path-0025-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0026",
+      "shape_id": 189,
+      "shape_name": "af-svg-path-0026-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0028",
+      "shape_id": 190,
+      "shape_name": "af-svg-line-0028-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0064",
+      "shape_id": 191,
+      "shape_name": "af-svg-text-0064-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0064",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-to-joint-optimization",
+      "shape_id": 192,
+      "shape_name": "af-reward-to-joint-optimization-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "reward-to-joint-optimization",
+      "readback_found": true
+    },
+    {
+      "element_id": "behavior-to-reward",
+      "shape_id": 193,
+      "shape_name": "af-behavior-to-reward-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "behavior-to-reward",
+      "readback_found": true
+    },
+    {
+      "element_id": "interaction-arrow",
+      "shape_id": 194,
+      "shape_name": "af-interaction-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "interaction-arrow",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0065",
+      "shape_id": 195,
+      "shape_name": "af-svg-text-0065-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0065",
+      "readback_found": true
+    },
+    {
+      "element_id": "atomic:environment-globe",
+      "shape_id": 196,
+      "shape_name": "af-atomic-environment-globe-atomic-raster-01",
+      "object_kind": "atomic-raster",
+      "editable": false,
+      "semantic_group_id": "atomic:environment-globe",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0066",
+      "shape_id": 197,
+      "shape_name": "af-svg-text-0066-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0066",
+      "readback_found": true
+    }
+  ],
+  "artifact_sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d"
+}

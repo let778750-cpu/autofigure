@@ -3,11 +3,13 @@
 examples/generated/
 .ruff_cache/
 .pytest_cache/
+examples/.pytest-tmp-*/
 **/__pycache__/
 *.py[cod]
 .tmp-paddle/
 *.tmp
 ~$*.pptx
+**/qa/powerpoint-live-case/build/
 
 # 改动记录仅本地留档，不入仓库（2026-08-21 用户指示）
 /history/

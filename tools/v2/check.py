@@ -135,6 +135,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("run_dir", type=Path, help="run 目录")
     parser.add_argument("--skip-ocr", action="store_true", help="跳过 Paddle OCR 文本比对")
     parser.add_argument("--re-ocr", action="store_true", help="忽略缓存的 OCR 结果重新识别")
+    parser.add_argument("--profile", choices=("standard", "strict"), default="standard")
+    parser.add_argument("--require-live", action="store_true", help="strict 模式要求 PowerPoint-live 保存重开证据")
     args = parser.parse_args(argv)
 
     run = common.open_run(args.run_dir)
@@ -144,6 +146,27 @@ def main(argv: list[str] | None = None) -> int:
 
     metrics = _run_figure_lint(run)
     preview = _build_preview(run)
+
+    from tools.v2.regions import evaluate_regions
+
+    regions = evaluate_regions(run)
+    from tools.v2.layout import audit_layout
+
+    layout_report = audit_layout(run)
+
+    # 每次 check 都对当前 SVG 重新审计，禁止复用陈旧箭头报告；保留既有原图校准表。
+    arrows_json = run.qa_dir / "arrows-audit.json"
+    calibrate: dict[str, float] = {}
+    if arrows_json.is_file():
+        old_audit = json.loads(arrows_json.read_text(encoding="utf-8"))
+        calibrate = old_audit.get("calibrate", {})
+    from tools.v2.arrows import audit_svg_text
+
+    arrow_audit = audit_svg_text(run.redraw_svg.read_text(encoding="utf-8"), calibrate=calibrate)
+    arrows_json.write_text(
+        json.dumps({"svg": str(run.redraw_svg), "phase": "audit", **arrow_audit}, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     unmatched_svg: list[str] = []
     unmatched_ocr: list[str] = []
@@ -156,7 +179,7 @@ def main(argv: list[str] | None = None) -> int:
 
     report = run.report_md
     lines = [
-        f"# check 报告（advisory，非门禁） — {run.root.name}",
+        f"# check 报告（{args.profile}） — {run.root.name}",
         "",
         "## 像素诊断（figure_lint，软信号）",
         f"- mean_abs_rgb_delta: {metrics.get('mean_abs_rgb_delta')}",
@@ -165,6 +188,10 @@ def main(argv: list[str] | None = None) -> int:
         f"- ssim: {metrics.get('ssim')}",
         f"- diff 图: {run.qa_dir / 'diff.png'}",
         f"- 对照预览: {preview}",
+        f"- 关键区域 strict_pass: {regions['strict_pass']}（{regions['critical_regions']} 个关键区域）",
+        f"- 区域明细: {run.qa_dir / 'regions-report.json'}",
+        f"- 布局合同: {'PASS' if layout_report['pass'] else 'FAIL'}（{len(layout_report['findings'])} 项）",
+        f"- 布局明细: {run.layout_audit_path}",
         "",
         "## 文本比对（SVG 文字 vs 参考图 OCR）",
         f"- SVG 侧未匹配 {len(unmatched_svg)} 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）",
@@ -178,19 +205,72 @@ def main(argv: list[str] | None = None) -> int:
         "",
     ]
 
-    arrows_json = run.qa_dir / "arrows-audit.json"
     if arrows_json.is_file():
         from tools.v2.arrows import render_report
 
         audit = json.loads(arrows_json.read_text(encoding="utf-8"))
         lines.extend(render_report(audit) + [""])
 
-    lines.append("> OCR 对公式/上下标本身不可靠，逐条人工判断，不以本报告自动放行或拦截。")
+    from tools.v2.contracts import read_json
+
+    strict_blockers = list(regions.get("blockers", []))
+    from tools.v2.layout import strict_blockers as layout_strict_blockers
+
+    strict_blockers.extend(layout_strict_blockers(layout_report))
+    strict_blockers.extend(
+        f"arrow:{item['code']}:{item['element']}"
+        for item in arrow_audit.get("findings", [])
+        if item.get("code") in {"F1", "F2", "F3", "F5", "F6", "F7", "F8", "F9", "F10"}
+    )
+    assets = read_json(run.assets_path)
+    strict_blockers.extend(
+        f"asset:{item.get('id', '[missing-id]')}:authorization-unverified"
+        for item in assets.get("assets", [])
+        if item.get("source") == "reference_crop" and item.get("authorized") is not True
+    )
+    bindings = read_json(run.bindings_path)
+    if bindings.get("artifact_sha256") != common.sha256_file(run.pptx_path):
+        strict_blockers.append("bindings:artifact-hash-mismatch")
+    if bindings.get("saved_reopened") is not True:
+        strict_blockers.append("bindings:save-reopen-not-verified")
+    if bindings.get("bindings_complete") is not True:
+        strict_blockers.append("bindings:incomplete")
+    require_live = args.require_live or run.load_meta().get("backend_mode") == "hybrid"
+    if args.profile == "strict" and require_live:
+        from tools.v2.repair import live_evidence_passes
+
+        failed_regions = [
+            item["id"] for item in regions["regions"] if item["critical"] and not item["pass"]
+        ]
+        _, live_blockers = live_evidence_passes(run, failed_regions)
+        strict_blockers.extend(live_blockers)
+    strict_blockers = list(dict.fromkeys(strict_blockers))
+
+    lines.extend(
+        [
+            "",
+            f"## 验收状态（{args.profile}）",
+            f"- blockers: {len(strict_blockers)}",
+            *[f"- {item}" for item in strict_blockers],
+            "",
+        ]
+    )
+    if args.profile == "standard":
+        lines.append("> standard 结果为诊断；只有 strict 零 blocker 才能进入 approved。")
+    else:
+        lines.append("> strict 使用关键区域、箭头结构与可选 live 回读共同门禁；全图均值不能覆盖局部失败。")
     report.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     sys.stdout.write(f"像素诊断 mean={metrics.get('mean_abs_rgb_delta')} top_roi_loss={metrics.get('top_roi', {}).get('loss_contribution_pct')}%\n")
     sys.stdout.write(f"文本比对: SVG 侧未匹配 {len(unmatched_svg)} / OCR 侧未匹配 {len(unmatched_ocr)}\n")
     sys.stdout.write(f"报告: {report}\n预览: {preview}\n")
+    if args.profile == "strict":
+        from tools.v2.contracts import transition
+
+        if strict_blockers:
+            transition(run, "qa_failed", "strict-check-failed", details={"blockers": strict_blockers})
+            return 2
+        transition(run, "approved", "strict-check-passed")
     return 0
 
 

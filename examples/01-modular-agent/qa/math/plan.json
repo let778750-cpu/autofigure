@@ -16,7 +16,7 @@
       "formula_id": "EQ002",
       "receipt_path": "EQ002.json",
       "receipt_sha256": "75975080187a146b64ed47f925441fda140867c90457f00db70281cf7c4609cc",
-      "target_font_size_pt": 13.5,
+      "target_font_size_pt": 15.0,
       "target_font_color": "#111111"
     },
     {

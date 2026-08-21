@@ -2,18 +2,8 @@
   "mcpServers": {
     "powerpoint-live": {
       "command": "node",
-      "args": ["D:\\AI+科研\\AI智能绘图（最终版）\\scientific-illustrator\\plugins\\scientific-illustrator\\scripts\\powerpoint-server.mjs"],
-      "cwd": "D:\\AI+科研\\AI智能绘图（最终版）\\scientific-illustrator\\plugins\\scientific-illustrator"
-    },
-    "drawio-live": {
-      "command": "node",
-      "args": ["D:\\AI+科研\\AI智能绘图（最终版）\\scientific-illustrator\\plugins\\scientific-illustrator\\scripts\\live-server.mjs"],
-      "cwd": "D:\\AI+科研\\AI智能绘图（最终版）\\scientific-illustrator\\plugins\\scientific-illustrator"
-    },
-    "drawio-file-utils": {
-      "command": "node",
-      "args": ["D:\\AI+科研\\AI智能绘图（最终版）\\scientific-illustrator\\plugins\\scientific-illustrator\\scripts\\server.mjs"],
-      "cwd": "D:\\AI+科研\\AI智能绘图（最终版）\\scientific-illustrator\\plugins\\scientific-illustrator"
+      "args": ["tools/powerpoint_mcp_launcher.mjs"],
+      "cwd": "."
     }
   }
 }

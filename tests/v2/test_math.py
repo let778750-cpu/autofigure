@@ -192,6 +192,16 @@ def test_upgrade_injects_omml(run_factory):
     assert "a14:m" in xml and "AlternateContent" in xml
     assert "GT Answers" in xml  # 非公式标签原文保留、未包裹
 
+    bindings = json.loads(run.bindings_path.read_text(encoding="utf-8"))
+    assert bindings["artifact_sha256"] == common.sha256_file(run.pptx_path)
+    assert bindings["bindings_complete"] is True
+    native_math = [item for item in bindings["bindings"] if item.get("native_math")]
+    assert {item["shape_name"] for item in native_math} == {"math:001", "math:002"}
+    scene = json.loads(run.scene_path.read_text(encoding="utf-8"))
+    assert scene["artifact"]["sha256"] == bindings["artifact_sha256"]
+    assert sum(item.get("native_math") is True for item in scene["elements"]) == 2
+    assert run.load_meta()["workflow"]["state"] == "candidate"
+
     plan = json.loads((run.qa_dir / "math" / "plan.json").read_text(encoding="utf-8"))
     assert plan["schema_version"] == "1.0"
     assert len(plan["operations"]) == 2

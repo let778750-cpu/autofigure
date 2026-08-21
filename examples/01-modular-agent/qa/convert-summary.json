@@ -1,17 +1,25 @@
 {
-  "svg": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\redraw.svg",
-  "pptx": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\redraw.pptx",
+  "svg": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\redraw.svg",
+  "pptx": "C:\\Users\\24638\\Documents\\Playground\\autofigure-high-fidelity\\examples\\01-modular-agent\\redraw.pptx",
   "slide_count": 1,
-  "shape_count": 243,
+  "shape_count": 196,
   "textbox_with_text": 66,
   "emitted": {
     "rect": 43,
-    "ellipse": 28,
-    "freeform": 75,
+    "ellipse": 27,
+    "freeform": 19,
     "text": 66,
-    "line": 30,
-    "marker": 42,
-    "atomic": 1
+    "native-arrowhead": 42,
+    "line": 39,
+    "atomic": 2
   },
-  "warnings": []
+  "warnings": [
+    "task-mapping-label: transparent text box constrained to task-mapping (padding=2px)",
+    "task-mapping-formula: transparent text box constrained to task-mapping (padding=2px)"
+  ],
+  "layout_pass": true,
+  "layout_findings": 0,
+  "pptx_sha256": "6998fd3400c3fb3a49aa76e08083dd9efee2dfe16d2e896a404a90a3a1778db7",
+  "object_count": 196,
+  "bindings_complete": true
 }

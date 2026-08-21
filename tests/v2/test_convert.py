@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import zipfile
 from pathlib import Path
 
 import pytest
@@ -12,6 +13,7 @@ from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.oxml.ns import qn
 
 from tools.v2 import common
+from tools.v2.contracts import read_json, write_json
 from tools.v2.convert import convert
 
 VALID_DASHES = {
@@ -94,6 +96,32 @@ def test_text_runs_italic_bold_and_baseline_shift(run_factory):
     assert runs[2]._r.get_or_add_rPr().get("baseline") == "-25000"
 
 
+def test_text_overflow_padding_preserves_middle_anchor(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><text x="100" y="50" font-size="16" '
+        'text-anchor="middle">task</text></svg>'
+    )
+    convert(run)
+    (shape,) = _shapes(run)
+    center_x = (shape.left + shape.width / 2) / 9525
+    assert center_x == pytest.approx(100, abs=0.01)
+    assert shape.height / 9525 == pytest.approx(40, abs=0.01)
+    assert shape.width / 9525 > 32
+
+
+def test_text_padding_is_clipped_to_canvas_without_moving_start_anchor(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><text x="180" y="50" font-size="16" '
+        'text-anchor="start">Edge</text></svg>'
+    )
+    convert(run)
+    (shape,) = _shapes(run)
+    assert shape.left / 9525 == pytest.approx(180, abs=0.01)
+    assert (shape.left + shape.width) / 9525 <= 200.01
+
+
 def test_dasharray_maps_to_valid_ooxml_preset(run_factory):
     run = run_factory(
         '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">'
@@ -149,7 +177,43 @@ def test_atomic_placeholder_crops_reference(run_factory):
     assert shape.width > 0 and shape.height > 0
 
 
-def test_marker_drawn_as_freeform(run_factory):
+def test_authorized_atomic_asset_embeds_powerpoint_live_raster_tags(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect id="atomic:photo" x="20" y="20" '
+        'width="40" height="30"/></svg>'
+    )
+    assets = read_json(run.assets_path)
+    assets["assets"] = [
+        {
+            "id": "atomic:photo",
+            "authorized": True,
+            "authorization_basis": "user supplied reference crop",
+            "editable": False,
+        }
+    ]
+    write_json(run.assets_path, assets)
+    convert(run)
+
+    with zipfile.ZipFile(run.pptx_path) as package:
+        tag_parts = [name for name in package.namelist() if name.startswith("ppt/tags/tag")]
+        assert len(tag_parts) == 1
+        tags = package.read(tag_parts[0]).decode("utf-8")
+        slide = package.read("ppt/slides/slide1.xml").decode("utf-8")
+        relationships = package.read("ppt/slides/_rels/slide1.xml.rels").decode("utf-8")
+    assert "AISCIENTIFICILLUSTRATORASSETID" in tags
+    assert 'val="atomic:photo"' in tags
+    assert "AISCIENTIFICILLUSTRATORSOURCESHA256" in tags
+    assert 'val="True"' in tags and 'val="False"' in tags
+    assert "custDataLst" in slide and "p:tags" in slide
+    assert "relationships/tags" in relationships
+    asset = read_json(run.assets_path)["assets"][0]
+    assert len(asset["source_sha256"]) == 64
+    assert asset["atomic_raster_unit"] is True
+    assert asset["contains_reconstructable_content"] is False
+
+
+def test_simple_marker_becomes_native_powerpoint_arrowhead(run_factory):
     run = run_factory(
         '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">'
         '<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"'
@@ -158,9 +222,10 @@ def test_marker_drawn_as_freeform(run_factory):
     )
     convert(run)
     shapes = _shapes(run)
-    assert len(shapes) == 2  # line + marker 箭头
-    kinds = {s.shape_type for s in shapes}
-    assert MSO_SHAPE_TYPE.FREEFORM in kinds or any("freeform" in s.name for s in shapes)
+    assert len(shapes) == 1
+    tail = shapes[0]._element.spPr.find(f"{qn('a:ln')}/{qn('a:tailEnd')}")
+    assert tail is not None
+    assert tail.get("type") == "arrow"
 
 
 def _triangle_abs_points(shapes):
@@ -192,7 +257,7 @@ def _tip_and_base_mid(pts):
     return tip, mid
 
 
-def test_curved_path_marker_end_follows_end_tangent(run_factory):
+def test_curved_path_uses_native_end_that_follows_path_tangent(run_factory):
     # 末端切线 = end − 第二控制点 = (0,-80) 竖直向上；旧实现按弦方向（atan2(-80,160)≈-26.6°）
     # 放置导致三角横甩脱开（01 案例 π/a 圆间曲线箭头 43-47° 偏差的真实根因）
     run = run_factory(
@@ -202,19 +267,13 @@ def test_curved_path_marker_end_follows_end_tangent(run_factory):
         '<path d="M 20 100 C 100 100 180 100 180 20" stroke="#000000" fill="none" marker-end="url(#arr)"/></svg>'
     )
     convert(run)
-    pts = _triangle_abs_points(_shapes(run))
-    assert pts is not None
-    tip, base_mid = _tip_and_base_mid(pts)
-    # 头轴应沿切线竖直向上：tip 与底边中心同 x，tip 在上方
-    assert abs(tip[0] - base_mid[0]) < 1.0
-    assert tip[1] < base_mid[1]
-    # 锚点 (refX,refY)=(10,6) 落在端点 (180,20)：base_mid ≈ 端点沿切线下沉 10px
-    assert abs(base_mid[0] - 180.0) < 1.0 and abs(base_mid[1] - 30.0) < 1.0
-    # 尖端 ≈ 端点上方 2px（tipX 12 − refX 10）
-    assert abs(tip[0] - 180.0) < 1.0 and abs(tip[1] - 18.0) < 1.0
+    (shape,) = _shapes(run)
+    assert shape._element.spPr.find(f".//{qn('a:cubicBezTo')}") is not None
+    tail = shape._element.spPr.find(f"{qn('a:ln')}/{qn('a:tailEnd')}")
+    assert tail is not None and tail.get("type") == "triangle"
 
 
-def test_marker_start_oriented_along_travel(run_factory):
+def test_marker_start_becomes_native_head_end(run_factory):
     # SVG 语义：orient="auto" 在 marker-start 处沿行进方向放置；
     # 定义朝 -x 的起始箭头（尖端 local x=0）→ 尖端应落在起点外侧（左侧）
     run = run_factory(
@@ -224,13 +283,9 @@ def test_marker_start_oriented_along_travel(run_factory):
         '<line x1="10" y1="50" x2="190" y2="50" stroke="#000000" marker-start="url(#sarr)"/></svg>'
     )
     convert(run)
-    pts = _triangle_abs_points(_shapes(run))
-    assert pts is not None
-    tip, base_mid = _tip_and_base_mid(pts)
-    # 尖端在底边左侧（朝线外），且尖端 ≈ 起点 (10,50) 左移 2px；底边沉入线内 10px
-    assert tip[0] < base_mid[0]
-    assert abs(tip[0] - 8.0) < 1.0 and abs(tip[1] - 50.0) < 1.0
-    assert abs(base_mid[0] - 20.0) < 1.0 and abs(base_mid[1] - 50.0) < 1.0
+    (shape,) = _shapes(run)
+    head = shape._element.spPr.find(f"{qn('a:ln')}/{qn('a:headEnd')}")
+    assert head is not None and head.get("type") == "triangle"
 
 
 
@@ -282,3 +337,111 @@ def test_oversized_image_rejected_as_canvas_cheat(run_factory):
     )
     with pytest.raises(SystemExit, match="整图截图"):
         convert(run)
+
+
+def test_stroke_none_removes_powerpoint_default_outline(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect x="10" y="10" width="50" height="30" '
+        'fill="#EEEEEE" stroke="none"/></svg>'
+    )
+    convert(run)
+    (shape,) = _shapes(run)
+    assert shape._element.spPr.find(f"{qn('a:ln')}/{qn('a:noFill')}") is not None
+
+
+def test_unsupported_marker_fallback_is_physically_grouped(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><defs><marker id="complex" refX="8" refY="5" '
+        'orient="auto" markerUnits="userSpaceOnUse">'
+        '<path d="M0,0 L8,5 L0,10 Z" fill="#111111"/>'
+        '<path d="M1,5 L4,5" fill="none" stroke="#FFFFFF"/>'
+        '</marker></defs><line id="edge" x1="10" y1="50" x2="190" y2="50" '
+        'stroke="#111111" marker-end="url(#complex)"/></svg>'
+    )
+    summary = convert(run)
+    (group,) = _shapes(run)
+    assert getattr(group, "shapes", None) is not None
+    assert len(group.shapes) == 3
+    assert summary["emitted"]["arrow-group"] == 1
+    bindings = json.loads(run.bindings_path.read_text(encoding="utf-8"))["bindings"]
+    children = [item for item in bindings if item.get("group_shape_id")]
+    assert children and all(item["physically_grouped"] for item in children)
+
+
+def test_connector_identity_binding_and_ooxml_attachments(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100">'
+        '<rect id="source" x="10" y="30" width="30" height="40"/>'
+        '<rect id="target" x="160" y="30" width="30" height="40"/>'
+        '<line id="edge" data-source-id="source" data-target-id="target" '
+        'data-source-site="3" data-target-site="1" x1="40" y1="50" x2="160" y2="50" '
+        'stroke="#111111"/></svg>'
+    )
+    convert(run)
+    shapes = _shapes(run)
+    connector = next(shape for shape in shapes if shape.name.startswith("af-edge-connector"))
+    c_nv = connector._element.find(qn("p:nvCxnSpPr")).find(qn("p:cNvCxnSpPr"))
+    start = c_nv.find(qn("a:stCxn"))
+    end = c_nv.find(qn("a:endCxn"))
+    assert start is not None and end is not None
+    assert start.get("id") != end.get("id")
+    bindings = json.loads(run.bindings_path.read_text(encoding="utf-8"))
+    assert bindings["bindings_complete"] is True
+
+
+def test_missing_viewbox_is_rejected(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">'
+        '<rect x="0" y="0" width="10" height="10"/></svg>'
+    )
+    with pytest.raises(SystemExit, match="viewBox"):
+        convert(run)
+
+
+def test_conversion_drops_stale_scene_elements(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect id="current" x="10" y="10" width="20" height="20"/></svg>'
+    )
+    scene = read_json(run.scene_path)
+    scene["elements"] = [{"id": "stale", "kind": "shape", "editable": True, "z_index": 0}]
+    write_json(run.scene_path, scene)
+    convert(run)
+    ids = {item["id"] for item in read_json(run.scene_path)["elements"]}
+    assert "current" in ids
+    assert "stale" not in ids
+
+
+def test_reconversion_refreshes_scene_and_powerpoint_z_order(run_factory):
+    first = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><line id="edge" x1="10" y1="10" '
+        'x2="90" y2="90" stroke="#777777"/><rect id="panel" x="50" '
+        'y="40" width="100" height="50" fill="#EEEEEE"/></svg>'
+    )
+    run = run_factory(first)
+    convert(run)
+    initial = {item["id"]: item for item in read_json(run.scene_path)["elements"]}
+    assert initial["edge"]["z_index"] < initial["panel"]["z_index"]
+
+    # Move the edge after the panel.  Existing scene records must not override
+    # the new DOM/PowerPoint stack order during reconversion.
+    run.redraw_svg.write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect id="panel" x="50" y="40" '
+        'width="100" height="50" fill="#EEEEEE"/><line id="edge" '
+        'x1="10" y1="10" x2="90" y2="90" stroke="#777777"/></svg>',
+        encoding="utf-8",
+    )
+    convert(run)
+
+    refreshed = {item["id"]: item for item in read_json(run.scene_path)["elements"]}
+    assert refreshed["edge"]["z_index"] > refreshed["panel"]["z_index"]
+    bindings = {
+        item["element_id"]: item
+        for item in read_json(run.bindings_path)["bindings"]
+    }
+    assert bindings["edge"]["shape_id"] > bindings["panel"]["shape_id"]

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_layout_review",
+  "captured_at": "2026-08-21T09:32:04.481Z",
+  "release_authority": "NONE",
+  "automatic_status": "INDEPENDENT_REVIEW_REQUIRED",
+  "session": {
+    "session_id": "3a946aa4-e3e8-47b1-84ed-580b2a5cc06a",
+    "revision": 0,
+    "slide_id": 256,
+    "visible": true,
+    "status_after_review": "CLOSED"
+  },
+  "artifacts": {
+    "source_pptx_sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d",
+    "render_sha256": "a3ecb65aac4f35ed725d6d8bdf0da63f50500659aadeab8bd95850ce0e1cf4f3",
+    "live_export_sha256": "a3ecb65aac4f35ed725d6d8bdf0da63f50500659aadeab8bd95850ce0e1cf4f3",
+    "layout_audit_sha256": "5950421a8b57c40a48317b8463ce39bd5b97e7a4cb7b7c6c637b77e6a1ed1b43",
+    "live_preview": "qa/live-layout-preview.png"
+  },
+  "mapping": {
+    "container": {
+      "shape_id": 20,
+      "shape_name": "af-task-mapping-rect-01",
+      "bounds_points": [576.75, 25.5, 135.75, 36.0],
+      "bounds_pixels": [769.0, 34.0, 181.0, 48.0]
+    },
+    "label": {
+      "shape_id": 21,
+      "shape_name": "af-task-mapping-label-text-01",
+      "bounds_points": [592.5, 34.5, 79.95, 25.5],
+      "bounds_pixels": [790.0, 46.0, 106.6, 34.0],
+      "max_container_overflow_pixels": 0.0
+    },
+    "formula": {
+      "shape_id": 22,
+      "shape_name": "math:002",
+      "bounds_points": [650.25, 34.5, 57.3, 25.5],
+      "bounds_pixels": [867.0, 46.0, 76.4, 34.0],
+      "max_container_overflow_pixels": 0.0
+    },
+    "reference_visible_dark_pixel_ranges_x": [[791, 872], [887, 924]],
+    "render_visible_formula_range_x": [885, 922],
+    "container_right_x": 950
+  },
+  "repeat_groups": {
+    "e-v-stack": {
+      "shape_ids": [51, 52, 53],
+      "centers_pixels": [[367.0, 239.0], [367.0, 277.0], [367.0, 314.0]],
+      "sizes_pixels": [[34.0, 34.0], [34.0, 34.0], [34.0, 34.0]],
+      "steps_pixels": [38.0, 37.0],
+      "cross_axis_range_pixels": 0.0,
+      "spacing_range_pixels": 1.0
+    },
+    "s-t-stack": {
+      "shape_ids": [57, 58, 59],
+      "centers_pixels": [[368.0, 399.0], [368.0, 437.0], [368.0, 474.0]],
+      "sizes_pixels": [[34.0, 34.0], [34.0, 34.0], [34.0, 34.0]],
+      "steps_pixels": [38.0, 37.0],
+      "cross_axis_range_pixels": 0.0,
+      "spacing_range_pixels": 1.0
+    }
+  },
+  "save_reopen": {
+    "candidate_sha256": "7cbdabd6362ae6d2110f302939bf91dee288fdc84e3b539babc08f7401d587cb",
+    "reopened_artifact_sha256": "7cbdabd6362ae6d2110f302939bf91dee288fdc84e3b539babc08f7401d587cb",
+    "live_inventory_sha256": "f6fce486c19a15ccd957514f7d0bad466fbde1f195390efa8c21377174ec1c88",
+    "reopened_inventory_sha256": "f6fce486c19a15ccd957514f7d0bad466fbde1f195390efa8c21377174ec1c88",
+    "package_hard_failure_count": 0,
+    "package_warning_count": 0
+  },
+  "powerpoint_audit": {
+    "hard_failure_count": 0,
+    "warning_count": 0,
+    "findings": []
+  },
+  "ooxml_canvas_audit": {
+    "canvas_pixels": [1429.0, 627.0],
+    "bound_scene_elements_checked": 196,
+    "normal_and_ooxml_bounds_checked": 370,
+    "out_of_bounds_count": 0,
+    "tolerance_pixels": 0.25,
+    "slides_test_false_positive": {
+      "expected_padding_shift_pixels": 89.72,
+      "omml_choice_count_not_shifted": 22,
+      "reason": "The padding test shifts python-pptx shapes but not OMML Choice geometry inside mc:AlternateContent."
+    }
+  },
+  "scope_note": "This review proves only the requested mapping containment and orange/teal repeat geometry plus save/reopen stability. It does not satisfy failed-region live evidence and does not approve the whole figure."
+}

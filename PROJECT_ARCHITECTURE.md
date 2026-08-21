@@ -1,259 +1,171 @@
-# AI AutoFigure v2 — 项目流程架构
+# AI AutoFigure v3 — 项目流程架构
 
-> 更新日期：2026-08-19。描述对象：`D:\AI+科研\AI智能绘图（最终版）\AI autofigure` 当前 git HEAD（v2 架构，examples 案例平铺重构后）。
-> 正式工作指令见 `SKILL.md` 与 `references/v2-prompt-contract.md`；本文是全景架构说明，不替代这两份合同。
+> 更新日期：2026-08-21。v3 在保留轻量离线转换的同时，增加 PNG 高保真回退、场景绑定、局部硬门禁和 PowerPoint Live 区域修复。
 
-## 1. 项目定位与架构原则
+## 1. 目标与诚实边界
 
-把科研论文插图（PNG）高保真重建为**原生可编辑 PowerPoint**（.pptx）：文字 100% 原生文本框可编辑读回、公式保留上下标、照片区域原图裁剪嵌入、形状/渐变/箭头全部为原生对象。
+目标是把科研图 `reference.png` 重建为原生可编辑 PowerPoint：文字、公式、节点和箭头尽量原生；经用户授权的复杂创意微资产允许紧边界位图。
 
-架构原则一句话：**VLM-first, verify-light**——
+项目不把“能生成 PPTX”当作“一比一重建成功”。初版 SVG 可能很差；自动重建能力取决于模型对参考图的视觉理解、区域任务质量和后续修复。机器能够保证的是：输入/输出可追溯、对象可绑定、失败区域不可被全图均值掩盖、未通过不得标记 `approved`。
 
-- **VLM 负责"看"**：多模态大模型网页端（GPT / Kimi / Claude 等）看参考图、按输出合同重绘为 SVG。感知能力外包给 VLM，工具链不做任何确定性图像感知（无 OCR 几何分析、无区域检测、无图像分割）。
-- **工具负责"确定性"**：本工具把 SVG 确定性地转换为原生 PPTX 对象，并做轻量核验（文本比对 + 像素诊断 + 对照预览）。
-- **验收靠人审**：所有机器输出都是 advisory（软信号），不设自动门禁。通过证据 = 文本可编辑读回 + check 报告逐条人审。
-
-这一架构是 2026-08-18 用同一张参考图、同一把诊断尺实测对比后确立的：v1 重型确定性管线（4 天、约 30 轮迭代、27k LOC）已整体归档至 `legacy/`，缘由见 `legacy/README.md`。
-
-## 2. 总流程图
+## 2. 总流程
 
 ```mermaid
 flowchart TD
-    A["输入：一张科研图 PNG"] --> P1
-
-    subgraph P1["① autofigure prepare ｜ tools/v2/prepare.py"]
-        B1["建案例目录 examples/案例名/（含 qa/），复制 reference.png"]
-        B2["写 run.json 清单：案例名 / 源图绝对路径 / SHA-256 / 宽高 / 创建时间"]
-        B3["按模板生成 prompt.md（注入原图宽高，硬性要求逐条列出）"]
-        B1 --> B2 --> B3
-    end
-
-    P1 --> P2
-
-    subgraph P2["② 人工 VLM 环节（工具之外，多模态大模型网页端）｜ 合同 references/v2-prompt-contract.md"]
-        C1["用户把 prompt.md 全文 + reference.png 发给多模态大模型（GPT / Kimi / Claude 等）"]
-        C2["模型按合同直出 SVG：viewBox = 原图像素；文字逐字 text/tspan；公式 baseline-shift 上下标；<br/>箭头样式以原图为准；无文字写实区域 rect id=atomic:* 占位；image 容错按 bbox 裁剪替代"]
-        C3["用户把 SVG 保存为 redraw.svg"]
-        C1 --> C2 --> C3
-    end
-
-    P2 --> P3
-
-    subgraph P3["③ autofigure convert ｜ tools/v2/convert.py + svggeom.py + render_export.py"]
-        D1{"校验：SVG 存在且 viewBox = 参考图尺寸？"}
-        D1 -- 不一致 --> DX["拒绝：违反输出合同"]
-        DX -. 重画 SVG .-> P2
-        D1 -- 一致 --> D2["ElementTree 遍历 SVG 树：样式继承 + 仿射矩阵（svggeom.py）"]
-        D2 --> D3["映射为 python-pptx 原生对象：形状 / custGeom 自由曲线（保留三次贝塞尔）/<br/>文本框 runs / a:gradFill 渐变 / prstDash 虚线 / marker 箭头"]
-        D3 --> D4["atomic:* 占位符 → 从 reference.png 裁 bbox 嵌入位图（唯一允许的位图）"]
-        D4 --> D5["保存 redraw.pptx；重新打开读回统计 → qa/convert-summary.json"]
-        D5 --> D6["fresh render：pywin32 直驱本机 PowerPoint COM 导出 render.png（--no-render 可跳过）"]
-    end
-
-    P3 --> P4
-
-    subgraph P4["④ autofigure check（全部 advisory，不设门禁）｜ tools/v2/check.py"]
-        E1["文本比对：SVG 全部 text vs 参考图 OCR 文本<br/>（ocr_texts.py 单次只读调用 paddle ocr 环境；归一化 + difflib 模糊匹配；缓存 qa/ocr-texts.json）"]
-        E2["像素诊断：figure_lint.py 对比 reference.png 与 render.png<br/>→ qa/metrics.json + qa/diff.png（软信号）"]
-        E3["对照预览 preview.png（上 REFERENCE 下 RENDER）"]
-        E1 --> E4["汇总 check-report.md → 人审入口：逐条人工判断，不自动放行"]
-        E2 --> E4
-        E3 --> E4
-    end
-
-    P4 --> P5
-
-    subgraph P5["⑤ autofigure math（可选）｜ tools/v2/math.py + tools/powerpoint_native_math.py"]
-        F1["检测公式文本框：强信号 a:rPr@baseline 上下标；弱信号全斜体 ≤4 字符且含非 ASCII 数学字母"]
-        F2["run 序列重建 LaTeX（baseline → ^{}/_{} 分组；Unicode → LaTeX 命令映射）；命中形状改名 math:NNN 落盘"]
-        F3["薄封装 legacy 引擎：compile_formula（LaTeX→MathML→本机 MML2OMML.XSL→OMML，单个失败只 warn 跳过）<br/>→ inject_plan 批量注入（mc:AlternateContent 包裹，幂等）→ 临时 pptx 原子替换 redraw.pptx"]
-        F4["写 qa/math-summary.json + qa/math/（receipt + plan.json）；刷新 fresh render（COM 失败只 warn）"]
-        F1 --> F2 --> F3 --> F4
-    end
-
-    P5 --> G["交付：redraw.pptx（原生可编辑）+ render.png + preview.png + check-report.md"]
+    A[reference.png + SHA-256] --> B[prepare: 建 case 与四份合同]
+    B --> C{初版来源}
+    C -->|Web/VLM SVG| D[svg_import]
+    C -->|场景图或区域补丁| E[模型无关 ingest]
+    C -->|只有 PNG| J[直接生成 regions 任务]
+    D --> F{用户/区域验收}
+    F -->|SVG 可修| G[svg_repair]
+    F -->|SVG 被拒绝| H[png_reconstruct + hybrid_fidelity]
+    G --> I[离线 SVG → 原生 PPTX]
+    H --> J
+    J --> E
+    E --> R{可渲染载体}
+    R -->|SVG| I
+    R -->|scene / patch| S[已有载体修复或 PowerPoint Live]
+    S --> O
+    I --> K[保存重开 + scene/bindings/assets 回读]
+    K --> L[PowerPoint fresh render]
+    L --> M[strict 局部验收]
+    M -->|失败| N[qa_failed]
+    N --> O[PowerPoint Live 可见画布仅修失败区]
+    O --> P[保存关闭重开 + 再渲染 + live evidence]
+    P --> M
+    M -->|全部通过| Q[approved]
 ```
 
-## 3. 仓库目录结构
+PowerPoint Live 不替代离线转换；它是失败区域的昂贵但可见修复层。MCP 不可用时仍可得到离线 candidate，但 hybrid strict 任务不能批准。
 
-```
-AI autofigure/
-├── autofigure.cmd              统一入口（纯 ASCII；定位 .venv 后 python -B -m tools.v2 %*）
-├── SKILL.md                    正式工作指令（四步流程、红线、交付物）
-├── AGENTS.md                   代理边界与运行隔离约定
-├── README.md                   项目门面（架构理由、基准指标、快速开始）
-├── PROJECT_ARCHITECTURE.md     本文
-├── pyproject.toml              ruff/pytest 配置
-├── requirements-v2.txt         v2 依赖（python-pptx/pywin32/latex2mathml/numpy/jsonschema/scikit-image/pytest/ruff）
-├── requirements.txt            v1 遗产依赖（随 legacy 归档）
-├── mcp.json                    v1 遗产 MCP 注册，v2 不依赖
-│
-├── tools/
-│   ├── v2/                     ★ v2 全部代码（约 1.6k 行）
-│   │   ├── __main__.py         命令分发：prepare/convert/check/math
-│   │   ├── common.py           案例目录约定、Run dataclass、create_run/open_run、SHA-256
-│   │   ├── prepare.py          建案例目录 + 生成 prompt.md 提示词包
-│   │   ├── convert.py          SVG → 原生 PPTX（788 行，核心）+ 读回统计 + 触发 render
-│   │   ├── svggeom.py          SVG path d 属性解析（含 S/Q/T/A 归一化）、2D 仿射矩阵
-│   │   ├── render_export.py    PowerPoint COM fresh render（pywin32 直驱）
-│   │   ├── check.py            verify-light 三件套 + check-report.md 生成
-│   │   ├── ocr_texts.py        OCR 助手（在 D:\paddle ocr 解释器下运行，只读）
-│   │   └── math.py             公式框检测 + LaTeX 重建 + 薄封装 legacy 引擎注入 OMML
-│   ├── figure_lint.py          像素诊断器（软信号，非门禁）
-│   ├── output_policy.py        输出允许域约束（examples/）
-│   └── powerpoint_native_math.py  v1 公式引擎保留件（3518 行，math 命令复用）
-│
-├── references/
-│   └── v2-prompt-contract.md   ★ VLM→SVG 输出合同（prompt.md 的规范来源）
-│
-├── examples/                   ★ 每案例一个扁平目录（详见 §5），索引见 examples/README.md
-│   ├── 01-modular-agent/       完成（GPT 直出 SVG）
-│   ├── 02-thinking-diffusion/  完成（手写 SVG 验证合同可遵循性）
-│   └── 03-llmind/              prepare 完成，待 VLM 取回 SVG（含照片区域，检验 atomic: 约定）
-│
-├── tests/v2/                   pytest 套件（test_convert / test_check / test_svggeom / test_math）
-│
-├── legacy/                     v1 重型管线归档（2026-08-18），不维护、不修改
-│   ├── README.md               归档缘由
-│   ├── ocr-config.json         ★ 仍在使用：check 的 OCR 锁定配置（PP-OCRv6）
-│   ├── native-math-poc/ schemas/ tests/ tools/ v1-final-evidence/ …
-│   └── *.json                  v1 各类配置现场
-│
-└── .venv/                      v2 隔离环境（基座 D:\anaconda\python.exe 3.12）
+## 3. Case 文件合同
+
+```text
+examples/<case>/
+├─ run.json               参考哈希、模式、状态机
+├─ reference.png          唯一冻结视觉基准
+├─ redraw.svg             当前 SVG candidate
+├─ redraw.pptx            当前 PPTX candidate
+├─ render.png             PowerPoint fresh render
+├─ scene.json             对象 ID、角色、几何、拓扑、层级
+├─ assets.json            微资产授权、bbox、可编辑性
+├─ regions.json           局部阈值、颜色探针、关键区域
+├─ bindings.json          scene element → PPT shape ID/name
+└─ qa/
+   ├─ convert-summary.json
+   ├─ arrows-audit.json
+   ├─ layout-audit.json
+   ├─ regions-report.json
+   ├─ live-repair-request.json
+   └─ live-evidence.json
 ```
 
-## 4. 各阶段详解
+所有合同都绑定 `reference_sha256`。参考图被替换、PPTX 与绑定哈希不一致、保存重开未验证或 shape 回读不完整都会成为 strict blocker。
 
-### 4.1 prepare（`tools/v2/prepare.py`）
+## 4. 状态机
+
+允许状态：`prepared / candidate / qa_failed / repairing / approved`。
+
+- `prepare` 建立 `prepared`。
+- `ingest` 或 `convert` 产生 `candidate`。
+- strict 失败写 `qa_failed` 并返回非零退出码。
+- PNG 回退或 live 请求写 `repairing`。
+- 只有 strict 零 blocker 才写 `approved`。
+- 已批准对象若再次转换，必须先回到 `repairing`；不能直接覆盖后仍保留批准状态。
+
+## 5. 转换层
+
+`tools/v2/convert.py` 负责：
+
+- 强制 SVG 根 `width/height/viewBox` 与参考图一一对应。
+- 展平 SVG 仿射变换，保留三次贝塞尔曲线。
+- 映射原生 rect/ellipse/text/gradient/dash/freeform。
+- `stroke="none"` 显式写 DrawingML `a:noFill`，避免 PowerPoint 默认主题轮廓污染。
+- 普通直线/直线路径箭头转为 PowerPoint connector。
+- 简单 marker 转为 `a:headEnd/a:tailEnd`；复杂 marker 明示回退并物理分组。
+- 处理 `data-source-id/data-target-id` 和连接点索引。
+- 原子位图仅从参考图 bbox 裁剪；大面积 `<image>` 被拒绝。
+- 授权原子位图把 hash-bound asset ID、裁剪图哈希、不可约原因和分解说明写入 PowerPoint shape Tags，供 live 保存重开审计。
+- 保存并用 python-pptx 重开，递归回读组内 shape，写稳定名称和 bindings。
+- 对声明了 `data-layout-container` 的文字/公式按容器内边界裁掉透明选择框余量；锚点本身在容器外时拒绝静默搬移。
+- 对 `data-repeat-group` 同时审计 SVG 与保存重开的 PPT bounds，区分视觉测量错误和转换漂移。
+- 以包级 OOXML 回读全部 binding 的实际 bounds，逐对象检查 1429×627 等目标画布；任何方向越界超过 0.25 px 记 `L10` strict blocker。
+
+`math` 注入原生 Office Math 后会再次保存重开，同步更新被改名的公式 shape binding、scene artifact 与 PPTX 哈希。因为 OMML 位于 `mc:AlternateContent`，公式身份使用包级 OOXML 回读；高层 python-pptx 重开仅作为文件兼容性检查。
+
+## 6. 箭头审计
+
+`tools/v2/arrows.py` 不再把箭头自己的 path 当作可停靠边界。审计在画布坐标执行，支持嵌套 transform，并检查：
+
+- F1：marker tip/ref 不对齐。
+- F2：逐箭头校准或头/线宽异常。
+- F3：端点悬空。
+- F5：声明的源/目标对象身份不匹配。
+- F6：路径与文字碰撞。
+- F7：参考中心线或端点偏差。
+- F8：非法/奇异 transform。
+- F9：未授权的箭头交叉。
+- F10：末端切线角误差。
+
+校准键优先为 `arrow-id:start`、`arrow-id:end` 或 `arrow-id`。旧 marker ID 只保留兼容读取。共享 marker 在逐箭头修复时会克隆，避免全局连带变化。
+
+## 7. 局部 QA
+
+`regions.json` 的 critical 区域使用 SSIM、Edge IoU 和可选 ΔE00 颜色探针。全图指标永远是 diagnostic。默认阈值：
+
+- 普通关键区：SSIM ≥ 0.85，Edge IoU ≥ 0.75。
+- 授权微资产：SSIM ≥ 0.95。
+- 箭头端点：画布对角线 0.25%。
+- 箭头中心线 P95：画布对角线 0.35%。
+- 箭头头部角度：3°。
+- 案例 01 六圆颜色探针：ΔE00 ≤ 5。
+
+此外，显式布局合同是 strict 硬门：容器子元素的 PowerPoint bounds 不得越界；重复元素尺寸差与同轴漂移默认 ≤0.25 px，连续中心距差默认 ≤1 px；全部绑定对象也不得越出幻灯片画布。报告同时给出 `source` 与 `backend` 两组数值：只有 source 失败说明初始视觉/坐标合同错误，只有 backend 失败说明 SVG→PPT/OMML 转换漂移，两者都失败则先修源再复核转换。
+
+通用 padding-raster 检查器若只通过 python-pptx 平移高层 shape，可能漏移 `mc:AlternateContent` 中的 OMML Choice，从而把公式绘制到新增灰边并误报越界。项目的批准门不依赖这种变异副本，而是对原始 PPTX 做包级 OOXML bounds 审计，并以 PowerPoint 原生保存重开与渲染复核可见结果。
+
+`autofigure check --profile standard` 只诊断；`--profile strict` 才有批准权。
+
+## 8. PowerPoint Live
+
+`autofigure repair <case>` 根据失败区域生成 hash-bound 请求。MCP 操作者必须具备：managed session、visible canvas、native connector/freeform、inspect、audit、save-reopen、object bindings。
+
+Autofigure v3 场景不直接冒充服务端 Scene 2.1。`tools/v2/live_bridge.py` 从当前 `scene.json`、`bindings.json`、PPTX 和授权微资产派生隔离的 `qa/powerpoint-live-case/`，生成服务端要求的 project/source/scene/render/spec/asset/provenance 七份合同。桥接固定 `releaseAuthority=NONE`，要求每个 v3 对象都有 shape binding，并禁止过期 scene 对象进入桥接。服务端内置 `journal-double-column` profile 只承担合同解析；Scene 中的画布仍使用参考图原始像素尺寸。
+
+生产修复禁止 Ribbon 坐标点击、SendKeys 或图像识别点击。live evidence 必须声明 provider、参考哈希、target ID、保存重开、绑定完整性和逐区域结果。AI 自身没有放行权限。
+
+项目 `mcp.json` 仅保留 `powerpoint-live`；启动器动态发现当前 Codex scientific-illustrator 包，避免失效绝对路径。
+
+## 9. Provider 与插件
+
+统一适配协议：`discover / health / capabilities / execute / inspect / undo`。
+
+- `powerpoint-native`：永远最高优先级。
+- `powerpoint-live`：只处理失败区域。
+- OneKeyTools10：未安装、未选用，仅保留隔离试点资格。
+- iSlide：人工素材来源，不是按钮级 MCP。
+- ThreeD Tools：明确三维案例后再验证。
+- 其余美化/动画/重叠插件：不进入自动化流程。
+
+插件必须同时通过兼容、安全、许可、结构化目标 shape、回读、幂等和 undo，才能从“安装”升级为“MCP 能力”。
+
+## 10. 命令入口
 
 ```bat
-autofigure prepare <ref.png> [--case 名] [--cases-root 目录]
+autofigure prepare reference.png --case my-case
+autofigure prepare reference.png --case png-only --source-mode png_reconstruct
+autofigure ingest examples\my-case candidate.svg --kind svg
+autofigure ingest examples\my-case --rejected --fallback png_reconstruct
+autofigure convert examples\my-case
+autofigure arrows examples\my-case --fix --calibrate edge-1=8.5
+autofigure layout examples\my-case
+autofigure check examples\my-case --profile standard
+autofigure repair examples\my-case
+autofigure check examples\my-case --profile strict --require-live
+autofigure providers --json
 ```
 
-- `common.create_run()`：案例目录 `examples/<case>/` 已存在且非空即拒绝（重跑约定是直接覆盖案例内文件，历史由 git 承担）；复制参考图为 `reference.png`；计算 SHA-256 与像素尺寸写 `run.json`。
-- 按 `PROMPT_TEMPLATE` 生成 `prompt.md`：注入原图宽高，逐条列出硬性要求（viewBox 精确、文字逐字、公式上下标、atomic 占位、禁止 `<image>`、只输出 SVG）。
-- 打印后续指引：把 prompt.md 全文 + PNG 发给 GPT，取回 SVG 存为 `redraw.svg`，然后跑 convert。
+直接 PNG 入口会在 `prepared` 状态生成 `qa/region-tasks.json`，不要求先取得 Web SVG。当前离线初版转换器以 SVG 为可渲染载体；scene/patch 必须绑定已有载体或 PowerPoint Live。集成测试验证的是入口与转换管线，不把视觉模型尚未执行的工作冒充为自动重建结果。
 
-### 4.2 人工 VLM 环节（工具之外）
-
-唯一的"智能"环节，刻意保持在工具链之外：GPT 网页端按 `references/v2-prompt-contract.md` 输出 SVG。合同要点：
-
-| 要求 | 内容 | 违约后果 |
-|---|---|---|
-| 画布精确 | `width/height/viewBox` = 原图像素，坐标不缩放 | convert 校验不符直接拒绝 |
-| 文字逐字 | 全部 `<text>`/`<tspan>`，禁止画成路径 | 文字不可编辑，违背项目目标 |
-| 公式 | 变量斜体；`<tspan baseline-shift="sub\|super">` 上下标 | check 文本比对逐条列出 |
-| 无文字写实元素（照片/截图/写实图标/纹理装饰） | `<rect id="atomic:语义名" …>` 占位，不重绘；含文字/公式内容与几何元素禁止占位 | convert 自动从参考图裁剪嵌入（唯一位图来源） |
-| 直接内嵌 `<image>` | 容错：不读内嵌数据，按 bbox 从参考图裁剪替代 | 记 warning；覆盖画布 ≥50% 直接拒绝 |
-| 箭头 | 粗细/头部样式/尺寸/弯折以原图为准，不得套用固定风格；实心头用填充 marker 或轮廓 path，开放头用描边 marker，块状/楔形画整体轮廓；几何子句（refX=尖端、头/线宽 ∈ [1.5,4] 或原图校准值 ±1px、端点落形状边缘 ≤6px）机器可检 | `autofigure arrows` 审计 + check 人审对照 |
-| 版面纪律 | 文字不得与文字/图形重叠；箭头与连接线端点落在形状边缘或间隙，不得压盖文字；间距留白以原图为准 | 走 check 人审对照 |
-| 结构 | 渐变 `<linearGradient>`、虚线 `stroke-dasharray` | radialGradient/marker-mid 暂不支持，记 warning 降级 |
-
-### 4.3 convert（`tools/v2/convert.py`，核心）
-
-**映射表**（SVG → OOXML/python-pptx）：
-
-| SVG | PPTX 原生对象 |
-|---|---|
-| `rect` / `circle` / `ellipse` | 原生形状（圆角矩形保留半径） |
-| `line` / `polyline` / `polygon` | 连接器 / custGeom 自由曲线 |
-| `path` | custGeom 自由曲线（保留三次贝塞尔；S/Q/T/A 归一化） |
-| `text` / `tspan` | 原生文本框 runs（字号/颜色/斜体/粗体/字体；`baseline-shift` → OOXML baseline 上下标 ±30000/-25000） |
-| `linearGradient` | `a:gradFill` 渐变填充 |
-| `stroke-dasharray` | OOXML 合法 `prstDash` 枚举 |
-| `marker` | 自由曲线箭头（marker-start 沿行进方向、marker-end 沿末端真实切线放置——曲线路径取末段切线而非首末弦方向，2026-08-21 修复 43-47° 偏轴 bug） |
-| `<rect id="atomic:*">` / `<image>`（容错） | 从 reference.png 裁 bbox 嵌入位图（唯一允许的位图来源；`<image>` 覆盖画布 ≥50% 拒绝） |
-| `<g>` | 拍平处理（样式/变换正确继承，不产生原生 group） |
-
-**关键常量**：`EMU_PER_PX=9525`、`PT_PER_PX=0.75`（96 dpi）、`BASELINE_ASCENT=0.95`（实测标定的文本框顶到首行基线比例）。
-
-**产出与自检**：保存 `redraw.pptx` 后重新打开读回统计（slide 数、shape 数、含文本的文本框数、各元素发射计数、warning 列表）写 `qa/convert-summary.json`——这是"文本 100% 可编辑读回"红线的机械证据。随后默认调 `render_export.render()` 用本机 PowerPoint COM 导出同尺寸 `render.png`（fresh render，禁止用截图冒充）。
-
-### 4.4 check（`tools/v2/check.py`）
-
-三件套全部 advisory：
-
-1. **文本比对**：`_svg_texts()` 抽 SVG 全部文字，与 OCR 文本做 NFKC 归一化 + 小写 + 希腊字母保留的精确/包含匹配，剩余项 `difflib` 模糊匹配（阈值 0.8，容忍 OCR 的 l/I/破折号噪声）。OCR 通过子进程调用 `D:\paddle ocr\env\python.exe -I -B -X utf8 tools/v2/ocr_texts.py legacy/ocr-config.json reference.png qa/ocr-texts.json`（单次、只读、超时 900s；结果缓存，`--re-ocr` 强制重跑，`--skip-ocr` 跳过）。
-2. **像素诊断**：`tools/figure_lint.py reference.png render.png --diff-out qa/diff.png`，指标（mean_abs_rgb_delta / SSIM / changed_pixel_ratio / top_roi）写 `qa/metrics.json`。
-3. **对照预览**：`preview.png` 上下拼接参考图与渲染图（红色分隔带标注 REFERENCE/RENDER）。
-
-汇总写 `check-report.md`：像素指标 + 双向未匹配文本清单（若 `qa/arrows-audit.json` 存在，追加箭头结构审计节），文末明确"逐条人工判断，不以本报告自动放行或拦截"。
-
-### 4.5 arrows（可选，2026-08-21 新增）
-
-`autofigure arrows <run_dir> [--fix] [--clamp-ratio] [--calibrate ID=LEN]`：箭头**结构层**审计与确定性几何修复。存在的理由：箭头缺陷（头线脱开/偏轴/比例失调）在像素指标上不可分辨——一支箭头 ≈ 画布 0.04%，修好修坏 mean 只动 ~0.06（噪声级），top_roi 注意力又被大块差异区吞掉；OCR 文本比对也不覆盖几何。没有结构感知，该缺陷类对反馈回路不可见（01 案例"改了好几轮还是歪"的根因之一）。
-
-- **审计口径**与 convert 放置语义镜像（`canvas(p) = v + R(θ)·(p − ref)`）：F1 marker `refX/refY` ≠ 三角尖端局部坐标（convert 忠实复刻该偏差）；F2 头长/线宽比例超出 [1.5, 4]——给了 `--calibrate ID=LEN`（原图实测头长）的 marker 改按校准值 ±1px 判定（合同总则"以原图为准"，原图本身即大头部细杆风格时比例带让位，01 金色箭头即此：9px/1.7 ≈ 5.3）；F3 箭头线端点距最近形状边缘 >6px（合同版面纪律的机器可检化）；W4 `orient` 非 auto（convert 按 auto 处理）；feather 手折箭羽（无 marker 的主干+短线束手绘箭头，03 案例模式，只报不修）。产出 `qa/arrows-audit.json`（含校准表），check 报告自动引用。
-- **`--fix` 确定性修复**：refX/refY 对齐三角尖端；`--clamp-ratio` 头长超带时按使用方中位线宽等比限幅；`--calibrate` 头长缩放到原图实测值（优先于 clamp，可放大可缩小）。只动 marker 定义，**不改任何样式**（颜色/填充/线宽逐字节保留），幂等。修复后必须重跑 convert → math → check。
-
-### 4.6 math（可选）
-
-`autofigure math <run_dir> [--dry-run]`：把 convert 产出的公式文本框批量升级为原生 Office Math（OMML），薄封装 v1 保留件 `tools/powerpoint_native_math.py`（纯 zip/XML 操作，不走 finalize/COM 往返）。
-
-- **检测**：强信号 = 任一 run 的 `a:rPr@baseline` ∈ {30000, -25000}（convert 对 `baseline-shift` 的落盘约定）；弱信号 = 全部 run 斜体、去空格 ≤4 字符且含非 ASCII 数学字母（τ π 𝔼 ℒ ∇ 等）——纯 ASCII 标签（GT Answers / B / I）不误收。
-- **LaTeX 重建**：run 序列按 baseline 进 `^{}`/`_{}` 分组（连续同向合并），Unicode → LaTeX 命令映射（τ→`\tau`、𝔼→`\mathbb{E}`、Î→`\hat{I}` 等），映射表外非 ASCII 字符原样保留，LaTeX 特殊字符转义。
-- **注入**：命中形状改名 `math:NNN` 落盘 → 逐公式 `compile_formula`（inline；单个失败只 warn 跳过、保留原文本框）→ `inject_plan` 到 `redraw.math-tmp.pptx` 后 `os.replace` 覆盖；全部失败/无公式框时不改 pptx。注入后形状被 `mc:AlternateContent` 包裹（Choice=OMML / Fallback=LaTeX 文本），重跑幂等。
-- **产出**：`qa/math-summary.json`（检测数、成功/失败清单含 LaTeX 与失败原因）、`qa/math/`（EQ*.json receipt + plan.json）；成功后刷新 fresh render（COM 失败只 warn）。已知差异：OMML 数学区不保留粗体（summary 注明）。`--dry-run` 只检测与重建，不改 PPTX。
-
-## 5. 案例目录约定（examples/<case>/）
-
-案例目录即工作单元，扁平、无历史子目录；重跑覆盖当前最佳，历史由 git 承担。
-
-| 文件 | 产生者 | 说明 |
-|---|---|---|
-| `run.json` | prepare | 案例清单：case / created_at / source_abspath / source_sha256 / width / height |
-| `reference.png` | prepare | 参考图拷贝（OCR 与裁剪的源） |
-| `prompt.md` | prepare | GPT 网页端提示词包 |
-| `redraw.svg` | 用户放入 | VLM 重绘输出（convert 的输入） |
-| `redraw.pptx` | convert | ★ 交付物（原生可编辑） |
-| `render.png` | convert | PowerPoint fresh render |
-| `preview.png` | check | 参考/渲染对照预览 |
-| `check-report.md` | check | 核验报告（人审入口） |
-| `qa/` | convert/check/math/arrows | 机器诊断明细：convert-summary.json / metrics.json / diff.png / ocr-texts.json / math-summary.json / math/ / arrows-audit.json |
-
-## 6. 环境与运行时隔离
-
-| 用途 | 运行时 | 约束 |
-|---|---|---|
-| v2 全部命令 + figure_lint + pytest | 项目内 `.venv`（基座 `D:\anaconda\python.exe` 3.12，依赖见 `requirements-v2.txt`） | 不得装进其他环境 |
-| check 的 OCR | `D:\paddle ocr\env\python.exe`（PP-OCRv6） | 只读单次调用；配置锁定 `legacy/ocr-config.json`；不下载、不更新模型 |
-| fresh render | 本机 PowerPoint COM（pywin32 直驱） | 禁用 PowerShell 脚本方案（中文路径踩坑）；禁截图冒充 |
-| — | `D:\opencv\env` | 保持锁定（仅 opencv-python），v2 不依赖 |
-
-编码纪律：`autofigure.cmd` 必须纯 ASCII；不带 `-X utf8`（stdio 跟随 GBK 控制台），代码内文件读写全部显式 `encoding="utf-8"`。
-
-## 7. 已踩过的关键坑（convert 的 OOXML 纪律，均有回归测试）
-
-1. **spPr 子元素顺序**：填充必须出现在 `effectLst` 之前，否则 PowerPoint 判文件损坏。
-2. **prstDash 枚举**：只接受 OOXML 合法值（不存在 roundDot/squareDot）。
-3. **freeform path bbox**：必须包含贝塞尔控制点，否则渲染错位/损坏。
-4. **marker 放置角（2026-08-21 修复）**：曲线末端箭头必须按**末段真实切线**（C 段 = 端点 − 第二控制点）放置，不能用首末顶点弦方向——01 案例曾因此出现 43-47° 偏轴、三角头横甩脱开；marker-start 必须沿**行进方向**放置（起始箭头定义朝 −x 时尖端落线外），反向 180° 会让起始箭头指进线内。
-5. **箭头缺陷像素指标不可见**：一支箭头 ≈ 画布 0.04%，修好修坏 mean 仅动 ~0.06——凡"改了好几轮还是歪"的几何类缺陷，先补结构审计（`autofigure arrows`），不要继续靠像素指标或改样式硬凑。
-
-## 8. 测试与质量
-
-```bat
-.venv\Scripts\python -m pytest tests\v2 -q
-.venv\Scripts\python -m ruff check tools\v2 tests\v2
-```
-
-`tests/v2/`：test_convert.py（映射、OOXML 坑回归、marker 切线/方向回归、读回）、test_check.py（文本匹配逻辑）、test_svggeom.py（路径/矩阵解析）、test_math.py（公式检测/LaTeX 重建纯函数 + 注入集成，缺 latex2mathml 或 MML2OMML.XSL 时集成项跳过）、test_arrows.py（F1/F2/F3/W4/箭羽审计、fix 幂等与样式不变、原图校准豁免/缩放、01 真实案例回归）。
-
-## 9. 当前状态与基准（2026-08-19）
-
-| 案例 | SVG 来源 | 原生对象 | 文本读回 | mean_abs_rgb_delta | SSIM | changed |
-|---|---|---:|---:|---:|---:|---:|
-| 01-modular-agent（1429×627） | GPT 直出 + R2 自批评修订（箭头实心化、照片 atomic 化、版面重叠修复） | 243（含 1 处照片裁剪） | 66 | 16.5748 | 0.7347 | 38.27% |
-| 02-thinking-diffusion（1513×554） | 手写验证合同 | 162 | 46（SVG 侧 0 未匹配） | 13.5469 | 0.720 | 17.97% |
-| v1 R10（参考基准） | — | — | — | 19.9987 | 0.6535 | 46.55% |
-| 03-llmind（1357×656） | GPT 直出 + `<image>`→`atomic:` 确定性修正 | 201（含 2 处照片裁剪） | 34 | 6.7743 | 0.8697 | 12.90% |
-
-03-llmind 验证了 `atomic:` 占位裁剪约定：GPT 内嵌的 base64 照片被合同拦截，改写为占位符后由 convert 从原图像素级裁回，效果为三案例最佳。指标均为诊断口径，通过证据永远是人审 + 文本读回。
-
-## 10. 边界与红线（不可突破）
-
-- 交付 PPTX 文字必须 100% 原生文本可编辑读回；禁止整图截图、位图/SVG 冒充文字或公式。
-- 无文字写实区域必须走 `atomic:` 裁剪，不得让 VLM 用矢量近似冒充照片；含文字/公式内容与几何元素禁止位图占位。
-- 像素指标只是诊断，不得作为发布硬门；也不得以诊断良好替代人审。
-- `legacy/` 不维护、不修改（例外：OCR 配置 `legacy/ocr-config.json` 与公式引擎 `tools/powerpoint_native_math.py` 仍在役）。
-- git 历史：`a59b78e`（v1 快照）→ `5e3d9b2`（归档 legacy/）→ `fbaddb1`（v2 核心）→ `cd7c422`（examples 案例平铺）。
+详细边界与插件选择见 [`HIGH_FIDELITY_V3.md`](HIGH_FIDELITY_V3.md)。

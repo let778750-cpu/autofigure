@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-01-modular-agent",
+  "taskMode": "RECONSTRUCT_1TO1",
+  "designatedReference": {
+    "sourceId": "reference",
+    "sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+    "usage": "measurement_only",
+    "embedded": false
+  },
+  "reviewIsolation": {
+    "doesNotOverrideAssetManifest": true,
+    "doesNotEstablishScientificValidity": true,
+    "doesNotEstablishRights": true
+  },
+  "reviewStatus": "PENDING",
+  "lifecycleStatus": "DRAFT",
+  "records": []
+}
