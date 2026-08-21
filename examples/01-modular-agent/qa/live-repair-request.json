@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "powerpoint_live_repair_request",
-  "created_at": "20260821T092657Z",
+  "created_at": "20260821T113008Z",
   "case_root": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case",
   "autofigure_case_root": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent",
   "project_id": "autofigure-01-modular-agent",
@@ -559,7 +559,7 @@
   "scene_compatibility": {
     "source_schema_version": "3.0.0",
     "adapter_schema_version": "2.1.0",
-    "adapter_scene_sha256": "26281e23a9aadd3efdd7629c6c9a2bddc5831c32f3881a5f4e17ca8a2af58626",
+    "adapter_scene_sha256": "5be7d55438213ae9f94038e7d9983291a988c36864944b11da5e7c18dc2298b7",
     "bridge_manifest": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-bridge.json",
     "direct_scene_v3_submission_forbidden": true
   },

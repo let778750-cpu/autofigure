@@ -11,17 +11,17 @@
   "template_path": "D:\\AI+科研\\AI智能绘图（最终版）\\AI autofigure\\examples\\01-modular-agent\\qa\\powerpoint-live-case\\input\\candidate.pptx",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
   "source_scene_schema_version": "3.0.0",
-  "source_scene_sha256": "7befaa08f637979b9344109f4868cd20565d322c6e944593ed755cc62f8781ad",
+  "source_scene_sha256": "6a1619ab3abef9fae064eebe0dea48849ed75d4a2ef80c1acb7b2ce50919338e",
   "adapter_scene_schema_version": "2.1.0",
-  "adapter_scene_sha256": "26281e23a9aadd3efdd7629c6c9a2bddc5831c32f3881a5f4e17ca8a2af58626",
+  "adapter_scene_sha256": "5be7d55438213ae9f94038e7d9983291a988c36864944b11da5e7c18dc2298b7",
   "element_count": 196,
   "contract_files": {
-    "project_state.json": "1d2b269980b4d32471a8d8959b7db79f9730603f0c7ee14936aecd945d951e6a",
-    "input/source_manifest.json": "a799830b41702f9abd703dc86c3b8d349cabf591ff1a697057c9dc849b4d0596",
-    "design/scene_graph.json": "26281e23a9aadd3efdd7629c6c9a2bddc5831c32f3881a5f4e17ca8a2af58626",
-    "design/render_plan.json": "06bfc56c798478b028f617c496916f9278f79a56d96a1398bd4c4f3646a6bbd4",
+    "project_state.json": "71a061f2391313187b8f941fb89794001ee083d632033f013cca04d1e52cc2bb",
+    "input/source_manifest.json": "8c60a5bfee7b7ea32eb0b3798787b04ff17c0ab8283625216b44505197784429",
+    "design/scene_graph.json": "5be7d55438213ae9f94038e7d9983291a988c36864944b11da5e7c18dc2298b7",
+    "design/render_plan.json": "1ffcf88a0c6fe47c494126c559ac7635b03464ce0abff904010cf309c13afb55",
     "design/scientific_spec.json": "fcd8484f08935ac402d8353b6c122c79bc3a0cf4e5eb06ae8080a940e7743ad0",
-    "assets/asset_manifest.json": "b2d74e05d11e5b083a563a59dd0b2af503c2d474bb0160eb2bb64bb950fe6be3",
+    "assets/asset_manifest.json": "904f180e1a19b10d3f6a1f4694654d6092e3534d92a0d946f7681ff370c38525",
     "assets/evidence_provenance.json": "880668e25871913ba7307f4d44d141e5b859f41c538f7d3fd7003304b1072338"
   }
 }

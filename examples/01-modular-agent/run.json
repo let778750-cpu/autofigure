@@ -11,7 +11,7 @@
   "backend_mode": "hybrid",
   "workflow": {
     "state": "qa_failed",
-    "revision": 48,
+    "revision": 50,
     "history": [
       {
         "state": "prepared",
@@ -423,6 +423,25 @@
       {
         "state": "qa_failed",
         "at": "20260821T110627Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T113007Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T113032Z",
         "reason": "strict-check-failed",
         "details": {
           "blockers": [
