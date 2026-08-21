@@ -1,0 +1,2 @@
+# Hash-bound scene, manifest, binding, and QA contracts require stable bytes.
+*.json text eol=lf
