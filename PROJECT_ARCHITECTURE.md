@@ -16,36 +16,55 @@
 3. SVG 被拒绝只改变 `processing_mode`；目录、`input_route` 和 provenance 不变。
 4. 旧 v3 案例必须依据显式迁移表分类，禁止根据现有文件或当前模式猜测。
 
-## 2. 数据流
+## 2. 总体流程
+
+流程分四个阶段：准备 → 重建 → 审计 → 修复与验收。图中为面向读者的语义视图，命令与合同字段的精确对应见下方对照表。
 
 ```mermaid
 flowchart TD
-    A["prepare 建案<br/>冻结 reference.png + SHA-256，显式 input_route"] --> B["生成六类合同<br/>run / provenance / scene / assets / regions / bindings"]
-    B --> C{"input_route"}
-    C -->|"svg-seeded"| D["ingest：摄取外部 SVG 种子"]
-    C -->|"reference-only"| E["生成区域任务 qa/region-tasks.json"]
-    D -->|"种子可用"| F["svg_import"]
-    D -->|"种子被拒"| G["png_reconstruct 回退"]
-    E --> G
-    G --> H["视觉执行者仅依据本案例 reference.png 产出候选"]
-    H --> I["ingest：reconstruction-candidate"]
-    F --> J["convert：SVG → 原生可编辑 PPTX<br/>对象绑定 + 保存重开证据"]
-    I --> J
-    J --> K["math：LaTeX → 原生 Office Math<br/>刷新绑定与渲染"]
-    K --> L["arrows：箭头结构审计<br/>可选 --fix 确定性修复 / --calibrate 原图校准"]
-    K --> M["layout：容器与重复组双端审计<br/>SVG 源 + 保存重开 PPTX"]
-    L --> N["check --profile standard 诊断<br/>关键区 SSIM / Edge IoU / ΔE00 + OCR 文本比对"]
-    M --> N
-    N -->|"存在失败区域"| O["qa_failed"]
-    O --> P["repair：PowerPoint Live 可见托管会话<br/>最小修改 + 保存重开 + 回读"]
-    P --> J
-    N --> Q["check --profile strict --require-live 终检"]
-    Q -->|"零 blocker"| R["approved"]
-    Q -->|"仍有 blocker"| O
-    Q -->|"无关键区"| S["失败：regions:no-critical-regions"]
+    subgraph SG1["① 准备 · 冻结原图基准"]
+        A["登记原图并计算哈希指纹<br/>后续所有比对以此为准"] --> B{"是否提供外部<br/>SVG 矢量图？"}
+    end
+
+    subgraph SG2["② 重建 · 生成原生可编辑图形"]
+        B -->|"提供"| C["矢量导入"]
+        B -->|"未提供"| D["视觉大模型看图重绘<br/>仅参考本案例原图"]
+        C -.->|"校验不通过，回退"| D
+        C --> E["转换为原生 PowerPoint 图形<br/>形状、文字皆可编辑，并经真实保存重开验证"]
+        D --> E
+        E --> F["公式转为 Office 原生公式对象"]
+    end
+
+    subgraph SG3["③ 审计 · 与原图逐项比对"]
+        F --> G["箭头审计<br/>指向 · 几何 · 交叉"]
+        F --> H["排版审计<br/>容器 · 对齐 · 重复元素"]
+        G --> I["关键区域逐区比对<br/>结构相似度 · 边缘重合度 · 色差 · 文字一致"]
+        H --> I
+    end
+
+    subgraph SG4["④ 修复与验收"]
+        I -->|"存在未达标区域"| J["可视修复会话<br/>在真实 PowerPoint 中最小修改"]
+        J --> E
+        I -->|"全部达标"| K{"严格终检通过？"}
+        K -->|"通过"| L[("验收通过<br/>交付可编辑 PPTX")]
+        K -->|"未通过"| J
+        K -->|"未定义关键区域"| M["判定失败，拒绝自动放行"]
+    end
+
+    style SG1 fill:#EEF5FC,stroke:#4A7FB5
+    style SG2 fill:#EDF7EE,stroke:#4E9457
+    style SG3 fill:#FDF6EC,stroke:#C9962E
+    style SG4 fill:#F3EFFA,stroke:#7A66B0
 ```
 
-离线转换器当前以 SVG 作为完整初版的可渲染载体。reference-only 的视觉执行者可以是 Codex、其他 VLM 或人工；项目本身不声称在没有视觉推理的情况下自动理解任意科研图。
+| 阶段 | 命令 | 关键产物 |
+|---|---|---|
+| ① 准备 | `prepare` | `run.json`、`provenance.json`；输入路线（`input_route`）自此固定 |
+| ② 重建 | `ingest` → `convert` → `math` | `redraw.pptx`、`bindings.json`；处理模式（`processing_mode`）允许回退 |
+| ③ 审计 | `arrows` / `layout` / `check`（诊断档） | `check-report.md` 与 `qa/` 诊断数据 |
+| ④ 修复与验收 | `repair` → `check`（严格档，须真实渲染证据） | 状态达 `approved` 方可交付 |
+
+离线转换器以 SVG 作为完整初版的可渲染载体；无种子路线（`reference-only`）的视觉执行者可以是视觉大模型或人工。项目不声称在没有视觉推理的情况下自动理解任意科研图。
 
 ## 3. 案例目录
 
