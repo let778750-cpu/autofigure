@@ -6,6 +6,45 @@ Reconstruct research figures as native editable PowerPoint objects, with referen
 
 > Current fact: both input routes now run end to end on a real ModularAgent figure, but both controlled cases remain `qa_failed`. A working pipeline is not the same as mature one-to-one reconstruction quality.
 
+## Overall pipeline
+
+```mermaid
+flowchart TD
+    subgraph SG1["① Prepare · freeze the reference"]
+        A["Register the original figure and its hash<br/>every later comparison uses it"] --> B{"External SVG<br/>provided?"}
+    end
+
+    subgraph SG2["② Reconstruct · native editable shapes"]
+        B -->|"Yes"| C["Vector import"]
+        B -->|"No"| D["Vision model redraws<br/>from this case's reference only"]
+        C -.->|"seed rejected, fall back"| D
+        C --> E["Convert to native PowerPoint shapes<br/>fully editable, verified by save & reopen"]
+        D --> E
+        E --> F["Equations become native Office math"]
+    end
+
+    subgraph SG3["③ Audit · compare against the original"]
+        F --> G["Arrow audit<br/>target · geometry · crossings"]
+        F --> H["Layout audit<br/>containers · alignment · repeats"]
+        G --> I["Per-region pixel comparison<br/>SSIM · edge IoU · ΔE00 · OCR text"]
+        H --> I
+    end
+
+    subgraph SG4["④ Repair & acceptance"]
+        I -->|"failing regions"| J["Guided repair session<br/>minimal edits in real PowerPoint"]
+        J --> E
+        I -->|"all regions pass"| K{"Strict final check passed?"}
+        K -->|"yes"| L[("Accepted<br/>editable PPTX delivered")]
+        K -->|"no"| J
+        K -->|"no critical regions defined"| M["Hard failure, no auto-pass"]
+    end
+
+    style SG1 fill:#EEF5FC,stroke:#4A7FB5
+    style SG2 fill:#EDF7EE,stroke:#4E9457
+    style SG3 fill:#FDF6EC,stroke:#C9962E
+    style SG4 fill:#F3EFFA,stroke:#7A66B0
+```
+
 ## Two independent dimensions
 
 | Dimension | Values | Meaning |
@@ -15,24 +54,43 @@ Reconstruct research figures as native editable PowerPoint objects, with referen
 
 `reference-only` means there was no external SVG seed. An internal SVG may still be generated as an offline rendering carrier. `svg-seeded` is vendor-neutral and covers GPT, Kimi, Claude, Codex, or human-authored seeds. Rejecting a seed changes only `processing_mode`, never `input_route`.
 
-## Canonical examples
+## Showcase
 
-```text
-examples/
-├─ reference-only/01-modular-agent-reference-only/
-└─ svg-seeded/
-   ├─ 01-modular-agent/
-   ├─ 02-thinking-diffusion/
-   └─ 03-llmind/
-```
+Two categories by input route, one case each. In every comparison image the **top half is the original figure, the bottom half the reconstructed render**. Both cases use the same frozen reference; metrics and status are reported as they are.
 
-- The direct PNG case contains 188 bound objects, 45 editable text objects, and 22 native Office Math objects. Only 2 of 6 critical regions pass, so it remains `qa_failed`.
-- Those two passing regions are authorized tight crops for the observation image and environment globe, both at SSIM/Edge IoU 1.0. This validates the microasset crop mechanism, not the whole reconstruction.
-- Cases 02 and 03 have standard diagnostics only. With no critical-region contract, they remain `candidate` and are not retroactively declared strict-approved.
+### 1 · Redraw from a provided SVG (svg-seeded)
 
-Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md).
+![svg-seeded case 01: original on top, reconstructed render below](examples/svg-seeded/01-modular-agent/preview.png)
 
-![Reference-only ModularAgent comparison](examples/reference-only/01-modular-agent-reference-only/preview.png)
+[`01-modular-agent`](examples/svg-seeded/01-modular-agent/) (ModularAgent architecture figure; all 196 bound objects verified via save & reopen):
+
+| Metric | Value |
+|---|---|
+| Bound objects / editable text / native equations | 196 / 44 / 22 |
+| Editable arrow objects / arrow-audit findings | 46 / **0** |
+| Critical regions passing | 2/6 |
+| Status | `qa_failed` (4 region blockers + missing live evidence) |
+
+Machine evidence: [QA_STATUS.md](examples/svg-seeded/01-modular-agent/QA_STATUS.md) · [check-report.md](examples/svg-seeded/01-modular-agent/check-report.md)
+
+### 2 · Redraw from the target PNG only (reference-only)
+
+![reference-only case 01: original on top, reconstructed render below](examples/reference-only/01-modular-agent-reference-only/preview.png)
+
+[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/) (independent rebuild of the same reference; never read the other case's SVG, PPTX, scene, bindings, or coordinates):
+
+| Metric | Value |
+|---|---|
+| Bound objects / editable text / native equations | 188 / 45 / 22 |
+| Editable arrow objects / arrow-audit findings | 43 / **72** |
+| Critical regions passing | 2/6 (the two passing regions are authorized microassets at SSIM/Edge IoU 1.0) |
+| Status | `qa_failed` |
+
+Machine evidence: [check-report.md](examples/reference-only/01-modular-agent-reference-only/check-report.md)
+
+Cross-route conclusion: with an SVG seed, arrow topology reaches zero audit findings; with PNG only, the pipeline also runs end to end, but arrow quality (72 findings) is the current main gap. Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md).
+
+`02-thinking-diffusion` and `03-llmind` have standard diagnostics only (`candidate`, no critical-region contract) and are below the showcase bar; see the full case index in [`examples/README.md`](examples/README.md).
 
 ## Quick start
 
@@ -90,6 +148,7 @@ Each case contains `run.json`, `provenance.json`, `scene.json`, `assets.json`, `
 autofigure cases --write-index
 autofigure cases --check
 autofigure compare 01-modular-agent 01-modular-agent-reference-only
+autofigure hygiene
 ```
 
 Strict acceptance defaults to SSIM ≥ 0.85 and Edge IoU ≥ 0.75 for critical regions, SSIM ≥ 0.95 for authorized raster microassets, plus color, layout, arrow-topology, binding, and optional live-evidence gates.
@@ -105,6 +164,7 @@ The default stack is Microsoft PowerPoint, the `powerpoint-live` MCP, and Autofi
 .venv\Scripts\python -m ruff check tools tests
 .venv\Scripts\python -m compileall -q tools tests
 autofigure cases --check
+autofigure hygiene
 ```
 
 See [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md), [`HIGH_FIDELITY.md`](HIGH_FIDELITY.md), [`SKILL.md`](SKILL.md), and [`examples/README.md`](examples/README.md).

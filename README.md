@@ -6,6 +6,45 @@
 
 > 当前事实：项目已真实跑通 `reference-only` 与 `svg-seeded` 两条输入路线，但 ModularAgent 的两条路线都仍是 `qa_failed`。**管线跑通不等于一比一质量成熟，任何关键区失败都不得写成完成。**
 
+## 总体流程
+
+```mermaid
+flowchart TD
+    subgraph SG1["① 准备 · 冻结原图基准"]
+        A["登记原图并计算哈希指纹<br/>后续所有比对以此为准"] --> B{"是否提供外部<br/>SVG 矢量图？"}
+    end
+
+    subgraph SG2["② 重建 · 生成原生可编辑图形"]
+        B -->|"提供"| C["矢量导入"]
+        B -->|"未提供"| D["视觉大模型看图重绘<br/>仅参考本案例原图"]
+        C -.->|"校验不通过，回退"| D
+        C --> E["转换为原生 PowerPoint 图形<br/>形状、文字皆可编辑，并经真实保存重开验证"]
+        D --> E
+        E --> F["公式转为 Office 原生公式对象"]
+    end
+
+    subgraph SG3["③ 审计 · 与原图逐项比对"]
+        F --> G["箭头审计<br/>指向 · 几何 · 交叉"]
+        F --> H["排版审计<br/>容器 · 对齐 · 重复元素"]
+        G --> I["关键区域逐区比对<br/>结构相似度 · 边缘重合度 · 色差 · 文字一致"]
+        H --> I
+    end
+
+    subgraph SG4["④ 修复与验收"]
+        I -->|"存在未达标区域"| J["可视修复会话<br/>在真实 PowerPoint 中最小修改"]
+        J --> E
+        I -->|"全部达标"| K{"严格终检通过？"}
+        K -->|"通过"| L[("验收通过<br/>交付可编辑 PPTX")]
+        K -->|"未通过"| J
+        K -->|"未定义关键区域"| M["判定失败，拒绝自动放行"]
+    end
+
+    style SG1 fill:#EEF5FC,stroke:#4A7FB5
+    style SG2 fill:#EDF7EE,stroke:#4E9457
+    style SG3 fill:#FDF6EC,stroke:#C9962E
+    style SG4 fill:#F3EFFA,stroke:#7A66B0
+```
+
 ## 两条输入路线
 
 v3.1 把过去混在 `source_mode` 里的两个维度拆开：
@@ -18,40 +57,43 @@ v3.1 把过去混在 `source_mode` 里的两个维度拆开：
 - `reference-only`：用户没有提供外部 SVG 种子。执行者仍可从 PNG 生成内部 SVG，作为离线转换载体；它在 provenance 中是 reconstruction candidate，不是 external seed。
 - `svg-seeded`：历史上存在外部 SVG 种子，不绑定 GPT，也可以来自 Kimi、Claude、Codex 或人工。SVG 被拒绝后只改变 `processing_mode`，不会改变目录或 `input_route`。
 
-```mermaid
-flowchart LR
-    A[冻结 reference.png + SHA-256] --> B{input_route}
-    B -->|svg-seeded| C[摄取外部 SVG 种子]
-    B -->|reference-only| D[生成区域任务]
-    C --> E[svg_import / svg_repair]
-    C -->|候选被拒绝| F[png_reconstruct]
-    D --> F
-    E --> G[原生 PPTX + bindings]
-    F --> G
-    G --> H[区域/箭头/布局 QA]
-    H -->|失败区域| I[PowerPoint Live 混合修复]
-    H -->|strict 零 blocker| J[approved]
-```
+## 案例展示
 
-## 案例结构与真实状态
+按输入路线分两类，各展示案例 01。对照图中**上为原图、下为重建渲染**；两案例使用同一张冻结参考图，指标与状态如实标注。
 
-```text
-examples/
-├─ reference-only/
-│  └─ 01-modular-agent-reference-only/
-└─ svg-seeded/
-   ├─ 01-modular-agent/
-   ├─ 02-thinking-diffusion/
-   └─ 03-llmind/
-```
+### 一 · 提供外部 SVG 重绘（svg-seeded）
 
-- [`svg-seeded/01-modular-agent`](examples/svg-seeded/01-modular-agent/)：`png_reconstruct + qa_failed`，保留 5 个 strict blocker。
-- [`reference-only/01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/)：只从 PNG 独立构建，188 个绑定对象、45 个可编辑文本、22 个原生公式；2/6 关键区通过，仍为 `qa_failed`。
-- [`svg-seeded/02-thinking-diffusion`](examples/svg-seeded/02-thinking-diffusion/) 与 [`03-llmind`](examples/svg-seeded/03-llmind/)：只有 standard 诊断，均为 `candidate`；缺少关键区定义，不能追认为 strict approved。
+![svg-seeded 01 对照：上原图，下重建渲染](examples/svg-seeded/01-modular-agent/preview.png)
 
-受控 A/B 报告：[`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md)。
+[`01-modular-agent`](examples/svg-seeded/01-modular-agent/)（ModularAgent 架构图，196 个绑定对象全部经保存重开验证）：
 
-![reference-only ModularAgent 对照](examples/reference-only/01-modular-agent-reference-only/preview.png)
+| 指标 | 值 |
+|---|---|
+| 绑定对象 / 可编辑文字 / 原生公式 | 196 / 44 / 22 |
+| 可编辑箭头对象 / 箭头审计发现 | 46 / **0** |
+| 关键区域通过 | 2/6 |
+| 状态 | `qa_failed`（4 个区域 blocker + live 证据缺失） |
+
+机器证据：[QA_STATUS.md](examples/svg-seeded/01-modular-agent/QA_STATUS.md) · [check-report.md](examples/svg-seeded/01-modular-agent/check-report.md)
+
+### 二 · 仅提供目标 PNG 重绘（reference-only）
+
+![reference-only 01 对照：上原图，下重建渲染](examples/reference-only/01-modular-agent-reference-only/preview.png)
+
+[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/)（同一参考图的独立重建，全程未读取上一案例的 SVG、PPTX、场景、绑定或坐标）：
+
+| 指标 | 值 |
+|---|---|
+| 绑定对象 / 可编辑文字 / 原生公式 | 188 / 45 / 22 |
+| 可编辑箭头对象 / 箭头审计发现 | 43 / **72** |
+| 关键区域通过 | 2/6（通过的两区为授权微资产，SSIM/Edge IoU 均为 1.0） |
+| 状态 | `qa_failed` |
+
+机器证据：[check-report.md](examples/reference-only/01-modular-agent-reference-only/check-report.md)
+
+两路线对照结论：提供 SVG 种子时箭头结构可做到零审计发现；仅有 PNG 时管线同样走通，但箭头质量差距（72 处发现）是当前主要短板。受控 A/B 报告见 [`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md)。
+
+`02-thinking-diffusion` 与 `03-llmind` 仅有 standard 诊断（`candidate`，无关键区定义），未达展示门槛；完整案例索引见 [`examples/README.md`](examples/README.md)。
 
 ## 能做什么，不能做什么
 
@@ -127,6 +169,7 @@ autofigure check my-case --profile strict --require-live
 autofigure cases --write-index
 autofigure cases --check
 autofigure compare 01-modular-agent 01-modular-agent-reference-only
+autofigure hygiene
 ```
 
 ## PowerPoint 与第三方插件
@@ -140,6 +183,7 @@ autofigure compare 01-modular-agent 01-modular-agent-reference-only
 .venv\Scripts\python -m ruff check tools tests
 .venv\Scripts\python -m compileall -q tools tests
 autofigure cases --check
+autofigure hygiene
 ```
 
 更多细节见 [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md)、[`HIGH_FIDELITY.md`](HIGH_FIDELITY.md)、[`SKILL.md`](SKILL.md) 和 [`examples/README.md`](examples/README.md)。
