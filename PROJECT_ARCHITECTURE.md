@@ -20,23 +20,29 @@
 
 ```mermaid
 flowchart TD
-    A[prepare: reference.png + explicit input_route] --> B[冻结 SHA-256、尺寸、task_mode]
-    B --> C[run/provenance/scene/assets/regions/bindings]
-    C --> D{input_route}
-    D -->|svg-seeded| E[ingest external-seed]
-    D -->|reference-only| F[region-tasks: visual executor]
-    E --> G[svg_import]
-    E -->|rejected| H[png_reconstruct + hybrid_fidelity]
-    F --> H
-    G --> I[convert]
-    H --> I
-    I --> J[editable PPTX + scene bindings + save/reopen]
-    J --> K[math: native OMML + refreshed bindings/render]
-    K --> L[layout/arrows/regions/check]
-    L -->|blockers| M[qa_failed]
-    M --> N[repair: managed PowerPoint Live region work]
-    N --> J
-    L -->|strict zero blockers| O[approved]
+    A["prepare 建案<br/>冻结 reference.png + SHA-256，显式 input_route"] --> B["生成六类合同<br/>run / provenance / scene / assets / regions / bindings"]
+    B --> C{"input_route"}
+    C -->|"svg-seeded"| D["ingest：摄取外部 SVG 种子"]
+    C -->|"reference-only"| E["生成区域任务 qa/region-tasks.json"]
+    D -->|"种子可用"| F["svg_import"]
+    D -->|"种子被拒"| G["png_reconstruct 回退"]
+    E --> G
+    G --> H["视觉执行者仅依据本案例 reference.png 产出候选"]
+    H --> I["ingest：reconstruction-candidate"]
+    F --> J["convert：SVG → 原生可编辑 PPTX<br/>对象绑定 + 保存重开证据"]
+    I --> J
+    J --> K["math：LaTeX → 原生 Office Math<br/>刷新绑定与渲染"]
+    K --> L["arrows：箭头结构审计<br/>可选 --fix 确定性修复 / --calibrate 原图校准"]
+    K --> M["layout：容器与重复组双端审计<br/>SVG 源 + 保存重开 PPTX"]
+    L --> N["check --profile standard 诊断<br/>关键区 SSIM / Edge IoU / ΔE00 + OCR 文本比对"]
+    M --> N
+    N -->|"存在失败区域"| O["qa_failed"]
+    O --> P["repair：PowerPoint Live 可见托管会话<br/>最小修改 + 保存重开 + 回读"]
+    P --> J
+    N --> Q["check --profile strict --require-live 终检"]
+    Q -->|"零 blocker"| R["approved"]
+    Q -->|"仍有 blocker"| O
+    Q -->|"无关键区"| S["失败：regions:no-critical-regions"]
 ```
 
 离线转换器当前以 SVG 作为完整初版的可渲染载体。reference-only 的视觉执行者可以是 Codex、其他 VLM 或人工；项目本身不声称在没有视觉推理的情况下自动理解任意科研图。
@@ -142,15 +148,16 @@ live 必须显式 case、session、revision 和幂等键，支持 inspect、audi
 
 保存重开成功但没有区域修复结果时，只能记录 backend diagnostic；不能伪造 `live-evidence.json`，strict 仍保留 `live-evidence-missing`。
 
-## 9. 案例索引和 A/B
+## 9. 案例治理与项目卫生
 
 ```bat
 autofigure cases --write-index
 autofigure cases --check
 autofigure compare <svg-seeded-case> <reference-only-case>
+autofigure hygiene
 ```
 
-`cases --check` 验证路线目录、全局 ID、合同、参考哈希、索引和可移植路径。`compare` 要求相同参考哈希、不同路线、相同非空 comparison group，并报告对象数、可编辑文字/公式/箭头、区域 SSIM/Edge IoU/ΔE00、箭头发现、全图诊断和最终状态。
+`cases --check` 验证路线目录、全局 ID、合同、参考哈希、索引和可移植路径。`compare` 要求相同参考哈希、不同路线、相同非空 comparison group，并报告对象数、可编辑文字/公式/箭头、区域 SSIM/Edge IoU/ΔE00、箭头发现、全图诊断和最终状态。`hygiene` 对全仓 markdown 做交付物负面回声扫描（对照式修复叙事、对旧实现的批评等），合同性约束与工具指引行豁免；修复过程与防重复踩坑教训必须写入 `history/` ADR。
 
 ## 10. 插件 provider 边界
 
