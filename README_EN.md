@@ -40,7 +40,7 @@ Requirements: Windows, Microsoft PowerPoint, and Python 3.12. Third-party PowerP
 
 ```bat
 python -m venv .venv
-.venv\Scripts\pip install -r requirements-v2.txt
+.venv\Scripts\pip install -r requirements.txt
 ```
 
 External SVG seed route:

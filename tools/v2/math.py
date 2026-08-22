@@ -178,7 +178,7 @@ def _load_engine():
         from tools import powerpoint_native_math
     except ModuleNotFoundError as exc:
         raise common.fail(
-            f"缺少公式引擎依赖: {exc.name}（在 .venv 中 pip install -r requirements-v2.txt）"
+            f"缺少公式引擎依赖: {exc.name}（在 .venv 中 pip install -r requirements.txt）"
         ) from exc
     return powerpoint_native_math
 

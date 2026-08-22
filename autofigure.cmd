@@ -7,7 +7,7 @@ rem Usage: autofigure ^<prepare^|convert^|check^|math^> [args...]
 set "VENV_PY=%~dp0.venv\Scripts\python.exe"
 if not exist "%VENV_PY%" (
     >&2 echo AI AutoFigure could not find the v2 venv: %VENV_PY%
-    >&2 echo Create it with: D:\anaconda\python.exe -m venv .venv ^&^& .venv\Scripts\pip install -r requirements-v2.txt
+    >&2 echo Create it with: D:\anaconda\python.exe -m venv .venv ^&^& .venv\Scripts\pip install -r requirements.txt
     endlocal
     exit /b 9009
 )

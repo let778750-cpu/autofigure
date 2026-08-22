@@ -1,16 +1,14 @@
-# Host-side analysis, preflight, canvas creation, QA, and tests.
-# This lock requires Python 3.12+ (SciPy 1.18.0) and is installed in
-# D:\opencv\env.  The separately pinned PaddleOCR Python remains untouched.
-# PaddleOCR runs in the separately pinned D:\paddle ocr environment.
-numpy==2.4.4
-Pillow==12.2.0
-scipy==1.18.0
-opencv-python==4.13.0.92
-scikit-image==0.26.0
-python-pptx==1.0.2
-jsonschema==4.25.1
-matplotlib==3.11.0
-latex2mathml==3.81.0
-lxml==6.1.0
-pytest==8.4.2
-ruff==0.14.10
+# AI AutoFigure 依赖（隔离 .venv 使用，基座 D:\anaconda\python.exe 3.12）
+# PaddleOCR 不装入本环境：OCR 由独立固定解释器 D:\paddle ocr\env\python.exe
+# 执行 tools/v2/ocr_texts.py，其依赖与模型均在该环境内管理。
+python-pptx>=1.0        # convert/check：原生 PPTX 读写
+Pillow>=10.0            # 渲染图/微资产裁剪与像素比对
+numpy>=1.26             # regions/figure_lint 数值计算
+scipy>=1.11             # regions：binary_dilation 形态学
+scikit-image>=0.22      # regions/figure_lint：SSIM、canny、ΔE00
+lxml>=5.0               # convert/arrows/native_math：SVG 与 OOXML 解析
+latex2mathml>=3.81      # math 命令：LaTeX→MathML（OMML 转换用本机 Office XSL）
+pywin32>=306            # live_bridge/render_export：PowerPoint COM fresh render
+jsonschema>=4.0         # figure_lint 合同校验
+pytest>=8.0
+ruff>=0.6

@@ -67,7 +67,7 @@ examples/
 
 ```bat
 python -m venv .venv
-.venv\Scripts\pip install -r requirements-v2.txt
+.venv\Scripts\pip install -r requirements.txt
 ```
 
 ### 路线 A：用户提供外部 SVG 种子
