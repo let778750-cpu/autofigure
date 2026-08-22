@@ -101,13 +101,13 @@ The default stack is Microsoft PowerPoint, the `powerpoint-live` MCP, and Autofi
 ## Development verification
 
 ```bat
-.venv\Scripts\python -m pytest tests\v2 -q
-.venv\Scripts\python -m ruff check tools\v2 tests\v2
-.venv\Scripts\python -m compileall -q tools\v2 tests\v2
+.venv\Scripts\python -m pytest tests -q
+.venv\Scripts\python -m ruff check tools tests
+.venv\Scripts\python -m compileall -q tools tests
 autofigure cases --check
 ```
 
-See [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md), [`HIGH_FIDELITY_V3.md`](HIGH_FIDELITY_V3.md), [`SKILL.md`](SKILL.md), and [`examples/README.md`](examples/README.md).
+See [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md), [`HIGH_FIDELITY.md`](HIGH_FIDELITY.md), [`SKILL.md`](SKILL.md), and [`examples/README.md`](examples/README.md).
 
 ## License
 

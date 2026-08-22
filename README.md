@@ -136,13 +136,13 @@ autofigure compare 01-modular-agent 01-modular-agent-reference-only
 ## 开发验证
 
 ```bat
-.venv\Scripts\python -m pytest tests\v2 -q
-.venv\Scripts\python -m ruff check tools\v2 tests\v2
-.venv\Scripts\python -m compileall -q tools\v2 tests\v2
+.venv\Scripts\python -m pytest tests -q
+.venv\Scripts\python -m ruff check tools tests
+.venv\Scripts\python -m compileall -q tools tests
 autofigure cases --check
 ```
 
-更多细节见 [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md)、[`HIGH_FIDELITY_V3.md`](HIGH_FIDELITY_V3.md)、[`SKILL.md`](SKILL.md) 和 [`examples/README.md`](examples/README.md)。
+更多细节见 [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md)、[`HIGH_FIDELITY.md`](HIGH_FIDELITY.md)、[`SKILL.md`](SKILL.md) 和 [`examples/README.md`](examples/README.md)。
 
 ## License
 

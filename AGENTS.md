@@ -2,7 +2,7 @@
 
 ## 范围
 
-本项目把参考科研图重建为原生可编辑 PPTX。正式指令见 `SKILL.md`、`PROJECT_ARCHITECTURE.md` 和 `HIGH_FIDELITY_V3.md`。`legacy/` 除公式引擎兼容入口外不维护。
+本项目把参考科研图重建为原生可编辑 PPTX。正式指令见 `SKILL.md`、`PROJECT_ARCHITECTURE.md` 和 `HIGH_FIDELITY.md`。`legacy/` 除公式引擎兼容入口外不维护。
 
 ## 输入路线与案例
 
@@ -36,9 +36,9 @@
 ## 修改后验证
 
 ```bat
-.venv\Scripts\python -m pytest tests\v2 -q
-.venv\Scripts\python -m ruff check tools\v2 tests\v2
-.venv\Scripts\python -m compileall -q tools\v2 tests\v2
+.venv\Scripts\python -m pytest tests -q
+.venv\Scripts\python -m ruff check tools tests
+.venv\Scripts\python -m compileall -q tools tests
 autofigure cases --write-index
 autofigure cases --check
 autofigure hygiene
