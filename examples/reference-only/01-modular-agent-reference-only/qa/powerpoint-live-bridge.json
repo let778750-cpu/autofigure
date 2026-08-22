@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_scene_bridge",
+  "ready": true,
+  "release_authority": "NONE",
+  "path_base": "autofigure-case-root",
+  "autofigure_case_root": ".",
+  "case_root": "qa/powerpoint-live-case",
+  "project_id": "autofigure-01-modular-agent-reference-only",
+  "target_id": "autofigure-pptx",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "source_scene_schema_version": "3.1.0",
+  "source_scene_sha256": "1032cb09e4d1235dd5a13d870f99fa27353417d1a0a8f31a3c65e2bf99f6b384",
+  "adapter_scene_schema_version": "2.1.0",
+  "adapter_scene_sha256": "b8ff8bf1b7dab45ec586fc20b77aac23c09be0606a8a486be4afd6bb3113ade1",
+  "element_count": 182,
+  "contract_files": {
+    "project_state.json": "02731e3d0e8ed8baa8cae9c4c2d6976ea73302706a62107bb258cc123e56071c",
+    "input/source_manifest.json": "9824fd2939ec7443216b36f49f1ad1d0b23e1b5075164115a98d1f1fd727ecd3",
+    "design/scene_graph.json": "b8ff8bf1b7dab45ec586fc20b77aac23c09be0606a8a486be4afd6bb3113ade1",
+    "design/render_plan.json": "88c57156296ac0efa13126f78be1db947826e29580c84a1b787bfebf8eb490a4",
+    "design/scientific_spec.json": "9534aa94aa2d41b47aaeb7b2a82439ce5f66e6c9ec5bbe9540791075e1bc9a56",
+    "assets/asset_manifest.json": "9b46a998558b4a557ff6266d14a90cfb19f3eb0a13d7a9120214f1205f28788e",
+    "assets/evidence_provenance.json": "ef285be5eb6fea6fe6be6c38387182b6549931dd36969ec0f930464dee213d48"
+  }
+}

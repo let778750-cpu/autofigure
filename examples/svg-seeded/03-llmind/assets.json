@@ -1,0 +1,51 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "assets",
+  "case": "03-llmind",
+  "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+  "updated_at": "20260821T130720Z",
+  "policy": {
+    "formal_content_native": true,
+    "authorized_atomic_raster_only": true,
+    "whole_reference_forbidden": true
+  },
+  "assets": [
+    {
+      "id": "atomic:photo-1",
+      "source": "reference_crop",
+      "source_sha256": "63aa53730bd75ce720ccbf12968e848cbca365d1a6b40efd1ffceb5ea027a2ac",
+      "bbox": [
+        750,
+        230,
+        190,
+        129
+      ],
+      "editable": false,
+      "authorized": false,
+      "source_tightly_cropped": true,
+      "atomic_raster_unit": true,
+      "contains_reconstructable_content": false,
+      "raster_reason": "Reference-faithful irreducible creative microasset authorized by the user.",
+      "decomposition_note": "No faithful native decomposition; formal text, formulas, nodes, and topology remain native."
+    },
+    {
+      "id": "atomic:photo-2",
+      "source": "reference_crop",
+      "source_sha256": "5a1493cbe0a5c7c858d4f07c540e9bf5722156619d8d971eec9eadcc57cd006f",
+      "bbox": [
+        463,
+        462,
+        190,
+        128
+      ],
+      "editable": false,
+      "authorized": false,
+      "source_tightly_cropped": true,
+      "atomic_raster_unit": true,
+      "contains_reconstructable_content": false,
+      "raster_reason": "Reference-faithful irreducible creative microasset authorized by the user.",
+      "decomposition_note": "No faithful native decomposition; formal text, formulas, nodes, and topology remain native."
+    }
+  ],
+  "task_mode": "RECONSTRUCT_1TO1"
+}

@@ -1,0 +1,3127 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "scene",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "01-modular-agent-reference-only",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "updated_at": "20260821T132056Z",
+  "canvas": {
+    "width": 1429,
+    "height": 627,
+    "unit": "px"
+  },
+  "elements": [
+    {
+      "id": "background",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "0",
+        "y": "0",
+        "width": "1429",
+        "height": "627"
+      },
+      "topology": {},
+      "z_index": 0,
+      "editable": true
+    },
+    {
+      "id": "joint-panel",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "18",
+        "y": "107",
+        "width": "947",
+        "height": "411"
+      },
+      "topology": {},
+      "z_index": 1,
+      "editable": true
+    },
+    {
+      "id": "behavior-panel",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "978",
+        "y": "107",
+        "width": "433",
+        "height": "411"
+      },
+      "topology": {},
+      "z_index": 2,
+      "editable": true
+    },
+    {
+      "id": "task-input-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "29",
+        "y": "16",
+        "width": "360",
+        "height": "77",
+        "rx": "13"
+      },
+      "topology": {},
+      "z_index": 3,
+      "editable": true
+    },
+    {
+      "id": "user-icon-ring",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "68",
+        "cy": "54",
+        "r": "24"
+      },
+      "topology": {},
+      "z_index": 4,
+      "editable": true
+    },
+    {
+      "id": "user-icon-head",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "68",
+        "cy": "42",
+        "r": "7"
+      },
+      "topology": {},
+      "z_index": 5,
+      "editable": true
+    },
+    {
+      "id": "user-icon-body",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 51 69 C 51 55 57 49 68 49 C 79 49 85 55 85 69 Z"
+      },
+      "topology": {},
+      "z_index": 6,
+      "editable": true
+    },
+    {
+      "id": "task-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "113",
+        "y": "49"
+      },
+      "topology": {},
+      "z_index": 7,
+      "editable": true,
+      "layout": {
+        "container_id": "task-input-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "task-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "113",
+        "y": "78"
+      },
+      "topology": {},
+      "z_index": 8,
+      "editable": true,
+      "layout": {
+        "container_id": "task-input-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "task-encoder",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "435",
+        "y": "17",
+        "width": "124",
+        "height": "78",
+        "rx": "14"
+      },
+      "topology": {},
+      "z_index": 9,
+      "editable": true
+    },
+    {
+      "id": "task-encoder-line1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "497",
+        "y": "51"
+      },
+      "topology": {},
+      "z_index": 10,
+      "editable": true,
+      "layout": {
+        "container_id": "task-encoder",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "task-encoder-line2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "497",
+        "y": "79"
+      },
+      "topology": {},
+      "z_index": 11,
+      "editable": true,
+      "layout": {
+        "container_id": "task-encoder",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "tau-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "597",
+        "y": "36",
+        "width": "128",
+        "height": "43"
+      },
+      "topology": {},
+      "z_index": 12,
+      "editable": true
+    },
+    {
+      "id": "tau-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "660",
+        "y": "27"
+      },
+      "topology": {},
+      "z_index": 13,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ001"
+    },
+    {
+      "id": "tau-node-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "624",
+        "cy": "58",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 14,
+      "editable": true,
+      "layout": {
+        "repeat_group": "tau-nodes",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "tau-node-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "661",
+        "cy": "58",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 15,
+      "editable": true,
+      "layout": {
+        "repeat_group": "tau-nodes",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "tau-node-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "698",
+        "cy": "58",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 16,
+      "editable": true,
+      "layout": {
+        "repeat_group": "tau-nodes",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "mapping-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "765",
+        "y": "34",
+        "width": "186",
+        "height": "47",
+        "rx": "7"
+      },
+      "topology": {},
+      "z_index": 17,
+      "editable": true
+    },
+    {
+      "id": "mapping-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "789",
+        "y": "67"
+      },
+      "topology": {},
+      "z_index": 18,
+      "editable": true,
+      "layout": {
+        "container_id": "mapping-box",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "mapping-formula",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "890",
+        "y": "64"
+      },
+      "topology": {},
+      "z_index": 19,
+      "editable": true,
+      "layout": {
+        "container_id": "mapping-box",
+        "padding": "7"
+      },
+      "native_math": true,
+      "formula_id": "EQ002"
+    },
+    {
+      "id": "task-input-to-encoder",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "399",
+        "y1": "56",
+        "x2": "425",
+        "y2": "56"
+      },
+      "topology": {
+        "source": "task-input-box",
+        "target": "task-encoder"
+      },
+      "z_index": 20,
+      "editable": true
+    },
+    {
+      "id": "task-encoder-to-tau",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "566",
+        "y1": "56",
+        "x2": "590",
+        "y2": "56"
+      },
+      "topology": {
+        "source": "task-encoder",
+        "target": "tau-box"
+      },
+      "z_index": 21,
+      "editable": true
+    },
+    {
+      "id": "tau-to-mapping",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "733",
+        "y1": "56",
+        "x2": "758",
+        "y2": "56"
+      },
+      "topology": {
+        "source": "tau-box",
+        "target": "mapping-box"
+      },
+      "z_index": 22,
+      "editable": true
+    },
+    {
+      "id": "legend-sem",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1155",
+        "y": "18",
+        "width": "78",
+        "height": "37",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 23,
+      "editable": true
+    },
+    {
+      "id": "legend-sem-short",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1194",
+        "y": "43"
+      },
+      "topology": {},
+      "z_index": 24,
+      "editable": true,
+      "layout": {
+        "container_id": "legend-sem",
+        "padding": "4"
+      }
+    },
+    {
+      "id": "legend-sem-long",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1241",
+        "y": "44"
+      },
+      "topology": {},
+      "z_index": 25,
+      "editable": true
+    },
+    {
+      "id": "legend-dyn",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1155",
+        "y": "59",
+        "width": "78",
+        "height": "37",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 26,
+      "editable": true
+    },
+    {
+      "id": "legend-dyn-short",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1194",
+        "y": "85"
+      },
+      "topology": {},
+      "z_index": 27,
+      "editable": true,
+      "layout": {
+        "container_id": "legend-dyn",
+        "padding": "4"
+      }
+    },
+    {
+      "id": "legend-dyn-long",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1241",
+        "y": "85"
+      },
+      "topology": {},
+      "z_index": 28,
+      "editable": true
+    },
+    {
+      "id": "joint-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "41",
+        "y": "162"
+      },
+      "topology": {},
+      "z_index": 29,
+      "editable": true
+    },
+    {
+      "id": "allocator-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "485",
+        "y": "132",
+        "width": "352",
+        "height": "46"
+      },
+      "topology": {},
+      "z_index": 30,
+      "editable": true
+    },
+    {
+      "id": "allocator-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "661",
+        "y": "164"
+      },
+      "topology": {},
+      "z_index": 31,
+      "editable": true,
+      "layout": {
+        "container_id": "allocator-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "allocator-funnel",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 485 178 L 837 178 L 710 208 L 612 208 Z"
+      },
+      "topology": {},
+      "z_index": 32,
+      "editable": true
+    },
+    {
+      "id": "tau-to-allocator",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "660",
+        "y1": "80",
+        "x2": "660",
+        "y2": "127"
+      },
+      "topology": {
+        "source": "tau-box",
+        "target": "allocator-box"
+      },
+      "z_index": 33,
+      "editable": true,
+      "physically_grouped": true
+    },
+    {
+      "id": "mllm-encoder",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "188",
+        "y": "243",
+        "width": "124",
+        "height": "112",
+        "rx": "14"
+      },
+      "topology": {},
+      "z_index": 34,
+      "editable": true
+    },
+    {
+      "id": "mllm-line1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "250",
+        "y": "276"
+      },
+      "topology": {},
+      "z_index": 35,
+      "editable": true,
+      "layout": {
+        "container_id": "mllm-encoder",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "mllm-line2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "250",
+        "y": "304"
+      },
+      "topology": {},
+      "z_index": 36,
+      "editable": true,
+      "layout": {
+        "container_id": "mllm-encoder",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "wm-encoder",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "188",
+        "y": "401",
+        "width": "124",
+        "height": "87",
+        "rx": "14"
+      },
+      "topology": {},
+      "z_index": 37,
+      "editable": true
+    },
+    {
+      "id": "wm-line1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "250",
+        "y": "436"
+      },
+      "topology": {},
+      "z_index": 38,
+      "editable": true,
+      "layout": {
+        "container_id": "wm-encoder",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "wm-line2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "250",
+        "y": "464"
+      },
+      "topology": {},
+      "z_index": 39,
+      "editable": true,
+      "layout": {
+        "container_id": "wm-encoder",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "atomic:observation",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "42",
+        "y": "290",
+        "width": "106",
+        "height": "86"
+      },
+      "topology": {},
+      "z_index": 40,
+      "editable": false
+    },
+    {
+      "id": "observation-ellipsis",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "31",
+        "y": "379"
+      },
+      "topology": {},
+      "z_index": 41,
+      "editable": true
+    },
+    {
+      "id": "observation-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "29",
+        "y": "405"
+      },
+      "topology": {},
+      "z_index": 42,
+      "editable": true
+    },
+    {
+      "id": "observation-to-mllm",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 151 322 L 178 293"
+      },
+      "topology": {
+        "source": "atomic:observation",
+        "target": "mllm-encoder"
+      },
+      "z_index": 43,
+      "editable": true
+    },
+    {
+      "id": "observation-to-wm",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 150 376 L 180 400"
+      },
+      "topology": {
+        "source": "atomic:observation",
+        "target": "wm-encoder"
+      },
+      "z_index": 44,
+      "editable": true
+    },
+    {
+      "id": "mllm-to-ev",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "315",
+        "y1": "274",
+        "x2": "340",
+        "y2": "274"
+      },
+      "topology": {
+        "source": "mllm-encoder",
+        "target": "ev-box"
+      },
+      "z_index": 45,
+      "editable": true
+    },
+    {
+      "id": "wm-to-st",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "315",
+        "y1": "435",
+        "x2": "340",
+        "y2": "435"
+      },
+      "topology": {
+        "source": "wm-encoder",
+        "target": "st-box"
+      },
+      "z_index": 46,
+      "editable": true
+    },
+    {
+      "id": "ev-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "346",
+        "y": "213",
+        "width": "42",
+        "height": "127"
+      },
+      "topology": {},
+      "z_index": 47,
+      "editable": true
+    },
+    {
+      "id": "ev-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "367",
+        "y": "201"
+      },
+      "topology": {},
+      "z_index": 48,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ003"
+    },
+    {
+      "id": "ev-node-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "367",
+        "cy": "239",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 49,
+      "editable": true,
+      "layout": {
+        "repeat_group": "ev-nodes",
+        "repeat_axis": "vertical",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "ev-node-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "367",
+        "cy": "277",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 50,
+      "editable": true,
+      "layout": {
+        "repeat_group": "ev-nodes",
+        "repeat_axis": "vertical",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "ev-node-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "367",
+        "cy": "315",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 51,
+      "editable": true,
+      "layout": {
+        "repeat_group": "ev-nodes",
+        "repeat_axis": "vertical",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "st-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "347",
+        "y": "374",
+        "width": "42",
+        "height": "126"
+      },
+      "topology": {},
+      "z_index": 52,
+      "editable": true
+    },
+    {
+      "id": "st-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "368",
+        "y": "364"
+      },
+      "topology": {},
+      "z_index": 53,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ004"
+    },
+    {
+      "id": "st-node-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "368",
+        "cy": "398",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 54,
+      "editable": true,
+      "layout": {
+        "repeat_group": "st-nodes",
+        "repeat_axis": "vertical",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "st-node-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "368",
+        "cy": "436",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 55,
+      "editable": true,
+      "layout": {
+        "repeat_group": "st-nodes",
+        "repeat_axis": "vertical",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "st-node-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "368",
+        "cy": "474",
+        "r": "17"
+      },
+      "topology": {},
+      "z_index": 56,
+      "editable": true,
+      "layout": {
+        "repeat_group": "st-nodes",
+        "repeat_axis": "vertical",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "ev-to-joint",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "392",
+        "y1": "274",
+        "x2": "421",
+        "y2": "274"
+      },
+      "topology": {
+        "source": "ev-box",
+        "target": "joint-core"
+      },
+      "z_index": 57,
+      "editable": true
+    },
+    {
+      "id": "st-to-joint",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "393",
+        "y1": "436",
+        "x2": "421",
+        "y2": "436"
+      },
+      "topology": {
+        "source": "st-box",
+        "target": "joint-core"
+      },
+      "z_index": 58,
+      "editable": true
+    },
+    {
+      "id": "joint-core",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "428",
+        "y": "209",
+        "width": "445",
+        "height": "295",
+        "rx": "17"
+      },
+      "topology": {},
+      "z_index": 59,
+      "editable": true
+    },
+    {
+      "id": "task-1-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "443",
+        "y": "265",
+        "width": "95",
+        "height": "49"
+      },
+      "topology": {},
+      "z_index": 60,
+      "editable": true
+    },
+    {
+      "id": "task-1-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "490",
+        "y": "299"
+      },
+      "topology": {},
+      "z_index": 61,
+      "editable": true,
+      "layout": {
+        "container_id": "task-1-box",
+        "padding": "5"
+      }
+    },
+    {
+      "id": "task-2-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "443",
+        "y": "387",
+        "width": "95",
+        "height": "48"
+      },
+      "topology": {},
+      "z_index": 62,
+      "editable": true
+    },
+    {
+      "id": "task-2-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "490",
+        "y": "420"
+      },
+      "topology": {},
+      "z_index": 63,
+      "editable": true,
+      "layout": {
+        "container_id": "task-2-box",
+        "padding": "5"
+      }
+    },
+    {
+      "id": "expert-1-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "552",
+        "y": "229",
+        "width": "51",
+        "height": "236"
+      },
+      "topology": {},
+      "z_index": 64,
+      "editable": true
+    },
+    {
+      "id": "expert-1-sem",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "559",
+        "y": "243",
+        "width": "37",
+        "height": "100",
+        "rx": "8"
+      },
+      "topology": {},
+      "z_index": 65,
+      "editable": true
+    },
+    {
+      "id": "expert-1-dyn",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "559",
+        "y": "356",
+        "width": "37",
+        "height": "100",
+        "rx": "7"
+      },
+      "topology": {},
+      "z_index": 66,
+      "editable": true
+    },
+    {
+      "id": "expert-1-sem-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "578",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 67,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-1-sem",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-1-dyn-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "578",
+        "y": "390"
+      },
+      "topology": {},
+      "z_index": 68,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-1-dyn",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-2-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "628",
+        "y": "229",
+        "width": "52",
+        "height": "236"
+      },
+      "topology": {},
+      "z_index": 69,
+      "editable": true
+    },
+    {
+      "id": "expert-2-sem",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "636",
+        "y": "243",
+        "width": "37",
+        "height": "100",
+        "rx": "8"
+      },
+      "topology": {},
+      "z_index": 70,
+      "editable": true
+    },
+    {
+      "id": "expert-2-dyn",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "636",
+        "y": "356",
+        "width": "37",
+        "height": "100",
+        "rx": "7"
+      },
+      "topology": {},
+      "z_index": 71,
+      "editable": true
+    },
+    {
+      "id": "expert-2-sem-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "655",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 72,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-2-sem",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-2-dyn-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "655",
+        "y": "390"
+      },
+      "topology": {},
+      "z_index": 73,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-2-dyn",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-3-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "707",
+        "y": "229",
+        "width": "51",
+        "height": "236"
+      },
+      "topology": {},
+      "z_index": 74,
+      "editable": true
+    },
+    {
+      "id": "expert-3-sem",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "714",
+        "y": "243",
+        "width": "37",
+        "height": "100",
+        "rx": "8"
+      },
+      "topology": {},
+      "z_index": 75,
+      "editable": true
+    },
+    {
+      "id": "expert-3-dyn",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "714",
+        "y": "356",
+        "width": "37",
+        "height": "100",
+        "rx": "7"
+      },
+      "topology": {},
+      "z_index": 76,
+      "editable": true
+    },
+    {
+      "id": "expert-3-sem-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "733",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 77,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-3-sem",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-3-dyn-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "733",
+        "y": "390"
+      },
+      "topology": {},
+      "z_index": 78,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-3-dyn",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-4-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "799",
+        "y": "229",
+        "width": "52",
+        "height": "236"
+      },
+      "topology": {},
+      "z_index": 79,
+      "editable": true
+    },
+    {
+      "id": "expert-4-sem",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "807",
+        "y": "243",
+        "width": "37",
+        "height": "100",
+        "rx": "8"
+      },
+      "topology": {},
+      "z_index": 80,
+      "editable": true
+    },
+    {
+      "id": "expert-4-dyn",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "807",
+        "y": "356",
+        "width": "37",
+        "height": "100",
+        "rx": "7"
+      },
+      "topology": {},
+      "z_index": 81,
+      "editable": true
+    },
+    {
+      "id": "expert-4-sem-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "825",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 82,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-4-sem",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-4-dyn-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "825",
+        "y": "390"
+      },
+      "topology": {},
+      "z_index": 83,
+      "editable": true,
+      "layout": {
+        "container_id": "expert-4-dyn",
+        "padding": "3"
+      }
+    },
+    {
+      "id": "expert-index-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "578",
+        "y": "487"
+      },
+      "topology": {},
+      "z_index": 84,
+      "editable": true
+    },
+    {
+      "id": "expert-index-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "654",
+        "y": "487"
+      },
+      "topology": {},
+      "z_index": 85,
+      "editable": true
+    },
+    {
+      "id": "expert-index-3",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "733",
+        "y": "487"
+      },
+      "topology": {},
+      "z_index": 86,
+      "editable": true
+    },
+    {
+      "id": "expert-index-dots",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "781",
+        "y": "456"
+      },
+      "topology": {},
+      "z_index": 87,
+      "editable": true
+    },
+    {
+      "id": "expert-index-l",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "825",
+        "y": "487"
+      },
+      "topology": {},
+      "z_index": 88,
+      "editable": true
+    },
+    {
+      "id": "allocator-task1-route-1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 537 289 C 570 260 583 277 618 347"
+      },
+      "topology": {
+        "source": "task-1-box",
+        "target": "expert-1-dyn"
+      },
+      "z_index": 89,
+      "editable": true
+    },
+    {
+      "id": "allocator-task1-route-2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 538 290 C 622 250 623 430 700 428 C 760 426 785 264 861 284"
+      },
+      "topology": {
+        "source": "task-1-box",
+        "target": "zt-top-box"
+      },
+      "z_index": 90,
+      "editable": true
+    },
+    {
+      "id": "allocator-task2-route-1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 537 410 C 620 392 632 441 682 384 C 716 346 720 280 754 282"
+      },
+      "topology": {
+        "source": "task-2-box",
+        "target": "expert-3-sem"
+      },
+      "z_index": 91,
+      "editable": true,
+      "physically_grouped": true
+    },
+    {
+      "id": "allocator-task2-route-2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 537 410 C 622 403 644 424 692 382 C 741 339 781 455 862 418"
+      },
+      "topology": {
+        "source": "task-2-box",
+        "target": "zt-bottom-box"
+      },
+      "z_index": 92,
+      "editable": true,
+      "physically_grouped": true
+    },
+    {
+      "id": "zt-top-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "903",
+        "y": "208",
+        "width": "42",
+        "height": "128"
+      },
+      "topology": {},
+      "z_index": 93,
+      "editable": true
+    },
+    {
+      "id": "zt-top-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "924",
+        "y": "198"
+      },
+      "topology": {},
+      "z_index": 94,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ005"
+    },
+    {
+      "id": "zt-top-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "924",
+        "cy": "232",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 95,
+      "editable": true,
+      "layout": {
+        "repeat_group": "zt-top",
+        "repeat_axis": "vertical",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "zt-top-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "924",
+        "cy": "270",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 96,
+      "editable": true,
+      "layout": {
+        "repeat_group": "zt-top",
+        "repeat_axis": "vertical",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "zt-top-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "924",
+        "cy": "308",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 97,
+      "editable": true,
+      "layout": {
+        "repeat_group": "zt-top",
+        "repeat_axis": "vertical",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "zt-bottom-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "903",
+        "y": "353",
+        "width": "42",
+        "height": "126"
+      },
+      "topology": {},
+      "z_index": 98,
+      "editable": true
+    },
+    {
+      "id": "zt-bottom-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "924",
+        "cy": "380",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 99,
+      "editable": true,
+      "layout": {
+        "repeat_group": "zt-bottom",
+        "repeat_axis": "vertical",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "zt-bottom-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "924",
+        "cy": "417",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 100,
+      "editable": true,
+      "layout": {
+        "repeat_group": "zt-bottom",
+        "repeat_axis": "vertical",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "zt-bottom-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "924",
+        "cy": "454",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 101,
+      "editable": true,
+      "layout": {
+        "repeat_group": "zt-bottom",
+        "repeat_axis": "vertical",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "task-conditioned-imagination",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "993",
+        "y": "121",
+        "width": "400",
+        "height": "91",
+        "rx": "17"
+      },
+      "topology": {},
+      "z_index": 102,
+      "editable": true
+    },
+    {
+      "id": "imagination-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1193",
+        "y": "153"
+      },
+      "topology": {},
+      "z_index": 103,
+      "editable": true,
+      "layout": {
+        "container_id": "task-conditioned-imagination",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "imag-z0",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1009",
+        "y": "166",
+        "width": "46",
+        "height": "34",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 104,
+      "editable": true
+    },
+    {
+      "id": "imag-z1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1106",
+        "y": "166",
+        "width": "46",
+        "height": "34",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 105,
+      "editable": true
+    },
+    {
+      "id": "imag-z2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1205",
+        "y": "166",
+        "width": "46",
+        "height": "34",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 106,
+      "editable": true
+    },
+    {
+      "id": "imag-zh",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1335",
+        "y": "166",
+        "width": "47",
+        "height": "34",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 107,
+      "editable": true
+    },
+    {
+      "id": "imag-z0-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1032",
+        "y": "188"
+      },
+      "topology": {},
+      "z_index": 108,
+      "editable": true,
+      "layout": {
+        "container_id": "imag-z0",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ006"
+    },
+    {
+      "id": "imag-z1-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1129",
+        "y": "188"
+      },
+      "topology": {},
+      "z_index": 109,
+      "editable": true,
+      "layout": {
+        "container_id": "imag-z1",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ007"
+    },
+    {
+      "id": "imag-z2-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1228",
+        "y": "188"
+      },
+      "topology": {},
+      "z_index": 110,
+      "editable": true,
+      "layout": {
+        "container_id": "imag-z2",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ008"
+    },
+    {
+      "id": "imag-dots",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1267",
+        "y": "188"
+      },
+      "topology": {},
+      "z_index": 111,
+      "editable": true
+    },
+    {
+      "id": "imag-zh-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1358",
+        "y": "188"
+      },
+      "topology": {},
+      "z_index": 112,
+      "editable": true,
+      "layout": {
+        "container_id": "imag-zh",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ009"
+    },
+    {
+      "id": "rollout-panel",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "993",
+        "y": "281",
+        "width": "400",
+        "height": "173",
+        "rx": "20"
+      },
+      "topology": {},
+      "z_index": 113,
+      "editable": true
+    },
+    {
+      "id": "rollout-z0",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1011",
+        "y": "296",
+        "width": "45",
+        "height": "36",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 114,
+      "editable": true
+    },
+    {
+      "id": "rollout-z1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1107",
+        "y": "296",
+        "width": "45",
+        "height": "36",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 115,
+      "editable": true
+    },
+    {
+      "id": "rollout-z2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1207",
+        "y": "296",
+        "width": "45",
+        "height": "36",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 116,
+      "editable": true
+    },
+    {
+      "id": "rollout-zh",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1335",
+        "y": "296",
+        "width": "47",
+        "height": "36",
+        "rx": "6"
+      },
+      "topology": {},
+      "z_index": 117,
+      "editable": true
+    },
+    {
+      "id": "rollout-z0-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1033",
+        "y": "320"
+      },
+      "topology": {},
+      "z_index": 118,
+      "editable": true,
+      "layout": {
+        "container_id": "rollout-z0",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ010"
+    },
+    {
+      "id": "rollout-z1-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1129",
+        "y": "320"
+      },
+      "topology": {},
+      "z_index": 119,
+      "editable": true,
+      "layout": {
+        "container_id": "rollout-z1",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ011"
+    },
+    {
+      "id": "rollout-z2-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1229",
+        "y": "320"
+      },
+      "topology": {},
+      "z_index": 120,
+      "editable": true,
+      "layout": {
+        "container_id": "rollout-z2",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ012"
+    },
+    {
+      "id": "rollout-zh-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1358",
+        "y": "320"
+      },
+      "topology": {},
+      "z_index": 121,
+      "editable": true,
+      "layout": {
+        "container_id": "rollout-zh",
+        "padding": "3"
+      },
+      "native_math": true,
+      "formula_id": "EQ013"
+    },
+    {
+      "id": "rollout-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1307",
+        "y": "439"
+      },
+      "topology": {},
+      "z_index": 122,
+      "editable": true,
+      "layout": {
+        "container_id": "rollout-panel",
+        "padding": "7"
+      }
+    },
+    {
+      "id": "reward-r0",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1033",
+        "cy": "247",
+        "r": "21"
+      },
+      "topology": {},
+      "z_index": 123,
+      "editable": true
+    },
+    {
+      "id": "reward-r1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1129",
+        "cy": "247",
+        "r": "21"
+      },
+      "topology": {},
+      "z_index": 124,
+      "editable": true
+    },
+    {
+      "id": "reward-r2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1229",
+        "cy": "247",
+        "r": "21"
+      },
+      "topology": {},
+      "z_index": 125,
+      "editable": true
+    },
+    {
+      "id": "reward-r0-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1033",
+        "y": "253"
+      },
+      "topology": {},
+      "z_index": 126,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ014"
+    },
+    {
+      "id": "reward-r1-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1129",
+        "y": "253"
+      },
+      "topology": {},
+      "z_index": 127,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ015"
+    },
+    {
+      "id": "reward-r2-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1229",
+        "y": "253"
+      },
+      "topology": {},
+      "z_index": 128,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ016"
+    },
+    {
+      "id": "policy-pi0",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1033",
+        "cy": "426",
+        "r": "18"
+      },
+      "topology": {},
+      "z_index": 129,
+      "editable": true
+    },
+    {
+      "id": "policy-pi1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1130",
+        "cy": "426",
+        "r": "18"
+      },
+      "topology": {},
+      "z_index": 130,
+      "editable": true
+    },
+    {
+      "id": "policy-pi2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1230",
+        "cy": "426",
+        "r": "18"
+      },
+      "topology": {},
+      "z_index": 131,
+      "editable": true
+    },
+    {
+      "id": "policy-pi0-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1033",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 132,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ017"
+    },
+    {
+      "id": "policy-pi1-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1130",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 133,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ018"
+    },
+    {
+      "id": "policy-pi2-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1230",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 134,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ019"
+    },
+    {
+      "id": "action-a0",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1083",
+        "cy": "375",
+        "r": "18"
+      },
+      "topology": {},
+      "z_index": 135,
+      "editable": true
+    },
+    {
+      "id": "action-a1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1180",
+        "cy": "375",
+        "r": "18"
+      },
+      "topology": {},
+      "z_index": 136,
+      "editable": true
+    },
+    {
+      "id": "action-a2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1280",
+        "cy": "375",
+        "r": "18"
+      },
+      "topology": {},
+      "z_index": 137,
+      "editable": true
+    },
+    {
+      "id": "action-a0-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1083",
+        "y": "381"
+      },
+      "topology": {},
+      "z_index": 138,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ020"
+    },
+    {
+      "id": "action-a1-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1180",
+        "y": "381"
+      },
+      "topology": {},
+      "z_index": 139,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ021"
+    },
+    {
+      "id": "action-a2-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1280",
+        "y": "381"
+      },
+      "topology": {},
+      "z_index": 140,
+      "editable": true,
+      "native_math": true,
+      "formula_id": "EQ022"
+    },
+    {
+      "id": "imagination-z0-to-z1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1056",
+        "y1": "182",
+        "x2": "1101",
+        "y2": "182"
+      },
+      "topology": {
+        "source": "imag-z0",
+        "target": "imag-z1"
+      },
+      "z_index": 141,
+      "editable": true
+    },
+    {
+      "id": "imagination-z1-to-z2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1153",
+        "y1": "182",
+        "x2": "1200",
+        "y2": "182"
+      },
+      "topology": {
+        "source": "imag-z1",
+        "target": "imag-z2"
+      },
+      "z_index": 142,
+      "editable": true
+    },
+    {
+      "id": "imagination-z2-to-zh",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1253",
+        "y1": "182",
+        "x2": "1330",
+        "y2": "182"
+      },
+      "topology": {
+        "source": "imag-z2",
+        "target": "imag-zh"
+      },
+      "z_index": 143,
+      "editable": true
+    },
+    {
+      "id": "imagination-z0-to-r0",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1033",
+        "y1": "201",
+        "x2": "1033",
+        "y2": "223"
+      },
+      "topology": {
+        "source": "imag-z0",
+        "target": "reward-r0"
+      },
+      "z_index": 144,
+      "editable": true
+    },
+    {
+      "id": "imagination-z1-to-r1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1129",
+        "y1": "201",
+        "x2": "1129",
+        "y2": "223"
+      },
+      "topology": {
+        "source": "imag-z1",
+        "target": "reward-r1"
+      },
+      "z_index": 145,
+      "editable": true
+    },
+    {
+      "id": "imagination-z2-to-r2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1229",
+        "y1": "201",
+        "x2": "1229",
+        "y2": "223"
+      },
+      "topology": {
+        "source": "imag-z2",
+        "target": "reward-r2"
+      },
+      "z_index": 146,
+      "editable": true
+    },
+    {
+      "id": "rollout-z0-to-z1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1057",
+        "y1": "314",
+        "x2": "1102",
+        "y2": "314"
+      },
+      "topology": {
+        "source": "rollout-z0",
+        "target": "rollout-z1"
+      },
+      "z_index": 147,
+      "editable": true
+    },
+    {
+      "id": "rollout-z1-to-z2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1153",
+        "y1": "314",
+        "x2": "1202",
+        "y2": "314"
+      },
+      "topology": {
+        "source": "rollout-z1",
+        "target": "rollout-z2"
+      },
+      "z_index": 148,
+      "editable": true
+    },
+    {
+      "id": "rollout-z2-to-zh",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1253",
+        "y1": "314",
+        "x2": "1330",
+        "y2": "314"
+      },
+      "topology": {
+        "source": "rollout-z2",
+        "target": "rollout-zh"
+      },
+      "z_index": 149,
+      "editable": true
+    },
+    {
+      "id": "rollout-z0-to-pi0",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1033",
+        "y1": "333",
+        "x2": "1033",
+        "y2": "404"
+      },
+      "topology": {
+        "source": "rollout-z0",
+        "target": "policy-pi0"
+      },
+      "z_index": 150,
+      "editable": true
+    },
+    {
+      "id": "rollout-z1-to-pi1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1130",
+        "y1": "333",
+        "x2": "1130",
+        "y2": "404"
+      },
+      "topology": {
+        "source": "rollout-z1",
+        "target": "policy-pi1"
+      },
+      "z_index": 151,
+      "editable": true
+    },
+    {
+      "id": "rollout-z2-to-pi2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1230",
+        "y1": "333",
+        "x2": "1230",
+        "y2": "404"
+      },
+      "topology": {
+        "source": "rollout-z2",
+        "target": "policy-pi2"
+      },
+      "z_index": 152,
+      "editable": true
+    },
+    {
+      "id": "rollout-pi0-to-a0",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1051 428 C 1080 425 1090 412 1084 397"
+      },
+      "topology": {
+        "source": "policy-pi0",
+        "target": "action-a0"
+      },
+      "z_index": 153,
+      "editable": true
+    },
+    {
+      "id": "rollout-pi1-to-a1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1148 428 C 1175 425 1185 412 1180 397"
+      },
+      "topology": {
+        "source": "policy-pi1",
+        "target": "action-a1"
+      },
+      "z_index": 154,
+      "editable": true
+    },
+    {
+      "id": "rollout-pi2-to-a2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1248 428 C 1275 425 1286 412 1281 397"
+      },
+      "topology": {
+        "source": "policy-pi2",
+        "target": "action-a2"
+      },
+      "z_index": 155,
+      "editable": true
+    },
+    {
+      "id": "rollout-a0-to-z1",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1085 355 C 1105 355 1110 343 1110 333"
+      },
+      "topology": {
+        "source": "action-a0",
+        "target": "rollout-z1"
+      },
+      "z_index": 156,
+      "editable": true
+    },
+    {
+      "id": "rollout-a1-to-z2",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1182 355 C 1203 355 1210 343 1210 333"
+      },
+      "topology": {
+        "source": "action-a1",
+        "target": "rollout-z2"
+      },
+      "z_index": 157,
+      "editable": true
+    },
+    {
+      "id": "rollout-a2-to-next",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1282 355 C 1305 355 1304 345 1304 333"
+      },
+      "topology": {
+        "source": "action-a2",
+        "target": "rollout-zh"
+      },
+      "z_index": 158,
+      "editable": true
+    },
+    {
+      "id": "zt-top-to-imagination",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "946",
+        "y1": "272",
+        "x2": "1005",
+        "y2": "312"
+      },
+      "topology": {
+        "source": "zt-top-box",
+        "target": "rollout-z0"
+      },
+      "z_index": 159,
+      "editable": true
+    },
+    {
+      "id": "zt-bottom-to-rollout",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "946",
+        "y1": "416",
+        "x2": "1005",
+        "y2": "326"
+      },
+      "topology": {
+        "source": "zt-bottom-box",
+        "target": "rollout-z0"
+      },
+      "z_index": 160,
+      "editable": true
+    },
+    {
+      "id": "dense-trophy",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1288",
+        "y": "258"
+      },
+      "topology": {},
+      "z_index": 161,
+      "editable": true
+    },
+    {
+      "id": "dense-reward-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1325",
+        "y": "243"
+      },
+      "topology": {},
+      "z_index": 162,
+      "editable": true
+    },
+    {
+      "id": "dense-reward-label-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1325",
+        "y": "266"
+      },
+      "topology": {},
+      "z_index": 163,
+      "editable": true
+    },
+    {
+      "id": "behavior-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1008",
+        "y": "496"
+      },
+      "topology": {},
+      "z_index": 164,
+      "editable": true
+    },
+    {
+      "id": "mapping-to-imagination",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 958 65 L 1030 149"
+      },
+      "topology": {
+        "source": "mapping-box",
+        "target": "task-conditioned-imagination"
+      },
+      "z_index": 165,
+      "editable": true
+    },
+    {
+      "id": "joint-optimization-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "187",
+        "y": "546",
+        "width": "421",
+        "height": "52"
+      },
+      "topology": {},
+      "z_index": 166,
+      "editable": true
+    },
+    {
+      "id": "joint-optimization-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "398",
+        "y": "581"
+      },
+      "topology": {},
+      "z_index": 167,
+      "editable": true,
+      "layout": {
+        "container_id": "joint-optimization-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "joint-loop-arrow",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 187 574 L 139 574 C 122 574 116 566 116 550 L 116 523 L 106 535 L 116 520 L 127 535 L 120 526 L 120 550 C 120 564 127 569 140 569 L 187 569 Z"
+      },
+      "topology": {},
+      "z_index": 168,
+      "editable": true
+    },
+    {
+      "id": "optimization-to-reward",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 669 564 L 642 564 L 642 557 L 611 572 L 642 587 L 642 579 L 669 579 Z"
+      },
+      "topology": {},
+      "z_index": 169,
+      "editable": true
+    },
+    {
+      "id": "reward-action-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "674",
+        "y": "544",
+        "width": "327",
+        "height": "55",
+        "rx": "10"
+      },
+      "topology": {},
+      "z_index": 170,
+      "editable": true
+    },
+    {
+      "id": "reward-icon",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "692",
+        "y": "582"
+      },
+      "topology": {},
+      "z_index": 171,
+      "editable": true,
+      "layout": {
+        "container_id": "reward-action-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "reward-text",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "727",
+        "y": "582"
+      },
+      "topology": {},
+      "z_index": 172,
+      "editable": true,
+      "layout": {
+        "container_id": "reward-action-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "action-icon",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "905",
+        "cy": "573",
+        "r": "16"
+      },
+      "topology": {},
+      "z_index": 173,
+      "editable": true
+    },
+    {
+      "id": "action-icon-path",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 893 574 L 898 574 L 898 566 L 903 566 L 903 578 L 908 578 L 908 564 L 913 564 L 913 574 L 919 574"
+      },
+      "topology": {},
+      "z_index": 174,
+      "editable": true
+    },
+    {
+      "id": "action-text",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "929",
+        "y": "580"
+      },
+      "topology": {},
+      "z_index": 175,
+      "editable": true,
+      "layout": {
+        "container_id": "reward-action-box",
+        "padding": "6"
+      }
+    },
+    {
+      "id": "behavior-to-reward",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1059 518 L 1008 537 L 1013 546 L 998 542 L 1001 527 L 1005 535 L 1055 516 Z"
+      },
+      "topology": {},
+      "z_index": 176,
+      "editable": true
+    },
+    {
+      "id": "interaction-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1102",
+        "y": "561"
+      },
+      "topology": {},
+      "z_index": 177,
+      "editable": true
+    },
+    {
+      "id": "interaction-left",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1168",
+        "y1": "573",
+        "x2": "1015",
+        "y2": "573"
+      },
+      "topology": {
+        "source": "atomic:environment-globe",
+        "target": "reward-action-box"
+      },
+      "z_index": 178,
+      "editable": true
+    },
+    {
+      "id": "interaction-right",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1015",
+        "y1": "573",
+        "x2": "1177",
+        "y2": "573"
+      },
+      "topology": {
+        "source": "reward-action-box",
+        "target": "atomic:environment-globe"
+      },
+      "z_index": 179,
+      "editable": true
+    },
+    {
+      "id": "atomic:environment-globe",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1188",
+        "y": "533",
+        "width": "80",
+        "height": "81"
+      },
+      "topology": {},
+      "z_index": 180,
+      "editable": false
+    },
+    {
+      "id": "environment-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1273",
+        "y": "592"
+      },
+      "topology": {},
+      "z_index": 181,
+      "editable": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "task-input-to-encoder",
+      "source": "task-input-box",
+      "target": "task-encoder"
+    },
+    {
+      "id": "task-encoder-to-tau",
+      "source": "task-encoder",
+      "target": "tau-box"
+    },
+    {
+      "id": "tau-to-mapping",
+      "source": "tau-box",
+      "target": "mapping-box"
+    },
+    {
+      "id": "tau-to-allocator",
+      "source": "tau-box",
+      "target": "allocator-box"
+    },
+    {
+      "id": "observation-to-mllm",
+      "source": "atomic:observation",
+      "target": "mllm-encoder"
+    },
+    {
+      "id": "observation-to-wm",
+      "source": "atomic:observation",
+      "target": "wm-encoder"
+    },
+    {
+      "id": "mllm-to-ev",
+      "source": "mllm-encoder",
+      "target": "ev-box"
+    },
+    {
+      "id": "wm-to-st",
+      "source": "wm-encoder",
+      "target": "st-box"
+    },
+    {
+      "id": "ev-to-joint",
+      "source": "ev-box",
+      "target": "joint-core"
+    },
+    {
+      "id": "st-to-joint",
+      "source": "st-box",
+      "target": "joint-core"
+    },
+    {
+      "id": "allocator-task1-route-1",
+      "source": "task-1-box",
+      "target": "expert-1-dyn"
+    },
+    {
+      "id": "allocator-task1-route-2",
+      "source": "task-1-box",
+      "target": "zt-top-box"
+    },
+    {
+      "id": "allocator-task2-route-1",
+      "source": "task-2-box",
+      "target": "expert-3-sem"
+    },
+    {
+      "id": "allocator-task2-route-2",
+      "source": "task-2-box",
+      "target": "zt-bottom-box"
+    },
+    {
+      "id": "imagination-z0-to-z1",
+      "source": "imag-z0",
+      "target": "imag-z1"
+    },
+    {
+      "id": "imagination-z1-to-z2",
+      "source": "imag-z1",
+      "target": "imag-z2"
+    },
+    {
+      "id": "imagination-z2-to-zh",
+      "source": "imag-z2",
+      "target": "imag-zh"
+    },
+    {
+      "id": "imagination-z0-to-r0",
+      "source": "imag-z0",
+      "target": "reward-r0"
+    },
+    {
+      "id": "imagination-z1-to-r1",
+      "source": "imag-z1",
+      "target": "reward-r1"
+    },
+    {
+      "id": "imagination-z2-to-r2",
+      "source": "imag-z2",
+      "target": "reward-r2"
+    },
+    {
+      "id": "rollout-z0-to-z1",
+      "source": "rollout-z0",
+      "target": "rollout-z1"
+    },
+    {
+      "id": "rollout-z1-to-z2",
+      "source": "rollout-z1",
+      "target": "rollout-z2"
+    },
+    {
+      "id": "rollout-z2-to-zh",
+      "source": "rollout-z2",
+      "target": "rollout-zh"
+    },
+    {
+      "id": "rollout-z0-to-pi0",
+      "source": "rollout-z0",
+      "target": "policy-pi0"
+    },
+    {
+      "id": "rollout-z1-to-pi1",
+      "source": "rollout-z1",
+      "target": "policy-pi1"
+    },
+    {
+      "id": "rollout-z2-to-pi2",
+      "source": "rollout-z2",
+      "target": "policy-pi2"
+    },
+    {
+      "id": "rollout-pi0-to-a0",
+      "source": "policy-pi0",
+      "target": "action-a0"
+    },
+    {
+      "id": "rollout-pi1-to-a1",
+      "source": "policy-pi1",
+      "target": "action-a1"
+    },
+    {
+      "id": "rollout-pi2-to-a2",
+      "source": "policy-pi2",
+      "target": "action-a2"
+    },
+    {
+      "id": "rollout-a0-to-z1",
+      "source": "action-a0",
+      "target": "rollout-z1"
+    },
+    {
+      "id": "rollout-a1-to-z2",
+      "source": "action-a1",
+      "target": "rollout-z2"
+    },
+    {
+      "id": "rollout-a2-to-next",
+      "source": "action-a2",
+      "target": "rollout-zh"
+    },
+    {
+      "id": "zt-top-to-imagination",
+      "source": "zt-top-box",
+      "target": "rollout-z0"
+    },
+    {
+      "id": "zt-bottom-to-rollout",
+      "source": "zt-bottom-box",
+      "target": "rollout-z0"
+    },
+    {
+      "id": "mapping-to-imagination",
+      "source": "mapping-box",
+      "target": "task-conditioned-imagination"
+    },
+    {
+      "id": "interaction-left",
+      "source": "atomic:environment-globe",
+      "target": "reward-action-box"
+    },
+    {
+      "id": "interaction-right",
+      "source": "reward-action-box",
+      "target": "atomic:environment-globe"
+    }
+  ],
+  "artifact": {
+    "backend": "pptx-offline+native-math",
+    "path": "redraw.pptx",
+    "sha256": "3bde78a494e889d97dd34d84a01750ffd5592b99010a8a0a866cfe803f406dd2"
+  }
+}

@@ -1,18 +1,46 @@
-# AI AutoFigure v2 — 独立绘图工具
+# Autofigure 本地协作规则
 
-本目录是独立工具项目。v2（2026-08-18 起）架构为 **VLM-first, verify-light**：多模态大模型网页端（GPT / Kimi / Claude 等）把参考图重绘为 SVG，本工具确定性地转换为原生可编辑 PPTX 并轻量核验。旧重型管线整体归档在 `legacy/`，除注明仍使用的部分外不维护、不修改。
+## 范围
 
-## 本地运行隔离
+本项目把参考科研图重建为原生可编辑 PPTX。正式指令见 `SKILL.md`、`PROJECT_ARCHITECTURE.md` 和 `HIGH_FIDELITY_V3.md`。`legacy/` 除公式引擎兼容入口外不维护。
 
-每个案例一个扁平目录：`examples/<case>/`，prepare/convert/check 的产物全部写入该目录（诊断明细在 `qa/` 子目录）。案例目录即工作单元：重跑覆盖当前最佳，历史由 git 承担；不得在同一案例下堆叠历史版本子目录。
+## 输入路线与案例
 
-## 授权与边界
+- 新案例必须显式 `--input-route reference-only|svg-seeded`。
+- `input_route` 不可变，`processing_mode` 可回退。
+- 案例只允许位于 `examples/reference-only/<id>/` 或 `examples/svg-seeded/<id>/`，ID 全局唯一。
+- 每个案例根是单一扁平工作单元，机器证据统一进 `qa/`；不得堆版本子目录。
+- 旧扁平案例只做兼容读取，不创建副本/符号链接。
 
-- 允许直接读写本项目的 `SKILL.md`、`README.md`、`references/`、`tools/`、`tests/`、`examples/`、`legacy/`。
-- v2 代码一律在项目内 `.venv` 运行（基座 `D:\anaconda\python.exe`，依赖见 `requirements-v2.txt`）；不得装进其他环境。
-- `D:\paddle ocr` 是只读运行时：OCR 仅 `check` 环节经 `tools/v2/ocr_texts.py` 单次调用，模型/配置以 `legacy/ocr-config.json` 为准，不下载、不更新。
-- `D:\opencv\env` 保持锁定（仅 `opencv-python`），v2 不依赖它。
-- fresh render 经 `tools/v2/render_export.py`（pywin32 直驱本机 PowerPoint COM），不得用截图冒充 render。
-- `mcp.json` 注册的 MCP 服务是 v1 遗产，v2 不依赖；`autofigure math` 例外复用 `tools/powerpoint_native_math.py`（其解释器纪律见该文件头注释与 legacy 文档）。
+## provenance 与隔离
 
-正式工作指令是 `SKILL.md` 与 `references/v2-prompt-contract.md`。像素指标只作诊断；文本可编辑读回 + check 报告人审才是通过证据。
+- 参考图身份使用案例内 `reference.png`、相对路径和 SHA-256；不得恢复机器绝对路径权威。
+- 不确定的模型/来源必须写 `null` 或 `unknown`。
+- reference-only 受控重建禁止读取 seeded 案例的 SVG、PPTX、scene、bindings、assets、裁剪文件和候选坐标；只可共享冻结参考和路线无关 QA 阈值。
+
+## 质量与状态
+
+- 全图像素指标仅作诊断。
+- strict 无 critical region 必须失败。
+- 保存重开、bindings、区域、箭头、布局或 live evidence 任一 blocker 均保持 `qa_failed`。
+- 不得把 candidate/qa_failed 宣传为完成；人审不等于机器自动 approved。
+
+## 运行环境
+
+- 工具与测试使用项目内 `.venv`。
+- fresh render 使用本机 PowerPoint COM；不得用截图冒充。
+- OCR 环境只读，不下载/更新模型。
+- PowerPoint Live 只使用 case-bound managed session；禁止修改模板原件。
+- 默认不安装第三方 Office 插件。禁止 Ribbon 坐标点击、SendKeys 和图像识别点击。
+
+## 修改后验证
+
+```bat
+.venv\Scripts\python -m pytest tests\v2 -q
+.venv\Scripts\python -m ruff check tools\v2 tests\v2
+.venv\Scripts\python -m compileall -q tools\v2 tests\v2
+autofigure cases --write-index
+autofigure cases --check
+```
+
+测试临时目录必须位于受控外部 basetemp，结束后删除；正式案例不得残留 mock、缓存、临时 candidate 或 PowerPoint Live session build。

@@ -1,0 +1,2292 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "scene",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260821T130720Z",
+  "canvas": {
+    "width": 1513,
+    "height": 554,
+    "unit": "px"
+  },
+  "elements": [
+    {
+      "id": "svg-text-0001",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "81",
+        "y": "28"
+      },
+      "topology": {},
+      "z_index": 0,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0002",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "227",
+        "y": "28"
+      },
+      "topology": {},
+      "z_index": 1,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0003",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "487",
+        "y": "28"
+      },
+      "topology": {},
+      "z_index": 2,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0001",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 20 48 c 0 -7 2 -8 7 -8 L 72 40 q 2 -5 9 -5 q 7 0 9 5 L 135 40 c 5 0 7 1 7 8"
+      },
+      "topology": {},
+      "z_index": 3,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0002",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 161 48 c 0 -7 2 -8 7 -8 L 218 40 q 2 -5 9 -5 q 7 0 9 5 L 278 40 c 5 0 7 1 7 8"
+      },
+      "topology": {},
+      "z_index": 4,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0003",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 300 48 c 0 -7 2 -8 7 -8 L 478 40 q 2 -5 9 -5 q 7 0 9 5 L 663 40 c 5 0 7 1 7 8"
+      },
+      "topology": {},
+      "z_index": 5,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0001",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "20",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 6,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0002",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "63",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 7,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0003",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "106",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 8,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0004",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "161",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 9,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0005",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "204",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 10,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0006",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "247",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 11,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0007",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "300",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 12,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0008",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "343",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 13,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0009",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "386",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 14,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0010",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "429",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 15,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0001",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "478",
+        "cy": "74",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 16,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0002",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "486",
+        "cy": "74",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 17,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0003",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "494",
+        "cy": "74",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 18,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0011",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "505",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 19,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0012",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "548",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 20,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0013",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "591",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 21,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0014",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "634",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 22,
+      "editable": true
+    },
+    {
+      "id": "svg-line-0001",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "487",
+        "y1": "95",
+        "x2": "487",
+        "y2": "118"
+      },
+      "topology": {},
+      "z_index": 23,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0015",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "15",
+        "y": "122",
+        "width": "665",
+        "height": "40",
+        "rx": "8"
+      },
+      "topology": {},
+      "z_index": 24,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0004",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "347",
+        "y": "149"
+      },
+      "topology": {},
+      "z_index": 25,
+      "editable": true
+    },
+    {
+      "id": "svg-line-0002",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "487",
+        "y1": "166",
+        "x2": "487",
+        "y2": "200"
+      },
+      "topology": {},
+      "z_index": 26,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0005",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "512",
+        "y": "210"
+      },
+      "topology": {},
+      "z_index": 27,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0016",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "300",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 28,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0017",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "343",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 29,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0018",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "386",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 30,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0019",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "429",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 31,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0004",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "478",
+        "cy": "243",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 32,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0005",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "486",
+        "cy": "243",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 33,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0006",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "494",
+        "cy": "243",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 34,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0020",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "507",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 35,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0021",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "550",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 36,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0022",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "593",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 37,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0023",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "636",
+        "y": "229",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 38,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0006",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "568",
+        "y": "272"
+      },
+      "topology": {},
+      "z_index": 39,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0007",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "611",
+        "y": "272"
+      },
+      "topology": {},
+      "z_index": 40,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0008",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "654",
+        "y": "272"
+      },
+      "topology": {},
+      "z_index": 41,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0004",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 555 287 c 0 7 2 8 7 8 L 602 295 q 2 5 9 5 q 7 0 9 -5 L 661 295 c 5 0 7 -1 7 -8"
+      },
+      "topology": {},
+      "z_index": 42,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0009",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "712",
+        "y": "256",
+        "transform": "rotate(270 712 256)"
+      },
+      "topology": {},
+      "z_index": 43,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0005",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 682 205 c 7 0 8 2 8 7 L 690 236 q 5 2 5 8 q 0 6 -5 8 L 690 275 c 0 5 -1 7 -8 7"
+      },
+      "topology": {},
+      "z_index": 44,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0010",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "540",
+        "y": "318"
+      },
+      "topology": {},
+      "z_index": 45,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0011",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "537",
+        "y": "348"
+      },
+      "topology": {},
+      "z_index": 46,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0007",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "486",
+        "cy": "330",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 47,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0008",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "486",
+        "cy": "340",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 48,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0009",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "486",
+        "cy": "350",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 49,
+      "editable": true
+    },
+    {
+      "id": "svg-line-0003",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "487",
+        "y1": "362",
+        "x2": "487",
+        "y2": "384"
+      },
+      "topology": {},
+      "z_index": 50,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0024",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "300",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 51,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0025",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "343",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 52,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0026",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "386",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 53,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0027",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "429",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 54,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0010",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "478",
+        "cy": "401",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 55,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0011",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "486",
+        "cy": "401",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 56,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0012",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "494",
+        "cy": "401",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 57,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0028",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "507",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 58,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0029",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "550",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 59,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0030",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "593",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 60,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0031",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "636",
+        "y": "387",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 61,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0012",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "318",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 62,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0013",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "361",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 63,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0014",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "447",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 64,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0015",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "568",
+        "y": "430"
+      },
+      "topology": {},
+      "z_index": 65,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0016",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "611",
+        "y": "430"
+      },
+      "topology": {},
+      "z_index": 66,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0017",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "654",
+        "y": "430"
+      },
+      "topology": {},
+      "z_index": 67,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0006",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 305 445 c 0 7 2 8 7 8 L 376 453 q 2 5 9 5 q 7 0 9 -5 L 458 453 c 5 0 7 -1 7 -8"
+      },
+      "topology": {},
+      "z_index": 68,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0018",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "712",
+        "y": "414",
+        "transform": "rotate(270 712 414)"
+      },
+      "topology": {},
+      "z_index": 69,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0007",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 682 363 c 7 0 8 2 8 7 L 690 394 q 5 2 5 8 q 0 6 -5 8 L 690 433 c 0 5 -1 7 -8 7"
+      },
+      "topology": {},
+      "z_index": 70,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0019",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "312",
+        "y": "468"
+      },
+      "topology": {},
+      "z_index": 71,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0020",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "315",
+        "y": "498"
+      },
+      "topology": {},
+      "z_index": 72,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0032",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "27",
+        "y": "235",
+        "width": "253",
+        "height": "180",
+        "rx": "15"
+      },
+      "topology": {},
+      "z_index": 73,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0033",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "40",
+        "y": "257",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 74,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0021",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "85",
+        "y": "276"
+      },
+      "topology": {},
+      "z_index": 75,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0034",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "40",
+        "y": "305",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 76,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0022",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "85",
+        "y": "322"
+      },
+      "topology": {},
+      "z_index": 77,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0023",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "85",
+        "y": "344"
+      },
+      "topology": {},
+      "z_index": 78,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0035",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "40",
+        "y": "355",
+        "width": "37",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 79,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0024",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "85",
+        "y": "372"
+      },
+      "topology": {},
+      "z_index": 80,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0025",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "85",
+        "y": "394"
+      },
+      "topology": {},
+      "z_index": 81,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0026",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "300",
+        "y": "545"
+      },
+      "topology": {},
+      "z_index": 82,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0027",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "838",
+        "y": "28"
+      },
+      "topology": {},
+      "z_index": 83,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0028",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "979",
+        "y": "28"
+      },
+      "topology": {},
+      "z_index": 84,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0029",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1244",
+        "y": "28"
+      },
+      "topology": {},
+      "z_index": 85,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0008",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 777 48 c 0 -7 2 -8 7 -8 L 829 40 q 2 -5 9 -5 q 7 0 9 5 L 892 40 c 5 0 7 1 7 8"
+      },
+      "topology": {},
+      "z_index": 86,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0009",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 918 48 c 0 -7 2 -8 7 -8 L 970 40 q 2 -5 9 -5 q 7 0 9 5 L 1033 40 c 5 0 7 1 7 8"
+      },
+      "topology": {},
+      "z_index": 87,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0010",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1057 48 c 0 -7 2 -8 7 -8 L 1235 40 q 2 -5 9 -5 q 7 0 9 5 L 1420 40 c 5 0 7 1 7 8"
+      },
+      "topology": {},
+      "z_index": 88,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0036",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "777",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 89,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0037",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "820",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 90,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0038",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "863",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 91,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0039",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "918",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 92,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0040",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "961",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 93,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0041",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1004",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 94,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0042",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1057",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 95,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0043",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1100",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 96,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0044",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1143",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 97,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0045",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1186",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 98,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0013",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1235",
+        "cy": "74",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 99,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0014",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1243",
+        "cy": "74",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 100,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0015",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1251",
+        "cy": "74",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 101,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0046",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1262",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 102,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0047",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1305",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 103,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0048",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1348",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 104,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0049",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1391",
+        "y": "61",
+        "width": "36",
+        "height": "26",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 105,
+      "editable": true
+    },
+    {
+      "id": "svg-line-0004",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1244",
+        "y1": "95",
+        "x2": "1244",
+        "y2": "118"
+      },
+      "topology": {},
+      "z_index": 106,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0050",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "772",
+        "y": "122",
+        "width": "665",
+        "height": "40",
+        "rx": "8"
+      },
+      "topology": {},
+      "z_index": 107,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0030",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1204",
+        "y": "149"
+      },
+      "topology": {},
+      "z_index": 108,
+      "editable": true
+    },
+    {
+      "id": "svg-line-0005",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1257",
+        "y1": "166",
+        "x2": "1257",
+        "y2": "198"
+      },
+      "topology": {},
+      "z_index": 109,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0031",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1358",
+        "y": "207"
+      },
+      "topology": {},
+      "z_index": 110,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0051",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1072",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 111,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0052",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1115",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 112,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0053",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1158",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 113,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0054",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1201",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 114,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0016",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1250",
+        "cy": "241",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 115,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0017",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1258",
+        "cy": "241",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 116,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0018",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1266",
+        "cy": "241",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 117,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0055",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1277",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 118,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0056",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1320",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 119,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0057",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1363",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 120,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0058",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1406",
+        "y": "227",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 121,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0032",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1134",
+        "y": "267"
+      },
+      "topology": {},
+      "z_index": 122,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0033",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1220",
+        "y": "267"
+      },
+      "topology": {},
+      "z_index": 123,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0011",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1122 287 c 0 7 2 8 7 8 L 1169 295 q 2 5 9 5 q 7 0 9 -5 L 1228 295 c 5 0 7 -1 7 -8"
+      },
+      "topology": {},
+      "z_index": 124,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0034",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1489",
+        "y": "240",
+        "transform": "rotate(270 1489 240)"
+      },
+      "topology": {},
+      "z_index": 125,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0012",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1460 205 c 7 0 8 2 8 7 L 1468 232 q 5 2 5 8 q 0 6 -5 8 L 1468 273 c 0 5 -1 7 -8 7"
+      },
+      "topology": {},
+      "z_index": 126,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0035",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1178",
+        "y": "315"
+      },
+      "topology": {},
+      "z_index": 127,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0036",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1178",
+        "y": "343"
+      },
+      "topology": {},
+      "z_index": 128,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0019",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1257",
+        "cy": "332",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 129,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0020",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1257",
+        "cy": "342",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 130,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0021",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1257",
+        "cy": "352",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 131,
+      "editable": true
+    },
+    {
+      "id": "svg-line-0006",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1257",
+        "y1": "358",
+        "x2": "1257",
+        "y2": "380"
+      },
+      "topology": {},
+      "z_index": 132,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0059",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1070",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 133,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0060",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1113",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 134,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0061",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1156",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 135,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0062",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1199",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 136,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0022",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1250",
+        "cy": "399",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 137,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0023",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1258",
+        "cy": "399",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 138,
+      "editable": true
+    },
+    {
+      "id": "svg-circle-0024",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1266",
+        "cy": "399",
+        "r": "2.2"
+      },
+      "topology": {},
+      "z_index": 139,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0063",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1282",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 140,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0064",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1325",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 141,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0065",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1368",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 142,
+      "editable": true
+    },
+    {
+      "id": "svg-rect-0066",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1411",
+        "y": "385",
+        "width": "38",
+        "height": "28",
+        "rx": "5"
+      },
+      "topology": {},
+      "z_index": 143,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0037",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1089",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 144,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0038",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1132",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 145,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0039",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1175",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 146,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0040",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1218",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 147,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0041",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1344",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 148,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0042",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1430",
+        "y": "425"
+      },
+      "topology": {},
+      "z_index": 149,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0013",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1327 442 c 0 7 2 8 7 8 L 1374 450 q 2 5 9 5 q 7 0 9 -5 L 1433 450 c 5 0 7 -1 7 -8"
+      },
+      "topology": {},
+      "z_index": 150,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0043",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1489",
+        "y": "398",
+        "transform": "rotate(270 1489 398)"
+      },
+      "topology": {},
+      "z_index": 151,
+      "editable": true
+    },
+    {
+      "id": "svg-path-0014",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1460 363 c 7 0 8 2 8 7 L 1468 390 q 5 2 5 8 q 0 6 -5 8 L 1468 431 c 0 5 -1 7 -8 7"
+      },
+      "topology": {},
+      "z_index": 152,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0044",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1382",
+        "y": "475"
+      },
+      "topology": {},
+      "z_index": 153,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0045",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1382",
+        "y": "503"
+      },
+      "topology": {},
+      "z_index": 154,
+      "editable": true
+    },
+    {
+      "id": "svg-text-0046",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1050",
+        "y": "545"
+      },
+      "topology": {},
+      "z_index": 155,
+      "editable": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "svg-line-0001"
+    },
+    {
+      "id": "svg-line-0002"
+    },
+    {
+      "id": "svg-line-0003"
+    },
+    {
+      "id": "svg-line-0004"
+    },
+    {
+      "id": "svg-line-0005"
+    },
+    {
+      "id": "svg-line-0006"
+    }
+  ],
+  "artifact": {
+    "backend": "pptx-offline",
+    "path": "redraw.pptx",
+    "sha256": "ceee5c1db2a757afbbf77a788dd63f9f46cdde10d89fead706848f4d44f765dd"
+  },
+  "task_mode": "RECONSTRUCT_1TO1"
+}

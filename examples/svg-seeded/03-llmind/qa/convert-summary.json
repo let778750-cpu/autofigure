@@ -1,0 +1,26 @@
+{
+  "svg": "redraw.svg",
+  "pptx": "redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 201,
+  "textbox_with_text": 34,
+  "emitted": {
+    "rect": 47,
+    "text": 34,
+    "freeform": 30,
+    "line": 86,
+    "atomic": 2,
+    "ellipse": 2
+  },
+  "warnings": [
+    "未知元素已跳过: {http://www.w3.org/2000/svg}title",
+    "未知元素已跳过: {http://www.w3.org/2000/svg}desc",
+    "atomic:photo-1: atomic raster has no explicit assets.json authorization; strict approval will fail",
+    "atomic:photo-2: atomic raster has no explicit assets.json authorization; strict approval will fail"
+  ],
+  "layout_pass": true,
+  "layout_findings": 0,
+  "pptx_sha256": "c7096ff18374b830325c7252abb1ae2ee8d795cea25c89a3a3b1b3cd841efea7",
+  "object_count": 201,
+  "bindings_complete": true
+}

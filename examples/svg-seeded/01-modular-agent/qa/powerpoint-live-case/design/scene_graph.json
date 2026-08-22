@@ -1,0 +1,3755 @@
+{
+  "schemaVersion": "2.1.0",
+  "projectId": "autofigure-01-modular-agent",
+  "version": "autofigure-50b3c2385bac",
+  "canvas": {
+    "width": 1429,
+    "height": 627,
+    "unit": "px",
+    "profileId": "journal-double-column",
+    "backgroundToken": "white"
+  },
+  "nodes": [
+    {
+      "id": "svg-rect-0001",
+      "semanticId": "svg-rect-0001",
+      "kind": "shape",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1429.0,
+      "height": 627.0,
+      "editable": true,
+      "zIndex": 0
+    },
+    {
+      "id": "task-list",
+      "semanticId": "task-list",
+      "kind": "shape",
+      "x": 29.0,
+      "y": 16.0,
+      "width": 360.0,
+      "height": 77.0,
+      "editable": true,
+      "zIndex": 1
+    },
+    {
+      "id": "svg-circle-0001",
+      "semanticId": "svg-circle-0001",
+      "kind": "shape",
+      "x": 44.0,
+      "y": 29.0,
+      "width": 48.0,
+      "height": 48.0,
+      "editable": true,
+      "zIndex": 2
+    },
+    {
+      "id": "svg-circle-0002",
+      "semanticId": "svg-circle-0002",
+      "kind": "shape",
+      "x": 61.0,
+      "y": 37.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 3
+    },
+    {
+      "id": "svg-path-0001",
+      "semanticId": "svg-path-0001",
+      "kind": "shape",
+      "x": 56.0,
+      "y": 50.0,
+      "width": 24.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 4
+    },
+    {
+      "id": "svg-text-0001",
+      "semanticId": "svg-text-0001",
+      "kind": "text",
+      "x": 113.0,
+      "y": 30.0,
+      "width": 222.4,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 5,
+      "textSpec": {
+        "text": "Task 1: Turn on lamp",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task 1: Turn on lamp",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0002",
+      "semanticId": "svg-text-0002",
+      "kind": "text",
+      "x": 113.0,
+      "y": 58.0,
+      "width": 279.6,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 6,
+      "textSpec": {
+        "text": "Task 2: Close top drawer ...",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task 2: Close top drawer ...",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "task-encoder",
+      "semanticId": "task-encoder",
+      "kind": "shape",
+      "x": 434.0,
+      "y": 17.0,
+      "width": 125.0,
+      "height": 77.0,
+      "editable": true,
+      "zIndex": 8
+    },
+    {
+      "id": "svg-text-0003",
+      "semanticId": "svg-text-0003",
+      "kind": "text",
+      "x": 461.1001,
+      "y": 31.0,
+      "width": 69.8,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 9,
+      "textSpec": {
+        "text": "task",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "task",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0004",
+      "semanticId": "svg-text-0004",
+      "kind": "text",
+      "x": 443.6999,
+      "y": 59.0,
+      "width": 104.6,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 10,
+      "textSpec": {
+        "text": "Encoder",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Encoder",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "task-token-vector",
+      "semanticId": "task-token-vector",
+      "kind": "shape",
+      "x": 597.0,
+      "y": 36.0,
+      "width": 127.0,
+      "height": 43.0,
+      "editable": true,
+      "zIndex": 12
+    },
+    {
+      "id": "svg-circle-0003",
+      "semanticId": "svg-circle-0003",
+      "kind": "shape",
+      "x": 608.0,
+      "y": 41.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 13
+    },
+    {
+      "id": "svg-circle-0004",
+      "semanticId": "svg-circle-0004",
+      "kind": "shape",
+      "x": 644.0,
+      "y": 41.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 14
+    },
+    {
+      "id": "svg-circle-0005",
+      "semanticId": "svg-circle-0005",
+      "kind": "shape",
+      "x": 680.0,
+      "y": 41.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 15
+    },
+    {
+      "id": "svg-text-0005",
+      "semanticId": "svg-text-0005",
+      "kind": "text",
+      "x": 639.5001,
+      "y": 6.1001,
+      "width": 43.0,
+      "height": 47.5001,
+      "editable": true,
+      "zIndex": 16,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "task-mapping",
+      "semanticId": "task-mapping",
+      "kind": "shape",
+      "x": 769.0,
+      "y": 34.0,
+      "width": 181.0,
+      "height": 48.0,
+      "editable": true,
+      "zIndex": 18
+    },
+    {
+      "id": "task-mapping-label",
+      "semanticId": "task-mapping-label",
+      "kind": "text",
+      "x": 790.0,
+      "y": 46.0,
+      "width": 106.6,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 19,
+      "textSpec": {
+        "text": "mapping",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "mapping",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "task-mapping-formula",
+      "semanticId": "task-mapping-formula",
+      "kind": "text",
+      "x": 867.0,
+      "y": 46.0,
+      "width": 76.4,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 20,
+      "textSpec": {
+        "text": "fmap",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "fmap",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0006",
+      "semanticId": "svg-rect-0006",
+      "kind": "shape",
+      "x": 1154.0,
+      "y": 18.0,
+      "width": 79.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 22
+    },
+    {
+      "id": "svg-text-0008",
+      "semanticId": "svg-text-0008",
+      "kind": "text",
+      "x": 1159.64,
+      "y": 24.9001,
+      "width": 68.72,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 23,
+      "textSpec": {
+        "text": "Sem",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sem",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0009",
+      "semanticId": "svg-text-0009",
+      "kind": "text",
+      "x": 1241.0,
+      "y": 25.9001,
+      "width": 159.9801,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 24,
+      "textSpec": {
+        "text": "semantic expert",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "semantic expert",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0007",
+      "semanticId": "svg-rect-0007",
+      "kind": "shape",
+      "x": 1155.0,
+      "y": 59.0,
+      "width": 78.0,
+      "height": 37.0,
+      "editable": true,
+      "zIndex": 25
+    },
+    {
+      "id": "svg-text-0010",
+      "semanticId": "svg-text-0010",
+      "kind": "text",
+      "x": 1162.61,
+      "y": 66.8999,
+      "width": 62.7801,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 26,
+      "textSpec": {
+        "text": "Dyn",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Dyn",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0011",
+      "semanticId": "svg-text-0011",
+      "kind": "text",
+      "x": 1241.0,
+      "y": 66.8999,
+      "width": 163.4,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 27,
+      "textSpec": {
+        "text": "dynamics expert",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "dynamics expert",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "task-aware-modular-joint-panel",
+      "semanticId": "task-aware-modular-joint-panel",
+      "kind": "shape",
+      "x": 19.0,
+      "y": 108.0,
+      "width": 945.0,
+      "height": 410.0,
+      "editable": true,
+      "zIndex": 28
+    },
+    {
+      "id": "task-aware-behavior-panel",
+      "semanticId": "task-aware-behavior-panel",
+      "kind": "shape",
+      "x": 978.0,
+      "y": 108.0,
+      "width": 433.0,
+      "height": 411.0,
+      "editable": true,
+      "zIndex": 29
+    },
+    {
+      "id": "svg-text-0012",
+      "semanticId": "svg-text-0012",
+      "kind": "text",
+      "x": 41.0,
+      "y": 136.3001,
+      "width": 341.6599,
+      "height": 52.4999,
+      "editable": true,
+      "zIndex": 30,
+      "textSpec": {
+        "text": "Task-Aware Modular Joint",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task-Aware Modular Joint",
+            "fontToken": "Arial",
+            "fontSize": 19.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "allocator-header",
+      "semanticId": "allocator-header",
+      "kind": "shape",
+      "x": 485.0,
+      "y": 133.0,
+      "width": 352.0,
+      "height": 44.0,
+      "editable": true,
+      "zIndex": 31
+    },
+    {
+      "id": "svg-text-0013",
+      "semanticId": "svg-text-0013",
+      "kind": "text",
+      "x": 514.0,
+      "y": 144.0,
+      "width": 294.0,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 32,
+      "textSpec": {
+        "text": "Task-Guided Expert Allocator",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task-Guided Expert Allocator",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-polygon-0001",
+      "semanticId": "svg-polygon-0001",
+      "kind": "shape",
+      "x": 508.0,
+      "y": 178.0,
+      "width": 306.0,
+      "height": 32.0,
+      "editable": true,
+      "zIndex": 33
+    },
+    {
+      "id": "atomic:observation",
+      "semanticId": "atomic:observation",
+      "kind": "asset",
+      "x": 42.0,
+      "y": 290.0,
+      "width": 106.0,
+      "height": 86.0,
+      "editable": false,
+      "zIndex": 34,
+      "assetSpec": {
+        "assetId": "atomic:observation",
+        "fitMode": "stretch",
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "atomicRasterUnit": true,
+        "containsReconstructableContent": false
+      }
+    },
+    {
+      "id": "svg-text-0014",
+      "semanticId": "svg-text-0014",
+      "kind": "text",
+      "x": 33.0,
+      "y": 356.15,
+      "width": 52.7001,
+      "height": 48.75,
+      "editable": true,
+      "zIndex": 35,
+      "textSpec": {
+        "text": "...",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "...",
+            "fontToken": "Arial",
+            "fontSize": 17.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0015",
+      "semanticId": "svg-text-0015",
+      "kind": "text",
+      "x": 28.0,
+      "y": 385.15,
+      "width": 149.99,
+      "height": 48.75,
+      "editable": true,
+      "zIndex": 36,
+      "textSpec": {
+        "text": "observation",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "observation",
+            "fontToken": "Arial",
+            "fontSize": 17.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "mllm-encoder",
+      "semanticId": "mllm-encoder",
+      "kind": "shape",
+      "x": 187.0,
+      "y": 242.0,
+      "width": 124.0,
+      "height": 78.0,
+      "editable": true,
+      "zIndex": 39
+    },
+    {
+      "id": "svg-text-0016",
+      "semanticId": "svg-text-0016",
+      "kind": "text",
+      "x": 201.08,
+      "y": 255.05,
+      "width": 95.84,
+      "height": 46.25,
+      "editable": true,
+      "zIndex": 40,
+      "textSpec": {
+        "text": "MLLM",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.75,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "MLLM",
+            "fontToken": "Arial",
+            "fontSize": 15.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0017",
+      "semanticId": "svg-text-0017",
+      "kind": "text",
+      "x": 194.885,
+      "y": 284.05,
+      "width": 108.23,
+      "height": 46.25,
+      "editable": true,
+      "zIndex": 41,
+      "textSpec": {
+        "text": "Encoder",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.75,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Encoder",
+            "fontToken": "Arial",
+            "fontSize": 15.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "wm-encoder",
+      "semanticId": "wm-encoder",
+      "kind": "shape",
+      "x": 188.0,
+      "y": 401.0,
+      "width": 125.0,
+      "height": 78.0,
+      "editable": true,
+      "zIndex": 42
+    },
+    {
+      "id": "svg-text-0018",
+      "semanticId": "svg-text-0018",
+      "kind": "text",
+      "x": 215.625,
+      "y": 417.05,
+      "width": 68.75,
+      "height": 46.25,
+      "editable": true,
+      "zIndex": 43,
+      "textSpec": {
+        "text": "WM",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.75,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "WM",
+            "fontToken": "Arial",
+            "fontSize": 15.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0019",
+      "semanticId": "svg-text-0019",
+      "kind": "text",
+      "x": 195.885,
+      "y": 445.05,
+      "width": 108.23,
+      "height": 46.25,
+      "editable": true,
+      "zIndex": 44,
+      "textSpec": {
+        "text": "Encoder",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.75,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Encoder",
+            "fontToken": "Arial",
+            "fontSize": 15.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-line-0005",
+      "semanticId": "svg-line-0005",
+      "kind": "line",
+      "x": 315.0,
+      "y": 274.0,
+      "width": 26.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 45
+    },
+    {
+      "id": "svg-line-0006",
+      "semanticId": "svg-line-0006",
+      "kind": "line",
+      "x": 316.0,
+      "y": 436.0,
+      "width": 25.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 46
+    },
+    {
+      "id": "e-v-vector",
+      "semanticId": "e-v-vector",
+      "kind": "shape",
+      "x": 346.0,
+      "y": 213.0,
+      "width": 42.0,
+      "height": 127.0,
+      "editable": true,
+      "zIndex": 47
+    },
+    {
+      "id": "svg-text-0020",
+      "semanticId": "svg-text-0020",
+      "kind": "text",
+      "x": 341.12,
+      "y": 182.95,
+      "width": 51.76,
+      "height": 43.75,
+      "editable": true,
+      "zIndex": 48,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "e-v-circle-1",
+      "semanticId": "e-v-circle-1",
+      "kind": "shape",
+      "x": 350.0,
+      "y": 222.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 49
+    },
+    {
+      "id": "e-v-circle-2",
+      "semanticId": "e-v-circle-2",
+      "kind": "shape",
+      "x": 350.0,
+      "y": 260.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 50
+    },
+    {
+      "id": "e-v-circle-3",
+      "semanticId": "e-v-circle-3",
+      "kind": "shape",
+      "x": 350.0,
+      "y": 297.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 51
+    },
+    {
+      "id": "svg-line-0007",
+      "semanticId": "svg-line-0007",
+      "kind": "line",
+      "x": 394.0,
+      "y": 274.0,
+      "width": 27.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 52
+    },
+    {
+      "id": "s-t-vector",
+      "semanticId": "s-t-vector",
+      "kind": "shape",
+      "x": 347.0,
+      "y": 373.0,
+      "width": 42.0,
+      "height": 128.0,
+      "editable": true,
+      "zIndex": 53
+    },
+    {
+      "id": "svg-text-0021",
+      "semanticId": "svg-text-0021",
+      "kind": "text",
+      "x": 344.35,
+      "y": 345.9001,
+      "width": 47.2999,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 54,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "s-t-circle-1",
+      "semanticId": "s-t-circle-1",
+      "kind": "shape",
+      "x": 351.0,
+      "y": 382.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 55
+    },
+    {
+      "id": "s-t-circle-2",
+      "semanticId": "s-t-circle-2",
+      "kind": "shape",
+      "x": 351.0,
+      "y": 420.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 56
+    },
+    {
+      "id": "s-t-circle-3",
+      "semanticId": "s-t-circle-3",
+      "kind": "shape",
+      "x": 351.0,
+      "y": 457.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 57
+    },
+    {
+      "id": "svg-line-0008",
+      "semanticId": "svg-line-0008",
+      "kind": "line",
+      "x": 395.0,
+      "y": 436.0,
+      "width": 26.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 58
+    },
+    {
+      "id": "svg-rect-0016",
+      "semanticId": "svg-rect-0016",
+      "kind": "shape",
+      "x": 427.0,
+      "y": 209.0,
+      "width": 446.0,
+      "height": 295.0,
+      "editable": true,
+      "zIndex": 59
+    },
+    {
+      "id": "svg-rect-0017",
+      "semanticId": "svg-rect-0017",
+      "kind": "shape",
+      "x": 443.0,
+      "y": 265.0,
+      "width": 96.0,
+      "height": 47.0,
+      "editable": true,
+      "zIndex": 60
+    },
+    {
+      "id": "svg-text-0022",
+      "semanticId": "svg-text-0022",
+      "kind": "text",
+      "x": 444.3001,
+      "y": 279.0,
+      "width": 93.4,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 61,
+      "textSpec": {
+        "text": "Task 1",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task 1",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0018",
+      "semanticId": "svg-rect-0018",
+      "kind": "shape",
+      "x": 443.0,
+      "y": 387.0,
+      "width": 96.0,
+      "height": 47.0,
+      "editable": true,
+      "zIndex": 62
+    },
+    {
+      "id": "svg-text-0023",
+      "semanticId": "svg-text-0023",
+      "kind": "text",
+      "x": 444.3001,
+      "y": 401.0,
+      "width": 93.4,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 63,
+      "textSpec": {
+        "text": "Task 2",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task 2",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0019",
+      "semanticId": "svg-rect-0019",
+      "kind": "shape",
+      "x": 552.0,
+      "y": 229.0,
+      "width": 52.0,
+      "height": 237.0,
+      "editable": true,
+      "zIndex": 64
+    },
+    {
+      "id": "svg-rect-0020",
+      "semanticId": "svg-rect-0020",
+      "kind": "shape",
+      "x": 559.0,
+      "y": 243.0,
+      "width": 37.0,
+      "height": 100.0,
+      "editable": true,
+      "zIndex": 65
+    },
+    {
+      "id": "svg-rect-0021",
+      "semanticId": "svg-rect-0021",
+      "kind": "shape",
+      "x": 559.0,
+      "y": 356.0,
+      "width": 37.0,
+      "height": 99.0,
+      "editable": true,
+      "zIndex": 66
+    },
+    {
+      "id": "svg-text-0024",
+      "semanticId": "svg-text-0024",
+      "kind": "text",
+      "x": 544.64,
+      "y": 271.75,
+      "width": 68.72,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 67,
+      "textSpec": {
+        "text": "Sem",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sem",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0025",
+      "semanticId": "svg-text-0025",
+      "kind": "text",
+      "x": 547.61,
+      "y": 385.75,
+      "width": 62.7801,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 68,
+      "textSpec": {
+        "text": "Dyn",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Dyn",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0026",
+      "semanticId": "svg-text-0026",
+      "kind": "text",
+      "x": 557.96,
+      "y": 468.8999,
+      "width": 42.08,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 69,
+      "textSpec": {
+        "text": "1",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "1",
+            "fontToken": "Times New Roman",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0022",
+      "semanticId": "svg-rect-0022",
+      "kind": "shape",
+      "x": 628.0,
+      "y": 229.0,
+      "width": 52.0,
+      "height": 237.0,
+      "editable": true,
+      "zIndex": 70
+    },
+    {
+      "id": "svg-rect-0023",
+      "semanticId": "svg-rect-0023",
+      "kind": "shape",
+      "x": 635.0,
+      "y": 243.0,
+      "width": 37.0,
+      "height": 100.0,
+      "editable": true,
+      "zIndex": 71
+    },
+    {
+      "id": "svg-rect-0024",
+      "semanticId": "svg-rect-0024",
+      "kind": "shape",
+      "x": 635.0,
+      "y": 356.0,
+      "width": 37.0,
+      "height": 99.0,
+      "editable": true,
+      "zIndex": 72
+    },
+    {
+      "id": "svg-text-0027",
+      "semanticId": "svg-text-0027",
+      "kind": "text",
+      "x": 620.64,
+      "y": 271.75,
+      "width": 68.72,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 73,
+      "textSpec": {
+        "text": "Sem",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sem",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0028",
+      "semanticId": "svg-text-0028",
+      "kind": "text",
+      "x": 623.61,
+      "y": 385.75,
+      "width": 62.7801,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 74,
+      "textSpec": {
+        "text": "Dyn",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Dyn",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0029",
+      "semanticId": "svg-text-0029",
+      "kind": "text",
+      "x": 633.96,
+      "y": 468.8999,
+      "width": 42.08,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 75,
+      "textSpec": {
+        "text": "2",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "2",
+            "fontToken": "Times New Roman",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0025",
+      "semanticId": "svg-rect-0025",
+      "kind": "shape",
+      "x": 706.0,
+      "y": 229.0,
+      "width": 52.0,
+      "height": 237.0,
+      "editable": true,
+      "zIndex": 76
+    },
+    {
+      "id": "svg-rect-0026",
+      "semanticId": "svg-rect-0026",
+      "kind": "shape",
+      "x": 713.0,
+      "y": 243.0,
+      "width": 37.0,
+      "height": 100.0,
+      "editable": true,
+      "zIndex": 77
+    },
+    {
+      "id": "svg-rect-0027",
+      "semanticId": "svg-rect-0027",
+      "kind": "shape",
+      "x": 713.0,
+      "y": 356.0,
+      "width": 37.0,
+      "height": 99.0,
+      "editable": true,
+      "zIndex": 78
+    },
+    {
+      "id": "svg-text-0030",
+      "semanticId": "svg-text-0030",
+      "kind": "text",
+      "x": 698.64,
+      "y": 271.75,
+      "width": 68.72,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 79,
+      "textSpec": {
+        "text": "Sem",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sem",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0031",
+      "semanticId": "svg-text-0031",
+      "kind": "text",
+      "x": 701.61,
+      "y": 385.75,
+      "width": 62.7801,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 80,
+      "textSpec": {
+        "text": "Dyn",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Dyn",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0032",
+      "semanticId": "svg-text-0032",
+      "kind": "text",
+      "x": 711.96,
+      "y": 468.8999,
+      "width": 42.08,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 81,
+      "textSpec": {
+        "text": "3",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "3",
+            "fontToken": "Times New Roman",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0028",
+      "semanticId": "svg-rect-0028",
+      "kind": "shape",
+      "x": 801.0,
+      "y": 229.0,
+      "width": 52.0,
+      "height": 237.0,
+      "editable": true,
+      "zIndex": 82
+    },
+    {
+      "id": "svg-rect-0029",
+      "semanticId": "svg-rect-0029",
+      "kind": "shape",
+      "x": 808.0,
+      "y": 243.0,
+      "width": 37.0,
+      "height": 100.0,
+      "editable": true,
+      "zIndex": 83
+    },
+    {
+      "id": "svg-rect-0030",
+      "semanticId": "svg-rect-0030",
+      "kind": "shape",
+      "x": 808.0,
+      "y": 356.0,
+      "width": 37.0,
+      "height": 99.0,
+      "editable": true,
+      "zIndex": 84
+    },
+    {
+      "id": "svg-text-0033",
+      "semanticId": "svg-text-0033",
+      "kind": "text",
+      "x": 793.64,
+      "y": 271.75,
+      "width": 68.72,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 85,
+      "textSpec": {
+        "text": "Sem",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sem",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0034",
+      "semanticId": "svg-text-0034",
+      "kind": "text",
+      "x": 796.61,
+      "y": 385.75,
+      "width": 62.7801,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 86,
+      "textSpec": {
+        "text": "Dyn",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Dyn",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0035",
+      "semanticId": "svg-text-0035",
+      "kind": "text",
+      "x": 809.48,
+      "y": 468.8999,
+      "width": 37.04,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 87,
+      "textSpec": {
+        "text": "l",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "l",
+            "fontToken": "Times New Roman",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0036",
+      "semanticId": "svg-text-0036",
+      "kind": "text",
+      "x": 758.0999,
+      "y": 407.1001,
+      "width": 51.8,
+      "height": 47.5001,
+      "editable": true,
+      "zIndex": 88,
+      "textSpec": {
+        "text": "...",
+        "fontToken": "autofigure-font",
+        "fontSize": 16.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "...",
+            "fontToken": "Arial",
+            "fontSize": 16.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-path-0004",
+      "semanticId": "svg-path-0004",
+      "kind": "shape",
+      "x": 539.0,
+      "y": 260.0,
+      "width": 362.0,
+      "height": 114.0,
+      "editable": true,
+      "zIndex": 89
+    },
+    {
+      "id": "svg-path-0005",
+      "semanticId": "svg-path-0005",
+      "kind": "shape",
+      "x": 539.0,
+      "y": 298.0,
+      "width": 362.0,
+      "height": 135.0,
+      "editable": true,
+      "zIndex": 90
+    },
+    {
+      "id": "allocator-task1-route-1",
+      "semanticId": "allocator-task1-route-1",
+      "kind": "line",
+      "x": 606.0,
+      "y": 316.0,
+      "width": 16.0,
+      "height": 22.0,
+      "editable": true,
+      "zIndex": 91
+    },
+    {
+      "id": "allocator-task1-route-2",
+      "semanticId": "allocator-task1-route-2",
+      "kind": "line",
+      "x": 684.0,
+      "y": 318.0,
+      "width": 16.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 92
+    },
+    {
+      "id": "allocator-task1-skip-edge",
+      "semanticId": "allocator-task1-skip-edge",
+      "kind": "line",
+      "x": 762.0,
+      "y": 408.0,
+      "width": 33.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 93
+    },
+    {
+      "id": "svg-text-0037",
+      "semanticId": "svg-text-0037",
+      "kind": "text",
+      "x": 898.35,
+      "y": 181.9001,
+      "width": 47.2999,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 94,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0031",
+      "semanticId": "svg-rect-0031",
+      "kind": "shape",
+      "x": 902.0,
+      "y": 208.0,
+      "width": 42.0,
+      "height": 128.0,
+      "editable": true,
+      "zIndex": 95
+    },
+    {
+      "id": "svg-circle-0012",
+      "semanticId": "svg-circle-0012",
+      "kind": "shape",
+      "x": 906.0,
+      "y": 216.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 96
+    },
+    {
+      "id": "svg-circle-0013",
+      "semanticId": "svg-circle-0013",
+      "kind": "shape",
+      "x": 906.0,
+      "y": 253.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 97
+    },
+    {
+      "id": "svg-circle-0014",
+      "semanticId": "svg-circle-0014",
+      "kind": "shape",
+      "x": 906.0,
+      "y": 289.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 98
+    },
+    {
+      "id": "svg-rect-0032",
+      "semanticId": "svg-rect-0032",
+      "kind": "shape",
+      "x": 902.0,
+      "y": 353.0,
+      "width": 42.0,
+      "height": 126.0,
+      "editable": true,
+      "zIndex": 99
+    },
+    {
+      "id": "svg-circle-0015",
+      "semanticId": "svg-circle-0015",
+      "kind": "shape",
+      "x": 906.0,
+      "y": 363.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 100
+    },
+    {
+      "id": "svg-circle-0016",
+      "semanticId": "svg-circle-0016",
+      "kind": "shape",
+      "x": 906.0,
+      "y": 399.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 101
+    },
+    {
+      "id": "svg-circle-0017",
+      "semanticId": "svg-circle-0017",
+      "kind": "shape",
+      "x": 906.0,
+      "y": 436.0,
+      "width": 34.0,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 102
+    },
+    {
+      "id": "top-mixture-to-rollout",
+      "semanticId": "top-mixture-to-rollout",
+      "kind": "line",
+      "x": 945.0,
+      "y": 272.0,
+      "width": 61.0,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 103
+    },
+    {
+      "id": "bottom-mixture-to-rollout",
+      "semanticId": "bottom-mixture-to-rollout",
+      "kind": "line",
+      "x": 945.0,
+      "y": 323.0,
+      "width": 60.0,
+      "height": 95.0,
+      "editable": true,
+      "zIndex": 104
+    },
+    {
+      "id": "task-conditioned-imagination",
+      "semanticId": "task-conditioned-imagination",
+      "kind": "shape",
+      "x": 994.0,
+      "y": 122.0,
+      "width": 399.0,
+      "height": 89.0,
+      "editable": true,
+      "zIndex": 105
+    },
+    {
+      "id": "svg-text-0038",
+      "semanticId": "svg-text-0038",
+      "kind": "text",
+      "x": 1051.8,
+      "y": 134.0,
+      "width": 286.4,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 107,
+      "textSpec": {
+        "text": "task-conditioned imagination",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "task-conditioned imagination",
+            "fontToken": "Arial",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0034",
+      "semanticId": "svg-rect-0034",
+      "kind": "shape",
+      "x": 1008.0,
+      "y": 166.0,
+      "width": 48.0,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 108
+    },
+    {
+      "id": "svg-text-0039",
+      "semanticId": "svg-text-0039",
+      "kind": "text",
+      "x": 1004.525,
+      "y": 172.85,
+      "width": 54.95,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 109,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0035",
+      "semanticId": "svg-rect-0035",
+      "kind": "shape",
+      "x": 1105.0,
+      "y": 166.0,
+      "width": 48.0,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 110
+    },
+    {
+      "id": "svg-text-0040",
+      "semanticId": "svg-text-0040",
+      "kind": "text",
+      "x": 1092.345,
+      "y": 172.85,
+      "width": 73.31,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 111,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0036",
+      "semanticId": "svg-rect-0036",
+      "kind": "shape",
+      "x": 1203.0,
+      "y": 166.0,
+      "width": 48.0,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 112
+    },
+    {
+      "id": "svg-text-0041",
+      "semanticId": "svg-text-0041",
+      "kind": "text",
+      "x": 1190.345,
+      "y": 172.85,
+      "width": 73.31,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 113,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0037",
+      "semanticId": "svg-rect-0037",
+      "kind": "shape",
+      "x": 1335.0,
+      "y": 166.0,
+      "width": 48.0,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 114
+    },
+    {
+      "id": "svg-text-0042",
+      "semanticId": "svg-text-0042",
+      "kind": "text",
+      "x": 1322.685,
+      "y": 172.85,
+      "width": 72.63,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 115,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "imagination-z0-to-z1",
+      "semanticId": "imagination-z0-to-z1",
+      "kind": "line",
+      "x": 1057.0,
+      "y": 182.0,
+      "width": 47.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 116
+    },
+    {
+      "id": "imagination-z1-to-z2",
+      "semanticId": "imagination-z1-to-z2",
+      "kind": "line",
+      "x": 1154.0,
+      "y": 182.0,
+      "width": 48.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 117
+    },
+    {
+      "id": "imagination-z2-to-zh",
+      "semanticId": "imagination-z2-to-zh",
+      "kind": "line",
+      "x": 1252.0,
+      "y": 182.0,
+      "width": 82.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 118
+    },
+    {
+      "id": "svg-text-0043",
+      "semanticId": "svg-text-0043",
+      "kind": "text",
+      "x": 1243.9001,
+      "y": 170.8999,
+      "width": 48.2,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 119,
+      "textSpec": {
+        "text": "...",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "...",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "imagination-z0-to-r0",
+      "semanticId": "imagination-z0-to-r0",
+      "kind": "line",
+      "x": 1032.0,
+      "y": 199.0,
+      "width": 0.5,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 120
+    },
+    {
+      "id": "imagination-z1-to-r1",
+      "semanticId": "imagination-z1-to-r1",
+      "kind": "line",
+      "x": 1129.0,
+      "y": 199.0,
+      "width": 0.5,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 121
+    },
+    {
+      "id": "imagination-z2-to-r2",
+      "semanticId": "imagination-z2-to-r2",
+      "kind": "line",
+      "x": 1227.0,
+      "y": 199.0,
+      "width": 0.5,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 122
+    },
+    {
+      "id": "svg-circle-0018",
+      "semanticId": "svg-circle-0018",
+      "kind": "shape",
+      "x": 1011.0,
+      "y": 226.0,
+      "width": 42.0,
+      "height": 42.0,
+      "editable": true,
+      "zIndex": 123
+    },
+    {
+      "id": "svg-circle-0019",
+      "semanticId": "svg-circle-0019",
+      "kind": "shape",
+      "x": 1108.0,
+      "y": 226.0,
+      "width": 42.0,
+      "height": 42.0,
+      "editable": true,
+      "zIndex": 124
+    },
+    {
+      "id": "svg-circle-0020",
+      "semanticId": "svg-circle-0020",
+      "kind": "shape",
+      "x": 1206.0,
+      "y": 226.0,
+      "width": 42.0,
+      "height": 42.0,
+      "editable": true,
+      "zIndex": 125
+    },
+    {
+      "id": "svg-text-0044",
+      "semanticId": "svg-text-0044",
+      "kind": "text",
+      "x": 1010.135,
+      "y": 236.85,
+      "width": 43.73,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 126,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0045",
+      "semanticId": "svg-text-0045",
+      "kind": "text",
+      "x": 1097.955,
+      "y": 236.85,
+      "width": 62.09,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 127,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0046",
+      "semanticId": "svg-text-0046",
+      "kind": "text",
+      "x": 1195.955,
+      "y": 236.85,
+      "width": 62.09,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 128,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-path-0012",
+      "semanticId": "svg-path-0012",
+      "kind": "shape",
+      "x": 1294.0,
+      "y": 239.0,
+      "width": 12.0,
+      "height": 11.6667,
+      "editable": true,
+      "zIndex": 129
+    },
+    {
+      "id": "svg-path-0013",
+      "semanticId": "svg-path-0013",
+      "kind": "shape",
+      "x": 1290.3333,
+      "y": 241.0,
+      "width": 5.6667,
+      "height": 6.6667,
+      "editable": true,
+      "zIndex": 130
+    },
+    {
+      "id": "svg-path-0014",
+      "semanticId": "svg-path-0014",
+      "kind": "shape",
+      "x": 1304.0,
+      "y": 241.0,
+      "width": 5.6667,
+      "height": 6.6667,
+      "editable": true,
+      "zIndex": 131
+    },
+    {
+      "id": "svg-line-0015",
+      "semanticId": "svg-line-0015",
+      "kind": "line",
+      "x": 1300.0,
+      "y": 251.0,
+      "width": 0.5,
+      "height": 5.0,
+      "editable": true,
+      "zIndex": 132
+    },
+    {
+      "id": "svg-line-0016",
+      "semanticId": "svg-line-0016",
+      "kind": "line",
+      "x": 1295.0,
+      "y": 257.0,
+      "width": 10.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 133
+    },
+    {
+      "id": "svg-text-0047",
+      "semanticId": "svg-text-0047",
+      "kind": "text",
+      "x": 1324.0,
+      "y": 225.95,
+      "width": 81.4,
+      "height": 43.75,
+      "editable": true,
+      "zIndex": 134,
+      "textSpec": {
+        "text": "dense",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "dense",
+            "fontToken": "Arial",
+            "fontSize": 14.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0048",
+      "semanticId": "svg-text-0048",
+      "kind": "text",
+      "x": 1324.0,
+      "y": 243.95,
+      "width": 90.52,
+      "height": 43.75,
+      "editable": true,
+      "zIndex": 135,
+      "textSpec": {
+        "text": "reward",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "reward",
+            "fontToken": "Arial",
+            "fontSize": 14.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "rollout-panel",
+      "semanticId": "rollout-panel",
+      "kind": "shape",
+      "x": 994.0,
+      "y": 281.0,
+      "width": 399.0,
+      "height": 173.0,
+      "editable": true,
+      "zIndex": 136
+    },
+    {
+      "id": "svg-rect-0039",
+      "semanticId": "svg-rect-0039",
+      "kind": "shape",
+      "x": 1009.0,
+      "y": 297.0,
+      "width": 47.0,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 137
+    },
+    {
+      "id": "svg-text-0049",
+      "semanticId": "svg-text-0049",
+      "kind": "text",
+      "x": 1009.275,
+      "y": 304.85,
+      "width": 46.45,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 138,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0040",
+      "semanticId": "svg-rect-0040",
+      "kind": "shape",
+      "x": 1106.0,
+      "y": 297.0,
+      "width": 47.0,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 139
+    },
+    {
+      "id": "svg-text-0050",
+      "semanticId": "svg-text-0050",
+      "kind": "text",
+      "x": 1097.095,
+      "y": 304.85,
+      "width": 64.81,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 140,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0041",
+      "semanticId": "svg-rect-0041",
+      "kind": "shape",
+      "x": 1203.0,
+      "y": 297.0,
+      "width": 47.0,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 141
+    },
+    {
+      "id": "svg-text-0051",
+      "semanticId": "svg-text-0051",
+      "kind": "text",
+      "x": 1194.095,
+      "y": 304.85,
+      "width": 64.81,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 142,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-rect-0042",
+      "semanticId": "svg-rect-0042",
+      "kind": "shape",
+      "x": 1334.0,
+      "y": 297.0,
+      "width": 47.0,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 143
+    },
+    {
+      "id": "svg-text-0052",
+      "semanticId": "svg-text-0052",
+      "kind": "text",
+      "x": 1325.435,
+      "y": 304.85,
+      "width": 64.13,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 144,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "rollout-z0-to-z1",
+      "semanticId": "rollout-z0-to-z1",
+      "kind": "line",
+      "x": 1057.0,
+      "y": 314.0,
+      "width": 48.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 145
+    },
+    {
+      "id": "rollout-z1-to-z2",
+      "semanticId": "rollout-z1-to-z2",
+      "kind": "line",
+      "x": 1154.0,
+      "y": 314.0,
+      "width": 48.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 146
+    },
+    {
+      "id": "rollout-z2-to-zh",
+      "semanticId": "rollout-z2-to-zh",
+      "kind": "line",
+      "x": 1251.0,
+      "y": 314.0,
+      "width": 82.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 147
+    },
+    {
+      "id": "svg-text-0053",
+      "semanticId": "svg-text-0053",
+      "kind": "text",
+      "x": 1255.9001,
+      "y": 302.8999,
+      "width": 48.2,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 148,
+      "textSpec": {
+        "text": "...",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "...",
+            "fontToken": "Arial",
+            "fontSize": 13.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0021",
+      "semanticId": "svg-circle-0021",
+      "kind": "shape",
+      "x": 1015.0,
+      "y": 408.0,
+      "width": 36.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 149
+    },
+    {
+      "id": "svg-text-0054",
+      "semanticId": "svg-text-0054",
+      "kind": "text",
+      "x": 1012.05,
+      "y": 415.9001,
+      "width": 41.9001,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 150,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0022",
+      "semanticId": "svg-circle-0022",
+      "kind": "shape",
+      "x": 1113.0,
+      "y": 408.0,
+      "width": 36.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 151
+    },
+    {
+      "id": "svg-text-0055",
+      "semanticId": "svg-text-0055",
+      "kind": "text",
+      "x": 1110.05,
+      "y": 415.9001,
+      "width": 41.9001,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 152,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0023",
+      "semanticId": "svg-circle-0023",
+      "kind": "shape",
+      "x": 1212.0,
+      "y": 408.0,
+      "width": 36.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 153
+    },
+    {
+      "id": "svg-text-0056",
+      "semanticId": "svg-text-0056",
+      "kind": "text",
+      "x": 1209.05,
+      "y": 415.9001,
+      "width": 41.9001,
+      "height": 42.4999,
+      "editable": true,
+      "zIndex": 154,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0024",
+      "semanticId": "svg-circle-0024",
+      "kind": "shape",
+      "x": 1065.0,
+      "y": 358.0,
+      "width": 36.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 155
+    },
+    {
+      "id": "svg-text-0057",
+      "semanticId": "svg-text-0057",
+      "kind": "text",
+      "x": 1060.2,
+      "y": 366.8,
+      "width": 45.6,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 156,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0025",
+      "semanticId": "svg-circle-0025",
+      "kind": "shape",
+      "x": 1162.0,
+      "y": 358.0,
+      "width": 36.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 157
+    },
+    {
+      "id": "svg-text-0058",
+      "semanticId": "svg-text-0058",
+      "kind": "text",
+      "x": 1148.56,
+      "y": 366.8,
+      "width": 62.88,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 158,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0026",
+      "semanticId": "svg-circle-0026",
+      "kind": "shape",
+      "x": 1261.0,
+      "y": 358.0,
+      "width": 36.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 159
+    },
+    {
+      "id": "svg-text-0059",
+      "semanticId": "svg-text-0059",
+      "kind": "text",
+      "x": 1247.56,
+      "y": 366.8,
+      "width": 62.88,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 160,
+      "textSpec": {
+        "text": "",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "",
+            "fontToken": "Arial",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "rollout-z0-to-pi0",
+      "semanticId": "rollout-z0-to-pi0",
+      "kind": "line",
+      "x": 1033.0,
+      "y": 333.0,
+      "width": 0.5,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 161
+    },
+    {
+      "id": "rollout-z1-to-pi1",
+      "semanticId": "rollout-z1-to-pi1",
+      "kind": "line",
+      "x": 1131.0,
+      "y": 333.0,
+      "width": 0.5,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 162
+    },
+    {
+      "id": "rollout-z2-to-pi2",
+      "semanticId": "rollout-z2-to-pi2",
+      "kind": "line",
+      "x": 1230.0,
+      "y": 333.0,
+      "width": 0.5,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 163
+    },
+    {
+      "id": "rollout-pi0-to-a0",
+      "semanticId": "rollout-pi0-to-a0",
+      "kind": "shape",
+      "x": 1051.0,
+      "y": 396.0,
+      "width": 32.0,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 164
+    },
+    {
+      "id": "rollout-pi1-to-a1",
+      "semanticId": "rollout-pi1-to-a1",
+      "kind": "shape",
+      "x": 1149.0,
+      "y": 396.0,
+      "width": 31.0,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 165
+    },
+    {
+      "id": "rollout-pi2-to-a2",
+      "semanticId": "rollout-pi2-to-a2",
+      "kind": "shape",
+      "x": 1248.0,
+      "y": 396.0,
+      "width": 31.0,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 166
+    },
+    {
+      "id": "rollout-a0-to-z1",
+      "semanticId": "rollout-a0-to-z1",
+      "kind": "shape",
+      "x": 1083.0,
+      "y": 333.0,
+      "width": 46.0,
+      "height": 24.0,
+      "editable": true,
+      "zIndex": 167
+    },
+    {
+      "id": "rollout-a1-to-z2",
+      "semanticId": "rollout-a1-to-z2",
+      "kind": "shape",
+      "x": 1180.0,
+      "y": 333.0,
+      "width": 47.0,
+      "height": 24.0,
+      "editable": true,
+      "zIndex": 168
+    },
+    {
+      "id": "rollout-a2-to-next",
+      "semanticId": "rollout-a2-to-next",
+      "kind": "shape",
+      "x": 1279.0,
+      "y": 333.0,
+      "width": 24.0,
+      "height": 24.0,
+      "editable": true,
+      "zIndex": 169
+    },
+    {
+      "id": "rollout-z0-to-r0",
+      "semanticId": "rollout-z0-to-r0",
+      "kind": "line",
+      "x": 1032.0,
+      "y": 268.0,
+      "width": 0.5,
+      "height": 28.0,
+      "editable": true,
+      "zIndex": 170
+    },
+    {
+      "id": "rollout-z1-to-r1",
+      "semanticId": "rollout-z1-to-r1",
+      "kind": "line",
+      "x": 1129.0,
+      "y": 268.0,
+      "width": 0.5,
+      "height": 28.0,
+      "editable": true,
+      "zIndex": 171
+    },
+    {
+      "id": "rollout-z2-to-r2",
+      "semanticId": "rollout-z2-to-r2",
+      "kind": "line",
+      "x": 1227.0,
+      "y": 268.0,
+      "width": 0.5,
+      "height": 28.0,
+      "editable": true,
+      "zIndex": 172
+    },
+    {
+      "id": "svg-text-0060",
+      "semanticId": "svg-text-0060",
+      "kind": "text",
+      "x": 1284.61,
+      "y": 421.95,
+      "width": 85.39,
+      "height": 43.75,
+      "editable": true,
+      "zIndex": 173,
+      "textSpec": {
+        "text": "rollout",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "rollout",
+            "fontToken": "Arial",
+            "fontSize": 14.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0061",
+      "semanticId": "svg-text-0061",
+      "kind": "text",
+      "x": 1008.08,
+      "y": 471.2999,
+      "width": 391.84,
+      "height": 52.4999,
+      "editable": true,
+      "zIndex": 174,
+      "textSpec": {
+        "text": "Task-Aware Behavior Learning",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Task-Aware Behavior Learning",
+            "fontToken": "Arial",
+            "fontSize": 19.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "joint-optimization",
+      "semanticId": "joint-optimization",
+      "kind": "shape",
+      "x": 187.0,
+      "y": 546.0,
+      "width": 421.0,
+      "height": 50.0,
+      "editable": true,
+      "zIndex": 175
+    },
+    {
+      "id": "svg-text-0062",
+      "semanticId": "svg-text-0062",
+      "kind": "text",
+      "x": 204.55,
+      "y": 556.3001,
+      "width": 386.8999,
+      "height": 52.4999,
+      "editable": true,
+      "zIndex": 176,
+      "textSpec": {
+        "text": "MLLM-WM Joint Optimization",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "MLLM-WM Joint Optimization",
+            "fontToken": "Arial",
+            "fontSize": 19.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "footer-reward-action",
+      "semanticId": "footer-reward-action",
+      "kind": "shape",
+      "x": 674.0,
+      "y": 545.0,
+      "width": 327.0,
+      "height": 53.0,
+      "editable": true,
+      "zIndex": 178
+    },
+    {
+      "id": "svg-path-0022",
+      "semanticId": "svg-path-0022",
+      "kind": "shape",
+      "x": 695.0,
+      "y": 560.0,
+      "width": 12.0,
+      "height": 11.6667,
+      "editable": true,
+      "zIndex": 179
+    },
+    {
+      "id": "svg-path-0023",
+      "semanticId": "svg-path-0023",
+      "kind": "shape",
+      "x": 691.3333,
+      "y": 562.0,
+      "width": 5.6667,
+      "height": 6.6667,
+      "editable": true,
+      "zIndex": 180
+    },
+    {
+      "id": "svg-path-0024",
+      "semanticId": "svg-path-0024",
+      "kind": "shape",
+      "x": 705.0,
+      "y": 562.0,
+      "width": 5.6667,
+      "height": 6.6667,
+      "editable": true,
+      "zIndex": 181
+    },
+    {
+      "id": "svg-line-0026",
+      "semanticId": "svg-line-0026",
+      "kind": "line",
+      "x": 701.0,
+      "y": 572.0,
+      "width": 0.5,
+      "height": 5.0,
+      "editable": true,
+      "zIndex": 182
+    },
+    {
+      "id": "svg-line-0027",
+      "semanticId": "svg-line-0027",
+      "kind": "line",
+      "x": 696.0,
+      "y": 578.0,
+      "width": 10.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 183
+    },
+    {
+      "id": "svg-text-0063",
+      "semanticId": "svg-text-0063",
+      "kind": "text",
+      "x": 726.0,
+      "y": 560.15,
+      "width": 169.08,
+      "height": 48.75,
+      "editable": true,
+      "zIndex": 184,
+      "textSpec": {
+        "text": "dense reward",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "dense reward",
+            "fontToken": "Arial",
+            "fontSize": 17.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-circle-0027",
+      "semanticId": "svg-circle-0027",
+      "kind": "shape",
+      "x": 891.2,
+      "y": 560.2,
+      "width": 17.6,
+      "height": 17.6,
+      "editable": true,
+      "zIndex": 185
+    },
+    {
+      "id": "svg-path-0025",
+      "semanticId": "svg-path-0025",
+      "kind": "shape",
+      "x": 892.3001,
+      "y": 564.6,
+      "width": 4.4,
+      "height": 8.8,
+      "editable": true,
+      "zIndex": 186
+    },
+    {
+      "id": "svg-path-0026",
+      "semanticId": "svg-path-0026",
+      "kind": "shape",
+      "x": 903.2999,
+      "y": 564.6,
+      "width": 4.4,
+      "height": 8.8,
+      "editable": true,
+      "zIndex": 187
+    },
+    {
+      "id": "svg-line-0028",
+      "semanticId": "svg-line-0028",
+      "kind": "line",
+      "x": 896.7001,
+      "y": 569.0,
+      "width": 6.5999,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 188
+    },
+    {
+      "id": "svg-text-0064",
+      "semanticId": "svg-text-0064",
+      "kind": "text",
+      "x": 927.0,
+      "y": 560.15,
+      "width": 93.87,
+      "height": 48.75,
+      "editable": true,
+      "zIndex": 189,
+      "textSpec": {
+        "text": "action",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "action",
+            "fontToken": "Arial",
+            "fontSize": 17.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "svg-text-0065",
+      "semanticId": "svg-text-0065",
+      "kind": "text",
+      "x": 1033.35,
+      "y": 543.95,
+      "width": 121.2999,
+      "height": 43.75,
+      "editable": true,
+      "zIndex": 193,
+      "textSpec": {
+        "text": "interaction",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "interaction",
+            "fontToken": "Arial",
+            "fontSize": 14.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "atomic:environment-globe",
+      "semanticId": "atomic:environment-globe",
+      "kind": "asset",
+      "x": 1188.0,
+      "y": 533.0,
+      "width": 80.0,
+      "height": 81.0,
+      "editable": false,
+      "zIndex": 194,
+      "assetSpec": {
+        "assetId": "atomic:environment-globe",
+        "fitMode": "stretch",
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "atomicRasterUnit": true,
+        "containsReconstructableContent": false
+      }
+    },
+    {
+      "id": "svg-text-0066",
+      "semanticId": "svg-text-0066",
+      "kind": "text",
+      "x": 1273.0,
+      "y": 569.15,
+      "width": 156.0,
+      "height": 48.75,
+      "editable": true,
+      "zIndex": 195,
+      "textSpec": {
+        "text": "Environment",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Environment",
+            "fontToken": "Arial",
+            "fontSize": 17.25
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "task-list-to-encoder",
+      "semanticRelationIds": [
+        "rel:task-list-to-encoder"
+      ],
+      "geometryOnly": false,
+      "source": "task-list",
+      "target": "task-encoder",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "task-encoder-to-token",
+      "semanticRelationIds": [
+        "rel:task-encoder-to-token"
+      ],
+      "geometryOnly": false,
+      "source": "task-encoder",
+      "target": "task-token-vector",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "task-token-to-mapping",
+      "semanticRelationIds": [
+        "rel:task-token-to-mapping"
+      ],
+      "geometryOnly": false,
+      "source": "task-token-vector",
+      "target": "task-mapping",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "task-token-to-allocator",
+      "semanticRelationIds": [
+        "rel:task-token-to-allocator"
+      ],
+      "geometryOnly": false,
+      "source": "task-token-vector",
+      "target": "allocator-header",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "observation-to-mllm",
+      "semanticRelationIds": [
+        "rel:observation-to-mllm"
+      ],
+      "geometryOnly": false,
+      "source": "atomic:observation",
+      "target": "mllm-encoder",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "observation-to-wm",
+      "semanticRelationIds": [
+        "rel:observation-to-wm"
+      ],
+      "geometryOnly": false,
+      "source": "atomic:observation",
+      "target": "wm-encoder",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "mapping-to-imagination",
+      "semanticRelationIds": [
+        "rel:mapping-to-imagination"
+      ],
+      "geometryOnly": false,
+      "source": "task-mapping",
+      "target": "task-conditioned-imagination",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "joint-feedback-to-modular-panel",
+      "semanticRelationIds": [
+        "rel:joint-feedback-to-modular-panel"
+      ],
+      "geometryOnly": false,
+      "source": "joint-optimization",
+      "target": "task-aware-modular-joint-panel",
+      "direction": "forward",
+      "route": "curved",
+      "styleTokens": {
+        "strokePattern": "solid"
+      },
+      "pathSpec": {
+        "kind": "cubic",
+        "coordinateSpace": "canvas",
+        "start": {
+          "x": 187.0,
+          "y": 574.0
+        },
+        "segments": [
+          {
+            "control1": {
+              "x": 169.66666666666666,
+              "y": 574.0
+            },
+            "control2": {
+              "x": 152.33333333333334,
+              "y": 574.0
+            },
+            "end": {
+              "x": 135.0,
+              "y": 574.0
+            }
+          },
+          {
+            "control1": {
+              "x": 122.33333333333333,
+              "y": 574.0
+            },
+            "control2": {
+              "x": 116.0,
+              "y": 566.3333333333334
+            },
+            "end": {
+              "x": 116.0,
+              "y": 551.0
+            }
+          },
+          {
+            "control1": {
+              "x": 116.0,
+              "y": 542.3333333333334
+            },
+            "control2": {
+              "x": 116.0,
+              "y": 533.6666666666666
+            },
+            "end": {
+              "x": 116.0,
+              "y": 525.0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "reward-to-joint-optimization",
+      "semanticRelationIds": [
+        "rel:reward-to-joint-optimization"
+      ],
+      "geometryOnly": false,
+      "source": "footer-reward-action",
+      "target": "joint-optimization",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "behavior-to-reward",
+      "semanticRelationIds": [
+        "rel:behavior-to-reward"
+      ],
+      "geometryOnly": false,
+      "source": "task-aware-behavior-panel",
+      "target": "footer-reward-action",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "interaction-arrow",
+      "semanticRelationIds": [
+        "rel:interaction-arrow"
+      ],
+      "geometryOnly": false,
+      "source": "footer-reward-action",
+      "target": "atomic:environment-globe",
+      "direction": "bidirectional",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    }
+  ],
+  "assetSlots": [
+    {
+      "slotId": "slot-atomic-observation",
+      "semanticAnchor": "atomic:observation",
+      "x": 42.0,
+      "y": 290.0,
+      "width": 106.0,
+      "height": 86.0,
+      "overlaySafeArea": "none; formal text and topology remain native",
+      "expectedAspectRatio": 1.2325581395348837
+    },
+    {
+      "slotId": "slot-atomic-environment-globe",
+      "semanticAnchor": "atomic:environment-globe",
+      "x": 1188.0,
+      "y": 533.0,
+      "width": 80.0,
+      "height": 81.0,
+      "overlaySafeArea": "none; formal text and topology remain native",
+      "expectedAspectRatio": 0.9876543209876543
+    }
+  ]
+}

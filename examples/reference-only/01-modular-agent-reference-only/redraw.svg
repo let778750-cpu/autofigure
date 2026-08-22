@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1429" height="627" viewBox="0 0 1429 627">
+  <defs>
+    <marker id="arrow-gray" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5.5 L 0 11 Z" fill="#7f7f7f"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5.5 L 0 11 Z" fill="#f27622"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5.5 L 0 11 Z" fill="#3567b7"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#9a7600"/>
+    </marker>
+    <linearGradient id="ztop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3a46e"/><stop offset="0.48" stop-color="#f3a46e"/>
+      <stop offset="0.52" stop-color="#f4f4ef"/><stop offset="0.58" stop-color="#2b8c9c"/>
+      <stop offset="1" stop-color="#2b8c9c"/>
+    </linearGradient>
+    <linearGradient id="zbottom" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3a46e"/><stop offset="0.48" stop-color="#f3a46e"/>
+      <stop offset="0.52" stop-color="#f4f4ef"/><stop offset="0.58" stop-color="#2b8c9c"/>
+      <stop offset="1" stop-color="#2b8c9c"/>
+    </linearGradient>
+    <linearGradient id="allocator-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b78cf" stop-opacity="0.85"/><stop offset="1" stop-color="#d9e4fa" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+
+  <rect id="background" x="0" y="0" width="1429" height="627" fill="#ffffff"/>
+  <rect id="joint-panel" x="18" y="107" width="947" height="411" fill="#ffffff" stroke="#17355f" stroke-width="2" stroke-dasharray="2 2"/>
+  <rect id="behavior-panel" x="978" y="107" width="433" height="411" fill="#ffffff" stroke="#17355f" stroke-width="2" stroke-dasharray="2 2"/>
+
+  <rect id="task-input-box" x="29" y="16" width="360" height="77" rx="13" fill="#f3f3f3" stroke="#18345c" stroke-width="2.4"/>
+  <circle id="user-icon-ring" cx="68" cy="54" r="24" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+  <circle id="user-icon-head" cx="68" cy="42" r="7" fill="#000000"/>
+  <path id="user-icon-body" d="M 51 69 C 51 55 57 49 68 49 C 79 49 85 55 85 69 Z" fill="#000000"/>
+  <text id="task-line-1" x="113" y="49" font-family="Arial" font-size="20" data-layout-container="task-input-box" data-layout-padding="6">Task 1: Turn on lamp</text>
+  <text id="task-line-2" x="113" y="78" font-family="Arial" font-size="20" data-layout-container="task-input-box" data-layout-padding="6">Task 2: Close top drawer ...</text>
+
+  <rect id="task-encoder" x="435" y="17" width="124" height="78" rx="14" fill="#f1f1f1" stroke="none"/>
+  <text id="task-encoder-line1" x="497" y="51" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" data-layout-container="task-encoder" data-layout-padding="7">task</text>
+  <text id="task-encoder-line2" x="497" y="79" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" data-layout-container="task-encoder" data-layout-padding="7">Encoder</text>
+  <rect id="tau-box" x="597" y="36" width="128" height="43" fill="#ffffff" stroke="#18345c" stroke-width="3"/>
+  <text id="tau-label" x="660" y="27" text-anchor="middle" font-family="Times New Roman" font-size="22" font-style="italic" font-weight="700">τ</text>
+  <circle id="tau-node-1" cx="624" cy="58" r="17" fill="#b7b5b5" data-repeat-group="tau-nodes" data-repeat-axis="horizontal" data-repeat-order="1"/>
+  <circle id="tau-node-2" cx="661" cy="58" r="17" fill="#b7b5b5" data-repeat-group="tau-nodes" data-repeat-axis="horizontal" data-repeat-order="2"/>
+  <circle id="tau-node-3" cx="698" cy="58" r="17" fill="#b7b5b5" data-repeat-group="tau-nodes" data-repeat-axis="horizontal" data-repeat-order="3"/>
+  <rect id="mapping-box" x="765" y="34" width="186" height="47" rx="7" fill="#f0f0f0" stroke="none"/>
+  <text id="mapping-label" x="789" y="67" font-family="Arial" font-size="20" font-weight="700" data-layout-container="mapping-box" data-layout-padding="7">mapping</text>
+  <text id="mapping-formula" x="890" y="64" font-family="Times New Roman" font-size="17" font-style="italic" data-layout-container="mapping-box" data-layout-padding="7">f<tspan baseline-shift="sub" font-size="12">map</tspan></text>
+
+  <line id="task-input-to-encoder" x1="399" y1="56" x2="425" y2="56" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="task-input-box" data-target-id="task-encoder"/>
+  <line id="task-encoder-to-tau" x1="566" y1="56" x2="590" y2="56" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="task-encoder" data-target-id="tau-box"/>
+  <line id="tau-to-mapping" x1="733" y1="56" x2="758" y2="56" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="tau-box" data-target-id="mapping-box"/>
+
+  <rect id="legend-sem" x="1155" y="18" width="78" height="37" rx="6" fill="#fde3d3"/>
+  <text id="legend-sem-short" x="1194" y="43" text-anchor="middle" font-family="Arial" font-size="19" data-layout-container="legend-sem" data-layout-padding="4">Sem</text>
+  <text id="legend-sem-long" x="1241" y="44" font-family="Arial" font-size="19">semantic expert</text>
+  <rect id="legend-dyn" x="1155" y="59" width="78" height="37" rx="6" fill="#dceaf7"/>
+  <text id="legend-dyn-short" x="1194" y="85" text-anchor="middle" font-family="Arial" font-size="19" data-layout-container="legend-dyn" data-layout-padding="4">Dyn</text>
+  <text id="legend-dyn-long" x="1241" y="85" font-family="Arial" font-size="19">dynamics expert</text>
+
+  <text id="joint-title" x="41" y="162" font-family="Arial" font-size="26" font-weight="700">Task-Aware Modular Joint</text>
+  <rect id="allocator-box" x="485" y="132" width="352" height="46" fill="#ffffff" stroke="#4776cc" stroke-width="3"/>
+  <text id="allocator-label" x="661" y="164" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="allocator-box" data-layout-padding="6">Task-Guided Expert Allocator</text>
+  <path id="allocator-funnel" d="M 485 178 L 837 178 L 710 208 L 612 208 Z" fill="url(#allocator-fade)" stroke="none"/>
+  <line id="tau-to-allocator" x1="660" y1="80" x2="660" y2="127" stroke="#4776cc" stroke-width="3" marker-end="url(#arrow-blue)" data-source-id="tau-box" data-target-id="allocator-box"/>
+
+  <rect id="mllm-encoder" x="188" y="243" width="124" height="112" rx="14" fill="#fff0e5" stroke="none"/>
+  <text id="mllm-line1" x="250" y="276" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="mllm-encoder" data-layout-padding="7">MLLM</text>
+  <text id="mllm-line2" x="250" y="304" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="mllm-encoder" data-layout-padding="7">Encoder</text>
+  <rect id="wm-encoder" x="188" y="401" width="124" height="87" rx="14" fill="#e5f0fb" stroke="none"/>
+  <text id="wm-line1" x="250" y="436" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="wm-encoder" data-layout-padding="7">WM</text>
+  <text id="wm-line2" x="250" y="464" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="wm-encoder" data-layout-padding="7">Encoder</text>
+  <rect id="atomic:observation" x="42" y="290" width="106" height="86" fill="#eeeeee" stroke="#999999"/>
+  <text id="observation-ellipsis" x="31" y="379" font-family="Arial" font-size="24" fill="#888888">...</text>
+  <text id="observation-label" x="29" y="405" font-family="Arial" font-size="22">observation</text>
+
+  <path id="observation-to-mllm" d="M 151 322 L 178 293" fill="none" stroke="#f27622" stroke-width="5" marker-end="url(#arrow-orange)" data-source-id="atomic:observation" data-target-id="mllm-encoder"/>
+  <path id="observation-to-wm" d="M 150 376 L 180 400" fill="none" stroke="#3567b7" stroke-width="5" marker-end="url(#arrow-blue)" data-source-id="atomic:observation" data-target-id="wm-encoder"/>
+  <line id="mllm-to-ev" x1="315" y1="274" x2="340" y2="274" stroke="#f27622" stroke-width="5" marker-end="url(#arrow-orange)" data-source-id="mllm-encoder" data-target-id="ev-box"/>
+  <line id="wm-to-st" x1="315" y1="435" x2="340" y2="435" stroke="#3567b7" stroke-width="5" marker-end="url(#arrow-blue)" data-source-id="wm-encoder" data-target-id="st-box"/>
+
+  <rect id="ev-box" x="346" y="213" width="42" height="127" fill="#ffffff" stroke="#19365f" stroke-width="3"/>
+  <text id="ev-label" x="367" y="201" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic">e<tspan baseline-shift="sub" font-size="12">v</tspan></text>
+  <circle id="ev-node-1" cx="367" cy="239" r="17" fill="#f3a46e" data-repeat-group="ev-nodes" data-repeat-axis="vertical" data-repeat-order="1"/>
+  <circle id="ev-node-2" cx="367" cy="277" r="17" fill="#f3a46e" data-repeat-group="ev-nodes" data-repeat-axis="vertical" data-repeat-order="2"/>
+  <circle id="ev-node-3" cx="367" cy="315" r="17" fill="#f3a46e" data-repeat-group="ev-nodes" data-repeat-axis="vertical" data-repeat-order="3"/>
+  <rect id="st-box" x="347" y="374" width="42" height="126" fill="#ffffff" stroke="#19365f" stroke-width="3"/>
+  <text id="st-label" x="368" y="364" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic">s<tspan baseline-shift="sub" font-size="12">t</tspan></text>
+  <circle id="st-node-1" cx="368" cy="398" r="17" fill="#277f92" data-repeat-group="st-nodes" data-repeat-axis="vertical" data-repeat-order="1"/>
+  <circle id="st-node-2" cx="368" cy="436" r="17" fill="#277f92" data-repeat-group="st-nodes" data-repeat-axis="vertical" data-repeat-order="2"/>
+  <circle id="st-node-3" cx="368" cy="474" r="17" fill="#277f92" data-repeat-group="st-nodes" data-repeat-axis="vertical" data-repeat-order="3"/>
+  <line id="ev-to-joint" x1="392" y1="274" x2="421" y2="274" stroke="#f27622" stroke-width="5" marker-end="url(#arrow-orange)" data-source-id="ev-box" data-target-id="joint-core"/>
+  <line id="st-to-joint" x1="393" y1="436" x2="421" y2="436" stroke="#3567b7" stroke-width="5" marker-end="url(#arrow-blue)" data-source-id="st-box" data-target-id="joint-core"/>
+
+  <rect id="joint-core" x="428" y="209" width="445" height="295" rx="17" fill="#ffffff" stroke="#19365f" stroke-width="2.3"/>
+  <rect id="task-1-box" x="443" y="265" width="95" height="49" fill="#355fa8"/>
+  <text id="task-1-label" x="490" y="299" text-anchor="middle" font-family="Arial" font-size="22" fill="#ffffff" data-layout-container="task-1-box" data-layout-padding="5">Task 1</text>
+  <rect id="task-2-box" x="443" y="387" width="95" height="48" fill="#c90000"/>
+  <text id="task-2-label" x="490" y="420" text-anchor="middle" font-family="Arial" font-size="22" fill="#ffffff" data-layout-container="task-2-box" data-layout-padding="5">Task 2</text>
+
+  <g id="expert-1">
+    <rect id="expert-1-box" x="552" y="229" width="51" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
+    <rect id="expert-1-sem" x="559" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-1-dyn" x="559" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
+    <text id="expert-1-sem-label" x="578" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-1-sem" data-layout-padding="3"><tspan x="578">S</tspan><tspan x="578" dy="15">e</tspan><tspan x="578" dy="15">m</tspan></text>
+    <text id="expert-1-dyn-label" x="578" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-1-dyn" data-layout-padding="3"><tspan x="578">D</tspan><tspan x="578" dy="15">y</tspan><tspan x="578" dy="15">n</tspan></text>
+  </g>
+  <g id="expert-2">
+    <rect id="expert-2-box" x="628" y="229" width="52" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
+    <rect id="expert-2-sem" x="636" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-2-dyn" x="636" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
+    <text id="expert-2-sem-label" x="655" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-2-sem" data-layout-padding="3"><tspan x="655">S</tspan><tspan x="655" dy="15">e</tspan><tspan x="655" dy="15">m</tspan></text>
+    <text id="expert-2-dyn-label" x="655" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-2-dyn" data-layout-padding="3"><tspan x="655">D</tspan><tspan x="655" dy="15">y</tspan><tspan x="655" dy="15">n</tspan></text>
+  </g>
+  <g id="expert-3">
+    <rect id="expert-3-box" x="707" y="229" width="51" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
+    <rect id="expert-3-sem" x="714" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-3-dyn" x="714" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
+    <text id="expert-3-sem-label" x="733" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-3-sem" data-layout-padding="3"><tspan x="733">S</tspan><tspan x="733" dy="15">e</tspan><tspan x="733" dy="15">m</tspan></text>
+    <text id="expert-3-dyn-label" x="733" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-3-dyn" data-layout-padding="3"><tspan x="733">D</tspan><tspan x="733" dy="15">y</tspan><tspan x="733" dy="15">n</tspan></text>
+  </g>
+  <g id="expert-4">
+    <rect id="expert-4-box" x="799" y="229" width="52" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
+    <rect id="expert-4-sem" x="807" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-4-dyn" x="807" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
+    <text id="expert-4-sem-label" x="825" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-4-sem" data-layout-padding="3"><tspan x="825">S</tspan><tspan x="825" dy="15">e</tspan><tspan x="825" dy="15">m</tspan></text>
+    <text id="expert-4-dyn-label" x="825" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-4-dyn" data-layout-padding="3"><tspan x="825">D</tspan><tspan x="825" dy="15">y</tspan><tspan x="825" dy="15">n</tspan></text>
+  </g>
+  <text id="expert-index-1" x="578" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">1</text>
+  <text id="expert-index-2" x="654" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">2</text>
+  <text id="expert-index-3" x="733" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">3</text>
+  <text id="expert-index-dots" x="781" y="456" text-anchor="middle" font-family="Arial" font-size="19" fill="#888888">...</text>
+  <text id="expert-index-l" x="825" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">l</text>
+
+  <path id="allocator-task1-route-1" d="M 537 289 C 570 260 583 277 618 347" fill="none" stroke="#3567b7" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-blue)" data-source-id="task-1-box" data-target-id="expert-1-dyn"/>
+  <path id="allocator-task1-route-2" d="M 538 290 C 622 250 623 430 700 428 C 760 426 785 264 861 284" fill="none" stroke="#3567b7" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-blue)" data-source-id="task-1-box" data-target-id="zt-top-box"/>
+  <path id="allocator-task2-route-1" d="M 537 410 C 620 392 632 441 682 384 C 716 346 720 280 754 282" fill="none" stroke="#d40000" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-orange)" data-source-id="task-2-box" data-target-id="expert-3-sem"/>
+  <path id="allocator-task2-route-2" d="M 537 410 C 622 403 644 424 692 382 C 741 339 781 455 862 418" fill="none" stroke="#d40000" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-orange)" data-source-id="task-2-box" data-target-id="zt-bottom-box"/>
+
+  <rect id="zt-top-box" x="903" y="208" width="42" height="128" fill="#ffffff" stroke="#19365f" stroke-width="3"/>
+  <text id="zt-top-label" x="924" y="198" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic">z<tspan baseline-shift="sub" font-size="12">t</tspan></text>
+  <circle id="zt-top-1" cx="924" cy="232" r="16" fill="url(#ztop)" data-repeat-group="zt-top" data-repeat-axis="vertical" data-repeat-order="1"/>
+  <circle id="zt-top-2" cx="924" cy="270" r="16" fill="url(#ztop)" data-repeat-group="zt-top" data-repeat-axis="vertical" data-repeat-order="2"/>
+  <circle id="zt-top-3" cx="924" cy="308" r="16" fill="url(#ztop)" data-repeat-group="zt-top" data-repeat-axis="vertical" data-repeat-order="3"/>
+  <rect id="zt-bottom-box" x="903" y="353" width="42" height="126" fill="#ffffff" stroke="#19365f" stroke-width="3"/>
+  <circle id="zt-bottom-1" cx="924" cy="380" r="16" fill="url(#zbottom)" data-repeat-group="zt-bottom" data-repeat-axis="vertical" data-repeat-order="1"/>
+  <circle id="zt-bottom-2" cx="924" cy="417" r="16" fill="url(#zbottom)" data-repeat-group="zt-bottom" data-repeat-axis="vertical" data-repeat-order="2"/>
+  <circle id="zt-bottom-3" cx="924" cy="454" r="16" fill="url(#zbottom)" data-repeat-group="zt-bottom" data-repeat-axis="vertical" data-repeat-order="3"/>
+
+  <rect id="task-conditioned-imagination" x="993" y="121" width="400" height="91" rx="17" fill="#f3f3f3" stroke="#19365f" stroke-width="2.3"/>
+  <text id="imagination-title" x="1193" y="153" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="task-conditioned-imagination" data-layout-padding="7">task-conditioned imagination</text>
+  <rect id="imag-z0" x="1009" y="166" width="46" height="34" rx="6" fill="#8fc0e8"/>
+  <rect id="imag-z1" x="1106" y="166" width="46" height="34" rx="6" fill="#8fc0e8"/>
+  <rect id="imag-z2" x="1205" y="166" width="46" height="34" rx="6" fill="#8fc0e8"/>
+  <rect id="imag-zh" x="1335" y="166" width="47" height="34" rx="6" fill="#8fc0e8"/>
+  <text id="imag-z0-label" x="1032" y="188" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="imag-z0" data-layout-padding="3">z<tspan baseline-shift="super" font-size="11">τ</tspan><tspan baseline-shift="sub" font-size="11">t</tspan></text>
+  <text id="imag-z1-label" x="1129" y="188" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="imag-z1" data-layout-padding="3">z<tspan baseline-shift="super" font-size="11">τ</tspan><tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
+  <text id="imag-z2-label" x="1228" y="188" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="imag-z2" data-layout-padding="3">z<tspan baseline-shift="super" font-size="11">τ</tspan><tspan baseline-shift="sub" font-size="11">t+2</tspan></text>
+  <text id="imag-dots" x="1267" y="188" font-family="Arial" font-size="17" fill="#888888">...</text>
+  <text id="imag-zh-label" x="1358" y="188" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="imag-zh" data-layout-padding="3">z<tspan baseline-shift="super" font-size="11">τ</tspan><tspan baseline-shift="sub" font-size="11">t+h</tspan></text>
+
+  <rect id="rollout-panel" x="993" y="281" width="400" height="173" rx="20" fill="#f3f3f3" stroke="#19365f" stroke-width="2.3"/>
+  <rect id="rollout-z0" x="1011" y="296" width="45" height="36" rx="6" fill="#2f72b8"/>
+  <rect id="rollout-z1" x="1107" y="296" width="45" height="36" rx="6" fill="#2f72b8"/>
+  <rect id="rollout-z2" x="1207" y="296" width="45" height="36" rx="6" fill="#2f72b8"/>
+  <rect id="rollout-zh" x="1335" y="296" width="47" height="36" rx="6" fill="#2f72b8"/>
+  <text id="rollout-z0-label" x="1033" y="320" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="rollout-z0" data-layout-padding="3">z<tspan baseline-shift="sub" font-size="11">t</tspan></text>
+  <text id="rollout-z1-label" x="1129" y="320" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="rollout-z1" data-layout-padding="3">z<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
+  <text id="rollout-z2-label" x="1229" y="320" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="rollout-z2" data-layout-padding="3">z<tspan baseline-shift="sub" font-size="11">t+2</tspan></text>
+  <text id="rollout-zh-label" x="1358" y="320" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="rollout-zh" data-layout-padding="3">z<tspan baseline-shift="sub" font-size="11">t+h</tspan></text>
+  <text id="rollout-label" x="1307" y="439" font-family="Arial" font-size="21" font-weight="700" data-layout-container="rollout-panel" data-layout-padding="7">rollout</text>
+
+  <circle id="reward-r0" cx="1033" cy="247" r="21" fill="#ef7e89"/>
+  <circle id="reward-r1" cx="1129" cy="247" r="21" fill="#ef7e89"/>
+  <circle id="reward-r2" cx="1229" cy="247" r="21" fill="#ef7e89"/>
+  <text id="reward-r0-label" x="1033" y="253" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">r′<tspan baseline-shift="sub" font-size="11">t</tspan></text>
+  <text id="reward-r1-label" x="1129" y="253" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">r′<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
+  <text id="reward-r2-label" x="1229" y="253" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">r′<tspan baseline-shift="sub" font-size="11">t+2</tspan></text>
+  <circle id="policy-pi0" cx="1033" cy="426" r="18" fill="#91aee2"/>
+  <circle id="policy-pi1" cx="1130" cy="426" r="18" fill="#91aee2"/>
+  <circle id="policy-pi2" cx="1230" cy="426" r="18" fill="#91aee2"/>
+  <text id="policy-pi0-label" x="1033" y="432" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic" fill="#ffffff">π</text>
+  <text id="policy-pi1-label" x="1130" y="432" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic" fill="#ffffff">π</text>
+  <text id="policy-pi2-label" x="1230" y="432" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic" fill="#ffffff">π</text>
+  <circle id="action-a0" cx="1083" cy="375" r="18" fill="#c75a00"/>
+  <circle id="action-a1" cx="1180" cy="375" r="18" fill="#c75a00"/>
+  <circle id="action-a2" cx="1280" cy="375" r="18" fill="#c75a00"/>
+  <text id="action-a0-label" x="1083" y="381" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">a<tspan baseline-shift="sub" font-size="11">t</tspan></text>
+  <text id="action-a1-label" x="1180" y="381" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">a<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
+  <text id="action-a2-label" x="1280" y="381" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">a<tspan baseline-shift="sub" font-size="11">t+2</tspan></text>
+
+  <line id="imagination-z0-to-z1" x1="1056" y1="182" x2="1101" y2="182" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z0" data-target-id="imag-z1"/>
+  <line id="imagination-z1-to-z2" x1="1153" y1="182" x2="1200" y2="182" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z1" data-target-id="imag-z2"/>
+  <line id="imagination-z2-to-zh" x1="1253" y1="182" x2="1330" y2="182" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z2" data-target-id="imag-zh"/>
+  <line id="imagination-z0-to-r0" x1="1033" y1="201" x2="1033" y2="223" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z0" data-target-id="reward-r0"/>
+  <line id="imagination-z1-to-r1" x1="1129" y1="201" x2="1129" y2="223" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z1" data-target-id="reward-r1"/>
+  <line id="imagination-z2-to-r2" x1="1229" y1="201" x2="1229" y2="223" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z2" data-target-id="reward-r2"/>
+  <line id="rollout-z0-to-z1" x1="1057" y1="314" x2="1102" y2="314" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="rollout-z1"/>
+  <line id="rollout-z1-to-z2" x1="1153" y1="314" x2="1202" y2="314" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="rollout-z2"/>
+  <line id="rollout-z2-to-zh" x1="1253" y1="314" x2="1330" y2="314" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="rollout-zh"/>
+  <line id="rollout-z0-to-pi0" x1="1033" y1="333" x2="1033" y2="404" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="policy-pi0"/>
+  <line id="rollout-z1-to-pi1" x1="1130" y1="333" x2="1130" y2="404" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="policy-pi1"/>
+  <line id="rollout-z2-to-pi2" x1="1230" y1="333" x2="1230" y2="404" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="policy-pi2"/>
+  <path id="rollout-pi0-to-a0" d="M 1051 428 C 1080 425 1090 412 1084 397" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi0" data-target-id="action-a0"/>
+  <path id="rollout-pi1-to-a1" d="M 1148 428 C 1175 425 1185 412 1180 397" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi1" data-target-id="action-a1"/>
+  <path id="rollout-pi2-to-a2" d="M 1248 428 C 1275 425 1286 412 1281 397" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi2" data-target-id="action-a2"/>
+  <path id="rollout-a0-to-z1" d="M 1085 355 C 1105 355 1110 343 1110 333" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a0" data-target-id="rollout-z1"/>
+  <path id="rollout-a1-to-z2" d="M 1182 355 C 1203 355 1210 343 1210 333" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a1" data-target-id="rollout-z2"/>
+  <path id="rollout-a2-to-next" d="M 1282 355 C 1305 355 1304 345 1304 333" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a2" data-target-id="rollout-zh"/>
+
+  <line id="zt-top-to-imagination" x1="946" y1="272" x2="1005" y2="312" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="zt-top-box" data-target-id="rollout-z0"/>
+  <line id="zt-bottom-to-rollout" x1="946" y1="416" x2="1005" y2="326" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="zt-bottom-box" data-target-id="rollout-z0"/>
+
+  <text id="dense-trophy" x="1288" y="258" font-family="Segoe UI Symbol" font-size="28" fill="#6f5c24">♕</text>
+  <text id="dense-reward-label" x="1325" y="243" font-family="Arial" font-size="19" fill="#666666">dense</text>
+  <text id="dense-reward-label-2" x="1325" y="266" font-family="Arial" font-size="19" fill="#666666">reward</text>
+  <text id="behavior-title" x="1008" y="496" font-family="Arial" font-size="27" font-weight="700">Task-Aware Behavior Learning</text>
+
+  <path id="mapping-to-imagination" d="M 958 65 L 1030 149" fill="none" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="mapping-box" data-target-id="task-conditioned-imagination"/>
+
+  <rect id="joint-optimization-box" x="187" y="546" width="421" height="52" fill="#ffffff" stroke="#17355f" stroke-width="2" stroke-dasharray="2 2"/>
+  <text id="joint-optimization-label" x="398" y="581" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700" data-layout-container="joint-optimization-box" data-layout-padding="6">MLLM-WM Joint Optimization</text>
+  <path id="joint-loop-arrow" d="M 187 574 L 139 574 C 122 574 116 566 116 550 L 116 523 L 106 535 L 116 520 L 127 535 L 120 526 L 120 550 C 120 564 127 569 140 569 L 187 569 Z" fill="#d8747d" stroke="none"/>
+  <path id="optimization-to-reward" d="M 669 564 L 642 564 L 642 557 L 611 572 L 642 587 L 642 579 L 669 579 Z" fill="#d8747d" stroke="none"/>
+  <rect id="reward-action-box" x="674" y="544" width="327" height="55" rx="10" fill="#ffffff" stroke="#19365f" stroke-width="2"/>
+  <text id="reward-icon" x="692" y="582" font-family="Segoe UI Symbol" font-size="31" fill="#88732d" data-layout-container="reward-action-box" data-layout-padding="6">♕</text>
+  <text id="reward-text" x="727" y="582" font-family="Arial" font-size="25" fill="#777777" data-layout-container="reward-action-box" data-layout-padding="6">dense reward</text>
+  <circle id="action-icon" cx="905" cy="573" r="16" fill="#ffffff" stroke="#5b9734" stroke-width="3"/>
+  <path id="action-icon-path" d="M 893 574 L 898 574 L 898 566 L 903 566 L 903 578 L 908 578 L 908 564 L 913 564 L 913 574 L 919 574" fill="none" stroke="#5b9734" stroke-width="3"/>
+  <text id="action-text" x="929" y="580" font-family="Arial" font-size="20" fill="#777777" data-layout-container="reward-action-box" data-layout-padding="6">action</text>
+  <path id="behavior-to-reward" d="M 1059 518 L 1008 537 L 1013 546 L 998 542 L 1001 527 L 1005 535 L 1055 516 Z" fill="#d8747d" stroke="none"/>
+  <text id="interaction-label" x="1102" y="561" text-anchor="middle" font-family="Arial" font-size="21">interaction</text>
+  <line id="interaction-left" x1="1168" y1="573" x2="1015" y2="573" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="atomic:environment-globe" data-target-id="reward-action-box"/>
+  <line id="interaction-right" x1="1015" y1="573" x2="1177" y2="573" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="reward-action-box" data-target-id="atomic:environment-globe"/>
+  <rect id="atomic:environment-globe" x="1188" y="533" width="80" height="81" fill="#eeeeee" stroke="#999999"/>
+  <text id="environment-label" x="1273" y="592" font-family="Arial" font-size="22">Environment</text>
+</svg>

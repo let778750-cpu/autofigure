@@ -1,0 +1,497 @@
+{
+  "case": "01-modular-agent",
+  "created_at": "20260818T114611Z",
+  "source_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "width": 1429,
+  "height": 627,
+  "schema_version": "3.1.0",
+  "fidelity_profile": "hybrid_fidelity",
+  "backend_mode": "hybrid",
+  "workflow": {
+    "state": "qa_failed",
+    "revision": 52,
+    "history": [
+      {
+        "state": "prepared",
+        "at": "20260821T000000Z",
+        "reason": "case-upgraded-to-high-fidelity-contract"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T062448Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "70fb7b6efe34ada95389d2f66661a0a82eb6278f5ab763293277aa44c8845065",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T062522Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T062523Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "aa224188320f33057468910be2aec23f770f5687ede1fe88ef6d3de31e804886",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T063929Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T063929Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "9c511f3abcf7d6bfcbf2ff4ebb1fe4a57a9d1cd15cda6c43c7def10aa3b55a4a",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T065756Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T065757Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "e5605d161fde8270d850a26750414737f82dc6e3132a8617bc0044df0ee354e3",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T065817Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T065817Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "1ec349d6cd3d621ad8975e8173842115a00446b9ecade53c3e3f55554d5eb889",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T070153Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T070153Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "a4cdfda0ef1587a4df148ab979451bbe26d2eb7671f85eda97a65b5982369c00",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T070311Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T070311Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "74de39cd228b46c9b4fd7003823e19f112ead88164a031c401234a9345db97b4",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T071522Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T071850Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "006ffa6d2e619a7b746bbab8a6589ec73bf6035bd151fe043a27701f38dbe804",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T071926Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T072137Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T072354Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T073210Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T073210Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "8fe174b89f0fda8dbb75a90e3c3fb108cad06d94b11c6112d8985a8820070e0e",
+          "formula_count": 22,
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T073421Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T074108Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "d258c89ab1fe4aef892e371dabd5246c6ee4ec54150f36807d2b880a1726c2ec",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T074123Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T074123Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "d19d1959e2e08b9bb5042c5aaebc8b7cf6492bc7d6670bc4d9afd4a0c4327b84",
+          "formula_count": 22,
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T074152Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T074615Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "a1ee65499e9513104e1af536ad79872b437109f2c84131eb517909bac3cb20a8",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T074630Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T074630Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "5258ece1009d91ad96ce1b471316024dd4b0f404762764f7603eaa063cd49d9d",
+          "formula_count": 22,
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T074655Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T074840Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "78cba2fbb9179459469daca5ed1fccd74b640b5a20e549f6bfaacddf7b6b575b",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T074855Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T074855Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "546cbefe97a868d5d57b974c48c72fa13d25869b6fe846ac1c93434cc341d971",
+          "formula_count": 22,
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T074914Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T075205Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T075907Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T075929Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T084434Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T084434Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "42640978a9bfde3637cdb704868ac9466cf583e5e833437996eeba63a93022ec",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T084850Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T084850Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "bf2fd345e19fe383db42ea1712e37940515ad4eb89dd2acbe25084a336eff658",
+          "formula_count": 22,
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T084950Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T085512Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T085523Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T092440Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T092440Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6998fd3400c3fb3a49aa76e08083dd9efee2dfe16d2e896a404a90a3a1778db7",
+          "object_count": 196,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T092448Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T092448Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d",
+          "formula_count": 22,
+          "object_count": 196,
+          "bindings_complete": true,
+          "layout_pass": true,
+          "layout_findings": 0
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T092622Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T092656Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T110627Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T113007Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T113032Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T125707Z",
+        "reason": "explicit-v3.1-migration"
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T130728Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260821T130738Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:task-guided-allocator-topology",
+            "region:six-bicolor-state-circles",
+            "region:rollout-arrow-topology",
+            "region:observation-arrows",
+            "live-evidence-missing"
+          ]
+        }
+      }
+    ]
+  },
+  "input_route": "svg-seeded",
+  "processing_mode": "png_reconstruct",
+  "source_original_name": "01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png",
+  "reference_path": "reference.png",
+  "validation": {
+    "profile": "strict",
+    "status": "failed",
+    "checked_at": "20260821T130738Z",
+    "blockers": [
+      "region:task-guided-allocator-topology",
+      "region:six-bicolor-state-circles",
+      "region:rollout-arrow-topology",
+      "region:observation-arrows",
+      "live-evidence-missing"
+    ]
+  },
+  "task_mode": "RECONSTRUCT_1TO1"
+}

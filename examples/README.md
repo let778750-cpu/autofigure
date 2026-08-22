@@ -1,40 +1,58 @@
-# examples/ — 案例索引
+# examples/ — 双输入路线案例索引
 
-每个案例一个扁平目录：参考图、提示词包、VLM 取回的 SVG、交付 PPTX、fresh render、对照预览、核验报告都在案例根；机器诊断明细（metrics/diff/OCR 文本/转换摘要）在 `qa/`。重跑覆盖当前最佳，历史由 git 承担。
+案例按不可变的初始输入路线分为两个目录。目录分类回答“建案时用户提供了什么”，不是“当前正在用什么方法修复”。
 
-## 案例
+- `reference-only/`：建案时只有冻结的 `reference.png`，没有外部 SVG 种子。
+- `svg-seeded/`：建案历史中存在用户提供的外部 SVG 种子；后续即使回退到 PNG 重建，仍留在此目录。
 
-### `01-modular-agent/`
+每个案例根都是唯一、扁平的工作单元：输入、当前候选、交付物和合同均在根目录，机器证据统一在 `qa/`；不得再创建平行版本目录。案例历史由版本控制承担。
 
-- 论文：*ModularAgent: A Task-Aware Modular Framework for Joint Reasoning*（CVPR 2026）
-- 来源文件：`01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png`（1429×627）
-- SVG 来源：GPT 网页端直出 R1（2026-08-18）；R2 自批评修订（2026-08-19，Kimi 充当 VLM 环节：箭头全部改实心三角头 + 杆宽贴原图，修复 R1 细杆空心头违约；observation 照片矢量卡通 13 元素收敛为 1 处 `atomic:` 原图裁剪）
-- 状态：**完成（R2 覆盖 R1 + R3 箭头结构修复）**。243 个原生对象、66 个文本读回、SVG 侧未匹配仅 1 条；R2.1 追加修复人审发现的三处版面问题：粉色箭头杆宽/头部尺寸、专家列黑箭头压字、mapping 与 ƒ_map 间距重叠。math：22 个公式（18 strong + 4 weak）全量注入原生 OMML，0 失败。R3（2026-08-21）：convert 修复曲线末端切线放置（此前 π/a 圆间 6 支曲线箭头偏轴 43-47°）与 marker-start 方向（180° 反向）；`arrows --fix` 锚点 42→0；金色箭头头长按原图实测校准 9px（`--calibrate arr-gold=9`，原图距离变换实测中位 ≈8.7px，通用比例带曾误将其缩到 6.8——原图本身即大头部细杆风格，比例带让位于原图；渲染复测与原图厚度差 <0.7px）。最终 check 口径：mean_abs_rgb_delta=16.6229、SSIM=0.7329、changed=38.27%，箭头审计 F1/F2 归零（中位比例 5.0 为金色大头部风格所致，属原图校准豁免）（clamp 中间版 16.6037/0.7333、math 注入后文本框几何版 16.6261/0.7331，R2 为 16.5776/0.7347，R1 为 17.3963/0.727/38.97%，v1 R10 为 19.9987/0.6535/46.55%）；遗留 F3 端点悬空 6 处（advisory，见 qa/arrows-audit.json）
+<!-- AUTOFIGURE_CASE_INDEX:START -->
+| 输入路线 | 案例 | 当前处理模式 | 工作流 | 最近验证 |
+|---|---|---|---|---|
+| `reference-only` | [`01-modular-agent-reference-only/`](reference-only/01-modular-agent-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` |
+| `svg-seeded` | [`01-modular-agent/`](svg-seeded/01-modular-agent/) | `png_reconstruct` | `qa_failed` | `failed` |
+| `svg-seeded` | [`02-thinking-diffusion/`](svg-seeded/02-thinking-diffusion/) | `svg_import` | `candidate` | `diagnostic` |
+| `svg-seeded` | [`03-llmind/`](svg-seeded/03-llmind/) | `svg_import` | `candidate` | `diagnostic` |
+<!-- AUTOFIGURE_CASE_INDEX:END -->
 
-### `02-thinking-diffusion/`
+## 受控 ModularAgent A/B
 
-- 论文：*Thinking Diffusion: Penalize and Guide Visual-Grounded Reasoning*（CVPR 2026）
-- 来源文件：`02_2026_CVPR_2026_Thinking_Diffusion_Penalize_and_Guide_Visual-Grounde.png`（1513×554）
-- SVG 来源：按 `references/v2-prompt-contract.md` 合同手写（2026-08-18，Kimi 充当 VLM 环节验证合同可遵循性）
-- 状态：**完成**。162 个原生对象、46 个文本全部可编辑读回、文本比对 SVG 侧 0 未匹配；math：0 公式检出。mean_abs_rgb_delta=13.55、SSIM=0.720、changed=17.97%
+同一冻结参考图的两条真实路线：
 
-### `03-llmind/`
+- `svg-seeded/01-modular-agent/`：历史上使用过 GPT Web SVG，当前处理模式为 `png_reconstruct`，strict 仍有 5 个 blocker。
+- `reference-only/01-modular-agent-reference-only/`：只从自己的 `reference.png` 构建，禁止读取上一个案例的 SVG、PPTX、scene、bindings、assets、裁剪文件和候选坐标。
 
-- 论文：*LLMind: Bio-inspired Training-free Adaptive Visual Reasoning*（CVPR 2026）
-- 来源文件：`03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png`（1357×656）
-- SVG 来源：GPT 网页端直出（2026-08-19，用户自定义提示词；其中 2 处 `<image>` 内嵌照片经确定性正则改写为 `atomic:` 占位符，由 convert 从原图裁剪嵌入）
-- 状态：**完成**。201 个原生对象（含 2 处 atomic 照片裁剪）、34 个文本框读回；math：6 个公式（6 strong）全量注入原生 OMML，0 失败。注入后 check 口径：mean_abs_rgb_delta=6.8684、SSIM=0.8681、changed=12.97%、top_roi=7.34%（三案例最佳；文本框版为 6.7708/0.8698/12.90%/7.44%）。SVG 侧未匹配 12 条经人审判读主要为 OCR 噪声（竖排文字、低对比面板文字、公式符号）。arrows 审计（2026-08-21）：12 组手折箭羽（主干+短线束手绘箭头，无 marker 定义；合同已禁止该写法，重绘时应改用 marker，审计只报不自动修）
+统一报告：[`route-comparison-modular-agent-route-ab.md`](route-comparison-modular-agent-route-ab.md)，机器指标见同名 JSON。
 
-## 文件约定
+当前结论必须原样表述为：**reference-only 全链路真实跑通，但严格质量尚未验证成熟**。它生成了可编辑 PPTX、原生公式、对象绑定、PowerPoint 保存重开和实时画布审计证据；但只有 2/6 个关键区通过，不能标记 `approved`。通过的两区恰好是 observation 与 environment globe 的授权紧边界 PNG 微资产，二者 SSIM/Edge IoU 均为 1.0，证明“从本案例参考 PNG 裁剪微资产”的机制有效，而不是证明整图一比一完成。
 
-| 文件 | 产生者 | 说明 |
-|---|---|---|
-| `run.json` | prepare | 案例清单：source SHA-256 + 尺寸绑定 |
-| `reference.png` | prepare | 参考图拷贝 |
-| `prompt.md` | prepare | GPT 网页端提示词包（合同见 `references/v2-prompt-contract.md`） |
-| `redraw.svg` | 用户放入 | VLM 重绘输出 |
-| `redraw.pptx` | convert | ★ 交付物（原生可编辑） |
-| `render.png` | convert | PowerPoint fresh render |
-| `preview.png` | check | 参考/渲染对照预览 |
-| `check-report.md` | check | 核验报告（人审入口） |
-| `qa/` | convert/check/math | metrics.json、diff.png、ocr-texts.json、convert-summary.json、math-summary.json、math/（每公式 receipt + plan） |
+## 历史案例状态
+
+- `svg-seeded/01-modular-agent/`：`qa_failed`。Task-Guided 路径、六个双色圆、rollout、observation 箭头和 live evidence 仍阻断 strict；全图均值不能覆盖这些失败。
+- `svg-seeded/02-thinking-diffusion/`：`candidate`。已重新生成 v3.1 可移植合同和 PowerPoint 保存重开证据；只有 standard 诊断，没有关键区定义，不能追认为 strict approved。
+- `svg-seeded/03-llmind/`：`candidate`。已重新转换并注入 6 个原生公式；同样缺少关键区定义，只保留 standard 诊断状态。
+
+## 案例文件约定
+
+| 文件 | 说明 |
+|---|---|
+| `run.json` | v3.1 清单：不可变 `input_route`、可变 `processing_mode`、状态机和最近验证摘要 |
+| `provenance.json` | 参考图、外部 SVG 种子、候选生成者、哈希、时间与 A/B 分组 |
+| `reference.png` | 冻结视觉基准；权威身份为相对路径 + SHA-256 |
+| `redraw.svg` | 当前离线可渲染候选；reference-only 中它是内部载体，不是外部种子 |
+| `redraw.pptx` | 当前原生可编辑候选/交付物 |
+| `scene.json` | 对象 ID、角色、几何、层级与连接拓扑 |
+| `assets.json` | 微资产来源、授权、bbox 与可编辑性 |
+| `regions.json` | 关键区域、颜色探针与验收阈值 |
+| `bindings.json` | 场景对象到保存重开后的 PowerPoint shape 绑定 |
+| `qa/` | 区域、箭头、布局、OCR、像素、公式和 PowerPoint Live 证据 |
+
+## 一致性检查
+
+```bat
+autofigure cases --write-index
+autofigure cases --check
+```
+
+检查覆盖目录/路线一致性、全局 case ID 唯一性、合同完整性、参考哈希、索引状态和过期绝对路径。旧扁平路径只做带警告的兼容解析，不创建副本或符号链接。

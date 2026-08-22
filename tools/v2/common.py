@@ -1,8 +1,8 @@
-"""v2 公共约定：案例目录、哈希、路径。
+"""v3.1 公共约定：案例目录、哈希、路径与输入路线。
 
 每个案例一个扁平目录（参考样板项目的 per-case 约定，更精炼）：
 
-    examples/<case>/
+    examples/<input-route>/<case>/
     ├── run.json              案例清单（case、source SHA-256、尺寸、创建时间）
     ├── reference.png         参考图（prepare 复制）
     ├── prompt.md             prepare 生成的提示词包
@@ -29,6 +29,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CASES_ROOT = PROJECT_ROOT / "examples"
+INPUT_ROUTE_DIRS = ("reference-only", "svg-seeded")
 
 
 def fail(message: str) -> SystemExit:
@@ -119,6 +120,10 @@ class Run:
         return self.root / "bindings.json"
 
     @property
+    def provenance_path(self) -> Path:
+        return self.root / "provenance.json"
+
+    @property
     def region_tasks_path(self) -> Path:
         return self.qa_dir / "region-tasks.json"
 
@@ -153,16 +158,37 @@ def create_run(
     case: str | None = None,
     cases_root: Path | None = None,
     *,
-    source_mode: str = "svg_import",
-    fidelity_profile: str = "editable_native",
+    input_route: str,
+    processing_mode: str | None = None,
+    fidelity_profile: str | None = None,
 ) -> Run:
+    from tools.v2.contracts import INPUT_ROUTES, PROCESSING_MODES
+
     reference = reference.resolve()
     if not reference.is_file():
         raise fail(f"参考图不存在: {reference}")
+    if input_route not in INPUT_ROUTES:
+        raise fail(f"不支持的输入路线: {input_route}")
     case_name = case or slugify(reference.stem)
-    root = (cases_root or CASES_ROOT) / case_name
+    base = (cases_root or CASES_ROOT).resolve()
+    matches = [base / route / case_name for route in INPUT_ROUTE_DIRS if (base / route / case_name).exists()]
+    if matches:
+        raise fail(f"案例 ID 已存在于输入路线目录: {matches[0]}")
+    root = base / input_route / case_name
     if root.exists() and any(root.iterdir()):
         raise fail(f"案例目录已存在且非空: {root}（重跑请直接覆盖文件，或先清理）")
+    expected_mode = "png_reconstruct" if input_route == "reference-only" else "svg_import"
+    if processing_mode is not None and processing_mode not in PROCESSING_MODES:
+        raise fail(f"不支持的处理模式: {processing_mode}")
+    if processing_mode is not None and processing_mode != expected_mode:
+        raise fail(
+            f"新案例的输入路线 {input_route} 必须从 {expected_mode} 开始，"
+            f"不能从 {processing_mode} 开始"
+        )
+    processing_mode = expected_mode
+    fidelity_profile = fidelity_profile or (
+        "hybrid_fidelity" if input_route == "reference-only" else "editable_native"
+    )
     (root / "qa").mkdir(parents=True, exist_ok=True)
     sha = sha256_file(reference)
     width, height = image_size(reference)
@@ -172,7 +198,8 @@ def create_run(
     meta = {
         "case": case_name,
         "created_at": datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
-        "source_abspath": str(reference),
+        "source_original_name": reference.name,
+        "reference_path": "reference.png",
         "source_sha256": sha,
         "width": width,
         "height": height,
@@ -185,14 +212,33 @@ def create_run(
 
     initialize_contracts(
         run,
-        source_mode=source_mode,
+        input_route=input_route,
+        processing_mode=processing_mode,
         fidelity_profile=fidelity_profile,
     )
     return run
 
 
 def open_run(run_dir: Path) -> Run:
-    run = Run(run_dir.resolve())
+    requested = Path(run_dir)
+    if requested.is_dir():
+        resolved = requested.resolve()
+    else:
+        case_name = requested.name
+        matches = [
+            (CASES_ROOT / route / case_name).resolve()
+            for route in INPUT_ROUTE_DIRS
+            if (CASES_ROOT / route / case_name).is_dir()
+        ]
+        if not matches:
+            raise fail(f"案例目录不存在: {requested}")
+        if len(matches) > 1:
+            raise fail(f"案例 ID 在多个输入路线中重复，请使用完整路径: {case_name}")
+        resolved = matches[0]
+        sys.stderr.write(
+            f"warning: 旧扁平路径/案例名 {requested} 已解析为 {resolved}；请改用新嵌套路径。\n"
+        )
+    run = Run(resolved)
     run.load_meta()
     from tools.v2.contracts import ContractError, initialize_contracts, validate_reference
 

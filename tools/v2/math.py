@@ -284,7 +284,7 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
     scene["updated_at"] = utc_now()
     scene["artifact"] = {
         "backend": "pptx-offline+native-math",
-        "path": str(run.pptx_path),
+        "path": "redraw.pptx",
         "sha256": pptx_hash,
     }
     write_json(run.scene_path, scene)
@@ -365,7 +365,7 @@ def upgrade(run: common.Run, *, dry_run: bool = False) -> dict:
 
     warnings: list[str] = []
     summary = {
-        "pptx": str(run.pptx_path),
+        "pptx": "redraw.pptx",
         "dry_run": dry_run,
         "detected": len(candidates),
         "strong": sum(1 for cand in candidates if cand["signal"] == "strong"),

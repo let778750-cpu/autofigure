@@ -106,6 +106,7 @@ def _run_figure_lint(run: common.Run) -> dict:
         metrics = json.loads(result.stdout)
     except json.JSONDecodeError as exc:
         raise common.fail(f"figure_lint 输出解析失败:\n{(result.stderr or '')[-500:]}") from exc
+    metrics["diff_out"] = "qa/diff.png"
     (run.qa_dir / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
@@ -164,7 +165,7 @@ def main(argv: list[str] | None = None) -> int:
 
     arrow_audit = audit_svg_text(run.redraw_svg.read_text(encoding="utf-8"), calibrate=calibrate)
     arrows_json.write_text(
-        json.dumps({"svg": str(run.redraw_svg), "phase": "audit", **arrow_audit}, ensure_ascii=False, indent=2) + "\n",
+        json.dumps({"svg": "redraw.svg", "phase": "audit", **arrow_audit}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
 
@@ -186,12 +187,12 @@ def main(argv: list[str] | None = None) -> int:
         f"- changed_pixel_ratio: {metrics.get('changed_pixel_ratio_pct')}%",
         f"- top_roi: {metrics.get('top_roi')}",
         f"- ssim: {metrics.get('ssim')}",
-        f"- diff 图: {run.qa_dir / 'diff.png'}",
-        f"- 对照预览: {preview}",
+        "- diff 图: qa/diff.png",
+        "- 对照预览: preview.png",
         f"- 关键区域 strict_pass: {regions['strict_pass']}（{regions['critical_regions']} 个关键区域）",
-        f"- 区域明细: {run.qa_dir / 'regions-report.json'}",
+        "- 区域明细: qa/regions-report.json",
         f"- 布局合同: {'PASS' if layout_report['pass'] else 'FAIL'}（{len(layout_report['findings'])} 项）",
-        f"- 布局明细: {run.layout_audit_path}",
+        "- 布局明细: qa/layout-audit.json",
         "",
         "## 文本比对（SVG 文字 vs 参考图 OCR）",
         f"- SVG 侧未匹配 {len(unmatched_svg)} 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）",
@@ -214,6 +215,8 @@ def main(argv: list[str] | None = None) -> int:
     from tools.v2.contracts import read_json
 
     strict_blockers = list(regions.get("blockers", []))
+    if args.profile == "strict" and regions.get("critical_regions", 0) == 0:
+        strict_blockers.append("regions:no-critical-regions")
     from tools.v2.layout import strict_blockers as layout_strict_blockers
 
     strict_blockers.extend(layout_strict_blockers(layout_report))
@@ -245,6 +248,10 @@ def main(argv: list[str] | None = None) -> int:
         _, live_blockers = live_evidence_passes(run, failed_regions)
         strict_blockers.extend(live_blockers)
     strict_blockers = list(dict.fromkeys(strict_blockers))
+
+    from tools.v2.contracts import record_validation
+
+    record_validation(run, args.profile, strict_blockers)
 
     lines.extend(
         [

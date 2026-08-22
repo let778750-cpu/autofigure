@@ -1,0 +1,37 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "provenance",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "updated_at": "20260821T130720Z",
+  "input_route": "svg-seeded",
+  "reference": {
+    "path": "reference.png",
+    "sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+    "original_name": "01_2026_CVPR_2026_ModularAgent_A_Task-Aware_Modular_Framework_for_Join.png"
+  },
+  "external_svg_seed": {
+    "kind": "svg",
+    "role": "external-seed",
+    "origin": "web-vlm",
+    "provider": "OpenAI",
+    "model": null,
+    "interface": "web",
+    "sha256": null,
+    "exact_bytes_available": false,
+    "evidence": "examples README and git history; original R1 bytes are no longer canonical"
+  },
+  "candidate_history": [
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "mixed-vlm-and-deterministic-repair",
+      "source_name": "redraw.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "34663e538b2fe0fa44cb757c8cce1f6d06882ae26ae3ba9c5fc2e0a83adc1eea",
+      "ingested_at": "legacy-before-v3.1"
+    }
+  ],
+  "comparison_group": "modular-agent-route-ab",
+  "task_mode": "RECONSTRUCT_1TO1"
+}

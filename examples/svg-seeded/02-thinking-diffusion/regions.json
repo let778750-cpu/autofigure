@@ -1,0 +1,25 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "regions",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260821T130720Z",
+  "defaults": {
+    "ssim_min": 0.85,
+    "edge_iou_min": 0.75
+  },
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1513,
+        554
+      ],
+      "critical": false
+    }
+  ],
+  "task_mode": "RECONSTRUCT_1TO1"
+}

@@ -566,8 +566,8 @@ def audit_layout(run: common.Run) -> dict[str, Any]:
     missing_annotated = sorted(annotated_ids.intersection(missing_backend))
     report = {
         "schema_version": "1.0.0",
-        "svg": str(run.redraw_svg),
-        "pptx": str(run.pptx_path),
+        "svg": "redraw.svg",
+        "pptx": "redraw.pptx",
         "defaults_px": {
             "containment": DEFAULT_CONTAINMENT_TOLERANCE_PX,
             "canvas": DEFAULT_CANVAS_TOLERANCE_PX,

@@ -1,0 +1,1396 @@
+{
+  "svg": "redraw.svg",
+  "phase": "audit",
+  "audit_version": "3.0.0",
+  "arrows": 37,
+  "marker_refs": 37,
+  "marker_defs": 4,
+  "findings": [
+    {
+      "code": "F5",
+      "element": "task-input-to-encoder",
+      "element_index": 0,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        399,
+        56
+      ],
+      "bbox": [
+        375,
+        32,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint clearance is 10.00px from declared object 'task-input-box' (expected 0.00px); nearest object is 'task-input-box'"
+    },
+    {
+      "code": "F3",
+      "element": "task-input-to-encoder",
+      "element_index": 0,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        399,
+        56
+      ],
+      "bbox": [
+        375,
+        32,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint boundary/gap error is 10.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "task-input-to-encoder",
+      "element_index": 0,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        425,
+        56
+      ],
+      "bbox": [
+        401,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F2",
+      "element": "task-input-to-encoder",
+      "element_index": 0,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        425,
+        56
+      ],
+      "bbox": [
+        401,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "head/stroke ratio 1.43 is outside [1.5, 4]"
+    },
+    {
+      "code": "F5",
+      "element": "task-input-to-encoder",
+      "element_index": 0,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        425,
+        56
+      ],
+      "bbox": [
+        401,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint clearance is 10.00px from declared object 'task-encoder' (expected 0.00px); nearest object is 'task-encoder'"
+    },
+    {
+      "code": "F3",
+      "element": "task-input-to-encoder",
+      "element_index": 0,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        425,
+        56
+      ],
+      "bbox": [
+        401,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint boundary/gap error is 10.00px (limit 6.00px)"
+    },
+    {
+      "code": "F5",
+      "element": "task-encoder-to-tau",
+      "element_index": 1,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        566,
+        56
+      ],
+      "bbox": [
+        542,
+        32,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint clearance is 7.00px from declared object 'task-encoder' (expected 0.00px); nearest object is 'task-encoder'"
+    },
+    {
+      "code": "F3",
+      "element": "task-encoder-to-tau",
+      "element_index": 1,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        566,
+        56
+      ],
+      "bbox": [
+        542,
+        32,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "task-encoder-to-tau",
+      "element_index": 1,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        590,
+        56
+      ],
+      "bbox": [
+        566,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F2",
+      "element": "task-encoder-to-tau",
+      "element_index": 1,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        590,
+        56
+      ],
+      "bbox": [
+        566,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "head/stroke ratio 1.43 is outside [1.5, 4]"
+    },
+    {
+      "code": "F5",
+      "element": "task-encoder-to-tau",
+      "element_index": 1,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        590,
+        56
+      ],
+      "bbox": [
+        566,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint clearance is 7.00px from declared object 'tau-box' (expected 0.00px); nearest object is 'tau-box'"
+    },
+    {
+      "code": "F3",
+      "element": "task-encoder-to-tau",
+      "element_index": 1,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        590,
+        56
+      ],
+      "bbox": [
+        566,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F5",
+      "element": "tau-to-mapping",
+      "element_index": 2,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        733,
+        56
+      ],
+      "bbox": [
+        709,
+        32,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint clearance is 8.00px from declared object 'tau-box' (expected 0.00px); nearest object is 'tau-box'"
+    },
+    {
+      "code": "F3",
+      "element": "tau-to-mapping",
+      "element_index": 2,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        733,
+        56
+      ],
+      "bbox": [
+        709,
+        32,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint boundary/gap error is 8.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "tau-to-mapping",
+      "element_index": 2,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        758,
+        56
+      ],
+      "bbox": [
+        734,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F2",
+      "element": "tau-to-mapping",
+      "element_index": 2,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        758,
+        56
+      ],
+      "bbox": [
+        734,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "head/stroke ratio 1.43 is outside [1.5, 4]"
+    },
+    {
+      "code": "F5",
+      "element": "tau-to-mapping",
+      "element_index": 2,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        758,
+        56
+      ],
+      "bbox": [
+        734,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint clearance is 7.00px from declared object 'mapping-box' (expected 0.00px); nearest object is 'mapping-box'"
+    },
+    {
+      "code": "F3",
+      "element": "tau-to-mapping",
+      "element_index": 2,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        758,
+        56
+      ],
+      "bbox": [
+        734,
+        32,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "tau-to-allocator",
+      "element_index": 3,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        660,
+        127
+      ],
+      "bbox": [
+        636,
+        103,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F1",
+      "element": "observation-to-mllm",
+      "element_index": 4,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        178,
+        293
+      ],
+      "bbox": [
+        154,
+        269,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "observation-to-mllm",
+      "element_index": 4,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        178,
+        293
+      ],
+      "bbox": [
+        154,
+        269,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "endpoint clearance is 10.00px from declared object 'mllm-encoder' (expected 0.00px); nearest object is 'mllm-encoder'"
+    },
+    {
+      "code": "F3",
+      "element": "observation-to-mllm",
+      "element_index": 4,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        178,
+        293
+      ],
+      "bbox": [
+        154,
+        269,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "endpoint boundary/gap error is 10.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "observation-to-wm",
+      "element_index": 5,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        180,
+        400
+      ],
+      "bbox": [
+        156,
+        376,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "observation-to-wm",
+      "element_index": 5,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        180,
+        400
+      ],
+      "bbox": [
+        156,
+        376,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint clearance is 12.63px from declared object 'wm-encoder' (expected 0.00px); nearest object is 'wm-encoder'"
+    },
+    {
+      "code": "F3",
+      "element": "observation-to-wm",
+      "element_index": 5,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        180,
+        400
+      ],
+      "bbox": [
+        156,
+        376,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint boundary/gap error is 12.63px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "mllm-to-ev",
+      "element_index": 6,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        340,
+        274
+      ],
+      "bbox": [
+        316,
+        250,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F1",
+      "element": "wm-to-st",
+      "element_index": 7,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        340,
+        435
+      ],
+      "bbox": [
+        316,
+        411,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "wm-to-st",
+      "element_index": 7,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        340,
+        435
+      ],
+      "bbox": [
+        316,
+        411,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint clearance is 7.00px from declared object 'st-box' (expected 0.00px); nearest object is 'st-box'"
+    },
+    {
+      "code": "F3",
+      "element": "wm-to-st",
+      "element_index": 7,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        340,
+        435
+      ],
+      "bbox": [
+        316,
+        411,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "ev-to-joint",
+      "element_index": 8,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        421,
+        274
+      ],
+      "bbox": [
+        397,
+        250,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "ev-to-joint",
+      "element_index": 8,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        421,
+        274
+      ],
+      "bbox": [
+        397,
+        250,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "endpoint clearance is 7.00px from declared object 'joint-core' (expected 0.00px); nearest object is 'joint-core'"
+    },
+    {
+      "code": "F3",
+      "element": "ev-to-joint",
+      "element_index": 8,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        421,
+        274
+      ],
+      "bbox": [
+        397,
+        250,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "st-to-joint",
+      "element_index": 9,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        421,
+        436
+      ],
+      "bbox": [
+        397,
+        412,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "st-to-joint",
+      "element_index": 9,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        421,
+        436
+      ],
+      "bbox": [
+        397,
+        412,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint clearance is 7.00px from declared object 'joint-core' (expected 0.00px); nearest object is 'joint-core'"
+    },
+    {
+      "code": "F3",
+      "element": "st-to-joint",
+      "element_index": 9,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        421,
+        436
+      ],
+      "bbox": [
+        397,
+        412,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "allocator-task1-route-1",
+      "element_index": 10,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        618,
+        347
+      ],
+      "bbox": [
+        594,
+        323,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "allocator-task1-route-1",
+      "element_index": 10,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        618,
+        347
+      ],
+      "bbox": [
+        594,
+        323,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint clearance is 26.15px from declared object 'expert-1-dyn' (expected 0.00px); nearest object is 'expert-2-box'"
+    },
+    {
+      "code": "F3",
+      "element": "allocator-task1-route-1",
+      "element_index": 10,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        618,
+        347
+      ],
+      "bbox": [
+        594,
+        323,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint boundary/gap error is 26.15px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "allocator-task1-route-2",
+      "element_index": 11,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        861,
+        284
+      ],
+      "bbox": [
+        837,
+        260,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "allocator-task1-route-2",
+      "element_index": 11,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        861,
+        284
+      ],
+      "bbox": [
+        837,
+        260,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint clearance is 42.00px from declared object 'zt-top-box' (expected 0.00px); nearest object is 'expert-4-box'"
+    },
+    {
+      "code": "F3",
+      "element": "allocator-task1-route-2",
+      "element_index": 11,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        861,
+        284
+      ],
+      "bbox": [
+        837,
+        260,
+        48,
+        48
+      ],
+      "marker": "arrow-blue",
+      "detail": "endpoint boundary/gap error is 42.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "allocator-task2-route-1",
+      "element_index": 12,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        754,
+        282
+      ],
+      "bbox": [
+        730,
+        258,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F1",
+      "element": "allocator-task2-route-2",
+      "element_index": 13,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        862,
+        418
+      ],
+      "bbox": [
+        838,
+        394,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F5",
+      "element": "allocator-task2-route-2",
+      "element_index": 13,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        862,
+        418
+      ],
+      "bbox": [
+        838,
+        394,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "endpoint clearance is 41.00px from declared object 'zt-bottom-box' (expected 0.00px); nearest object is 'joint-core'"
+    },
+    {
+      "code": "F3",
+      "element": "allocator-task2-route-2",
+      "element_index": 13,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        862,
+        418
+      ],
+      "bbox": [
+        838,
+        394,
+        48,
+        48
+      ],
+      "marker": "arrow-orange",
+      "detail": "endpoint boundary/gap error is 41.00px (limit 6.00px)"
+    },
+    {
+      "code": "F5",
+      "element": "rollout-a2-to-next",
+      "element_index": 31,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1304,
+        333
+      ],
+      "bbox": [
+        1280,
+        309,
+        48,
+        48
+      ],
+      "marker": "arrow-gold",
+      "detail": "endpoint clearance is 31.66px from declared object 'rollout-zh' (expected 0.00px); nearest object is 'action-a2'"
+    },
+    {
+      "code": "F3",
+      "element": "rollout-a2-to-next",
+      "element_index": 31,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1304,
+        333
+      ],
+      "bbox": [
+        1280,
+        309,
+        48,
+        48
+      ],
+      "marker": "arrow-gold",
+      "detail": "endpoint boundary/gap error is 31.66px (limit 6.00px)"
+    },
+    {
+      "code": "F5",
+      "element": "mapping-to-imagination",
+      "element_index": 34,
+      "tag": "path",
+      "side": "start",
+      "endpoint": [
+        958,
+        65
+      ],
+      "bbox": [
+        934,
+        41,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint clearance is 7.00px from declared object 'mapping-box' (expected 0.00px); nearest object is 'mapping-box'"
+    },
+    {
+      "code": "F3",
+      "element": "mapping-to-imagination",
+      "element_index": 34,
+      "tag": "path",
+      "side": "start",
+      "endpoint": [
+        958,
+        65
+      ],
+      "bbox": [
+        934,
+        41,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint boundary/gap error is 7.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "mapping-to-imagination",
+      "element_index": 34,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1030,
+        149
+      ],
+      "bbox": [
+        1006,
+        125,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F2",
+      "element": "mapping-to-imagination",
+      "element_index": 34,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1030,
+        149
+      ],
+      "bbox": [
+        1006,
+        125,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "head/stroke ratio 1.43 is outside [1.5, 4]"
+    },
+    {
+      "code": "F5",
+      "element": "mapping-to-imagination",
+      "element_index": 34,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1030,
+        149
+      ],
+      "bbox": [
+        1006,
+        125,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint clearance is 28.00px from declared object 'task-conditioned-imagination' (expected 0.00px); nearest object is 'imag-z0'"
+    },
+    {
+      "code": "F3",
+      "element": "mapping-to-imagination",
+      "element_index": 34,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1030,
+        149
+      ],
+      "bbox": [
+        1006,
+        125,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint boundary/gap error is 28.00px (limit 6.00px)"
+    },
+    {
+      "code": "F5",
+      "element": "interaction-left",
+      "element_index": 35,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        1168,
+        573
+      ],
+      "bbox": [
+        1144,
+        549,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint clearance is 20.00px from declared object 'atomic:environment-globe' (expected 0.00px); nearest object is 'atomic:environment-globe'"
+    },
+    {
+      "code": "F3",
+      "element": "interaction-left",
+      "element_index": 35,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        1168,
+        573
+      ],
+      "bbox": [
+        1144,
+        549,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint boundary/gap error is 20.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "interaction-left",
+      "element_index": 35,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1015,
+        573
+      ],
+      "bbox": [
+        991,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F2",
+      "element": "interaction-left",
+      "element_index": 35,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1015,
+        573
+      ],
+      "bbox": [
+        991,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "head/stroke ratio 1.43 is outside [1.5, 4]"
+    },
+    {
+      "code": "F5",
+      "element": "interaction-left",
+      "element_index": 35,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1015,
+        573
+      ],
+      "bbox": [
+        991,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint clearance is 14.00px from declared object 'reward-action-box' (expected 0.00px); nearest object is 'reward-action-box'"
+    },
+    {
+      "code": "F3",
+      "element": "interaction-left",
+      "element_index": 35,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1015,
+        573
+      ],
+      "bbox": [
+        991,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint boundary/gap error is 14.00px (limit 6.00px)"
+    },
+    {
+      "code": "F5",
+      "element": "interaction-right",
+      "element_index": 36,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        1015,
+        573
+      ],
+      "bbox": [
+        991,
+        549,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint clearance is 14.00px from declared object 'reward-action-box' (expected 0.00px); nearest object is 'reward-action-box'"
+    },
+    {
+      "code": "F3",
+      "element": "interaction-right",
+      "element_index": 36,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        1015,
+        573
+      ],
+      "bbox": [
+        991,
+        549,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "endpoint boundary/gap error is 14.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "interaction-right",
+      "element_index": 36,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1177,
+        573
+      ],
+      "bbox": [
+        1153,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "arrowhead tip/ref mismatch (+1.00, +0.00) px"
+    },
+    {
+      "code": "F2",
+      "element": "interaction-right",
+      "element_index": 36,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1177,
+        573
+      ],
+      "bbox": [
+        1153,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "head/stroke ratio 1.43 is outside [1.5, 4]"
+    },
+    {
+      "code": "F5",
+      "element": "interaction-right",
+      "element_index": 36,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1177,
+        573
+      ],
+      "bbox": [
+        1153,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint clearance is 11.00px from declared object 'atomic:environment-globe' (expected 0.00px); nearest object is 'atomic:environment-globe'"
+    },
+    {
+      "code": "F3",
+      "element": "interaction-right",
+      "element_index": 36,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1177,
+        573
+      ],
+      "bbox": [
+        1153,
+        549,
+        48,
+        48
+      ],
+      "marker": "arrow-gray",
+      "detail": "endpoint boundary/gap error is 11.00px (limit 6.00px)"
+    },
+    {
+      "code": "F6",
+      "element": "observation-to-wm",
+      "element_index": 5,
+      "tag": "path",
+      "side": "path",
+      "endpoint": [
+        159,
+        383
+      ],
+      "bbox": [
+        135,
+        359,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow centerline intersects text box 'observation-label'"
+    },
+    {
+      "code": "F6",
+      "element": "allocator-task1-route-1",
+      "element_index": 10,
+      "tag": "path",
+      "side": "path",
+      "endpoint": [
+        568,
+        276
+      ],
+      "bbox": [
+        544,
+        252,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow centerline intersects text box 'expert-1-sem-label'"
+    },
+    {
+      "code": "F6",
+      "element": "allocator-task1-route-2",
+      "element_index": 11,
+      "tag": "path",
+      "side": "path",
+      "endpoint": [
+        648,
+        393
+      ],
+      "bbox": [
+        624,
+        369,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow centerline intersects text box 'expert-2-dyn-label'"
+    },
+    {
+      "code": "F6",
+      "element": "allocator-task2-route-2",
+      "element_index": 13,
+      "tag": "path",
+      "side": "path",
+      "endpoint": [
+        734,
+        377
+      ],
+      "bbox": [
+        710,
+        353,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow centerline intersects text box 'expert-3-dyn-label'"
+    },
+    {
+      "code": "F6",
+      "element": "imagination-z2-to-zh",
+      "element_index": 16,
+      "tag": "line",
+      "side": "path",
+      "endpoint": [
+        1295,
+        182
+      ],
+      "bbox": [
+        1271,
+        158,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow centerline intersects text box 'imag-dots'"
+    },
+    {
+      "code": "F9",
+      "element": "allocator-task1-route-2",
+      "element_index": 11,
+      "tag": "path",
+      "side": "path",
+      "endpoint": [
+        657,
+        406
+      ],
+      "bbox": [
+        633,
+        382,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow path crosses 'allocator-task2-route-1'"
+    },
+    {
+      "code": "F9",
+      "element": "allocator-task1-route-2",
+      "element_index": 11,
+      "tag": "path",
+      "side": "path",
+      "endpoint": [
+        656,
+        404
+      ],
+      "bbox": [
+        632,
+        380,
+        48,
+        48
+      ],
+      "marker": null,
+      "detail": "arrow path crosses 'allocator-task2-route-2'"
+    }
+  ],
+  "counts": {
+    "F5": 21,
+    "F3": 21,
+    "F1": 17,
+    "F2": 6,
+    "F6": 5,
+    "F9": 2
+  },
+  "arrow_metrics": [],
+  "ratio_stats": {
+    "median": 4.0,
+    "min": 1.43,
+    "max": 4.0,
+    "band": [
+      1.5,
+      4.0
+    ]
+  }
+}

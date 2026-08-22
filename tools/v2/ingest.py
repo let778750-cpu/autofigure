@@ -10,18 +10,25 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from tools.v2 import common
-from tools.v2.contracts import read_json, set_modes, transition, write_json
+from tools.v2.contracts import (
+    read_json,
+    record_candidate_provenance,
+    set_processing_mode,
+    transition,
+    write_json,
+)
 
 
 def build_region_tasks(run: common.Run) -> dict:
     regions = read_json(run.regions_path)
     meta = run.load_meta()
     tasks = {
-        "schema_version": "3.0.0",
+        "schema_version": meta["schema_version"],
         "kind": "region_tasks",
         "case": meta["case"],
         "reference_sha256": meta["source_sha256"],
-        "source_mode": meta["source_mode"],
+        "input_route": meta["input_route"],
+        "processing_mode": meta["processing_mode"],
         "fidelity_profile": meta["fidelity_profile"],
         "result_contract": {
             "accepted_kinds": ["scene", "region_patch", "svg"],
@@ -29,6 +36,7 @@ def build_region_tasks(run: common.Run) -> dict:
             "formal_content_must_remain_native": True,
             "offline_initial_render_carrier": "svg",
             "scene_or_patch_requires": "existing render carrier or powerpoint-live provider",
+            "svg_authoring_contract": "prompt.md",
         },
         "tasks": [
             {
@@ -79,13 +87,25 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--kind", choices=("svg", "scene", "patch"), default="svg")
     parser.add_argument("--rejected", action="store_true", help="reject the current Web SVG and create repair tasks")
     parser.add_argument("--fallback", choices=("svg_repair", "png_reconstruct"), default="png_reconstruct")
+    parser.add_argument(
+        "--candidate-origin",
+        choices=("web-vlm", "local-vlm", "codex", "human", "unknown"),
+        default="unknown",
+        help="候选的可审计来源；未知时保留 unknown，禁止猜测模型",
+    )
+    parser.add_argument(
+        "--candidate-role",
+        choices=("external-seed", "reconstruction-candidate", "repair-candidate"),
+        default=None,
+        help="省略时按不可变 input_route 和当前工作流状态推导",
+    )
     args = parser.parse_args(argv)
 
     run = common.open_run(args.run_dir)
     if args.rejected:
-        set_modes(
+        set_processing_mode(
             run,
-            source_mode=args.fallback,
+            processing_mode=args.fallback,
             fidelity_profile="hybrid_fidelity" if args.fallback == "png_reconstruct" else None,
         )
         transition(run, "qa_failed", "candidate-rejected")
@@ -96,17 +116,49 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.candidate is None or not args.candidate.is_file():
         raise common.fail("candidate file is required unless --rejected is used")
+    meta = run.load_meta()
+    role = args.candidate_role
+    if role is None:
+        provenance = read_json(run.provenance_path)
+        if (
+            meta["input_route"] == "svg-seeded"
+            and args.kind == "svg"
+            and provenance.get("external_svg_seed") is None
+        ):
+            role = "external-seed"
+        elif meta["workflow"]["state"] in ("qa_failed", "repairing"):
+            role = "repair-candidate"
+        else:
+            role = "reconstruction-candidate"
+    if meta["input_route"] == "reference-only" and role == "external-seed":
+        raise common.fail("reference-only 案例不能摄取 external-seed")
     if args.kind == "svg":
         try:
             ET.parse(args.candidate)
         except ET.ParseError as exc:
             raise common.fail(f"invalid SVG candidate: {exc}") from exc
         shutil.copy2(args.candidate, run.redraw_svg)
+        canonical_path = "redraw.svg"
     elif args.kind == "scene":
         _ingest_scene(run, args.candidate)
+        canonical_path = "scene.json"
     else:
         _ingest_patch(run, args.candidate)
-    transition(run, "candidate", f"ingested:{args.kind}", details={"path": str(args.candidate.resolve())})
+        canonical_path = "scene.json"
+    record_candidate_provenance(
+        run,
+        args.candidate,
+        kind=args.kind,
+        origin=args.candidate_origin,
+        role=role,
+        canonical_path=canonical_path,
+    )
+    transition(
+        run,
+        "candidate",
+        f"ingested:{args.kind}",
+        details={"source_name": args.candidate.name, "canonical_path": canonical_path},
+    )
     sys.stdout.write(f"候选已接收（{args.kind}），状态=candidate\n")
     return 0
 

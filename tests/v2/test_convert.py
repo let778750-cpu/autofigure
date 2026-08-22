@@ -27,7 +27,12 @@ def run_factory(tmp_path: Path):
     def make(svg: str, size: tuple[int, int] = (200, 100)) -> common.Run:
         source = tmp_path / "ref.png"
         Image.new("RGB", size, (240, 240, 240)).save(source)
-        run = common.create_run(source, case="case", cases_root=tmp_path / "examples")
+        run = common.create_run(
+            source,
+            case="case",
+            cases_root=tmp_path / "examples",
+            input_route="svg-seeded",
+        )
         run.qa_dir.mkdir(exist_ok=True)
         run.redraw_svg.write_text(svg, encoding="utf-8")
         return run
@@ -292,7 +297,12 @@ def test_marker_start_becomes_native_head_end(run_factory):
 def test_viewbox_mismatch_rejected(run_factory, tmp_path: Path):
     source = tmp_path / "ref2.png"
     Image.new("RGB", (100, 100), (255, 255, 255)).save(source)
-    run = common.create_run(source, case="case2", cases_root=tmp_path / "examples2")
+    run = common.create_run(
+        source,
+        case="case2",
+        cases_root=tmp_path / "examples2",
+        input_route="svg-seeded",
+    )
     run.redraw_svg.write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">'
         '<rect x="0" y="0" width="10" height="10"/></svg>',

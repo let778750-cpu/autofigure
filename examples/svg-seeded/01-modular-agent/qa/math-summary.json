@@ -1,0 +1,242 @@
+{
+  "pptx": "redraw.pptx",
+  "dry_run": false,
+  "detected": 22,
+  "strong": 18,
+  "weak": 4,
+  "injected": 22,
+  "failed": 0,
+  "warnings": [],
+  "notes": [
+    "部分公式原文为粗体：OMML 数学区不保留粗体（可接受差异）"
+  ],
+  "formulas": [
+    {
+      "name": "af-svg-text-0005-text-01",
+      "placeholder": "math:001",
+      "formula_id": "EQ001",
+      "slide_index": 1,
+      "signal": "weak",
+      "latex": "\\tau",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-task-mapping-formula-text-01",
+      "placeholder": "math:002",
+      "formula_id": "EQ002",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "f_{map}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0020-text-01",
+      "placeholder": "math:003",
+      "formula_id": "EQ003",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "e_{v}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0021-text-01",
+      "placeholder": "math:004",
+      "formula_id": "EQ004",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "s_{t}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0037-text-01",
+      "placeholder": "math:005",
+      "formula_id": "EQ005",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z_{t}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0039-text-01",
+      "placeholder": "math:006",
+      "formula_id": "EQ006",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z^{\\tau}_{t}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0040-text-01",
+      "placeholder": "math:007",
+      "formula_id": "EQ007",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z^{\\tau}_{t+1}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0041-text-01",
+      "placeholder": "math:008",
+      "formula_id": "EQ008",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z^{\\tau}_{t+2}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0042-text-01",
+      "placeholder": "math:009",
+      "formula_id": "EQ009",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z^{\\tau}_{t+h}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0044-text-01",
+      "placeholder": "math:010",
+      "formula_id": "EQ010",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "r_{t}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0045-text-01",
+      "placeholder": "math:011",
+      "formula_id": "EQ011",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "r_{t+1}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0046-text-01",
+      "placeholder": "math:012",
+      "formula_id": "EQ012",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "r_{t+2}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0049-text-01",
+      "placeholder": "math:013",
+      "formula_id": "EQ013",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z_{t}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0050-text-01",
+      "placeholder": "math:014",
+      "formula_id": "EQ014",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z_{t+1}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0051-text-01",
+      "placeholder": "math:015",
+      "formula_id": "EQ015",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z_{t+2}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0052-text-01",
+      "placeholder": "math:016",
+      "formula_id": "EQ016",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "z_{t+h}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0054-text-01",
+      "placeholder": "math:017",
+      "formula_id": "EQ017",
+      "slide_index": 1,
+      "signal": "weak",
+      "latex": "\\pi",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0055-text-01",
+      "placeholder": "math:018",
+      "formula_id": "EQ018",
+      "slide_index": 1,
+      "signal": "weak",
+      "latex": "\\pi",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0056-text-01",
+      "placeholder": "math:019",
+      "formula_id": "EQ019",
+      "slide_index": 1,
+      "signal": "weak",
+      "latex": "\\pi",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0057-text-01",
+      "placeholder": "math:020",
+      "formula_id": "EQ020",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "a_{t}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0058-text-01",
+      "placeholder": "math:021",
+      "formula_id": "EQ021",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "a_{t+1}",
+      "status": "injected",
+      "bold": true
+    },
+    {
+      "name": "af-svg-text-0059-text-01",
+      "placeholder": "math:022",
+      "formula_id": "EQ022",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "a_{t+2}",
+      "status": "injected",
+      "bold": true
+    }
+  ],
+  "pptx_sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d",
+  "object_count": 196,
+  "omml_count": 22,
+  "saved_reopened": true,
+  "bindings_complete": true,
+  "layout_pass": true,
+  "layout_findings": 0
+}

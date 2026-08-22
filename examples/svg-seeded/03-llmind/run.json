@@ -1,0 +1,69 @@
+{
+  "case": "03-llmind",
+  "created_at": "20260818T131127Z",
+  "source_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+  "width": 1357,
+  "height": 656,
+  "input_route": "svg-seeded",
+  "processing_mode": "svg_import",
+  "source_original_name": "03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png",
+  "reference_path": "reference.png",
+  "workflow": {
+    "state": "candidate",
+    "revision": 4,
+    "history": [
+      {
+        "state": "candidate",
+        "at": "20260821T125708Z",
+        "reason": "explicit-v3.1-migration"
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T130409Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T130409Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "c7096ff18374b830325c7252abb1ae2ee8d795cea25c89a3a3b1b3cd841efea7",
+          "object_count": 201,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T130440Z",
+        "reason": "native-math-upgrade-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T130440Z",
+        "reason": "native-math-upgrade-complete",
+        "details": {
+          "pptx_sha256": "4b876dee3231e7458ba85729ffc897a50f31b89c1f00ed4a1d74cc56c0e7d73a",
+          "formula_count": 6,
+          "object_count": 201,
+          "bindings_complete": true,
+          "layout_pass": true,
+          "layout_findings": 0
+        }
+      }
+    ]
+  },
+  "schema_version": "3.1.0",
+  "fidelity_profile": "editable_native",
+  "backend_mode": "offline",
+  "validation": {
+    "profile": "standard",
+    "status": "diagnostic",
+    "checked_at": "20260821T130752Z",
+    "blockers": [
+      "regions:no-critical-regions",
+      "asset:atomic:photo-1:authorization-unverified",
+      "asset:atomic:photo-2:authorization-unverified"
+    ]
+  },
+  "task_mode": "RECONSTRUCT_1TO1"
+}

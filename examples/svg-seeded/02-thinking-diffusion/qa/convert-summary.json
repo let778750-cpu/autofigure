@@ -1,0 +1,21 @@
+{
+  "svg": "redraw.svg",
+  "pptx": "redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 156,
+  "textbox_with_text": 46,
+  "emitted": {
+    "text": 46,
+    "freeform": 14,
+    "rect": 66,
+    "ellipse": 24,
+    "native-arrowhead": 6,
+    "line": 6
+  },
+  "warnings": [],
+  "layout_pass": true,
+  "layout_findings": 0,
+  "pptx_sha256": "ceee5c1db2a757afbbf77a788dd63f9f46cdde10d89fead706848f4d44f765dd",
+  "object_count": 156,
+  "bindings_complete": true
+}

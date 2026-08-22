@@ -1,0 +1,214 @@
+{
+  "svg": "redraw.svg",
+  "phase": "audit",
+  "audit_version": "3.0.0",
+  "arrows": 6,
+  "marker_refs": 6,
+  "marker_defs": 1,
+  "findings": [
+    {
+      "code": "F1",
+      "element": "arrow-0001",
+      "element_index": 0,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        487,
+        118
+      ],
+      "bbox": [
+        463,
+        94,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "arrowhead tip/ref mismatch (+4.00, +0.00) px"
+    },
+    {
+      "code": "F1",
+      "element": "arrow-0002",
+      "element_index": 1,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        487,
+        200
+      ],
+      "bbox": [
+        463,
+        176,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "arrowhead tip/ref mismatch (+4.00, +0.00) px"
+    },
+    {
+      "code": "F3",
+      "element": "arrow-0002",
+      "element_index": 1,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        487,
+        200
+      ],
+      "bbox": [
+        463,
+        176,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "endpoint boundary/gap error is 37.21px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "arrow-0003",
+      "element_index": 2,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        487,
+        384
+      ],
+      "bbox": [
+        463,
+        360,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "arrowhead tip/ref mismatch (+4.00, +0.00) px"
+    },
+    {
+      "code": "F3",
+      "element": "arrow-0003",
+      "element_index": 2,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        487,
+        384
+      ],
+      "bbox": [
+        463,
+        360,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "endpoint boundary/gap error is 14.83px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "arrow-0004",
+      "element_index": 3,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1244,
+        118
+      ],
+      "bbox": [
+        1220,
+        94,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "arrowhead tip/ref mismatch (+4.00, +0.00) px"
+    },
+    {
+      "code": "F1",
+      "element": "arrow-0005",
+      "element_index": 4,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1257,
+        198
+      ],
+      "bbox": [
+        1233,
+        174,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "arrowhead tip/ref mismatch (+4.00, +0.00) px"
+    },
+    {
+      "code": "F3",
+      "element": "arrow-0005",
+      "element_index": 4,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1257,
+        198
+      ],
+      "bbox": [
+        1233,
+        174,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "endpoint boundary/gap error is 36.00px (limit 6.00px)"
+    },
+    {
+      "code": "F1",
+      "element": "arrow-0006",
+      "element_index": 5,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1257,
+        380
+      ],
+      "bbox": [
+        1233,
+        356,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "arrowhead tip/ref mismatch (+4.00, +0.00) px"
+    },
+    {
+      "code": "F3",
+      "element": "arrow-0006",
+      "element_index": 5,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1257,
+        380
+      ],
+      "bbox": [
+        1233,
+        356,
+        48,
+        48
+      ],
+      "marker": "arr-k",
+      "detail": "endpoint boundary/gap error is 16.83px (limit 6.00px)"
+    }
+  ],
+  "counts": {
+    "F1": 6,
+    "F3": 4
+  },
+  "arrow_metrics": [],
+  "ratio_stats": {
+    "median": 4.0,
+    "min": 4.0,
+    "max": 4.0,
+    "band": [
+      1.5,
+      4.0
+    ]
+  }
+}

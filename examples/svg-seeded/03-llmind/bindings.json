@@ -1,0 +1,1835 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "bindings",
+  "case": "03-llmind",
+  "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+  "updated_at": "20260821T130720Z",
+  "backend": "pptx-offline+native-math",
+  "bindings": [
+    {
+      "element_id": "svg-rect-0001",
+      "shape_id": 2,
+      "shape_name": "af-svg-rect-0001-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0001",
+      "shape_id": 3,
+      "shape_name": "af-svg-text-0001-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0002",
+      "shape_id": 4,
+      "shape_name": "af-svg-text-0002-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0001",
+      "shape_id": 5,
+      "shape_name": "af-svg-path-0001-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0002",
+      "shape_id": 6,
+      "shape_name": "af-svg-path-0002-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0003",
+      "shape_id": 7,
+      "shape_name": "af-svg-path-0003-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0003",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0003",
+      "shape_id": 8,
+      "shape_name": "math:001",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0003",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ001"
+    },
+    {
+      "element_id": "svg-rect-0002",
+      "shape_id": 9,
+      "shape_name": "af-svg-rect-0002-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0003",
+      "shape_id": 10,
+      "shape_name": "af-svg-rect-0003-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0003",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0004",
+      "shape_id": 11,
+      "shape_name": "af-svg-rect-0004-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0005",
+      "shape_id": 12,
+      "shape_name": "af-svg-rect-0005-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0006",
+      "shape_id": 13,
+      "shape_name": "af-svg-rect-0006-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0006",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0007",
+      "shape_id": 14,
+      "shape_name": "af-svg-rect-0007-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0007",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0008",
+      "shape_id": 15,
+      "shape_name": "af-svg-rect-0008-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0008",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0009",
+      "shape_id": 16,
+      "shape_name": "af-svg-rect-0009-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0009",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0010",
+      "shape_id": 17,
+      "shape_name": "af-svg-rect-0010-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0010",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0011",
+      "shape_id": 18,
+      "shape_name": "af-svg-rect-0011-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0011",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0012",
+      "shape_id": 19,
+      "shape_name": "af-svg-rect-0012-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0013",
+      "shape_id": 20,
+      "shape_name": "af-svg-rect-0013-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0014",
+      "shape_id": 21,
+      "shape_name": "af-svg-rect-0014-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0015",
+      "shape_id": 22,
+      "shape_name": "af-svg-rect-0015-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0016",
+      "shape_id": 23,
+      "shape_name": "af-svg-rect-0016-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0017",
+      "shape_id": 24,
+      "shape_name": "af-svg-rect-0017-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0018",
+      "shape_id": 25,
+      "shape_name": "af-svg-rect-0018-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0019",
+      "shape_id": 26,
+      "shape_name": "af-svg-rect-0019-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0019",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0020",
+      "shape_id": 27,
+      "shape_name": "af-svg-rect-0020-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0020",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0021",
+      "shape_id": 28,
+      "shape_name": "af-svg-rect-0021-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0021",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0022",
+      "shape_id": 29,
+      "shape_name": "af-svg-rect-0022-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0023",
+      "shape_id": 30,
+      "shape_name": "af-svg-rect-0023-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0024",
+      "shape_id": 31,
+      "shape_name": "af-svg-rect-0024-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0025",
+      "shape_id": 32,
+      "shape_name": "af-svg-rect-0025-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0026",
+      "shape_id": 33,
+      "shape_name": "af-svg-rect-0026-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0027",
+      "shape_id": 34,
+      "shape_name": "af-svg-rect-0027-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0004",
+      "shape_id": 35,
+      "shape_name": "af-svg-path-0004-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0005",
+      "shape_id": 36,
+      "shape_name": "af-svg-path-0005-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0006",
+      "shape_id": 37,
+      "shape_name": "af-svg-path-0006-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0006",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0007",
+      "shape_id": 38,
+      "shape_name": "af-svg-path-0007-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0007",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0008",
+      "shape_id": 39,
+      "shape_name": "af-svg-path-0008-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0008",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0009",
+      "shape_id": 40,
+      "shape_name": "af-svg-path-0009-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0009",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0010",
+      "shape_id": 41,
+      "shape_name": "af-svg-path-0010-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0010",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0011",
+      "shape_id": 42,
+      "shape_name": "af-svg-path-0011-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0011",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0012",
+      "shape_id": 43,
+      "shape_name": "af-svg-path-0012-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0013",
+      "shape_id": 44,
+      "shape_name": "af-svg-path-0013-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0014",
+      "shape_id": 45,
+      "shape_name": "af-svg-path-0014-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0015",
+      "shape_id": 46,
+      "shape_name": "af-svg-path-0015-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0016",
+      "shape_id": 47,
+      "shape_name": "af-svg-path-0016-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0017",
+      "shape_id": 48,
+      "shape_name": "af-svg-path-0017-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0018",
+      "shape_id": 49,
+      "shape_name": "af-svg-path-0018-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0019",
+      "shape_id": 50,
+      "shape_name": "af-svg-path-0019-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0019",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0028",
+      "shape_id": 51,
+      "shape_name": "af-svg-rect-0028-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0004",
+      "shape_id": 52,
+      "shape_name": "af-svg-text-0004-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0005",
+      "shape_id": 53,
+      "shape_name": "af-svg-text-0005-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0006",
+      "shape_id": 54,
+      "shape_name": "af-svg-text-0006-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0006",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0020",
+      "shape_id": 55,
+      "shape_name": "af-svg-path-0020-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0020",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0021",
+      "shape_id": 56,
+      "shape_name": "af-svg-path-0021-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0021",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0022",
+      "shape_id": 57,
+      "shape_name": "af-svg-path-0022-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0023",
+      "shape_id": 58,
+      "shape_name": "af-svg-path-0023-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0024",
+      "shape_id": 59,
+      "shape_name": "af-svg-path-0024-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0025",
+      "shape_id": 60,
+      "shape_name": "af-svg-path-0025-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0026",
+      "shape_id": 61,
+      "shape_name": "af-svg-path-0026-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0027",
+      "shape_id": 62,
+      "shape_name": "af-svg-path-0027-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0007",
+      "shape_id": 63,
+      "shape_name": "af-svg-text-0007-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0007",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0008",
+      "shape_id": 64,
+      "shape_name": "af-svg-text-0008-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0008",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0009",
+      "shape_id": 65,
+      "shape_name": "af-svg-text-0009-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0009",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0010",
+      "shape_id": 66,
+      "shape_name": "af-svg-text-0010-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0010",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0011",
+      "shape_id": 67,
+      "shape_name": "af-svg-text-0011-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0011",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0012",
+      "shape_id": 68,
+      "shape_name": "af-svg-text-0012-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0013",
+      "shape_id": 69,
+      "shape_name": "af-svg-text-0013-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0028",
+      "shape_id": 70,
+      "shape_name": "af-svg-path-0028-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0029",
+      "shape_id": 71,
+      "shape_name": "af-svg-path-0029-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0029",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0030",
+      "shape_id": 72,
+      "shape_name": "af-svg-path-0030-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0030",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0014",
+      "shape_id": 73,
+      "shape_name": "af-svg-text-0014-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0029",
+      "shape_id": 74,
+      "shape_name": "af-svg-rect-0029-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0029",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0015",
+      "shape_id": 75,
+      "shape_name": "af-svg-text-0015-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0016",
+      "shape_id": 76,
+      "shape_name": "math:002",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0016",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ002"
+    },
+    {
+      "element_id": "svg-path-0031",
+      "shape_id": 77,
+      "shape_name": "af-svg-path-0031-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0031",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0032",
+      "shape_id": 78,
+      "shape_name": "af-svg-path-0032-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0032",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0030",
+      "shape_id": 79,
+      "shape_name": "af-svg-rect-0030-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0030",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0017",
+      "shape_id": 80,
+      "shape_name": "af-svg-text-0017-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0033",
+      "shape_id": 81,
+      "shape_name": "af-svg-path-0033-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0033",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0034",
+      "shape_id": 82,
+      "shape_name": "af-svg-path-0034-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0034",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0018",
+      "shape_id": 83,
+      "shape_name": "af-svg-text-0018-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0019",
+      "shape_id": 84,
+      "shape_name": "math:003",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0019",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ003"
+    },
+    {
+      "element_id": "atomic:photo-1",
+      "shape_id": 85,
+      "shape_name": "af-atomic-photo-1-atomic-raster-01",
+      "object_kind": "atomic-raster",
+      "editable": false,
+      "semantic_group_id": "atomic:photo-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0035",
+      "shape_id": 86,
+      "shape_name": "af-svg-path-0035-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0035",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0036",
+      "shape_id": 87,
+      "shape_name": "af-svg-path-0036-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0036",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0037",
+      "shape_id": 88,
+      "shape_name": "af-svg-path-0037-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0037",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0038",
+      "shape_id": 89,
+      "shape_name": "af-svg-path-0038-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0038",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0032",
+      "shape_id": 90,
+      "shape_name": "af-svg-rect-0032-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0032",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0020",
+      "shape_id": 91,
+      "shape_name": "af-svg-text-0020-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0020",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0039",
+      "shape_id": 92,
+      "shape_name": "af-svg-path-0039-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0039",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0040",
+      "shape_id": 93,
+      "shape_name": "af-svg-path-0040-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0040",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0021",
+      "shape_id": 94,
+      "shape_name": "math:004",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0021",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ004"
+    },
+    {
+      "element_id": "atomic:photo-2",
+      "shape_id": 95,
+      "shape_name": "af-atomic-photo-2-atomic-raster-01",
+      "object_kind": "atomic-raster",
+      "editable": false,
+      "semantic_group_id": "atomic:photo-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0022",
+      "shape_id": 96,
+      "shape_name": "af-svg-text-0022-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0023",
+      "shape_id": 97,
+      "shape_name": "af-svg-text-0023-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0034",
+      "shape_id": 98,
+      "shape_name": "af-svg-rect-0034-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0034",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0035",
+      "shape_id": 99,
+      "shape_name": "af-svg-rect-0035-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0035",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0024",
+      "shape_id": 100,
+      "shape_name": "af-svg-text-0024-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0036",
+      "shape_id": 101,
+      "shape_name": "af-svg-rect-0036-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0036",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0037",
+      "shape_id": 102,
+      "shape_name": "af-svg-rect-0037-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0037",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0038",
+      "shape_id": 103,
+      "shape_name": "af-svg-rect-0038-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0038",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0039",
+      "shape_id": 104,
+      "shape_name": "af-svg-rect-0039-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0039",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0040",
+      "shape_id": 105,
+      "shape_name": "af-svg-rect-0040-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0040",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0041",
+      "shape_id": 106,
+      "shape_name": "af-svg-rect-0041-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0041",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0042",
+      "shape_id": 107,
+      "shape_name": "af-svg-rect-0042-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0042",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0043",
+      "shape_id": 108,
+      "shape_name": "af-svg-rect-0043-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0043",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0044",
+      "shape_id": 109,
+      "shape_name": "af-svg-rect-0044-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0044",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0045",
+      "shape_id": 110,
+      "shape_name": "af-svg-rect-0045-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0045",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0046",
+      "shape_id": 111,
+      "shape_name": "af-svg-rect-0046-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0046",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0047",
+      "shape_id": 112,
+      "shape_name": "af-svg-rect-0047-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0047",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0025",
+      "shape_id": 113,
+      "shape_name": "af-svg-text-0025-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0026",
+      "shape_id": 114,
+      "shape_name": "af-svg-text-0026-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0041",
+      "shape_id": 115,
+      "shape_name": "af-svg-path-0041-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0041",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0042",
+      "shape_id": 116,
+      "shape_name": "af-svg-path-0042-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0042",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0043",
+      "shape_id": 117,
+      "shape_name": "af-svg-path-0043-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0043",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0044",
+      "shape_id": 118,
+      "shape_name": "af-svg-path-0044-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0044",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0045",
+      "shape_id": 119,
+      "shape_name": "af-svg-path-0045-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0045",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0046",
+      "shape_id": 120,
+      "shape_name": "af-svg-path-0046-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0046",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0047",
+      "shape_id": 121,
+      "shape_name": "af-svg-path-0047-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0047",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0048",
+      "shape_id": 122,
+      "shape_name": "af-svg-path-0048-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0048",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0001",
+      "shape_id": 123,
+      "shape_name": "af-svg-line-0001-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0002",
+      "shape_id": 124,
+      "shape_name": "af-svg-line-0002-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0003",
+      "shape_id": 125,
+      "shape_name": "af-svg-line-0003-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0003",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0004",
+      "shape_id": 126,
+      "shape_name": "af-svg-line-0004-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0004",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0005",
+      "shape_id": 127,
+      "shape_name": "af-svg-line-0005-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0005",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0006",
+      "shape_id": 128,
+      "shape_name": "af-svg-line-0006-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0006",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0007",
+      "shape_id": 129,
+      "shape_name": "af-svg-line-0007-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0007",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0008",
+      "shape_id": 130,
+      "shape_name": "af-svg-line-0008-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0008",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0009",
+      "shape_id": 131,
+      "shape_name": "af-svg-line-0009-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0009",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0010",
+      "shape_id": 132,
+      "shape_name": "af-svg-line-0010-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0010",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0011",
+      "shape_id": 133,
+      "shape_name": "af-svg-line-0011-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0011",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0012",
+      "shape_id": 134,
+      "shape_name": "af-svg-line-0012-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0012",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0013",
+      "shape_id": 135,
+      "shape_name": "af-svg-line-0013-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0013",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0014",
+      "shape_id": 136,
+      "shape_name": "af-svg-line-0014-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0014",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0015",
+      "shape_id": 137,
+      "shape_name": "af-svg-line-0015-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0015",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0016",
+      "shape_id": 138,
+      "shape_name": "af-svg-line-0016-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0016",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0017",
+      "shape_id": 139,
+      "shape_name": "af-svg-line-0017-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0017",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0018",
+      "shape_id": 140,
+      "shape_name": "af-svg-line-0018-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0018",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0019",
+      "shape_id": 141,
+      "shape_name": "af-svg-line-0019-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0019",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0020",
+      "shape_id": 142,
+      "shape_name": "af-svg-line-0020-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0020",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0021",
+      "shape_id": 143,
+      "shape_name": "af-svg-line-0021-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0021",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0022",
+      "shape_id": 144,
+      "shape_name": "af-svg-line-0022-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0022",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0023",
+      "shape_id": 145,
+      "shape_name": "af-svg-line-0023-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0023",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0024",
+      "shape_id": 146,
+      "shape_name": "af-svg-line-0024-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0024",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0025",
+      "shape_id": 147,
+      "shape_name": "af-svg-line-0025-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0025",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0026",
+      "shape_id": 148,
+      "shape_name": "af-svg-line-0026-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0026",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0027",
+      "shape_id": 149,
+      "shape_name": "af-svg-line-0027-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0028",
+      "shape_id": 150,
+      "shape_name": "af-svg-line-0028-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0029",
+      "shape_id": 151,
+      "shape_name": "af-svg-line-0029-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0029",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0030",
+      "shape_id": 152,
+      "shape_name": "af-svg-line-0030-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0030",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0031",
+      "shape_id": 153,
+      "shape_name": "af-svg-line-0031-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0031",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0032",
+      "shape_id": 154,
+      "shape_name": "af-svg-line-0032-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0032",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0033",
+      "shape_id": 155,
+      "shape_name": "af-svg-line-0033-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0033",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0034",
+      "shape_id": 156,
+      "shape_name": "af-svg-line-0034-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0034",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0035",
+      "shape_id": 157,
+      "shape_name": "af-svg-line-0035-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0035",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0036",
+      "shape_id": 158,
+      "shape_name": "af-svg-line-0036-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0036",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0037",
+      "shape_id": 159,
+      "shape_name": "af-svg-line-0037-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0037",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0038",
+      "shape_id": 160,
+      "shape_name": "af-svg-line-0038-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0038",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0039",
+      "shape_id": 161,
+      "shape_name": "af-svg-line-0039-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0039",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0040",
+      "shape_id": 162,
+      "shape_name": "af-svg-line-0040-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0040",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0041",
+      "shape_id": 163,
+      "shape_name": "af-svg-line-0041-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0041",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0042",
+      "shape_id": 164,
+      "shape_name": "af-svg-line-0042-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0042",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0043",
+      "shape_id": 165,
+      "shape_name": "af-svg-line-0043-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0043",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0044",
+      "shape_id": 166,
+      "shape_name": "af-svg-line-0044-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0044",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0045",
+      "shape_id": 167,
+      "shape_name": "af-svg-line-0045-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0045",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0046",
+      "shape_id": 168,
+      "shape_name": "af-svg-line-0046-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0046",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0047",
+      "shape_id": 169,
+      "shape_name": "af-svg-line-0047-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0047",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0048",
+      "shape_id": 170,
+      "shape_name": "af-svg-line-0048-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0048",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0049",
+      "shape_id": 171,
+      "shape_name": "af-svg-line-0049-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0049",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0050",
+      "shape_id": 172,
+      "shape_name": "af-svg-line-0050-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0050",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0051",
+      "shape_id": 173,
+      "shape_name": "af-svg-line-0051-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0051",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0052",
+      "shape_id": 174,
+      "shape_name": "af-svg-line-0052-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0052",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0053",
+      "shape_id": 175,
+      "shape_name": "af-svg-line-0053-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0053",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0054",
+      "shape_id": 176,
+      "shape_name": "af-svg-line-0054-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0054",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0055",
+      "shape_id": 177,
+      "shape_name": "af-svg-line-0055-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0055",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0056",
+      "shape_id": 178,
+      "shape_name": "af-svg-line-0056-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0056",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0057",
+      "shape_id": 179,
+      "shape_name": "af-svg-line-0057-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0057",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0058",
+      "shape_id": 180,
+      "shape_name": "af-svg-line-0058-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0058",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0059",
+      "shape_id": 181,
+      "shape_name": "af-svg-line-0059-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0059",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-line-0060",
+      "shape_id": 182,
+      "shape_name": "af-svg-line-0060-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-line-0060",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0001",
+      "shape_id": 183,
+      "shape_name": "af-svg-circle-0001-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0001",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-circle-0002",
+      "shape_id": 184,
+      "shape_name": "af-svg-circle-0002-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "svg-circle-0002",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0049",
+      "shape_id": 185,
+      "shape_name": "af-svg-path-0049-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0049",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0050",
+      "shape_id": 186,
+      "shape_name": "af-svg-path-0050-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0050",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0027",
+      "shape_id": 187,
+      "shape_name": "af-svg-text-0027-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0027",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0048",
+      "shape_id": 188,
+      "shape_name": "af-svg-rect-0048-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0048",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0028",
+      "shape_id": 189,
+      "shape_name": "af-svg-text-0028-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0028",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0029",
+      "shape_id": 190,
+      "shape_name": "math:005",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0029",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ005"
+    },
+    {
+      "element_id": "svg-path-0051",
+      "shape_id": 191,
+      "shape_name": "af-svg-path-0051-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0051",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0052",
+      "shape_id": 192,
+      "shape_name": "af-svg-path-0052-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0052",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-rect-0049",
+      "shape_id": 193,
+      "shape_name": "af-svg-rect-0049-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "svg-rect-0049",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0030",
+      "shape_id": 194,
+      "shape_name": "af-svg-text-0030-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0030",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0031",
+      "shape_id": 195,
+      "shape_name": "math:006",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "svg-text-0031",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ006"
+    },
+    {
+      "element_id": "svg-text-0032",
+      "shape_id": 196,
+      "shape_name": "af-svg-text-0032-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0032",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0053",
+      "shape_id": 197,
+      "shape_name": "af-svg-path-0053-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0053",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0054",
+      "shape_id": 198,
+      "shape_name": "af-svg-path-0054-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0054",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0033",
+      "shape_id": 199,
+      "shape_name": "af-svg-text-0033-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0033",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0055",
+      "shape_id": 200,
+      "shape_name": "af-svg-path-0055-line-01",
+      "object_kind": "line",
+      "editable": true,
+      "semantic_group_id": "svg-path-0055",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-path-0056",
+      "shape_id": 201,
+      "shape_name": "af-svg-path-0056-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "svg-path-0056",
+      "readback_found": true
+    },
+    {
+      "element_id": "svg-text-0034",
+      "shape_id": 202,
+      "shape_name": "af-svg-text-0034-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "svg-text-0034",
+      "readback_found": true
+    }
+  ],
+  "artifact_sha256": "4b876dee3231e7458ba85729ffc897a50f31b89c1f00ed4a1d74cc56c0e7d73a",
+  "saved_reopened": true,
+  "bindings_complete": true,
+  "task_mode": "RECONSTRUCT_1TO1"
+}

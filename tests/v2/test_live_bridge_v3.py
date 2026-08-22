@@ -26,7 +26,12 @@ def _math_engine_ready() -> bool:
 def test_live_bridge_routes_every_v3_element_and_preserves_reference_policy(tmp_path: Path):
     reference = tmp_path / "reference.png"
     Image.new("RGB", (120, 100), "white").save(reference)
-    run = common.create_run(reference, case="bridge", cases_root=tmp_path / "examples")
+    run = common.create_run(
+        reference,
+        case="bridge",
+        cases_root=tmp_path / "examples",
+        input_route="svg-seeded",
+    )
     run.redraw_svg.write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="100" viewBox="0 0 120 100">'
         '<rect id="source" x="2" y="20" width="20" height="20"/>'
@@ -39,7 +44,7 @@ def test_live_bridge_routes_every_v3_element_and_preserves_reference_policy(tmp_
     convert(run)
 
     manifest = build_powerpoint_live_bridge(run)
-    live_root = Path(manifest["case_root"])
+    live_root = run.root / manifest["case_root"]
     scene = read_json(live_root / "design" / "scene_graph.json")
     plan = read_json(live_root / "design" / "render_plan.json")
     source = read_json(live_root / "input" / "source_manifest.json")
@@ -61,7 +66,12 @@ def test_live_bridge_routes_every_v3_element_and_preserves_reference_policy(tmp_
 def test_live_bridge_reads_native_math_hidden_in_alternate_content(tmp_path: Path):
     reference = tmp_path / "reference.png"
     Image.new("RGB", (160, 100), "white").save(reference)
-    run = common.create_run(reference, case="math-bridge", cases_root=tmp_path / "examples")
+    run = common.create_run(
+        reference,
+        case="math-bridge",
+        cases_root=tmp_path / "examples",
+        input_route="svg-seeded",
+    )
     run.redraw_svg.write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" '
         'viewBox="0 0 160 100"><text id="formula" x="20" y="55" '
@@ -73,7 +83,7 @@ def test_live_bridge_reads_native_math_hidden_in_alternate_content(tmp_path: Pat
     assert upgrade(run)["injected"] == 1
 
     manifest = build_powerpoint_live_bridge(run)
-    scene = read_json(Path(manifest["case_root"]) / "design" / "scene_graph.json")
+    scene = read_json(run.root / manifest["case_root"] / "design" / "scene_graph.json")
     formula = next(item for item in scene["nodes"] if item["id"] == "formula")
     assert formula["kind"] == "text"
     assert formula["textSpec"]["text"] == "zτ"

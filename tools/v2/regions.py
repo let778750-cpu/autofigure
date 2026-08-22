@@ -9,7 +9,7 @@ import numpy as np
 from PIL import Image
 
 from tools.v2 import common
-from tools.v2.contracts import read_json, write_json
+from tools.v2.contracts import SCHEMA_VERSION, read_json, write_json
 
 
 def _crop(array: np.ndarray, bbox: list[int]) -> np.ndarray:
@@ -148,12 +148,12 @@ def evaluate_regions(run: common.Run) -> dict[str, Any]:
             }
         )
     report = {
-        "schema_version": "3.0.0",
+        "schema_version": SCHEMA_VERSION,
         "kind": "region_evaluation",
         "reference_sha256": run.load_meta()["source_sha256"],
         "critical_regions": critical_count,
         "strict_pass": critical_count > 0 and critical_pass,
-        "blockers": ([] if critical_count else ["no-critical-regions-defined"])
+        "blockers": ([] if critical_count else ["regions:no-critical-regions"])
         + [f"region:{item['id']}" for item in results if item["critical"] and not item["pass"]],
         "regions": results,
     }

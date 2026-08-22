@@ -1,0 +1,276 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "region_evaluation",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "critical_regions": 6,
+  "strict_pass": false,
+  "blockers": [
+    "region:task-guided-allocator-topology",
+    "region:six-bicolor-state-circles",
+    "region:rollout-arrow-topology",
+    "region:observation-arrows"
+  ],
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1429,
+        627
+      ],
+      "critical": false,
+      "mean_abs_rgb_delta": 15.3626,
+      "ssim": 0.7561,
+      "edge_iou": 0.8035,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": false
+    },
+    {
+      "id": "task-guided-allocator-topology",
+      "label": "Task-Guided Expert Allocator and routing paths",
+      "bbox": [
+        425,
+        124,
+        551,
+        389
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.5392,
+      "ssim": 0.7255,
+      "edge_iou": 0.7016,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": false
+    },
+    {
+      "id": "six-bicolor-state-circles",
+      "label": "Six independently oriented bicolor circles",
+      "bbox": [
+        898,
+        204,
+        51,
+        278
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 46.9876,
+      "ssim": 0.3902,
+      "edge_iou": 0.7746,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "top-1-warm-nw",
+          "point": [
+            915,
+            225
+          ],
+          "delta_e00": 1.3787,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "top-1-cool-se",
+          "point": [
+            931,
+            241
+          ],
+          "delta_e00": 6.584,
+          "max_delta_e": 5.0,
+          "pass": false
+        },
+        {
+          "id": "top-2-warm-nw",
+          "point": [
+            915,
+            262
+          ],
+          "delta_e00": 1.2116,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "top-2-cool-se",
+          "point": [
+            931,
+            278
+          ],
+          "delta_e00": 6.5496,
+          "max_delta_e": 5.0,
+          "pass": false
+        },
+        {
+          "id": "top-3-warm-nw",
+          "point": [
+            915,
+            298
+          ],
+          "delta_e00": 2.579,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "top-3-cool-se",
+          "point": [
+            931,
+            314
+          ],
+          "delta_e00": 8.1691,
+          "max_delta_e": 5.0,
+          "pass": false
+        },
+        {
+          "id": "bottom-1-warm-ne",
+          "point": [
+            931,
+            372
+          ],
+          "delta_e00": 1.9785,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "bottom-1-cool-sw",
+          "point": [
+            915,
+            388
+          ],
+          "delta_e00": 7.8308,
+          "max_delta_e": 5.0,
+          "pass": false
+        },
+        {
+          "id": "bottom-2-warm-ne",
+          "point": [
+            931,
+            408
+          ],
+          "delta_e00": 2.2596,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "bottom-2-cool-sw",
+          "point": [
+            915,
+            424
+          ],
+          "delta_e00": 8.0314,
+          "max_delta_e": 5.0,
+          "pass": false
+        },
+        {
+          "id": "bottom-3-warm-ne",
+          "point": [
+            931,
+            445
+          ],
+          "delta_e00": 2.3597,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "bottom-3-cool-sw",
+          "point": [
+            915,
+            461
+          ],
+          "delta_e00": 8.1787,
+          "max_delta_e": 5.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "rollout-arrow-topology",
+      "label": "Task-aware behavior rollout arrows",
+      "bbox": [
+        988,
+        116,
+        410,
+        346
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.3514,
+      "ssim": 0.7067,
+      "edge_iou": 0.7831,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": false
+    },
+    {
+      "id": "observation-creative-asset",
+      "label": "Reference-faithful observation microasset",
+      "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 0.0,
+      "ssim": 1.0,
+      "edge_iou": 1.0,
+      "thresholds": {
+        "ssim_min": 0.95,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": true
+    },
+    {
+      "id": "environment-globe-creative-asset",
+      "label": "Reference-faithful environment globe",
+      "bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 0.0,
+      "ssim": 1.0,
+      "edge_iou": 1.0,
+      "thresholds": {
+        "ssim_min": 0.95,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": true
+    },
+    {
+      "id": "observation-arrows",
+      "label": "Observation to MLLM/WM arrows",
+      "bbox": [
+        132,
+        232,
+        190,
+        254
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 12.7535,
+      "ssim": 0.8383,
+      "edge_iou": 0.6583,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": false
+    }
+  ]
+}

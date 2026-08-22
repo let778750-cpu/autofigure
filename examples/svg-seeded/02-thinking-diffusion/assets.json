@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "assets",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260821T130720Z",
+  "policy": {
+    "formal_content_native": true,
+    "authorized_atomic_raster_only": true,
+    "whole_reference_forbidden": true
+  },
+  "assets": [],
+  "task_mode": "RECONSTRUCT_1TO1"
+}

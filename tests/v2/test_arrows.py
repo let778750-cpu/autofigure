@@ -202,7 +202,9 @@ def test_case01_regression_baseline():
     """真实案例回归：仓库内交付的 01 必须保持零 F1；人为回退一个 marker 验证审计能抓住。"""
     from pathlib import Path
 
-    svg = Path("examples/01-modular-agent/redraw.svg").read_text(encoding="utf-8")
+    svg = Path("examples/svg-seeded/01-modular-agent/redraw.svg").read_text(
+        encoding="utf-8"
+    )
     current = audit_svg_text(svg)
     assert current["arrows"] >= 40
     assert current["counts"].get("F1", 0) == 0  # 2026-08-21 arrows --fix 后的仓库状态守卫

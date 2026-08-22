@@ -12,7 +12,12 @@ from tools.v2.regions import evaluate_regions
 def _run(tmp_path: Path) -> common.Run:
     reference = tmp_path / "reference-source.png"
     Image.new("RGB", (30, 20), (240, 120, 80)).save(reference)
-    run = common.create_run(reference, case="case", cases_root=tmp_path / "examples")
+    run = common.create_run(
+        reference,
+        case="case",
+        cases_root=tmp_path / "examples",
+        input_route="svg-seeded",
+    )
     run.qa_dir.mkdir(exist_ok=True)
     Image.open(run.source_png).save(run.render_png)
     regions = read_json(run.regions_path)
@@ -49,3 +54,18 @@ def test_local_failure_blocks_even_when_whole_canvas_is_diagnostic(tmp_path: Pat
     report = evaluate_regions(run)
     assert report["strict_pass"] is False
     assert report["blockers"] == ["region:critical"]
+
+
+def test_no_critical_region_is_an_explicit_strict_blocker(tmp_path: Path):
+    reference = tmp_path / "no-critical.png"
+    Image.new("RGB", (30, 20), "white").save(reference)
+    run = common.create_run(
+        reference,
+        case="no-critical",
+        cases_root=tmp_path / "examples",
+        input_route="svg-seeded",
+    )
+    Image.open(run.source_png).save(run.render_png)
+    report = evaluate_regions(run)
+    assert report["strict_pass"] is False
+    assert report["blockers"] == ["regions:no-critical-regions"]

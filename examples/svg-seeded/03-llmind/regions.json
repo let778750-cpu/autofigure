@@ -1,0 +1,25 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "regions",
+  "case": "03-llmind",
+  "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+  "updated_at": "20260821T130720Z",
+  "defaults": {
+    "ssim_min": 0.85,
+    "edge_iou_min": 0.75
+  },
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1357,
+        656
+      ],
+      "critical": false
+    }
+  ],
+  "task_mode": "RECONSTRUCT_1TO1"
+}

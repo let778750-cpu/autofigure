@@ -1,0 +1,364 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "input_route_ab_comparison",
+  "generated_at": "20260821T132553Z",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "comparison_group": "modular-agent-route-ab",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "cases": {
+    "svg-seeded": {
+      "case": "01-modular-agent",
+      "path": "svg-seeded/01-modular-agent",
+      "input_route": "svg-seeded",
+      "processing_mode": "png_reconstruct",
+      "workflow_state": "qa_failed",
+      "validation": {
+        "profile": "strict",
+        "status": "failed",
+        "checked_at": "20260821T130738Z",
+        "blockers": [
+          "region:task-guided-allocator-topology",
+          "region:six-bicolor-state-circles",
+          "region:rollout-arrow-topology",
+          "region:observation-arrows",
+          "live-evidence-missing"
+        ]
+      },
+      "comparison_group": "modular-agent-route-ab",
+      "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+      "bindings": {
+        "object_count": 196,
+        "editable_text": 44,
+        "editable_formulas": 22,
+        "editable_arrows": 46,
+        "atomic_rasters": 2,
+        "saved_reopened": true,
+        "bindings_complete": true,
+        "object_kinds": {
+          "atomic-raster": 2,
+          "connector": 34,
+          "ellipse": 27,
+          "freeform": 12,
+          "freeform-arrow": 7,
+          "line": 5,
+          "native-math": 22,
+          "rect": 43,
+          "text": 44
+        }
+      },
+      "arrows": {
+        "arrows": 41,
+        "finding_count": 0,
+        "finding_codes": {}
+      },
+      "layout": {
+        "pass": true,
+        "finding_count": 0
+      },
+      "regions": {
+        "critical_regions": 6,
+        "critical_passed": 2,
+        "strict_pass": false,
+        "atomic_asset_regions": 2,
+        "atomic_asset_regions_passed": 2,
+        "regions": [
+          {
+            "id": "whole-canvas",
+            "critical": false,
+            "ssim": 0.7762,
+            "edge_iou": 0.8308,
+            "mean_abs_rgb_delta": 14.7877,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "task-guided-allocator-topology",
+            "critical": true,
+            "ssim": 0.7454,
+            "edge_iou": 0.7549,
+            "mean_abs_rgb_delta": 15.9384,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "six-bicolor-state-circles",
+            "critical": true,
+            "ssim": 0.6077,
+            "edge_iou": 0.8672,
+            "mean_abs_rgb_delta": 29.1555,
+            "color_probe_mean_delta_e00": 0.5691,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "rollout-arrow-topology",
+            "critical": true,
+            "ssim": 0.7267,
+            "edge_iou": 0.7887,
+            "mean_abs_rgb_delta": 18.087,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "observation-creative-asset",
+            "critical": true,
+            "ssim": 1.0,
+            "edge_iou": 1.0,
+            "mean_abs_rgb_delta": 0.0,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": true
+          },
+          {
+            "id": "environment-globe-creative-asset",
+            "critical": true,
+            "ssim": 1.0,
+            "edge_iou": 1.0,
+            "mean_abs_rgb_delta": 0.0,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": true
+          },
+          {
+            "id": "observation-arrows",
+            "critical": true,
+            "ssim": 0.8631,
+            "edge_iou": 0.6862,
+            "mean_abs_rgb_delta": 11.2195,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          }
+        ]
+      },
+      "global_diagnostic": {
+        "mean_abs_rgb_delta": 14.7877,
+        "changed_pixel_ratio_pct": 37.1845,
+        "ssim": 0.7762
+      },
+      "powerpoint_live": {
+        "saved_reopened": false,
+        "backend_hard_failures_after_correction": null,
+        "automatic_status": null,
+        "region_results": null
+      }
+    },
+    "reference-only": {
+      "case": "01-modular-agent-reference-only",
+      "path": "reference-only/01-modular-agent-reference-only",
+      "input_route": "reference-only",
+      "processing_mode": "png_reconstruct",
+      "workflow_state": "qa_failed",
+      "validation": {
+        "profile": "strict",
+        "status": "failed",
+        "checked_at": "20260821T132333Z",
+        "blockers": [
+          "region:task-guided-allocator-topology",
+          "region:six-bicolor-state-circles",
+          "region:rollout-arrow-topology",
+          "region:observation-arrows",
+          "arrow:F5:task-input-to-encoder",
+          "arrow:F3:task-input-to-encoder",
+          "arrow:F1:task-input-to-encoder",
+          "arrow:F2:task-input-to-encoder",
+          "arrow:F5:task-encoder-to-tau",
+          "arrow:F3:task-encoder-to-tau",
+          "arrow:F1:task-encoder-to-tau",
+          "arrow:F2:task-encoder-to-tau",
+          "arrow:F5:tau-to-mapping",
+          "arrow:F3:tau-to-mapping",
+          "arrow:F1:tau-to-mapping",
+          "arrow:F2:tau-to-mapping",
+          "arrow:F1:tau-to-allocator",
+          "arrow:F1:observation-to-mllm",
+          "arrow:F5:observation-to-mllm",
+          "arrow:F3:observation-to-mllm",
+          "arrow:F1:observation-to-wm",
+          "arrow:F5:observation-to-wm",
+          "arrow:F3:observation-to-wm",
+          "arrow:F1:mllm-to-ev",
+          "arrow:F1:wm-to-st",
+          "arrow:F5:wm-to-st",
+          "arrow:F3:wm-to-st",
+          "arrow:F1:ev-to-joint",
+          "arrow:F5:ev-to-joint",
+          "arrow:F3:ev-to-joint",
+          "arrow:F1:st-to-joint",
+          "arrow:F5:st-to-joint",
+          "arrow:F3:st-to-joint",
+          "arrow:F1:allocator-task1-route-1",
+          "arrow:F5:allocator-task1-route-1",
+          "arrow:F3:allocator-task1-route-1",
+          "arrow:F1:allocator-task1-route-2",
+          "arrow:F5:allocator-task1-route-2",
+          "arrow:F3:allocator-task1-route-2",
+          "arrow:F1:allocator-task2-route-1",
+          "arrow:F1:allocator-task2-route-2",
+          "arrow:F5:allocator-task2-route-2",
+          "arrow:F3:allocator-task2-route-2",
+          "arrow:F5:rollout-a2-to-next",
+          "arrow:F3:rollout-a2-to-next",
+          "arrow:F5:mapping-to-imagination",
+          "arrow:F3:mapping-to-imagination",
+          "arrow:F1:mapping-to-imagination",
+          "arrow:F2:mapping-to-imagination",
+          "arrow:F5:interaction-left",
+          "arrow:F3:interaction-left",
+          "arrow:F1:interaction-left",
+          "arrow:F2:interaction-left",
+          "arrow:F5:interaction-right",
+          "arrow:F3:interaction-right",
+          "arrow:F1:interaction-right",
+          "arrow:F2:interaction-right",
+          "arrow:F6:observation-to-wm",
+          "arrow:F6:allocator-task1-route-1",
+          "arrow:F6:allocator-task1-route-2",
+          "arrow:F6:allocator-task2-route-2",
+          "arrow:F6:imagination-z2-to-zh",
+          "arrow:F9:allocator-task1-route-2",
+          "live-evidence-missing"
+        ]
+      },
+      "comparison_group": "modular-agent-route-ab",
+      "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+      "bindings": {
+        "object_count": 188,
+        "editable_text": 45,
+        "editable_formulas": 22,
+        "editable_arrows": 43,
+        "atomic_rasters": 2,
+        "saved_reopened": true,
+        "bindings_complete": true,
+        "object_kinds": {
+          "arrow-group": 3,
+          "arrowhead-fallback": 3,
+          "atomic-raster": 2,
+          "connector": 27,
+          "ellipse": 27,
+          "freeform": 6,
+          "freeform-arrow": 10,
+          "native-math": 22,
+          "rect": 43,
+          "text": 45
+        }
+      },
+      "arrows": {
+        "arrows": 37,
+        "finding_count": 72,
+        "finding_codes": {
+          "F1": 17,
+          "F2": 6,
+          "F3": 21,
+          "F5": 21,
+          "F6": 5,
+          "F9": 2
+        }
+      },
+      "layout": {
+        "pass": true,
+        "finding_count": 0
+      },
+      "regions": {
+        "critical_regions": 6,
+        "critical_passed": 2,
+        "strict_pass": false,
+        "atomic_asset_regions": 2,
+        "atomic_asset_regions_passed": 2,
+        "regions": [
+          {
+            "id": "whole-canvas",
+            "critical": false,
+            "ssim": 0.7561,
+            "edge_iou": 0.8035,
+            "mean_abs_rgb_delta": 15.3626,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "task-guided-allocator-topology",
+            "critical": true,
+            "ssim": 0.7255,
+            "edge_iou": 0.7016,
+            "mean_abs_rgb_delta": 16.5392,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "six-bicolor-state-circles",
+            "critical": true,
+            "ssim": 0.3902,
+            "edge_iou": 0.7746,
+            "mean_abs_rgb_delta": 46.9876,
+            "color_probe_mean_delta_e00": 4.7592,
+            "color_probe_failures": 6,
+            "pass": false
+          },
+          {
+            "id": "rollout-arrow-topology",
+            "critical": true,
+            "ssim": 0.7067,
+            "edge_iou": 0.7831,
+            "mean_abs_rgb_delta": 16.3514,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          },
+          {
+            "id": "observation-creative-asset",
+            "critical": true,
+            "ssim": 1.0,
+            "edge_iou": 1.0,
+            "mean_abs_rgb_delta": 0.0,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": true
+          },
+          {
+            "id": "environment-globe-creative-asset",
+            "critical": true,
+            "ssim": 1.0,
+            "edge_iou": 1.0,
+            "mean_abs_rgb_delta": 0.0,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": true
+          },
+          {
+            "id": "observation-arrows",
+            "critical": true,
+            "ssim": 0.8383,
+            "edge_iou": 0.6583,
+            "mean_abs_rgb_delta": 12.7535,
+            "color_probe_mean_delta_e00": null,
+            "color_probe_failures": 0,
+            "pass": false
+          }
+        ]
+      },
+      "global_diagnostic": {
+        "mean_abs_rgb_delta": 15.3626,
+        "changed_pixel_ratio_pct": 37.0966,
+        "ssim": 0.7561
+      },
+      "powerpoint_live": {
+        "saved_reopened": true,
+        "backend_hard_failures_after_correction": 0,
+        "automatic_status": "INDEPENDENT_REVIEW_REQUIRED",
+        "region_results": "not asserted"
+      }
+    }
+  },
+  "conclusion": {
+    "reference_only_pipeline_completed": true,
+    "reference_only_strict_passed": false,
+    "reference_only_capability_mature": false,
+    "statement": "reference-only pipeline completed, but quality is not validated mature",
+    "global_metrics_are_diagnostic_only": true
+  }
+}

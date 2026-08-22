@@ -1,0 +1,74 @@
+{
+  "pptx": "redraw.pptx",
+  "dry_run": false,
+  "detected": 6,
+  "strong": 6,
+  "weak": 0,
+  "injected": 6,
+  "failed": 0,
+  "warnings": [],
+  "notes": [],
+  "formulas": [
+    {
+      "name": "af-svg-text-0003-text-01",
+      "placeholder": "math:001",
+      "formula_id": "EQ001",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "\\nabla_{\\theta} \\mathcal{L}_{text}",
+      "status": "injected"
+    },
+    {
+      "name": "af-svg-text-0016-text-01",
+      "placeholder": "math:002",
+      "formula_id": "EQ002",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "y_{gt}",
+      "status": "injected"
+    },
+    {
+      "name": "af-svg-text-0019-text-01",
+      "placeholder": "math:003",
+      "formula_id": "EQ003",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "Î = \\mathbb{E}_{\\theta}(I)",
+      "status": "injected"
+    },
+    {
+      "name": "af-svg-text-0021-text-01",
+      "placeholder": "math:004",
+      "formula_id": "EQ004",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "\\mathcal{L}_{img}",
+      "status": "injected"
+    },
+    {
+      "name": "af-svg-text-0029-text-01",
+      "placeholder": "math:005",
+      "formula_id": "EQ005",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "y_{pred}",
+      "status": "injected"
+    },
+    {
+      "name": "af-svg-text-0031-text-01",
+      "placeholder": "math:006",
+      "formula_id": "EQ006",
+      "slide_index": 1,
+      "signal": "strong",
+      "latex": "<q_{1}, q_{2} ... q_{n}>",
+      "status": "injected"
+    }
+  ],
+  "pptx_sha256": "4b876dee3231e7458ba85729ffc897a50f31b89c1f00ed4a1d74cc56c0e7d73a",
+  "object_count": 201,
+  "omml_count": 6,
+  "saved_reopened": true,
+  "bindings_complete": true,
+  "layout_pass": true,
+  "layout_findings": 0
+}

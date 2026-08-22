@@ -1,0 +1,2215 @@
+{
+  "schemaVersion": "2.0.0",
+  "projectId": "autofigure-01-modular-agent-reference-only",
+  "sceneGraphVersion": "autofigure-1032cb09e4d1",
+  "targets": [
+    {
+      "targetId": "autofigure-pptx",
+      "backendId": "powerpoint",
+      "adapterId": "powerpoint-live",
+      "required": true,
+      "deliverables": [
+        "pptx",
+        "png"
+      ],
+      "requiredCapabilities": [
+        "managed-session",
+        "native-connector",
+        "freeform",
+        "inspect",
+        "audit",
+        "save-reopen"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "elementId": "background",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "joint-panel",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "behavior-panel",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-input-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "user-icon-ring",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "user-icon-head",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "user-icon-body",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-line-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-line-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-encoder",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-encoder-line1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-encoder-line2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-node-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-node-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-node-3",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mapping-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mapping-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mapping-formula",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "legend-sem",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "legend-sem-short",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "legend-sem-long",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "legend-dyn",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "legend-dyn-short",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "legend-dyn-long",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "joint-title",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-funnel",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mllm-encoder",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mllm-line1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mllm-line2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "wm-encoder",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "wm-line1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "wm-line2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "atomic:observation",
+      "mustRemainEditable": false,
+      "qualityOwner": "asset",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "verified_raster"
+        }
+      ]
+    },
+    {
+      "elementId": "observation-ellipsis",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "observation-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "ev-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "ev-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "ev-node-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "ev-node-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "ev-node-3",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "st-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "st-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "st-node-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "st-node-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "st-node-3",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "joint-core",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-1-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-1-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-2-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-2-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-1-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-1-sem",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-1-dyn",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-1-sem-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-1-dyn-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-2-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-2-sem",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-2-dyn",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-2-sem-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-2-dyn-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-3-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-3-sem",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-3-dyn",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-3-sem-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-3-dyn-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-4-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-4-sem",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-4-dyn",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-4-sem-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-4-dyn-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-index-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-index-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-index-3",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-index-dots",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "expert-index-l",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-top-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-top-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-top-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-top-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-top-3",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-bottom-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-bottom-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-bottom-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-bottom-3",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-conditioned-imagination",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-title",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-z0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-z1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-z2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-zh",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-z0-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-z1-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-z2-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-dots",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imag-zh-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-panel",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-zh",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z0-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z1-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z2-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-zh-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-r0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-r1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-r2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-r0-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-r1-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-r2-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "policy-pi0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "policy-pi1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "policy-pi2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "policy-pi0-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "policy-pi1-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "policy-pi2-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-a0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-a1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-a2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-a0-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-a1-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-a2-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "dense-trophy",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "dense-reward-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "dense-reward-label-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "behavior-title",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "joint-optimization-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "joint-optimization-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "joint-loop-arrow",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "optimization-to-reward",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-action-box",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-icon",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "reward-text",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-icon",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-icon-path",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "action-text",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "behavior-to-reward",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "interaction-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "atomic:environment-globe",
+      "mustRemainEditable": false,
+      "qualityOwner": "asset",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "verified_raster"
+        }
+      ]
+    },
+    {
+      "elementId": "environment-label",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-input-to-encoder",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "task-encoder-to-tau",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-to-mapping",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "tau-to-allocator",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "observation-to-mllm",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "observation-to-wm",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mllm-to-ev",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "wm-to-st",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "ev-to-joint",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "st-to-joint",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-task1-route-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-task1-route-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-task2-route-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-task2-route-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-z0-to-z1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-z1-to-z2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-z2-to-zh",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-z0-to-r0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-z1-to-r1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "imagination-z2-to-r2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z0-to-z1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z1-to-z2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z2-to-zh",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z0-to-pi0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z1-to-pi1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-z2-to-pi2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-pi0-to-a0",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-pi1-to-a1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-pi2-to-a2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-a0-to-z1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-a1-to-z2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "rollout-a2-to-next",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-top-to-imagination",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "zt-bottom-to-rollout",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "mapping-to-imagination",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "interaction-left",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "interaction-right",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    }
+  ],
+  "deliverables": [
+    "pptx",
+    "png"
+  ]
+}

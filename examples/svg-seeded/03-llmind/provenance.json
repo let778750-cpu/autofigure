@@ -1,0 +1,37 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "provenance",
+  "case": "03-llmind",
+  "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+  "updated_at": "20260821T130720Z",
+  "input_route": "svg-seeded",
+  "reference": {
+    "path": "reference.png",
+    "sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+    "original_name": "03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png"
+  },
+  "external_svg_seed": {
+    "kind": "svg",
+    "role": "external-seed",
+    "origin": "web-vlm",
+    "provider": "OpenAI",
+    "model": null,
+    "interface": "web",
+    "sha256": null,
+    "exact_bytes_available": false,
+    "evidence": "examples README and git history; canonical SVG includes later atomic repair"
+  },
+  "candidate_history": [
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "deterministic-atomic-repair",
+      "source_name": "redraw.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "a8a97e65d0fecb58a4799f6e4be3a8e60f17a8e1ef7247be22ca1df7e9de4d96",
+      "ingested_at": "legacy-before-v3.1"
+    }
+  ],
+  "comparison_group": null,
+  "task_mode": "RECONSTRUCT_1TO1"
+}

@@ -14,7 +14,12 @@ from tools.v2.repair import build_live_request, ingest_live_evidence, live_evide
 def _run(tmp_path: Path) -> common.Run:
     reference = tmp_path / "reference-source.png"
     Image.new("RGB", (120, 100), "white").save(reference)
-    run = common.create_run(reference, case="case", cases_root=tmp_path / "examples")
+    run = common.create_run(
+        reference,
+        case="case",
+        cases_root=tmp_path / "examples",
+        input_route="svg-seeded",
+    )
     run.redraw_svg.write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="100" viewBox="0 0 120 100">'
         '<rect id="box" x="10" y="10" width="100" height="80" fill="#ffffff" stroke="#111111"/>'
@@ -45,10 +50,10 @@ def test_live_request_and_evidence_are_hash_bound(tmp_path: Path):
     assert request["failed_region_tasks"][0]["all_other_elements_protected"] is True
     assert request["failed_region_tasks"][0]["manual_scope_required"] is False
     assert "save-reopen" in request["required_capabilities"]
-    assert request["scene_compatibility"]["source_schema_version"] == "3.0.0"
+    assert request["scene_compatibility"]["source_schema_version"] == "3.1.0"
     assert request["scene_compatibility"]["adapter_schema_version"] == "2.1.0"
-    assert Path(request["case_root"], "project_state.json").is_file()
-    assert Path(request["template_path"]).is_file()
+    assert (run.root / request["case_root"] / "project_state.json").is_file()
+    assert (run.root / request["template_path"]).is_file()
 
     evidence_path = tmp_path / "evidence.json"
     write_json(

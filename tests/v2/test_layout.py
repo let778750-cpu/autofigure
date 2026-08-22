@@ -17,7 +17,12 @@ def run_factory(tmp_path: Path):
     def make(body: str) -> common.Run:
         reference = tmp_path / "reference.png"
         Image.new("RGB", (200, 120), "white").save(reference)
-        run = common.create_run(reference, case="layout", cases_root=tmp_path / "examples")
+        run = common.create_run(
+            reference,
+            case="layout",
+            cases_root=tmp_path / "examples",
+            input_route="svg-seeded",
+        )
         run.redraw_svg.write_text(
             '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" '
             f'viewBox="0 0 200 120">{body}</svg>',

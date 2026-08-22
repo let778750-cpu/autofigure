@@ -16,6 +16,8 @@ COMMANDS = {
     "repair": "tools.v2.repair",
     "providers": "tools.v2.providers",
     "layout": "tools.v2.layout",
+    "cases": "tools.v2.cases",
+    "compare": "tools.v2.compare",
 }
 
 

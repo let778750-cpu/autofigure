@@ -1,0 +1,1762 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "bindings",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "01-modular-agent-reference-only",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "updated_at": "20260821T132056Z",
+  "backend": "pptx-offline+native-math",
+  "bindings": [
+    {
+      "element_id": "background",
+      "shape_id": 2,
+      "shape_name": "af-background-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "background",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-panel",
+      "shape_id": 3,
+      "shape_name": "af-joint-panel-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "joint-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "behavior-panel",
+      "shape_id": 4,
+      "shape_name": "af-behavior-panel-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "behavior-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-input-box",
+      "shape_id": 5,
+      "shape_name": "af-task-input-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-input-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "user-icon-ring",
+      "shape_id": 6,
+      "shape_name": "af-user-icon-ring-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "user-icon-ring",
+      "readback_found": true
+    },
+    {
+      "element_id": "user-icon-head",
+      "shape_id": 7,
+      "shape_name": "af-user-icon-head-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "user-icon-head",
+      "readback_found": true
+    },
+    {
+      "element_id": "user-icon-body",
+      "shape_id": 8,
+      "shape_name": "af-user-icon-body-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "user-icon-body",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-line-1",
+      "shape_id": 9,
+      "shape_name": "af-task-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-line-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-line-2",
+      "shape_id": 10,
+      "shape_name": "af-task-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-line-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-encoder",
+      "shape_id": 11,
+      "shape_name": "af-task-encoder-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-encoder-line1",
+      "shape_id": 12,
+      "shape_name": "af-task-encoder-line1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-encoder-line1",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-encoder-line2",
+      "shape_id": 13,
+      "shape_name": "af-task-encoder-line2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-encoder-line2",
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-box",
+      "shape_id": 14,
+      "shape_name": "af-tau-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "tau-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-label",
+      "shape_id": 15,
+      "shape_name": "math:001",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "tau-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ001"
+    },
+    {
+      "element_id": "tau-node-1",
+      "shape_id": 16,
+      "shape_name": "af-tau-node-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "tau-node-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-node-2",
+      "shape_id": 17,
+      "shape_name": "af-tau-node-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "tau-node-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-node-3",
+      "shape_id": 18,
+      "shape_name": "af-tau-node-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "tau-node-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "mapping-box",
+      "shape_id": 19,
+      "shape_name": "af-mapping-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "mapping-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "mapping-label",
+      "shape_id": 20,
+      "shape_name": "af-mapping-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "mapping-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "mapping-formula",
+      "shape_id": 21,
+      "shape_name": "math:002",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "mapping-formula",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ002"
+    },
+    {
+      "element_id": "task-input-to-encoder",
+      "shape_id": 22,
+      "shape_name": "af-task-input-to-encoder-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "task-input-to-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-encoder-to-tau",
+      "shape_id": 23,
+      "shape_name": "af-task-encoder-to-tau-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "task-encoder-to-tau",
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-to-mapping",
+      "shape_id": 24,
+      "shape_name": "af-tau-to-mapping-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "tau-to-mapping",
+      "readback_found": true
+    },
+    {
+      "element_id": "legend-sem",
+      "shape_id": 25,
+      "shape_name": "af-legend-sem-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "legend-sem",
+      "readback_found": true
+    },
+    {
+      "element_id": "legend-sem-short",
+      "shape_id": 26,
+      "shape_name": "af-legend-sem-short-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "legend-sem-short",
+      "readback_found": true
+    },
+    {
+      "element_id": "legend-sem-long",
+      "shape_id": 27,
+      "shape_name": "af-legend-sem-long-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "legend-sem-long",
+      "readback_found": true
+    },
+    {
+      "element_id": "legend-dyn",
+      "shape_id": 28,
+      "shape_name": "af-legend-dyn-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "legend-dyn",
+      "readback_found": true
+    },
+    {
+      "element_id": "legend-dyn-short",
+      "shape_id": 29,
+      "shape_name": "af-legend-dyn-short-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "legend-dyn-short",
+      "readback_found": true
+    },
+    {
+      "element_id": "legend-dyn-long",
+      "shape_id": 30,
+      "shape_name": "af-legend-dyn-long-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "legend-dyn-long",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-title",
+      "shape_id": 31,
+      "shape_name": "af-joint-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "joint-title",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-box",
+      "shape_id": 32,
+      "shape_name": "af-allocator-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "allocator-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-label",
+      "shape_id": 33,
+      "shape_name": "af-allocator-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "allocator-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-funnel",
+      "shape_id": 34,
+      "shape_name": "af-allocator-funnel-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "allocator-funnel",
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-to-allocator",
+      "shape_id": 35,
+      "shape_name": "af-tau-to-allocator-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "tau-to-allocator",
+      "group_shape_id": 37,
+      "physically_grouped": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-to-allocator",
+      "shape_id": 36,
+      "shape_name": "af-tau-to-allocator-arrowhead-fallback-01",
+      "object_kind": "arrowhead-fallback",
+      "editable": true,
+      "semantic_group_id": "tau-to-allocator",
+      "group_shape_id": 37,
+      "physically_grouped": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "tau-to-allocator",
+      "shape_id": 37,
+      "shape_name": "af-tau-to-allocator-arrow-group-01",
+      "object_kind": "arrow-group",
+      "editable": true,
+      "semantic_group_id": "tau-to-allocator",
+      "readback_found": true
+    },
+    {
+      "element_id": "mllm-encoder",
+      "shape_id": 38,
+      "shape_name": "af-mllm-encoder-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "mllm-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "mllm-line1",
+      "shape_id": 39,
+      "shape_name": "af-mllm-line1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "mllm-line1",
+      "readback_found": true
+    },
+    {
+      "element_id": "mllm-line2",
+      "shape_id": 40,
+      "shape_name": "af-mllm-line2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "mllm-line2",
+      "readback_found": true
+    },
+    {
+      "element_id": "wm-encoder",
+      "shape_id": 41,
+      "shape_name": "af-wm-encoder-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "wm-encoder",
+      "readback_found": true
+    },
+    {
+      "element_id": "wm-line1",
+      "shape_id": 42,
+      "shape_name": "af-wm-line1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "wm-line1",
+      "readback_found": true
+    },
+    {
+      "element_id": "wm-line2",
+      "shape_id": 43,
+      "shape_name": "af-wm-line2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "wm-line2",
+      "readback_found": true
+    },
+    {
+      "element_id": "atomic:observation",
+      "shape_id": 44,
+      "shape_name": "af-atomic-observation-atomic-raster-01",
+      "object_kind": "atomic-raster",
+      "editable": false,
+      "semantic_group_id": "atomic:observation",
+      "readback_found": true
+    },
+    {
+      "element_id": "observation-ellipsis",
+      "shape_id": 45,
+      "shape_name": "af-observation-ellipsis-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "observation-ellipsis",
+      "readback_found": true
+    },
+    {
+      "element_id": "observation-label",
+      "shape_id": 46,
+      "shape_name": "af-observation-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "observation-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "observation-to-mllm",
+      "shape_id": 47,
+      "shape_name": "af-observation-to-mllm-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "observation-to-mllm",
+      "readback_found": true
+    },
+    {
+      "element_id": "observation-to-wm",
+      "shape_id": 48,
+      "shape_name": "af-observation-to-wm-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "observation-to-wm",
+      "readback_found": true
+    },
+    {
+      "element_id": "mllm-to-ev",
+      "shape_id": 49,
+      "shape_name": "af-mllm-to-ev-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "mllm-to-ev",
+      "readback_found": true
+    },
+    {
+      "element_id": "wm-to-st",
+      "shape_id": 50,
+      "shape_name": "af-wm-to-st-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "wm-to-st",
+      "readback_found": true
+    },
+    {
+      "element_id": "ev-box",
+      "shape_id": 51,
+      "shape_name": "af-ev-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "ev-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "ev-label",
+      "shape_id": 52,
+      "shape_name": "math:003",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "ev-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ003"
+    },
+    {
+      "element_id": "ev-node-1",
+      "shape_id": 53,
+      "shape_name": "af-ev-node-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "ev-node-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "ev-node-2",
+      "shape_id": 54,
+      "shape_name": "af-ev-node-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "ev-node-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "ev-node-3",
+      "shape_id": 55,
+      "shape_name": "af-ev-node-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "ev-node-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "st-box",
+      "shape_id": 56,
+      "shape_name": "af-st-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "st-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "st-label",
+      "shape_id": 57,
+      "shape_name": "math:004",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "st-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ004"
+    },
+    {
+      "element_id": "st-node-1",
+      "shape_id": 58,
+      "shape_name": "af-st-node-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "st-node-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "st-node-2",
+      "shape_id": 59,
+      "shape_name": "af-st-node-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "st-node-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "st-node-3",
+      "shape_id": 60,
+      "shape_name": "af-st-node-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "st-node-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "ev-to-joint",
+      "shape_id": 61,
+      "shape_name": "af-ev-to-joint-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "ev-to-joint",
+      "readback_found": true
+    },
+    {
+      "element_id": "st-to-joint",
+      "shape_id": 62,
+      "shape_name": "af-st-to-joint-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "st-to-joint",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-core",
+      "shape_id": 63,
+      "shape_name": "af-joint-core-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "joint-core",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-1-box",
+      "shape_id": 64,
+      "shape_name": "af-task-1-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-1-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-1-label",
+      "shape_id": 65,
+      "shape_name": "af-task-1-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-1-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-2-box",
+      "shape_id": 66,
+      "shape_name": "af-task-2-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-2-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-2-label",
+      "shape_id": 67,
+      "shape_name": "af-task-2-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "task-2-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-1-box",
+      "shape_id": 68,
+      "shape_name": "af-expert-1-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-1-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-1-sem",
+      "shape_id": 69,
+      "shape_name": "af-expert-1-sem-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-1-sem",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-1-dyn",
+      "shape_id": 70,
+      "shape_name": "af-expert-1-dyn-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-1-dyn",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-1-sem-label",
+      "shape_id": 71,
+      "shape_name": "af-expert-1-sem-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-1-sem-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-1-dyn-label",
+      "shape_id": 72,
+      "shape_name": "af-expert-1-dyn-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-1-dyn-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-2-box",
+      "shape_id": 73,
+      "shape_name": "af-expert-2-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-2-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-2-sem",
+      "shape_id": 74,
+      "shape_name": "af-expert-2-sem-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-2-sem",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-2-dyn",
+      "shape_id": 75,
+      "shape_name": "af-expert-2-dyn-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-2-dyn",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-2-sem-label",
+      "shape_id": 76,
+      "shape_name": "af-expert-2-sem-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-2-sem-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-2-dyn-label",
+      "shape_id": 77,
+      "shape_name": "af-expert-2-dyn-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-2-dyn-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-3-box",
+      "shape_id": 78,
+      "shape_name": "af-expert-3-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-3-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-3-sem",
+      "shape_id": 79,
+      "shape_name": "af-expert-3-sem-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-3-sem",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-3-dyn",
+      "shape_id": 80,
+      "shape_name": "af-expert-3-dyn-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-3-dyn",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-3-sem-label",
+      "shape_id": 81,
+      "shape_name": "af-expert-3-sem-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-3-sem-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-3-dyn-label",
+      "shape_id": 82,
+      "shape_name": "af-expert-3-dyn-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-3-dyn-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-4-box",
+      "shape_id": 83,
+      "shape_name": "af-expert-4-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-4-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-4-sem",
+      "shape_id": 84,
+      "shape_name": "af-expert-4-sem-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-4-sem",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-4-dyn",
+      "shape_id": 85,
+      "shape_name": "af-expert-4-dyn-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "expert-4-dyn",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-4-sem-label",
+      "shape_id": 86,
+      "shape_name": "af-expert-4-sem-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-4-sem-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-4-dyn-label",
+      "shape_id": 87,
+      "shape_name": "af-expert-4-dyn-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-4-dyn-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-index-1",
+      "shape_id": 88,
+      "shape_name": "af-expert-index-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-index-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-index-2",
+      "shape_id": 89,
+      "shape_name": "af-expert-index-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-index-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-index-3",
+      "shape_id": 90,
+      "shape_name": "af-expert-index-3-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-index-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-index-dots",
+      "shape_id": 91,
+      "shape_name": "af-expert-index-dots-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-index-dots",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-index-l",
+      "shape_id": 92,
+      "shape_name": "af-expert-index-l-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "expert-index-l",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task1-route-1",
+      "shape_id": 93,
+      "shape_name": "af-allocator-task1-route-1-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-route-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task1-route-2",
+      "shape_id": 94,
+      "shape_name": "af-allocator-task1-route-2-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-route-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-route-1",
+      "shape_id": 95,
+      "shape_name": "af-allocator-task2-route-1-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "allocator-task2-route-1",
+      "group_shape_id": 97,
+      "physically_grouped": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-route-1",
+      "shape_id": 96,
+      "shape_name": "af-allocator-task2-route-1-arrowhead-fallback-01",
+      "object_kind": "arrowhead-fallback",
+      "editable": true,
+      "semantic_group_id": "allocator-task2-route-1",
+      "group_shape_id": 97,
+      "physically_grouped": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-route-1",
+      "shape_id": 97,
+      "shape_name": "af-allocator-task2-route-1-arrow-group-01",
+      "object_kind": "arrow-group",
+      "editable": true,
+      "semantic_group_id": "allocator-task2-route-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-route-2",
+      "shape_id": 98,
+      "shape_name": "af-allocator-task2-route-2-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "allocator-task2-route-2",
+      "group_shape_id": 100,
+      "physically_grouped": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-route-2",
+      "shape_id": 99,
+      "shape_name": "af-allocator-task2-route-2-arrowhead-fallback-01",
+      "object_kind": "arrowhead-fallback",
+      "editable": true,
+      "semantic_group_id": "allocator-task2-route-2",
+      "group_shape_id": 100,
+      "physically_grouped": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-route-2",
+      "shape_id": 100,
+      "shape_name": "af-allocator-task2-route-2-arrow-group-01",
+      "object_kind": "arrow-group",
+      "editable": true,
+      "semantic_group_id": "allocator-task2-route-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-top-box",
+      "shape_id": 101,
+      "shape_name": "af-zt-top-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "zt-top-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-top-label",
+      "shape_id": 102,
+      "shape_name": "math:005",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "zt-top-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ005"
+    },
+    {
+      "element_id": "zt-top-1",
+      "shape_id": 103,
+      "shape_name": "af-zt-top-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "zt-top-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-top-2",
+      "shape_id": 104,
+      "shape_name": "af-zt-top-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "zt-top-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-top-3",
+      "shape_id": 105,
+      "shape_name": "af-zt-top-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "zt-top-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-bottom-box",
+      "shape_id": 106,
+      "shape_name": "af-zt-bottom-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "zt-bottom-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-bottom-1",
+      "shape_id": 107,
+      "shape_name": "af-zt-bottom-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "zt-bottom-1",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-bottom-2",
+      "shape_id": 108,
+      "shape_name": "af-zt-bottom-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "zt-bottom-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-bottom-3",
+      "shape_id": 109,
+      "shape_name": "af-zt-bottom-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "zt-bottom-3",
+      "readback_found": true
+    },
+    {
+      "element_id": "task-conditioned-imagination",
+      "shape_id": 110,
+      "shape_name": "af-task-conditioned-imagination-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "task-conditioned-imagination",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-title",
+      "shape_id": 111,
+      "shape_name": "af-imagination-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "imagination-title",
+      "readback_found": true
+    },
+    {
+      "element_id": "imag-z0",
+      "shape_id": 112,
+      "shape_name": "af-imag-z0-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "imag-z0",
+      "readback_found": true
+    },
+    {
+      "element_id": "imag-z1",
+      "shape_id": 113,
+      "shape_name": "af-imag-z1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "imag-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "imag-z2",
+      "shape_id": 114,
+      "shape_name": "af-imag-z2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "imag-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "imag-zh",
+      "shape_id": 115,
+      "shape_name": "af-imag-zh-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "imag-zh",
+      "readback_found": true
+    },
+    {
+      "element_id": "imag-z0-label",
+      "shape_id": 116,
+      "shape_name": "math:006",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "imag-z0-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ006"
+    },
+    {
+      "element_id": "imag-z1-label",
+      "shape_id": 117,
+      "shape_name": "math:007",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "imag-z1-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ007"
+    },
+    {
+      "element_id": "imag-z2-label",
+      "shape_id": 118,
+      "shape_name": "math:008",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "imag-z2-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ008"
+    },
+    {
+      "element_id": "imag-dots",
+      "shape_id": 119,
+      "shape_name": "af-imag-dots-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "imag-dots",
+      "readback_found": true
+    },
+    {
+      "element_id": "imag-zh-label",
+      "shape_id": 120,
+      "shape_name": "math:009",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "imag-zh-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ009"
+    },
+    {
+      "element_id": "rollout-panel",
+      "shape_id": 121,
+      "shape_name": "af-rollout-panel-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "rollout-panel",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z0",
+      "shape_id": 122,
+      "shape_name": "af-rollout-z0-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "rollout-z0",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1",
+      "shape_id": 123,
+      "shape_name": "af-rollout-z1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "rollout-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2",
+      "shape_id": 124,
+      "shape_name": "af-rollout-z2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "rollout-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-zh",
+      "shape_id": 125,
+      "shape_name": "af-rollout-zh-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "rollout-zh",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z0-label",
+      "shape_id": 126,
+      "shape_name": "math:010",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ010"
+    },
+    {
+      "element_id": "rollout-z1-label",
+      "shape_id": 127,
+      "shape_name": "math:011",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ011"
+    },
+    {
+      "element_id": "rollout-z2-label",
+      "shape_id": 128,
+      "shape_name": "math:012",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ012"
+    },
+    {
+      "element_id": "rollout-zh-label",
+      "shape_id": 129,
+      "shape_name": "math:013",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "rollout-zh-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ013"
+    },
+    {
+      "element_id": "rollout-label",
+      "shape_id": 130,
+      "shape_name": "af-rollout-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "rollout-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-r0",
+      "shape_id": 131,
+      "shape_name": "af-reward-r0-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "reward-r0",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-r1",
+      "shape_id": 132,
+      "shape_name": "af-reward-r1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "reward-r1",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-r2",
+      "shape_id": 133,
+      "shape_name": "af-reward-r2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "reward-r2",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-r0-label",
+      "shape_id": 134,
+      "shape_name": "math:014",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "reward-r0-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ014"
+    },
+    {
+      "element_id": "reward-r1-label",
+      "shape_id": 135,
+      "shape_name": "math:015",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "reward-r1-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ015"
+    },
+    {
+      "element_id": "reward-r2-label",
+      "shape_id": 136,
+      "shape_name": "math:016",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "reward-r2-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ016"
+    },
+    {
+      "element_id": "policy-pi0",
+      "shape_id": 137,
+      "shape_name": "af-policy-pi0-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "policy-pi0",
+      "readback_found": true
+    },
+    {
+      "element_id": "policy-pi1",
+      "shape_id": 138,
+      "shape_name": "af-policy-pi1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "policy-pi1",
+      "readback_found": true
+    },
+    {
+      "element_id": "policy-pi2",
+      "shape_id": 139,
+      "shape_name": "af-policy-pi2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "policy-pi2",
+      "readback_found": true
+    },
+    {
+      "element_id": "policy-pi0-label",
+      "shape_id": 140,
+      "shape_name": "math:017",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "policy-pi0-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ017"
+    },
+    {
+      "element_id": "policy-pi1-label",
+      "shape_id": 141,
+      "shape_name": "math:018",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "policy-pi1-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ018"
+    },
+    {
+      "element_id": "policy-pi2-label",
+      "shape_id": 142,
+      "shape_name": "math:019",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "policy-pi2-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ019"
+    },
+    {
+      "element_id": "action-a0",
+      "shape_id": 143,
+      "shape_name": "af-action-a0-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "action-a0",
+      "readback_found": true
+    },
+    {
+      "element_id": "action-a1",
+      "shape_id": 144,
+      "shape_name": "af-action-a1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "action-a1",
+      "readback_found": true
+    },
+    {
+      "element_id": "action-a2",
+      "shape_id": 145,
+      "shape_name": "af-action-a2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "action-a2",
+      "readback_found": true
+    },
+    {
+      "element_id": "action-a0-label",
+      "shape_id": 146,
+      "shape_name": "math:020",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "action-a0-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ020"
+    },
+    {
+      "element_id": "action-a1-label",
+      "shape_id": 147,
+      "shape_name": "math:021",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "action-a1-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ021"
+    },
+    {
+      "element_id": "action-a2-label",
+      "shape_id": 148,
+      "shape_name": "math:022",
+      "object_kind": "native-math",
+      "editable": true,
+      "semantic_group_id": "action-a2-label",
+      "readback_found": true,
+      "native_math": true,
+      "formula_id": "EQ022"
+    },
+    {
+      "element_id": "imagination-z0-to-z1",
+      "shape_id": 149,
+      "shape_name": "af-imagination-z0-to-z1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z0-to-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z1-to-z2",
+      "shape_id": 150,
+      "shape_name": "af-imagination-z1-to-z2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z1-to-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z2-to-zh",
+      "shape_id": 151,
+      "shape_name": "af-imagination-z2-to-zh-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z2-to-zh",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z0-to-r0",
+      "shape_id": 152,
+      "shape_name": "af-imagination-z0-to-r0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z0-to-r0",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z1-to-r1",
+      "shape_id": 153,
+      "shape_name": "af-imagination-z1-to-r1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z1-to-r1",
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z2-to-r2",
+      "shape_id": 154,
+      "shape_name": "af-imagination-z2-to-r2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z2-to-r2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z0-to-z1",
+      "shape_id": 155,
+      "shape_name": "af-rollout-z0-to-z1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-to-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1-to-z2",
+      "shape_id": 156,
+      "shape_name": "af-rollout-z1-to-z2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-to-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2-to-zh",
+      "shape_id": 157,
+      "shape_name": "af-rollout-z2-to-zh-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-to-zh",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z0-to-pi0",
+      "shape_id": 158,
+      "shape_name": "af-rollout-z0-to-pi0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-to-pi0",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1-to-pi1",
+      "shape_id": 159,
+      "shape_name": "af-rollout-z1-to-pi1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-to-pi1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2-to-pi2",
+      "shape_id": 160,
+      "shape_name": "af-rollout-z2-to-pi2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-to-pi2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-pi0-to-a0",
+      "shape_id": 161,
+      "shape_name": "af-rollout-pi0-to-a0-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-pi0-to-a0",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-pi1-to-a1",
+      "shape_id": 162,
+      "shape_name": "af-rollout-pi1-to-a1-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-pi1-to-a1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-pi2-to-a2",
+      "shape_id": 163,
+      "shape_name": "af-rollout-pi2-to-a2-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-pi2-to-a2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-a0-to-z1",
+      "shape_id": 164,
+      "shape_name": "af-rollout-a0-to-z1-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-a0-to-z1",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-a1-to-z2",
+      "shape_id": 165,
+      "shape_name": "af-rollout-a1-to-z2-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-a1-to-z2",
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-a2-to-next",
+      "shape_id": 166,
+      "shape_name": "af-rollout-a2-to-next-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
+      "editable": true,
+      "semantic_group_id": "rollout-a2-to-next",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-top-to-imagination",
+      "shape_id": 167,
+      "shape_name": "af-zt-top-to-imagination-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "zt-top-to-imagination",
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-bottom-to-rollout",
+      "shape_id": 168,
+      "shape_name": "af-zt-bottom-to-rollout-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "zt-bottom-to-rollout",
+      "readback_found": true
+    },
+    {
+      "element_id": "dense-trophy",
+      "shape_id": 169,
+      "shape_name": "af-dense-trophy-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "dense-trophy",
+      "readback_found": true
+    },
+    {
+      "element_id": "dense-reward-label",
+      "shape_id": 170,
+      "shape_name": "af-dense-reward-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "dense-reward-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "dense-reward-label-2",
+      "shape_id": 171,
+      "shape_name": "af-dense-reward-label-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "dense-reward-label-2",
+      "readback_found": true
+    },
+    {
+      "element_id": "behavior-title",
+      "shape_id": 172,
+      "shape_name": "af-behavior-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "behavior-title",
+      "readback_found": true
+    },
+    {
+      "element_id": "mapping-to-imagination",
+      "shape_id": 173,
+      "shape_name": "af-mapping-to-imagination-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "mapping-to-imagination",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-optimization-box",
+      "shape_id": 174,
+      "shape_name": "af-joint-optimization-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "joint-optimization-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-optimization-label",
+      "shape_id": 175,
+      "shape_name": "af-joint-optimization-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "joint-optimization-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "joint-loop-arrow",
+      "shape_id": 176,
+      "shape_name": "af-joint-loop-arrow-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "joint-loop-arrow",
+      "readback_found": true
+    },
+    {
+      "element_id": "optimization-to-reward",
+      "shape_id": 177,
+      "shape_name": "af-optimization-to-reward-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "optimization-to-reward",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-action-box",
+      "shape_id": 178,
+      "shape_name": "af-reward-action-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "reward-action-box",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-icon",
+      "shape_id": 179,
+      "shape_name": "af-reward-icon-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "reward-icon",
+      "readback_found": true
+    },
+    {
+      "element_id": "reward-text",
+      "shape_id": 180,
+      "shape_name": "af-reward-text-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "reward-text",
+      "readback_found": true
+    },
+    {
+      "element_id": "action-icon",
+      "shape_id": 181,
+      "shape_name": "af-action-icon-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "action-icon",
+      "readback_found": true
+    },
+    {
+      "element_id": "action-icon-path",
+      "shape_id": 182,
+      "shape_name": "af-action-icon-path-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "action-icon-path",
+      "readback_found": true
+    },
+    {
+      "element_id": "action-text",
+      "shape_id": 183,
+      "shape_name": "af-action-text-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "action-text",
+      "readback_found": true
+    },
+    {
+      "element_id": "behavior-to-reward",
+      "shape_id": 184,
+      "shape_name": "af-behavior-to-reward-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "behavior-to-reward",
+      "readback_found": true
+    },
+    {
+      "element_id": "interaction-label",
+      "shape_id": 185,
+      "shape_name": "af-interaction-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "interaction-label",
+      "readback_found": true
+    },
+    {
+      "element_id": "interaction-left",
+      "shape_id": 186,
+      "shape_name": "af-interaction-left-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "interaction-left",
+      "readback_found": true
+    },
+    {
+      "element_id": "interaction-right",
+      "shape_id": 187,
+      "shape_name": "af-interaction-right-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "interaction-right",
+      "readback_found": true
+    },
+    {
+      "element_id": "atomic:environment-globe",
+      "shape_id": 188,
+      "shape_name": "af-atomic-environment-globe-atomic-raster-01",
+      "object_kind": "atomic-raster",
+      "editable": false,
+      "semantic_group_id": "atomic:environment-globe",
+      "readback_found": true
+    },
+    {
+      "element_id": "environment-label",
+      "shape_id": 189,
+      "shape_name": "af-environment-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "environment-label",
+      "readback_found": true
+    }
+  ],
+  "artifact_sha256": "3bde78a494e889d97dd34d84a01750ffd5592b99010a8a0a866cfe803f406dd2",
+  "saved_reopened": true,
+  "bindings_complete": true
+}

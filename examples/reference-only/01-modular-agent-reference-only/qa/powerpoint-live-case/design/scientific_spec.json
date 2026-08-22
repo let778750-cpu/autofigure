@@ -1,0 +1,1853 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-01-modular-agent-reference-only",
+  "figureRole": "system_architecture",
+  "language": "en",
+  "audience": "Autofigure human review",
+  "claims": [
+    {
+      "claimId": "reference-correspondence",
+      "text": "This editable candidate reconstructs the designated reference; scientific interpretation remains source-bound.",
+      "evidenceType": "conceptual",
+      "sourceIds": [
+        "reference"
+      ],
+      "mustShow": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "background",
+      "label": "background",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-panel",
+      "label": "joint-panel",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "behavior-panel",
+      "label": "behavior-panel",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-input-box",
+      "label": "task-input-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "user-icon-ring",
+      "label": "user-icon-ring",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "user-icon-head",
+      "label": "user-icon-head",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "user-icon-body",
+      "label": "user-icon-body",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-line-1",
+      "label": "Task 1: Turn on lamp",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-line-2",
+      "label": "Task 2: Close top drawer ...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-encoder",
+      "label": "task-encoder",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-encoder-line1",
+      "label": "task",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-encoder-line2",
+      "label": "Encoder",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "tau-box",
+      "label": "tau-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "tau-label",
+      "label": "τ",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "tau-node-1",
+      "label": "tau-node-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "tau-node-2",
+      "label": "tau-node-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "tau-node-3",
+      "label": "tau-node-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mapping-box",
+      "label": "mapping-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mapping-label",
+      "label": "mapping",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mapping-formula",
+      "label": "fmap",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "legend-sem",
+      "label": "legend-sem",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "legend-sem-short",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "legend-sem-long",
+      "label": "semantic expert",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "legend-dyn",
+      "label": "legend-dyn",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "legend-dyn-short",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "legend-dyn-long",
+      "label": "dynamics expert",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-title",
+      "label": "Task-Aware Modular Joint",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-box",
+      "label": "allocator-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-label",
+      "label": "Task-Guided Expert Allocator",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-funnel",
+      "label": "allocator-funnel",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mllm-encoder",
+      "label": "mllm-encoder",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mllm-line1",
+      "label": "MLLM",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "mllm-line2",
+      "label": "Encoder",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "wm-encoder",
+      "label": "wm-encoder",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "wm-line1",
+      "label": "WM",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "wm-line2",
+      "label": "Encoder",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "atomic:observation",
+      "label": "atomic:observation",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": false
+    },
+    {
+      "entityId": "observation-ellipsis",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "observation-label",
+      "label": "observation",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ev-box",
+      "label": "ev-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ev-label",
+      "label": "ev",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ev-node-1",
+      "label": "ev-node-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ev-node-2",
+      "label": "ev-node-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ev-node-3",
+      "label": "ev-node-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "st-box",
+      "label": "st-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "st-label",
+      "label": "st",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "st-node-1",
+      "label": "st-node-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "st-node-2",
+      "label": "st-node-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "st-node-3",
+      "label": "st-node-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-core",
+      "label": "joint-core",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-1-box",
+      "label": "task-1-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-1-label",
+      "label": "Task 1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-2-box",
+      "label": "task-2-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-2-label",
+      "label": "Task 2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-1-box",
+      "label": "expert-1-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-1-sem",
+      "label": "expert-1-sem",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-1-dyn",
+      "label": "expert-1-dyn",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-1-sem-label",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-1-dyn-label",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-2-box",
+      "label": "expert-2-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-2-sem",
+      "label": "expert-2-sem",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-2-dyn",
+      "label": "expert-2-dyn",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-2-sem-label",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-2-dyn-label",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-3-box",
+      "label": "expert-3-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-3-sem",
+      "label": "expert-3-sem",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-3-dyn",
+      "label": "expert-3-dyn",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-3-sem-label",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-3-dyn-label",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-4-box",
+      "label": "expert-4-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-4-sem",
+      "label": "expert-4-sem",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-4-dyn",
+      "label": "expert-4-dyn",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-4-sem-label",
+      "label": "Sem",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-4-dyn-label",
+      "label": "Dyn",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-index-1",
+      "label": "1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-index-2",
+      "label": "2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-index-3",
+      "label": "3",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-index-dots",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "expert-index-l",
+      "label": "l",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-top-box",
+      "label": "zt-top-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-top-label",
+      "label": "zt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-top-1",
+      "label": "zt-top-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-top-2",
+      "label": "zt-top-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-top-3",
+      "label": "zt-top-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-bottom-box",
+      "label": "zt-bottom-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-bottom-1",
+      "label": "zt-bottom-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-bottom-2",
+      "label": "zt-bottom-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "zt-bottom-3",
+      "label": "zt-bottom-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "task-conditioned-imagination",
+      "label": "task-conditioned-imagination",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imagination-title",
+      "label": "task-conditioned imagination",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-z0",
+      "label": "imag-z0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-z1",
+      "label": "imag-z1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-z2",
+      "label": "imag-z2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-zh",
+      "label": "imag-zh",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-z0-label",
+      "label": "zτt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-z1-label",
+      "label": "zτt+1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-z2-label",
+      "label": "zτt+2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-dots",
+      "label": "...",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "imag-zh-label",
+      "label": "zτt+h",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-panel",
+      "label": "rollout-panel",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z0",
+      "label": "rollout-z0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z1",
+      "label": "rollout-z1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z2",
+      "label": "rollout-z2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-zh",
+      "label": "rollout-zh",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z0-label",
+      "label": "zt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z1-label",
+      "label": "zt+1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-z2-label",
+      "label": "zt+2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-zh-label",
+      "label": "zt+h",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "rollout-label",
+      "label": "rollout",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-r0",
+      "label": "reward-r0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-r1",
+      "label": "reward-r1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-r2",
+      "label": "reward-r2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-r0-label",
+      "label": "r′t",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-r1-label",
+      "label": "r′t+1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-r2-label",
+      "label": "r′t+2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "policy-pi0",
+      "label": "policy-pi0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "policy-pi1",
+      "label": "policy-pi1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "policy-pi2",
+      "label": "policy-pi2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "policy-pi0-label",
+      "label": "π",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "policy-pi1-label",
+      "label": "π",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "policy-pi2-label",
+      "label": "π",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-a0",
+      "label": "action-a0",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-a1",
+      "label": "action-a1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-a2",
+      "label": "action-a2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-a0-label",
+      "label": "at",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-a1-label",
+      "label": "at+1",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-a2-label",
+      "label": "at+2",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dense-trophy",
+      "label": "♕",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dense-reward-label",
+      "label": "dense",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dense-reward-label-2",
+      "label": "reward",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "behavior-title",
+      "label": "Task-Aware Behavior Learning",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-optimization-box",
+      "label": "joint-optimization-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-optimization-label",
+      "label": "MLLM-WM Joint Optimization",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "joint-loop-arrow",
+      "label": "joint-loop-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "optimization-to-reward",
+      "label": "optimization-to-reward",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-action-box",
+      "label": "reward-action-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-icon",
+      "label": "♕",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "reward-text",
+      "label": "dense reward",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-icon",
+      "label": "action-icon",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-icon-path",
+      "label": "action-icon-path",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "action-text",
+      "label": "action",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "behavior-to-reward",
+      "label": "behavior-to-reward",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "interaction-label",
+      "label": "interaction",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "atomic:environment-globe",
+      "label": "atomic:environment-globe",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": false
+    },
+    {
+      "entityId": "environment-label",
+      "label": "Environment",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    }
+  ],
+  "relations": [
+    {
+      "relationId": "rel:task-input-to-encoder",
+      "source": "task-input-box",
+      "target": "task-encoder",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:task-encoder-to-tau",
+      "source": "task-encoder",
+      "target": "tau-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:tau-to-mapping",
+      "source": "tau-box",
+      "target": "mapping-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:tau-to-allocator",
+      "source": "tau-box",
+      "target": "allocator-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:observation-to-mllm",
+      "source": "atomic:observation",
+      "target": "mllm-encoder",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:observation-to-wm",
+      "source": "atomic:observation",
+      "target": "wm-encoder",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:mllm-to-ev",
+      "source": "mllm-encoder",
+      "target": "ev-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:wm-to-st",
+      "source": "wm-encoder",
+      "target": "st-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:ev-to-joint",
+      "source": "ev-box",
+      "target": "joint-core",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:st-to-joint",
+      "source": "st-box",
+      "target": "joint-core",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:allocator-task1-route-1",
+      "source": "task-1-box",
+      "target": "expert-1-dyn",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:allocator-task1-route-2",
+      "source": "task-1-box",
+      "target": "zt-top-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:allocator-task2-route-1",
+      "source": "task-2-box",
+      "target": "expert-3-sem",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:allocator-task2-route-2",
+      "source": "task-2-box",
+      "target": "zt-bottom-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z0-to-z1",
+      "source": "imag-z0",
+      "target": "imag-z1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z1-to-z2",
+      "source": "imag-z1",
+      "target": "imag-z2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z2-to-zh",
+      "source": "imag-z2",
+      "target": "imag-zh",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z0-to-r0",
+      "source": "imag-z0",
+      "target": "reward-r0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z1-to-r1",
+      "source": "imag-z1",
+      "target": "reward-r1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z2-to-r2",
+      "source": "imag-z2",
+      "target": "reward-r2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z0-to-z1",
+      "source": "rollout-z0",
+      "target": "rollout-z1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z1-to-z2",
+      "source": "rollout-z1",
+      "target": "rollout-z2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z2-to-zh",
+      "source": "rollout-z2",
+      "target": "rollout-zh",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z0-to-pi0",
+      "source": "rollout-z0",
+      "target": "policy-pi0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z1-to-pi1",
+      "source": "rollout-z1",
+      "target": "policy-pi1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z2-to-pi2",
+      "source": "rollout-z2",
+      "target": "policy-pi2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-pi0-to-a0",
+      "source": "policy-pi0",
+      "target": "action-a0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-pi1-to-a1",
+      "source": "policy-pi1",
+      "target": "action-a1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-pi2-to-a2",
+      "source": "policy-pi2",
+      "target": "action-a2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-a0-to-z1",
+      "source": "action-a0",
+      "target": "rollout-z1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-a1-to-z2",
+      "source": "action-a1",
+      "target": "rollout-z2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-a2-to-next",
+      "source": "action-a2",
+      "target": "rollout-zh",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:zt-top-to-imagination",
+      "source": "zt-top-box",
+      "target": "rollout-z0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:zt-bottom-to-rollout",
+      "source": "zt-bottom-box",
+      "target": "rollout-z0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:mapping-to-imagination",
+      "source": "mapping-box",
+      "target": "task-conditioned-imagination",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:interaction-left",
+      "source": "atomic:environment-globe",
+      "target": "reward-action-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:interaction-right",
+      "source": "reward-action-box",
+      "target": "atomic:environment-globe",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    }
+  ],
+  "formulas": [],
+  "evidenceDeclarations": [],
+  "unknowns": [
+    "Independent scientific-semantic approval has not been supplied."
+  ],
+  "approval": {
+    "status": "PENDING",
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Bridge generation does not approve scientific content."
+  }
+}

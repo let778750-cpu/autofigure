@@ -1,0 +1,32 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "region_evaluation",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "critical_regions": 0,
+  "strict_pass": false,
+  "blockers": [
+    "regions:no-critical-regions"
+  ],
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1513,
+        554
+      ],
+      "critical": false,
+      "mean_abs_rgb_delta": 13.512,
+      "ssim": 0.7205,
+      "edge_iou": 0.3735,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "pass": false
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""autofigure prepare — 建案例目录并生成多模态大模型网页端提示词包。"""
+"""autofigure prepare — 显式选择输入路线并建立哈希绑定案例。"""
 
 from __future__ import annotations
 
@@ -7,11 +7,9 @@ import sys
 from pathlib import Path
 
 from tools.v2 import common
-from tools.v2.contracts import FIDELITY_PROFILES, SOURCE_MODES
+from tools.v2.contracts import FIDELITY_PROFILES, INPUT_ROUTES, PROCESSING_MODES
 
-PROMPT_TEMPLATE = """你是一名科研图表重绘专家。附件是一篇论文的模型架构图（{width}×{height} 像素）。请将它重绘为一个 SVG 文件，严格遵守以下输出合同。
-
-【硬性要求】
+SVG_AUTHORING_CONTRACT = """【硬性要求】
 1. `<svg>` 根元素必须带 `width="{width}" height="{height}" viewBox="0 0 {width} {height}"`，所有坐标以原图像素为基准，不得缩放。
 2. 所有文字必须逐字照抄原图（含大小写、上下标、希腊字母、标点），用 `<text>`/`<tspan>` 表达；禁止把文字画成路径。
 3. 公式用文本表达：变量斜体 `font-style="italic"`，上下标用 `<tspan baseline-shift="sub|super">`。
@@ -27,11 +25,16 @@ PROMPT_TEMPLATE = """你是一名科研图表重绘专家。附件是一篇论�
    `data-repeat-group`、`data-repeat-axis="vertical|horizontal"` 和唯一 `data-repeat-order`。同组图元须等尺寸、同轴，中心距差最多 1 px。
 8. 渐变用 `<linearGradient>`；虚线用 `stroke-dasharray`；成组元素用 `<g>`。
 9. 只输出 SVG 代码本身，不要任何解释文字。
-
-【风格要求】
-- 颜色、字号、粗细、对齐、间距尽量贴近原图。
-- 先整体布局后局部细节，确保每个模块位置与原图一一对应。
 """
+
+PROMPT_TEMPLATE = (
+    "你是一名科研图表重绘专家。附件是一篇论文的模型架构图（{width}×{height} 像素）。"
+    "请将它重绘为一个 SVG 文件，严格遵守以下输出合同。\n\n"
+    + SVG_AUTHORING_CONTRACT
+    + "\n【风格要求】\n"
+    "- 颜色、字号、粗细、对齐、间距尽量贴近原图。\n"
+    "- 先整体布局后局部细节，确保每个模块位置与原图一一对应。\n"
+)
 
 FOLLOW_UP = """
 下一步：
@@ -41,7 +44,8 @@ FOLLOW_UP = """
 3. 然后运行：autofigure convert "{run_root}"
 """
 
-PNG_RECONSTRUCT_PROMPT = """# PNG-only reconstruction contract
+PNG_RECONSTRUCT_PROMPT = (
+    """# PNG-only reconstruction contract
 
 本案例从冻结的 `reference.png` 直接开始，不要求、也不依赖 GPT Web 或其他网页端预先生成 SVG。
 
@@ -52,10 +56,17 @@ PNG_RECONSTRUCT_PROMPT = """# PNG-only reconstruction contract
 
 执行者可以是 Codex、其他 VLM 或人工操作员。必须逐区读取参考图并保持稳定对象 ID；文字、公式、规则形状和箭头保持原生可编辑。只有在 `assets.json` 明确授权时，复杂且不可忠实矢量化的微资产才允许使用紧边界参考图裁剪。
 
-所有容器内文字/公式必须声明 `data-layout-container`；所有重复图元必须声明 `data-repeat-group/data-repeat-axis/data-repeat-order`。工具会同时审计 SVG 源坐标和保存重开的 PowerPoint shape，借此区分视觉测量错误与转换漂移。
+## SVG 作者硬性合同（与 svg-seeded 路线共用）
 
+工具会同时审计 SVG 源坐标和保存重开的 PowerPoint shape，借此区分视觉测量错误与转换漂移。
+无论执行者是谁，返回的 SVG 载体都必须满足与 svg-seeded 路线完全相同的输出合同：
+
+"""
+    + SVG_AUTHORING_CONTRACT
+    + """
 候选通过 `autofigure ingest` 返回。离线初版当前以 SVG 作为可渲染载体；完整 scene/region patch 可以用于已有载体的修复，或交给 PowerPoint Live provider。任务协议与模型品牌无关，但视觉推理仍需要模型或人工执行，不能把“入口已连通”误写成“PNG 已自动一比一重建”。
 """
+)
 
 PNG_RECONSTRUCT_FOLLOW_UP = """
 下一步：
@@ -76,10 +87,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--case", default=None, help="案例名（默认从文件名推导）")
     parser.add_argument("--cases-root", type=Path, default=None, help="案例根目录（默认项目 examples/）")
     parser.add_argument(
+        "--input-route",
+        choices=INPUT_ROUTES,
+        required=True,
+        help="不可变输入路线：reference-only 或 svg-seeded",
+    )
+    parser.add_argument(
         "--source-mode",
-        choices=("auto", *SOURCE_MODES),
-        default="auto",
-        help="输入模式；auto 初始按 svg_import，SVG 被拒绝后再由 ingest 切换",
+        choices=PROCESSING_MODES,
+        default=None,
+        help="已弃用；仅校验与 --input-route 推导的初始处理模式一致",
     )
     parser.add_argument(
         "--fidelity-profile",
@@ -89,19 +106,35 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    source_mode = "svg_import" if args.source_mode == "auto" else args.source_mode
+    processing_mode = (
+        "png_reconstruct" if args.input_route == "reference-only" else "svg_import"
+    )
+    if args.source_mode is not None:
+        sys.stderr.write(
+            "warning: --source-mode 已弃用；输入来源只由必填 --input-route 记录。\n"
+        )
+        if args.source_mode != processing_mode:
+            raise common.fail(
+                f"--source-mode {args.source_mode} 与输入路线 {args.input_route} 的"
+                f"初始模式 {processing_mode} 不一致"
+            )
     fidelity_profile = args.fidelity_profile or (
-        "hybrid_fidelity" if source_mode == "png_reconstruct" else "editable_native"
+        "hybrid_fidelity" if args.input_route == "reference-only" else "editable_native"
     )
     run = common.create_run(
         args.reference,
         case=args.case,
         cases_root=args.cases_root,
-        source_mode=source_mode,
+        input_route=args.input_route,
+        processing_mode=processing_mode,
         fidelity_profile=fidelity_profile,
     )
     meta = run.load_meta()
-    if source_mode == "png_reconstruct":
+    try:
+        portable_run_root = run.root.relative_to(common.PROJECT_ROOT)
+    except ValueError:
+        portable_run_root = run.root
+    if args.input_route == "reference-only":
         from tools.v2.ingest import build_region_tasks
 
         build_region_tasks(run)
@@ -109,16 +142,19 @@ def main(argv: list[str] | None = None) -> int:
             width=meta["width"],
             height=meta["height"],
             reference_sha256=meta["source_sha256"],
-            region_tasks_path=run.region_tasks_path,
+            region_tasks_path="qa/region-tasks.json",
         )
         follow_up = PNG_RECONSTRUCT_FOLLOW_UP.format(
-            reference_path=run.source_png,
-            region_tasks_path=run.region_tasks_path,
-            run_root=run.root,
+            reference_path="reference.png",
+            region_tasks_path="qa/region-tasks.json",
+            run_root=portable_run_root,
         )
     else:
         prompt = PROMPT_TEMPLATE.format(width=meta["width"], height=meta["height"])
-        follow_up = FOLLOW_UP.format(svg_path=run.redraw_svg, run_root=run.root)
+        follow_up = FOLLOW_UP.format(
+            svg_path=portable_run_root / "redraw.svg",
+            run_root=portable_run_root,
+        )
     run.prompt_md.write_text(prompt, encoding="utf-8")
 
     sys.stdout.write(f"案例已创建: {run.root}\n")

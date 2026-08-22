@@ -119,7 +119,12 @@ def run_factory(tmp_path: Path):
     def make(svg: str, size: tuple[int, int] = (400, 200)) -> common.Run:
         source = tmp_path / "ref.png"
         Image.new("RGB", size, (240, 240, 240)).save(source)
-        run = common.create_run(source, case="case", cases_root=tmp_path / "examples")
+        run = common.create_run(
+            source,
+            case="case",
+            cases_root=tmp_path / "examples",
+            input_route="svg-seeded",
+        )
         run.qa_dir.mkdir(exist_ok=True)
         run.redraw_svg.write_text(svg, encoding="utf-8")
         return run

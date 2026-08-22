@@ -1,0 +1,37 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "provenance",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260821T130720Z",
+  "input_route": "svg-seeded",
+  "reference": {
+    "path": "reference.png",
+    "sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+    "original_name": "02_2026_CVPR_2026_Thinking_Diffusion_Penalize_and_Guide_Visual-Grounde.png"
+  },
+  "external_svg_seed": {
+    "kind": "svg",
+    "role": "external-seed",
+    "origin": "human",
+    "provider": "Kimi",
+    "model": null,
+    "interface": "web-assisted-manual",
+    "sha256": "3f52b682ab9e169edd0f9df4a11fe3bc55b93bf24d65cf1fb62a2c1384367d0f",
+    "exact_bytes_available": true,
+    "evidence": "examples README and git history"
+  },
+  "candidate_history": [
+    {
+      "kind": "svg",
+      "role": "external-seed",
+      "origin": "human",
+      "source_name": "redraw.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "3f52b682ab9e169edd0f9df4a11fe3bc55b93bf24d65cf1fb62a2c1384367d0f",
+      "ingested_at": "legacy-before-v3.1"
+    }
+  ],
+  "comparison_group": null,
+  "task_mode": "RECONSTRUCT_1TO1"
+}

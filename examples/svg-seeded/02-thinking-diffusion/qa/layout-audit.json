@@ -1,0 +1,2368 @@
+{
+  "schema_version": "1.0.0",
+  "svg": "redraw.svg",
+  "pptx": "redraw.pptx",
+  "defaults_px": {
+    "containment": 0.25,
+    "canvas": 0.25,
+    "repeat_size": 0.25,
+    "repeat_axis": 0.25,
+    "repeat_spacing": 1.0
+  },
+  "canvas": {
+    "backend": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1513.0,
+      "height": 554.0
+    },
+    "checked_elements": 156,
+    "objects": [
+      {
+        "element": "svg-circle-0001",
+        "box": {
+          "x": 475.8,
+          "y": 71.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0002",
+        "box": {
+          "x": 483.8,
+          "y": 71.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0003",
+        "box": {
+          "x": 491.8,
+          "y": 71.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0004",
+        "box": {
+          "x": 475.8,
+          "y": 240.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0005",
+        "box": {
+          "x": 483.8,
+          "y": 240.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0006",
+        "box": {
+          "x": 491.8,
+          "y": 240.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0007",
+        "box": {
+          "x": 483.8,
+          "y": 327.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0008",
+        "box": {
+          "x": 483.8,
+          "y": 337.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0009",
+        "box": {
+          "x": 483.8,
+          "y": 347.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0010",
+        "box": {
+          "x": 475.8,
+          "y": 398.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0011",
+        "box": {
+          "x": 483.8,
+          "y": 398.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0012",
+        "box": {
+          "x": 491.8,
+          "y": 398.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0013",
+        "box": {
+          "x": 1232.8,
+          "y": 71.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0014",
+        "box": {
+          "x": 1240.8,
+          "y": 71.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0015",
+        "box": {
+          "x": 1248.8,
+          "y": 71.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0016",
+        "box": {
+          "x": 1247.8,
+          "y": 238.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0017",
+        "box": {
+          "x": 1255.8,
+          "y": 238.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0018",
+        "box": {
+          "x": 1263.8,
+          "y": 238.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0019",
+        "box": {
+          "x": 1254.8,
+          "y": 329.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0020",
+        "box": {
+          "x": 1254.8,
+          "y": 339.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0021",
+        "box": {
+          "x": 1254.8,
+          "y": 349.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0022",
+        "box": {
+          "x": 1247.8,
+          "y": 396.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0023",
+        "box": {
+          "x": 1255.8,
+          "y": 396.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-circle-0024",
+        "box": {
+          "x": 1263.8,
+          "y": 396.8,
+          "width": 4.4,
+          "height": 4.4
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-line-0001",
+        "box": {
+          "x": 487.0,
+          "y": 95.0,
+          "width": 0.5,
+          "height": 23.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-line-0002",
+        "box": {
+          "x": 487.0,
+          "y": 166.0,
+          "width": 0.5,
+          "height": 34.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-line-0003",
+        "box": {
+          "x": 487.0,
+          "y": 362.0,
+          "width": 0.5,
+          "height": 22.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-line-0004",
+        "box": {
+          "x": 1244.0,
+          "y": 95.0,
+          "width": 0.5,
+          "height": 23.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-line-0005",
+        "box": {
+          "x": 1257.0,
+          "y": 166.0,
+          "width": 0.5,
+          "height": 32.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-line-0006",
+        "box": {
+          "x": 1257.0,
+          "y": 358.0,
+          "width": 0.5,
+          "height": 22.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0001",
+        "box": {
+          "x": 20.0,
+          "y": 35.0,
+          "width": 122.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0002",
+        "box": {
+          "x": 161.0,
+          "y": 35.0,
+          "width": 124.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0003",
+        "box": {
+          "x": 300.0,
+          "y": 35.0,
+          "width": 370.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0004",
+        "box": {
+          "x": 555.0,
+          "y": 287.0,
+          "width": 113.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0005",
+        "box": {
+          "x": 682.0,
+          "y": 205.0,
+          "width": 13.0,
+          "height": 77.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0006",
+        "box": {
+          "x": 305.0,
+          "y": 445.0,
+          "width": 160.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0007",
+        "box": {
+          "x": 682.0,
+          "y": 363.0,
+          "width": 13.0,
+          "height": 77.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0008",
+        "box": {
+          "x": 777.0,
+          "y": 35.0,
+          "width": 122.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0009",
+        "box": {
+          "x": 918.0,
+          "y": 35.0,
+          "width": 122.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0010",
+        "box": {
+          "x": 1057.0,
+          "y": 35.0,
+          "width": 370.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0011",
+        "box": {
+          "x": 1122.0,
+          "y": 287.0,
+          "width": 113.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0012",
+        "box": {
+          "x": 1460.0,
+          "y": 205.0,
+          "width": 13.0,
+          "height": 75.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0013",
+        "box": {
+          "x": 1327.0,
+          "y": 442.0,
+          "width": 113.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-path-0014",
+        "box": {
+          "x": 1460.0,
+          "y": 363.0,
+          "width": 13.0,
+          "height": 75.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0001",
+        "box": {
+          "x": 20.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0002",
+        "box": {
+          "x": 63.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0003",
+        "box": {
+          "x": 106.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0004",
+        "box": {
+          "x": 161.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0005",
+        "box": {
+          "x": 204.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0006",
+        "box": {
+          "x": 247.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0007",
+        "box": {
+          "x": 300.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0008",
+        "box": {
+          "x": 343.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0009",
+        "box": {
+          "x": 386.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0010",
+        "box": {
+          "x": 429.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0011",
+        "box": {
+          "x": 505.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0012",
+        "box": {
+          "x": 548.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0013",
+        "box": {
+          "x": 591.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0014",
+        "box": {
+          "x": 634.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0015",
+        "box": {
+          "x": 15.0,
+          "y": 122.0,
+          "width": 665.0,
+          "height": 40.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0016",
+        "box": {
+          "x": 300.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0017",
+        "box": {
+          "x": 343.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0018",
+        "box": {
+          "x": 386.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0019",
+        "box": {
+          "x": 429.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0020",
+        "box": {
+          "x": 507.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0021",
+        "box": {
+          "x": 550.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0022",
+        "box": {
+          "x": 593.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0023",
+        "box": {
+          "x": 636.0,
+          "y": 229.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0024",
+        "box": {
+          "x": 300.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0025",
+        "box": {
+          "x": 343.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0026",
+        "box": {
+          "x": 386.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0027",
+        "box": {
+          "x": 429.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0028",
+        "box": {
+          "x": 507.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0029",
+        "box": {
+          "x": 550.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0030",
+        "box": {
+          "x": 593.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0031",
+        "box": {
+          "x": 636.0,
+          "y": 387.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0032",
+        "box": {
+          "x": 27.0,
+          "y": 235.0,
+          "width": 253.0,
+          "height": 180.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0033",
+        "box": {
+          "x": 40.0,
+          "y": 257.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0034",
+        "box": {
+          "x": 40.0,
+          "y": 305.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0035",
+        "box": {
+          "x": 40.0,
+          "y": 355.0,
+          "width": 37.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0036",
+        "box": {
+          "x": 777.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0037",
+        "box": {
+          "x": 820.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0038",
+        "box": {
+          "x": 863.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0039",
+        "box": {
+          "x": 918.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0040",
+        "box": {
+          "x": 961.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0041",
+        "box": {
+          "x": 1004.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0042",
+        "box": {
+          "x": 1057.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0043",
+        "box": {
+          "x": 1100.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0044",
+        "box": {
+          "x": 1143.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0045",
+        "box": {
+          "x": 1186.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0046",
+        "box": {
+          "x": 1262.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0047",
+        "box": {
+          "x": 1305.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0048",
+        "box": {
+          "x": 1348.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0049",
+        "box": {
+          "x": 1391.0,
+          "y": 61.0,
+          "width": 36.0,
+          "height": 26.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0050",
+        "box": {
+          "x": 772.0,
+          "y": 122.0,
+          "width": 665.0,
+          "height": 40.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0051",
+        "box": {
+          "x": 1072.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0052",
+        "box": {
+          "x": 1115.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0053",
+        "box": {
+          "x": 1158.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0054",
+        "box": {
+          "x": 1201.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0055",
+        "box": {
+          "x": 1277.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0056",
+        "box": {
+          "x": 1320.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0057",
+        "box": {
+          "x": 1363.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0058",
+        "box": {
+          "x": 1406.0,
+          "y": 227.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0059",
+        "box": {
+          "x": 1070.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0060",
+        "box": {
+          "x": 1113.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0061",
+        "box": {
+          "x": 1156.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0062",
+        "box": {
+          "x": 1199.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0063",
+        "box": {
+          "x": 1282.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0064",
+        "box": {
+          "x": 1325.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0065",
+        "box": {
+          "x": 1368.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-rect-0066",
+        "box": {
+          "x": 1411.0,
+          "y": 385.0,
+          "width": 38.0,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0001",
+        "box": {
+          "x": 39.255013,
+          "y": 9.950026,
+          "width": 83.489974,
+          "height": 43.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0002",
+        "box": {
+          "x": 180.125039,
+          "y": 9.950026,
+          "width": 93.750026,
+          "height": 43.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0003",
+        "box": {
+          "x": 430.055013,
+          "y": 9.950026,
+          "width": 113.889974,
+          "height": 43.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0004",
+        "box": {
+          "x": 146.64,
+          "y": 128.099948,
+          "width": 400.72,
+          "height": 47.500052
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0005",
+        "box": {
+          "x": 473.699948,
+          "y": 191.0,
+          "width": 76.6,
+          "height": 45.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0006",
+        "box": {
+          "x": 527.699948,
+          "y": 257.750026,
+          "width": 80.6,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0007",
+        "box": {
+          "x": 589.0,
+          "y": 257.750026,
+          "width": 44.0,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0008",
+        "box": {
+          "x": 632.975013,
+          "y": 257.750026,
+          "width": 42.049974,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0009",
+        "box": {
+          "x": 656.304987,
+          "y": 235.375013,
+          "width": 111.390026,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0010",
+        "box": {
+          "x": 434.24,
+          "y": 295.2,
+          "width": 211.52,
+          "height": 50.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0011",
+        "box": {
+          "x": 433.04,
+          "y": 325.2,
+          "width": 207.92,
+          "height": 50.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0012",
+        "box": {
+          "x": 289.175013,
+          "y": 410.750026,
+          "width": 57.649974,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0013",
+        "box": {
+          "x": 326.925039,
+          "y": 410.750026,
+          "width": 68.150026,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0014",
+        "box": {
+          "x": 408.8,
+          "y": 410.750026,
+          "width": 76.4,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0015",
+        "box": {
+          "x": 527.699948,
+          "y": 415.750026,
+          "width": 80.6,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0016",
+        "box": {
+          "x": 589.0,
+          "y": 415.750026,
+          "width": 44.0,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0017",
+        "box": {
+          "x": 632.975013,
+          "y": 415.750026,
+          "width": 42.049974,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0018",
+        "box": {
+          "x": 655.88,
+          "y": 393.375013,
+          "width": 112.24,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0019",
+        "box": {
+          "x": 198.92,
+          "y": 445.2,
+          "width": 226.16,
+          "height": 50.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0020",
+        "box": {
+          "x": 216.2,
+          "y": 475.2,
+          "width": 197.6,
+          "height": 50.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0021",
+        "box": {
+          "x": 85.0,
+          "y": 259.849974,
+          "width": 124.48,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0022",
+        "box": {
+          "x": 85.0,
+          "y": 305.849974,
+          "width": 196.219948,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0023",
+        "box": {
+          "x": 85.0,
+          "y": 327.849974,
+          "width": 132.64,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0024",
+        "box": {
+          "x": 85.0,
+          "y": 355.849974,
+          "width": 196.56,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0025",
+        "box": {
+          "x": 85.0,
+          "y": 377.849974,
+          "width": 132.64,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0026",
+        "box": {
+          "x": 145.2,
+          "y": 526.0,
+          "width": 309.6,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0027",
+        "box": {
+          "x": 796.255013,
+          "y": 9.950026,
+          "width": 83.489974,
+          "height": 43.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0028",
+        "box": {
+          "x": 932.125039,
+          "y": 9.950026,
+          "width": 93.750026,
+          "height": 43.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0029",
+        "box": {
+          "x": 1187.055013,
+          "y": 9.950026,
+          "width": 113.889974,
+          "height": 43.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0030",
+        "box": {
+          "x": 1003.64,
+          "y": 128.099948,
+          "width": 400.72,
+          "height": 47.500052
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0031",
+        "box": {
+          "x": 1260.300052,
+          "y": 188.0,
+          "width": 195.4,
+          "height": 45.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0032",
+        "box": {
+          "x": 1099.925039,
+          "y": 252.750026,
+          "width": 68.150026,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0033",
+        "box": {
+          "x": 1194.099948,
+          "y": 252.750026,
+          "width": 51.8,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0034",
+        "box": {
+          "x": 1465.0,
+          "y": 219.375013,
+          "width": 48.0,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0035",
+        "box": {
+          "x": 1073.009974,
+          "y": 294.099948,
+          "width": 209.980052,
+          "height": 47.500052
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0036",
+        "box": {
+          "x": 1078.289974,
+          "y": 322.099948,
+          "width": 199.419948,
+          "height": 47.500052
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0037",
+        "box": {
+          "x": 1060.175013,
+          "y": 410.750026,
+          "width": 57.649974,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0038",
+        "box": {
+          "x": 1097.925039,
+          "y": 410.750026,
+          "width": 68.150026,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0039",
+        "box": {
+          "x": 1153.0,
+          "y": 410.750026,
+          "width": 44.0,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0040",
+        "box": {
+          "x": 1192.099948,
+          "y": 410.750026,
+          "width": 51.8,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0041",
+        "box": {
+          "x": 1303.699948,
+          "y": 410.750026,
+          "width": 80.6,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0042",
+        "box": {
+          "x": 1408.975013,
+          "y": 410.750026,
+          "width": 42.049974,
+          "height": 38.750026
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0043",
+        "box": {
+          "x": 1465.0,
+          "y": 377.375013,
+          "width": 48.0,
+          "height": 41.249974
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0044",
+        "box": {
+          "x": 1283.72,
+          "y": 454.099948,
+          "width": 196.56,
+          "height": 47.500052
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0045",
+        "box": {
+          "x": 1293.180052,
+          "y": 482.099948,
+          "width": 177.64,
+          "height": 47.500052
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "svg-text-0046",
+        "box": {
+          "x": 875.4,
+          "y": 526.0,
+          "width": 349.2,
+          "height": 28.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      }
+    ]
+  },
+  "containment": [],
+  "repeat_groups": [],
+  "missing_annotated_backend_objects": [],
+  "findings": [],
+  "pass": true
+}

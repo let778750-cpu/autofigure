@@ -1464,7 +1464,7 @@ def _write_conversion_contracts(run: common.Run, ctx: ConvertContext, reopened) 
             ],
             "artifact": {
                 "backend": "pptx-offline",
-                "path": str(run.pptx_path),
+                "path": "redraw.pptx",
                 "sha256": pptx_hash,
             },
         }
@@ -1585,8 +1585,8 @@ def convert(run: common.Run) -> dict:
 
     layout_report = audit_layout(run)
     summary = {
-        "svg": str(run.redraw_svg),
-        "pptx": str(run.pptx_path),
+        "svg": "redraw.svg",
+        "pptx": "redraw.pptx",
         "slide_count": len(reopened.slides._sldIdLst),
         "shape_count": len(reopened.slides[0].shapes),
         "textbox_with_text": readback_texts,

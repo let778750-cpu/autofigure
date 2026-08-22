@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_save_reopen_diagnostic",
+  "provider": "powerpoint-live",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "target_id": "autofigure-pptx",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "source_candidate": "redraw.pptx",
+  "candidate_sha256": "3fb2dfa20b5784669448f850a3b74ddc8713a173acd2d97231183ec8f8ab40a8",
+  "reopened_artifact_sha256": "3fb2dfa20b5784669448f850a3b74ddc8713a173acd2d97231183ec8f8ab40a8",
+  "saved_reopened": true,
+  "reopened_inventory_equal": true,
+  "package_audit": {
+    "hard_failure_count": 0,
+    "warning_count": 0,
+    "macros_present": false,
+    "external_links_present": false
+  },
+  "live_layout_audit": {
+    "hard_failure_count_before_correction": 9,
+    "hard_failure_count_after_correction": 0,
+    "warning_count_after_correction": 0
+  },
+  "region_results": "not asserted",
+  "automatic_status": "INDEPENDENT_REVIEW_REQUIRED",
+  "release_authority": "NONE",
+  "note": "This proves managed PowerPoint save/reopen and backend integrity only. It is deliberately not accepted as live-evidence.json and cannot satisfy failed fidelity regions."
+}

@@ -14,7 +14,12 @@ from tools.v2 import common
 from tools.v2.layout import audit_layout
 
 
-CASE = Path(__file__).resolve().parents[2] / "examples" / "01-modular-agent"
+CASE = (
+    Path(__file__).resolve().parents[2]
+    / "examples"
+    / "svg-seeded"
+    / "01-modular-agent"
+)
 
 
 def test_case01_mapping_arrow_is_above_imagination_panel():

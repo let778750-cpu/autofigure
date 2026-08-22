@@ -1,0 +1,59 @@
+{
+  "case": "02-thinking-diffusion",
+  "created_at": "20260818T131107Z",
+  "source_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "width": 1513,
+  "height": 554,
+  "input_route": "svg-seeded",
+  "processing_mode": "svg_import",
+  "source_original_name": "02_2026_CVPR_2026_Thinking_Diffusion_Penalize_and_Guide_Visual-Grounde.png",
+  "reference_path": "reference.png",
+  "workflow": {
+    "state": "candidate",
+    "revision": 2,
+    "history": [
+      {
+        "state": "candidate",
+        "at": "20260821T125708Z",
+        "reason": "explicit-v3.1-migration"
+      },
+      {
+        "state": "repairing",
+        "at": "20260821T130129Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260821T130129Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "ceee5c1db2a757afbbf77a788dd63f9f46cdde10d89fead706848f4d44f765dd",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      }
+    ]
+  },
+  "schema_version": "3.1.0",
+  "fidelity_profile": "editable_native",
+  "backend_mode": "offline",
+  "validation": {
+    "profile": "standard",
+    "status": "diagnostic",
+    "checked_at": "20260821T130750Z",
+    "blockers": [
+      "regions:no-critical-regions",
+      "arrow:F1:arrow-0001",
+      "arrow:F1:arrow-0002",
+      "arrow:F3:arrow-0002",
+      "arrow:F1:arrow-0003",
+      "arrow:F3:arrow-0003",
+      "arrow:F1:arrow-0004",
+      "arrow:F1:arrow-0005",
+      "arrow:F3:arrow-0005",
+      "arrow:F1:arrow-0006",
+      "arrow:F3:arrow-0006"
+    ]
+  },
+  "task_mode": "RECONSTRUCT_1TO1"
+}
