@@ -41,6 +41,7 @@
 .venv\Scripts\python -m compileall -q tools\v2 tests\v2
 autofigure cases --write-index
 autofigure cases --check
+autofigure hygiene
 ```
 
 测试临时目录必须位于受控外部 basetemp，结束后删除；正式案例不得残留 mock、缓存、临时 candidate 或 PowerPoint Live session build。
