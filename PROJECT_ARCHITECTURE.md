@@ -234,6 +234,8 @@ examples/
 
 standard 永远只是诊断，不授予 approved。strict 没有 critical region 时必须添加 `regions:no-critical-regions`；strict 禁止跳过 OCR，必须验证 inventory receipt、asset-contract receipt 与精确文字闭合，并总是消费 PowerPoint Live finalizer 证据。不含 `reference_inventory` 的 legacy 案例保持可读，但不会为其伪造任何冻结 receipt。
 
+`check` 同时把验收状态拆成六个机器可读维度写入 `qa/qa-status.json`：`offline_package_consistency`、`saved_reopened_consistency`、`reference_fidelity`、`repair_plan_coverage`、`repair_execution`、`release_eligibility`，每维度 `pass|fail|not_evaluated` 并携带 blocker 与证据 SHA-256；`repair_execution` 是按当前证据重算的闭环判定，不是修复动作回执。`release_eligibility` 纯派生：其余五维度全 pass 且状态为 `approved`。六维度全 pass 时 `release` 才在案例根生成 `release-manifest.json`（哈希绑定发布面文件与 `qa/qa-status.json`）；`release --check` 重算哈希与维度，漂移即失败；`cases --check` 检出非 approved 携带 manifest 或 approved 缺 manifest。
+
 ## 6. 箭头与布局
 
 两条输入路线只生成统一 `ArrowSpec`，确定性编译器再选择单一 PowerPoint 对象：直线 line、真实附着 connector、固定 polyline/cubic freeform，或单一闭合块箭头 freeform。相同 ArrowSpec 的编译策略必须相同。

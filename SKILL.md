@@ -141,6 +141,17 @@ strict 默认：critical SSIM ≥0.85、Edge IoU ≥0.75；授权位图 SSIM ≥
 
 没有 critical region 时必须失败为 `regions:no-critical-regions`。
 
+check 同时把验收状态拆成六个机器可读维度写入 `qa/qa-status.json`：`offline_package_consistency`、`saved_reopened_consistency`、`reference_fidelity`、`repair_plan_coverage`、`repair_execution`、`release_eligibility`；每维度为 `pass|fail|not_evaluated` 并携带 blocker 与证据 SHA-256。`repair_execution` 是按当前证据重算的闭环判定，不是修复动作回执；案例没有 PowerPoint Live 证据时 `saved_reopened_consistency` 为 `not_evaluated`。
+
+六维度全 pass（等价 strict approved）后才能生成发布清单：
+
+```text
+autofigure release <case>
+autofigure release <case> --check
+```
+
+`release-manifest.json` 位于案例根，把发布面文件与 `qa/qa-status.json` 哈希绑定；`--check` 重算全部哈希与维度，漂移即失败。非 approved 存在 manifest 或 approved 缺 manifest 均被 `autofigure cases --check` 检出。
+
 ## PowerPoint Live
 
 只在离线候选的失败区域启动 visible managed session。必须 inspect、audit、最小修改、save/reopen、重新渲染与回读。PowerPoint Live 自动状态最多为 `INDEPENDENT_REVIEW_REQUIRED`，没有 release authority。

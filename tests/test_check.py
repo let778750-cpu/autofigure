@@ -57,3 +57,14 @@ def test_repair_evidence_hashes_fresh_asset_spec_audit(tmp_path: Path):
 
     assert hashes["asset-spec-audit.json"] == common.sha256_file(audit)
     assert hashes["asset-contract-receipt.json"] == common.sha256_file(receipt)
+
+
+def test_qa_report_hashes_exclude_derived_qa_status(tmp_path: Path):
+    # qa-status.json 是 check 尾段重写的派生读出，其哈希由 release manifest 绑定；
+    # 进入本名单会使 repair plan 与 qa-status 互相哈希追逐。
+    run = common.Run(tmp_path)
+    run.qa_dir.mkdir()
+    status = run.qa_dir / "qa-status.json"
+    status.write_text('{"kind":"qa_status"}\n', encoding="utf-8")
+
+    assert "qa-status.json" not in _qa_report_hashes(run)

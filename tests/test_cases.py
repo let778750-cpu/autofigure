@@ -211,4 +211,54 @@ def test_cases_check_requires_live_evidence_for_hybrid_approved_case(tmp_path: P
     write_json(run.qa_dir / "live-evidence.json", {"schema_version": "1.1.0"})
     _, findings = discover_cases(cases_root)
     assert expected not in findings
+    assert f"approved-without-release-manifest:{run.root / 'release-manifest.json'}" in findings
+
+    write_json(
+        run.root / "release-manifest.json",
+        {"schema_version": "4.0.0", "kind": "release_manifest"},
+    )
+    _, findings = discover_cases(cases_root)
     assert not any(item.startswith("approved-") for item in findings)
+
+
+def test_cases_check_rejects_release_manifest_without_approval(tmp_path: Path):
+    cases_root = tmp_path / "examples"
+    run = common.create_run(
+        _reference(tmp_path),
+        case="orphan-manifest",
+        cases_root=cases_root,
+        input_route="reference-only",
+    )
+    manifest = run.root / "release-manifest.json"
+    write_json(manifest, {"schema_version": "4.0.0", "kind": "release_manifest"})
+
+    _, findings = discover_cases(cases_root)
+
+    assert f"release-manifest-without-approval:{manifest}" in findings
+
+
+def test_cases_check_requires_release_manifest_for_approved_case(tmp_path: Path):
+    cases_root = tmp_path / "examples"
+    run = common.create_run(
+        _reference(tmp_path),
+        case="approved-no-manifest",
+        cases_root=cases_root,
+        input_route="svg-seeded",
+    )
+    meta = run.load_meta()
+    meta["workflow"]["state"] = "approved"
+    meta["validation"] = {
+        "profile": "strict",
+        "status": "passed",
+        "checked_at": "20260823T000000Z",
+        "blockers": [],
+    }
+    write_json(run.meta_path, meta)
+    manifest = run.root / "release-manifest.json"
+
+    _, findings = discover_cases(cases_root)
+    assert f"approved-without-release-manifest:{manifest}" in findings
+
+    write_json(manifest, {"schema_version": "4.0.0", "kind": "release_manifest"})
+    _, findings = discover_cases(cases_root)
+    assert f"approved-without-release-manifest:{manifest}" not in findings
