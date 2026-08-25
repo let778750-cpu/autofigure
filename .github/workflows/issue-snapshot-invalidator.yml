@@ -1,0 +1,95 @@
+name: Issue Snapshot Invalidator
+
+on:
+  # Comments, assignees, milestones, pins, and locks are outside scope authority.
+  # These actions can change title/body/Parent Epic, labels, open state, or identity.
+  issues:
+    types:
+      - closed
+      - deleted
+      - edited
+      - labeled
+      - opened
+      - reopened
+      - transferred
+      - unlabeled
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  statuses: write
+
+jobs:
+  normalize-taxonomy:
+    name: Normalize the live Issue taxonomy from its trusted form field
+    # A deleted Issue no longer has a mutable API resource. Transferred events
+    # are still checked: an in-repository target converges, while a source-side
+    # 404 fails closed. Discovery always runs independently and poisons heads.
+    if: github.event.action != 'deleted'
+    permissions:
+      contents: read
+      issues: write
+    concurrency:
+      group: issue-taxonomy-${{ github.repository_id }}-${{ github.event.issue.number }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Fail closed or converge to exactly one canonical area label
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/normalize_issue_taxonomy.py
+
+  discover:
+    name: Find exact heads bound to the mutated Issue
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      targets: ${{ steps.scan.outputs.targets }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Parse exact-head contracts as inert API data
+        id: scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/invalidate_issue_snapshots.py --discover
+
+  invalidate:
+    name: Fail policy for PR #${{ matrix.target.pr_number }} head
+    needs: discover
+    if: ${{ needs.discover.outputs.targets != '[]' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.discover.outputs.targets) }}
+    # Open PRs share the exact-head governance group; merged/unreceipted PRs
+    # share the PR-number lifecycle group. A mutation cancels an in-flight
+    # validator/finalizer before it can publish success or a receipt.
+    concurrency:
+      group: ${{ matrix.target.coordination_group }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Permanently poison this exact head after Issue mutation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          python .github/scripts/invalidate_issue_snapshots.py
+          --invalidate-head "${{ matrix.target.head }}"
+          --issue-number "${{ github.event.issue.number }}"

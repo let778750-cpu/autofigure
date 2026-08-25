@@ -1,0 +1,323 @@
+{
+  "schema_version": 3,
+  "repository": "let778750-cpu/autofigure",
+  "risk_order": ["R0", "R1", "R2"],
+  "branch_flow": {
+    "resident_branches": ["main", "develop"],
+    "develop_branch": "develop",
+    "release_branch": "main",
+    "same_repository_only": true,
+    "feature_head_regex": "^codex/(?P<stage>(?!integration-)[a-z][a-z0-9-]*)-v(?P<version>[1-9][0-9]*)$",
+    "integration_head_regex": "^codex/integration-(?P<stage>[a-z][a-z0-9-]*)-v(?P<version>[1-9][0-9]*)$",
+    "feature_pr_types": ["feature", "task-definition"],
+    "integration_pr_type": "integration",
+    "integration_risk": "R2",
+    "integration_sunset_days": 14,
+    "main_head": "develop",
+    "main_pr_type": "release",
+    "forbid_topic_branch_reuse_after_any_pr": true,
+    "topic_branch_delete_after_merge": true
+  },
+  "merge_policy": {
+    "into_develop": "squash",
+    "into_main": "merge-commit",
+    "direct_push": false,
+    "force_push": false,
+    "resident_branch_deletion": false,
+    "topic_branch_delete_after_merge": true
+  },
+  "pr_author": {
+    "required_account_type": "Bot",
+    "require_distinct_implementation_agent": true,
+    "implementation_agent_verification": "manual-review-required",
+    "allowed_bot_logins": [],
+    "expected_candidate_login": "chatgpt-codex-connector[bot]",
+    "allowlist_state": "rollout-blocked-until-pr-user-login-is-verified"
+  },
+  "release_approval": {
+    "required_login": "let778750-cpu",
+    "require_current_head_approval": true,
+    "policy_status_context": "pr-governance/policy",
+    "owner_status_context": "pr-governance/main-owner-approval",
+    "trusted_recheck_label": "governance:recheck"
+  },
+  "remote_merge_gate": {
+    "evidence": "github-active-branch-rules-api",
+    "require_app_binding": true,
+    "required_contexts_by_base": {
+      "develop": [
+        "pr-governance/policy",
+        "portable-tests (ubuntu-latest, py3.12)",
+        "portable-tests (windows-latest, py3.12)",
+        "case-contracts",
+        "branch-lifecycle/sunset"
+      ],
+      "main": [
+        "pr-governance/policy",
+        "pr-governance/main-owner-approval",
+        "portable-tests (ubuntu-latest, py3.12)",
+        "portable-tests (windows-latest, py3.12)",
+        "case-contracts"
+      ]
+    },
+    "required_pr_rule_parameters": [
+      "dismiss_stale_reviews_on_push",
+      "require_code_owner_review",
+      "require_last_push_approval",
+      "required_review_thread_resolution"
+    ],
+    "required_ref_guard_rules": ["deletion", "non_fast_forward"]
+  },
+  "metadata": {
+    "required_fields": [
+      "Authority-Contract",
+      "PR-Type",
+      "Risk-Level",
+      "Epic",
+      "Stage",
+      "Included-Issues",
+      "Deferred-Issues",
+      "Scope-Freeze",
+      "Branch-Sunset",
+      "Evidence-Baseline",
+      "Evidence-Invalidation",
+      "Rollback-Unit",
+      "Accountable-Owner",
+      "Implementation-Agent",
+      "Independent-PR-Author",
+      "Workstream",
+      "Scientific-Mode",
+      "Closure-State"
+    ],
+    "epic_regex": "^#[1-9][0-9]*$",
+    "release_epic": "release",
+    "issue_list_regex": "^#[1-9][0-9]*(?:,\\s*#[1-9][0-9]*)*$",
+    "deferred_issue_list_regex": "^(?:none|#[1-9][0-9]*(?:,\\s*#[1-9][0-9]*)*)$",
+    "stage_regex": "^(?P<stage>[a-z][a-z0-9-]*)@v(?P<version>[1-9][0-9]*)$",
+    "scope_freeze_regex": "^scope@[0-9a-f]{40}$",
+    "evidence_baseline_regex": "^head@[0-9a-f]{40}$",
+    "scientific_modes": [
+      "RECONSTRUCT_1TO1",
+      "NEW_OR_REDESIGN",
+      "NOT_APPLICABLE"
+    ],
+    "ready_value": "ready",
+    "required_evidence_invalidation_tokens": [
+      "head-change",
+      "scope-change",
+      "oracle-change"
+    ],
+    "rollback_units": {
+      "develop": "stage-squash",
+      "main": "release-merge"
+    }
+  },
+  "required_sections": [
+    "范围与非目标",
+    "Epic、Stage 与 Scope Freeze",
+    "变更说明",
+    "契约与权威影响",
+    "验证证据",
+    "证据失效条件",
+    "回滚单元与恢复",
+    "回归与反例证据",
+    "剩余风险与后续",
+    "独立复核"
+  ],
+  "r2_required_sections": [
+    "科学保真门禁（R2 必填）",
+    "对抗性证据（R2 必填）"
+  ],
+  "integration_required_sections": [
+    "Integration 例外与 14 天退出"
+  ],
+  "release_required_sections": [
+    "发布审批（release 必填）"
+  ],
+  "scope_thresholds": {
+    "max_included_issues": 3,
+    "max_source_test_files": 30,
+    "max_non_generated_loc": 1500,
+    "explanation_section": "Scope Threshold Explanation",
+    "explanation_required_fields": [
+      "Atomic-Outcome",
+      "Shared-Failure-Mechanism",
+      "Shared-Validation",
+      "Rollback-Reason"
+    ],
+    "source_test_patterns": [
+      "tools/**",
+      "tests/**",
+      ".github/scripts/**",
+      ".github/workflows/**"
+    ],
+    "derived_evidence_patterns": [
+      "examples/**/qa/*-report.json",
+      "examples/**/qa/*-summary.json",
+      "examples/**/qa/*-audit.json",
+      "examples/**/qa/*-review.json",
+      "examples/**/qa/*-preview.png",
+      "examples/**/qa/diff.png",
+      "examples/**/qa/metrics.json",
+      "examples/**/qa/ocr-texts.json",
+      "examples/**/qa/math/*.json",
+      "examples/**/render.png",
+      "examples/**/preview.png",
+      "examples/**/check-report.md",
+      "docs/CURRENT_WORKTREE_BASELINE.md"
+    ],
+    "case_source_patterns": [
+      "examples/**/reference.png",
+      "examples/**/external-seed.svg",
+      "examples/**/scene.json",
+      "examples/**/scene_graph.json",
+      "examples/**/assets.json",
+      "examples/**/asset_manifest.json",
+      "examples/**/regions.json",
+      "examples/**/scientific_spec.json",
+      "examples/**/render_plan.json",
+      "examples/**/source_manifest.json",
+      "examples/**/prompt.md"
+    ]
+  },
+  "risk_rules": [
+    {
+      "level": "R2",
+      "patterns": [
+        ".github/governance-policy.json",
+        ".github/governance-contract.schema.json",
+        ".github/stage-contracts/**",
+        ".github/release-contracts/**",
+        ".github/scripts/**",
+        ".github/workflows/**",
+        "tools/**",
+        "examples/**",
+        "references/**",
+        "SKILL.md",
+        "HIGH_FIDELITY.md",
+        "PROJECT_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "level": "R1",
+      "patterns": [
+        "tests/**",
+        "requirements.txt",
+        "pyproject.toml",
+        "autofigure.cmd",
+        "docs/**",
+        ".github/ISSUE_TEMPLATE/**",
+        ".github/pull_request_template.md",
+        ".github/CODEOWNERS"
+      ]
+    }
+  ],
+  "closure_gate": {
+    "require_included_issue": true,
+    "develop_issue_closure": "trusted-finalizer-api",
+    "require_ready_state": true,
+    "require_substantive_sections": true,
+    "minimum_section_characters": 20
+  },
+  "branch_history": {
+    "github_api": "https://api.github.com",
+    "page_size": 100,
+    "max_pages": 100
+  },
+  "api_evidence": {
+    "github_api": "https://api.github.com",
+    "github_graphql": "https://api.github.com/graphql",
+    "page_size": 100,
+    "pull_files_max": 3000,
+    "execute_pr_head": false,
+    "diff_source": "pull-files-rest-api"
+  },
+  "governance_contract": {
+    "schema_version": 1,
+    "stage_directory": ".github/stage-contracts",
+    "release_directory": ".github/release-contracts",
+    "stage_path_template": ".github/stage-contracts/{stage}-v{version}.json",
+    "release_path_template": ".github/release-contracts/release-v{version}.json",
+    "release_path_regex": "^\\.github/release-contracts/release-v[1-9][0-9]*\\.json$",
+    "max_bytes": 65536,
+    "authority": "exact-commit-contents-and-blob-api",
+    "body_role": "strict-readable-mirror-only",
+    "release_preparation": {
+      "state": "active",
+      "stage_slug": "release-preparation",
+      "require_target_open": true,
+      "require_target_draft": true,
+      "release_scope_mode": "current-head"
+    }
+  },
+  "branch_lifecycle": {
+    "schedule": "17 3 * * *",
+    "close_expired_topic_prs": false,
+    "sunset_status_context": "branch-lifecycle/sunset",
+    "freeze_closed_unmerged_branches": true,
+    "delete_merged_topic_branches": true,
+    "verify_mutation": true,
+    "scheduled_finalization": false,
+    "manual_retry_requires_pr_number": true,
+    "completed_issue_state_reason": "completed",
+    "trusted_finalizer_actor": {
+      "account_type": "Bot",
+      "logins": ["github-actions[bot]"]
+    },
+    "receipt": {
+      "kind": "protected-lightweight-tag",
+      "tag_prefix": "autofigure-finalized/pr-",
+      "target": "exact-merge-commit-sha",
+      "ruleset": {
+        "state": "rollout-blocked-until-remote-ruleset-and-integration-id-verified",
+        "name": "Protect finalizer receipts",
+        "source_type": "Repository",
+        "source": "let778750-cpu/autofigure",
+        "ruleset_id": null,
+        "verified_updated_at": null,
+        "include_ref": "refs/tags/autofigure-finalized/**",
+        "required_rules": ["creation", "update", "deletion", "non_fast_forward"],
+        "trusted_bypass_actors": [],
+        "bypass_attestation_sha256": null
+      }
+    }
+  },
+  "rollout": {
+    "bootstrap_branch": "codex/governance-bootstrap-v1",
+    "bootstrap_enforcement": "manual-external-review-required",
+    "trusted_workflows_active_only_after_default_branch_merge": true,
+    "remote_ruleset": "rollout-pending-fail-closed"
+  },
+  "issue_taxonomy": {
+    "canonical_areas": [
+      "area:visual-grammar",
+      "area:typography",
+      "area:member-geometry",
+      "area:microasset-fidelity",
+      "area:asset-representation",
+      "area:qa-repair",
+      "area:route-parity"
+    ],
+    "primary_area_heading": "Primary Area",
+    "auxiliary_label_prefixes": [
+      "type:",
+      "priority:",
+      "status:",
+      "mode:",
+      "scientific:",
+      "topic:",
+      "component:",
+      "case:",
+      "target:"
+    ],
+    "sync_mode": "trusted-issues-workflow"
+  },
+  "issue_contract": {
+    "epic_label": "type:epic",
+    "parent_epic_heading": "Parent Epic",
+    "require_open_epic_for_stage": true,
+    "require_open_included_issue_for_stage": true,
+    "require_open_deferred_issue_for_stage": true,
+    "develop_finalizer_closes_included_issues": true
+  }
+}

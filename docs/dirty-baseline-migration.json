@@ -1,0 +1,385 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "dirty_baseline_migration",
+  "baseline": {
+    "source": "local-original-worktree",
+    "source_path_published": false,
+    "branch": "main",
+    "commit": "513c47b845b56e0b9dcf634d9a9ea5929e01a2a3",
+    "captured_at": "2026-08-25T10:50:10+08:00",
+    "status": {
+      "command": "git -c core.quotepath=false status --porcelain=v1 --untracked-files=all",
+      "default_porcelain_entries": 271,
+      "full_file_entries": 432,
+      "tracked_modified": 169,
+      "untracked": 263,
+      "staged": 0,
+      "deleted": 0,
+      "renamed": 0,
+      "conflicted": 0,
+      "canonicalization": {
+        "sort": "PowerShell 7 Sort-Object ascending (.NET current-culture collation)",
+        "record_separator": "LF",
+        "trailing_separator": true,
+        "encoding": "UTF-8",
+        "digest": "SHA-256"
+      },
+      "sha256": "a6e1c229fb34e32c18100dc4d6bdfc43ca9e707d9028346c0d279e6c7bd70d84"
+    }
+  },
+  "migration_policy": {
+    "source_worktree_read_only": true,
+    "target_branch": "develop",
+    "serial_only": true,
+    "absolute_source_paths_forbidden": true,
+    "raw_history_forbidden": true,
+    "history_issue_policy": "publish only curated facts, hashes, reproduction steps, and acceptance criteria",
+    "generated_evidence_must_be_regenerated": true
+  },
+  "classification_precedence": [
+    "explicit code, test, and documentation paths",
+    "route-comparison report glob",
+    "direct case-root source basename rule",
+    "remaining files below route case roots",
+    "unclassified fail-closed"
+  ],
+  "groups": [
+    {
+      "id": "geometry",
+      "order": 1,
+      "depends_on": [],
+      "branch_hint": "codex/schema4-geometry-foundation-v1",
+      "counts": {
+        "tracked": 6,
+        "untracked": 10,
+        "total": 16
+      },
+      "status_sha256": "f60e5dc4106c88a90f1fd0ceebef29502ac539092d9baa31b790525979f86ade",
+      "explicit_paths": [
+        "tools/arrow_composition.py",
+        "tools/arrow_spec.py",
+        "tools/arrow_visual.py",
+        "tools/pptx_arrows.py",
+        "tools/primitives.py",
+        "tools/arrows.py",
+        "tools/layout.py",
+        "tools/convert.py",
+        "tests/test_arrow_composition.py",
+        "tests/test_arrow_spec.py",
+        "tests/test_arrow_visual.py",
+        "tests/test_pptx_arrows.py",
+        "tests/test_primitives.py",
+        "tests/test_arrows.py",
+        "tests/test_layout.py",
+        "tests/test_convert.py"
+      ],
+      "validation": [
+        "targeted geometry tests",
+        "full pytest",
+        "ruff",
+        "compileall"
+      ],
+      "inventory_sha256": "9418dfa68ffb22b9ed428e41594fdf9869b6e4975c31c4d555ea9787da59de99"
+    },
+    {
+      "id": "reference-contracts",
+      "order": 2,
+      "depends_on": [
+        "geometry"
+      ],
+      "branch_hint": "codex/schema4-reference-contracts-v1",
+      "counts": {
+        "tracked": 3,
+        "untracked": 10,
+        "total": 13
+      },
+      "status_sha256": "9a7b494734a0b4638d59324c21f11f1f58e8af4932787581e44fd0d45772793f",
+      "explicit_paths": [
+        "tools/asset_spec.py",
+        "tools/reference_inventory.py",
+        "tools/region_contract.py",
+        "tools/visual_contracts.py",
+        "tools/regions.py",
+        "tests/test_asset_contract_receipt.py",
+        "tests/test_asset_spec.py",
+        "tests/test_reference_inventory.py",
+        "tests/test_region_contract.py",
+        "tests/test_semantic_group_bindings.py",
+        "tests/test_visual_contracts.py",
+        "tests/test_regions.py",
+        "tests/test_png_channel.py"
+      ],
+      "validation": [
+        "reference inventory and receipt tests",
+        "asset and region contract tests",
+        "visual contract mutation tests",
+        "full pytest",
+        "ruff",
+        "compileall"
+      ],
+      "inventory_sha256": "7a49b3ae03e78561ded7a86ecc5095200158d2a2c8c3df4ebdffd7b72df28227"
+    },
+    {
+      "id": "source-lineage",
+      "order": 3,
+      "depends_on": [
+        "reference-contracts"
+      ],
+      "branch_hint": "codex/schema4-source-lineage-v1",
+      "counts": {
+        "tracked": 8,
+        "untracked": 11,
+        "total": 19
+      },
+      "status_sha256": "75784bf29f3726e1c6f55b68e72f9ee2b1e315631224ec3ab5768af7ca2822ff",
+      "explicit_paths": [
+        "tools/migrate_v4.py",
+        "tools/normalize_source.py",
+        "tools/qa_lineage.py",
+        "tools/revisions.py",
+        "tools/source_gate.py",
+        "tools/transactions.py",
+        "tools/cases.py",
+        "tools/common.py",
+        "tools/contracts.py",
+        "tools/ingest.py",
+        "tools/prepare.py",
+        "tools/__main__.py",
+        "tests/test_cases.py",
+        "tests/test_contracts.py",
+        "tests/test_convert_transactions.py",
+        "tests/test_normalize_source.py",
+        "tests/test_prepare.py",
+        "tests/test_revisions.py",
+        "tests/test_source_gate.py"
+      ],
+      "validation": [
+        "source admission accept-repair-reject tests",
+        "transaction rollback tests",
+        "revision and lineage invalidation tests",
+        "full pytest",
+        "ruff",
+        "compileall"
+      ],
+      "inventory_sha256": "27413c2402e8fb6697ff6ac1f94e772ec1e97463939a418ecfd8eea997475245"
+    },
+    {
+      "id": "strict-repair",
+      "order": 4,
+      "depends_on": [
+        "source-lineage"
+      ],
+      "branch_hint": "codex/schema4-strict-repair-v1",
+      "counts": {
+        "tracked": 11,
+        "untracked": 2,
+        "total": 13
+      },
+      "status_sha256": "b5e2f7486b9fb682d76713e904ef1cb959edb3d50f68ce5d34500cbe25b6c747",
+      "explicit_paths": [
+        "tools/check.py",
+        "tools/live_bridge.py",
+        "tools/math.py",
+        "tools/providers.py",
+        "tools/repair.py",
+        "tools/repair_plan.py",
+        "tests/test_check.py",
+        "tests/test_live_bridge.py",
+        "tests/test_math.py",
+        "tests/test_providers.py",
+        "tests/test_repair.py",
+        "tests/test_repair_plan.py",
+        "tests/test_case01_regressions.py"
+      ],
+      "validation": [
+        "strict blocker aggregation tests",
+        "repair-plan coverage tests",
+        "live evidence and save-reopen tests",
+        "full pytest",
+        "ruff",
+        "compileall"
+      ],
+      "inventory_sha256": "6e3e3632f2d0264272a072c8f76d9ab9c9c556efa8fa37c73b724e95a5e5cfac"
+    },
+    {
+      "id": "docs",
+      "order": 5,
+      "depends_on": [
+        "strict-repair"
+      ],
+      "branch_hint": "codex/schema4-doc-sync-v1",
+      "counts": {
+        "tracked": 7,
+        "untracked": 1,
+        "total": 8
+      },
+      "status_sha256": "41d4d860bd3032af53fabe163ee47eaefc18ee7900a881c6c2b59898d61f14c3",
+      "explicit_paths": [
+        "HIGH_FIDELITY.md",
+        "PROJECT_ARCHITECTURE.md",
+        "README.md",
+        "README_EN.md",
+        "SKILL.md",
+        "references/prompt-contract.md",
+        "POWERPOINT_ARROW_CAPABILITY_SPEC.md",
+        "examples/README.md"
+      ],
+      "validation": [
+        "hygiene",
+        "CLI help and documentation consistency",
+        "case index check"
+      ],
+      "inventory_sha256": "681d22242ca8c5997d1dbf7a8f1bd95ddcee5eff446d78ceb8c4faec64d70e30"
+    },
+    {
+      "id": "case-source",
+      "order": 6,
+      "depends_on": [
+        "docs"
+      ],
+      "branch_hint": "codex/case-<case-id>-source-v1",
+      "counts": {
+        "tracked": 13,
+        "untracked": 16,
+        "total": 29
+      },
+      "status_sha256": "99ffe5c9d01155016c555a6f883871c69efa751c644d17852590c2ce8f9160c8",
+      "selector": {
+        "roots": [
+          "examples/reference-only/<case-id>/",
+          "examples/svg-seeded/<case-id>/"
+        ],
+        "direct_children_only": true,
+        "basenames": [
+          "assets.json",
+          "external-seed.svg",
+          "prompt.md",
+          "reference.png",
+          "regions.json",
+          "scene.json"
+        ]
+      },
+      "split_policy": "one pull request per case; route candidates remain isolated",
+      "validation": [
+        "schema validation",
+        "reference identity",
+        "inventory and asset receipt closure",
+        "route isolation"
+      ],
+      "inventory_sha256": "57b797e0a06d4f2cd659eca0ecc0586d9e97c139bcb2588642eb05085d999156"
+    },
+    {
+      "id": "case-evidence",
+      "order": 7,
+      "depends_on": [
+        "case-source"
+      ],
+      "branch_hint": "codex/case-<case-id>-evidence-v1",
+      "counts": {
+        "tracked": 116,
+        "untracked": 211,
+        "total": 327
+      },
+      "status_sha256": "fd3fc04a00edc74540b517bc094355b0a228324e403690b0c98d54872f79e4ba",
+      "selector": {
+        "roots": [
+          "examples/reference-only/<case-id>/",
+          "examples/svg-seeded/<case-id>/"
+        ],
+        "rule": "all status files below a route case root except case-source members"
+      },
+      "split_policy": "one pull request per case; each input route keeps a distinct source, scene, artifact, QA, and hash lineage inside that case Stage",
+      "validation": [
+        "lineage hashes",
+        "strict check",
+        "saved-reopened readback",
+        "target-size render",
+        "no unexpected regeneration diff"
+      ],
+      "inventory_sha256": "bec769e62e6b7c16722018024526cf313e704365cfab5ff27789a664f6310827"
+    },
+    {
+      "id": "comparison",
+      "order": 8,
+      "depends_on": [
+        "case-evidence"
+      ],
+      "branch_hint": "codex/route-comparison-v1",
+      "counts": {
+        "tracked": 5,
+        "untracked": 2,
+        "total": 7
+      },
+      "status_sha256": "bc8484baf76cd3477c5fce5831fec668ebf8a55a5a765bac336bfe95155a0752",
+      "explicit_paths": [
+        "tools/compare.py",
+        "tests/test_compare.py",
+        "tests/test_route_ab_examples.py"
+      ],
+      "selector": {
+        "globs": [
+          "examples/route-comparison-*.json",
+          "examples/route-comparison-*.md"
+        ]
+      },
+      "split_policy": "one shared comparison Stage after every affected case has both route evidence revisions pinned; reports remain per case and never share candidate artifacts",
+      "validation": [
+        "same designated reference identity",
+        "route isolation",
+        "semantic and artifact comparison",
+        "comparison hash closure"
+      ],
+      "inventory_sha256": "0d7b5224924dbadfce3f5f1c60d33b0f620bed3185d9a9ff4c865f1d02ddfa3f"
+    }
+  ],
+  "coverage": {
+    "expected_file_count": 432,
+    "classified_file_count": 432,
+    "unclassified_file_count": 0,
+    "unclassified_items": [],
+    "group_counts_sum": 432,
+    "tracked_counts_sum": 169,
+    "untracked_counts_sum": 263
+  },
+  "evidence_invalidation": {
+    "compiler_fingerprint_inputs": [
+      "tools/convert.py",
+      "tools/svggeom.py",
+      "tools/arrow_spec.py",
+      "tools/pptx_arrows.py",
+      "tools/primitives.py",
+      "tools/asset_spec.py"
+    ],
+    "additional_triggers": [
+      "baseline status or target develop commit changes",
+      "reference, scene, regions, or assets hash changes",
+      "bindings, revision, receipt, or saved-reopened evidence changes",
+      "required target-size render or strict blocker evidence is missing"
+    ],
+    "invalidated_groups": [
+      "case-evidence",
+      "comparison"
+    ],
+    "required_action": "regenerate evidence from the pinned source and toolchain commits; do not repair validity by editing hashes"
+  },
+  "unclassified_policy": {
+    "mode": "fail-closed",
+    "fallback_group": null,
+    "action": "stop migration, classify the path, record risk and validation, review the manifest update, then capture a new status SHA",
+    "raw_history_allowed": false
+  },
+  "file_inventory": {
+    "path": "docs/dirty-baseline-files.jsonl",
+    "schema_version": "1.0.0",
+    "record_count": 432,
+    "sha256": "27dedc64966585ae51e2f9eadbba35ff95ac695a1fd77ce452d541e76379bd40",
+    "canonicalization": {
+      "encoding": "UTF-8",
+      "line_format": "canonical JSON with sorted keys and compact separators",
+      "record_order": "repository path ascending",
+      "record_separator": "LF",
+      "trailing_separator": true
+    },
+    "source_root_persisted": false
+  }
+}

@@ -1,0 +1,195 @@
+name: PR Governance
+
+on:
+  # Trusted-target event: workflow, checker, and policy always come from the
+  # owner-reviewed default branch. Never execute base/head PR revisions.
+  pull_request_target:
+    branches:
+      - develop
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+      - ready_for_review
+      - labeled
+      - unlabeled
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  statuses: write
+
+concurrency:
+  # Commit statuses are repository+SHA scoped, not PR scoped. Serialise every
+  # event that can write the same status identity. An edited event for an old
+  # SHA must never switch to the branch's newer SHA after synchronize. Issue
+  # invalidation uses the same group and must never be cancelled by a PR event.
+  group: governance-head-${{ github.repository_id }}-${{ github.event.pull_request.head.sha }}
+  cancel-in-progress: false
+
+jobs:
+  policy:
+    name: 分支、风险与闭环策略
+    if: >-
+      ${{ (github.event.pull_request.base.ref == 'develop' ||
+           github.event.pull_request.base.ref == 'main') &&
+          ((github.event.action != 'labeled' && github.event.action != 'unlabeled') ||
+           github.event.label.name == 'governance:recheck') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 将可信治理状态绑定到当前 PR head
+        id: snapshot
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const crypto = require('crypto');
+            const eventHead = context.payload.pull_request.head.sha;
+            core.setOutput('head', eventHead);
+            const { data: currentPull } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+            const bodySha256 = crypto
+              .createHash('sha256')
+              .update(currentPull.body || '', 'utf8')
+              .digest('hex');
+            core.setOutput('body-sha256', bodySha256);
+            if (currentPull.head.sha !== eventHead) {
+              throw new Error(
+                `event head ${eventHead} is stale; current PR head is ${currentPull.head.sha}`
+              );
+            }
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: eventHead,
+              state: 'pending',
+              context: 'pr-governance/policy',
+              description: 'Trusted default-main governance is validating this head',
+            });
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          persist-credentials: false
+      - name: 使用可信 main checker 与 GitHub API 检查 PR 治理合同
+        id: governance
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/check_pr_governance.py
+      - name: 发布 current-head policy required status
+        if: ${{ always() }}
+        uses: actions/github-script@v7
+        env:
+          EXPECTED_HEAD: ${{ steps.snapshot.outputs.head }}
+          EXPECTED_BODY_SHA256: ${{ steps.snapshot.outputs.body-sha256 }}
+          SNAPSHOT_OUTCOME: ${{ steps.snapshot.outcome }}
+          POLICY_OUTCOME: ${{ steps.governance.outcome }}
+        with:
+          script: |
+            const crypto = require('crypto');
+            const { data: currentPull } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+            const stableHead = currentPull.head.sha === process.env.EXPECTED_HEAD;
+            const currentBodySha256 = crypto
+              .createHash('sha256')
+              .update(currentPull.body || '', 'utf8')
+              .digest('hex');
+            const stableBodyMirror = currentBodySha256 === process.env.EXPECTED_BODY_SHA256;
+            const openPulls = await github.paginate(github.rest.pulls.list, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const sameHeadOpenPulls = openPulls.filter(
+              (pull) => pull.head?.sha === process.env.EXPECTED_HEAD
+            );
+            const uniqueOpenHead = stableHead
+              && sameHeadOpenPulls.length === 1
+              && sameHeadOpenPulls[0].number === currentPull.number;
+            const passed = stableHead
+              && stableBodyMirror
+              && uniqueOpenHead
+              && process.env.SNAPSHOT_OUTCOME === 'success'
+              && process.env.POLICY_OUTCOME === 'success';
+            const description = passed
+              ? 'Trusted governance passed for this exact PR head'
+              : 'Governance failed, changed, stale, or has a shared open-PR head';
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: process.env.EXPECTED_HEAD,
+              state: passed ? 'success' : 'failure',
+              context: 'pr-governance/policy',
+              description,
+            });
+            if (!passed) {
+              core.setFailed(description);
+            }
+
+  main-owner-approval:
+    name: main 指定责任人审批
+    needs: policy
+    if: >-
+      ${{ github.event.pull_request.base.ref == 'main' &&
+          ((github.event.action != 'labeled' && github.event.action != 'unlabeled') ||
+           github.event.label.name == 'governance:recheck') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 要求 let778750-cpu 对当前 head 明确 APPROVED
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = 'let778750-cpu';
+            const { data: currentPull } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+            const head = currentPull.head.sha;
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: head,
+              state: 'pending',
+              context: 'pr-governance/main-owner-approval',
+              description: 'Validating owner approval for current head-bound contract',
+            });
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              per_page: 100,
+            });
+            const ownerReviews = reviews
+              .filter((review) => review.user?.login?.toLowerCase() === owner)
+              .filter((review) => ['APPROVED', 'CHANGES_REQUESTED', 'DISMISSED'].includes(review.state))
+              .sort((left, right) => new Date(left.submitted_at) - new Date(right.submitted_at));
+            const latest = ownerReviews.at(-1);
+            const passed = latest?.state === 'APPROVED' && latest.commit_id === head;
+            const description = passed
+              ? 'Owner approved this exact head-bound authority contract'
+              : 'Owner approval is missing, stale, dismissed, or head-mismatched';
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: head,
+              state: passed ? 'success' : 'failure',
+              context: 'pr-governance/main-owner-approval',
+              description,
+            });
+            if (!passed) {
+              core.setFailed(`@${owner} must approve current head ${head}`);
+            }

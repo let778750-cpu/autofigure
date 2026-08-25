@@ -1,0 +1,101 @@
+name: 软件缺陷
+description: 报告工具、CLI、Schema、转换器或自动化中的可复现错误
+title: "[Bug] "
+labels:
+  - "type:defect"
+body:
+  - type: dropdown
+    id: primary_area
+    attributes:
+      label: Primary Area
+      description: 只能选择七个规范 Area；Project Area 与后续标签必须镜像该值。
+      options:
+        - "area:visual-grammar"
+        - "area:typography"
+        - "area:member-geometry"
+        - "area:microasset-fidelity"
+        - "area:asset-representation"
+        - "area:qa-repair"
+        - "area:route-parity"
+    validations:
+      required: true
+
+  - type: input
+    id: parent_epic
+    attributes:
+      label: Parent Epic
+      description: 严格填写一个模块 Epic Issue，例如 #40；治理器会校验该 Issue 存在且带 type:epic 标签。
+      placeholder: "#40"
+    validations:
+      required: true
+
+  - type: input
+    id: component
+    attributes:
+      label: 组件
+      placeholder: tools/compare.py、autofigure check、CI
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: 初始风险等级
+      description: 会改变科学语义、视觉输出、参考绑定或验收结论的缺陷请选择 R2。
+      options:
+        - R2 — 科学保真、权限或发布边界
+        - R1 — 受限功能或兼容性
+        - R0 — 文档或低影响维护
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 最小复现
+      description: 提供命令、输入、版本和确定性复现步骤；使用仓库相对路径。
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed_expected
+    attributes:
+      label: 实际行为与预期行为
+      placeholder: |
+        实际：...
+        预期：...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据与影响面
+      description: 包含错误输出、受影响接口/案例、哈希或最小日志；请移除凭据和机器私有路径。
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 修复范围与非目标
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      description: 写成失败前/成功后的机械断言，并注明全量回归要求。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: closure
+    attributes:
+      label: 闭环要求
+      options:
+        - label: 修复 PR 将关联并关闭本 Issue，同时附测试与回归证据。
+          required: true
+        - label: 若影响科学输出，修复将按 R2 执行且不会用全图均值掩盖局部失败。
+          required: true
