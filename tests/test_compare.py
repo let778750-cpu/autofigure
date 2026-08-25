@@ -252,6 +252,10 @@ def test_comparison_is_hash_and_group_bound(tmp_path: Path, monkeypatch) -> None
     ]
     assert direct_summary["powerpoint_live"]["candidate_reopened_hashes_match"] is True
     assert direct_summary["powerpoint_live"]["saved_reopened"] is True
+    assert direct_summary["reference_inventory"] == {
+        "inventory_sha256": None,
+        "oracle_sha256": None,
+    }
     assert direct_summary["powerpoint_live"]["live_summary_saved_reopened"] is False
     assert direct_summary["powerpoint_live"]["live_summary_agrees_with_bindings"] is False
     assert direct_summary["assets"]["asset_spec_count"] == 2

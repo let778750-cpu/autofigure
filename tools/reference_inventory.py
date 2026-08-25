@@ -5,7 +5,9 @@ accepted.  It closes the otherwise circular situation where the candidate
 itself decides which small arrows, labels, icons, or braces deserve QA.
 Legacy cases without ``reference_inventory`` remain readable; every newly
 prepared case declares the inventory as required and therefore must freeze it
-before ingest.
+before ingest.  Freezing also binds the inventory to the route-neutral
+reference oracle (``tools/reference_oracle.py``) so that all input routes
+share one frozen truth per reference hash.
 """
 
 from __future__ import annotations
@@ -1182,6 +1184,7 @@ def validate_inventory(
         _block(blockers, "arrow-exemption-closure")
     if len(brace_id_list) != actual_counts["brace"] or inventory_brace_ids != brace_ids:
         _block(blockers, "brace-count-closure")
+    blockers.extend(_oracle_blockers(run, inventory))
     blockers = list(dict.fromkeys(blockers))
     return {
         "legacy": False,
@@ -1198,6 +1201,29 @@ def validate_inventory(
         "blockers": blockers,
         "pass": not blockers,
     }
+
+
+def _oracle_blockers(run: common.Run, inventory: dict[str, Any]) -> list[str]:
+    """Existence-gated comparison against the route-neutral reference oracle.
+
+    无 oracle 时不产生任何 blocker；存在即校验（真值重授权见
+    tools/reference_oracle.py 模块说明）。
+    """
+
+    from tools.reference_oracle import load_oracle, oracle_matches, oracle_path
+
+    path = oracle_path(run)
+    if not path.is_file():
+        return []
+    try:
+        oracle = load_oracle(path)
+    except Exception:
+        return ["oracle:invalid"]
+    if oracle["reference_sha256"] != run.load_meta().get("source_sha256"):
+        return ["oracle:inventory-mismatch"]
+    if not oracle_matches(oracle, inventory):
+        return ["oracle:inventory-mismatch"]
+    return []
 
 
 def _receipt_blockers(run: common.Run, report: dict[str, Any]) -> list[str]:
@@ -1337,7 +1363,16 @@ def freeze_inventory(run: common.Run) -> dict[str, Any]:
         )
     report = validate_inventory(run, payload, require_frozen=False)
     if report["blockers"]:
-        raise common.fail("reference inventory cannot be frozen: " + ", ".join(report["blockers"]))
+        message = "reference inventory cannot be frozen: " + ", ".join(report["blockers"])
+        if any(blocker.startswith("oracle:") for blocker in report["blockers"]):
+            from tools.reference_oracle import oracle_path
+
+            message += (
+                "; the route-neutral reference oracle is authoritative for this "
+                "reference hash — align the inventory with it, or re-authorize the "
+                f"truth by manually removing {oracle_path(run)} and re-running freeze"
+            )
+        raise common.fail(message)
     from tools.asset_spec import preflight_asset_contract
 
     preflight_asset_contract(run, inventory)
@@ -1351,6 +1386,16 @@ def freeze_inventory(run: common.Run) -> dict[str, Any]:
     report = validate_inventory(run, require_frozen=True)
     if report["blockers"]:
         raise common.fail("frozen reference inventory is invalid: " + ", ".join(report["blockers"]))
+    from tools.reference_oracle import build_oracle, load_oracle, oracle_path, write_oracle
+
+    oracle_file = oracle_path(run)
+    if oracle_file.is_file():
+        # validate_inventory 已确认 inventory 与 oracle 一致；此处读取哈希绑定 receipt。
+        oracle = load_oracle(oracle_file)
+    else:
+        # 候选生成前冻结路线无关真值；同参考图的后续 freeze 必须复现它。
+        oracle = build_oracle(run.load_meta()["source_sha256"], inventory)
+        write_oracle(oracle_file, oracle)
     from tools.ingest import build_region_tasks
 
     build_region_tasks(run)
@@ -1360,6 +1405,7 @@ def freeze_inventory(run: common.Run) -> dict[str, Any]:
         "case": run.load_meta()["case"],
         "reference_sha256": run.load_meta()["source_sha256"],
         "inventory_sha256": report["inventory_sha256"],
+        "oracle_sha256": oracle["oracle_sha256"],
         "regions_sha256": common.sha256_file(run.regions_path),
         "critical_region_expectation_sha256": canonical_sha256(
             read_json(run.regions_path).get("critical_region_expectation")

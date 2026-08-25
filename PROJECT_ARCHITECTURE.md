@@ -225,14 +225,17 @@ examples/
 允许状态：`prepared / candidate / qa_failed / repairing / approved`。
 
 - `prepare`：`prepared`，同时写入 required/draft inventory 骨架。
-- `freeze`：先对 inventory 与显式资产机会图做无写入 preflight，再刷新 region tasks，并分别生成 inventory 与
-  asset-contract SHA-256 receipt；任一预检失败不得留下半冻结状态，状态仍为 `prepared`。
+- `freeze`：先对 inventory 与显式资产机会图做无写入 preflight，再把 inventory 绑定到路线无关
+  reference oracle（`examples/oracles/<reference_sha256 前 16 位>/oracle.json`；同参考图哈希在所有
+  输入路线共享同一真值，已存在的 oracle 与新 inventory 不一致即拒绝，重授权须人工删除该 oracle 后
+  重跑 freeze），再刷新 region tasks，并分别生成 inventory 与 asset-contract SHA-256 receipt
+  （inventory receipt 以 `oracle_sha256` 绑定 oracle）；任一预检失败不得留下半冻结状态，状态仍为 `prepared`。
 - `ingest`：新案例只接受已冻结且 receipt 未漂移的 inventory，成功后进入 `candidate`。
 - strict 有 blocker：`qa_failed`。
 - `repair`：`repairing`。
 - strict 零 blocker：`approved`。
 
-standard 永远只是诊断，不授予 approved。strict 没有 critical region 时必须添加 `regions:no-critical-regions`；strict 禁止跳过 OCR，必须验证 inventory receipt、asset-contract receipt 与精确文字闭合，并总是消费 PowerPoint Live finalizer 证据。不含 `reference_inventory` 的 legacy 案例保持可读，但不会为其伪造任何冻结 receipt。
+standard 永远只是诊断，不授予 approved。strict 没有 critical region 时必须添加 `regions:no-critical-regions`；strict 禁止跳过 OCR，必须验证 inventory receipt（oracle 存在时含 `oracle_sha256` 与 oracle 文件一致性）、asset-contract receipt 与精确文字闭合，并总是消费 PowerPoint Live finalizer 证据。不含 `reference_inventory` 的 legacy 案例保持可读，但不会为其伪造任何冻结 receipt。
 
 ## 6. 箭头与布局
 
