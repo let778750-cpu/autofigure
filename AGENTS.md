@@ -24,6 +24,9 @@
 - strict 无 critical region 必须失败。
 - 保存重开、bindings、区域、箭头、布局或 live evidence 任一 blocker 均保持 `qa_failed`。
 - 不得把 candidate/qa_failed 宣传为完成；人审不等于机器自动 approved。
+- `check` 把验收状态拆成六维度写入 `qa/qa-status.json`；六维度全 pass 等价 strict approved。
+- 六维度全 pass 才能 `release` 生成案例根 `release-manifest.json`；`release --check` 重算哈希与维度，漂移即失败。
+- 非 approved 存在 release manifest、或 approved 缺 manifest，`cases --check` 均检出。
 
 ## 运行环境
 

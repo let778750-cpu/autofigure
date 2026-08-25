@@ -15,6 +15,7 @@ COMMANDS = {
     "ingest": "tools.ingest",
     "freeze": "tools.reference_inventory",
     "repair": "tools.repair",
+    "release": "tools.release",
     "providers": "tools.providers",
     "layout": "tools.layout",
     "cases": "tools.cases",

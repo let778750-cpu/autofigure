@@ -64,6 +64,9 @@ def _source_gate_blockers(run: common.Run) -> list[str]:
 
 
 def _qa_report_hashes(run: common.Run) -> dict[str, str]:
+    # qa-status.json 不在名单内：它由 check 在 repair plan 封存之后重写，其内容
+    # 哈希反向绑定 repair-plan.json；把它列入会使 plan 与 status 互相哈希追逐，
+    # 每次 check 都漂移。qa-status.json 的内容哈希由 release-manifest.json 绑定。
     names = (
         "regions-report.json",
         "layout-audit.json",
@@ -455,6 +458,23 @@ def main(argv: list[str] | None = None) -> int:
 
     record_validation(run, args.profile, strict_blockers)
 
+    exit_code = 0
+    if args.profile == "strict":
+        from tools.contracts import transition
+
+        if strict_blockers:
+            transition(run, "qa_failed", "strict-check-failed", details={"blockers": strict_blockers})
+            exit_code = 2
+        else:
+            transition(run, "approved", "strict-check-passed")
+
+    from tools.qa_status import write_qa_status
+
+    qa_status = write_qa_status(
+        run,
+        ocr_unmatched=None if args.skip_ocr else (len(unmatched_svg), len(unmatched_ocr)),
+    )
+
     lines.extend(
         [
             "",
@@ -472,6 +492,14 @@ def main(argv: list[str] | None = None) -> int:
             ),
             *[f"- {item}" for item in strict_blockers],
             "",
+            "## QA 状态六维度",
+            *[
+                f"- {name}: {dimension['status']}"
+                + (f"（{len(dimension['blockers'])} 项 blocker）" if dimension["blockers"] else "")
+                for name, dimension in qa_status["dimensions"].items()
+            ],
+            "- 维度明细: qa/qa-status.json",
+            "",
         ]
     )
     if args.profile == "standard":
@@ -483,14 +511,7 @@ def main(argv: list[str] | None = None) -> int:
     sys.stdout.write(f"像素诊断 mean={metrics.get('mean_abs_rgb_delta')} top_roi_loss={metrics.get('top_roi', {}).get('loss_contribution_pct')}%\n")
     sys.stdout.write(f"文本比对: SVG 侧未匹配 {len(unmatched_svg)} / OCR 侧未匹配 {len(unmatched_ocr)}\n")
     sys.stdout.write(f"报告: {report}\n预览: {preview}\n")
-    if args.profile == "strict":
-        from tools.contracts import transition
-
-        if strict_blockers:
-            transition(run, "qa_failed", "strict-check-failed", details={"blockers": strict_blockers})
-            return 2
-        transition(run, "approved", "strict-check-passed")
-    return 0
+    return exit_code
 
 
 if __name__ == "__main__":

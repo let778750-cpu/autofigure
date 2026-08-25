@@ -11,6 +11,9 @@ from tools.revisions import compiler_fingerprint, revision_id, scene_sha256
 
 
 MANIFEST_NAME = "qa-lineage-manifest.json"
+# qa-status.json 是 check 在 lineage 封存之后重写的派生读出，其内容哈希由
+# release-manifest.json 绑定；纳入本清单会使每次 check 都令清单过期。
+DERIVED_REPORT_NAMES = frozenset({"qa-status.json"})
 
 
 def _reports(run: common.Run) -> list[Path]:
@@ -18,7 +21,9 @@ def _reports(run: common.Run) -> list[Path]:
         (
             path
             for path in run.qa_dir.rglob("*.json")
-            if path.name != MANIFEST_NAME and ".autofigure" not in path.parts
+            if path.name != MANIFEST_NAME
+            and path.name not in DERIVED_REPORT_NAMES
+            and ".autofigure" not in path.parts
         ),
         key=lambda path: path.relative_to(run.root).as_posix(),
     )

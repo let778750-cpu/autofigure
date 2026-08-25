@@ -164,6 +164,7 @@ def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any]
 
     workflow_state = meta.get("workflow", {}).get("state")
     validation = meta.get("validation", {})
+    release_manifest_path = case_dir / "release-manifest.json"
     if workflow_state == "approved":
         if validation.get("profile") != "strict":
             findings.append(f"approved-without-strict-validation:{run_path}")
@@ -176,6 +177,10 @@ def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any]
             live_evidence_path = case_dir / "qa" / "live-evidence.json"
             if not live_evidence_path.is_file():
                 findings.append(f"approved-hybrid-live-evidence-missing:{live_evidence_path}")
+        if not release_manifest_path.is_file():
+            findings.append(f"approved-without-release-manifest:{release_manifest_path}")
+    elif release_manifest_path.is_file():
+        findings.append(f"release-manifest-without-approval:{release_manifest_path}")
 
     reference_path = case_dir / "reference.png"
     reference_sha256 = meta.get("source_sha256")
