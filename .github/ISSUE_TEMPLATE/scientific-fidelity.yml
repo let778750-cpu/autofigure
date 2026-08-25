@@ -1,0 +1,159 @@
+name: 科学保真缺陷
+description: 报告参考图重建中的语义、拓扑、几何、微资产或可编辑性偏差
+title: "[Fidelity] "
+labels:
+  - "type:defect"
+  - "topic:reference-fidelity"
+  - "area:microasset-fidelity"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        科学保真问题默认按 **R2 高风险**处理。只写可复核事实；不要粘贴完整聊天记录、临时绝对路径或未绑定版本的截图。
+
+  - type: dropdown
+    id: primary_area
+    attributes:
+      label: Primary Area
+      description: 只能选择七个规范 Area；Project Area 与后续标签必须镜像该值。
+      options:
+        - "area:visual-grammar"
+        - "area:typography"
+        - "area:member-geometry"
+        - "area:microasset-fidelity"
+        - "area:asset-representation"
+        - "area:qa-repair"
+        - "area:route-parity"
+    validations:
+      required: true
+
+  - type: input
+    id: parent_epic
+    attributes:
+      label: 关联主题 Issue
+      description: 归属的主题 Issue（如参考忠实度），例如 #7；无归属可留空。
+      placeholder: "#7"
+    validations:
+      required: false
+
+  - type: input
+    id: case_id
+    attributes:
+      label: 案例与区域
+      description: 使用仓库相对路径、案例 ID 和稳定 region/object ID。
+      placeholder: examples/reference-only/04-...；region-dna-left
+    validations:
+      required: true
+
+  - type: dropdown
+    id: input_route
+    attributes:
+      label: 输入路线
+      options:
+        - reference-only
+        - svg-seeded
+        - 两条路线
+        - 路线无关
+    validations:
+      required: true
+
+  - type: dropdown
+    id: workflow_mode
+    attributes:
+      label: 工作模式
+      options:
+        - RECONSTRUCT_1TO1
+        - NEW_OR_REDESIGN
+        - 尚未确认
+    validations:
+      required: true
+
+  - type: input
+    id: revision
+    attributes:
+      label: 版本绑定
+      description: 提供 commit SHA、scene SHA、reference SHA；未知项写 unknown，不能留空或猜测。
+      placeholder: commit=...; scene=...; reference=...
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: 实际结果
+      description: 描述在目标尺寸全图和局部裁剪中看到了什么。
+      placeholder: 左侧 DNA 被绘制成直立对称梯形，交叉相位、倾角与横档方向均偏离参考。
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 参考约束与预期结果
+      description: 说明指定参考要求保持的语义、拓扑、几何、层级和编辑性。
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 哈希绑定证据
+      description: 列出仓库相对路径、报告字段、指标和对象 ID；截图必须注明生成 revision。
+      placeholder: |
+        - qa/regions-report.json: region=..., SSIM=..., Edge IoU=...
+        - qa/visual-contracts-report.json: finding=...
+        - render.png SHA-256: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: cause
+    attributes:
+      label: 已确认事实与根因假设
+      description: 将“已由证据确认”和“待验证假设”分开，避免把推测写成结论。
+      placeholder: |
+        已确认：...
+        待验证：...
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 范围与非目标
+      placeholder: |
+        范围：...
+        非目标：...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 可机械复核的验收标准
+      description: 至少包含目标区域门禁、结构/绑定门禁、回归门禁和人审要求。
+      placeholder: |
+        - [ ] 指定 critical regions 全部 PASS
+        - [ ] 源、PPTX 读回与 reference-bound oracle 一致
+        - [ ] 相关反例测试能确定性失败
+        - [ ] 独立 Reviewer 完成新鲜全图与裁剪审查
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 依赖、阻塞项与非声明
+      description: 写明前置 Issue、当前无法证明的事项，以及本 Issue 即使关闭也不代表什么。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: declaration
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已确认该问题不是仅由全图均值推断，且提供了局部或结构证据。
+          required: true
+        - label: 我未将 candidate、qa_failed 或缺失证据描述为已通过。
+          required: true
