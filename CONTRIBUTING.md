@@ -20,7 +20,7 @@
 ## 3. PR 流程
 
 1. 从最新 `develop` 建主题分支，实现并本地验证（见 §4）。
-2. 开 PR 到 `develop`，正文按模板填写；关联 issue 用 `Closes #N`，合并时自动闭环。
+2. 开 PR 到 `develop`，正文按模板填写；关联 issue 用 `Closes #N`，合并时自动闭环。PR 标题、正文与交付说明从最终 diff 重新生成，只陈述最终采用的状态（规则见 AGENTS.md "No Negative Echo"），收口时由 `hygiene` 机器兜底。
 3. CI 全绿 + 本地五项检查全绿，且**不让任何案例状态回退**（当前所有案例为 `qa_failed`，"测试通过"指工具链检查，不等于案例 `approved`）。
 4. `@let778750-cpu` 审核通过后 squash 合入 `develop`，删除主题分支。
 5. `main` 只接受从 `develop` 发起的 release PR，由 `@let778750-cpu` 审批后 merge commit 合入。
