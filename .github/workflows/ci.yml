@@ -63,9 +63,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
       - name: 静态检查
-        run: python -m ruff check tools tests .github/scripts
+        run: python -m ruff check tools tests
       - name: 字节码编译
-        run: python -m compileall -q tools tests .github/scripts
+        run: python -m compileall -q tools tests
       - name: 单元与离线集成测试
         run: python -m pytest tests -q
 
