@@ -514,6 +514,16 @@ def _arrow_summary(run: common.Run) -> dict[str, Any]:
     }
 
 
+def _inventory_truth_summary(run: common.Run) -> dict[str, Any]:
+    """Read-only view of the freeze receipt's truth hashes; no gating here."""
+
+    receipt = _safe_json(run.qa_dir / "reference-inventory-receipt.json")
+    return {
+        "inventory_sha256": receipt.get("inventory_sha256"),
+        "oracle_sha256": receipt.get("oracle_sha256"),
+    }
+
+
 def _case_summary(run: common.Run) -> dict[str, Any]:
     meta = run.load_meta()
     provenance = _safe_json(run.provenance_path)
@@ -535,6 +545,7 @@ def _case_summary(run: common.Run) -> dict[str, Any]:
         "validation": meta.get("validation", {}),
         "comparison_group": provenance.get("comparison_group"),
         "reference_sha256": meta["source_sha256"],
+        "reference_inventory": _inventory_truth_summary(run),
         "source_gate": _source_gate_summary(run),
         "seed": _seed_summary(run, provenance),
         "candidate_activity": _candidate_activity_summary(provenance),
@@ -600,6 +611,9 @@ def build_comparison(first: common.Run, second: common.Run) -> dict[str, Any]:
 
 
 def render_markdown(report: dict[str, Any]) -> str:
+    def short_hash(value: Any) -> str:
+        return f"`{value[:12]}`" if isinstance(value, str) and value else "n/a"
+
     rows = []
     for route in ("svg-seeded", "reference-only"):
         item = report["cases"][route]
@@ -659,6 +673,14 @@ def render_markdown(report: dict[str, Any]) -> str:
             "",
             f"- {report['conclusion']['statement']}。",
             "- 两条路线共用的只有冻结参考图与路线无关验收阈值；reference-only 候选未读取 svg-seeded 候选资产。",
+            (
+                "- 冻结真值哈希（receipt inventory / reference oracle）：svg-seeded="
+                f"{short_hash(seeded['reference_inventory']['inventory_sha256'])}/"
+                f"{short_hash(seeded['reference_inventory']['oracle_sha256'])}，reference-only="
+                f"{short_hash(direct['reference_inventory']['inventory_sha256'])}/"
+                f"{short_hash(direct['reference_inventory']['oracle_sha256'])}；"
+                "同参考图的两条路线必须收敛到同一 oracle。"
+            ),
             "- 全图均值仅作诊断，任何关键区域失败都会阻止 approved。",
             (
                 "- source gate：svg-seeded 当前候选="

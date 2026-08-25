@@ -32,6 +32,19 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CASES_ROOT = PROJECT_ROOT / "examples"
 INPUT_ROUTE_DIRS = ("reference-only", "svg-seeded")
+ORACLE_DIR_NAME = "oracles"
+ORACLE_REFERENCE_PREFIX_LENGTH = 16
+
+
+def oracle_path_for(cases_root: Path, reference_sha256: str) -> Path:
+    """路线无关 reference oracle 路径（无 run.json，不被案例扫描识别）。"""
+
+    return (
+        Path(cases_root)
+        / ORACLE_DIR_NAME
+        / reference_sha256[:ORACLE_REFERENCE_PREFIX_LENGTH]
+        / "oracle.json"
+    )
 
 
 def fail(message: str) -> SystemExit:
@@ -195,6 +208,14 @@ class Run:
         if not self.meta_path.is_file():
             raise fail(f"案例清单不存在: {self.meta_path}")
         return json.loads(self.meta_path.read_text(encoding="utf-8"))
+
+
+def cases_root_for(run: Run) -> Path:
+    """从案例目录推导 cases root（嵌套布局向上两级，旧扁平布局向上一级）。"""
+
+    if run.root.parent.name in INPUT_ROUTE_DIRS:
+        return run.root.parent.parent
+    return run.root.parent
 
 
 def create_run(

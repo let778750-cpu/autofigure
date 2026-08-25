@@ -47,6 +47,18 @@ def _source_gate_blockers(run: common.Run) -> list[str]:
         receipt = read_json(receipt_path)
         if report.get("reference_inventory_sha256") != receipt.get("inventory_sha256"):
             blockers.append("source-gate:inventory-mismatch")
+        from tools.reference_oracle import oracle_sha256
+
+        oracle_path = common.oracle_path_for(
+            common.cases_root_for(run), meta["source_sha256"]
+        )
+        if oracle_path.is_file():
+            try:
+                actual_oracle_sha256 = oracle_sha256(read_json(oracle_path))
+            except Exception:
+                actual_oracle_sha256 = None
+            if receipt.get("oracle_sha256") != actual_oracle_sha256:
+                blockers.append("oracle:receipt-mismatch")
     else:
         blockers.append("reference-inventory:receipt-missing")
     scene = read_json(run.scene_path)
