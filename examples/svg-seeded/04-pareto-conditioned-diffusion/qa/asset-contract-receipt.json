@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "asset_contract_freeze_receipt",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "inventory_sha256": "a41f291b26e14676fe4a09f23f8bf5c24cae86576b16b68509cabbe510136f11",
+  "asset_contract_sha256": "99f482d68b076bfa8d1a86c1a008c223aa99fd23c14cf0e4fdc07fcac98579a2",
+  "policy_sha256": "8056509bad55e1b95600d1196e369ed73c8af8132abbdb831612a1104790f38b",
+  "microasset_opportunity_map_sha256": "f25abc5c7076bb6f2abafcefe96ad752e90c29f81f6f65c05f351ea82c4dc129",
+  "opportunity_count": 8,
+  "status": "PASS",
+  "frozen_at": "20260824T150437Z"
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "region_tasks",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "input_route": "svg-seeded",
+  "processing_mode": "png_reconstruct",
+  "fidelity_profile": "hybrid_fidelity",
+  "result_contract": {
+    "accepted_kinds": [
+      "scene",
+      "region_patch",
+      "svg"
+    ],
+    "stable_element_ids_required": true,
+    "formal_content_must_remain_native": true,
+    "offline_initial_render_carrier": "svg",
+    "scene_or_patch_requires": "existing render carrier or powerpoint-live provider",
+    "svg_authoring_contract": "prompt.md"
+  },
+  "tasks": [
+    {
+      "region_id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1429,
+        627
+      ],
+      "critical": false
+    },
+    {
+      "region_id": "task-guided-allocator-topology",
+      "label": "Task-Guided Expert Allocator and routing paths",
+      "bbox": [
+        425,
+        124,
+        551,
+        389
+      ],
+      "critical": true,
+      "element_ids": [
+        "allocator-task1-propagation",
+        "allocator-task2-propagation",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge"
+      ]
+    },
+    {
+      "region_id": "expert-gap-arrow-text-detail",
+      "label": "Horizontal inter-expert arrows and rotated Sem/Dyn labels",
+      "bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "critical": true,
+      "element_ids": [
+        "expert-1-box",
+        "expert-2-box",
+        "expert-3-box",
+        "expert-4-box",
+        "expert-1-sem-label",
+        "expert-1-dyn-label",
+        "expert-2-sem-label",
+        "expert-2-dyn-label",
+        "expert-3-sem-label",
+        "expert-3-dyn-label",
+        "expert-4-sem-label",
+        "expert-4-dyn-label",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge"
+      ]
+    },
+    {
+      "region_id": "mixture-arrow-occlusion-detail",
+      "label": "Brown mixture arrows remain visible above rollout panel",
+      "bbox": [
+        938,
+        264,
+        76,
+        164
+      ],
+      "critical": true,
+      "element_ids": [
+        "top-mixture-to-rollout",
+        "bottom-mixture-to-rollout",
+        "rollout-panel",
+        "rollout-z0"
+      ]
+    },
+    {
+      "region_id": "six-bicolor-state-circles",
+      "label": "Six independently oriented bicolor circles",
+      "bbox": [
+        898,
+        204,
+        51,
+        278
+      ],
+      "critical": true,
+      "element_ids": [
+        "svg-text-0037",
+        "zt-top-box",
+        "svg-circle-0012",
+        "svg-circle-0013",
+        "svg-circle-0014",
+        "zt-bottom-box",
+        "svg-circle-0015",
+        "svg-circle-0016",
+        "svg-circle-0017"
+      ]
+    },
+    {
+      "region_id": "rollout-arrow-topology",
+      "label": "Task-aware behavior rollout arrows",
+      "bbox": [
+        988,
+        116,
+        410,
+        346
+      ],
+      "critical": true,
+      "element_ids": [
+        "task-conditioned-imagination",
+        "rollout-panel",
+        "imagination-z0-to-z1",
+        "imagination-z1-to-z2",
+        "imagination-z2-to-zh",
+        "imagination-z0-to-r0",
+        "imagination-z1-to-r1",
+        "imagination-z2-to-r2",
+        "rollout-z0-to-z1",
+        "rollout-z1-to-z2",
+        "rollout-z2-to-zh",
+        "rollout-z0-to-pi0",
+        "rollout-z1-to-pi1",
+        "rollout-z2-to-pi2",
+        "rollout-pi0-to-a0",
+        "rollout-pi1-to-a1",
+        "rollout-pi2-to-a2",
+        "rollout-a0-to-z1",
+        "rollout-a1-to-z2",
+        "rollout-a2-to-next",
+        "rollout-z0-to-r0",
+        "rollout-z1-to-r1",
+        "rollout-z2-to-r2"
+      ]
+    },
+    {
+      "region_id": "observation-creative-asset",
+      "label": "Reference-faithful observation microasset",
+      "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
+      "critical": true,
+      "asset_id": "atomic:observation"
+    },
+    {
+      "region_id": "environment-globe-creative-asset",
+      "label": "Reference-faithful environment globe",
+      "bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
+      "critical": true,
+      "asset_id": "atomic:environment-globe"
+    },
+    {
+      "region_id": "observation-arrows",
+      "label": "Observation to MLLM/WM arrows",
+      "bbox": [
+        132,
+        232,
+        190,
+        254
+      ],
+      "critical": true,
+      "element_ids": [
+        "observation-to-mllm",
+        "observation-to-wm"
+      ]
+    }
+  ]
+}

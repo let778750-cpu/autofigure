@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_operation_receipt",
+  "provider": "powerpoint-live",
+  "publication_mode": "save-reopen-only",
+  "session_id": "9a267a77-2eda-4b51-b090-37411f225ac1",
+  "target_id": "autofigure-pptx",
+  "event_index_base": 0,
+  "begin_event_index": 0,
+  "operation_event_index": 1,
+  "operation_log_path": "build/sessions/powerpoint/9a267a77-2eda-4b51-b090-37411f225ac1/operation-log.ndjson",
+  "operation_log_sha256": "20a7ef600edc7786d82142ff24ca2ac5dc2d163bdf359fb5d633184fc702bde5",
+  "begin_event": {
+    "event": "begin_session",
+    "revision": 0,
+    "target_id": "autofigure-pptx",
+    "scene_schema_version": "2.1.0",
+    "scene_graph_sha256": "186cc951480888398fcd5cc16466435430b70476bbfeba92110a231285000558",
+    "render_plan_sha256": "d297f1839610b076ff3923c57b30d0a4abaf9e9d97cdf02cbe38ed8bddddf0e6",
+    "contract_hashes": {
+      "sourceManifestSha256": "8b82259535173181d0c5333a7624eff997f0870bed84cc68c91c147f626e2dec",
+      "scientificSpecSha256": "d3c43a38265418d669c6ac517c132041ba0e35ec3489fb8e744394003fd679b5",
+      "sceneGraphSha256": "186cc951480888398fcd5cc16466435430b70476bbfeba92110a231285000558",
+      "renderPlanSha256": "d297f1839610b076ff3923c57b30d0a4abaf9e9d97cdf02cbe38ed8bddddf0e6",
+      "assetManifestSha256": "7443c0a9fb867947952526325924ea8879f07dac405412d24f45af9d05453ea3",
+      "evidenceProvenanceSha256": "17e0f8a711a52125cb8d176b8d393931fe945465a9b43434d0260d944adf8256",
+      "targetProfileSha256": "e3ea27790bb826987d72a04062f5346eea5fac67e4a16f2f35735834c9fe97df",
+      "designTokensSha256": "e7b55495947c48cf37af9f00b34eefeb164fb2e7e2ee87a791594deb8cd4f9c3"
+    }
+  },
+  "begin_event_sha256": "f6e1475dccb9cee8547b649ea0a9b1b69337a956498aa77ae23e4dbe2228561c",
+  "matching_begin_event_sha256": "239d21116df16bccfa11db95e13d9e7493046d2ac6414480ca104259d03ea91e",
+  "operation_event": {
+    "event": "save_candidate",
+    "tool": "powerpoint_save_candidate",
+    "revision": 0,
+    "request_sha256": "173c51fdf09a6e42b14882cc2d91e951691629c717f1c8078c94d707ad63901a",
+    "candidate_path": "build/candidates/case04-reference-only-save-reopen.pptx",
+    "candidate_sha256": "b67c288746a0db2ea8f2a7d853a2f769e185f863285be5a7b92d8e1b35d6d9e3",
+    "reopened_inventory_sha256": "60a7cec9118f1e14438e04a6fbfbd7bd9379316d187c2ddb0291702410049983"
+  },
+  "operation_event_sha256": "f1b3cc8fea6868b970d9723c2d2fb2b90acd54fee0ef39fd7e35367f62e587bb",
+  "matching_operation_event_sha256": "8b667252f4cac3f4efcdc5e9edbe61d56ee83817514b9f238418c92484455921"
+}

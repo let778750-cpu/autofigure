@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "repair-plan",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "artifact_sha256": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+  "qa_report_sha256": {
+    "arrow-compile-report.json": "69c7f8269e03a95e9bebcb20b312557d6c7a8240b2880f8ef6a6263be2cfa2f9",
+    "arrow-visual-report.json": "439482e85c7080e1c1e19a2166326314447b8c10df17711e858219ea4b94b468",
+    "asset-spec-audit.json": "7195b793ceb6ce67dee6b25cff7ca3e2db1a51f247c84ab6518d330b3ce4c5b9",
+    "layout-audit.json": "ceacf06641d03cb45c13c089e47887accab97ab433701632c35e03db77cff0aa",
+    "live-evidence.json": "8d793f22523b3ca620fae4f9e6528d711566e76172a8bd66f014a5bdca21b5af",
+    "math-summary.json": "97100d5b9c10633b2934482c41b6bcee0ee0bd8dc63258aee4a14301a9d5c4f3",
+    "powerpoint-arrow-readback.json": "f152c31b8d45c5dc87d6c5fe79b8d629896e9e104c98bf5fd0cf715cf70c6ca1",
+    "primitive-audit.json": "4d556ee215f5c97131e1a53fe9534e741708d4e970e646e38ad4cc01035fb08d",
+    "regions-report.json": "38830fefbf3bcfdd8b693f116961dade67123504f884a777790bfab6e3b275f2",
+    "visual-contracts-report.json": "273145fe5f78312e3762de80f7a6d2ee91f53b895c25ae282fc32e5a9a3e9ad6"
+  },
+  "input_blockers_sha256": "9241cbfd5de517339185759607b1bc248a5578dcd068a336c2aefa50f6000bf4",
+  "blockers": [
+    {
+      "id": "B0001",
+      "blocker": "asset-contract:inventory-missing",
+      "category": "contract"
+    },
+    {
+      "id": "B0002",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0003",
+      "blocker": "live-binding-evidence-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0004",
+      "blocker": "live-candidate-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0005",
+      "blocker": "live-evidence-arrow-compile-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0006",
+      "blocker": "live-evidence-arrow-readback-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0007",
+      "blocker": "live-evidence-bindings-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0008",
+      "blocker": "live-evidence-inventory-candidate-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0009",
+      "blocker": "live-evidence-layout-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0010",
+      "blocker": "live-evidence-math-summary-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0011",
+      "blocker": "live-evidence-primitive-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0012",
+      "blocker": "live-evidence-regions-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0013",
+      "blocker": "live-evidence-scene-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0014",
+      "blocker": "live-render-finalizer-unverified",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0015",
+      "blocker": "live-reopened-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0016",
+      "blocker": "live-root-save-reopen-missing",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0017",
+      "blocker": "ocr:reference-text-unmatched",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "reference-inventory:receipt-missing",
+      "category": "contract"
+    },
+    {
+      "id": "B0019",
+      "blocker": "source-gate:seed:unavailable",
+      "category": "contract"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-contract",
+      "category": "contract",
+      "covers": [
+        "B0001",
+        "B0018",
+        "B0019"
+      ],
+      "strategy": "rederive-and-refreeze-reference-contract",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "reference.png",
+        "input_route",
+        "current candidate"
+      ],
+      "required_verification": [
+        "reference inventory closure",
+        "contract receipt hashes",
+        "critical-region expectation closure"
+      ]
+    },
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0017"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0002",
+        "B0008",
+        "B0010",
+        "B0016"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    },
+    {
+      "id": "A-evidence-only",
+      "category": "evidence_only",
+      "covers": [
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0009",
+        "B0011",
+        "B0012",
+        "B0013",
+        "B0014",
+        "B0015"
+      ],
+      "strategy": "regenerate-hash-bound-evidence-from-unchanged-artifact",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "redraw.svg",
+        "redraw.pptx",
+        "scene.json",
+        "bindings.json"
+      ],
+      "required_verification": [
+        "evidence artifact identity",
+        "QA report digests",
+        "finalizer-bound render receipt"
+      ]
+    }
+  ],
+  "coverage": {
+    "expected_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019"
+    ],
+    "covered_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019"
+    ],
+    "uncovered_blocker_ids": [],
+    "multiply_covered_blocker_ids": []
+  },
+  "invalid_inputs": [],
+  "classification_counts": {
+    "contract": 3,
+    "source_model": 1,
+    "compiler": 0,
+    "host_compat": 4,
+    "evidence_only": 11
+  },
+  "errors": [],
+  "pass": true,
+  "plan_sha256": "0761223810b794db1dfe8aac7c01a9b4fde4153f7ae5581740d1d261df6af221"
+}

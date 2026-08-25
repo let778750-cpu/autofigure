@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1217" height="609" viewBox="0 0 1217 609"
+  data-source-schema-version="4.0.0"
+  data-case="04-pareto-conditioned-diffusion-reference-only"
+  data-reference-sha256="5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+  data-object-inventory-sha256="a66eabcb06fa12faba2afcb4ee791c6a8264d0f811795c665098e8a87f7eb002"
+  data-stable-element-ids="true" data-relations-exhaustive="true">
+  <defs>
+    <marker id="axis-arrow" markerWidth="4" markerHeight="4" refX="9" refY="5" orient="auto" markerUnits="strokeWidth" viewBox="0 0 10 10">
+      <path id="axis-arrow-shape" d="M0 0 L10 5 L0 10 Z" fill="#111111"/>
+    </marker>
+  </defs>
+
+  <rect id="canvas-background" x="0" y="0" width="1217" height="609" fill="#FFFFFF" stroke="none"/>
+  <rect id="panel-offline" x="20" y="53" width="549" height="541" rx="83" ry="82"
+    fill="none" stroke="#4A86E8" stroke-width="2.4" stroke-dasharray="22 8"/>
+  <rect id="panel-sampling" x="580" y="53" width="617" height="541" rx="83" ry="82"
+    fill="none" stroke="#FF8C00" stroke-width="2.4" stroke-dasharray="22 8"/>
+
+  <text id="text-offline-title" x="293.5" y="43" text-anchor="middle" font-family="Arial" font-size="40" font-weight="700"
+    fill="#1C58C7" text-decoration="underline">Offline Training</text>
+  <text id="text-offline-subtitle" x="294" y="94" text-anchor="middle" font-family="Arial" font-size="29.333" font-weight="400"
+    fill="#0D3A68">Static Multi-Objective Dataset</text>
+  <text id="text-sampling-title" x="888" y="43" text-anchor="middle" font-family="Arial" font-size="40" font-weight="700"
+    fill="#B85B00" text-decoration="underline">Sampling</text>
+
+  <g id="molecule-offline" data-role="icon">
+    <line id="molecule-offline-bond-01" x1="169" y1="115" x2="185" y2="119" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-01" data-target-id="molecule-offline-atom-02" data-topology-relation="chemical_bond"/>
+    <line id="molecule-offline-bond-02" x1="185" y1="119" x2="201" y2="108" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-02" data-target-id="molecule-offline-atom-03" data-topology-relation="chemical_bond"/>
+    <line id="molecule-offline-bond-03" x1="185" y1="119" x2="179" y2="136" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-02" data-target-id="molecule-offline-atom-04" data-topology-relation="chemical_bond"/>
+    <line id="molecule-offline-bond-04" x1="185" y1="119" x2="204" y2="128" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-02" data-target-id="molecule-offline-atom-05" data-topology-relation="chemical_bond"/>
+    <line id="molecule-offline-bond-05" x1="204" y1="128" x2="220" y2="116" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-05" data-target-id="molecule-offline-atom-06" data-topology-relation="chemical_bond"/>
+    <line id="molecule-offline-bond-06" x1="204" y1="128" x2="204" y2="143" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-05" data-target-id="molecule-offline-atom-07" data-topology-relation="chemical_bond"/>
+    <line id="molecule-offline-bond-07" x1="204" y1="128" x2="232" y2="136" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round"
+      data-source-id="molecule-offline-atom-05" data-target-id="molecule-offline-atom-08" data-topology-relation="chemical_bond"/>
+    <circle id="molecule-offline-atom-01" cx="169" cy="115" r="5" fill="#F5B642" stroke="#D59825" stroke-width="1"/>
+    <circle id="molecule-offline-atom-02" cx="185" cy="119" r="5" fill="#E98A49" stroke="#C96E34" stroke-width="1"/>
+    <circle id="molecule-offline-atom-03" cx="201" cy="108" r="5" fill="#79BC80" stroke="#579B62" stroke-width="1"/>
+    <circle id="molecule-offline-atom-04" cx="179" cy="136" r="5" fill="#77B97E" stroke="#579B62" stroke-width="1"/>
+    <circle id="molecule-offline-atom-05" cx="204" cy="128" r="6" fill="#E86E48" stroke="#C44F32" stroke-width="1"/>
+    <circle id="molecule-offline-atom-06" cx="220" cy="116" r="5" fill="#E85A53" stroke="#C53C3C" stroke-width="1"/>
+    <circle id="molecule-offline-atom-07" cx="204" cy="143" r="5" fill="#F2A33A" stroke="#D18124" stroke-width="1"/>
+    <circle id="molecule-offline-atom-08" cx="232" cy="136" r="5" fill="#78B97D" stroke="#579B62" stroke-width="1"/>
+  </g>
+
+  <g id="dna-offline" data-role="icon">
+    <path id="dna-offline-left-strand-a" d="M177 150 C198 156 201 164 181 171 C168 177 174 184 196 189 C208 193 204 202 185 210"
+      fill="none" stroke="#3E74C5" stroke-width="3" stroke-linecap="round"/>
+    <path id="dna-offline-left-strand-b" d="M200 150 C180 157 177 164 196 171 C210 177 203 184 182 189 C169 194 174 202 193 210"
+      fill="none" stroke="#315AA8" stroke-width="3" stroke-linecap="round"/>
+    <line id="dna-offline-left-rung-01" x1="181" y1="154" x2="197" y2="154" stroke="#73A5D8" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <line id="dna-offline-left-rung-02" x1="184" y1="162" x2="194" y2="162" stroke="#72B3B0" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <line id="dna-offline-left-rung-03" x1="180" y1="170" x2="197" y2="170" stroke="#72A8D5" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <line id="dna-offline-left-rung-04" x1="176" y1="178" x2="203" y2="178" stroke="#6FB3AA" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <line id="dna-offline-left-rung-05" x1="181" y1="187" x2="198" y2="187" stroke="#76A7D4" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <line id="dna-offline-left-rung-06" x1="176" y1="197" x2="201" y2="197" stroke="#6FAFA9" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <line id="dna-offline-left-rung-07" x1="182" y1="205" x2="195" y2="205" stroke="#79A9D4" stroke-width="2.2" data-pair-with="dna-offline-left-strand-a dna-offline-left-strand-b"/>
+    <path id="dna-offline-right-strand-a" d="M226 152 C241 157 242 164 229 171 C216 178 219 185 233 191 C242 196 240 203 228 209"
+      fill="none" stroke="#8A9D91" stroke-width="2.4" stroke-linecap="round"/>
+    <path id="dna-offline-right-strand-b" d="M239 153 C225 158 222 165 236 171 C247 178 243 185 230 191 C219 197 222 204 237 209"
+      fill="none" stroke="#A98068" stroke-width="2.4" stroke-linecap="round"/>
+    <line id="dna-offline-right-rung-01" x1="228" y1="156" x2="237" y2="156" stroke="#A6A68F" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+    <line id="dna-offline-right-rung-02" x1="228" y1="163" x2="236" y2="163" stroke="#B58B71" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+    <line id="dna-offline-right-rung-03" x1="225" y1="171" x2="238" y2="171" stroke="#95A38F" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+    <line id="dna-offline-right-rung-04" x1="220" y1="178" x2="243" y2="178" stroke="#B58A72" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+    <line id="dna-offline-right-rung-05" x1="223" y1="186" x2="240" y2="186" stroke="#91A291" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+    <line id="dna-offline-right-rung-06" x1="226" y1="194" x2="238" y2="194" stroke="#B98C73" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+    <line id="dna-offline-right-rung-07" x1="225" y1="202" x2="237" y2="202" stroke="#93A18E" stroke-width="1.7" data-pair-with="dna-offline-right-strand-a dna-offline-right-strand-b"/>
+  </g>
+
+  <g id="dataset-raw">
+    <path id="dataset-raw-body" d="M252 121 L252 180 C252 190 270 195 294 195 C318 195 336 190 336 180 L336 121 Z"
+      fill="#FFF2CC" stroke="#F2B418" stroke-width="1.5" data-peer-size-group="dataset-cylinder-bodies" data-peer-size-tolerance="1"/>
+    <ellipse id="dataset-raw-top" cx="294" cy="121" rx="42" ry="15" fill="#FFF2CC" stroke="#F2B418" stroke-width="1.5"
+      data-peer-size-group="dataset-cylinder-tops" data-peer-size-tolerance="1"/>
+    <text id="text-dataset-raw-symbol" x="294" y="171" text-anchor="middle" font-family="Cambria Math" font-size="40" font-style="italic"
+      fill="#111111" data-layout-container="dataset-raw-body" data-layout-padding="8">D</text>
+  </g>
+
+  <g id="chart-offline" data-role="plot">
+    <line id="chart-offline-axis-y" x1="355" y1="177" x2="355" y2="121" stroke="#111111" stroke-width="1.8" marker-end="url(#axis-arrow)"
+      data-role="arrow" data-arrow-representation="line_arrow" data-end-arrow-width="sm" data-end-arrow-length="sm" data-attach="false" data-pair-with="chart-offline-axis-x"/>
+    <line id="chart-offline-axis-x" x1="354" y1="176" x2="427" y2="176" stroke="#111111" stroke-width="1.8" marker-end="url(#axis-arrow)"
+      data-role="arrow" data-arrow-representation="line_arrow" data-end-arrow-width="sm" data-end-arrow-length="sm" data-attach="false"/>
+    <line id="chart-offline-y-tick-01" x1="352" y1="165" x2="358" y2="165" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-y"/>
+    <line id="chart-offline-y-tick-02" x1="352" y1="153" x2="358" y2="153" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-y"/>
+    <line id="chart-offline-y-tick-03" x1="352" y1="141" x2="358" y2="141" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-y"/>
+    <line id="chart-offline-y-tick-04" x1="352" y1="129" x2="358" y2="129" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-y"/>
+    <line id="chart-offline-x-tick-01" x1="369" y1="173" x2="369" y2="179" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-x"/>
+    <line id="chart-offline-x-tick-02" x1="383" y1="173" x2="383" y2="179" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-x"/>
+    <line id="chart-offline-x-tick-03" x1="397" y1="173" x2="397" y2="179" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-x"/>
+    <line id="chart-offline-x-tick-04" x1="411" y1="173" x2="411" y2="179" stroke="#111111" stroke-width="1.5" data-pair-with="chart-offline-axis-x"/>
+    <line id="chart-offline-wick-01" x1="366" y1="128" x2="366" y2="161" stroke="#111111" stroke-width="2" data-pair-with="chart-offline-candle-01"/>
+    <rect id="chart-offline-candle-01" x="362" y="137" width="8" height="15" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+    <line id="chart-offline-wick-02" x1="378" y1="141" x2="378" y2="171" stroke="#111111" stroke-width="2" data-pair-with="chart-offline-candle-02"/>
+    <rect id="chart-offline-candle-02" x="374" y="148" width="8" height="15" fill="#111111" stroke="#111111" stroke-width="2"/>
+    <line id="chart-offline-wick-03" x1="390" y1="133" x2="390" y2="168" stroke="#111111" stroke-width="2" data-pair-with="chart-offline-candle-03"/>
+    <rect id="chart-offline-candle-03" x="386" y="145" width="8" height="13" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+    <line id="chart-offline-wick-04" x1="402" y1="127" x2="402" y2="159" stroke="#111111" stroke-width="2" data-pair-with="chart-offline-candle-04"/>
+    <rect id="chart-offline-candle-04" x="398" y="136" width="8" height="15" fill="#111111" stroke="#111111" stroke-width="2"/>
+    <line id="chart-offline-wick-05" x1="414" y1="121" x2="414" y2="155" stroke="#111111" stroke-width="2" data-pair-with="chart-offline-candle-05"/>
+    <rect id="chart-offline-candle-05" x="410" y="132" width="8" height="14" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+  </g>
+
+  <path id="arrow-raw-to-reweighted" d="M281 197 H307 V228 H320 L294 254 L268 228 H281 Z"
+    fill="#4A86E8" stroke="#28589C" stroke-width="1.2" data-role="arrow" data-arrow-representation="block_arrow"
+    data-arrow-centerline="M294 197 L294 254" data-arrow-body-width="26" data-start-head-type="none" data-end-head-type="custom"
+    data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="dataset-raw-body" data-target-id="dataset-reweighted-body"
+    data-gap-source-id="dataset-raw-body" data-gap-target-id="dataset-reweighted-body" data-gap-axis="vertical"
+    data-gap-start-inset="2" data-gap-end-inset="22" data-gap-cross-position="294" data-gap-tolerance="0.25"/>
+
+  <g id="dataset-reweighted">
+    <path id="dataset-reweighted-body" d="M252 276 L252 335 C252 345 270 350 294 350 C318 350 336 345 336 335 L336 276 Z"
+      fill="#FFF2CC" stroke="#C99B05" stroke-width="2.6" data-peer-size-group="dataset-cylinder-bodies" data-peer-size-tolerance="1"/>
+    <ellipse id="dataset-reweighted-top" cx="294" cy="276" rx="42" ry="15" fill="#FFF2CC" stroke="#C99B05" stroke-width="2.6"
+      data-peer-size-group="dataset-cylinder-tops" data-peer-size-tolerance="1"/>
+    <text id="text-dataset-reweighted-symbol" x="294" y="326" text-anchor="middle" font-family="Cambria Math" font-size="40" font-style="italic"
+      fill="#111111" data-layout-container="dataset-reweighted-body" data-layout-padding="8">D</text>
+  </g>
+  <text id="text-reweighted" x="105" y="315" font-family="Arial" font-size="25.333" fill="#0D3A68">Reweighted</text>
+
+  <g id="scale-reweight" data-role="icon">
+    <line id="scale-reweight-post" x1="167" y1="328" x2="167" y2="362" stroke="#9E9E9E" stroke-width="3" stroke-linecap="round"
+      data-pair-with="scale-reweight-beam scale-reweight-base"/>
+    <line id="scale-reweight-beam" x1="143" y1="331" x2="191" y2="331" stroke="#9E9E9E" stroke-width="3" stroke-linecap="round"
+      data-pair-with="scale-reweight-pivot scale-reweight-left-hanger scale-reweight-right-hanger"/>
+    <polygon id="scale-reweight-pivot" points="160,334 174,334 167,343" fill="#A2A2A2" stroke="#999999" stroke-width="1"/>
+    <line id="scale-reweight-left-hanger" x1="149" y1="332" x2="149" y2="349" stroke="#A0A0A0" stroke-width="1.8" data-pair-with="scale-reweight-left-pan"/>
+    <line id="scale-reweight-right-hanger" x1="186" y1="332" x2="186" y2="349" stroke="#A0A0A0" stroke-width="1.8" data-pair-with="scale-reweight-right-pan"/>
+    <path id="scale-reweight-left-pan" d="M137 349 Q149 365 160 349 Z" fill="#AAAAAA" stroke="#9A9A9A" stroke-width="1"/>
+    <path id="scale-reweight-right-pan" d="M175 349 Q186 365 198 349 Z" fill="#AAAAAA" stroke="#9A9A9A" stroke-width="1"/>
+    <path id="scale-reweight-base" d="M156 369 H179 L174 364 H162 Z" fill="#9E9E9E" stroke="#999999" stroke-width="1"/>
+  </g>
+
+  <path id="arrow-reweighted-to-model" d="M281 355 H307 V416 H320 L294 442 L268 416 H281 Z"
+    fill="#4A86E8" stroke="#28589C" stroke-width="1.2" data-role="arrow" data-arrow-representation="block_arrow"
+    data-arrow-centerline="M294 355 L294 442" data-arrow-body-width="26" data-start-head-type="none" data-end-head-type="custom"
+    data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="dataset-reweighted-body" data-target-id="model-left-box"
+    data-gap-source-id="dataset-reweighted-body" data-gap-target-id="model-left-box" data-gap-axis="vertical"
+    data-gap-start-inset="5" data-gap-end-inset="5" data-gap-cross-position="294" data-gap-tolerance="0.25"/>
+  <text id="text-train" x="333" y="402" font-family="Arial" font-size="26.667" fill="#0D3A68">Train</text>
+
+  <rect id="model-left-box" x="152" y="447" width="284" height="124" fill="#FFFFFF" stroke="#6FA8DC" stroke-width="4"
+    data-peer-size-group="diffusion-model-boxes" data-peer-size-tolerance="1"/>
+  <g id="model-left-watermark" data-role="icon">
+    <line id="model-left-edge-01" x1="294" y1="459" x2="262" y2="480" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-01" data-target-id="model-left-node-02" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-02" x1="294" y1="459" x2="326" y2="480" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-01" data-target-id="model-left-node-03" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-03" x1="294" y1="459" x2="294" y2="505" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-01" data-target-id="model-left-node-04" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-04" x1="262" y1="480" x2="294" y2="505" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-02" data-target-id="model-left-node-04" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-05" x1="326" y1="480" x2="294" y2="505" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-03" data-target-id="model-left-node-04" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-06" x1="262" y1="480" x2="325" y2="536" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-02" data-target-id="model-left-node-06" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-07" x1="326" y1="480" x2="263" y2="536" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-03" data-target-id="model-left-node-05" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-08" x1="294" y1="505" x2="263" y2="536" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-04" data-target-id="model-left-node-05" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-09" x1="294" y1="505" x2="325" y2="536" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-04" data-target-id="model-left-node-06" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-10" x1="263" y1="536" x2="294" y2="558" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-05" data-target-id="model-left-node-07" data-topology-relation="graph_edge"/>
+    <line id="model-left-edge-11" x1="325" y1="536" x2="294" y2="558" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-left-node-06" data-target-id="model-left-node-07" data-topology-relation="graph_edge"/>
+    <circle id="model-left-node-01" cx="294" cy="459" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-left-node-02" cx="262" cy="480" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-left-node-03" cx="326" cy="480" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-left-node-04" cx="294" cy="505" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-left-node-05" cx="263" cy="536" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-left-node-06" cx="325" cy="536" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-left-node-07" cx="294" cy="558" r="7" fill="#CFCFCF" opacity="0.72"/>
+  </g>
+  <text id="text-model-left" x="294" y="504" text-anchor="middle" font-family="Arial" font-size="25.333" fill="#0D3A68"
+    data-layout-container="model-left-box" data-layout-padding="14"><tspan x="294" y="504" font-weight="700">Pareto-Conditioned</tspan><tspan x="294" dy="30" font-weight="400">Diffusion Model</tspan></text>
+
+  <g id="gaussian-noise" data-role="plot">
+    <line id="gaussian-noise-baseline" x1="872" y1="189" x2="1172" y2="189" stroke="#888888" stroke-width="1.8"/>
+    <path id="gaussian-noise-curve" d="M872 188 C930 188 953 187 970 159 C988 129 1002 83 1022 83 C1042 83 1055 130 1073 159 C1090 187 1114 188 1172 188"
+      fill="none" stroke="#888888" stroke-width="1.8" data-pair-with="gaussian-noise-baseline"/>
+  </g>
+  <path id="arrow-noise-to-model" d="M1009 195 H1035 V222 H1048 L1022 249 L996 222 H1009 Z"
+    fill="#E69138" stroke="#9A4C00" stroke-width="1.2" data-role="arrow" data-arrow-representation="block_arrow"
+    data-arrow-centerline="M1022 195 L1022 249" data-arrow-body-width="26" data-start-head-type="none" data-end-head-type="custom"
+    data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="gaussian-noise-curve" data-target-id="model-right-box"
+    data-gap-source-id="gaussian-noise-curve" data-gap-target-id="model-right-box" data-gap-axis="vertical"
+    data-gap-start-inset="7" data-gap-end-inset="3" data-gap-cross-position="1022" data-gap-tolerance="0.25"/>
+  <text id="text-noise" x="1060" y="225" font-family="Arial" font-size="25.333" fill="#0D3A68">Noise</text>
+
+  <rect id="target-objectives-box" x="612" y="260" width="151" height="110" fill="#C9DAF8" stroke="#355A97" stroke-width="1.5"/>
+  <text id="text-target-objectives" x="687.5" y="309" text-anchor="middle" font-family="Arial" font-size="25.333" fill="#0D3A68"
+    data-layout-container="target-objectives-box" data-layout-padding="12"><tspan x="687.5" y="309">Target</tspan><tspan x="687.5" dy="31">Objectives</tspan></text>
+  <text id="text-condition" x="772" y="286" font-family="Arial" font-size="21.333" fill="#0D3A68">Condition</text>
+
+  <g id="chart-target" data-role="plot">
+    <line id="chart-target-axis-y" x1="653" y1="437" x2="653" y2="381" stroke="#111111" stroke-width="1.8" marker-end="url(#axis-arrow)"
+      data-role="arrow" data-arrow-representation="line_arrow" data-end-arrow-width="sm" data-end-arrow-length="sm" data-attach="false" data-pair-with="chart-target-axis-x"/>
+    <line id="chart-target-axis-x" x1="652" y1="436" x2="725" y2="436" stroke="#111111" stroke-width="1.8" marker-end="url(#axis-arrow)"
+      data-role="arrow" data-arrow-representation="line_arrow" data-end-arrow-width="sm" data-end-arrow-length="sm" data-attach="false"/>
+    <line id="chart-target-y-tick-01" x1="650" y1="425" x2="656" y2="425" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-y"/>
+    <line id="chart-target-y-tick-02" x1="650" y1="413" x2="656" y2="413" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-y"/>
+    <line id="chart-target-y-tick-03" x1="650" y1="401" x2="656" y2="401" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-y"/>
+    <line id="chart-target-y-tick-04" x1="650" y1="389" x2="656" y2="389" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-y"/>
+    <line id="chart-target-x-tick-01" x1="667" y1="433" x2="667" y2="439" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-x"/>
+    <line id="chart-target-x-tick-02" x1="681" y1="433" x2="681" y2="439" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-x"/>
+    <line id="chart-target-x-tick-03" x1="695" y1="433" x2="695" y2="439" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-x"/>
+    <line id="chart-target-x-tick-04" x1="709" y1="433" x2="709" y2="439" stroke="#111111" stroke-width="1.5" data-pair-with="chart-target-axis-x"/>
+    <line id="chart-target-wick-01" x1="664" y1="388" x2="664" y2="421" stroke="#111111" stroke-width="2" data-pair-with="chart-target-candle-01"/>
+    <rect id="chart-target-candle-01" x="660" y="397" width="8" height="15" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+    <line id="chart-target-wick-02" x1="676" y1="401" x2="676" y2="431" stroke="#111111" stroke-width="2" data-pair-with="chart-target-candle-02"/>
+    <rect id="chart-target-candle-02" x="672" y="408" width="8" height="15" fill="#111111" stroke="#111111" stroke-width="2"/>
+    <line id="chart-target-wick-03" x1="688" y1="393" x2="688" y2="428" stroke="#111111" stroke-width="2" data-pair-with="chart-target-candle-03"/>
+    <rect id="chart-target-candle-03" x="684" y="405" width="8" height="13" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+    <line id="chart-target-wick-04" x1="700" y1="387" x2="700" y2="419" stroke="#111111" stroke-width="2" data-pair-with="chart-target-candle-04"/>
+    <rect id="chart-target-candle-04" x="696" y="396" width="8" height="15" fill="#111111" stroke="#111111" stroke-width="2"/>
+    <line id="chart-target-wick-05" x1="712" y1="381" x2="712" y2="415" stroke="#111111" stroke-width="2" data-pair-with="chart-target-candle-05"/>
+    <rect id="chart-target-candle-05" x="708" y="392" width="8" height="14" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+  </g>
+
+  <path id="arrow-target-to-model" d="M769 305 H853 V293 L876 315 L853 337 V326 H769 Z"
+    fill="#E69138" stroke="#9A4C00" stroke-width="1.2" data-role="arrow" data-arrow-representation="block_arrow"
+    data-arrow-centerline="M769 315 L876 315" data-arrow-body-width="21" data-start-head-type="none" data-end-head-type="custom"
+    data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="target-objectives-box" data-target-id="model-right-box"
+    data-gap-source-id="target-objectives-box" data-gap-target-id="model-right-box" data-gap-axis="horizontal"
+    data-gap-start-inset="6" data-gap-end-inset="5" data-gap-cross-position="315" data-gap-tolerance="0.25"/>
+
+  <rect id="model-right-box" x="881" y="252" width="284" height="124" fill="#FFFFFF" stroke="#6FA8DC" stroke-width="4"
+    data-peer-size-group="diffusion-model-boxes" data-peer-size-tolerance="1"/>
+  <g id="model-right-watermark" data-role="icon">
+    <line id="model-right-edge-01" x1="1022" y1="264" x2="990" y2="285" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-01" data-target-id="model-right-node-02" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-02" x1="1022" y1="264" x2="1054" y2="285" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-01" data-target-id="model-right-node-03" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-03" x1="1022" y1="264" x2="1022" y2="310" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-01" data-target-id="model-right-node-04" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-04" x1="990" y1="285" x2="1022" y2="310" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-02" data-target-id="model-right-node-04" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-05" x1="1054" y1="285" x2="1022" y2="310" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-03" data-target-id="model-right-node-04" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-06" x1="990" y1="285" x2="1053" y2="341" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-02" data-target-id="model-right-node-06" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-07" x1="1054" y1="285" x2="991" y2="341" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-03" data-target-id="model-right-node-05" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-08" x1="1022" y1="310" x2="991" y2="341" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-04" data-target-id="model-right-node-05" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-09" x1="1022" y1="310" x2="1053" y2="341" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-04" data-target-id="model-right-node-06" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-10" x1="991" y1="341" x2="1022" y2="363" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-05" data-target-id="model-right-node-07" data-topology-relation="graph_edge"/>
+    <line id="model-right-edge-11" x1="1053" y1="341" x2="1022" y2="363" stroke="#C8C8C8" stroke-width="2.2" opacity="0.55" data-source-id="model-right-node-06" data-target-id="model-right-node-07" data-topology-relation="graph_edge"/>
+    <circle id="model-right-node-01" cx="1022" cy="264" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-right-node-02" cx="990" cy="285" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-right-node-03" cx="1054" cy="285" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-right-node-04" cx="1022" cy="310" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-right-node-05" cx="991" cy="341" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-right-node-06" cx="1053" cy="341" r="7" fill="#CFCFCF" opacity="0.72"/>
+    <circle id="model-right-node-07" cx="1022" cy="363" r="7" fill="#CFCFCF" opacity="0.72"/>
+  </g>
+  <text id="text-model-right" x="1023" y="309" text-anchor="middle" font-family="Arial" font-size="25.333" fill="#0D3A68"
+    data-layout-container="model-right-box" data-layout-padding="14"><tspan x="1023" y="309" font-weight="700">Pareto-Conditioned</tspan><tspan x="1023" dy="30" font-weight="400">Diffusion Model</tspan></text>
+
+  <path id="arrow-model-to-designs" d="M1009 382 H1035 V431 H1048 L1022 457 L996 431 H1009 Z"
+    fill="#E69138" stroke="#9A4C00" stroke-width="1.2" data-role="arrow" data-arrow-representation="block_arrow"
+    data-arrow-centerline="M1022 382 L1022 457" data-arrow-body-width="26" data-start-head-type="none" data-end-head-type="custom"
+    data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="model-right-box" data-target-id="designs-box-front"
+    data-gap-source-id="model-right-box" data-gap-target-id="designs-box-front" data-gap-axis="vertical"
+    data-gap-start-inset="6" data-gap-end-inset="32" data-gap-cross-position="1022" data-gap-tolerance="0.25"/>
+  <text id="text-sample" x="1055" y="423" font-family="Arial" font-size="25.333" fill="#0D3A68">Sample</text>
+
+  <g id="designs-box" data-role="shape">
+    <polygon id="designs-box-top" points="939,489 967,461 1104,461 1077,489" fill="#D9E8F7" stroke="#15538A" stroke-width="1.5"
+      data-pair-with="designs-box-front designs-box-side"/>
+    <polygon id="designs-box-side" points="1077,489 1104,461 1104,544 1077,571" fill="#A8B9CA" stroke="#15538A" stroke-width="1.5"/>
+    <rect id="designs-box-front" x="939" y="489" width="138" height="82" fill="#C9DDF1" stroke="#15538A" stroke-width="1.5"
+      data-pair-with="designs-box-side"/>
+    <text id="text-designs" x="1008" y="540" text-anchor="middle" font-family="Arial" font-size="25.333" font-weight="700" fill="#0D3A68"
+      data-layout-container="designs-box-front" data-layout-padding="14">Designs</text>
+  </g>
+
+  <g id="molecule-output" data-role="icon">
+    <line id="molecule-output-bond-01" x1="855" y1="518" x2="871" y2="522" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-01" data-target-id="molecule-output-atom-02" data-topology-relation="chemical_bond"/>
+    <line id="molecule-output-bond-02" x1="871" y1="522" x2="887" y2="511" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-02" data-target-id="molecule-output-atom-03" data-topology-relation="chemical_bond"/>
+    <line id="molecule-output-bond-03" x1="871" y1="522" x2="865" y2="539" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-02" data-target-id="molecule-output-atom-04" data-topology-relation="chemical_bond"/>
+    <line id="molecule-output-bond-04" x1="871" y1="522" x2="890" y2="531" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-02" data-target-id="molecule-output-atom-05" data-topology-relation="chemical_bond"/>
+    <line id="molecule-output-bond-05" x1="890" y1="531" x2="906" y2="519" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-05" data-target-id="molecule-output-atom-06" data-topology-relation="chemical_bond"/>
+    <line id="molecule-output-bond-06" x1="890" y1="531" x2="890" y2="546" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-05" data-target-id="molecule-output-atom-07" data-topology-relation="chemical_bond"/>
+    <line id="molecule-output-bond-07" x1="890" y1="531" x2="918" y2="539" stroke="#A99A83" stroke-width="3.2" stroke-linecap="round" data-source-id="molecule-output-atom-05" data-target-id="molecule-output-atom-08" data-topology-relation="chemical_bond"/>
+    <circle id="molecule-output-atom-01" cx="855" cy="518" r="5" fill="#F5B642" stroke="#D59825" stroke-width="1"/>
+    <circle id="molecule-output-atom-02" cx="871" cy="522" r="5" fill="#E98A49" stroke="#C96E34" stroke-width="1"/>
+    <circle id="molecule-output-atom-03" cx="887" cy="511" r="5" fill="#79BC80" stroke="#579B62" stroke-width="1"/>
+    <circle id="molecule-output-atom-04" cx="865" cy="539" r="5" fill="#77B97E" stroke="#579B62" stroke-width="1"/>
+    <circle id="molecule-output-atom-05" cx="890" cy="531" r="6" fill="#E86E48" stroke="#C44F32" stroke-width="1"/>
+    <circle id="molecule-output-atom-06" cx="906" cy="519" r="5" fill="#E85A53" stroke="#C53C3C" stroke-width="1"/>
+    <circle id="molecule-output-atom-07" cx="890" cy="546" r="5" fill="#F2A33A" stroke="#D18124" stroke-width="1"/>
+    <circle id="molecule-output-atom-08" cx="918" cy="539" r="5" fill="#78B97D" stroke="#579B62" stroke-width="1"/>
+  </g>
+
+  <g id="dna-output" data-role="icon">
+    <path id="dna-output-left-strand-a" d="M1114 464 C1135 470 1138 478 1118 485 C1105 491 1111 498 1133 503 C1145 507 1141 516 1122 524" fill="none" stroke="#3E74C5" stroke-width="3" stroke-linecap="round"/>
+    <path id="dna-output-left-strand-b" d="M1137 464 C1117 471 1114 478 1133 485 C1147 491 1140 498 1119 503 C1106 508 1111 516 1130 524" fill="none" stroke="#315AA8" stroke-width="3" stroke-linecap="round"/>
+    <line id="dna-output-left-rung-01" x1="1118" y1="468" x2="1134" y2="468" stroke="#73A5D8" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <line id="dna-output-left-rung-02" x1="1121" y1="476" x2="1131" y2="476" stroke="#72B3B0" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <line id="dna-output-left-rung-03" x1="1117" y1="484" x2="1134" y2="484" stroke="#72A8D5" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <line id="dna-output-left-rung-04" x1="1113" y1="492" x2="1140" y2="492" stroke="#6FB3AA" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <line id="dna-output-left-rung-05" x1="1118" y1="501" x2="1135" y2="501" stroke="#76A7D4" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <line id="dna-output-left-rung-06" x1="1113" y1="511" x2="1138" y2="511" stroke="#6FAFA9" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <line id="dna-output-left-rung-07" x1="1119" y1="519" x2="1132" y2="519" stroke="#79A9D4" stroke-width="2.2" data-pair-with="dna-output-left-strand-a dna-output-left-strand-b"/>
+    <path id="dna-output-right-strand-a" d="M1163 466 C1178 471 1179 478 1166 485 C1153 492 1156 499 1170 505 C1179 510 1177 517 1165 523" fill="none" stroke="#8A9D91" stroke-width="2.4" stroke-linecap="round"/>
+    <path id="dna-output-right-strand-b" d="M1176 467 C1162 472 1159 479 1173 485 C1184 492 1180 499 1167 505 C1156 511 1159 518 1174 523" fill="none" stroke="#A98068" stroke-width="2.4" stroke-linecap="round"/>
+    <line id="dna-output-right-rung-01" x1="1165" y1="470" x2="1174" y2="470" stroke="#A6A68F" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+    <line id="dna-output-right-rung-02" x1="1165" y1="477" x2="1173" y2="477" stroke="#B58B71" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+    <line id="dna-output-right-rung-03" x1="1162" y1="485" x2="1175" y2="485" stroke="#95A38F" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+    <line id="dna-output-right-rung-04" x1="1157" y1="492" x2="1180" y2="492" stroke="#B58A72" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+    <line id="dna-output-right-rung-05" x1="1160" y1="500" x2="1177" y2="500" stroke="#91A291" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+    <line id="dna-output-right-rung-06" x1="1163" y1="508" x2="1175" y2="508" stroke="#B98C73" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+    <line id="dna-output-right-rung-07" x1="1162" y1="516" x2="1174" y2="516" stroke="#93A18E" stroke-width="1.7" data-pair-with="dna-output-right-strand-a dna-output-right-strand-b"/>
+  </g>
+</svg>

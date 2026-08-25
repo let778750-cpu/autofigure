@@ -1,0 +1,2078 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_repair_request",
+  "created_at": "20260824T133509Z",
+  "path_base": "autofigure-case-root",
+  "case_root": "qa/powerpoint-live-case",
+  "autofigure_case_root": ".",
+  "project_id": "autofigure-04-pareto-conditioned-diffusion-reference-only",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "target_id": "autofigure-pptx",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "candidate_pptx": "qa/powerpoint-live-case/input/candidate.pptx",
+  "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+  "visible": true,
+  "failed_regions": [
+    "whole-canvas",
+    "left-panel-frame",
+    "offline-heading",
+    "dataset-assets",
+    "reweight-stage",
+    "train-flow",
+    "left-model",
+    "right-panel-frame",
+    "sampling-heading-distribution",
+    "noise-label",
+    "target-condition",
+    "right-model",
+    "sample-output",
+    "ink-molecule-offline",
+    "ink-molecule-output",
+    "ink-dna-offline",
+    "ink-dna-output",
+    "ink-scale-reweight",
+    "ink-model-left-watermark",
+    "ink-model-right-watermark",
+    "ink-chart-offline",
+    "ink-chart-target",
+    "ink-gaussian-noise",
+    "arrow-region-raw-to-reweighted",
+    "arrow-region-reweighted-to-model",
+    "arrow-region-noise-to-model",
+    "arrow-region-target-to-model",
+    "arrow-region-model-to-designs"
+  ],
+  "all_blockers": [
+    {
+      "id": "B0001",
+      "blocker": "arrow-visual:arrow-raw-to-reweighted:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0002",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0003",
+      "blocker": "region:arrow-region-model-to-designs",
+      "category": "source_model"
+    },
+    {
+      "id": "B0004",
+      "blocker": "region:arrow-region-noise-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0005",
+      "blocker": "region:arrow-region-raw-to-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0006",
+      "blocker": "region:arrow-region-reweighted-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0007",
+      "blocker": "region:arrow-region-target-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0008",
+      "blocker": "region:dataset-assets",
+      "category": "source_model"
+    },
+    {
+      "id": "B0009",
+      "blocker": "region:ink-chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0010",
+      "blocker": "region:ink-chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0011",
+      "blocker": "region:ink-dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0012",
+      "blocker": "region:ink-dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0013",
+      "blocker": "region:ink-gaussian-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0014",
+      "blocker": "region:ink-model-left-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0015",
+      "blocker": "region:ink-model-right-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0016",
+      "blocker": "region:ink-molecule-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0017",
+      "blocker": "region:ink-molecule-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "region:ink-scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0019",
+      "blocker": "region:left-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0020",
+      "blocker": "region:left-panel-frame",
+      "category": "source_model"
+    },
+    {
+      "id": "B0021",
+      "blocker": "region:noise-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0022",
+      "blocker": "region:offline-heading",
+      "category": "source_model"
+    },
+    {
+      "id": "B0023",
+      "blocker": "region:reweight-stage",
+      "category": "source_model"
+    },
+    {
+      "id": "B0024",
+      "blocker": "region:right-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0025",
+      "blocker": "region:right-panel-frame",
+      "category": "source_model"
+    },
+    {
+      "id": "B0026",
+      "blocker": "region:sample-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0027",
+      "blocker": "region:sampling-heading-distribution",
+      "category": "source_model"
+    },
+    {
+      "id": "B0028",
+      "blocker": "region:target-condition",
+      "category": "source_model"
+    },
+    {
+      "id": "B0029",
+      "blocker": "region:train-flow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0030",
+      "blocker": "region:whole-canvas",
+      "category": "source_model"
+    },
+    {
+      "id": "B0031",
+      "blocker": "visual-contract:V20:arrow-to-train-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0032",
+      "blocker": "visual-contract:V20:condition-label-to-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0033",
+      "blocker": "visual-contract:V20:designs-to-dna",
+      "category": "source_model"
+    },
+    {
+      "id": "B0034",
+      "blocker": "visual-contract:V20:noise-arrow-to-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0035",
+      "blocker": "visual-contract:V20:sample-arrow-to-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0036",
+      "blocker": "visual-contract:V31:designs-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0037",
+      "blocker": "visual-contract:V32:designs-box",
+      "category": "compiler"
+    },
+    {
+      "id": "B0038",
+      "blocker": "visual-contract:V34:chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0039",
+      "blocker": "visual-contract:V34:chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0040",
+      "blocker": "visual-contract:V34:designs-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0041",
+      "blocker": "visual-contract:V34:dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0042",
+      "blocker": "visual-contract:V34:dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0043",
+      "blocker": "visual-contract:V34:gaussian-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0044",
+      "blocker": "visual-contract:V34:scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0045",
+      "blocker": "visual-contract:V4:text-condition",
+      "category": "source_model"
+    },
+    {
+      "id": "B0046",
+      "blocker": "visual-contract:V4:text-dataset-raw-symbol",
+      "category": "source_model"
+    },
+    {
+      "id": "B0047",
+      "blocker": "visual-contract:V4:text-dataset-reweighted-symbol",
+      "category": "source_model"
+    },
+    {
+      "id": "B0048",
+      "blocker": "visual-contract:V4:text-designs",
+      "category": "source_model"
+    },
+    {
+      "id": "B0049",
+      "blocker": "visual-contract:V4:text-model-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0050",
+      "blocker": "visual-contract:V4:text-model-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0051",
+      "blocker": "visual-contract:V4:text-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0052",
+      "blocker": "visual-contract:V4:text-offline-subtitle",
+      "category": "source_model"
+    },
+    {
+      "id": "B0053",
+      "blocker": "visual-contract:V4:text-offline-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0054",
+      "blocker": "visual-contract:V4:text-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0055",
+      "blocker": "visual-contract:V4:text-sample",
+      "category": "source_model"
+    },
+    {
+      "id": "B0056",
+      "blocker": "visual-contract:V4:text-sampling-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0057",
+      "blocker": "visual-contract:V4:text-target-objectives",
+      "category": "source_model"
+    },
+    {
+      "id": "B0058",
+      "blocker": "visual-contract:V4:text-train",
+      "category": "source_model"
+    },
+    {
+      "id": "B0059",
+      "blocker": "visual-contract:V5:chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0060",
+      "blocker": "visual-contract:V5:chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0061",
+      "blocker": "visual-contract:V5:dataset-raw",
+      "category": "source_model"
+    },
+    {
+      "id": "B0062",
+      "blocker": "visual-contract:V5:dataset-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0063",
+      "blocker": "visual-contract:V5:dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0064",
+      "blocker": "visual-contract:V5:dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0065",
+      "blocker": "visual-contract:V5:model-left-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0066",
+      "blocker": "visual-contract:V5:model-left-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0067",
+      "blocker": "visual-contract:V5:model-right-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0068",
+      "blocker": "visual-contract:V5:model-right-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0069",
+      "blocker": "visual-contract:V5:molecule-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0070",
+      "blocker": "visual-contract:V5:molecule-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0071",
+      "blocker": "visual-contract:V5:panel-sampling",
+      "category": "source_model"
+    },
+    {
+      "id": "B0072",
+      "blocker": "visual-contract:V5:scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0073",
+      "blocker": "visual-contract:V7:chart-offline",
+      "category": "compiler"
+    },
+    {
+      "id": "B0074",
+      "blocker": "visual-contract:V7:chart-target",
+      "category": "compiler"
+    },
+    {
+      "id": "B0075",
+      "blocker": "visual-contract:V7:dataset-raw",
+      "category": "compiler"
+    },
+    {
+      "id": "B0076",
+      "blocker": "visual-contract:V7:dataset-reweighted",
+      "category": "compiler"
+    },
+    {
+      "id": "B0077",
+      "blocker": "visual-contract:V7:dna-offline",
+      "category": "compiler"
+    },
+    {
+      "id": "B0078",
+      "blocker": "visual-contract:V7:dna-output",
+      "category": "compiler"
+    },
+    {
+      "id": "B0079",
+      "blocker": "visual-contract:V7:model-left-box",
+      "category": "compiler"
+    },
+    {
+      "id": "B0080",
+      "blocker": "visual-contract:V7:model-left-watermark",
+      "category": "compiler"
+    },
+    {
+      "id": "B0081",
+      "blocker": "visual-contract:V7:model-right-box",
+      "category": "compiler"
+    },
+    {
+      "id": "B0082",
+      "blocker": "visual-contract:V7:model-right-watermark",
+      "category": "compiler"
+    },
+    {
+      "id": "B0083",
+      "blocker": "visual-contract:V7:molecule-offline",
+      "category": "compiler"
+    },
+    {
+      "id": "B0084",
+      "blocker": "visual-contract:V7:molecule-output",
+      "category": "compiler"
+    },
+    {
+      "id": "B0085",
+      "blocker": "visual-contract:V7:panel-sampling",
+      "category": "compiler"
+    },
+    {
+      "id": "B0086",
+      "blocker": "visual-contract:V7:scale-reweight",
+      "category": "compiler"
+    }
+  ],
+  "repair_actions": [
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0001",
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0008",
+        "B0009",
+        "B0010",
+        "B0011",
+        "B0012",
+        "B0013",
+        "B0014",
+        "B0015",
+        "B0016",
+        "B0017",
+        "B0018",
+        "B0019",
+        "B0020",
+        "B0021",
+        "B0022",
+        "B0023",
+        "B0024",
+        "B0025",
+        "B0026",
+        "B0027",
+        "B0028",
+        "B0029",
+        "B0030",
+        "B0031",
+        "B0032",
+        "B0033",
+        "B0034",
+        "B0035",
+        "B0036",
+        "B0038",
+        "B0039",
+        "B0040",
+        "B0041",
+        "B0042",
+        "B0043",
+        "B0044",
+        "B0045",
+        "B0046",
+        "B0047",
+        "B0048",
+        "B0049",
+        "B0050",
+        "B0051",
+        "B0052",
+        "B0053",
+        "B0054",
+        "B0055",
+        "B0056",
+        "B0057",
+        "B0058",
+        "B0059",
+        "B0060",
+        "B0061",
+        "B0062",
+        "B0063",
+        "B0064",
+        "B0065",
+        "B0066",
+        "B0067",
+        "B0068",
+        "B0069",
+        "B0070",
+        "B0071",
+        "B0072"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-compiler",
+      "category": "compiler",
+      "covers": [
+        "B0037",
+        "B0073",
+        "B0074",
+        "B0075",
+        "B0076",
+        "B0077",
+        "B0078",
+        "B0079",
+        "B0080",
+        "B0081",
+        "B0082",
+        "B0083",
+        "B0084",
+        "B0085",
+        "B0086"
+      ],
+      "strategy": "fix-deterministic-compiler-and-recompile",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "compiler report",
+        "OOXML readback",
+        "single-visible-object and binding closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0002"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    }
+  ],
+  "repair_plan": {
+    "path": "qa/repair-plan.json",
+    "sha256": "261adc8350b660462f285ee88aa48eca17cd0b0f7328d56ff93114f7980513b5",
+    "plan_sha256": "244e70e381c30eee3b3a89391790a715ccdcb38ed724efbe5162bfe8924908ce"
+  },
+  "execution_permitted": false,
+  "execution_blocked_by_categories": [
+    "compiler",
+    "source_model"
+  ],
+  "execution_policy": "PowerPoint Live may inspect/save/reopen/finalize only after contract, source_model, and compiler actions are closed through scene/compiler.",
+  "failed_region_tasks": [
+    {
+      "region_id": "whole-canvas",
+      "label": "Whole canvas",
+      "bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "allowed_element_ids": [
+        "canvas-background"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.853,
+        "edge_iou": 0.7627,
+        "mean_abs_rgb_delta": 8.1263
+      },
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.82
+      }
+    },
+    {
+      "region_id": "left-panel-frame",
+      "label": "Offline panel frame",
+      "bbox": [
+        15,
+        48,
+        558,
+        550
+      ],
+      "allowed_element_ids": [
+        "panel-offline"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.826,
+        "edge_iou": 0.7492,
+        "mean_abs_rgb_delta": 9.7771
+      },
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.9
+      }
+    },
+    {
+      "region_id": "offline-heading",
+      "label": "Offline heading",
+      "bbox": [
+        95,
+        8,
+        405,
+        94
+      ],
+      "allowed_element_ids": [
+        "text-offline-title",
+        "text-offline-subtitle"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6294,
+        "edge_iou": 0.8338,
+        "mean_abs_rgb_delta": 23.6084
+      },
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.84
+      }
+    },
+    {
+      "region_id": "dataset-assets",
+      "label": "Static dataset assets",
+      "bbox": [
+        155,
+        96,
+        280,
+        120
+      ],
+      "allowed_element_ids": [
+        "dataset-raw-body",
+        "dataset-raw-top",
+        "molecule-offline-bond-01",
+        "molecule-offline-bond-02",
+        "molecule-offline-bond-03",
+        "molecule-offline-bond-04",
+        "molecule-offline-bond-05",
+        "molecule-offline-bond-06",
+        "molecule-offline-bond-07",
+        "molecule-offline-atom-01",
+        "molecule-offline-atom-02",
+        "molecule-offline-atom-03",
+        "molecule-offline-atom-04",
+        "molecule-offline-atom-05",
+        "molecule-offline-atom-06",
+        "molecule-offline-atom-07",
+        "molecule-offline-atom-08",
+        "dna-offline-left-rung-01",
+        "dna-offline-left-rung-02",
+        "dna-offline-left-rung-03",
+        "dna-offline-left-rung-04",
+        "dna-offline-left-rung-05",
+        "dna-offline-left-rung-06",
+        "dna-offline-left-rung-07",
+        "dna-offline-left-strand-a",
+        "dna-offline-left-strand-b",
+        "dna-offline-right-rung-01",
+        "dna-offline-right-rung-02",
+        "dna-offline-right-rung-03",
+        "dna-offline-right-rung-04",
+        "dna-offline-right-rung-05",
+        "dna-offline-right-rung-06",
+        "dna-offline-right-rung-07",
+        "dna-offline-right-strand-a",
+        "dna-offline-right-strand-b",
+        "chart-offline-axis-x",
+        "chart-offline-axis-y",
+        "chart-offline-y-tick-01",
+        "chart-offline-y-tick-02",
+        "chart-offline-y-tick-03",
+        "chart-offline-y-tick-04",
+        "chart-offline-x-tick-01",
+        "chart-offline-x-tick-02",
+        "chart-offline-x-tick-03",
+        "chart-offline-x-tick-04",
+        "chart-offline-wick-01",
+        "chart-offline-candle-01",
+        "chart-offline-wick-02",
+        "chart-offline-candle-02",
+        "chart-offline-wick-03",
+        "chart-offline-candle-03",
+        "chart-offline-wick-04",
+        "chart-offline-candle-04",
+        "chart-offline-wick-05",
+        "chart-offline-candle-05",
+        "text-dataset-raw-symbol"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6477,
+        "edge_iou": 0.677,
+        "mean_abs_rgb_delta": 20.8808
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "reweight-stage",
+      "label": "Reweight stage",
+      "bbox": [
+        95,
+        250,
+        250,
+        123
+      ],
+      "allowed_element_ids": [
+        "dataset-reweighted-body",
+        "dataset-reweighted-top",
+        "scale-reweight-post",
+        "scale-reweight-beam",
+        "scale-reweight-pivot",
+        "scale-reweight-left-hanger",
+        "scale-reweight-right-hanger",
+        "scale-reweight-left-pan",
+        "scale-reweight-right-pan",
+        "scale-reweight-base",
+        "text-reweighted",
+        "text-dataset-reweighted-symbol"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7362,
+        "edge_iou": 0.8635,
+        "mean_abs_rgb_delta": 13.8728
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "train-flow",
+      "label": "Train label and flow",
+      "bbox": [
+        260,
+        350,
+        150,
+        96
+      ],
+      "allowed_element_ids": [
+        "text-train"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8364,
+        "edge_iou": 0.6409,
+        "mean_abs_rgb_delta": 9.2912
+      },
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.82
+      }
+    },
+    {
+      "region_id": "left-model",
+      "label": "Left diffusion model",
+      "bbox": [
+        145,
+        440,
+        298,
+        139
+      ],
+      "allowed_element_ids": [
+        "model-left-box",
+        "model-left-edge-01",
+        "model-left-edge-02",
+        "model-left-edge-03",
+        "model-left-edge-04",
+        "model-left-edge-05",
+        "model-left-edge-06",
+        "model-left-edge-07",
+        "model-left-edge-08",
+        "model-left-edge-09",
+        "model-left-edge-10",
+        "model-left-edge-11",
+        "model-left-node-01",
+        "model-left-node-02",
+        "model-left-node-03",
+        "model-left-node-04",
+        "model-left-node-05",
+        "model-left-node-06",
+        "model-left-node-07",
+        "text-model-left"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7257,
+        "edge_iou": 0.7863,
+        "mean_abs_rgb_delta": 13.7762
+      },
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.8
+      }
+    },
+    {
+      "region_id": "right-panel-frame",
+      "label": "Sampling panel frame",
+      "bbox": [
+        575,
+        48,
+        628,
+        550
+      ],
+      "allowed_element_ids": [
+        "panel-sampling"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8597,
+        "edge_iou": 0.7621,
+        "mean_abs_rgb_delta": 8.1832
+      },
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.9
+      }
+    },
+    {
+      "region_id": "sampling-heading-distribution",
+      "label": "Sampling heading and distribution",
+      "bbox": [
+        790,
+        8,
+        390,
+        188
+      ],
+      "allowed_element_ids": [
+        "gaussian-noise-baseline",
+        "gaussian-noise-curve",
+        "text-sampling-title"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8894,
+        "edge_iou": 0.814,
+        "mean_abs_rgb_delta": 5.9025
+      },
+      "thresholds": {
+        "ssim_min": 0.87,
+        "edge_iou_min": 0.78
+      }
+    },
+    {
+      "region_id": "noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1048,
+        198,
+        90,
+        36
+      ],
+      "allowed_element_ids": [
+        "text-noise"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7067,
+        "edge_iou": 0.966,
+        "mean_abs_rgb_delta": 16.0983
+      },
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.82
+      }
+    },
+    {
+      "region_id": "target-condition",
+      "label": "Target objectives and condition",
+      "bbox": [
+        605,
+        250,
+        280,
+        196
+      ],
+      "allowed_element_ids": [
+        "target-objectives-box",
+        "chart-target-axis-x",
+        "chart-target-axis-y",
+        "chart-target-y-tick-01",
+        "chart-target-y-tick-02",
+        "chart-target-y-tick-03",
+        "chart-target-y-tick-04",
+        "chart-target-x-tick-01",
+        "chart-target-x-tick-02",
+        "chart-target-x-tick-03",
+        "chart-target-x-tick-04",
+        "chart-target-wick-01",
+        "chart-target-candle-01",
+        "chart-target-wick-02",
+        "chart-target-candle-02",
+        "chart-target-wick-03",
+        "chart-target-candle-03",
+        "chart-target-wick-04",
+        "chart-target-candle-04",
+        "chart-target-wick-05",
+        "chart-target-candle-05",
+        "text-target-objectives",
+        "text-condition"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8179,
+        "edge_iou": 0.8624,
+        "mean_abs_rgb_delta": 11.9833
+      },
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.82
+      }
+    },
+    {
+      "region_id": "right-model",
+      "label": "Right diffusion model",
+      "bbox": [
+        875,
+        246,
+        295,
+        138
+      ],
+      "allowed_element_ids": [
+        "model-right-box",
+        "model-right-edge-01",
+        "model-right-edge-02",
+        "model-right-edge-03",
+        "model-right-edge-04",
+        "model-right-edge-05",
+        "model-right-edge-06",
+        "model-right-edge-07",
+        "model-right-edge-08",
+        "model-right-edge-09",
+        "model-right-edge-10",
+        "model-right-edge-11",
+        "model-right-node-01",
+        "model-right-node-02",
+        "model-right-node-03",
+        "model-right-node-04",
+        "model-right-node-05",
+        "model-right-node-06",
+        "model-right-node-07",
+        "text-model-right"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6858,
+        "edge_iou": 0.7336,
+        "mean_abs_rgb_delta": 16.4795
+      },
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.8
+      }
+    },
+    {
+      "region_id": "sample-output",
+      "label": "Sample and design outputs",
+      "bbox": [
+        840,
+        376,
+        345,
+        202
+      ],
+      "allowed_element_ids": [
+        "designs-box-front",
+        "designs-box-top",
+        "designs-box-side",
+        "molecule-output-bond-01",
+        "molecule-output-bond-02",
+        "molecule-output-bond-03",
+        "molecule-output-bond-04",
+        "molecule-output-bond-05",
+        "molecule-output-bond-06",
+        "molecule-output-bond-07",
+        "molecule-output-atom-01",
+        "molecule-output-atom-02",
+        "molecule-output-atom-03",
+        "molecule-output-atom-04",
+        "molecule-output-atom-05",
+        "molecule-output-atom-06",
+        "molecule-output-atom-07",
+        "molecule-output-atom-08",
+        "dna-output-left-rung-01",
+        "dna-output-left-rung-02",
+        "dna-output-left-rung-03",
+        "dna-output-left-rung-04",
+        "dna-output-left-rung-05",
+        "dna-output-left-rung-06",
+        "dna-output-left-rung-07",
+        "dna-output-left-strand-a",
+        "dna-output-left-strand-b",
+        "dna-output-right-rung-01",
+        "dna-output-right-rung-02",
+        "dna-output-right-rung-03",
+        "dna-output-right-rung-04",
+        "dna-output-right-rung-05",
+        "dna-output-right-rung-06",
+        "dna-output-right-rung-07",
+        "dna-output-right-strand-a",
+        "dna-output-right-strand-b",
+        "text-sample",
+        "text-designs"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8385,
+        "edge_iou": 0.7873,
+        "mean_abs_rgb_delta": 9.796
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-molecule-offline",
+      "label": "Object silhouette: molecule-offline",
+      "bbox": [
+        161,
+        97,
+        82,
+        51
+      ],
+      "allowed_element_ids": [
+        "molecule-offline-bond-01",
+        "molecule-offline-bond-02",
+        "molecule-offline-bond-03",
+        "molecule-offline-bond-04",
+        "molecule-offline-bond-05",
+        "molecule-offline-bond-06",
+        "molecule-offline-bond-07",
+        "molecule-offline-atom-01",
+        "molecule-offline-atom-02",
+        "molecule-offline-atom-03",
+        "molecule-offline-atom-04",
+        "molecule-offline-atom-05",
+        "molecule-offline-atom-06",
+        "molecule-offline-atom-07",
+        "molecule-offline-atom-08"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4604,
+        "edge_iou": 0.5266,
+        "mean_abs_rgb_delta": 24.617
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-molecule-output",
+      "label": "Object silhouette: molecule-output",
+      "bbox": [
+        847,
+        500,
+        82,
+        51
+      ],
+      "allowed_element_ids": [
+        "molecule-output-bond-01",
+        "molecule-output-bond-02",
+        "molecule-output-bond-03",
+        "molecule-output-bond-04",
+        "molecule-output-bond-05",
+        "molecule-output-bond-06",
+        "molecule-output-bond-07",
+        "molecule-output-atom-01",
+        "molecule-output-atom-02",
+        "molecule-output-atom-03",
+        "molecule-output-atom-04",
+        "molecule-output-atom-05",
+        "molecule-output-atom-06",
+        "molecule-output-atom-07",
+        "molecule-output-atom-08"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4605,
+        "edge_iou": 0.5276,
+        "mean_abs_rgb_delta": 24.5992
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-dna-offline",
+      "label": "Object silhouette: dna-offline",
+      "bbox": [
+        171,
+        147,
+        71,
+        66
+      ],
+      "allowed_element_ids": [
+        "dna-offline-left-rung-01",
+        "dna-offline-left-rung-02",
+        "dna-offline-left-rung-03",
+        "dna-offline-left-rung-04",
+        "dna-offline-left-rung-05",
+        "dna-offline-left-rung-06",
+        "dna-offline-left-rung-07",
+        "dna-offline-left-strand-a",
+        "dna-offline-left-strand-b",
+        "dna-offline-right-rung-01",
+        "dna-offline-right-rung-02",
+        "dna-offline-right-rung-03",
+        "dna-offline-right-rung-04",
+        "dna-offline-right-rung-05",
+        "dna-offline-right-rung-06",
+        "dna-offline-right-rung-07",
+        "dna-offline-right-strand-a",
+        "dna-offline-right-strand-b"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.171,
+        "edge_iou": 0.4764,
+        "mean_abs_rgb_delta": 44.1455
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-dna-output",
+      "label": "Object silhouette: dna-output",
+      "bbox": [
+        1108,
+        461,
+        71,
+        66
+      ],
+      "allowed_element_ids": [
+        "dna-output-left-rung-01",
+        "dna-output-left-rung-02",
+        "dna-output-left-rung-03",
+        "dna-output-left-rung-04",
+        "dna-output-left-rung-05",
+        "dna-output-left-rung-06",
+        "dna-output-left-rung-07",
+        "dna-output-left-strand-a",
+        "dna-output-left-strand-b",
+        "dna-output-right-rung-01",
+        "dna-output-right-rung-02",
+        "dna-output-right-rung-03",
+        "dna-output-right-rung-04",
+        "dna-output-right-rung-05",
+        "dna-output-right-rung-06",
+        "dna-output-right-rung-07",
+        "dna-output-right-strand-a",
+        "dna-output-right-strand-b"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.1735,
+        "edge_iou": 0.4773,
+        "mean_abs_rgb_delta": 43.8416
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-scale-reweight",
+      "label": "Object silhouette: scale-reweight",
+      "bbox": [
+        134,
+        322,
+        65,
+        49
+      ],
+      "allowed_element_ids": [
+        "scale-reweight-post",
+        "scale-reweight-beam",
+        "scale-reweight-pivot",
+        "scale-reweight-left-hanger",
+        "scale-reweight-right-hanger",
+        "scale-reweight-left-pan",
+        "scale-reweight-right-pan",
+        "scale-reweight-base"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.5092,
+        "edge_iou": 0.7231,
+        "mean_abs_rgb_delta": 15.9997
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-model-left-watermark",
+      "label": "Object silhouette: model-left-watermark",
+      "bbox": [
+        233,
+        451,
+        121,
+        117
+      ],
+      "allowed_element_ids": [
+        "model-left-edge-01",
+        "model-left-edge-02",
+        "model-left-edge-03",
+        "model-left-edge-04",
+        "model-left-edge-05",
+        "model-left-edge-06",
+        "model-left-edge-07",
+        "model-left-edge-08",
+        "model-left-edge-09",
+        "model-left-edge-10",
+        "model-left-edge-11",
+        "model-left-node-01",
+        "model-left-node-02",
+        "model-left-node-03",
+        "model-left-node-04",
+        "model-left-node-05",
+        "model-left-node-06",
+        "model-left-node-07"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6111,
+        "edge_iou": 0.619,
+        "mean_abs_rgb_delta": 18.0299
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-model-right-watermark",
+      "label": "Object silhouette: model-right-watermark",
+      "bbox": [
+        961,
+        257,
+        122,
+        116
+      ],
+      "allowed_element_ids": [
+        "model-right-edge-01",
+        "model-right-edge-02",
+        "model-right-edge-03",
+        "model-right-edge-04",
+        "model-right-edge-05",
+        "model-right-edge-06",
+        "model-right-edge-07",
+        "model-right-edge-08",
+        "model-right-edge-09",
+        "model-right-edge-10",
+        "model-right-edge-11",
+        "model-right-node-01",
+        "model-right-node-02",
+        "model-right-node-03",
+        "model-right-node-04",
+        "model-right-node-05",
+        "model-right-node-06",
+        "model-right-node-07"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.5391,
+        "edge_iou": 0.6099,
+        "mean_abs_rgb_delta": 22.2268
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-chart-offline",
+      "label": "Object silhouette: chart-offline",
+      "bbox": [
+        350,
+        117,
+        80,
+        66
+      ],
+      "allowed_element_ids": [
+        "chart-offline-axis-x",
+        "chart-offline-axis-y",
+        "chart-offline-y-tick-01",
+        "chart-offline-y-tick-02",
+        "chart-offline-y-tick-03",
+        "chart-offline-y-tick-04",
+        "chart-offline-x-tick-01",
+        "chart-offline-x-tick-02",
+        "chart-offline-x-tick-03",
+        "chart-offline-x-tick-04",
+        "chart-offline-wick-01",
+        "chart-offline-candle-01",
+        "chart-offline-wick-02",
+        "chart-offline-candle-02",
+        "chart-offline-wick-03",
+        "chart-offline-candle-03",
+        "chart-offline-wick-04",
+        "chart-offline-candle-04",
+        "chart-offline-wick-05",
+        "chart-offline-candle-05"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4384,
+        "edge_iou": 0.7336,
+        "mean_abs_rgb_delta": 49.5915
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-chart-target",
+      "label": "Object silhouette: chart-target",
+      "bbox": [
+        648,
+        376,
+        79,
+        66
+      ],
+      "allowed_element_ids": [
+        "chart-target-axis-x",
+        "chart-target-axis-y",
+        "chart-target-y-tick-01",
+        "chart-target-y-tick-02",
+        "chart-target-y-tick-03",
+        "chart-target-y-tick-04",
+        "chart-target-x-tick-01",
+        "chart-target-x-tick-02",
+        "chart-target-x-tick-03",
+        "chart-target-x-tick-04",
+        "chart-target-wick-01",
+        "chart-target-candle-01",
+        "chart-target-wick-02",
+        "chart-target-candle-02",
+        "chart-target-wick-03",
+        "chart-target-candle-03",
+        "chart-target-wick-04",
+        "chart-target-candle-04",
+        "chart-target-wick-05",
+        "chart-target-candle-05"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4026,
+        "edge_iou": 0.7464,
+        "mean_abs_rgb_delta": 52.9405
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "ink-gaussian-noise",
+      "label": "Object silhouette: gaussian-noise",
+      "bbox": [
+        870,
+        80,
+        304,
+        113
+      ],
+      "allowed_element_ids": [
+        "gaussian-noise-baseline",
+        "gaussian-noise-curve"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8997,
+        "edge_iou": 0.8977,
+        "mean_abs_rgb_delta": 4.6694
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "arrow-region-raw-to-reweighted",
+      "label": "arrow-raw-to-reweighted",
+      "bbox": [
+        264,
+        197,
+        60,
+        61
+      ],
+      "allowed_element_ids": [
+        "arrow-raw-to-reweighted",
+        "dataset-raw-body",
+        "dataset-reweighted-body"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8493,
+        "edge_iou": 0.8436,
+        "mean_abs_rgb_delta": 7.7457
+      },
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      }
+    },
+    {
+      "region_id": "arrow-region-reweighted-to-model",
+      "label": "arrow-reweighted-to-model",
+      "bbox": [
+        264,
+        352,
+        60,
+        94
+      ],
+      "allowed_element_ids": [
+        "arrow-reweighted-to-model",
+        "dataset-reweighted-body",
+        "model-left-box"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8736,
+        "edge_iou": 0.6259,
+        "mean_abs_rgb_delta": 5.2245
+      },
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      }
+    },
+    {
+      "region_id": "arrow-region-noise-to-model",
+      "label": "arrow-noise-to-model",
+      "bbox": [
+        992,
+        192,
+        60,
+        61
+      ],
+      "allowed_element_ids": [
+        "arrow-noise-to-model",
+        "gaussian-noise-curve",
+        "model-right-box"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8627,
+        "edge_iou": 0.6474,
+        "mean_abs_rgb_delta": 6.8731
+      },
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      }
+    },
+    {
+      "region_id": "arrow-region-target-to-model",
+      "label": "arrow-target-to-model",
+      "bbox": [
+        765,
+        288,
+        119,
+        56
+      ],
+      "allowed_element_ids": [
+        "arrow-target-to-model",
+        "target-objectives-box",
+        "model-right-box"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.709,
+        "edge_iou": 0.5517,
+        "mean_abs_rgb_delta": 10.9048
+      },
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      }
+    },
+    {
+      "region_id": "arrow-region-model-to-designs",
+      "label": "arrow-model-to-designs",
+      "bbox": [
+        992,
+        379,
+        60,
+        82
+      ],
+      "allowed_element_ids": [
+        "arrow-model-to-designs",
+        "model-right-box",
+        "designs-box-front"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8674,
+        "edge_iou": 0.6403,
+        "mean_abs_rgb_delta": 6.3047
+      },
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      }
+    }
+  ],
+  "required_capabilities": [
+    "managed-session",
+    "visible-canvas",
+    "native-connector",
+    "freeform",
+    "inspect",
+    "audit",
+    "save-reopen",
+    "finalize-target",
+    "object-bindings"
+  ],
+  "mutation_policy": {
+    "arrow_authoring": false,
+    "arrow_authoring_capability_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+    "arrow_updates_must_return_to_offline_compiler": true
+  },
+  "scene_element_ids": [
+    "canvas-background",
+    "panel-offline",
+    "panel-sampling",
+    "text-offline-title",
+    "text-offline-subtitle",
+    "text-sampling-title",
+    "molecule-offline",
+    "molecule-offline-bond-01",
+    "molecule-offline-bond-02",
+    "molecule-offline-bond-03",
+    "molecule-offline-bond-04",
+    "molecule-offline-bond-05",
+    "molecule-offline-bond-06",
+    "molecule-offline-bond-07",
+    "molecule-offline-atom-01",
+    "molecule-offline-atom-02",
+    "molecule-offline-atom-03",
+    "molecule-offline-atom-04",
+    "molecule-offline-atom-05",
+    "molecule-offline-atom-06",
+    "molecule-offline-atom-07",
+    "molecule-offline-atom-08",
+    "dna-offline",
+    "dna-offline-left-strand-a",
+    "dna-offline-left-strand-b",
+    "dna-offline-left-rung-01",
+    "dna-offline-left-rung-02",
+    "dna-offline-left-rung-03",
+    "dna-offline-left-rung-04",
+    "dna-offline-left-rung-05",
+    "dna-offline-left-rung-06",
+    "dna-offline-left-rung-07",
+    "dna-offline-right-strand-a",
+    "dna-offline-right-strand-b",
+    "dna-offline-right-rung-01",
+    "dna-offline-right-rung-02",
+    "dna-offline-right-rung-03",
+    "dna-offline-right-rung-04",
+    "dna-offline-right-rung-05",
+    "dna-offline-right-rung-06",
+    "dna-offline-right-rung-07",
+    "dataset-raw",
+    "dataset-raw-body",
+    "dataset-raw-top",
+    "text-dataset-raw-symbol",
+    "chart-offline",
+    "chart-offline-axis-y",
+    "chart-offline-axis-x",
+    "chart-offline-y-tick-01",
+    "chart-offline-y-tick-02",
+    "chart-offline-y-tick-03",
+    "chart-offline-y-tick-04",
+    "chart-offline-x-tick-01",
+    "chart-offline-x-tick-02",
+    "chart-offline-x-tick-03",
+    "chart-offline-x-tick-04",
+    "chart-offline-wick-01",
+    "chart-offline-candle-01",
+    "chart-offline-wick-02",
+    "chart-offline-candle-02",
+    "chart-offline-wick-03",
+    "chart-offline-candle-03",
+    "chart-offline-wick-04",
+    "chart-offline-candle-04",
+    "chart-offline-wick-05",
+    "chart-offline-candle-05",
+    "arrow-raw-to-reweighted",
+    "dataset-reweighted",
+    "dataset-reweighted-body",
+    "dataset-reweighted-top",
+    "text-dataset-reweighted-symbol",
+    "text-reweighted",
+    "scale-reweight",
+    "scale-reweight-post",
+    "scale-reweight-beam",
+    "scale-reweight-pivot",
+    "scale-reweight-left-hanger",
+    "scale-reweight-right-hanger",
+    "scale-reweight-left-pan",
+    "scale-reweight-right-pan",
+    "scale-reweight-base",
+    "arrow-reweighted-to-model",
+    "text-train",
+    "model-left-box",
+    "model-left-watermark",
+    "model-left-edge-01",
+    "model-left-edge-02",
+    "model-left-edge-03",
+    "model-left-edge-04",
+    "model-left-edge-05",
+    "model-left-edge-06",
+    "model-left-edge-07",
+    "model-left-edge-08",
+    "model-left-edge-09",
+    "model-left-edge-10",
+    "model-left-edge-11",
+    "model-left-node-01",
+    "model-left-node-02",
+    "model-left-node-03",
+    "model-left-node-04",
+    "model-left-node-05",
+    "model-left-node-06",
+    "model-left-node-07",
+    "text-model-left",
+    "gaussian-noise",
+    "gaussian-noise-baseline",
+    "gaussian-noise-curve",
+    "arrow-noise-to-model",
+    "text-noise",
+    "target-objectives-box",
+    "text-target-objectives",
+    "text-condition",
+    "chart-target",
+    "chart-target-axis-y",
+    "chart-target-axis-x",
+    "chart-target-y-tick-01",
+    "chart-target-y-tick-02",
+    "chart-target-y-tick-03",
+    "chart-target-y-tick-04",
+    "chart-target-x-tick-01",
+    "chart-target-x-tick-02",
+    "chart-target-x-tick-03",
+    "chart-target-x-tick-04",
+    "chart-target-wick-01",
+    "chart-target-candle-01",
+    "chart-target-wick-02",
+    "chart-target-candle-02",
+    "chart-target-wick-03",
+    "chart-target-candle-03",
+    "chart-target-wick-04",
+    "chart-target-candle-04",
+    "chart-target-wick-05",
+    "chart-target-candle-05",
+    "arrow-target-to-model",
+    "model-right-box",
+    "model-right-watermark",
+    "model-right-edge-01",
+    "model-right-edge-02",
+    "model-right-edge-03",
+    "model-right-edge-04",
+    "model-right-edge-05",
+    "model-right-edge-06",
+    "model-right-edge-07",
+    "model-right-edge-08",
+    "model-right-edge-09",
+    "model-right-edge-10",
+    "model-right-edge-11",
+    "model-right-node-01",
+    "model-right-node-02",
+    "model-right-node-03",
+    "model-right-node-04",
+    "model-right-node-05",
+    "model-right-node-06",
+    "model-right-node-07",
+    "text-model-right",
+    "arrow-model-to-designs",
+    "text-sample",
+    "designs-box",
+    "designs-box-top",
+    "designs-box-side",
+    "designs-box-front",
+    "text-designs",
+    "molecule-output",
+    "molecule-output-bond-01",
+    "molecule-output-bond-02",
+    "molecule-output-bond-03",
+    "molecule-output-bond-04",
+    "molecule-output-bond-05",
+    "molecule-output-bond-06",
+    "molecule-output-bond-07",
+    "molecule-output-atom-01",
+    "molecule-output-atom-02",
+    "molecule-output-atom-03",
+    "molecule-output-atom-04",
+    "molecule-output-atom-05",
+    "molecule-output-atom-06",
+    "molecule-output-atom-07",
+    "molecule-output-atom-08",
+    "dna-output",
+    "dna-output-left-strand-a",
+    "dna-output-left-strand-b",
+    "dna-output-left-rung-01",
+    "dna-output-left-rung-02",
+    "dna-output-left-rung-03",
+    "dna-output-left-rung-04",
+    "dna-output-left-rung-05",
+    "dna-output-left-rung-06",
+    "dna-output-left-rung-07",
+    "dna-output-right-strand-a",
+    "dna-output-right-strand-b",
+    "dna-output-right-rung-01",
+    "dna-output-right-rung-02",
+    "dna-output-right-rung-03",
+    "dna-output-right-rung-04",
+    "dna-output-right-rung-05",
+    "dna-output-right-rung-06",
+    "dna-output-right-rung-07"
+  ],
+  "bound_element_ids": [
+    "canvas-background",
+    "panel-offline",
+    "panel-sampling",
+    "text-offline-title",
+    "text-offline-subtitle",
+    "text-sampling-title",
+    "molecule-offline-bond-01",
+    "molecule-offline-bond-02",
+    "molecule-offline-bond-03",
+    "molecule-offline-bond-04",
+    "molecule-offline-bond-05",
+    "molecule-offline-bond-06",
+    "molecule-offline-bond-07",
+    "molecule-offline-atom-01",
+    "molecule-offline-atom-02",
+    "molecule-offline-atom-03",
+    "molecule-offline-atom-04",
+    "molecule-offline-atom-05",
+    "molecule-offline-atom-06",
+    "molecule-offline-atom-07",
+    "molecule-offline-atom-08",
+    "dna-offline-left-strand-a",
+    "dna-offline-left-strand-b",
+    "dna-offline-left-rung-01",
+    "dna-offline-left-rung-02",
+    "dna-offline-left-rung-03",
+    "dna-offline-left-rung-04",
+    "dna-offline-left-rung-05",
+    "dna-offline-left-rung-06",
+    "dna-offline-left-rung-07",
+    "dna-offline-right-strand-a",
+    "dna-offline-right-strand-b",
+    "dna-offline-right-rung-01",
+    "dna-offline-right-rung-02",
+    "dna-offline-right-rung-03",
+    "dna-offline-right-rung-04",
+    "dna-offline-right-rung-05",
+    "dna-offline-right-rung-06",
+    "dna-offline-right-rung-07",
+    "dataset-raw-body",
+    "dataset-raw-top",
+    "text-dataset-raw-symbol",
+    "chart-offline-axis-y",
+    "chart-offline-axis-x",
+    "chart-offline-y-tick-01",
+    "chart-offline-y-tick-02",
+    "chart-offline-y-tick-03",
+    "chart-offline-y-tick-04",
+    "chart-offline-x-tick-01",
+    "chart-offline-x-tick-02",
+    "chart-offline-x-tick-03",
+    "chart-offline-x-tick-04",
+    "chart-offline-wick-01",
+    "chart-offline-candle-01",
+    "chart-offline-wick-02",
+    "chart-offline-candle-02",
+    "chart-offline-wick-03",
+    "chart-offline-candle-03",
+    "chart-offline-wick-04",
+    "chart-offline-candle-04",
+    "chart-offline-wick-05",
+    "chart-offline-candle-05",
+    "arrow-raw-to-reweighted",
+    "dataset-reweighted-body",
+    "dataset-reweighted-top",
+    "text-dataset-reweighted-symbol",
+    "text-reweighted",
+    "scale-reweight-post",
+    "scale-reweight-beam",
+    "scale-reweight-pivot",
+    "scale-reweight-left-hanger",
+    "scale-reweight-right-hanger",
+    "scale-reweight-left-pan",
+    "scale-reweight-right-pan",
+    "scale-reweight-base",
+    "arrow-reweighted-to-model",
+    "text-train",
+    "model-left-box",
+    "model-left-edge-01",
+    "model-left-edge-02",
+    "model-left-edge-03",
+    "model-left-edge-04",
+    "model-left-edge-05",
+    "model-left-edge-06",
+    "model-left-edge-07",
+    "model-left-edge-08",
+    "model-left-edge-09",
+    "model-left-edge-10",
+    "model-left-edge-11",
+    "model-left-node-01",
+    "model-left-node-02",
+    "model-left-node-03",
+    "model-left-node-04",
+    "model-left-node-05",
+    "model-left-node-06",
+    "model-left-node-07",
+    "text-model-left",
+    "gaussian-noise-baseline",
+    "gaussian-noise-curve",
+    "arrow-noise-to-model",
+    "text-noise",
+    "target-objectives-box",
+    "text-target-objectives",
+    "text-condition",
+    "chart-target-axis-y",
+    "chart-target-axis-x",
+    "chart-target-y-tick-01",
+    "chart-target-y-tick-02",
+    "chart-target-y-tick-03",
+    "chart-target-y-tick-04",
+    "chart-target-x-tick-01",
+    "chart-target-x-tick-02",
+    "chart-target-x-tick-03",
+    "chart-target-x-tick-04",
+    "chart-target-wick-01",
+    "chart-target-candle-01",
+    "chart-target-wick-02",
+    "chart-target-candle-02",
+    "chart-target-wick-03",
+    "chart-target-candle-03",
+    "chart-target-wick-04",
+    "chart-target-candle-04",
+    "chart-target-wick-05",
+    "chart-target-candle-05",
+    "arrow-target-to-model",
+    "model-right-box",
+    "model-right-edge-01",
+    "model-right-edge-02",
+    "model-right-edge-03",
+    "model-right-edge-04",
+    "model-right-edge-05",
+    "model-right-edge-06",
+    "model-right-edge-07",
+    "model-right-edge-08",
+    "model-right-edge-09",
+    "model-right-edge-10",
+    "model-right-edge-11",
+    "model-right-node-01",
+    "model-right-node-02",
+    "model-right-node-03",
+    "model-right-node-04",
+    "model-right-node-05",
+    "model-right-node-06",
+    "model-right-node-07",
+    "text-model-right",
+    "arrow-model-to-designs",
+    "text-sample",
+    "designs-box-top",
+    "designs-box-side",
+    "designs-box-front",
+    "text-designs",
+    "molecule-output-bond-01",
+    "molecule-output-bond-02",
+    "molecule-output-bond-03",
+    "molecule-output-bond-04",
+    "molecule-output-bond-05",
+    "molecule-output-bond-06",
+    "molecule-output-bond-07",
+    "molecule-output-atom-01",
+    "molecule-output-atom-02",
+    "molecule-output-atom-03",
+    "molecule-output-atom-04",
+    "molecule-output-atom-05",
+    "molecule-output-atom-06",
+    "molecule-output-atom-07",
+    "molecule-output-atom-08",
+    "dna-output-left-strand-a",
+    "dna-output-left-strand-b",
+    "dna-output-left-rung-01",
+    "dna-output-left-rung-02",
+    "dna-output-left-rung-03",
+    "dna-output-left-rung-04",
+    "dna-output-left-rung-05",
+    "dna-output-left-rung-06",
+    "dna-output-left-rung-07",
+    "dna-output-right-strand-a",
+    "dna-output-right-strand-b",
+    "dna-output-right-rung-01",
+    "dna-output-right-rung-02",
+    "dna-output-right-rung-03",
+    "dna-output-right-rung-04",
+    "dna-output-right-rung-05",
+    "dna-output-right-rung-06",
+    "dna-output-right-rung-07",
+    "molecule-offline",
+    "dna-offline",
+    "dataset-raw",
+    "chart-offline",
+    "dataset-reweighted",
+    "scale-reweight",
+    "model-left-watermark",
+    "gaussian-noise",
+    "chart-target",
+    "model-right-watermark",
+    "designs-box",
+    "molecule-output",
+    "dna-output"
+  ],
+  "scene_compatibility": {
+    "source_schema_version": "4.0.0",
+    "adapter_schema_version": "2.1.0",
+    "adapter_scene_sha256": "186cc951480888398fcd5cc16466435430b70476bbfeba92110a231285000558",
+    "bridge_manifest": "qa/powerpoint-live-bridge.json",
+    "direct_scene_v3_submission_forbidden": true
+  },
+  "completion_contract": {
+    "saved_reopened": true,
+    "bindings_complete": true,
+    "root_candidate_hash_must_equal_reopened_hash": true,
+    "arrow_readback_required": true,
+    "render_must_be_finalizer_bound": true,
+    "region_results_required": [
+      "whole-canvas",
+      "left-panel-frame",
+      "offline-heading",
+      "dataset-assets",
+      "reweight-stage",
+      "train-flow",
+      "left-model",
+      "right-panel-frame",
+      "sampling-heading-distribution",
+      "noise-label",
+      "target-condition",
+      "right-model",
+      "sample-output",
+      "ink-molecule-offline",
+      "ink-molecule-output",
+      "ink-dna-offline",
+      "ink-dna-output",
+      "ink-scale-reweight",
+      "ink-model-left-watermark",
+      "ink-model-right-watermark",
+      "ink-chart-offline",
+      "ink-chart-target",
+      "ink-gaussian-noise",
+      "arrow-region-raw-to-reweighted",
+      "arrow-region-reweighted-to-model",
+      "arrow-region-noise-to-model",
+      "arrow-region-target-to-model",
+      "arrow-region-model-to-designs"
+    ],
+    "automatic_release_authority": "NONE"
+  }
+}

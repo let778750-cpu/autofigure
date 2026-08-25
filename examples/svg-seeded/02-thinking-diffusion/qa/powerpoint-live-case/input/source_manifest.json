@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-02-thinking-diffusion",
+  "taskMode": "RECONSTRUCT_1TO1",
+  "designatedReferenceSourceId": "reference",
+  "designatedReferenceSha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "referenceUsage": "measurement_only",
+  "referenceEmbedded": false,
+  "independentReferenceCase": true,
+  "sources": [
+    {
+      "sourceId": "reference",
+      "kind": "reference_image",
+      "pathOrUrl": "input/reference.png",
+      "sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+      "authority": "user_supplied",
+      "licenseStatus": "unknown",
+      "confidentiality": "internal",
+      "notes": "Designated measurement-only reconstruction reference."
+    },
+    {
+      "sourceId": "candidate-pptx",
+      "kind": "prior_source",
+      "pathOrUrl": "input/candidate.pptx",
+      "sha256": "33d2818c41a6e2d8adec143a5c2193950c13e7f8c4668631e265a2079a6a9f05",
+      "authority": "user_supplied",
+      "licenseStatus": "unknown",
+      "confidentiality": "internal",
+      "notes": "Offline Autofigure candidate copied for managed live repair; never edited in place."
+    }
+  ]
+}

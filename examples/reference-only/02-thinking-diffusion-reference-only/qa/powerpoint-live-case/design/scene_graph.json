@@ -1,0 +1,2759 @@
+{
+  "schemaVersion": "2.1.0",
+  "projectId": "autofigure-02-thinking-diffusion-reference-only",
+  "version": "autofigure-356831f9655c",
+  "canvas": {
+    "width": 1513,
+    "height": 554,
+    "unit": "px",
+    "profileId": "journal-double-column",
+    "backgroundToken": "white"
+  },
+  "nodes": [
+    {
+      "id": "canvas-background",
+      "semanticId": "canvas-background",
+      "kind": "shape",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1513.0,
+      "height": 554.0,
+      "editable": true,
+      "zIndex": 0
+    },
+    {
+      "id": "left-input-image-title",
+      "semanticId": "left-input-image-title",
+      "kind": "text",
+      "x": 43.32,
+      "y": 14.8,
+      "width": 75.36,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 1,
+      "textSpec": {
+        "text": "Image",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Image",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-input-image-bracket",
+      "semanticId": "left-input-image-bracket",
+      "kind": "shape",
+      "x": 29.0,
+      "y": 39.0,
+      "width": 106.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 2
+    },
+    {
+      "id": "left-input-image-token-1",
+      "semanticId": "left-input-image-token-1",
+      "kind": "shape",
+      "x": 20.0,
+      "y": 61.0,
+      "width": 35.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 3
+    },
+    {
+      "id": "left-input-image-token-2",
+      "semanticId": "left-input-image-token-2",
+      "kind": "shape",
+      "x": 64.0,
+      "y": 61.0,
+      "width": 35.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 4
+    },
+    {
+      "id": "left-input-image-token-3",
+      "semanticId": "left-input-image-token-3",
+      "kind": "shape",
+      "x": 108.0,
+      "y": 61.0,
+      "width": 35.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 5
+    },
+    {
+      "id": "left-input-prompt-title",
+      "semanticId": "left-input-prompt-title",
+      "kind": "text",
+      "x": 181.0,
+      "y": 14.8,
+      "width": 84.0,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 6,
+      "textSpec": {
+        "text": "Prompt",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Prompt",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-input-prompt-bracket",
+      "semanticId": "left-input-prompt-bracket",
+      "kind": "shape",
+      "x": 170.0,
+      "y": 39.0,
+      "width": 106.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 7
+    },
+    {
+      "id": "left-input-prompt-token-1",
+      "semanticId": "left-input-prompt-token-1",
+      "kind": "shape",
+      "x": 161.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 8
+    },
+    {
+      "id": "left-input-prompt-token-2",
+      "semanticId": "left-input-prompt-token-2",
+      "kind": "shape",
+      "x": 205.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 9
+    },
+    {
+      "id": "left-input-prompt-token-3",
+      "semanticId": "left-input-prompt-token-3",
+      "kind": "shape",
+      "x": 249.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 10
+    },
+    {
+      "id": "left-input-response-title",
+      "semanticId": "left-input-response-title",
+      "kind": "text",
+      "x": 436.52,
+      "y": 14.8,
+      "width": 100.96,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 11,
+      "textSpec": {
+        "text": "Response",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Response",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-input-response-bracket",
+      "semanticId": "left-input-response-bracket",
+      "kind": "shape",
+      "x": 310.0,
+      "y": 39.0,
+      "width": 353.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 12
+    },
+    {
+      "id": "left-input-response-token-1",
+      "semanticId": "left-input-response-token-1",
+      "kind": "shape",
+      "x": 300.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 13
+    },
+    {
+      "id": "left-input-response-token-2",
+      "semanticId": "left-input-response-token-2",
+      "kind": "shape",
+      "x": 345.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 14
+    },
+    {
+      "id": "left-input-response-token-3",
+      "semanticId": "left-input-response-token-3",
+      "kind": "shape",
+      "x": 389.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 15
+    },
+    {
+      "id": "left-input-response-token-4",
+      "semanticId": "left-input-response-token-4",
+      "kind": "shape",
+      "x": 434.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 16
+    },
+    {
+      "id": "left-input-response-ellipsis",
+      "semanticId": "left-input-response-ellipsis",
+      "kind": "text",
+      "x": 463.0,
+      "y": 61.0,
+      "width": 48.0,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 17,
+      "textSpec": {
+        "text": "…",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "…",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-input-response-token-5",
+      "semanticId": "left-input-response-token-5",
+      "kind": "shape",
+      "x": 507.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 18
+    },
+    {
+      "id": "left-input-response-token-6",
+      "semanticId": "left-input-response-token-6",
+      "kind": "shape",
+      "x": 551.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 19
+    },
+    {
+      "id": "left-input-response-token-7",
+      "semanticId": "left-input-response-token-7",
+      "kind": "shape",
+      "x": 595.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 20
+    },
+    {
+      "id": "left-input-response-token-8",
+      "semanticId": "left-input-response-token-8",
+      "kind": "shape",
+      "x": 639.0,
+      "y": 61.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 21
+    },
+    {
+      "id": "left-input-to-model-arrow",
+      "semanticId": "left-input-to-model-arrow",
+      "kind": "line",
+      "x": 487.0,
+      "y": 94.0,
+      "width": 0.5,
+      "height": 20.0,
+      "editable": true,
+      "zIndex": 22
+    },
+    {
+      "id": "left-model-box",
+      "semanticId": "left-model-box",
+      "kind": "shape",
+      "x": 19.0,
+      "y": 119.0,
+      "width": 656.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 23
+    },
+    {
+      "id": "left-model-label",
+      "semanticId": "left-model-label",
+      "kind": "text",
+      "x": 155.0201,
+      "y": 138.05,
+      "width": 383.96,
+      "height": 31.95,
+      "editable": true,
+      "zIndex": 24,
+      "textSpec": {
+        "text": "Diffusion Multimodal Language Model",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.75,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Diffusion Multimodal Language Model",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-legend-box",
+      "semanticId": "left-legend-box",
+      "kind": "shape",
+      "x": 27.5001,
+      "y": 242.0,
+      "width": 250.4999,
+      "height": 158.4999,
+      "editable": true,
+      "zIndex": 25
+    },
+    {
+      "id": "left-legend-token-mask",
+      "semanticId": "left-legend-token-mask",
+      "kind": "shape",
+      "x": 41.0,
+      "y": 260.0,
+      "width": 35.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 26
+    },
+    {
+      "id": "left-legend-label-mask",
+      "semanticId": "left-legend-label-mask",
+      "kind": "text",
+      "x": 86.0,
+      "y": 264.37,
+      "width": 115.776,
+      "height": 39.25,
+      "editable": true,
+      "zIndex": 27,
+      "textSpec": {
+        "text": "Mask Token",
+        "fontToken": "autofigure-font",
+        "fontSize": 11.55,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Mask Token",
+            "fontToken": "Times New Roman",
+            "fontSize": 11.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-legend-token-less-grounded",
+      "semanticId": "left-legend-token-less-grounded",
+      "kind": "shape",
+      "x": 41.0,
+      "y": 308.0,
+      "width": 35.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 28
+    },
+    {
+      "id": "left-legend-label-less-grounded-line-1",
+      "semanticId": "left-legend-label-less-grounded-line-1",
+      "kind": "text",
+      "x": 86.0,
+      "y": 301.2275,
+      "width": 182.0,
+      "height": 39.4375,
+      "editable": true,
+      "zIndex": 29,
+      "textSpec": {
+        "text": "Less Visual-grounded",
+        "fontToken": "autofigure-font",
+        "fontSize": 11.66,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Less Visual-grounded",
+            "fontToken": "Times New Roman",
+            "fontSize": 11.66
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-legend-label-less-grounded-line-2",
+      "semanticId": "left-legend-label-less-grounded-line-2",
+      "kind": "text",
+      "x": 86.0,
+      "y": 320.1325,
+      "width": 124.648,
+      "height": 39.5625,
+      "editable": true,
+      "zIndex": 30,
+      "textSpec": {
+        "text": "Output Token",
+        "fontToken": "autofigure-font",
+        "fontSize": 11.73,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Output Token",
+            "fontToken": "Times New Roman",
+            "fontSize": 11.73
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-legend-token-more-grounded",
+      "semanticId": "left-legend-token-more-grounded",
+      "kind": "shape",
+      "x": 41.0,
+      "y": 356.0,
+      "width": 35.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 31
+    },
+    {
+      "id": "left-legend-label-more-grounded-line-1",
+      "semanticId": "left-legend-label-more-grounded-line-1",
+      "kind": "text",
+      "x": 86.0,
+      "y": 350.161,
+      "width": 182.0,
+      "height": 39.525,
+      "editable": true,
+      "zIndex": 32,
+      "textSpec": {
+        "text": "More Visual-grounded",
+        "fontToken": "autofigure-font",
+        "fontSize": 11.71,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "More Visual-grounded",
+            "fontToken": "Times New Roman",
+            "fontSize": 11.71
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-legend-label-more-grounded-line-2",
+      "semanticId": "left-legend-label-more-grounded-line-2",
+      "kind": "text",
+      "x": 86.0,
+      "y": 371.37,
+      "width": 123.168,
+      "height": 19.13,
+      "editable": true,
+      "zIndex": 33,
+      "textSpec": {
+        "text": "Output Token",
+        "fontToken": "autofigure-font",
+        "fontSize": 11.55,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Output Token",
+            "fontToken": "Times New Roman",
+            "fontSize": 11.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-model-to-early-arrow",
+      "semanticId": "left-model-to-early-arrow",
+      "kind": "line",
+      "x": 487.0,
+      "y": 188.0,
+      "width": 0.5,
+      "height": 50.0,
+      "editable": true,
+      "zIndex": 34
+    },
+    {
+      "id": "left-early-stage-title",
+      "semanticId": "left-early-stage-title",
+      "kind": "text",
+      "x": 514.0,
+      "y": 195.85,
+      "width": 69.91,
+      "height": 41.25,
+      "editable": true,
+      "zIndex": 35,
+      "textSpec": {
+        "text": "Base",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.75,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Base",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-early-token-1",
+      "semanticId": "left-early-token-1",
+      "kind": "shape",
+      "x": 300.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 36
+    },
+    {
+      "id": "left-early-token-2",
+      "semanticId": "left-early-token-2",
+      "kind": "shape",
+      "x": 345.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 37
+    },
+    {
+      "id": "left-early-token-3",
+      "semanticId": "left-early-token-3",
+      "kind": "shape",
+      "x": 389.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 38
+    },
+    {
+      "id": "left-early-token-4",
+      "semanticId": "left-early-token-4",
+      "kind": "shape",
+      "x": 434.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 39
+    },
+    {
+      "id": "left-early-token-ellipsis-dot-1",
+      "semanticId": "left-early-token-ellipsis-dot-1",
+      "kind": "shape",
+      "x": 479.5001,
+      "y": 243.5001,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 40
+    },
+    {
+      "id": "left-early-token-ellipsis-dot-2",
+      "semanticId": "left-early-token-ellipsis-dot-2",
+      "kind": "shape",
+      "x": 485.5001,
+      "y": 243.5001,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 41
+    },
+    {
+      "id": "left-early-token-ellipsis-dot-3",
+      "semanticId": "left-early-token-ellipsis-dot-3",
+      "kind": "shape",
+      "x": 491.5001,
+      "y": 243.5001,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 42
+    },
+    {
+      "id": "left-early-token-5",
+      "semanticId": "left-early-token-5",
+      "kind": "shape",
+      "x": 507.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 43
+    },
+    {
+      "id": "left-early-token-6",
+      "semanticId": "left-early-token-6",
+      "kind": "shape",
+      "x": 551.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 44
+    },
+    {
+      "id": "left-early-token-7",
+      "semanticId": "left-early-token-7",
+      "kind": "shape",
+      "x": 595.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 45
+    },
+    {
+      "id": "left-early-token-8",
+      "semanticId": "left-early-token-8",
+      "kind": "shape",
+      "x": 639.0,
+      "y": 230.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 46
+    },
+    {
+      "id": "left-early-word-answer",
+      "semanticId": "left-early-word-answer",
+      "kind": "text",
+      "x": 530.32,
+      "y": 263.6999,
+      "width": 77.36,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 47,
+      "textSpec": {
+        "text": "answer",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "answer",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-early-word-is",
+      "semanticId": "left-early-word-is",
+      "kind": "text",
+      "x": 591.4,
+      "y": 263.6999,
+      "width": 43.2,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 48,
+      "textSpec": {
+        "text": "is",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "is",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-early-word-b",
+      "semanticId": "left-early-word-b",
+      "kind": "text",
+      "x": 636.31,
+      "y": 263.6999,
+      "width": 41.3799,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 49,
+      "textSpec": {
+        "text": "B",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "B",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-early-answer-underbrace",
+      "semanticId": "left-early-answer-underbrace",
+      "kind": "shape",
+      "x": 559.0,
+      "y": 290.0,
+      "width": 107.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 50
+    },
+    {
+      "id": "left-early-annotation-line-1",
+      "semanticId": "left-early-annotation-line-1",
+      "kind": "text",
+      "x": 521.2,
+      "y": 304.0,
+      "width": 181.6,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 51,
+      "textSpec": {
+        "text": "Generate answer",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Generate answer",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-early-annotation-line-2",
+      "semanticId": "left-early-annotation-line-2",
+      "kind": "text",
+      "x": 522.7001,
+      "y": 326.0,
+      "width": 178.6,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 52,
+      "textSpec": {
+        "text": "before reasoning",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "before reasoning",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-early-stage-side-brace",
+      "semanticId": "left-early-stage-side-brace",
+      "kind": "shape",
+      "x": 682.0,
+      "y": 205.0,
+      "width": 16.0,
+      "height": 77.0,
+      "editable": true,
+      "zIndex": 53
+    },
+    {
+      "id": "left-early-stage-side-label",
+      "semanticId": "left-early-stage-side-label",
+      "kind": "text",
+      "x": 662.64,
+      "y": 203.0,
+      "width": 106.72,
+      "height": 80.0,
+      "editable": true,
+      "zIndex": 54,
+      "textSpec": {
+        "text": "Early Step",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Early Step",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      },
+      "rotation": 270.0
+    },
+    {
+      "id": "left-stage-transition-ellipsis",
+      "semanticId": "left-stage-transition-ellipsis",
+      "kind": "text",
+      "x": 465.8,
+      "y": 326.0,
+      "width": 42.4,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 55,
+      "textSpec": {
+        "text": "⋮",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "⋮",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-transition-to-late-arrow",
+      "semanticId": "left-transition-to-late-arrow",
+      "kind": "line",
+      "x": 487.0,
+      "y": 357.0,
+      "width": 0.5,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 56
+    },
+    {
+      "id": "left-late-token-1",
+      "semanticId": "left-late-token-1",
+      "kind": "shape",
+      "x": 300.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 57
+    },
+    {
+      "id": "left-late-token-2",
+      "semanticId": "left-late-token-2",
+      "kind": "shape",
+      "x": 345.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 58
+    },
+    {
+      "id": "left-late-token-3",
+      "semanticId": "left-late-token-3",
+      "kind": "shape",
+      "x": 389.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 59
+    },
+    {
+      "id": "left-late-token-4",
+      "semanticId": "left-late-token-4",
+      "kind": "shape",
+      "x": 434.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 60
+    },
+    {
+      "id": "left-late-token-ellipsis-dot-1",
+      "semanticId": "left-late-token-ellipsis-dot-1",
+      "kind": "shape",
+      "x": 479.5001,
+      "y": 400.0,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 61
+    },
+    {
+      "id": "left-late-token-ellipsis-dot-2",
+      "semanticId": "left-late-token-ellipsis-dot-2",
+      "kind": "shape",
+      "x": 485.5001,
+      "y": 400.0,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 62
+    },
+    {
+      "id": "left-late-token-ellipsis-dot-3",
+      "semanticId": "left-late-token-ellipsis-dot-3",
+      "kind": "shape",
+      "x": 491.5001,
+      "y": 400.0,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 63
+    },
+    {
+      "id": "left-late-token-5",
+      "semanticId": "left-late-token-5",
+      "kind": "shape",
+      "x": 507.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 64
+    },
+    {
+      "id": "left-late-token-6",
+      "semanticId": "left-late-token-6",
+      "kind": "shape",
+      "x": 551.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 65
+    },
+    {
+      "id": "left-late-token-7",
+      "semanticId": "left-late-token-7",
+      "kind": "shape",
+      "x": 595.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 66
+    },
+    {
+      "id": "left-late-token-8",
+      "semanticId": "left-late-token-8",
+      "kind": "shape",
+      "x": 639.0,
+      "y": 388.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 67
+    },
+    {
+      "id": "left-late-word-the",
+      "semanticId": "left-late-word-the",
+      "kind": "text",
+      "x": 289.9575,
+      "y": 420.175,
+      "width": 55.085,
+      "height": 36.875,
+      "editable": true,
+      "zIndex": 68,
+      "textSpec": {
+        "text": "The",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.12,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "The",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.12
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-word-stove",
+      "semanticId": "left-late-word-stove",
+      "kind": "text",
+      "x": 329.13,
+      "y": 418.7001,
+      "width": 65.7401,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 69,
+      "textSpec": {
+        "text": "stove",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "stove",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-word-broken",
+      "semanticId": "left-late-word-broken",
+      "kind": "text",
+      "x": 414.242,
+      "y": 420.3175,
+      "width": 71.516,
+      "height": 36.6875,
+      "editable": true,
+      "zIndex": 70,
+      "textSpec": {
+        "text": "broken",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.01,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "broken",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.01
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-word-answer",
+      "semanticId": "left-late-word-answer",
+      "kind": "text",
+      "x": 528.32,
+      "y": 418.7001,
+      "width": 77.36,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 71,
+      "textSpec": {
+        "text": "answer",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "answer",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-word-is",
+      "semanticId": "left-late-word-is",
+      "kind": "text",
+      "x": 591.4,
+      "y": 418.7001,
+      "width": 43.2,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 72,
+      "textSpec": {
+        "text": "is",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "is",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-word-b",
+      "semanticId": "left-late-word-b",
+      "kind": "text",
+      "x": 637.31,
+      "y": 418.7001,
+      "width": 41.3799,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 73,
+      "textSpec": {
+        "text": "B",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "B",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-rationale-underbrace",
+      "semanticId": "left-late-rationale-underbrace",
+      "kind": "shape",
+      "x": 339.0,
+      "y": 446.0,
+      "width": 107.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 74
+    },
+    {
+      "id": "left-late-annotation-line-1",
+      "semanticId": "left-late-annotation-line-1",
+      "kind": "text",
+      "x": 297.527,
+      "y": 453.57,
+      "width": 188.946,
+      "height": 44.25,
+      "editable": true,
+      "zIndex": 75,
+      "textSpec": {
+        "text": "Generate rationale",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.55,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Generate rationale",
+            "fontToken": "Times New Roman",
+            "fontSize": 14.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-annotation-line-2",
+      "semanticId": "left-late-annotation-line-2",
+      "kind": "text",
+      "x": 309.57,
+      "y": 477.57,
+      "width": 165.8599,
+      "height": 44.25,
+      "editable": true,
+      "zIndex": 76,
+      "textSpec": {
+        "text": "after answering",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.55,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "after answering",
+            "fontToken": "Times New Roman",
+            "fontSize": 14.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-late-stage-side-brace",
+      "semanticId": "left-late-stage-side-brace",
+      "kind": "shape",
+      "x": 682.0,
+      "y": 363.0,
+      "width": 16.0,
+      "height": 77.0,
+      "editable": true,
+      "zIndex": 77
+    },
+    {
+      "id": "left-late-stage-side-label",
+      "semanticId": "left-late-stage-side-label",
+      "kind": "text",
+      "x": 662.24,
+      "y": 362.0,
+      "width": 107.52,
+      "height": 80.0,
+      "editable": true,
+      "zIndex": 78,
+      "textSpec": {
+        "text": "Later Step",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Later Step",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      },
+      "rotation": 270.0
+    },
+    {
+      "id": "left-panel-caption",
+      "semanticId": "left-panel-caption",
+      "kind": "text",
+      "x": 190.981,
+      "y": 511.3425,
+      "width": 363.038,
+      "height": 42.6575,
+      "editable": true,
+      "zIndex": 79,
+      "textSpec": {
+        "text": "(a) Baseline dMLLM Inference.",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.88,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "(a) Baseline dMLLM Inference.",
+            "fontToken": "Times New Roman",
+            "fontSize": 17.88
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-input-image-title",
+      "semanticId": "right-input-image-title",
+      "kind": "text",
+      "x": 816.32,
+      "y": 9.8,
+      "width": 75.36,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 80,
+      "textSpec": {
+        "text": "Image",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Image",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-input-image-bracket",
+      "semanticId": "right-input-image-bracket",
+      "kind": "shape",
+      "x": 801.0,
+      "y": 34.0,
+      "width": 107.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 81
+    },
+    {
+      "id": "right-input-image-token-1",
+      "semanticId": "right-input-image-token-1",
+      "kind": "shape",
+      "x": 792.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 82
+    },
+    {
+      "id": "right-input-image-token-2",
+      "semanticId": "right-input-image-token-2",
+      "kind": "shape",
+      "x": 836.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 83
+    },
+    {
+      "id": "right-input-image-token-3",
+      "semanticId": "right-input-image-token-3",
+      "kind": "shape",
+      "x": 880.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 84
+    },
+    {
+      "id": "right-input-prompt-title",
+      "semanticId": "right-input-prompt-title",
+      "kind": "text",
+      "x": 953.0,
+      "y": 9.8,
+      "width": 84.0,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 85,
+      "textSpec": {
+        "text": "Prompt",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Prompt",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-input-prompt-bracket",
+      "semanticId": "right-input-prompt-bracket",
+      "kind": "shape",
+      "x": 943.0,
+      "y": 34.0,
+      "width": 106.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 86
+    },
+    {
+      "id": "right-input-prompt-token-1",
+      "semanticId": "right-input-prompt-token-1",
+      "kind": "shape",
+      "x": 933.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 87
+    },
+    {
+      "id": "right-input-prompt-token-2",
+      "semanticId": "right-input-prompt-token-2",
+      "kind": "shape",
+      "x": 977.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 88
+    },
+    {
+      "id": "right-input-prompt-token-3",
+      "semanticId": "right-input-prompt-token-3",
+      "kind": "shape",
+      "x": 1021.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 89
+    },
+    {
+      "id": "right-input-response-title",
+      "semanticId": "right-input-response-title",
+      "kind": "text",
+      "x": 1208.52,
+      "y": 9.8,
+      "width": 100.96,
+      "height": 40.0,
+      "editable": true,
+      "zIndex": 90,
+      "textSpec": {
+        "text": "Response",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Response",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-input-response-bracket",
+      "semanticId": "right-input-response-bracket",
+      "kind": "shape",
+      "x": 1082.0,
+      "y": 34.0,
+      "width": 353.0,
+      "height": 18.0,
+      "editable": true,
+      "zIndex": 91
+    },
+    {
+      "id": "right-input-response-token-1",
+      "semanticId": "right-input-response-token-1",
+      "kind": "shape",
+      "x": 1072.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 92
+    },
+    {
+      "id": "right-input-response-token-2",
+      "semanticId": "right-input-response-token-2",
+      "kind": "shape",
+      "x": 1117.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 93
+    },
+    {
+      "id": "right-input-response-token-3",
+      "semanticId": "right-input-response-token-3",
+      "kind": "shape",
+      "x": 1161.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 94
+    },
+    {
+      "id": "right-input-response-token-4",
+      "semanticId": "right-input-response-token-4",
+      "kind": "shape",
+      "x": 1206.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 95
+    },
+    {
+      "id": "right-input-response-ellipsis",
+      "semanticId": "right-input-response-ellipsis",
+      "kind": "text",
+      "x": 1235.0,
+      "y": 56.0,
+      "width": 48.0,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 96,
+      "textSpec": {
+        "text": "…",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "…",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-input-response-token-5",
+      "semanticId": "right-input-response-token-5",
+      "kind": "shape",
+      "x": 1278.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 97
+    },
+    {
+      "id": "right-input-response-token-6",
+      "semanticId": "right-input-response-token-6",
+      "kind": "shape",
+      "x": 1323.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 98
+    },
+    {
+      "id": "right-input-response-token-7",
+      "semanticId": "right-input-response-token-7",
+      "kind": "shape",
+      "x": 1367.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 99
+    },
+    {
+      "id": "right-input-response-token-8",
+      "semanticId": "right-input-response-token-8",
+      "kind": "shape",
+      "x": 1412.0,
+      "y": 56.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 100
+    },
+    {
+      "id": "right-input-to-model-arrow",
+      "semanticId": "right-input-to-model-arrow",
+      "kind": "line",
+      "x": 1259.0,
+      "y": 89.0,
+      "width": 0.5,
+      "height": 20.0,
+      "editable": true,
+      "zIndex": 101
+    },
+    {
+      "id": "right-model-box",
+      "semanticId": "right-model-box",
+      "kind": "shape",
+      "x": 791.0,
+      "y": 114.0,
+      "width": 656.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 102
+    },
+    {
+      "id": "right-model-label",
+      "semanticId": "right-model-label",
+      "kind": "text",
+      "x": 925.344,
+      "y": 132.8601,
+      "width": 387.312,
+      "height": 32.1399,
+      "editable": true,
+      "zIndex": 103,
+      "textSpec": {
+        "text": "Diffusion Multimodal Language Model",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.89,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Diffusion Multimodal Language Model",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.89
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-model-to-early-arrow",
+      "semanticId": "right-model-to-early-arrow",
+      "kind": "line",
+      "x": 1259.0,
+      "y": 184.0,
+      "width": 0.5,
+      "height": 50.0,
+      "editable": true,
+      "zIndex": 104
+    },
+    {
+      "id": "right-early-stage-title",
+      "semanticId": "right-early-stage-title",
+      "kind": "text",
+      "x": 1282.0,
+      "y": 190.33,
+      "width": 183.962,
+      "height": 43.25,
+      "editable": true,
+      "zIndex": 105,
+      "textSpec": {
+        "text": "Ours (PSP & VRG)",
+        "fontToken": "autofigure-font",
+        "fontSize": 13.95,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Ours (PSP & VRG)",
+            "fontToken": "Times New Roman",
+            "fontSize": 13.95
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-early-token-1",
+      "semanticId": "right-early-token-1",
+      "kind": "shape",
+      "x": 1072.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 106
+    },
+    {
+      "id": "right-early-token-2",
+      "semanticId": "right-early-token-2",
+      "kind": "shape",
+      "x": 1117.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 107
+    },
+    {
+      "id": "right-early-token-3",
+      "semanticId": "right-early-token-3",
+      "kind": "shape",
+      "x": 1161.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 108
+    },
+    {
+      "id": "right-early-token-4",
+      "semanticId": "right-early-token-4",
+      "kind": "shape",
+      "x": 1206.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 109
+    },
+    {
+      "id": "right-early-token-ellipsis-dot-1",
+      "semanticId": "right-early-token-ellipsis-dot-1",
+      "kind": "shape",
+      "x": 1251.5001,
+      "y": 239.5001,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 110
+    },
+    {
+      "id": "right-early-token-ellipsis-dot-2",
+      "semanticId": "right-early-token-ellipsis-dot-2",
+      "kind": "shape",
+      "x": 1257.5001,
+      "y": 239.5001,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 111
+    },
+    {
+      "id": "right-early-token-ellipsis-dot-3",
+      "semanticId": "right-early-token-ellipsis-dot-3",
+      "kind": "shape",
+      "x": 1263.5001,
+      "y": 239.5001,
+      "width": 3.0,
+      "height": 3.0,
+      "editable": true,
+      "zIndex": 112
+    },
+    {
+      "id": "right-early-token-5",
+      "semanticId": "right-early-token-5",
+      "kind": "shape",
+      "x": 1278.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 113
+    },
+    {
+      "id": "right-early-token-6",
+      "semanticId": "right-early-token-6",
+      "kind": "shape",
+      "x": 1323.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 114
+    },
+    {
+      "id": "right-early-token-7",
+      "semanticId": "right-early-token-7",
+      "kind": "shape",
+      "x": 1367.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 115
+    },
+    {
+      "id": "right-early-token-8",
+      "semanticId": "right-early-token-8",
+      "kind": "shape",
+      "x": 1412.0,
+      "y": 227.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 116
+    },
+    {
+      "id": "right-early-word-stove",
+      "semanticId": "right-early-word-stove",
+      "kind": "text",
+      "x": 1101.889,
+      "y": 257.51,
+      "width": 66.222,
+      "height": 37.75,
+      "editable": true,
+      "zIndex": 117,
+      "textSpec": {
+        "text": "stove",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.64,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "stove",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.64
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-early-word-old",
+      "semanticId": "right-early-word-old",
+      "kind": "text",
+      "x": 1198.628,
+      "y": 257.51,
+      "width": 50.744,
+      "height": 37.75,
+      "editable": true,
+      "zIndex": 118,
+      "textSpec": {
+        "text": "old",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.64,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "old",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.64
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-early-rationale-underbrace",
+      "semanticId": "right-early-rationale-underbrace",
+      "kind": "shape",
+      "x": 1125.0,
+      "y": 287.0,
+      "width": 107.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 119
+    },
+    {
+      "id": "right-early-annotation-line-1",
+      "semanticId": "right-early-annotation-line-1",
+      "kind": "text",
+      "x": 1084.527,
+      "y": 294.57,
+      "width": 188.946,
+      "height": 44.25,
+      "editable": true,
+      "zIndex": 120,
+      "textSpec": {
+        "text": "Generate rationale",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.55,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Generate rationale",
+            "fontToken": "Times New Roman",
+            "fontSize": 14.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-early-annotation-line-2",
+      "semanticId": "right-early-annotation-line-2",
+      "kind": "text",
+      "x": 1089.0635,
+      "y": 318.665,
+      "width": 178.873,
+      "height": 44.125,
+      "editable": true,
+      "zIndex": 121,
+      "textSpec": {
+        "text": "before answering",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.47,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "before answering",
+            "fontToken": "Times New Roman",
+            "fontSize": 14.47
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-early-stage-side-brace",
+      "semanticId": "right-early-stage-side-brace",
+      "kind": "shape",
+      "x": 1454.0,
+      "y": 203.0,
+      "width": 16.0,
+      "height": 76.0,
+      "editable": true,
+      "zIndex": 122
+    },
+    {
+      "id": "right-early-stage-side-label",
+      "semanticId": "right-early-stage-side-label",
+      "kind": "text",
+      "x": 1463.0,
+      "y": 201.0,
+      "width": 50.0,
+      "height": 80.0,
+      "editable": true,
+      "zIndex": 123,
+      "textSpec": {
+        "text": "Early Step",
+        "fontToken": "autofigure-font",
+        "fontSize": 12.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Early Step",
+            "fontToken": "Times New Roman",
+            "fontSize": 12.0
+          }
+        ]
+      },
+      "rotation": 270.0
+    },
+    {
+      "id": "right-stage-transition-ellipsis",
+      "semanticId": "right-stage-transition-ellipsis",
+      "kind": "text",
+      "x": 1237.8,
+      "y": 323.0,
+      "width": 42.4,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 124,
+      "textSpec": {
+        "text": "⋮",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "⋮",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-transition-to-late-arrow",
+      "semanticId": "right-transition-to-late-arrow",
+      "kind": "line",
+      "x": 1259.0,
+      "y": 354.0,
+      "width": 0.5,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 125
+    },
+    {
+      "id": "right-late-token-1",
+      "semanticId": "right-late-token-1",
+      "kind": "shape",
+      "x": 1072.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 126
+    },
+    {
+      "id": "right-late-token-2",
+      "semanticId": "right-late-token-2",
+      "kind": "shape",
+      "x": 1117.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 127
+    },
+    {
+      "id": "right-late-token-3",
+      "semanticId": "right-late-token-3",
+      "kind": "shape",
+      "x": 1161.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 128
+    },
+    {
+      "id": "right-late-token-4",
+      "semanticId": "right-late-token-4",
+      "kind": "shape",
+      "x": 1206.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 129
+    },
+    {
+      "id": "right-late-token-ellipsis",
+      "semanticId": "right-late-token-ellipsis",
+      "kind": "text",
+      "x": 1235.0,
+      "y": 383.0,
+      "width": 48.0,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 130,
+      "textSpec": {
+        "text": "…",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "…",
+            "fontToken": "Times New Roman",
+            "fontSize": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-token-5",
+      "semanticId": "right-late-token-5",
+      "kind": "shape",
+      "x": 1278.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 131
+    },
+    {
+      "id": "right-late-token-6",
+      "semanticId": "right-late-token-6",
+      "kind": "shape",
+      "x": 1323.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 132
+    },
+    {
+      "id": "right-late-token-7",
+      "semanticId": "right-late-token-7",
+      "kind": "shape",
+      "x": 1367.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 133
+    },
+    {
+      "id": "right-late-token-8",
+      "semanticId": "right-late-token-8",
+      "kind": "shape",
+      "x": 1412.0,
+      "y": 383.0,
+      "width": 36.0,
+      "height": 27.0,
+      "editable": true,
+      "zIndex": 134
+    },
+    {
+      "id": "right-late-word-the",
+      "semanticId": "right-late-word-the",
+      "kind": "text",
+      "x": 1062.03,
+      "y": 415.6999,
+      "width": 55.9399,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 135,
+      "textSpec": {
+        "text": "The",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "The",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-word-stove",
+      "semanticId": "right-late-word-stove",
+      "kind": "text",
+      "x": 1102.13,
+      "y": 415.6999,
+      "width": 65.7401,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 136,
+      "textSpec": {
+        "text": "stove",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "stove",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-word-is",
+      "semanticId": "right-late-word-is",
+      "kind": "text",
+      "x": 1157.4,
+      "y": 415.6999,
+      "width": 43.2,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 137,
+      "textSpec": {
+        "text": "is",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "is",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-word-old",
+      "semanticId": "right-late-word-old",
+      "kind": "text",
+      "x": 1198.76,
+      "y": 415.6999,
+      "width": 50.48,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 138,
+      "textSpec": {
+        "text": "old",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "old",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-word-answer",
+      "semanticId": "right-late-word-answer",
+      "kind": "text",
+      "x": 1302.32,
+      "y": 415.6999,
+      "width": 77.36,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 139,
+      "textSpec": {
+        "text": "answer",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "answer",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-word-c",
+      "semanticId": "right-late-word-c",
+      "kind": "text",
+      "x": 1409.31,
+      "y": 415.6999,
+      "width": 41.3799,
+      "height": 37.5001,
+      "editable": true,
+      "zIndex": 140,
+      "textSpec": {
+        "text": "C",
+        "fontToken": "autofigure-font",
+        "fontSize": 10.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "C",
+            "fontToken": "Times New Roman",
+            "fontSize": 10.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-answer-underbrace",
+      "semanticId": "right-late-answer-underbrace",
+      "kind": "shape",
+      "x": 1329.0,
+      "y": 441.0,
+      "width": 106.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 141
+    },
+    {
+      "id": "right-late-annotation-line-1",
+      "semanticId": "right-late-annotation-line-1",
+      "kind": "text",
+      "x": 1292.322,
+      "y": 455.285,
+      "width": 179.356,
+      "height": 44.625,
+      "editable": true,
+      "zIndex": 142,
+      "textSpec": {
+        "text": "Generate answer",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.77,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Generate answer",
+            "fontToken": "Times New Roman",
+            "fontSize": 14.77
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-annotation-line-2",
+      "semanticId": "right-late-annotation-line-2",
+      "kind": "text",
+      "x": 1300.793,
+      "y": 479.285,
+      "width": 162.414,
+      "height": 44.625,
+      "editable": true,
+      "zIndex": 143,
+      "textSpec": {
+        "text": "after reasoning",
+        "fontToken": "autofigure-font",
+        "fontSize": 14.77,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "after reasoning",
+            "fontToken": "Times New Roman",
+            "fontSize": 14.77
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-late-stage-side-brace",
+      "semanticId": "right-late-stage-side-brace",
+      "kind": "shape",
+      "x": 1454.0,
+      "y": 358.0,
+      "width": 16.0,
+      "height": 77.0,
+      "editable": true,
+      "zIndex": 144
+    },
+    {
+      "id": "right-late-stage-side-label",
+      "semanticId": "right-late-stage-side-label",
+      "kind": "text",
+      "x": 1459.0,
+      "y": 357.0,
+      "width": 54.0,
+      "height": 80.0,
+      "editable": true,
+      "zIndex": 145,
+      "textSpec": {
+        "text": "Later Step",
+        "fontToken": "autofigure-font",
+        "fontSize": 11.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Later Step",
+            "fontToken": "Times New Roman",
+            "fontSize": 11.25
+          }
+        ]
+      },
+      "rotation": 270.0
+    },
+    {
+      "id": "right-panel-caption",
+      "semanticId": "right-panel-caption",
+      "kind": "text",
+      "x": 938.8695,
+      "y": 511.3425,
+      "width": 410.261,
+      "height": 42.6575,
+      "editable": true,
+      "zIndex": 146,
+      "textSpec": {
+        "text": "(b) Our proposed dMLLM inference.",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.88,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "(b) Our proposed dMLLM inference.",
+            "fontToken": "Times New Roman",
+            "fontSize": 17.88
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [],
+  "assetSlots": []
+}

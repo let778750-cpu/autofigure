@@ -807,6 +807,26 @@
       "editable": true
     },
     {
+      "entityId": "allocator-task1-propagation",
+      "label": "allocator-task1-propagation",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "allocator-task2-propagation",
+      "label": "allocator-task2-propagation",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
       "entityId": "zt-top-box",
       "label": "zt-top-box",
       "kind": "component",
@@ -1347,16 +1367,6 @@
       "editable": true
     },
     {
-      "entityId": "joint-loop-arrow",
-      "label": "joint-loop-arrow",
-      "kind": "component",
-      "sourceIds": [
-        "reference"
-      ],
-      "required": true,
-      "editable": true
-    },
-    {
       "entityId": "optimization-to-reward",
       "label": "optimization-to-reward",
       "kind": "component",
@@ -1570,8 +1580,8 @@
     },
     {
       "relationId": "rel:allocator-task1-route-1",
-      "source": "task-1-box",
-      "target": "expert-1-dyn",
+      "source": "expert-1-box",
+      "target": "expert-2-box",
       "kind": "flow",
       "direction": "forward",
       "sourceIds": [
@@ -1580,8 +1590,8 @@
     },
     {
       "relationId": "rel:allocator-task1-route-2",
-      "source": "task-1-box",
-      "target": "zt-top-box",
+      "source": "expert-2-box",
+      "target": "expert-3-box",
       "kind": "flow",
       "direction": "forward",
       "sourceIds": [
@@ -1589,49 +1599,9 @@
       ]
     },
     {
-      "relationId": "rel:allocator-task2-route-1",
-      "source": "task-2-box",
-      "target": "expert-3-sem",
-      "kind": "flow",
-      "direction": "forward",
-      "sourceIds": [
-        "reference"
-      ]
-    },
-    {
-      "relationId": "rel:allocator-task2-route-2",
-      "source": "task-2-box",
-      "target": "zt-bottom-box",
-      "kind": "flow",
-      "direction": "forward",
-      "sourceIds": [
-        "reference"
-      ]
-    },
-    {
-      "relationId": "rel:imagination-z0-to-z1",
-      "source": "imag-z0",
-      "target": "imag-z1",
-      "kind": "flow",
-      "direction": "forward",
-      "sourceIds": [
-        "reference"
-      ]
-    },
-    {
-      "relationId": "rel:imagination-z1-to-z2",
-      "source": "imag-z1",
-      "target": "imag-z2",
-      "kind": "flow",
-      "direction": "forward",
-      "sourceIds": [
-        "reference"
-      ]
-    },
-    {
-      "relationId": "rel:imagination-z2-to-zh",
-      "source": "imag-z2",
-      "target": "imag-zh",
+      "relationId": "rel:allocator-task1-skip-edge",
+      "source": "expert-3-box",
+      "target": "expert-4-box",
       "kind": "flow",
       "direction": "forward",
       "sourceIds": [
@@ -1662,6 +1632,86 @@
       "relationId": "rel:imagination-z2-to-r2",
       "source": "imag-z2",
       "target": "reward-r2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z0-to-r0",
+      "source": "rollout-z0",
+      "target": "reward-r0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z1-to-r1",
+      "source": "rollout-z1",
+      "target": "reward-r1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:rollout-z2-to-r2",
+      "source": "rollout-z2",
+      "target": "reward-r2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:zt-top-to-imagination",
+      "source": "zt-top-box",
+      "target": "rollout-z0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:zt-bottom-to-rollout",
+      "source": "zt-bottom-box",
+      "target": "rollout-z0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z0-to-z1",
+      "source": "imag-z0",
+      "target": "imag-z1",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z1-to-z2",
+      "source": "imag-z1",
+      "target": "imag-z2",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:imagination-z2-to-zh",
+      "source": "imag-z2",
+      "target": "imag-zh",
       "kind": "flow",
       "direction": "forward",
       "sourceIds": [
@@ -1789,26 +1839,6 @@
       ]
     },
     {
-      "relationId": "rel:zt-top-to-imagination",
-      "source": "zt-top-box",
-      "target": "rollout-z0",
-      "kind": "flow",
-      "direction": "forward",
-      "sourceIds": [
-        "reference"
-      ]
-    },
-    {
-      "relationId": "rel:zt-bottom-to-rollout",
-      "source": "zt-bottom-box",
-      "target": "rollout-z0",
-      "kind": "flow",
-      "direction": "forward",
-      "sourceIds": [
-        "reference"
-      ]
-    },
-    {
       "relationId": "rel:mapping-to-imagination",
       "source": "mapping-box",
       "target": "task-conditioned-imagination",
@@ -1819,9 +1849,9 @@
       ]
     },
     {
-      "relationId": "rel:interaction-left",
-      "source": "atomic:environment-globe",
-      "target": "reward-action-box",
+      "relationId": "rel:joint-loop-arrow",
+      "source": "joint-optimization-box",
+      "target": "joint-panel",
       "kind": "flow",
       "direction": "forward",
       "sourceIds": [
@@ -1829,11 +1859,11 @@
       ]
     },
     {
-      "relationId": "rel:interaction-right",
+      "relationId": "rel:interaction-exchange",
       "source": "reward-action-box",
       "target": "atomic:environment-globe",
       "kind": "flow",
-      "direction": "forward",
+      "direction": "bidirectional",
       "sourceIds": [
         "reference"
       ]

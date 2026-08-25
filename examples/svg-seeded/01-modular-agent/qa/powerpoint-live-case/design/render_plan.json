@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0.0",
   "projectId": "autofigure-01-modular-agent",
-  "sceneGraphVersion": "autofigure-50b3c2385bac",
+  "sceneGraphVersion": "autofigure-8062d6611e52",
   "targets": [
     {
       "targetId": "autofigure-pptx",
@@ -720,7 +720,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0019",
+      "elementId": "expert-1-box",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -732,7 +732,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0020",
+      "elementId": "expert-1-sem",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -744,7 +744,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0021",
+      "elementId": "expert-1-dyn",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -756,7 +756,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0024",
+      "elementId": "expert-1-sem-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -768,7 +768,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0025",
+      "elementId": "expert-1-dyn-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -792,7 +792,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0022",
+      "elementId": "expert-2-box",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -804,7 +804,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0023",
+      "elementId": "expert-2-sem",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -816,7 +816,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0024",
+      "elementId": "expert-2-dyn",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -828,7 +828,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0027",
+      "elementId": "expert-2-sem-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -840,7 +840,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0028",
+      "elementId": "expert-2-dyn-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -864,7 +864,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0025",
+      "elementId": "expert-3-box",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -876,7 +876,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0026",
+      "elementId": "expert-3-sem",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -888,7 +888,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0027",
+      "elementId": "expert-3-dyn",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -900,7 +900,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0030",
+      "elementId": "expert-3-sem-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -912,7 +912,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0031",
+      "elementId": "expert-3-dyn-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -936,7 +936,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0028",
+      "elementId": "expert-4-box",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -948,7 +948,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0029",
+      "elementId": "expert-4-sem",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -960,7 +960,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0030",
+      "elementId": "expert-4-dyn",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -972,7 +972,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0033",
+      "elementId": "expert-4-sem-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -984,7 +984,7 @@
       ]
     },
     {
-      "elementId": "svg-text-0034",
+      "elementId": "expert-4-dyn-label",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1020,7 +1020,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0004",
+      "elementId": "allocator-task1-propagation",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1032,43 +1032,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0005",
-      "mustRemainEditable": true,
-      "qualityOwner": "backend",
-      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
-      "routes": [
-        {
-          "targetId": "autofigure-pptx",
-          "renderer": "backend_native"
-        }
-      ]
-    },
-    {
-      "elementId": "allocator-task1-route-1",
-      "mustRemainEditable": true,
-      "qualityOwner": "backend",
-      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
-      "routes": [
-        {
-          "targetId": "autofigure-pptx",
-          "renderer": "backend_native"
-        }
-      ]
-    },
-    {
-      "elementId": "allocator-task1-route-2",
-      "mustRemainEditable": true,
-      "qualityOwner": "backend",
-      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
-      "routes": [
-        {
-          "targetId": "autofigure-pptx",
-          "renderer": "backend_native"
-        }
-      ]
-    },
-    {
-      "elementId": "allocator-task1-skip-edge",
+      "elementId": "allocator-task2-propagation",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1092,7 +1056,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0031",
+      "elementId": "zt-top-box",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1140,7 +1104,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0032",
+      "elementId": "zt-bottom-box",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1177,30 +1141,6 @@
     },
     {
       "elementId": "svg-circle-0017",
-      "mustRemainEditable": true,
-      "qualityOwner": "backend",
-      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
-      "routes": [
-        {
-          "targetId": "autofigure-pptx",
-          "renderer": "backend_native"
-        }
-      ]
-    },
-    {
-      "elementId": "top-mixture-to-rollout",
-      "mustRemainEditable": true,
-      "qualityOwner": "backend",
-      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
-      "routes": [
-        {
-          "targetId": "autofigure-pptx",
-          "renderer": "backend_native"
-        }
-      ]
-    },
-    {
-      "elementId": "bottom-mixture-to-rollout",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1488,7 +1428,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0012",
+      "elementId": "svg-path-0007",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1500,7 +1440,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0013",
+      "elementId": "svg-path-0008",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1512,7 +1452,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0014",
+      "elementId": "svg-path-0009",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1524,7 +1464,7 @@
       ]
     },
     {
-      "elementId": "svg-line-0015",
+      "elementId": "svg-line-0018",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1536,7 +1476,7 @@
       ]
     },
     {
-      "elementId": "svg-line-0016",
+      "elementId": "svg-line-0019",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -1584,7 +1524,7 @@
       ]
     },
     {
-      "elementId": "svg-rect-0039",
+      "elementId": "rollout-z0",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2076,7 +2016,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0022",
+      "elementId": "svg-path-0019",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2088,7 +2028,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0023",
+      "elementId": "svg-path-0020",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2100,7 +2040,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0024",
+      "elementId": "svg-path-0021",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2112,7 +2052,7 @@
       ]
     },
     {
-      "elementId": "svg-line-0026",
+      "elementId": "svg-line-0029",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2124,7 +2064,7 @@
       ]
     },
     {
-      "elementId": "svg-line-0027",
+      "elementId": "svg-line-0030",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2160,7 +2100,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0025",
+      "elementId": "svg-path-0022",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2172,7 +2112,7 @@
       ]
     },
     {
-      "elementId": "svg-path-0026",
+      "elementId": "svg-path-0023",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2184,7 +2124,7 @@
       ]
     },
     {
-      "elementId": "svg-line-0028",
+      "elementId": "svg-line-0031",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
@@ -2316,7 +2256,67 @@
       ]
     },
     {
+      "elementId": "allocator-task1-route-1",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-task1-route-2",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "allocator-task1-skip-edge",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
       "elementId": "mapping-to-imagination",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "top-mixture-to-rollout",
+      "mustRemainEditable": true,
+      "qualityOwner": "backend",
+      "reason": "Derived Autofigure v3 compatibility route for regional live repair.",
+      "routes": [
+        {
+          "targetId": "autofigure-pptx",
+          "renderer": "backend_native"
+        }
+      ]
+    },
+    {
+      "elementId": "bottom-mixture-to-rollout",
       "mustRemainEditable": true,
       "qualityOwner": "backend",
       "reason": "Derived Autofigure v3 compatibility route for regional live repair.",

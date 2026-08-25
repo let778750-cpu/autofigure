@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.1.0",
   "projectId": "autofigure-01-modular-agent-reference-only",
-  "version": "autofigure-1032cb09e4d1",
+  "version": "autofigure-d399532e7068",
   "canvas": {
     "width": 1429,
     "height": 627,
@@ -630,10 +630,10 @@
       "id": "mllm-encoder",
       "semanticId": "mllm-encoder",
       "kind": "shape",
-      "x": 188.0,
-      "y": 243.0,
+      "x": 187.0,
+      "y": 242.0,
       "width": 124.0,
-      "height": 112.0,
+      "height": 78.0,
       "editable": true,
       "zIndex": 34
     },
@@ -674,10 +674,10 @@
       "id": "mllm-line2",
       "semanticId": "mllm-line2",
       "kind": "text",
-      "x": 195.885,
+      "x": 196.0,
       "y": 284.05,
-      "width": 108.23,
-      "height": 46.25,
+      "width": 108.0,
+      "height": 28.95,
       "editable": true,
       "zIndex": 36,
       "textSpec": {
@@ -709,8 +709,8 @@
       "kind": "shape",
       "x": 188.0,
       "y": 401.0,
-      "width": 124.0,
-      "height": 87.0,
+      "width": 125.0,
+      "height": 78.0,
       "editable": true,
       "zIndex": 37
     },
@@ -754,7 +754,7 @@
       "x": 195.885,
       "y": 444.05,
       "width": 108.23,
-      "height": 36.95,
+      "height": 27.95,
       "editable": true,
       "zIndex": 39,
       "textSpec": {
@@ -1128,8 +1128,8 @@
       "kind": "shape",
       "x": 552.0,
       "y": 229.0,
-      "width": 51.0,
-      "height": 236.0,
+      "width": 52.0,
+      "height": 237.0,
       "editable": true,
       "zIndex": 64
     },
@@ -1151,7 +1151,7 @@
       "x": 559.0,
       "y": 356.0,
       "width": 37.0,
-      "height": 100.0,
+      "height": 99.0,
       "editable": true,
       "zIndex": 66
     },
@@ -1159,16 +1159,16 @@
       "id": "expert-1-sem-label",
       "semanticId": "expert-1-sem-label",
       "kind": "text",
-      "x": 563.0,
-      "y": 264.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 536.4999,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 67,
       "textSpec": {
         "text": "Sem",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1183,25 +1183,26 @@
           {
             "text": "Sem",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-1-dyn-label",
       "semanticId": "expert-1-dyn-label",
       "kind": "text",
-      "x": 563.0,
-      "y": 377.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 536.4999,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 68,
       "textSpec": {
         "text": "Dyn",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1216,10 +1217,11 @@
           {
             "text": "Dyn",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-2-box",
@@ -1228,7 +1230,7 @@
       "x": 628.0,
       "y": 229.0,
       "width": 52.0,
-      "height": 236.0,
+      "height": 237.0,
       "editable": true,
       "zIndex": 69
     },
@@ -1236,7 +1238,7 @@
       "id": "expert-2-sem",
       "semanticId": "expert-2-sem",
       "kind": "shape",
-      "x": 636.0,
+      "x": 635.0,
       "y": 243.0,
       "width": 37.0,
       "height": 100.0,
@@ -1247,10 +1249,10 @@
       "id": "expert-2-dyn",
       "semanticId": "expert-2-dyn",
       "kind": "shape",
-      "x": 636.0,
+      "x": 635.0,
       "y": 356.0,
       "width": 37.0,
-      "height": 100.0,
+      "height": 99.0,
       "editable": true,
       "zIndex": 71
     },
@@ -1258,16 +1260,16 @@
       "id": "expert-2-sem-label",
       "semanticId": "expert-2-sem-label",
       "kind": "text",
-      "x": 640.0,
-      "y": 264.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 612.4999,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 72,
       "textSpec": {
         "text": "Sem",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1282,25 +1284,26 @@
           {
             "text": "Sem",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-2-dyn-label",
       "semanticId": "expert-2-dyn-label",
       "kind": "text",
-      "x": 640.0,
-      "y": 377.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 612.4999,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 73,
       "textSpec": {
         "text": "Dyn",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1315,19 +1318,20 @@
           {
             "text": "Dyn",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-3-box",
       "semanticId": "expert-3-box",
       "kind": "shape",
-      "x": 707.0,
+      "x": 706.0,
       "y": 229.0,
-      "width": 51.0,
-      "height": 236.0,
+      "width": 52.0,
+      "height": 237.0,
       "editable": true,
       "zIndex": 74
     },
@@ -1335,7 +1339,7 @@
       "id": "expert-3-sem",
       "semanticId": "expert-3-sem",
       "kind": "shape",
-      "x": 714.0,
+      "x": 713.0,
       "y": 243.0,
       "width": 37.0,
       "height": 100.0,
@@ -1346,10 +1350,10 @@
       "id": "expert-3-dyn",
       "semanticId": "expert-3-dyn",
       "kind": "shape",
-      "x": 714.0,
+      "x": 713.0,
       "y": 356.0,
       "width": 37.0,
-      "height": 100.0,
+      "height": 99.0,
       "editable": true,
       "zIndex": 76
     },
@@ -1357,16 +1361,16 @@
       "id": "expert-3-sem-label",
       "semanticId": "expert-3-sem-label",
       "kind": "text",
-      "x": 718.0,
-      "y": 264.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 690.4999,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 77,
       "textSpec": {
         "text": "Sem",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1381,25 +1385,26 @@
           {
             "text": "Sem",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-3-dyn-label",
       "semanticId": "expert-3-dyn-label",
       "kind": "text",
-      "x": 718.0,
-      "y": 377.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 690.4999,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 78,
       "textSpec": {
         "text": "Dyn",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1414,19 +1419,20 @@
           {
             "text": "Dyn",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-4-box",
       "semanticId": "expert-4-box",
       "kind": "shape",
-      "x": 799.0,
+      "x": 801.0,
       "y": 229.0,
       "width": 52.0,
-      "height": 236.0,
+      "height": 237.0,
       "editable": true,
       "zIndex": 79
     },
@@ -1434,7 +1440,7 @@
       "id": "expert-4-sem",
       "semanticId": "expert-4-sem",
       "kind": "shape",
-      "x": 807.0,
+      "x": 808.0,
       "y": 243.0,
       "width": 37.0,
       "height": 100.0,
@@ -1445,10 +1451,10 @@
       "id": "expert-4-dyn",
       "semanticId": "expert-4-dyn",
       "kind": "shape",
-      "x": 807.0,
+      "x": 808.0,
       "y": 356.0,
       "width": 37.0,
-      "height": 100.0,
+      "height": 99.0,
       "editable": true,
       "zIndex": 81
     },
@@ -1456,16 +1462,16 @@
       "id": "expert-4-sem-label",
       "semanticId": "expert-4-sem-label",
       "kind": "text",
-      "x": 810.0,
-      "y": 264.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 785.5001,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 82,
       "textSpec": {
         "text": "Sem",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1480,25 +1486,26 @@
           {
             "text": "Sem",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-4-dyn-label",
       "semanticId": "expert-4-dyn-label",
       "kind": "text",
-      "x": 810.0,
-      "y": 377.65,
-      "width": 30.0,
-      "height": 36.25,
+      "x": 785.5001,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 83,
       "textSpec": {
         "text": "Dyn",
         "fontToken": "autofigure-font",
-        "fontSize": 9.75,
+        "fontSize": 13.5,
         "fontWeight": "normal",
         "horizontalAlign": "center",
         "verticalAlign": "middle",
@@ -1513,10 +1520,11 @@
           {
             "text": "Dyn",
             "fontToken": "Arial",
-            "fontSize": 9.75
+            "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "expert-index-1",
@@ -1684,6 +1692,28 @@
       }
     },
     {
+      "id": "allocator-task1-propagation",
+      "semanticId": "allocator-task1-propagation",
+      "kind": "shape",
+      "x": 539.0,
+      "y": 260.0,
+      "width": 362.0,
+      "height": 114.0,
+      "editable": true,
+      "zIndex": 92
+    },
+    {
+      "id": "allocator-task2-propagation",
+      "semanticId": "allocator-task2-propagation",
+      "kind": "shape",
+      "x": 539.0,
+      "y": 298.0,
+      "width": 362.0,
+      "height": 135.0,
+      "editable": true,
+      "zIndex": 93
+    },
+    {
       "id": "zt-top-box",
       "semanticId": "zt-top-box",
       "kind": "shape",
@@ -1692,7 +1722,7 @@
       "width": 42.0,
       "height": 128.0,
       "editable": true,
-      "zIndex": 93
+      "zIndex": 94
     },
     {
       "id": "zt-top-label",
@@ -1703,7 +1733,7 @@
       "width": 47.2999,
       "height": 42.4999,
       "editable": true,
-      "zIndex": 94,
+      "zIndex": 95,
       "textSpec": {
         "text": "zt",
         "fontToken": "autofigure-font",
@@ -1736,7 +1766,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 95
+      "zIndex": 96
     },
     {
       "id": "zt-top-2",
@@ -1747,7 +1777,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 96
+      "zIndex": 97
     },
     {
       "id": "zt-top-3",
@@ -1758,7 +1788,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 97
+      "zIndex": 98
     },
     {
       "id": "zt-bottom-box",
@@ -1769,7 +1799,7 @@
       "width": 42.0,
       "height": 126.0,
       "editable": true,
-      "zIndex": 98
+      "zIndex": 99
     },
     {
       "id": "zt-bottom-1",
@@ -1780,7 +1810,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 99
+      "zIndex": 100
     },
     {
       "id": "zt-bottom-2",
@@ -1791,7 +1821,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 100
+      "zIndex": 101
     },
     {
       "id": "zt-bottom-3",
@@ -1802,7 +1832,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 101
+      "zIndex": 102
     },
     {
       "id": "task-conditioned-imagination",
@@ -1813,7 +1843,7 @@
       "width": 400.0,
       "height": 91.0,
       "editable": true,
-      "zIndex": 102
+      "zIndex": 103
     },
     {
       "id": "imagination-title",
@@ -1824,7 +1854,7 @@
       "width": 299.12,
       "height": 46.25,
       "editable": true,
-      "zIndex": 103,
+      "zIndex": 107,
       "textSpec": {
         "text": "task-conditioned imagination",
         "fontToken": "autofigure-font",
@@ -1857,7 +1887,7 @@
       "width": 46.0,
       "height": 34.0,
       "editable": true,
-      "zIndex": 104
+      "zIndex": 108
     },
     {
       "id": "imag-z1",
@@ -1868,7 +1898,7 @@
       "width": 46.0,
       "height": 34.0,
       "editable": true,
-      "zIndex": 105
+      "zIndex": 109
     },
     {
       "id": "imag-z2",
@@ -1879,7 +1909,7 @@
       "width": 46.0,
       "height": 34.0,
       "editable": true,
-      "zIndex": 106
+      "zIndex": 110
     },
     {
       "id": "imag-zh",
@@ -1890,7 +1920,7 @@
       "width": 47.0,
       "height": 34.0,
       "editable": true,
-      "zIndex": 107
+      "zIndex": 111
     },
     {
       "id": "imag-z0-label",
@@ -1901,7 +1931,7 @@
       "width": 40.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 108,
+      "zIndex": 112,
       "textSpec": {
         "text": "zτt",
         "fontToken": "autofigure-font",
@@ -1934,7 +1964,7 @@
       "width": 40.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 109,
+      "zIndex": 113,
       "textSpec": {
         "text": "zτt+1",
         "fontToken": "autofigure-font",
@@ -1967,7 +1997,7 @@
       "width": 40.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 110,
+      "zIndex": 114,
       "textSpec": {
         "text": "zτt+2",
         "fontToken": "autofigure-font",
@@ -2000,7 +2030,7 @@
       "width": 47.2999,
       "height": 41.25,
       "editable": true,
-      "zIndex": 111,
+      "zIndex": 115,
       "textSpec": {
         "text": "...",
         "fontToken": "autofigure-font",
@@ -2033,7 +2063,7 @@
       "width": 40.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 112,
+      "zIndex": 116,
       "textSpec": {
         "text": "zτt+h",
         "fontToken": "autofigure-font",
@@ -2066,7 +2096,7 @@
       "width": 400.0,
       "height": 173.0,
       "editable": true,
-      "zIndex": 113
+      "zIndex": 117
     },
     {
       "id": "rollout-z0",
@@ -2077,7 +2107,7 @@
       "width": 45.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 114
+      "zIndex": 123
     },
     {
       "id": "rollout-z1",
@@ -2088,7 +2118,7 @@
       "width": 45.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 115
+      "zIndex": 124
     },
     {
       "id": "rollout-z2",
@@ -2099,7 +2129,7 @@
       "width": 45.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 116
+      "zIndex": 125
     },
     {
       "id": "rollout-zh",
@@ -2110,7 +2140,7 @@
       "width": 47.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 117
+      "zIndex": 126
     },
     {
       "id": "rollout-z0-label",
@@ -2121,7 +2151,7 @@
       "width": 38.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 118,
+      "zIndex": 127,
       "textSpec": {
         "text": "zt",
         "fontToken": "autofigure-font",
@@ -2154,7 +2184,7 @@
       "width": 38.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 119,
+      "zIndex": 128,
       "textSpec": {
         "text": "zt+1",
         "fontToken": "autofigure-font",
@@ -2187,7 +2217,7 @@
       "width": 38.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 120,
+      "zIndex": 129,
       "textSpec": {
         "text": "zt+2",
         "fontToken": "autofigure-font",
@@ -2220,7 +2250,7 @@
       "width": 40.0,
       "height": 25.15,
       "editable": true,
-      "zIndex": 121,
+      "zIndex": 130,
       "textSpec": {
         "text": "zt+h",
         "fontToken": "autofigure-font",
@@ -2253,7 +2283,7 @@
       "width": 79.0,
       "height": 27.95,
       "editable": true,
-      "zIndex": 122,
+      "zIndex": 131,
       "textSpec": {
         "text": "rollout",
         "fontToken": "autofigure-font",
@@ -2286,7 +2316,7 @@
       "width": 42.0,
       "height": 42.0,
       "editable": true,
-      "zIndex": 123
+      "zIndex": 132
     },
     {
       "id": "reward-r1",
@@ -2297,7 +2327,7 @@
       "width": 42.0,
       "height": 42.0,
       "editable": true,
-      "zIndex": 124
+      "zIndex": 133
     },
     {
       "id": "reward-r2",
@@ -2308,7 +2338,7 @@
       "width": 42.0,
       "height": 42.0,
       "editable": true,
-      "zIndex": 125
+      "zIndex": 134
     },
     {
       "id": "reward-r0-label",
@@ -2319,7 +2349,7 @@
       "width": 52.57,
       "height": 41.25,
       "editable": true,
-      "zIndex": 126,
+      "zIndex": 135,
       "textSpec": {
         "text": "r′t",
         "fontToken": "autofigure-font",
@@ -2352,7 +2382,7 @@
       "width": 70.93,
       "height": 41.25,
       "editable": true,
-      "zIndex": 127,
+      "zIndex": 136,
       "textSpec": {
         "text": "r′t+1",
         "fontToken": "autofigure-font",
@@ -2385,7 +2415,7 @@
       "width": 70.93,
       "height": 41.25,
       "editable": true,
-      "zIndex": 128,
+      "zIndex": 137,
       "textSpec": {
         "text": "r′t+2",
         "fontToken": "autofigure-font",
@@ -2418,7 +2448,7 @@
       "width": 36.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 129
+      "zIndex": 138
     },
     {
       "id": "policy-pi1",
@@ -2429,7 +2459,7 @@
       "width": 36.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 130
+      "zIndex": 139
     },
     {
       "id": "policy-pi2",
@@ -2440,7 +2470,7 @@
       "width": 36.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 131
+      "zIndex": 140
     },
     {
       "id": "policy-pi0-label",
@@ -2451,7 +2481,7 @@
       "width": 41.9001,
       "height": 42.4999,
       "editable": true,
-      "zIndex": 132,
+      "zIndex": 141,
       "textSpec": {
         "text": "π",
         "fontToken": "autofigure-font",
@@ -2484,7 +2514,7 @@
       "width": 41.9001,
       "height": 42.4999,
       "editable": true,
-      "zIndex": 133,
+      "zIndex": 142,
       "textSpec": {
         "text": "π",
         "fontToken": "autofigure-font",
@@ -2517,7 +2547,7 @@
       "width": 41.9001,
       "height": 42.4999,
       "editable": true,
-      "zIndex": 134,
+      "zIndex": 143,
       "textSpec": {
         "text": "π",
         "fontToken": "autofigure-font",
@@ -2550,7 +2580,7 @@
       "width": 36.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 135
+      "zIndex": 144
     },
     {
       "id": "action-a1",
@@ -2561,7 +2591,7 @@
       "width": 36.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 136
+      "zIndex": 145
     },
     {
       "id": "action-a2",
@@ -2572,7 +2602,7 @@
       "width": 36.0,
       "height": 36.0,
       "editable": true,
-      "zIndex": 137
+      "zIndex": 146
     },
     {
       "id": "action-a0-label",
@@ -2583,7 +2613,7 @@
       "width": 46.45,
       "height": 41.25,
       "editable": true,
-      "zIndex": 138,
+      "zIndex": 147,
       "textSpec": {
         "text": "at",
         "fontToken": "autofigure-font",
@@ -2616,7 +2646,7 @@
       "width": 64.81,
       "height": 41.25,
       "editable": true,
-      "zIndex": 139,
+      "zIndex": 148,
       "textSpec": {
         "text": "at+1",
         "fontToken": "autofigure-font",
@@ -2649,7 +2679,7 @@
       "width": 64.81,
       "height": 41.25,
       "editable": true,
-      "zIndex": 140,
+      "zIndex": 149,
       "textSpec": {
         "text": "at+2",
         "fontToken": "autofigure-font",
@@ -2682,7 +2712,7 @@
       "width": 46.56,
       "height": 55.0,
       "editable": true,
-      "zIndex": 161,
+      "zIndex": 165,
       "textSpec": {
         "text": "♕",
         "fontToken": "autofigure-font",
@@ -2715,7 +2745,7 @@
       "width": 81.4,
       "height": 43.75,
       "editable": true,
-      "zIndex": 162,
+      "zIndex": 166,
       "textSpec": {
         "text": "dense",
         "fontToken": "autofigure-font",
@@ -2748,7 +2778,7 @@
       "width": 90.52,
       "height": 43.75,
       "editable": true,
-      "zIndex": 163,
+      "zIndex": 167,
       "textSpec": {
         "text": "reward",
         "fontToken": "autofigure-font",
@@ -2781,7 +2811,7 @@
       "width": 405.68,
       "height": 53.75,
       "editable": true,
-      "zIndex": 164,
+      "zIndex": 168,
       "textSpec": {
         "text": "Task-Aware Behavior Learning",
         "fontToken": "autofigure-font",
@@ -2814,7 +2844,7 @@
       "width": 421.0,
       "height": 52.0,
       "editable": true,
-      "zIndex": 166
+      "zIndex": 170
     },
     {
       "id": "joint-optimization-label",
@@ -2825,7 +2855,7 @@
       "width": 400.55,
       "height": 36.65,
       "editable": true,
-      "zIndex": 167,
+      "zIndex": 171,
       "textSpec": {
         "text": "MLLM-WM Joint Optimization",
         "fontToken": "autofigure-font",
@@ -2850,17 +2880,6 @@
       }
     },
     {
-      "id": "joint-loop-arrow",
-      "semanticId": "joint-loop-arrow",
-      "kind": "shape",
-      "x": 106.0,
-      "y": 520.0,
-      "width": 81.0,
-      "height": 54.0,
-      "editable": true,
-      "zIndex": 168
-    },
-    {
       "id": "optimization-to-reward",
       "semanticId": "optimization-to-reward",
       "kind": "shape",
@@ -2869,7 +2888,7 @@
       "width": 58.0,
       "height": 30.0,
       "editable": true,
-      "zIndex": 169
+      "zIndex": 173
     },
     {
       "id": "reward-action-box",
@@ -2880,7 +2899,7 @@
       "width": 327.0,
       "height": 55.0,
       "editable": true,
-      "zIndex": 170
+      "zIndex": 174
     },
     {
       "id": "reward-icon",
@@ -2891,7 +2910,7 @@
       "width": 48.12,
       "height": 40.45,
       "editable": true,
-      "zIndex": 171,
+      "zIndex": 175,
       "textSpec": {
         "text": "♕",
         "fontToken": "autofigure-font",
@@ -2924,7 +2943,7 @@
       "width": 181.0,
       "height": 34.75,
       "editable": true,
-      "zIndex": 172,
+      "zIndex": 176,
       "textSpec": {
         "text": "dense reward",
         "fontToken": "autofigure-font",
@@ -2957,7 +2976,7 @@
       "width": 32.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 173
+      "zIndex": 177
     },
     {
       "id": "action-icon-path",
@@ -2968,7 +2987,7 @@
       "width": 26.0,
       "height": 14.0,
       "editable": true,
-      "zIndex": 174
+      "zIndex": 178
     },
     {
       "id": "action-text",
@@ -2979,7 +2998,7 @@
       "width": 66.0,
       "height": 32.0,
       "editable": true,
-      "zIndex": 175,
+      "zIndex": 179,
       "textSpec": {
         "text": "action",
         "fontToken": "autofigure-font",
@@ -3012,7 +3031,7 @@
       "width": 61.0,
       "height": 30.0,
       "editable": true,
-      "zIndex": 176
+      "zIndex": 180
     },
     {
       "id": "interaction-label",
@@ -3023,7 +3042,7 @@
       "width": 130.7001,
       "height": 46.25,
       "editable": true,
-      "zIndex": 177,
+      "zIndex": 181,
       "textSpec": {
         "text": "interaction",
         "fontToken": "autofigure-font",
@@ -3056,7 +3075,7 @@
       "width": 80.0,
       "height": 81.0,
       "editable": false,
-      "zIndex": 180,
+      "zIndex": 183,
       "assetSpec": {
         "assetId": "atomic:environment-globe",
         "fitMode": "stretch",
@@ -3079,7 +3098,7 @@
       "width": 155.4199,
       "height": 47.5001,
       "editable": true,
-      "zIndex": 181,
+      "zIndex": 184,
       "textSpec": {
         "text": "Environment",
         "fontToken": "autofigure-font",
@@ -3251,36 +3270,12 @@
         "rel:allocator-task1-route-1"
       ],
       "geometryOnly": false,
-      "source": "task-1-box",
-      "target": "expert-1-dyn",
+      "source": "expert-1-box",
+      "target": "expert-2-box",
       "direction": "forward",
-      "route": "curved",
+      "route": "straight",
       "styleTokens": {
         "strokePattern": "solid"
-      },
-      "pathSpec": {
-        "kind": "cubic",
-        "coordinateSpace": "canvas",
-        "start": {
-          "x": 537.0,
-          "y": 289.0
-        },
-        "segments": [
-          {
-            "control1": {
-              "x": 570.0,
-              "y": 260.0
-            },
-            "control2": {
-              "x": 583.0,
-              "y": 277.0
-            },
-            "end": {
-              "x": 618.0,
-              "y": 347.0
-            }
-          }
-        ]
       }
     },
     {
@@ -3289,164 +3284,8 @@
         "rel:allocator-task1-route-2"
       ],
       "geometryOnly": false,
-      "source": "task-1-box",
-      "target": "zt-top-box",
-      "direction": "forward",
-      "route": "curved",
-      "styleTokens": {
-        "strokePattern": "solid"
-      },
-      "pathSpec": {
-        "kind": "cubic",
-        "coordinateSpace": "canvas",
-        "start": {
-          "x": 538.0,
-          "y": 290.0
-        },
-        "segments": [
-          {
-            "control1": {
-              "x": 622.0,
-              "y": 250.0
-            },
-            "control2": {
-              "x": 623.0,
-              "y": 430.0
-            },
-            "end": {
-              "x": 700.0,
-              "y": 428.0
-            }
-          },
-          {
-            "control1": {
-              "x": 760.0,
-              "y": 426.0
-            },
-            "control2": {
-              "x": 785.0,
-              "y": 264.0
-            },
-            "end": {
-              "x": 861.0,
-              "y": 284.0
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "allocator-task2-route-1",
-      "semanticRelationIds": [
-        "rel:allocator-task2-route-1"
-      ],
-      "geometryOnly": false,
-      "source": "task-2-box",
-      "target": "expert-3-sem",
-      "direction": "forward",
-      "route": "curved",
-      "styleTokens": {
-        "strokePattern": "solid"
-      },
-      "pathSpec": {
-        "kind": "cubic",
-        "coordinateSpace": "canvas",
-        "start": {
-          "x": 537.0,
-          "y": 410.0
-        },
-        "segments": [
-          {
-            "control1": {
-              "x": 620.0,
-              "y": 392.0
-            },
-            "control2": {
-              "x": 632.0,
-              "y": 441.0
-            },
-            "end": {
-              "x": 682.0,
-              "y": 384.0
-            }
-          },
-          {
-            "control1": {
-              "x": 716.0,
-              "y": 346.0
-            },
-            "control2": {
-              "x": 720.0,
-              "y": 280.0
-            },
-            "end": {
-              "x": 754.0,
-              "y": 282.0
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "allocator-task2-route-2",
-      "semanticRelationIds": [
-        "rel:allocator-task2-route-2"
-      ],
-      "geometryOnly": false,
-      "source": "task-2-box",
-      "target": "zt-bottom-box",
-      "direction": "forward",
-      "route": "curved",
-      "styleTokens": {
-        "strokePattern": "solid"
-      },
-      "pathSpec": {
-        "kind": "cubic",
-        "coordinateSpace": "canvas",
-        "start": {
-          "x": 537.0,
-          "y": 410.0
-        },
-        "segments": [
-          {
-            "control1": {
-              "x": 622.0,
-              "y": 403.0
-            },
-            "control2": {
-              "x": 644.0,
-              "y": 424.0
-            },
-            "end": {
-              "x": 692.0,
-              "y": 382.0
-            }
-          },
-          {
-            "control1": {
-              "x": 741.0,
-              "y": 339.0
-            },
-            "control2": {
-              "x": 781.0,
-              "y": 455.0
-            },
-            "end": {
-              "x": 862.0,
-              "y": 418.0
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "imagination-z0-to-z1",
-      "semanticRelationIds": [
-        "rel:imagination-z0-to-z1"
-      ],
-      "geometryOnly": false,
-      "source": "imag-z0",
-      "target": "imag-z1",
+      "source": "expert-2-box",
+      "target": "expert-3-box",
       "direction": "forward",
       "route": "straight",
       "styleTokens": {
@@ -3454,27 +3293,13 @@
       }
     },
     {
-      "id": "imagination-z1-to-z2",
+      "id": "allocator-task1-skip-edge",
       "semanticRelationIds": [
-        "rel:imagination-z1-to-z2"
+        "rel:allocator-task1-skip-edge"
       ],
       "geometryOnly": false,
-      "source": "imag-z1",
-      "target": "imag-z2",
-      "direction": "forward",
-      "route": "straight",
-      "styleTokens": {
-        "strokePattern": "solid"
-      }
-    },
-    {
-      "id": "imagination-z2-to-zh",
-      "semanticRelationIds": [
-        "rel:imagination-z2-to-zh"
-      ],
-      "geometryOnly": false,
-      "source": "imag-z2",
-      "target": "imag-zh",
+      "source": "expert-3-box",
+      "target": "expert-4-box",
       "direction": "forward",
       "route": "straight",
       "styleTokens": {
@@ -3517,6 +3342,118 @@
       "geometryOnly": false,
       "source": "imag-z2",
       "target": "reward-r2",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "rollout-z0-to-r0",
+      "semanticRelationIds": [
+        "rel:rollout-z0-to-r0"
+      ],
+      "geometryOnly": false,
+      "source": "rollout-z0",
+      "target": "reward-r0",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "rollout-z1-to-r1",
+      "semanticRelationIds": [
+        "rel:rollout-z1-to-r1"
+      ],
+      "geometryOnly": false,
+      "source": "rollout-z1",
+      "target": "reward-r1",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "rollout-z2-to-r2",
+      "semanticRelationIds": [
+        "rel:rollout-z2-to-r2"
+      ],
+      "geometryOnly": false,
+      "source": "rollout-z2",
+      "target": "reward-r2",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "zt-top-to-imagination",
+      "semanticRelationIds": [
+        "rel:zt-top-to-imagination"
+      ],
+      "geometryOnly": false,
+      "source": "zt-top-box",
+      "target": "rollout-z0",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "zt-bottom-to-rollout",
+      "semanticRelationIds": [
+        "rel:zt-bottom-to-rollout"
+      ],
+      "geometryOnly": false,
+      "source": "zt-bottom-box",
+      "target": "rollout-z0",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "imagination-z0-to-z1",
+      "semanticRelationIds": [
+        "rel:imagination-z0-to-z1"
+      ],
+      "geometryOnly": false,
+      "source": "imag-z0",
+      "target": "imag-z1",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "imagination-z1-to-z2",
+      "semanticRelationIds": [
+        "rel:imagination-z1-to-z2"
+      ],
+      "geometryOnly": false,
+      "source": "imag-z1",
+      "target": "imag-z2",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "imagination-z2-to-zh",
+      "semanticRelationIds": [
+        "rel:imagination-z2-to-zh"
+      ],
+      "geometryOnly": false,
+      "source": "imag-z2",
+      "target": "imag-zh",
       "direction": "forward",
       "route": "straight",
       "styleTokens": {
@@ -3836,34 +3773,6 @@
       }
     },
     {
-      "id": "zt-top-to-imagination",
-      "semanticRelationIds": [
-        "rel:zt-top-to-imagination"
-      ],
-      "geometryOnly": false,
-      "source": "zt-top-box",
-      "target": "rollout-z0",
-      "direction": "forward",
-      "route": "straight",
-      "styleTokens": {
-        "strokePattern": "solid"
-      }
-    },
-    {
-      "id": "zt-bottom-to-rollout",
-      "semanticRelationIds": [
-        "rel:zt-bottom-to-rollout"
-      ],
-      "geometryOnly": false,
-      "source": "zt-bottom-box",
-      "target": "rollout-z0",
-      "direction": "forward",
-      "route": "straight",
-      "styleTokens": {
-        "strokePattern": "solid"
-      }
-    },
-    {
       "id": "mapping-to-imagination",
       "semanticRelationIds": [
         "rel:mapping-to-imagination"
@@ -3878,28 +3787,80 @@
       }
     },
     {
-      "id": "interaction-left",
+      "id": "joint-loop-arrow",
       "semanticRelationIds": [
-        "rel:interaction-left"
+        "rel:joint-loop-arrow"
       ],
       "geometryOnly": false,
-      "source": "atomic:environment-globe",
-      "target": "reward-action-box",
+      "source": "joint-optimization-box",
+      "target": "joint-panel",
       "direction": "forward",
-      "route": "straight",
+      "route": "curved",
       "styleTokens": {
         "strokePattern": "solid"
+      },
+      "pathSpec": {
+        "kind": "cubic",
+        "coordinateSpace": "canvas",
+        "start": {
+          "x": 180.0,
+          "y": 573.0
+        },
+        "segments": [
+          {
+            "control1": {
+              "x": 166.33333333333334,
+              "y": 573.0
+            },
+            "control2": {
+              "x": 152.66666666666666,
+              "y": 573.0
+            },
+            "end": {
+              "x": 139.0,
+              "y": 573.0
+            }
+          },
+          {
+            "control1": {
+              "x": 124.33333333333333,
+              "y": 573.0
+            },
+            "control2": {
+              "x": 117.0,
+              "y": 565.3333333333334
+            },
+            "end": {
+              "x": 117.0,
+              "y": 550.0
+            }
+          },
+          {
+            "control1": {
+              "x": 117.0,
+              "y": 539.6666666666666
+            },
+            "control2": {
+              "x": 117.0,
+              "y": 529.3333333333334
+            },
+            "end": {
+              "x": 117.0,
+              "y": 519.0
+            }
+          }
+        ]
       }
     },
     {
-      "id": "interaction-right",
+      "id": "interaction-exchange",
       "semanticRelationIds": [
-        "rel:interaction-right"
+        "rel:interaction-exchange"
       ],
       "geometryOnly": false,
       "source": "reward-action-box",
       "target": "atomic:environment-globe",
-      "direction": "forward",
+      "direction": "bidirectional",
       "route": "straight",
       "styleTokens": {
         "strokePattern": "solid"

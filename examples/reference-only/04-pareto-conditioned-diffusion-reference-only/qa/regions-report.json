@@ -1,0 +1,4276 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "region_evaluation",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "critical_regions": 28,
+  "strict_pass": false,
+  "blockers": [
+    "region:whole-canvas",
+    "region:left-panel-frame",
+    "region:offline-heading",
+    "region:dataset-assets",
+    "region:reweight-stage",
+    "region:train-flow",
+    "region:left-model",
+    "region:right-panel-frame",
+    "region:sampling-heading-distribution",
+    "region:noise-label",
+    "region:target-condition",
+    "region:right-model",
+    "region:sample-output",
+    "region:ink-molecule-offline",
+    "region:ink-molecule-output",
+    "region:ink-dna-offline",
+    "region:ink-dna-output",
+    "region:ink-scale-reweight",
+    "region:ink-model-left-watermark",
+    "region:ink-model-right-watermark",
+    "region:ink-chart-offline",
+    "region:ink-chart-target",
+    "region:ink-gaussian-noise",
+    "region:arrow-region-raw-to-reweighted",
+    "region:arrow-region-reweighted-to-model",
+    "region:arrow-region-noise-to-model",
+    "region:arrow-region-target-to-model",
+    "region:arrow-region-model-to-designs",
+    "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-x",
+    "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-y",
+    "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-x",
+    "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-y",
+    "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-x",
+    "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-y",
+    "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-x",
+    "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-y"
+  ],
+  "contract_audit": {
+    "schema_version": "4.0.0",
+    "kind": "region_contract_audit",
+    "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+    "pass": false,
+    "blockers": [
+      "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-x",
+      "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-y",
+      "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-x",
+      "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-y",
+      "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-x",
+      "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-y",
+      "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-x",
+      "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-y"
+    ],
+    "regions": [
+      {
+        "id": "whole-canvas",
+        "critical": true,
+        "declared_element_ids": [
+          "canvas-background"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "left-panel-frame",
+        "critical": true,
+        "declared_element_ids": [
+          "panel-offline"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "offline-heading",
+        "critical": true,
+        "declared_element_ids": [
+          "text-offline-title",
+          "text-offline-subtitle"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "dataset-assets",
+        "critical": true,
+        "declared_element_ids": [
+          "dataset-raw-body",
+          "dataset-raw-top",
+          "molecule-offline-bond-01",
+          "molecule-offline-bond-02",
+          "molecule-offline-bond-03",
+          "molecule-offline-bond-04",
+          "molecule-offline-bond-05",
+          "molecule-offline-bond-06",
+          "molecule-offline-bond-07",
+          "molecule-offline-atom-01",
+          "molecule-offline-atom-02",
+          "molecule-offline-atom-03",
+          "molecule-offline-atom-04",
+          "molecule-offline-atom-05",
+          "molecule-offline-atom-06",
+          "molecule-offline-atom-07",
+          "molecule-offline-atom-08",
+          "dna-offline-left-rung-01",
+          "dna-offline-left-rung-02",
+          "dna-offline-left-rung-03",
+          "dna-offline-left-rung-04",
+          "dna-offline-left-rung-05",
+          "dna-offline-left-rung-06",
+          "dna-offline-left-rung-07",
+          "dna-offline-left-strand-a",
+          "dna-offline-left-strand-b",
+          "dna-offline-right-rung-01",
+          "dna-offline-right-rung-02",
+          "dna-offline-right-rung-03",
+          "dna-offline-right-rung-04",
+          "dna-offline-right-rung-05",
+          "dna-offline-right-rung-06",
+          "dna-offline-right-rung-07",
+          "dna-offline-right-strand-a",
+          "dna-offline-right-strand-b",
+          "chart-offline-axis-x",
+          "chart-offline-axis-y",
+          "chart-offline-y-tick-01",
+          "chart-offline-y-tick-02",
+          "chart-offline-y-tick-03",
+          "chart-offline-y-tick-04",
+          "chart-offline-x-tick-01",
+          "chart-offline-x-tick-02",
+          "chart-offline-x-tick-03",
+          "chart-offline-x-tick-04",
+          "chart-offline-wick-01",
+          "chart-offline-candle-01",
+          "chart-offline-wick-02",
+          "chart-offline-candle-02",
+          "chart-offline-wick-03",
+          "chart-offline-candle-03",
+          "chart-offline-wick-04",
+          "chart-offline-candle-04",
+          "chart-offline-wick-05",
+          "chart-offline-candle-05",
+          "text-dataset-raw-symbol"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": false,
+        "findings": [
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-offline-axis-x",
+            "blocker": "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-x"
+          },
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-offline-axis-y",
+            "blocker": "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-y"
+          }
+        ]
+      },
+      {
+        "id": "reweight-stage",
+        "critical": true,
+        "declared_element_ids": [
+          "dataset-reweighted-body",
+          "dataset-reweighted-top",
+          "scale-reweight-post",
+          "scale-reweight-beam",
+          "scale-reweight-pivot",
+          "scale-reweight-left-hanger",
+          "scale-reweight-right-hanger",
+          "scale-reweight-left-pan",
+          "scale-reweight-right-pan",
+          "scale-reweight-base",
+          "text-reweighted",
+          "text-dataset-reweighted-symbol"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "train-flow",
+        "critical": true,
+        "declared_element_ids": [
+          "text-train"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "left-model",
+        "critical": true,
+        "declared_element_ids": [
+          "model-left-box",
+          "model-left-edge-01",
+          "model-left-edge-02",
+          "model-left-edge-03",
+          "model-left-edge-04",
+          "model-left-edge-05",
+          "model-left-edge-06",
+          "model-left-edge-07",
+          "model-left-edge-08",
+          "model-left-edge-09",
+          "model-left-edge-10",
+          "model-left-edge-11",
+          "model-left-node-01",
+          "model-left-node-02",
+          "model-left-node-03",
+          "model-left-node-04",
+          "model-left-node-05",
+          "model-left-node-06",
+          "model-left-node-07",
+          "text-model-left"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "right-panel-frame",
+        "critical": true,
+        "declared_element_ids": [
+          "panel-sampling"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "sampling-heading-distribution",
+        "critical": true,
+        "declared_element_ids": [
+          "gaussian-noise-baseline",
+          "gaussian-noise-curve",
+          "text-sampling-title"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "noise-label",
+        "critical": true,
+        "declared_element_ids": [
+          "text-noise"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "target-condition",
+        "critical": true,
+        "declared_element_ids": [
+          "target-objectives-box",
+          "chart-target-axis-x",
+          "chart-target-axis-y",
+          "chart-target-y-tick-01",
+          "chart-target-y-tick-02",
+          "chart-target-y-tick-03",
+          "chart-target-y-tick-04",
+          "chart-target-x-tick-01",
+          "chart-target-x-tick-02",
+          "chart-target-x-tick-03",
+          "chart-target-x-tick-04",
+          "chart-target-wick-01",
+          "chart-target-candle-01",
+          "chart-target-wick-02",
+          "chart-target-candle-02",
+          "chart-target-wick-03",
+          "chart-target-candle-03",
+          "chart-target-wick-04",
+          "chart-target-candle-04",
+          "chart-target-wick-05",
+          "chart-target-candle-05",
+          "text-target-objectives",
+          "text-condition"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": false,
+        "findings": [
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-target-axis-x",
+            "blocker": "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-x"
+          },
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-target-axis-y",
+            "blocker": "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-y"
+          }
+        ]
+      },
+      {
+        "id": "right-model",
+        "critical": true,
+        "declared_element_ids": [
+          "model-right-box",
+          "model-right-edge-01",
+          "model-right-edge-02",
+          "model-right-edge-03",
+          "model-right-edge-04",
+          "model-right-edge-05",
+          "model-right-edge-06",
+          "model-right-edge-07",
+          "model-right-edge-08",
+          "model-right-edge-09",
+          "model-right-edge-10",
+          "model-right-edge-11",
+          "model-right-node-01",
+          "model-right-node-02",
+          "model-right-node-03",
+          "model-right-node-04",
+          "model-right-node-05",
+          "model-right-node-06",
+          "model-right-node-07",
+          "text-model-right"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "sample-output",
+        "critical": true,
+        "declared_element_ids": [
+          "designs-box-front",
+          "designs-box-top",
+          "designs-box-side",
+          "molecule-output-bond-01",
+          "molecule-output-bond-02",
+          "molecule-output-bond-03",
+          "molecule-output-bond-04",
+          "molecule-output-bond-05",
+          "molecule-output-bond-06",
+          "molecule-output-bond-07",
+          "molecule-output-atom-01",
+          "molecule-output-atom-02",
+          "molecule-output-atom-03",
+          "molecule-output-atom-04",
+          "molecule-output-atom-05",
+          "molecule-output-atom-06",
+          "molecule-output-atom-07",
+          "molecule-output-atom-08",
+          "dna-output-left-rung-01",
+          "dna-output-left-rung-02",
+          "dna-output-left-rung-03",
+          "dna-output-left-rung-04",
+          "dna-output-left-rung-05",
+          "dna-output-left-rung-06",
+          "dna-output-left-rung-07",
+          "dna-output-left-strand-a",
+          "dna-output-left-strand-b",
+          "dna-output-right-rung-01",
+          "dna-output-right-rung-02",
+          "dna-output-right-rung-03",
+          "dna-output-right-rung-04",
+          "dna-output-right-rung-05",
+          "dna-output-right-rung-06",
+          "dna-output-right-rung-07",
+          "dna-output-right-strand-a",
+          "dna-output-right-strand-b",
+          "text-sample",
+          "text-designs"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-molecule-offline",
+        "critical": true,
+        "declared_element_ids": [
+          "molecule-offline-bond-01",
+          "molecule-offline-bond-02",
+          "molecule-offline-bond-03",
+          "molecule-offline-bond-04",
+          "molecule-offline-bond-05",
+          "molecule-offline-bond-06",
+          "molecule-offline-bond-07",
+          "molecule-offline-atom-01",
+          "molecule-offline-atom-02",
+          "molecule-offline-atom-03",
+          "molecule-offline-atom-04",
+          "molecule-offline-atom-05",
+          "molecule-offline-atom-06",
+          "molecule-offline-atom-07",
+          "molecule-offline-atom-08"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-molecule-output",
+        "critical": true,
+        "declared_element_ids": [
+          "molecule-output-bond-01",
+          "molecule-output-bond-02",
+          "molecule-output-bond-03",
+          "molecule-output-bond-04",
+          "molecule-output-bond-05",
+          "molecule-output-bond-06",
+          "molecule-output-bond-07",
+          "molecule-output-atom-01",
+          "molecule-output-atom-02",
+          "molecule-output-atom-03",
+          "molecule-output-atom-04",
+          "molecule-output-atom-05",
+          "molecule-output-atom-06",
+          "molecule-output-atom-07",
+          "molecule-output-atom-08"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-dna-offline",
+        "critical": true,
+        "declared_element_ids": [
+          "dna-offline-left-rung-01",
+          "dna-offline-left-rung-02",
+          "dna-offline-left-rung-03",
+          "dna-offline-left-rung-04",
+          "dna-offline-left-rung-05",
+          "dna-offline-left-rung-06",
+          "dna-offline-left-rung-07",
+          "dna-offline-left-strand-a",
+          "dna-offline-left-strand-b",
+          "dna-offline-right-rung-01",
+          "dna-offline-right-rung-02",
+          "dna-offline-right-rung-03",
+          "dna-offline-right-rung-04",
+          "dna-offline-right-rung-05",
+          "dna-offline-right-rung-06",
+          "dna-offline-right-rung-07",
+          "dna-offline-right-strand-a",
+          "dna-offline-right-strand-b"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-dna-output",
+        "critical": true,
+        "declared_element_ids": [
+          "dna-output-left-rung-01",
+          "dna-output-left-rung-02",
+          "dna-output-left-rung-03",
+          "dna-output-left-rung-04",
+          "dna-output-left-rung-05",
+          "dna-output-left-rung-06",
+          "dna-output-left-rung-07",
+          "dna-output-left-strand-a",
+          "dna-output-left-strand-b",
+          "dna-output-right-rung-01",
+          "dna-output-right-rung-02",
+          "dna-output-right-rung-03",
+          "dna-output-right-rung-04",
+          "dna-output-right-rung-05",
+          "dna-output-right-rung-06",
+          "dna-output-right-rung-07",
+          "dna-output-right-strand-a",
+          "dna-output-right-strand-b"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-scale-reweight",
+        "critical": true,
+        "declared_element_ids": [
+          "scale-reweight-post",
+          "scale-reweight-beam",
+          "scale-reweight-pivot",
+          "scale-reweight-left-hanger",
+          "scale-reweight-right-hanger",
+          "scale-reweight-left-pan",
+          "scale-reweight-right-pan",
+          "scale-reweight-base"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-model-left-watermark",
+        "critical": true,
+        "declared_element_ids": [
+          "model-left-edge-01",
+          "model-left-edge-02",
+          "model-left-edge-03",
+          "model-left-edge-04",
+          "model-left-edge-05",
+          "model-left-edge-06",
+          "model-left-edge-07",
+          "model-left-edge-08",
+          "model-left-edge-09",
+          "model-left-edge-10",
+          "model-left-edge-11",
+          "model-left-node-01",
+          "model-left-node-02",
+          "model-left-node-03",
+          "model-left-node-04",
+          "model-left-node-05",
+          "model-left-node-06",
+          "model-left-node-07"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-model-right-watermark",
+        "critical": true,
+        "declared_element_ids": [
+          "model-right-edge-01",
+          "model-right-edge-02",
+          "model-right-edge-03",
+          "model-right-edge-04",
+          "model-right-edge-05",
+          "model-right-edge-06",
+          "model-right-edge-07",
+          "model-right-edge-08",
+          "model-right-edge-09",
+          "model-right-edge-10",
+          "model-right-edge-11",
+          "model-right-node-01",
+          "model-right-node-02",
+          "model-right-node-03",
+          "model-right-node-04",
+          "model-right-node-05",
+          "model-right-node-06",
+          "model-right-node-07"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "ink-chart-offline",
+        "critical": true,
+        "declared_element_ids": [
+          "chart-offline-axis-x",
+          "chart-offline-axis-y",
+          "chart-offline-y-tick-01",
+          "chart-offline-y-tick-02",
+          "chart-offline-y-tick-03",
+          "chart-offline-y-tick-04",
+          "chart-offline-x-tick-01",
+          "chart-offline-x-tick-02",
+          "chart-offline-x-tick-03",
+          "chart-offline-x-tick-04",
+          "chart-offline-wick-01",
+          "chart-offline-candle-01",
+          "chart-offline-wick-02",
+          "chart-offline-candle-02",
+          "chart-offline-wick-03",
+          "chart-offline-candle-03",
+          "chart-offline-wick-04",
+          "chart-offline-candle-04",
+          "chart-offline-wick-05",
+          "chart-offline-candle-05"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": false,
+        "findings": [
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-offline-axis-x",
+            "blocker": "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-x"
+          },
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-offline-axis-y",
+            "blocker": "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-y"
+          }
+        ]
+      },
+      {
+        "id": "ink-chart-target",
+        "critical": true,
+        "declared_element_ids": [
+          "chart-target-axis-x",
+          "chart-target-axis-y",
+          "chart-target-y-tick-01",
+          "chart-target-y-tick-02",
+          "chart-target-y-tick-03",
+          "chart-target-y-tick-04",
+          "chart-target-x-tick-01",
+          "chart-target-x-tick-02",
+          "chart-target-x-tick-03",
+          "chart-target-x-tick-04",
+          "chart-target-wick-01",
+          "chart-target-candle-01",
+          "chart-target-wick-02",
+          "chart-target-candle-02",
+          "chart-target-wick-03",
+          "chart-target-candle-03",
+          "chart-target-wick-04",
+          "chart-target-candle-04",
+          "chart-target-wick-05",
+          "chart-target-candle-05"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": false,
+        "findings": [
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-target-axis-x",
+            "blocker": "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-x"
+          },
+          {
+            "code": "exhaustive-relation-missing",
+            "element_id": "chart-target-axis-y",
+            "blocker": "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-y"
+          }
+        ]
+      },
+      {
+        "id": "ink-gaussian-noise",
+        "critical": true,
+        "declared_element_ids": [
+          "gaussian-noise-baseline",
+          "gaussian-noise-curve"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "arrow-region-raw-to-reweighted",
+        "critical": true,
+        "declared_element_ids": [
+          "arrow-raw-to-reweighted",
+          "dataset-raw-body",
+          "dataset-reweighted-body"
+        ],
+        "required_relation_ids": [
+          "arrow-raw-to-reweighted"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "arrow-region-reweighted-to-model",
+        "critical": true,
+        "declared_element_ids": [
+          "arrow-reweighted-to-model",
+          "dataset-reweighted-body",
+          "model-left-box"
+        ],
+        "required_relation_ids": [
+          "arrow-reweighted-to-model"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "arrow-region-noise-to-model",
+        "critical": true,
+        "declared_element_ids": [
+          "arrow-noise-to-model",
+          "gaussian-noise-curve",
+          "model-right-box"
+        ],
+        "required_relation_ids": [
+          "arrow-noise-to-model"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "arrow-region-target-to-model",
+        "critical": true,
+        "declared_element_ids": [
+          "arrow-target-to-model",
+          "target-objectives-box",
+          "model-right-box"
+        ],
+        "required_relation_ids": [
+          "arrow-target-to-model"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "arrow-region-model-to-designs",
+        "critical": true,
+        "declared_element_ids": [
+          "arrow-model-to-designs",
+          "model-right-box",
+          "designs-box-front"
+        ],
+        "required_relation_ids": [
+          "arrow-model-to-designs"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      }
+    ]
+  },
+  "critical_region_expectation": {
+    "expected_count": 28,
+    "actual_count": 28,
+    "expected_region_ids": [
+      "whole-canvas",
+      "left-panel-frame",
+      "offline-heading",
+      "dataset-assets",
+      "reweight-stage",
+      "train-flow",
+      "left-model",
+      "right-panel-frame",
+      "sampling-heading-distribution",
+      "noise-label",
+      "target-condition",
+      "right-model",
+      "sample-output",
+      "ink-molecule-offline",
+      "ink-molecule-output",
+      "ink-dna-offline",
+      "ink-dna-output",
+      "ink-scale-reweight",
+      "ink-model-left-watermark",
+      "ink-model-right-watermark",
+      "ink-chart-offline",
+      "ink-chart-target",
+      "ink-gaussian-noise",
+      "arrow-region-raw-to-reweighted",
+      "arrow-region-reweighted-to-model",
+      "arrow-region-noise-to-model",
+      "arrow-region-target-to-model",
+      "arrow-region-model-to-designs"
+    ],
+    "actual_region_ids": [
+      "whole-canvas",
+      "left-panel-frame",
+      "offline-heading",
+      "dataset-assets",
+      "reweight-stage",
+      "train-flow",
+      "left-model",
+      "right-panel-frame",
+      "sampling-heading-distribution",
+      "noise-label",
+      "target-condition",
+      "right-model",
+      "sample-output",
+      "ink-molecule-offline",
+      "ink-molecule-output",
+      "ink-dna-offline",
+      "ink-dna-output",
+      "ink-scale-reweight",
+      "ink-model-left-watermark",
+      "ink-model-right-watermark",
+      "ink-chart-offline",
+      "ink-chart-target",
+      "ink-gaussian-noise",
+      "arrow-region-raw-to-reweighted",
+      "arrow-region-reweighted-to-model",
+      "arrow-region-noise-to-model",
+      "arrow-region-target-to-model",
+      "arrow-region-model-to-designs"
+    ],
+    "missing_region_ids": [],
+    "unexpected_region_ids": [],
+    "duplicate_region_ids": [],
+    "contracts": [
+      {
+        "id": "whole-canvas",
+        "bbox": [
+          0,
+          0,
+          1217,
+          609
+        ],
+        "element_ids": [
+          "canvas-background"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          0,
+          0,
+          1217,
+          609
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "canvas-background"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "left-panel-frame",
+        "bbox": [
+          15,
+          48,
+          558,
+          550
+        ],
+        "element_ids": [
+          "panel-offline"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          15,
+          48,
+          558,
+          550
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "panel-offline"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "offline-heading",
+        "bbox": [
+          95,
+          8,
+          405,
+          94
+        ],
+        "element_ids": [
+          "text-offline-title",
+          "text-offline-subtitle"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          95,
+          8,
+          405,
+          94
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "text-offline-title",
+          "text-offline-subtitle"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "dataset-assets",
+        "bbox": [
+          155,
+          96,
+          280,
+          120
+        ],
+        "element_ids": [
+          "dataset-raw-body",
+          "dataset-raw-top",
+          "molecule-offline-bond-01",
+          "molecule-offline-bond-02",
+          "molecule-offline-bond-03",
+          "molecule-offline-bond-04",
+          "molecule-offline-bond-05",
+          "molecule-offline-bond-06",
+          "molecule-offline-bond-07",
+          "molecule-offline-atom-01",
+          "molecule-offline-atom-02",
+          "molecule-offline-atom-03",
+          "molecule-offline-atom-04",
+          "molecule-offline-atom-05",
+          "molecule-offline-atom-06",
+          "molecule-offline-atom-07",
+          "molecule-offline-atom-08",
+          "dna-offline-left-rung-01",
+          "dna-offline-left-rung-02",
+          "dna-offline-left-rung-03",
+          "dna-offline-left-rung-04",
+          "dna-offline-left-rung-05",
+          "dna-offline-left-rung-06",
+          "dna-offline-left-rung-07",
+          "dna-offline-left-strand-a",
+          "dna-offline-left-strand-b",
+          "dna-offline-right-rung-01",
+          "dna-offline-right-rung-02",
+          "dna-offline-right-rung-03",
+          "dna-offline-right-rung-04",
+          "dna-offline-right-rung-05",
+          "dna-offline-right-rung-06",
+          "dna-offline-right-rung-07",
+          "dna-offline-right-strand-a",
+          "dna-offline-right-strand-b",
+          "chart-offline-axis-x",
+          "chart-offline-axis-y",
+          "chart-offline-y-tick-01",
+          "chart-offline-y-tick-02",
+          "chart-offline-y-tick-03",
+          "chart-offline-y-tick-04",
+          "chart-offline-x-tick-01",
+          "chart-offline-x-tick-02",
+          "chart-offline-x-tick-03",
+          "chart-offline-x-tick-04",
+          "chart-offline-wick-01",
+          "chart-offline-candle-01",
+          "chart-offline-wick-02",
+          "chart-offline-candle-02",
+          "chart-offline-wick-03",
+          "chart-offline-candle-03",
+          "chart-offline-wick-04",
+          "chart-offline-candle-04",
+          "chart-offline-wick-05",
+          "chart-offline-candle-05",
+          "text-dataset-raw-symbol"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          155,
+          96,
+          280,
+          120
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dataset-raw-body",
+          "dataset-raw-top",
+          "molecule-offline-bond-01",
+          "molecule-offline-bond-02",
+          "molecule-offline-bond-03",
+          "molecule-offline-bond-04",
+          "molecule-offline-bond-05",
+          "molecule-offline-bond-06",
+          "molecule-offline-bond-07",
+          "molecule-offline-atom-01",
+          "molecule-offline-atom-02",
+          "molecule-offline-atom-03",
+          "molecule-offline-atom-04",
+          "molecule-offline-atom-05",
+          "molecule-offline-atom-06",
+          "molecule-offline-atom-07",
+          "molecule-offline-atom-08",
+          "dna-offline-left-rung-01",
+          "dna-offline-left-rung-02",
+          "dna-offline-left-rung-03",
+          "dna-offline-left-rung-04",
+          "dna-offline-left-rung-05",
+          "dna-offline-left-rung-06",
+          "dna-offline-left-rung-07",
+          "dna-offline-left-strand-a",
+          "dna-offline-left-strand-b",
+          "dna-offline-right-rung-01",
+          "dna-offline-right-rung-02",
+          "dna-offline-right-rung-03",
+          "dna-offline-right-rung-04",
+          "dna-offline-right-rung-05",
+          "dna-offline-right-rung-06",
+          "dna-offline-right-rung-07",
+          "dna-offline-right-strand-a",
+          "dna-offline-right-strand-b",
+          "chart-offline-axis-x",
+          "chart-offline-axis-y",
+          "chart-offline-y-tick-01",
+          "chart-offline-y-tick-02",
+          "chart-offline-y-tick-03",
+          "chart-offline-y-tick-04",
+          "chart-offline-x-tick-01",
+          "chart-offline-x-tick-02",
+          "chart-offline-x-tick-03",
+          "chart-offline-x-tick-04",
+          "chart-offline-wick-01",
+          "chart-offline-candle-01",
+          "chart-offline-wick-02",
+          "chart-offline-candle-02",
+          "chart-offline-wick-03",
+          "chart-offline-candle-03",
+          "chart-offline-wick-04",
+          "chart-offline-candle-04",
+          "chart-offline-wick-05",
+          "chart-offline-candle-05",
+          "text-dataset-raw-symbol"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "reweight-stage",
+        "bbox": [
+          95,
+          250,
+          250,
+          123
+        ],
+        "element_ids": [
+          "dataset-reweighted-body",
+          "dataset-reweighted-top",
+          "scale-reweight-post",
+          "scale-reweight-beam",
+          "scale-reweight-pivot",
+          "scale-reweight-left-hanger",
+          "scale-reweight-right-hanger",
+          "scale-reweight-left-pan",
+          "scale-reweight-right-pan",
+          "scale-reweight-base",
+          "text-reweighted",
+          "text-dataset-reweighted-symbol"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          95,
+          250,
+          250,
+          123
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dataset-reweighted-body",
+          "dataset-reweighted-top",
+          "scale-reweight-post",
+          "scale-reweight-beam",
+          "scale-reweight-pivot",
+          "scale-reweight-left-hanger",
+          "scale-reweight-right-hanger",
+          "scale-reweight-left-pan",
+          "scale-reweight-right-pan",
+          "scale-reweight-base",
+          "text-reweighted",
+          "text-dataset-reweighted-symbol"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "train-flow",
+        "bbox": [
+          260,
+          350,
+          150,
+          96
+        ],
+        "element_ids": [
+          "text-train"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          260,
+          350,
+          150,
+          96
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "text-train"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "left-model",
+        "bbox": [
+          145,
+          440,
+          298,
+          139
+        ],
+        "element_ids": [
+          "model-left-box",
+          "model-left-edge-01",
+          "model-left-edge-02",
+          "model-left-edge-03",
+          "model-left-edge-04",
+          "model-left-edge-05",
+          "model-left-edge-06",
+          "model-left-edge-07",
+          "model-left-edge-08",
+          "model-left-edge-09",
+          "model-left-edge-10",
+          "model-left-edge-11",
+          "model-left-node-01",
+          "model-left-node-02",
+          "model-left-node-03",
+          "model-left-node-04",
+          "model-left-node-05",
+          "model-left-node-06",
+          "model-left-node-07",
+          "text-model-left"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          145,
+          440,
+          298,
+          139
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "model-left-box",
+          "model-left-edge-01",
+          "model-left-edge-02",
+          "model-left-edge-03",
+          "model-left-edge-04",
+          "model-left-edge-05",
+          "model-left-edge-06",
+          "model-left-edge-07",
+          "model-left-edge-08",
+          "model-left-edge-09",
+          "model-left-edge-10",
+          "model-left-edge-11",
+          "model-left-node-01",
+          "model-left-node-02",
+          "model-left-node-03",
+          "model-left-node-04",
+          "model-left-node-05",
+          "model-left-node-06",
+          "model-left-node-07",
+          "text-model-left"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "right-panel-frame",
+        "bbox": [
+          575,
+          48,
+          628,
+          550
+        ],
+        "element_ids": [
+          "panel-sampling"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          575,
+          48,
+          628,
+          550
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "panel-sampling"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "sampling-heading-distribution",
+        "bbox": [
+          790,
+          8,
+          390,
+          188
+        ],
+        "element_ids": [
+          "gaussian-noise-baseline",
+          "gaussian-noise-curve",
+          "text-sampling-title"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          790,
+          8,
+          390,
+          188
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "gaussian-noise-baseline",
+          "gaussian-noise-curve",
+          "text-sampling-title"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "noise-label",
+        "bbox": [
+          1048,
+          198,
+          90,
+          36
+        ],
+        "element_ids": [
+          "text-noise"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          1048,
+          198,
+          90,
+          36
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "text-noise"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "target-condition",
+        "bbox": [
+          605,
+          250,
+          280,
+          196
+        ],
+        "element_ids": [
+          "target-objectives-box",
+          "chart-target-axis-x",
+          "chart-target-axis-y",
+          "chart-target-y-tick-01",
+          "chart-target-y-tick-02",
+          "chart-target-y-tick-03",
+          "chart-target-y-tick-04",
+          "chart-target-x-tick-01",
+          "chart-target-x-tick-02",
+          "chart-target-x-tick-03",
+          "chart-target-x-tick-04",
+          "chart-target-wick-01",
+          "chart-target-candle-01",
+          "chart-target-wick-02",
+          "chart-target-candle-02",
+          "chart-target-wick-03",
+          "chart-target-candle-03",
+          "chart-target-wick-04",
+          "chart-target-candle-04",
+          "chart-target-wick-05",
+          "chart-target-candle-05",
+          "text-target-objectives",
+          "text-condition"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          605,
+          250,
+          280,
+          196
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "target-objectives-box",
+          "chart-target-axis-x",
+          "chart-target-axis-y",
+          "chart-target-y-tick-01",
+          "chart-target-y-tick-02",
+          "chart-target-y-tick-03",
+          "chart-target-y-tick-04",
+          "chart-target-x-tick-01",
+          "chart-target-x-tick-02",
+          "chart-target-x-tick-03",
+          "chart-target-x-tick-04",
+          "chart-target-wick-01",
+          "chart-target-candle-01",
+          "chart-target-wick-02",
+          "chart-target-candle-02",
+          "chart-target-wick-03",
+          "chart-target-candle-03",
+          "chart-target-wick-04",
+          "chart-target-candle-04",
+          "chart-target-wick-05",
+          "chart-target-candle-05",
+          "text-target-objectives",
+          "text-condition"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "right-model",
+        "bbox": [
+          875,
+          246,
+          295,
+          138
+        ],
+        "element_ids": [
+          "model-right-box",
+          "model-right-edge-01",
+          "model-right-edge-02",
+          "model-right-edge-03",
+          "model-right-edge-04",
+          "model-right-edge-05",
+          "model-right-edge-06",
+          "model-right-edge-07",
+          "model-right-edge-08",
+          "model-right-edge-09",
+          "model-right-edge-10",
+          "model-right-edge-11",
+          "model-right-node-01",
+          "model-right-node-02",
+          "model-right-node-03",
+          "model-right-node-04",
+          "model-right-node-05",
+          "model-right-node-06",
+          "model-right-node-07",
+          "text-model-right"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          875,
+          246,
+          295,
+          138
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "model-right-box",
+          "model-right-edge-01",
+          "model-right-edge-02",
+          "model-right-edge-03",
+          "model-right-edge-04",
+          "model-right-edge-05",
+          "model-right-edge-06",
+          "model-right-edge-07",
+          "model-right-edge-08",
+          "model-right-edge-09",
+          "model-right-edge-10",
+          "model-right-edge-11",
+          "model-right-node-01",
+          "model-right-node-02",
+          "model-right-node-03",
+          "model-right-node-04",
+          "model-right-node-05",
+          "model-right-node-06",
+          "model-right-node-07",
+          "text-model-right"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "sample-output",
+        "bbox": [
+          840,
+          376,
+          345,
+          202
+        ],
+        "element_ids": [
+          "designs-box-front",
+          "designs-box-top",
+          "designs-box-side",
+          "molecule-output-bond-01",
+          "molecule-output-bond-02",
+          "molecule-output-bond-03",
+          "molecule-output-bond-04",
+          "molecule-output-bond-05",
+          "molecule-output-bond-06",
+          "molecule-output-bond-07",
+          "molecule-output-atom-01",
+          "molecule-output-atom-02",
+          "molecule-output-atom-03",
+          "molecule-output-atom-04",
+          "molecule-output-atom-05",
+          "molecule-output-atom-06",
+          "molecule-output-atom-07",
+          "molecule-output-atom-08",
+          "dna-output-left-rung-01",
+          "dna-output-left-rung-02",
+          "dna-output-left-rung-03",
+          "dna-output-left-rung-04",
+          "dna-output-left-rung-05",
+          "dna-output-left-rung-06",
+          "dna-output-left-rung-07",
+          "dna-output-left-strand-a",
+          "dna-output-left-strand-b",
+          "dna-output-right-rung-01",
+          "dna-output-right-rung-02",
+          "dna-output-right-rung-03",
+          "dna-output-right-rung-04",
+          "dna-output-right-rung-05",
+          "dna-output-right-rung-06",
+          "dna-output-right-rung-07",
+          "dna-output-right-strand-a",
+          "dna-output-right-strand-b",
+          "text-sample",
+          "text-designs"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          840,
+          376,
+          345,
+          202
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "designs-box-front",
+          "designs-box-top",
+          "designs-box-side",
+          "molecule-output-bond-01",
+          "molecule-output-bond-02",
+          "molecule-output-bond-03",
+          "molecule-output-bond-04",
+          "molecule-output-bond-05",
+          "molecule-output-bond-06",
+          "molecule-output-bond-07",
+          "molecule-output-atom-01",
+          "molecule-output-atom-02",
+          "molecule-output-atom-03",
+          "molecule-output-atom-04",
+          "molecule-output-atom-05",
+          "molecule-output-atom-06",
+          "molecule-output-atom-07",
+          "molecule-output-atom-08",
+          "dna-output-left-rung-01",
+          "dna-output-left-rung-02",
+          "dna-output-left-rung-03",
+          "dna-output-left-rung-04",
+          "dna-output-left-rung-05",
+          "dna-output-left-rung-06",
+          "dna-output-left-rung-07",
+          "dna-output-left-strand-a",
+          "dna-output-left-strand-b",
+          "dna-output-right-rung-01",
+          "dna-output-right-rung-02",
+          "dna-output-right-rung-03",
+          "dna-output-right-rung-04",
+          "dna-output-right-rung-05",
+          "dna-output-right-rung-06",
+          "dna-output-right-rung-07",
+          "dna-output-right-strand-a",
+          "dna-output-right-strand-b",
+          "text-sample",
+          "text-designs"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-molecule-offline",
+        "bbox": [
+          161,
+          97,
+          82,
+          51
+        ],
+        "element_ids": [
+          "molecule-offline-bond-01",
+          "molecule-offline-bond-02",
+          "molecule-offline-bond-03",
+          "molecule-offline-bond-04",
+          "molecule-offline-bond-05",
+          "molecule-offline-bond-06",
+          "molecule-offline-bond-07",
+          "molecule-offline-atom-01",
+          "molecule-offline-atom-02",
+          "molecule-offline-atom-03",
+          "molecule-offline-atom-04",
+          "molecule-offline-atom-05",
+          "molecule-offline-atom-06",
+          "molecule-offline-atom-07",
+          "molecule-offline-atom-08"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          161,
+          97,
+          82,
+          51
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "molecule-offline-bond-01",
+          "molecule-offline-bond-02",
+          "molecule-offline-bond-03",
+          "molecule-offline-bond-04",
+          "molecule-offline-bond-05",
+          "molecule-offline-bond-06",
+          "molecule-offline-bond-07",
+          "molecule-offline-atom-01",
+          "molecule-offline-atom-02",
+          "molecule-offline-atom-03",
+          "molecule-offline-atom-04",
+          "molecule-offline-atom-05",
+          "molecule-offline-atom-06",
+          "molecule-offline-atom-07",
+          "molecule-offline-atom-08"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-molecule-output",
+        "bbox": [
+          847,
+          500,
+          82,
+          51
+        ],
+        "element_ids": [
+          "molecule-output-bond-01",
+          "molecule-output-bond-02",
+          "molecule-output-bond-03",
+          "molecule-output-bond-04",
+          "molecule-output-bond-05",
+          "molecule-output-bond-06",
+          "molecule-output-bond-07",
+          "molecule-output-atom-01",
+          "molecule-output-atom-02",
+          "molecule-output-atom-03",
+          "molecule-output-atom-04",
+          "molecule-output-atom-05",
+          "molecule-output-atom-06",
+          "molecule-output-atom-07",
+          "molecule-output-atom-08"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          847,
+          500,
+          82,
+          51
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "molecule-output-bond-01",
+          "molecule-output-bond-02",
+          "molecule-output-bond-03",
+          "molecule-output-bond-04",
+          "molecule-output-bond-05",
+          "molecule-output-bond-06",
+          "molecule-output-bond-07",
+          "molecule-output-atom-01",
+          "molecule-output-atom-02",
+          "molecule-output-atom-03",
+          "molecule-output-atom-04",
+          "molecule-output-atom-05",
+          "molecule-output-atom-06",
+          "molecule-output-atom-07",
+          "molecule-output-atom-08"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-dna-offline",
+        "bbox": [
+          171,
+          147,
+          71,
+          66
+        ],
+        "element_ids": [
+          "dna-offline-left-rung-01",
+          "dna-offline-left-rung-02",
+          "dna-offline-left-rung-03",
+          "dna-offline-left-rung-04",
+          "dna-offline-left-rung-05",
+          "dna-offline-left-rung-06",
+          "dna-offline-left-rung-07",
+          "dna-offline-left-strand-a",
+          "dna-offline-left-strand-b",
+          "dna-offline-right-rung-01",
+          "dna-offline-right-rung-02",
+          "dna-offline-right-rung-03",
+          "dna-offline-right-rung-04",
+          "dna-offline-right-rung-05",
+          "dna-offline-right-rung-06",
+          "dna-offline-right-rung-07",
+          "dna-offline-right-strand-a",
+          "dna-offline-right-strand-b"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          171,
+          147,
+          71,
+          66
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dna-offline-left-rung-01",
+          "dna-offline-left-rung-02",
+          "dna-offline-left-rung-03",
+          "dna-offline-left-rung-04",
+          "dna-offline-left-rung-05",
+          "dna-offline-left-rung-06",
+          "dna-offline-left-rung-07",
+          "dna-offline-left-strand-a",
+          "dna-offline-left-strand-b",
+          "dna-offline-right-rung-01",
+          "dna-offline-right-rung-02",
+          "dna-offline-right-rung-03",
+          "dna-offline-right-rung-04",
+          "dna-offline-right-rung-05",
+          "dna-offline-right-rung-06",
+          "dna-offline-right-rung-07",
+          "dna-offline-right-strand-a",
+          "dna-offline-right-strand-b"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-dna-output",
+        "bbox": [
+          1108,
+          461,
+          71,
+          66
+        ],
+        "element_ids": [
+          "dna-output-left-rung-01",
+          "dna-output-left-rung-02",
+          "dna-output-left-rung-03",
+          "dna-output-left-rung-04",
+          "dna-output-left-rung-05",
+          "dna-output-left-rung-06",
+          "dna-output-left-rung-07",
+          "dna-output-left-strand-a",
+          "dna-output-left-strand-b",
+          "dna-output-right-rung-01",
+          "dna-output-right-rung-02",
+          "dna-output-right-rung-03",
+          "dna-output-right-rung-04",
+          "dna-output-right-rung-05",
+          "dna-output-right-rung-06",
+          "dna-output-right-rung-07",
+          "dna-output-right-strand-a",
+          "dna-output-right-strand-b"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          1108,
+          461,
+          71,
+          66
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dna-output-left-rung-01",
+          "dna-output-left-rung-02",
+          "dna-output-left-rung-03",
+          "dna-output-left-rung-04",
+          "dna-output-left-rung-05",
+          "dna-output-left-rung-06",
+          "dna-output-left-rung-07",
+          "dna-output-left-strand-a",
+          "dna-output-left-strand-b",
+          "dna-output-right-rung-01",
+          "dna-output-right-rung-02",
+          "dna-output-right-rung-03",
+          "dna-output-right-rung-04",
+          "dna-output-right-rung-05",
+          "dna-output-right-rung-06",
+          "dna-output-right-rung-07",
+          "dna-output-right-strand-a",
+          "dna-output-right-strand-b"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-scale-reweight",
+        "bbox": [
+          134,
+          322,
+          65,
+          49
+        ],
+        "element_ids": [
+          "scale-reweight-post",
+          "scale-reweight-beam",
+          "scale-reweight-pivot",
+          "scale-reweight-left-hanger",
+          "scale-reweight-right-hanger",
+          "scale-reweight-left-pan",
+          "scale-reweight-right-pan",
+          "scale-reweight-base"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          134,
+          322,
+          65,
+          49
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "scale-reweight-post",
+          "scale-reweight-beam",
+          "scale-reweight-pivot",
+          "scale-reweight-left-hanger",
+          "scale-reweight-right-hanger",
+          "scale-reweight-left-pan",
+          "scale-reweight-right-pan",
+          "scale-reweight-base"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-model-left-watermark",
+        "bbox": [
+          233,
+          451,
+          121,
+          117
+        ],
+        "element_ids": [
+          "model-left-edge-01",
+          "model-left-edge-02",
+          "model-left-edge-03",
+          "model-left-edge-04",
+          "model-left-edge-05",
+          "model-left-edge-06",
+          "model-left-edge-07",
+          "model-left-edge-08",
+          "model-left-edge-09",
+          "model-left-edge-10",
+          "model-left-edge-11",
+          "model-left-node-01",
+          "model-left-node-02",
+          "model-left-node-03",
+          "model-left-node-04",
+          "model-left-node-05",
+          "model-left-node-06",
+          "model-left-node-07"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          233,
+          451,
+          121,
+          117
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "model-left-edge-01",
+          "model-left-edge-02",
+          "model-left-edge-03",
+          "model-left-edge-04",
+          "model-left-edge-05",
+          "model-left-edge-06",
+          "model-left-edge-07",
+          "model-left-edge-08",
+          "model-left-edge-09",
+          "model-left-edge-10",
+          "model-left-edge-11",
+          "model-left-node-01",
+          "model-left-node-02",
+          "model-left-node-03",
+          "model-left-node-04",
+          "model-left-node-05",
+          "model-left-node-06",
+          "model-left-node-07"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-model-right-watermark",
+        "bbox": [
+          961,
+          257,
+          122,
+          116
+        ],
+        "element_ids": [
+          "model-right-edge-01",
+          "model-right-edge-02",
+          "model-right-edge-03",
+          "model-right-edge-04",
+          "model-right-edge-05",
+          "model-right-edge-06",
+          "model-right-edge-07",
+          "model-right-edge-08",
+          "model-right-edge-09",
+          "model-right-edge-10",
+          "model-right-edge-11",
+          "model-right-node-01",
+          "model-right-node-02",
+          "model-right-node-03",
+          "model-right-node-04",
+          "model-right-node-05",
+          "model-right-node-06",
+          "model-right-node-07"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          961,
+          257,
+          122,
+          116
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "model-right-edge-01",
+          "model-right-edge-02",
+          "model-right-edge-03",
+          "model-right-edge-04",
+          "model-right-edge-05",
+          "model-right-edge-06",
+          "model-right-edge-07",
+          "model-right-edge-08",
+          "model-right-edge-09",
+          "model-right-edge-10",
+          "model-right-edge-11",
+          "model-right-node-01",
+          "model-right-node-02",
+          "model-right-node-03",
+          "model-right-node-04",
+          "model-right-node-05",
+          "model-right-node-06",
+          "model-right-node-07"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-chart-offline",
+        "bbox": [
+          350,
+          117,
+          80,
+          66
+        ],
+        "element_ids": [
+          "chart-offline-axis-x",
+          "chart-offline-axis-y",
+          "chart-offline-y-tick-01",
+          "chart-offline-y-tick-02",
+          "chart-offline-y-tick-03",
+          "chart-offline-y-tick-04",
+          "chart-offline-x-tick-01",
+          "chart-offline-x-tick-02",
+          "chart-offline-x-tick-03",
+          "chart-offline-x-tick-04",
+          "chart-offline-wick-01",
+          "chart-offline-candle-01",
+          "chart-offline-wick-02",
+          "chart-offline-candle-02",
+          "chart-offline-wick-03",
+          "chart-offline-candle-03",
+          "chart-offline-wick-04",
+          "chart-offline-candle-04",
+          "chart-offline-wick-05",
+          "chart-offline-candle-05"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          350,
+          117,
+          80,
+          66
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "chart-offline-axis-x",
+          "chart-offline-axis-y",
+          "chart-offline-y-tick-01",
+          "chart-offline-y-tick-02",
+          "chart-offline-y-tick-03",
+          "chart-offline-y-tick-04",
+          "chart-offline-x-tick-01",
+          "chart-offline-x-tick-02",
+          "chart-offline-x-tick-03",
+          "chart-offline-x-tick-04",
+          "chart-offline-wick-01",
+          "chart-offline-candle-01",
+          "chart-offline-wick-02",
+          "chart-offline-candle-02",
+          "chart-offline-wick-03",
+          "chart-offline-candle-03",
+          "chart-offline-wick-04",
+          "chart-offline-candle-04",
+          "chart-offline-wick-05",
+          "chart-offline-candle-05"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-chart-target",
+        "bbox": [
+          648,
+          376,
+          79,
+          66
+        ],
+        "element_ids": [
+          "chart-target-axis-x",
+          "chart-target-axis-y",
+          "chart-target-y-tick-01",
+          "chart-target-y-tick-02",
+          "chart-target-y-tick-03",
+          "chart-target-y-tick-04",
+          "chart-target-x-tick-01",
+          "chart-target-x-tick-02",
+          "chart-target-x-tick-03",
+          "chart-target-x-tick-04",
+          "chart-target-wick-01",
+          "chart-target-candle-01",
+          "chart-target-wick-02",
+          "chart-target-candle-02",
+          "chart-target-wick-03",
+          "chart-target-candle-03",
+          "chart-target-wick-04",
+          "chart-target-candle-04",
+          "chart-target-wick-05",
+          "chart-target-candle-05"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          648,
+          376,
+          79,
+          66
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "chart-target-axis-x",
+          "chart-target-axis-y",
+          "chart-target-y-tick-01",
+          "chart-target-y-tick-02",
+          "chart-target-y-tick-03",
+          "chart-target-y-tick-04",
+          "chart-target-x-tick-01",
+          "chart-target-x-tick-02",
+          "chart-target-x-tick-03",
+          "chart-target-x-tick-04",
+          "chart-target-wick-01",
+          "chart-target-candle-01",
+          "chart-target-wick-02",
+          "chart-target-candle-02",
+          "chart-target-wick-03",
+          "chart-target-candle-03",
+          "chart-target-wick-04",
+          "chart-target-candle-04",
+          "chart-target-wick-05",
+          "chart-target-candle-05"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "ink-gaussian-noise",
+        "bbox": [
+          870,
+          80,
+          304,
+          113
+        ],
+        "element_ids": [
+          "gaussian-noise-baseline",
+          "gaussian-noise-curve"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "actual_bbox": [
+          870,
+          80,
+          304,
+          113
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "gaussian-noise-baseline",
+          "gaussian-noise-curve"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "194bc423a73f8a563f0e49691ec43e1be5437b022abfb7b6573105fa4c55fd18"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "arrow-region-raw-to-reweighted",
+        "bbox": [
+          264,
+          197,
+          60,
+          61
+        ],
+        "element_ids": [
+          "arrow-raw-to-reweighted",
+          "dataset-raw-body",
+          "dataset-reweighted-body"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "cbeeae1b8737ab348e427f2d2e09d34e9cd4d7a240b7ed3240b309fe960e62c0"
+        },
+        "actual_bbox": [
+          264,
+          197,
+          60,
+          61
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "arrow-raw-to-reweighted",
+          "dataset-raw-body",
+          "dataset-reweighted-body"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "cbeeae1b8737ab348e427f2d2e09d34e9cd4d7a240b7ed3240b309fe960e62c0"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "arrow-region-reweighted-to-model",
+        "bbox": [
+          264,
+          352,
+          60,
+          94
+        ],
+        "element_ids": [
+          "arrow-reweighted-to-model",
+          "dataset-reweighted-body",
+          "model-left-box"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "447329de42be2f44e2ec8fe9b09a1e90398c0575529a361b8aa065492e905492"
+        },
+        "actual_bbox": [
+          264,
+          352,
+          60,
+          94
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "arrow-reweighted-to-model",
+          "dataset-reweighted-body",
+          "model-left-box"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "447329de42be2f44e2ec8fe9b09a1e90398c0575529a361b8aa065492e905492"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "arrow-region-noise-to-model",
+        "bbox": [
+          992,
+          192,
+          60,
+          61
+        ],
+        "element_ids": [
+          "arrow-noise-to-model",
+          "gaussian-noise-curve",
+          "model-right-box"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "c8c19632acfdfc6fe60fd61d04748552f0a8bbb90dd665b9728724ee09b108e0"
+        },
+        "actual_bbox": [
+          992,
+          192,
+          60,
+          61
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "arrow-noise-to-model",
+          "gaussian-noise-curve",
+          "model-right-box"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "c8c19632acfdfc6fe60fd61d04748552f0a8bbb90dd665b9728724ee09b108e0"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "arrow-region-target-to-model",
+        "bbox": [
+          765,
+          288,
+          119,
+          56
+        ],
+        "element_ids": [
+          "arrow-target-to-model",
+          "target-objectives-box",
+          "model-right-box"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "2707b9ad676a223eb30d98837e8a36c2c9091251ec0164f9729dc4d77e42c815"
+        },
+        "actual_bbox": [
+          765,
+          288,
+          119,
+          56
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "arrow-target-to-model",
+          "target-objectives-box",
+          "model-right-box"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "2707b9ad676a223eb30d98837e8a36c2c9091251ec0164f9729dc4d77e42c815"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "arrow-region-model-to-designs",
+        "bbox": [
+          992,
+          379,
+          60,
+          82
+        ],
+        "element_ids": [
+          "arrow-model-to-designs",
+          "model-right-box",
+          "designs-box-front"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "3ccc7d1f34f3e78c5e972c06c1e163c12fe42c8e2edf373053e9362514e42ea2"
+        },
+        "actual_bbox": [
+          992,
+          379,
+          60,
+          82
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "arrow-model-to-designs",
+          "model-right-box",
+          "designs-box-front"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "3ccc7d1f34f3e78c5e972c06c1e163c12fe42c8e2edf373053e9362514e42ea2"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas",
+      "bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "pixel_bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 8.1263,
+      "ssim": 0.853,
+      "edge_iou": 0.7627,
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.82
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "left-panel-frame",
+      "label": "Offline panel frame",
+      "bbox": [
+        15,
+        48,
+        558,
+        550
+      ],
+      "pixel_bbox": [
+        15,
+        48,
+        558,
+        550
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.7771,
+      "ssim": 0.826,
+      "edge_iou": 0.7492,
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.9
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "offline-heading",
+      "label": "Offline heading",
+      "bbox": [
+        95,
+        8,
+        405,
+        94
+      ],
+      "pixel_bbox": [
+        95,
+        8,
+        405,
+        94
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 23.6084,
+      "ssim": 0.6294,
+      "edge_iou": 0.8338,
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.84
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "dataset-assets",
+      "label": "Static dataset assets",
+      "bbox": [
+        155,
+        96,
+        280,
+        120
+      ],
+      "pixel_bbox": [
+        155,
+        96,
+        280,
+        120
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 20.8808,
+      "ssim": 0.6477,
+      "edge_iou": 0.677,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            9,
+            0,
+            264,
+            120
+          ],
+          "edges": [
+            9,
+            0,
+            272,
+            119
+          ],
+          "center": [
+            140.5,
+            59.5
+          ],
+          "area_px": 11975
+        },
+        "render": {
+          "bbox": [
+            9,
+            0,
+            263,
+            120
+          ],
+          "edges": [
+            9,
+            0,
+            271,
+            119
+          ],
+          "center": [
+            140.0,
+            59.5
+          ],
+          "area_px": 11437
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 0.5,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0449,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "reweight-stage",
+      "label": "Reweight stage",
+      "bbox": [
+        95,
+        250,
+        250,
+        123
+      ],
+      "pixel_bbox": [
+        95,
+        250,
+        250,
+        123
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 13.8728,
+      "ssim": 0.7362,
+      "edge_iou": 0.8635,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            11,
+            0,
+            232,
+            123
+          ],
+          "edges": [
+            11,
+            0,
+            242,
+            122
+          ],
+          "center": [
+            126.5,
+            61.0
+          ],
+          "area_px": 10062
+        },
+        "render": {
+          "bbox": [
+            12,
+            0,
+            231,
+            123
+          ],
+          "edges": [
+            12,
+            0,
+            242,
+            122
+          ],
+          "center": [
+            127.0,
+            61.0
+          ],
+          "area_px": 9862
+        },
+        "bbox_edge_errors_px": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 0.5,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0199,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "train-flow",
+      "label": "Train label and flow",
+      "bbox": [
+        260,
+        350,
+        150,
+        96
+      ],
+      "pixel_bbox": [
+        260,
+        350,
+        150,
+        96
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.2912,
+      "ssim": 0.8364,
+      "edge_iou": 0.6409,
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.82
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "left-model",
+      "label": "Left diffusion model",
+      "bbox": [
+        145,
+        440,
+        298,
+        139
+      ],
+      "pixel_bbox": [
+        145,
+        440,
+        298,
+        139
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 13.7762,
+      "ssim": 0.7257,
+      "edge_iou": 0.7863,
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.8
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            6,
+            0,
+            286,
+            133
+          ],
+          "edges": [
+            6,
+            0,
+            291,
+            132
+          ],
+          "center": [
+            148.5,
+            66.0
+          ],
+          "area_px": 9771
+        },
+        "render": {
+          "bbox": [
+            5,
+            0,
+            288,
+            133
+          ],
+          "edges": [
+            5,
+            0,
+            292,
+            132
+          ],
+          "center": [
+            148.5,
+            66.0
+          ],
+          "area_px": 7968
+        },
+        "bbox_edge_errors_px": [
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 0.0,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.1845,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "right-panel-frame",
+      "label": "Sampling panel frame",
+      "bbox": [
+        575,
+        48,
+        628,
+        550
+      ],
+      "pixel_bbox": [
+        575,
+        48,
+        628,
+        550
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 8.1832,
+      "ssim": 0.8597,
+      "edge_iou": 0.7621,
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.9
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "sampling-heading-distribution",
+      "label": "Sampling heading and distribution",
+      "bbox": [
+        790,
+        8,
+        390,
+        188
+      ],
+      "pixel_bbox": [
+        790,
+        8,
+        390,
+        188
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 5.9025,
+      "ssim": 0.8894,
+      "edge_iou": 0.814,
+      "thresholds": {
+        "ssim_min": 0.87,
+        "edge_iou_min": 0.78
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            6,
+            388,
+            182
+          ],
+          "edges": [
+            0,
+            6,
+            387,
+            187
+          ],
+          "center": [
+            193.5,
+            96.5
+          ],
+          "area_px": 4916
+        },
+        "render": {
+          "bbox": [
+            5,
+            7,
+            383,
+            181
+          ],
+          "edges": [
+            5,
+            7,
+            387,
+            187
+          ],
+          "center": [
+            196.0,
+            97.0
+          ],
+          "area_px": 5487
+        },
+        "bbox_edge_errors_px": [
+          5.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 2.5495,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.1162,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1048,
+        198,
+        90,
+        36
+      ],
+      "pixel_bbox": [
+        1048,
+        198,
+        90,
+        36
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.0983,
+      "ssim": 0.7067,
+      "edge_iou": 0.966,
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.82
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "target-condition",
+      "label": "Target objectives and condition",
+      "bbox": [
+        605,
+        250,
+        280,
+        196
+      ],
+      "pixel_bbox": [
+        605,
+        250,
+        280,
+        196
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 11.9833,
+      "ssim": 0.8179,
+      "edge_iou": 0.8624,
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.82
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            6,
+            1,
+            274,
+            189
+          ],
+          "edges": [
+            6,
+            1,
+            279,
+            189
+          ],
+          "center": [
+            142.5,
+            95.0
+          ],
+          "area_px": 22599
+        },
+        "render": {
+          "bbox": [
+            6,
+            0,
+            274,
+            189
+          ],
+          "edges": [
+            6,
+            0,
+            279,
+            188
+          ],
+          "center": [
+            142.5,
+            94.0
+          ],
+          "area_px": 21790
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.0,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0358,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "right-model",
+      "label": "Right diffusion model",
+      "bbox": [
+        875,
+        246,
+        295,
+        138
+      ],
+      "pixel_bbox": [
+        875,
+        246,
+        295,
+        138
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.4795,
+      "ssim": 0.6858,
+      "edge_iou": 0.7336,
+      "thresholds": {
+        "ssim_min": 0.88,
+        "edge_iou_min": 0.8
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            0,
+            290,
+            138
+          ],
+          "edges": [
+            0,
+            0,
+            289,
+            137
+          ],
+          "center": [
+            144.5,
+            68.5
+          ],
+          "area_px": 10034
+        },
+        "render": {
+          "bbox": [
+            0,
+            0,
+            292,
+            138
+          ],
+          "edges": [
+            0,
+            0,
+            291,
+            137
+          ],
+          "center": [
+            145.5,
+            68.5
+          ],
+          "area_px": 8043
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          2.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.0,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.1984,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "sample-output",
+      "label": "Sample and design outputs",
+      "bbox": [
+        840,
+        376,
+        345,
+        202
+      ],
+      "pixel_bbox": [
+        840,
+        376,
+        345,
+        202
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.796,
+      "ssim": 0.8385,
+      "edge_iou": 0.7873,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            10,
+            0,
+            335,
+            202
+          ],
+          "edges": [
+            10,
+            0,
+            344,
+            201
+          ],
+          "center": [
+            177.0,
+            100.5
+          ],
+          "area_px": 24278
+        },
+        "render": {
+          "bbox": [
+            10,
+            0,
+            335,
+            202
+          ],
+          "edges": [
+            10,
+            0,
+            344,
+            201
+          ],
+          "center": [
+            177.0,
+            100.5
+          ],
+          "area_px": 23824
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 0.0,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0187,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-molecule-offline",
+      "label": "Object silhouette: molecule-offline",
+      "bbox": [
+        161,
+        97,
+        82,
+        51
+      ],
+      "pixel_bbox": [
+        161,
+        97,
+        82,
+        51
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 24.617,
+      "ssim": 0.4604,
+      "edge_iou": 0.5266,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            3,
+            2,
+            76,
+            48
+          ],
+          "edges": [
+            3,
+            2,
+            78,
+            49
+          ],
+          "center": [
+            40.5,
+            25.5
+          ],
+          "area_px": 1190
+        },
+        "render": {
+          "bbox": [
+            3,
+            6,
+            74,
+            45
+          ],
+          "edges": [
+            3,
+            6,
+            76,
+            50
+          ],
+          "center": [
+            39.5,
+            28.0
+          ],
+          "area_px": 1042
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          4.0,
+          2.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 2.6926,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.1244,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-molecule-output",
+      "label": "Object silhouette: molecule-output",
+      "bbox": [
+        847,
+        500,
+        82,
+        51
+      ],
+      "pixel_bbox": [
+        847,
+        500,
+        82,
+        51
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 24.5992,
+      "ssim": 0.4605,
+      "edge_iou": 0.5276,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            3,
+            2,
+            76,
+            48
+          ],
+          "edges": [
+            3,
+            2,
+            78,
+            49
+          ],
+          "center": [
+            40.5,
+            25.5
+          ],
+          "area_px": 1190
+        },
+        "render": {
+          "bbox": [
+            3,
+            6,
+            74,
+            45
+          ],
+          "edges": [
+            3,
+            6,
+            76,
+            50
+          ],
+          "center": [
+            39.5,
+            28.0
+          ],
+          "area_px": 1042
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          4.0,
+          2.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 2.6926,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.1244,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-dna-offline",
+      "label": "Object silhouette: dna-offline",
+      "bbox": [
+        171,
+        147,
+        71,
+        66
+      ],
+      "pixel_bbox": [
+        171,
+        147,
+        71,
+        66
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 44.1455,
+      "ssim": 0.171,
+      "edge_iou": 0.4764,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            2,
+            2,
+            68,
+            63
+          ],
+          "edges": [
+            2,
+            2,
+            69,
+            64
+          ],
+          "center": [
+            35.5,
+            33.0
+          ],
+          "area_px": 1356
+        },
+        "render": {
+          "bbox": [
+            2,
+            0,
+            69,
+            65
+          ],
+          "edges": [
+            2,
+            0,
+            70,
+            64
+          ],
+          "center": [
+            36.0,
+            32.0
+          ],
+          "area_px": 1415
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          2.0,
+          1.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.118,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0435,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-dna-output",
+      "label": "Object silhouette: dna-output",
+      "bbox": [
+        1108,
+        461,
+        71,
+        66
+      ],
+      "pixel_bbox": [
+        1108,
+        461,
+        71,
+        66
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 43.8416,
+      "ssim": 0.1735,
+      "edge_iou": 0.4773,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            2,
+            2,
+            68,
+            63
+          ],
+          "edges": [
+            2,
+            2,
+            69,
+            64
+          ],
+          "center": [
+            35.5,
+            33.0
+          ],
+          "area_px": 1356
+        },
+        "render": {
+          "bbox": [
+            2,
+            2,
+            69,
+            63
+          ],
+          "edges": [
+            2,
+            2,
+            70,
+            64
+          ],
+          "center": [
+            36.0,
+            33.0
+          ],
+          "area_px": 1400
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 0.5,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0324,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-scale-reweight",
+      "label": "Object silhouette: scale-reweight",
+      "bbox": [
+        134,
+        322,
+        65,
+        49
+      ],
+      "pixel_bbox": [
+        134,
+        322,
+        65,
+        49
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 15.9997,
+      "ssim": 0.5092,
+      "edge_iou": 0.7231,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            3,
+            3,
+            60,
+            44
+          ],
+          "edges": [
+            3,
+            3,
+            62,
+            46
+          ],
+          "center": [
+            32.5,
+            24.5
+          ],
+          "area_px": 805
+        },
+        "render": {
+          "bbox": [
+            3,
+            5,
+            62,
+            43
+          ],
+          "edges": [
+            3,
+            5,
+            64,
+            47
+          ],
+          "center": [
+            33.5,
+            26.0
+          ],
+          "area_px": 810
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          2.0,
+          2.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.8028,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.0062,
+        "area_relative_tolerance": 0.18,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-model-left-watermark",
+      "label": "Object silhouette: model-left-watermark",
+      "bbox": [
+        233,
+        451,
+        121,
+        117
+      ],
+      "pixel_bbox": [
+        233,
+        451,
+        121,
+        117
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 18.0299,
+      "ssim": 0.6111,
+      "edge_iou": 0.619,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            2,
+            121,
+            113
+          ],
+          "edges": [
+            0,
+            2,
+            120,
+            114
+          ],
+          "center": [
+            60.0,
+            58.0
+          ],
+          "area_px": 4317
+        },
+        "render": {
+          "bbox": [
+            0,
+            1,
+            121,
+            113
+          ],
+          "edges": [
+            0,
+            1,
+            120,
+            113
+          ],
+          "center": [
+            60.0,
+            57.0
+          ],
+          "area_px": 3271
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.0,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.2423,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-model-right-watermark",
+      "label": "Object silhouette: model-right-watermark",
+      "bbox": [
+        961,
+        257,
+        122,
+        116
+      ],
+      "pixel_bbox": [
+        961,
+        257,
+        122,
+        116
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 22.2268,
+      "ssim": 0.5391,
+      "edge_iou": 0.6099,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            1,
+            122,
+            114
+          ],
+          "edges": [
+            0,
+            1,
+            121,
+            114
+          ],
+          "center": [
+            60.5,
+            57.5
+          ],
+          "area_px": 4232
+        },
+        "render": {
+          "bbox": [
+            0,
+            0,
+            122,
+            113
+          ],
+          "edges": [
+            0,
+            0,
+            121,
+            112
+          ],
+          "center": [
+            60.5,
+            56.0
+          ],
+          "area_px": 3283
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          1.0,
+          0.0,
+          2.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.5,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.2242,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-chart-offline",
+      "label": "Object silhouette: chart-offline",
+      "bbox": [
+        350,
+        117,
+        80,
+        66
+      ],
+      "pixel_bbox": [
+        350,
+        117,
+        80,
+        66
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 49.5915,
+      "ssim": 0.4384,
+      "edge_iou": 0.7336,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            2,
+            2,
+            76,
+            62
+          ],
+          "edges": [
+            2,
+            2,
+            77,
+            63
+          ],
+          "center": [
+            39.5,
+            32.5
+          ],
+          "area_px": 1645
+        },
+        "render": {
+          "bbox": [
+            2,
+            4,
+            75,
+            58
+          ],
+          "edges": [
+            2,
+            4,
+            76,
+            61
+          ],
+          "center": [
+            39.0,
+            32.5
+          ],
+          "area_px": 1107
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          2.0,
+          1.0,
+          2.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 0.5,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.3271,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-chart-target",
+      "label": "Object silhouette: chart-target",
+      "bbox": [
+        648,
+        376,
+        79,
+        66
+      ],
+      "pixel_bbox": [
+        648,
+        376,
+        79,
+        66
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 52.9405,
+      "ssim": 0.4026,
+      "edge_iou": 0.7464,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            2,
+            2,
+            75,
+            62
+          ],
+          "edges": [
+            2,
+            2,
+            76,
+            63
+          ],
+          "center": [
+            39.0,
+            32.5
+          ],
+          "area_px": 1639
+        },
+        "render": {
+          "bbox": [
+            2,
+            5,
+            75,
+            58
+          ],
+          "edges": [
+            2,
+            5,
+            76,
+            62
+          ],
+          "center": [
+            39.0,
+            33.5
+          ],
+          "area_px": 1107
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          3.0,
+          0.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.0,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.3246,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "ink-gaussian-noise",
+      "label": "Object silhouette: gaussian-noise",
+      "bbox": [
+        870,
+        80,
+        304,
+        113
+      ],
+      "pixel_bbox": [
+        870,
+        80,
+        304,
+        113
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 4.6694,
+      "ssim": 0.8997,
+      "edge_iou": 0.8977,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            2,
+            0,
+            302,
+            111
+          ],
+          "edges": [
+            2,
+            0,
+            303,
+            110
+          ],
+          "center": [
+            152.5,
+            55.0
+          ],
+          "area_px": 1217
+        },
+        "render": {
+          "bbox": [
+            2,
+            2,
+            300,
+            108
+          ],
+          "edges": [
+            2,
+            2,
+            301,
+            109
+          ],
+          "center": [
+            151.5,
+            55.5
+          ],
+          "area_px": 1499
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          2.0,
+          2.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 4.0,
+        "center_error_px": 1.118,
+        "center_tolerance_px": 4.0,
+        "area_relative_error": 0.2317,
+        "area_relative_tolerance": 0.18,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "arrow-region-raw-to-reweighted",
+      "label": "arrow-raw-to-reweighted",
+      "bbox": [
+        264,
+        197,
+        60,
+        61
+      ],
+      "pixel_bbox": [
+        264,
+        197,
+        60,
+        61
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 7.7457,
+      "ssim": 0.8493,
+      "edge_iou": 0.8436,
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "arrow-region-reweighted-to-model",
+      "label": "arrow-reweighted-to-model",
+      "bbox": [
+        264,
+        352,
+        60,
+        94
+      ],
+      "pixel_bbox": [
+        264,
+        352,
+        60,
+        94
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 5.2245,
+      "ssim": 0.8736,
+      "edge_iou": 0.6259,
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "arrow-region-noise-to-model",
+      "label": "arrow-noise-to-model",
+      "bbox": [
+        992,
+        192,
+        60,
+        61
+      ],
+      "pixel_bbox": [
+        992,
+        192,
+        60,
+        61
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 6.8731,
+      "ssim": 0.8627,
+      "edge_iou": 0.6474,
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "arrow-region-target-to-model",
+      "label": "arrow-target-to-model",
+      "bbox": [
+        765,
+        288,
+        119,
+        56
+      ],
+      "pixel_bbox": [
+        765,
+        288,
+        119,
+        56
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 10.9048,
+      "ssim": 0.709,
+      "edge_iou": 0.5517,
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "arrow-region-model-to-designs",
+      "label": "arrow-model-to-designs",
+      "bbox": [
+        992,
+        379,
+        60,
+        82
+      ],
+      "pixel_bbox": [
+        992,
+        379,
+        60,
+        82
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 6.3047,
+      "ssim": 0.8674,
+      "edge_iou": 0.6403,
+      "thresholds": {
+        "ssim_min": 0.92,
+        "edge_iou_min": 0.88
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    }
+  ]
+}

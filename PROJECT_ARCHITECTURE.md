@@ -1,13 +1,108 @@
-# Autofigure v3.1 架构
+# Autofigure 架构（schema 4.0 当前实现）
+
+## 0. schema 4.0：Y 型双路线与单一事实源
+
+schema 4.0 是当前实现。两条输入路线只在源头分叉，通过 source gate 后必须合流到
+**Canonical Scene**。下文涉及 v3.1 的内容只说明旧案例和旧字段如何迁移，不构成当前合同。
+
+```mermaid
+flowchart LR
+    R["冻结 reference.png<br/>hash · canvas · inventory"] --> Q{"input_route"}
+    Q -->|reference-only| D["独立视觉重建<br/>只读本案例授权输入"]
+    Q -->|svg-seeded| S["唯一外部 SVG seed<br/>exact-one seed gate"]
+    S --> G["source gate<br/>accept / repair / reject"]
+    S -. reject .-> D
+    D --> G
+    G -->|accept| C[("Canonical Scene")]
+    G -->|repair| X["源修复任务<br/>不改 active revision"]
+    X --> G
+    G -->|reject| Z["拒绝源<br/>仅记 provenance 事件"]
+    C --> V["deterministic compiler"]
+    V --> O["redraw.svg · redraw.pptx<br/>bindings · render"]
+    O --> A["对象级 QA + 宿主回读"]
+    A -->|blocker| P["scene patch"]
+    P --> C
+    A -->|zero blocker| F["PowerPoint save/reopen/finalize"]
+```
+
+### 0.1 真实调度而非模式标签
+
+- `input_route` 仍是建案后不可变的历史来源；它不决定合流后的编译器。
+- `processing_mode` 是持久化的真实策略调度字段，只允许 `svg_import`、`svg_repair`、
+  `png_reconstruct`。source gate 和显式 fallback 按当前决策写回它，后续源处理与 convert
+  据此选择或拒绝分支；它不是只读展示标签，也不得改变 `input_route`。
+- `reference-only` 的 seed gate 固定为 `forbidden`。`svg-seeded` 只能接收一个不可变
+  `external-seed`；重复 seed、路线/参考哈希/画布冲突或危险内容直接拒绝。
+
+### 0.2 source gate 与事务摄取
+
+`qa/source-gate-report.json` 使用 schema `4.0.0`，对 route、seed 状态、candidate/reference
+hash、canvas、raster image、unsupported SVG feature 和 semantic metadata 给出唯一决策：
+
+- `accept`：允许规范化为 proposed Canonical Scene。
+- `repair`：只生成有作用域的源修复任务；不改 `run.json`、`scene.json`、provenance
+  candidate history 或当前交付物。
+- `reject`：禁止构建，只在 append-only provenance 记录拒绝事件。被拒绝的外部 seed
+  不得在同一案例中被另一 seed 替换；后续可在隔离读取清单下切换到
+  `processing_mode=png_reconstruct`。
+
+ingest 必须先把输入复制到 case-bound staging，校验完整 case/reference/base-scene/
+scope 合同，再于隔离区干跑 normalize、compile 和结构预检。只有全部通过才能
+通过单一 active-revision 指针原子提交；失败、崩溃或超时均不得留下半更新的
+根目录事实。
+
+### 0.3 Canonical Scene 与派生物
+
+`scene.json` 是唯一构造事实源，必须完整表达稳定 ID、几何、样式、文字/公式、
+z-order、语义角色和 topology。外部 seed 作为不可变 source evidence 保留，不得直接
+覆盖 `redraw.svg`。
+
+- `redraw.svg`、`redraw.pptx`、`render.png` 和 `bindings.json` 都是同一 scene revision
+  的派生物，必须回读相同 `scene_sha256/revision_id/compiler_fingerprint`。
+- schema 4.0 的 converter 始终从 Canonical Scene 编译；根 `redraw.svg` 仅作为派生物，
+  不具备反向事实源地位。
+- PowerPoint Live 修改只有在精确导出、校验并接受 `scene_patch` 后才能重建交付物。
+  无法表达为 scene patch 的宿主变化必须 strict fail，禁止直接发布一份与 SVG/scene
+  分叉的 PPTX。
+
+### 0.4 语义图元规格
+
+- `ArrowSpec`：单一逻辑箭头的 relation、path、routing/topology、body、start/end head、
+  width/length 和 `single_visible_object=true`。
+- `BraceSpec`：方向、端点、深度、双瓣、中央 cusp、笔画与 canonical path signature。
+  旧 v3.1 案例中的 `primitive_spec(kind=brace)` 只可确定性迁移为 BraceSpec；under/left/right 只能由同一
+  canonical generator 镜像/旋转。
+- `AssetSpec`：稳定 asset ID、semantic kind、tight bbox、内部部件/交叉 topology、来源哈希、
+  授权和可编辑性。DNA、图表、图标等可分解结构默认为原生矢量；只有明确授权且
+  不可约的观测图才能使用紧边界 raster。
+- `assets.json.policy + microasset_opportunity_map` 是 reference-bound 输入 oracle，必须显式存在并由
+  `qa/asset-contract-receipt.json` 绑定 reference、冻结 inventory 与 canonical contract hash；转换器生成的
+  `assets[]` 不进入该哈希，不能反向改写冻结真值。
+
+### 0.5 对象级 QA 和四角色循环
+
+QA 必须从 reference contract 穿透到 Canonical Scene、SVG/PPTX、宿主保存重开和最终
+render。每个冻结对象都要有自己的 identity、bbox/ink、style/font、topology、z-order、
+clearance/collision 和原生绑定证据；大面积白底 SSIM 不得代替小对象门禁。
+
+每次构建都执行 **Designer → Drawer → Reviewer → Corrector**：Designer 仅从授权参考
+冻结完整对象/关系/视觉合同；Drawer 产生 Canonical Scene；Reviewer 从新鲜派生物
+和当前参考独立审计；Corrector 只返回有作用域、绑定 base-scene hash 的最小 scene
+patch，然后全量重编译和重审。
+
+通用代码、prompt 和 QA 中禁止以 case ID、文件名、截图坐标或某案例的 element ID
+选择分支。一切特征必须由 schema/spec/capability 数据驱动；参考图特有坐标只能存在于
+该案例合同中。修复必须增加 case-neutral 单元测试和未参与调优的 holdout 机制图验证，
+不得以修好已知案例代替泛化证据。
 
 ## 1. 核心模型
 
-旧设计把“输入来源”和“当前算法”混在 `source_mode` 中，导致案例 01 已回退 PNG 后看起来像从未使用过 Web SVG。v3.1 将它拆成两个正交维度：
+旧设计把“输入来源”和“当前算法”混在 `source_mode` 中，导致案例 01 已回退 PNG 后看起来像从未使用过 Web SVG。v3.1 迁移首次将它拆成两个正交维度；当前 schema 4.0 延续该拆分：
 
 | 字段 | 取值 | 生命周期 |
 |---|---|---|
 | `input_route` | `reference-only` / `svg-seeded` | 建案时显式指定，此后不可变 |
-| `processing_mode` | `svg_import` / `svg_repair` / `png_reconstruct` | 可随失败回退改变 |
+| `processing_mode` | `svg_import` / `svg_repair` / `png_reconstruct` | 真实策略调度；可随 source gate 或显式 fallback 改变 |
 
 不变量：
 
@@ -30,7 +125,7 @@ flowchart TD
         B -->|"提供"| C["矢量导入"]
         B -->|"未提供"| D["视觉大模型看图重绘<br/>仅参考本案例原图"]
         C -.->|"校验不通过，回退"| D
-        C --> E["转换为原生 PowerPoint 图形<br/>形状、文字皆可编辑，并经真实保存重开验证"]
+        C --> E["确定性转换为原生 PowerPoint 图形<br/>形状、文字皆可编辑"]
         D --> E
         E --> F["公式转为 Office 原生公式对象"]
     end
@@ -100,18 +195,19 @@ examples/
 
 命令可接收完整嵌套路径或全局唯一 case ID。旧 `examples/<case>/` 只兼容读取并警告，不创建副本或链接。
 
-## 4. v3.1 合同
+## 4. schema 4.0 合同
 
 ### `run.json`
 
-- `schema_version=3.1.0`
+- `schema_version=4.0.0`
 - `task_mode=RECONSTRUCT_1TO1`
 - 不可变 `input_route`
 - 可变 `processing_mode`、`fidelity_profile`、`backend_mode`
 - 参考相对路径、SHA-256、尺寸
 - workflow 与最近一次 standard/strict validation 摘要
 
-禁止保留 `source_abspath` 的权威地位；`source_mode` 只允许迁移读取，不能继续序列化。
+旧 v3.1 元数据只作为迁移输入。禁止保留 `source_abspath` 的权威地位；`source_mode`
+只允许迁移读取，不能继续序列化。
 
 ### `provenance.json`
 
@@ -119,39 +215,42 @@ examples/
 
 ### 场景控制层
 
-- `scene.json`：稳定对象 ID、语义、几何、层级、连接拓扑和当前 PPTX artifact hash。
-- `assets.json`：资产授权、来源、bbox、rights uncertainty、不可约理由、`editable`。
-- `regions.json`：关键区域、对象范围、SSIM/Edge IoU、颜色探针和阈值。
+- `scene.json`：稳定对象 ID、语义、几何、层级、连接拓扑、`arrow_spec` / `primitive_spec` 和当前 PPTX artifact hash。
+- `assets.json`：冻结的安全 policy/微资产机会图，以及与其分离的派生资产记录、来源、bbox、rights uncertainty、不可约理由、`editable`。
+- `regions.json`：关键区域、对象范围、SSIM/Edge IoU、颜色探针、前景墨迹/净空合同、箭头物理视觉合同，以及参考图派生的闭世界 `reference_inventory`。
 - `bindings.json`：scene element 到保存重开后的 shape ID/name、对象类型和后端证据。
 
 ## 5. 状态机
 
 允许状态：`prepared / candidate / qa_failed / repairing / approved`。
 
-- `prepare`：`prepared`。
-- `ingest`：`candidate`。
+- `prepare`：`prepared`，同时写入 required/draft inventory 骨架。
+- `freeze`：先对 inventory 与显式资产机会图做无写入 preflight，再刷新 region tasks，并分别生成 inventory 与
+  asset-contract SHA-256 receipt；任一预检失败不得留下半冻结状态，状态仍为 `prepared`。
+- `ingest`：新案例只接受已冻结且 receipt 未漂移的 inventory，成功后进入 `candidate`。
 - strict 有 blocker：`qa_failed`。
 - `repair`：`repairing`。
 - strict 零 blocker：`approved`。
 
-standard 永远只是诊断，不授予 approved。strict 没有 critical region 时必须添加 `regions:no-critical-regions`。
+standard 永远只是诊断，不授予 approved。strict 没有 critical region 时必须添加 `regions:no-critical-regions`；strict 禁止跳过 OCR，必须验证 inventory receipt、asset-contract receipt 与精确文字闭合，并总是消费 PowerPoint Live finalizer 证据。不含 `reference_inventory` 的 legacy 案例保持可读，但不会为其伪造任何冻结 receipt。
 
 ## 6. 箭头与布局
 
-普通直线、肘形和可连接曲线优先映射 PowerPoint connector；原生 `headEnd/tailEnd` 支持头型、宽度和长度。复杂 marker 不可原生表达时必须：
+两条输入路线只生成统一 `ArrowSpec`，确定性编译器再选择单一 PowerPoint 对象：直线 line、真实附着 connector、固定 polyline/cubic freeform，或单一闭合块箭头 freeform。相同 ArrowSpec 的编译策略必须相同。
 
-1. 明确 warning；
-2. 回退为 custom freeform；
-3. 杆与头物理分组并共享语义 ID；
-4. 头部按路径切线定向。
+旧“杆＋独立箭头头＋group”只允许生成 standard 诊断预览，并必须写入 `fidelity_loss`；strict 对 `arrow-group`、`arrowhead-fallback` 或一个逻辑箭头多个可见对象直接失败。PowerPoint Live 只有通过 [箭头能力规格](POWERPOINT_ARROW_CAPABILITY_SPEC.md) 的哈希绑定矩阵探针后才允许创作箭头。
 
-箭头审计以被指向形状的边缘为目标边界（箭头自身路径不计入），并检查目标身份、transform、端点、中心线 P95、切线角、交叉和标签碰撞。校准以逐箭头 ID 为单位。
+brace 使用同级 `primitive_spec` 和唯一 `brace_v1`：under/left/right 只能由 canonical over/under 基式镜像或旋转得到。strict 独立检查双瓣、中央 cusp、两子路径和单一可编辑 PowerPoint freeform。
+
+箭头审计以被指向形状的边缘为目标边界（箭头自身路径不计入），并检查目标身份、transform、端点、中心线 P95、切线角、交叉和标签碰撞。校准以逐箭头 ID 为单位，并且必须来自当前参考哈希绑定的像素/明确测量证据；头部 bbox、物理宽长及障碍物净空与 PowerPoint 端点枚举读回分别门禁。
 
 布局合同：
 
 - 容器文字/公式使用 `data-layout-container` 与 padding。
 - 重复图元使用 `data-repeat-group/data-repeat-axis/data-repeat-order`。
 - source SVG 与保存重开的 PPTX 分别检查；默认容器/同轴/尺寸漂移 ≤0.25 px，相邻中心距范围 ≤1 px。
+- 小目标用 tight-region `ink_contract` 约束前景 bbox、中心和面积；彩色 caption 用带明确 subject/obstacle bbox 的 `color_clearance_contracts` 逐目标保持相对参考图的最小空白距离，并检查目标存在性与几何。critical 阈值不得低于 SSIM 0.85 / Edge IoU 0.75。
+- `critical_region_expectation`、`primitive_expectations` 和 `arrow_visual_expectation` 分别冻结关键区、语义图元与箭头视觉合同的完整清单。
 
 ## 7. 微资产
 
@@ -163,7 +262,7 @@ standard 永远只是诊断，不授予 approved。strict 没有 critical region
 
 离线先生成初版，只对失败区域启动托管可见会话。bridge 在 `qa/powerpoint-live-case/` 中将 Autofigure 场景适配为服务端 Scene 2.1；正式 `scene.json` 仍是源事实。
 
-live 必须显式 case、session、revision 和幂等键，支持 inspect、audit、save/reopen、render 和 object binding。自动状态最多为 `INDEPENDENT_REVIEW_REQUIRED`，没有 release authority。
+live 必须显式 case、session、revision 和幂等键，支持 inspect、audit、save/reopen、render 和 object binding。离线包重开只记录 `package_reopened=true`；只有正式根 PPTX、bindings、Live candidate、reopened artifact 与 OOXML readback 五方哈希闭合后才能记录 `saved_reopened=true`。自动状态最多为 `INDEPENDENT_REVIEW_REQUIRED`，没有 release authority。
 
 保存重开成功但没有区域修复结果时，只能记录 backend diagnostic；不能伪造 `live-evidence.json`，strict 仍保留 `live-evidence-missing`。
 

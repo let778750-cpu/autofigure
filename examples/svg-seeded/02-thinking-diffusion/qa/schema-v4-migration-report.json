@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "schema_v4_migration_report",
+  "case": "02-thinking-diffusion",
+  "input_route": "svg-seeded",
+  "processing_mode": "png_reconstruct",
+  "imported_legacy_carrier": true,
+  "source_gate_decision": "reject",
+  "source_gate_blockers": [
+    "source-gate:seed:unavailable"
+  ],
+  "revision_id": "scene-9315c87289a777f8",
+  "scene_sha256": "9315c87289a777f8e2ee6648c53f67905d8b6a995a254d5c9e570b48ba7ab8d9",
+  "status": "implemented_unverified",
+  "approved": false
+}

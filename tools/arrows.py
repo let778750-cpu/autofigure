@@ -35,12 +35,8 @@ from pathlib import Path
 from tools import common
 from tools.convert import (
     SVG_NS,
-    _chord,
     _element_style,
-    _end_tangent,
     _parse_style_attr,
-    _segment_vertices,
-    _start_tangent,
 )
 from tools.svggeom import Matrix, parse_path_d, parse_transform
 
@@ -52,6 +48,157 @@ FEATHER_LEN_MAX = 45.0  # 箭羽最大长度（px）
 FEATHER_RADIUS = 18.0   # 箭羽端点距主杆端点的聚簇半径（px）
 FEATHER_ANGLE_MIN, FEATHER_ANGLE_MAX = 20.0, 75.0  # 箭羽与主杆方向夹角带（°）
 ARROW_TAGS = (f"{SVG_NS}line", f"{SVG_NS}path", f"{SVG_NS}polyline", f"{SVG_NS}polygon")
+
+
+def _embedded_plot_axis_ids_from_payload(payload: object) -> set[str]:
+    """Return explicitly contracted plot-axis IDs from a case contract payload.
+
+    The exemption is intentionally data-driven. It is accepted only from the
+    same ``arrow_visual_expectation.exemptions`` records that the frozen
+    reference-inventory gate validates; an ID or case-name pattern is never
+    inferred here. Reading the same contract shape from ``scene.json`` keeps
+    the audit compatible with scene-owned contracts as well as ``regions.json``.
+    """
+
+    if not isinstance(payload, dict):
+        return set()
+    expectation = payload.get("arrow_visual_expectation")
+    if not isinstance(expectation, dict):
+        return set()
+    exemptions = expectation.get("exemptions")
+    if not isinstance(exemptions, list):
+        return set()
+    return {
+        element_id
+        for record in exemptions
+        if isinstance(record, dict)
+        and record.get("reason") == "embedded_plot_axis"
+        and isinstance((element_id := record.get("element_id")), str)
+        and element_id
+    }
+
+
+def _embedded_plot_geometry_groups_from_payload(
+    payload: object,
+) -> tuple[frozenset[str], ...]:
+    """Return plot member sets backed by an explicit plot-axis exemption.
+
+    A plot is eligible only when a frozen reference-inventory ``kind=plot``
+    object owns the exempt axis named by ``parent_object_id``. This prevents a
+    candidate from globally suppressing feather detection merely by calling an
+    arbitrary line a plot member.
+    """
+
+    if not isinstance(payload, dict):
+        return ()
+    inventory = payload.get("reference_inventory")
+    expectation = payload.get("arrow_visual_expectation")
+    if not isinstance(inventory, dict) or not isinstance(expectation, dict):
+        return ()
+    objects = inventory.get("objects")
+    exemptions = expectation.get("exemptions")
+    if not isinstance(objects, list) or not isinstance(exemptions, list):
+        return ()
+    plot_members = {
+        object_id: frozenset(element_ids)
+        for record in objects
+        if isinstance(record, dict)
+        and record.get("kind") == "plot"
+        and isinstance((object_id := record.get("id")), str)
+        and object_id
+        and isinstance((element_ids := record.get("element_ids")), list)
+        and element_ids
+        and all(isinstance(element_id, str) and element_id for element_id in element_ids)
+    }
+    eligible_plot_ids = {
+        parent_id
+        for record in exemptions
+        if isinstance(record, dict)
+        and record.get("reason") == "embedded_plot_axis"
+        and isinstance((parent_id := record.get("parent_object_id")), str)
+        and isinstance((axis_id := record.get("element_id")), str)
+        and axis_id in plot_members.get(parent_id, frozenset())
+    }
+    return tuple(
+        sorted(
+            (plot_members[plot_id] for plot_id in eligible_plot_ids),
+            key=lambda members: tuple(sorted(members)),
+        )
+    )
+
+
+def _case_embedded_plot_contract(
+    run: common.Run,
+) -> tuple[set[str], tuple[frozenset[str], ...]]:
+    """Load explicit plot-axis and plot-membership contracts for a case."""
+
+    element_ids: set[str] = set()
+    geometry_groups: set[frozenset[str]] = set()
+    for path in (run.regions_path, run.scene_path):
+        if not path.is_file():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise common.fail(f"无法读取箭头审计合同 {path}: {exc}") from exc
+        element_ids.update(_embedded_plot_axis_ids_from_payload(payload))
+        geometry_groups.update(_embedded_plot_geometry_groups_from_payload(payload))
+    return element_ids, tuple(
+        sorted(geometry_groups, key=lambda members: tuple(sorted(members)))
+    )
+
+
+def _segment_vertices(segments: list[tuple]) -> list[tuple[float, float]]:
+    vertices: list[tuple[float, float]] = []
+    for segment in segments:
+        if segment[0] in {"M", "L"}:
+            vertices.append((segment[1], segment[2]))
+        elif segment[0] == "C":
+            vertices.append((segment[5], segment[6]))
+    return vertices
+
+
+def _start_tangent(segments: list[tuple]) -> tuple[float, float] | None:
+    start: tuple[float, float] | None = None
+    for segment in segments:
+        if segment[0] == "M":
+            start = (segment[1], segment[2])
+        elif start is not None and segment[0] in {"L", "C"}:
+            direction = (segment[1] - start[0], segment[2] - start[1])
+            return direction if math.hypot(*direction) > 1e-9 else None
+    return None
+
+
+def _end_tangent(segments: list[tuple]) -> tuple[float, float] | None:
+    previous: tuple[float, float] | None = None
+    direction: tuple[float, float] | None = None
+    for segment in segments:
+        if segment[0] == "M":
+            previous = (segment[1], segment[2])
+        elif segment[0] == "L":
+            if previous is not None:
+                direction = (segment[1] - previous[0], segment[2] - previous[1])
+            previous = (segment[1], segment[2])
+        elif segment[0] == "C":
+            direction = (segment[5] - segment[3], segment[6] - segment[4])
+            previous = (segment[5], segment[6])
+    if direction is not None and math.hypot(*direction) <= 1e-9:
+        return None
+    return direction
+
+
+def _chord(
+    vertices: list[tuple[float, float]],
+    forward: bool,
+) -> tuple[float, float] | None:
+    """Return the stable path chord used when an endpoint tangent degenerates."""
+
+    del forward  # A chord has the same authored direction at either endpoint.
+    if len(vertices) < 2:
+        return None
+    first, last = vertices[0], vertices[-1]
+    direction = (last[0] - first[0], last[1] - first[1])
+    return None if math.hypot(*direction) <= 1e-9 else direction
 
 
 # ---------------------------------------------------------------- 解析
@@ -348,7 +495,11 @@ def _flatten_segments(segments: list[tuple], curve_steps: int = 24) -> list[tupl
 class _EdgeIndexV3:
     """Identity-aware boundary index; arrow paths never dock to themselves."""
 
-    def __init__(self, root: ET.Element):
+    def __init__(
+        self,
+        root: ET.Element,
+        excluded_element_ids: set[str] | frozenset[str] = frozenset(),
+    ):
         self.edges: list[dict] = []
         anonymous = 0
         for el, style, matrix, _ in _walk_svg_geometry(root):
@@ -361,6 +512,8 @@ class _EdgeIndexV3:
                 f"{SVG_NS}polyline",
                 f"{SVG_NS}line",
             }:
+                continue
+            if el.get("id") in excluded_element_ids:
                 continue
             if _marker_ref(el, "marker-start") or _marker_ref(el, "marker-end"):
                 continue
@@ -713,13 +866,27 @@ def _finding_v3(
     }
 
 
-def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> dict:
+def audit_svg_text(
+    svg_text: str,
+    calibrate: dict[str, float] | None = None,
+    *,
+    embedded_plot_axis_ids: set[str] | frozenset[str] | None = None,
+    embedded_plot_geometry_groups: tuple[frozenset[str], ...]
+    | list[set[str]]
+    | None = None,
+) -> dict:
     """Audit transformed arrow topology against identity-aware target boundaries."""
     root = ET.fromstring(svg_text)
     defs = _marker_defs(root)
     geometry = {marker_id: _marker_geometry(marker) for marker_id, marker in defs.items()}
     records = _arrow_records_v3(root)
-    edges = _EdgeIndexV3(root)
+    plot_axis_ids = frozenset(embedded_plot_axis_ids or ())
+    plot_geometry_groups = tuple(
+        frozenset(group)
+        for group in (embedded_plot_geometry_groups or ())
+        if group
+    )
+    edges = _EdgeIndexV3(root, plot_axis_ids)
     calibrate = calibrate or {}
     view_box = [
         float(value)
@@ -734,6 +901,7 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
     calibration_scope: dict[str, str] = {}
     marker_refs = 0
     for index, rec in enumerate(records):
+        is_embedded_plot_axis = rec["id"] in plot_axis_ids
         if not rec["transform_valid"]:
             findings.append(
                 _finding_v3(
@@ -812,11 +980,12 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
                         ),
                         None,
                     )
-                    target = None
+                    target = calibrate[key] if key else None
+                    local_rejected = False
                     if local_raw is not None:
                         try:
-                            target = float(local_raw)
-                            if target <= 0:
+                            local_value = float(local_raw)
+                            if not math.isfinite(local_value) or local_value <= 0:
                                 raise ValueError
                         except ValueError:
                             findings.append(
@@ -830,14 +999,41 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
                                     f"invalid per-arrow head calibration {local_raw!r}",
                                 )
                             )
-                            target = None
+                            local_rejected = True
                         else:
-                            calibration_scope[side_key] = "element"
-                    elif key:
+                            if key is None:
+                                findings.append(
+                                    _finding_v3(
+                                        "F2",
+                                        index,
+                                        rec,
+                                        side,
+                                        vertex,
+                                        marker_id,
+                                        "self-reported head calibration has no "
+                                        "reference-bound evidence",
+                                    )
+                                )
+                                local_rejected = True
+                            elif abs(local_value - float(target)) > CAL_TOL:
+                                findings.append(
+                                    _finding_v3(
+                                        "F2",
+                                        index,
+                                        rec,
+                                        side,
+                                        vertex,
+                                        marker_id,
+                                        f"self-reported head calibration {local_value:.2f}px "
+                                        f"differs from reference evidence {float(target):.2f}px",
+                                    )
+                                )
+                    if key:
                         calibration_scope[side_key] = (
-                            "arrow" if key in {side_key, rec["id"]} else "legacy-marker"
+                            "reference-arrow"
+                            if key in {side_key, rec["id"]}
+                            else "reference-marker"
                         )
-                        target = calibrate[key]
                     if target is not None:
                         if abs(head_length - target) > CAL_TOL:
                             findings.append(
@@ -852,7 +1048,7 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
                                     f"per-arrow calibration {target:.2f}px",
                                 )
                             )
-                    elif not RATIO_MIN <= ratio <= RATIO_MAX:
+                    elif not local_rejected and not RATIO_MIN <= ratio <= RATIO_MAX:
                         findings.append(
                             _finding_v3(
                                 "F2",
@@ -867,7 +1063,11 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
                         )
 
             expected_id = rec["source_id"] if side == "start" else rec["target_id"]
-            if (marker_id or expected_id) and rec["element"].get("data-allow-floating") != "true":
+            if (
+                not is_embedded_plot_axis
+                and (marker_id or expected_id)
+                and rec["element"].get("data-allow-floating") != "true"
+            ):
                 expected_distance, expected_owner = edges.distance(
                     vertex,
                     exclude=rec["element"],
@@ -989,10 +1189,16 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
                     break
 
     for first_index, first in enumerate(records):
-        if first["element"].get("data-allow-crossing") == "true":
+        if (
+            first["id"] in plot_axis_ids
+            or first["element"].get("data-allow-crossing") == "true"
+        ):
             continue
         for second in records[first_index + 1 :]:
-            if second["element"].get("data-allow-crossing") == "true":
+            if (
+                second["id"] in plot_axis_ids
+                or second["element"].get("data-allow-crossing") == "true"
+            ):
                 continue
             shared_ids = {first["source_id"], first["target_id"]} & {
                 second["source_id"],
@@ -1023,7 +1229,13 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
                     )
                 )
 
-    findings.extend(_find_feathers(root))
+    findings.extend(
+        _find_feathers(
+            root,
+            excluded_element_ids=plot_axis_ids,
+            embedded_plot_geometry_groups=plot_geometry_groups,
+        )
+    )
     counts: dict[str, int] = {}
     for item in findings:
         counts[item["code"]] = counts.get(item["code"], 0) + 1
@@ -1035,6 +1247,10 @@ def audit_svg_text(svg_text: str, calibrate: dict[str, float] | None = None) -> 
         "findings": findings,
         "counts": counts,
         "arrow_metrics": arrow_metrics,
+        "embedded_plot_axis_exemptions": sorted(plot_axis_ids),
+        "embedded_plot_geometry_groups": [
+            sorted(group) for group in plot_geometry_groups
+        ],
         **({"calibrate": calibrate} if calibrate else {}),
         **({"calibration_scope": calibration_scope} if calibration_scope else {}),
         "ratio_stats": {
@@ -1060,10 +1276,17 @@ def _finding(code: str, index: int, rec: dict, side: str, vertex, mid: str, deta
     }
 
 
-def _find_feathers(root: ET.Element) -> list[dict]:
+def _find_feathers(
+    root: ET.Element,
+    *,
+    excluded_element_ids: set[str] | frozenset[str] = frozenset(),
+    embedded_plot_geometry_groups: tuple[frozenset[str], ...] = (),
+) -> list[dict]:
     """手折箭羽检测：无 marker 主杆端点附近 ±20-75° 的短线束（≥2 根）。"""
     bare: list[dict] = []
     for el in root.iter(f"{SVG_NS}line"):
+        if el.get("id") in excluded_element_ids:
+            continue
         if _marker_ref(el, "marker-start") or _marker_ref(el, "marker-end"):
             continue
         p1 = (float(el.get("x1", 0)), float(el.get("y1", 0)))
@@ -1071,7 +1294,15 @@ def _find_feathers(root: ET.Element) -> list[dict]:
         length = math.dist(p1, p2)
         if length < 1e-6:
             continue
-        bare.append({"el": el, "p1": p1, "p2": p2, "len": length})
+        bare.append(
+            {
+                "el": el,
+                "id": el.get("id"),
+                "p1": p1,
+                "p2": p2,
+                "len": length,
+            }
+        )
 
     findings: list[dict] = []
     consumed: set[int] = set()
@@ -1096,6 +1327,15 @@ def _find_feathers(root: ET.Element) -> list[dict]:
                         feathers.append((j, cp))
                         break
             if len(feathers) >= 2:
+                cluster_ids = {
+                    shaft["id"],
+                    *(bare[index]["id"] for index, _ in feathers),
+                }
+                if None not in cluster_ids and any(
+                    cluster_ids.issubset(group)
+                    for group in embedded_plot_geometry_groups
+                ):
+                    continue
                 consumed.update(j for j, _ in feathers)
                 xs = [p[0] for _, p in feathers] + [vertex[0]]
                 ys = [p[1] for _, p in feathers] + [vertex[1]]
@@ -1150,22 +1390,17 @@ def fix_svg_text(
             if not marker_id:
                 continue
             side_key = f"{rec['id']}:{side}"
-            local_raw = (
-                rec["element"].get(f"data-head-length-{side}")
-                or rec["element"].get("data-head-length")
+            calibration_key = next(
+                (
+                    candidate
+                    for candidate in (side_key, rec["id"], marker_id)
+                    if candidate in (calibrate or {})
+                ),
+                None,
             )
-            calibration_key = side_key if side_key in (calibrate or {}) else rec["id"]
-            if local_raw is not None:
-                try:
-                    target = float(local_raw)
-                except ValueError:
-                    continue
-                if target <= 0:
-                    continue
-            elif calibration_key in (calibrate or {}):
-                target = (calibrate or {})[calibration_key]
-            else:
+            if calibration_key is None:
                 continue
+            target = (calibrate or {})[calibration_key]
             plain_marker = _find_plain_marker(plain_root, marker_id)
             geometry = _marker_geometry(plain_marker)
             if geometry is None or geometry["head_len"] <= 0:
@@ -1356,13 +1591,24 @@ def main(argv: list[str] | None = None) -> int:
     run.qa_dir.mkdir(exist_ok=True)
 
     svg_text = run.redraw_svg.read_text(encoding="utf-8")
-    before = audit_svg_text(svg_text, calibrate=calibrate)
+    plot_axis_ids, plot_geometry_groups = _case_embedded_plot_contract(run)
+    before = audit_svg_text(
+        svg_text,
+        calibrate=calibrate,
+        embedded_plot_axis_ids=plot_axis_ids,
+        embedded_plot_geometry_groups=plot_geometry_groups,
+    )
     payload: dict = {"svg": str(run.redraw_svg), "phase": "audit", **before}
 
     if args.fix:
         new_text, fixes = fix_svg_text(svg_text, clamp_ratio=args.clamp_ratio, calibrate=calibrate)
         run.redraw_svg.write_text(new_text, encoding="utf-8")
-        after = audit_svg_text(new_text, calibrate=calibrate)
+        after = audit_svg_text(
+            new_text,
+            calibrate=calibrate,
+            embedded_plot_axis_ids=plot_axis_ids,
+            embedded_plot_geometry_groups=plot_geometry_groups,
+        )
         payload = {
             "svg": str(run.redraw_svg),
             "phase": "fix",

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-04-pareto-conditioned-diffusion",
+  "taskMode": "RECONSTRUCT_1TO1",
+  "designatedReferenceSourceId": "reference",
+  "designatedReferenceSha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "referenceUsage": "measurement_only",
+  "referenceEmbedded": false,
+  "independentReferenceCase": true,
+  "sources": [
+    {
+      "sourceId": "reference",
+      "kind": "reference_image",
+      "pathOrUrl": "input/reference.png",
+      "sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+      "authority": "user_supplied",
+      "licenseStatus": "unknown",
+      "confidentiality": "internal",
+      "notes": "Designated measurement-only reconstruction reference."
+    },
+    {
+      "sourceId": "candidate-pptx",
+      "kind": "prior_source",
+      "pathOrUrl": "input/candidate.pptx",
+      "sha256": "18161bdf40bbea6069c0e1e336aa48d249e7cf8a6bff192b26a7bf090e0d0834",
+      "authority": "user_supplied",
+      "licenseStatus": "unknown",
+      "confidentiality": "internal",
+      "notes": "Offline Autofigure candidate copied for managed live repair; never edited in place."
+    }
+  ]
+}

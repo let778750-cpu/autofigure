@@ -1,0 +1,40 @@
+{
+  "svg": "redraw.svg",
+  "pptx": "redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 147,
+  "textbox_with_text": 51,
+  "emitted": {
+    "rect": 67,
+    "text": 51,
+    "freeform": 14,
+    "native-arrowhead": 6,
+    "line": 6,
+    "ellipse": 9
+  },
+  "warnings": [
+    "未知元素已跳过: {http://www.w3.org/2000/svg}title",
+    "未知元素已跳过: {http://www.w3.org/2000/svg}desc",
+    "left-model-label: transparent text box constrained to left-model-box (padding=12px)",
+    "left-legend-label-less-grounded-line-1: transparent text box constrained to left-legend-box (padding=10px)",
+    "left-legend-label-more-grounded-line-1: transparent text box constrained to left-legend-box (padding=10px)",
+    "left-legend-label-more-grounded-line-2: transparent text box constrained to left-legend-box (padding=10px)",
+    "right-model-label: transparent text box constrained to right-model-box (padding=12px)"
+  ],
+  "layout_pass": true,
+  "layout_findings": 0,
+  "arrow_compile_pass": true,
+  "arrow_readback_pass": true,
+  "primitive_pass": true,
+  "asset_spec_pass": true,
+  "asset_spec_count": 0,
+  "asset_spec_readback_count": 0,
+  "asset_spec_findings": 0,
+  "arrow_authoring_allowed": false,
+  "revision_id": "scene-f57ac8c9949faa13",
+  "scene_sha256": "f57ac8c9949faa13ca6309d0cbd71295c9416ac3a0211381d4ac96fe4529ff54",
+  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "pptx_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+  "object_count": 147,
+  "bindings_complete": true
+}

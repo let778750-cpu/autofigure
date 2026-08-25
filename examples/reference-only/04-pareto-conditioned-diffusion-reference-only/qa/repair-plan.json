@@ -1,0 +1,1202 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "repair-plan",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "artifact_sha256": "6610b8fb6b47855afee713c8b56edaa6f2ea5a7582085237267bd7494f50e16a",
+  "qa_report_sha256": {
+    "arrow-compile-report.json": "7fd9f9ea5577cc52889998e16d64aa33cda34ca0c370d42774b7c916b542ffa5",
+    "arrow-visual-report.json": "207e52eadc1466966c706ca0da93c6d979a0de4f302d41b45dc2f5c1d5efedee",
+    "asset-contract-receipt.json": "fbbc6e76ace55d3a7f8dd78b3084b7ce48fe53c01bf7d9eefb559459a17b2613",
+    "asset-spec-audit.json": "9130129827c2acf268c637f8f8a79a9afeaf7c3d5f542a2e1aba61b77d3261c7",
+    "layout-audit.json": "5854d566c14b69e69ce8a12797917c70b913ae80e1b43c1c97fa373d798eeeb4",
+    "live-evidence.json": "8c9c8c586b798f69361598eaeb7986874e15001a813641e1721ed0b3a3fdaad9",
+    "math-summary.json": "9d00aede31378c5795c50af477114bd744bcb6710da73a94b135a6f63de37c1a",
+    "powerpoint-arrow-readback.json": "072f280714acc52a49e7a909edd3b9b84cdb82dcf184b7098ddcf9c332f1aa4f",
+    "primitive-audit.json": "6a30aa0249b007c7af5008a7f442c66820662a8645a1b4d8830d41aff42e2f43",
+    "regions-report.json": "3a0df7647ae7d241bbee54b3c10bba83721566b25a7607e33f65d5d418527583",
+    "visual-contracts-report.json": "d5ab8d966650e698603a4525ee943aea0b297b953008ff951a7931f5947d2910"
+  },
+  "input_blockers_sha256": "110618aee783fa7f12767542cefbef6d81294e3b58e9513772852888b7dcee4a",
+  "blockers": [
+    {
+      "id": "B0001",
+      "blocker": "arrow-visual:arrow-raw-to-reweighted:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0002",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0003",
+      "blocker": "live-binding-evidence-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0004",
+      "blocker": "live-candidate-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0005",
+      "blocker": "live-evidence-arrow-compile-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0006",
+      "blocker": "live-evidence-arrow-readback-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0007",
+      "blocker": "live-evidence-bindings-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0008",
+      "blocker": "live-evidence-inventory-candidate-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0009",
+      "blocker": "live-evidence-math-summary-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0010",
+      "blocker": "live-evidence-primitive-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0011",
+      "blocker": "live-evidence-regions-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0012",
+      "blocker": "live-evidence-scene-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0013",
+      "blocker": "live-region:arrow-region-model-to-designs",
+      "category": "source_model"
+    },
+    {
+      "id": "B0014",
+      "blocker": "live-region:arrow-region-noise-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0015",
+      "blocker": "live-region:arrow-region-raw-to-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0016",
+      "blocker": "live-region:arrow-region-reweighted-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0017",
+      "blocker": "live-region:arrow-region-target-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "live-region:dataset-assets",
+      "category": "source_model"
+    },
+    {
+      "id": "B0019",
+      "blocker": "live-region:ink-chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0020",
+      "blocker": "live-region:ink-chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0021",
+      "blocker": "live-region:ink-dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0022",
+      "blocker": "live-region:ink-dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0023",
+      "blocker": "live-region:ink-gaussian-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0024",
+      "blocker": "live-region:ink-model-left-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0025",
+      "blocker": "live-region:ink-model-right-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0026",
+      "blocker": "live-region:ink-molecule-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0027",
+      "blocker": "live-region:ink-molecule-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0028",
+      "blocker": "live-region:ink-scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0029",
+      "blocker": "live-region:left-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0030",
+      "blocker": "live-region:left-panel-frame",
+      "category": "source_model"
+    },
+    {
+      "id": "B0031",
+      "blocker": "live-region:noise-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0032",
+      "blocker": "live-region:offline-heading",
+      "category": "source_model"
+    },
+    {
+      "id": "B0033",
+      "blocker": "live-region:reweight-stage",
+      "category": "source_model"
+    },
+    {
+      "id": "B0034",
+      "blocker": "live-region:right-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0035",
+      "blocker": "live-region:right-panel-frame",
+      "category": "source_model"
+    },
+    {
+      "id": "B0036",
+      "blocker": "live-region:sample-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0037",
+      "blocker": "live-region:sampling-heading-distribution",
+      "category": "source_model"
+    },
+    {
+      "id": "B0038",
+      "blocker": "live-region:target-condition",
+      "category": "source_model"
+    },
+    {
+      "id": "B0039",
+      "blocker": "live-region:train-flow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0040",
+      "blocker": "live-region:whole-canvas",
+      "category": "source_model"
+    },
+    {
+      "id": "B0041",
+      "blocker": "live-render-finalizer-unverified",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0042",
+      "blocker": "live-reopened-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0043",
+      "blocker": "live-root-save-reopen-missing",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0044",
+      "blocker": "ocr:reference-text-unmatched",
+      "category": "source_model"
+    },
+    {
+      "id": "B0045",
+      "blocker": "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-x",
+      "category": "source_model"
+    },
+    {
+      "id": "B0046",
+      "blocker": "region-contract:dataset-assets:exhaustive-relation-missing:chart-offline-axis-y",
+      "category": "source_model"
+    },
+    {
+      "id": "B0047",
+      "blocker": "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-x",
+      "category": "source_model"
+    },
+    {
+      "id": "B0048",
+      "blocker": "region-contract:ink-chart-offline:exhaustive-relation-missing:chart-offline-axis-y",
+      "category": "source_model"
+    },
+    {
+      "id": "B0049",
+      "blocker": "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-x",
+      "category": "source_model"
+    },
+    {
+      "id": "B0050",
+      "blocker": "region-contract:ink-chart-target:exhaustive-relation-missing:chart-target-axis-y",
+      "category": "source_model"
+    },
+    {
+      "id": "B0051",
+      "blocker": "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-x",
+      "category": "source_model"
+    },
+    {
+      "id": "B0052",
+      "blocker": "region-contract:target-condition:exhaustive-relation-missing:chart-target-axis-y",
+      "category": "source_model"
+    },
+    {
+      "id": "B0053",
+      "blocker": "region:arrow-region-model-to-designs",
+      "category": "source_model"
+    },
+    {
+      "id": "B0054",
+      "blocker": "region:arrow-region-noise-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0055",
+      "blocker": "region:arrow-region-raw-to-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0056",
+      "blocker": "region:arrow-region-reweighted-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0057",
+      "blocker": "region:arrow-region-target-to-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0058",
+      "blocker": "region:dataset-assets",
+      "category": "source_model"
+    },
+    {
+      "id": "B0059",
+      "blocker": "region:ink-chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0060",
+      "blocker": "region:ink-chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0061",
+      "blocker": "region:ink-dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0062",
+      "blocker": "region:ink-dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0063",
+      "blocker": "region:ink-gaussian-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0064",
+      "blocker": "region:ink-model-left-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0065",
+      "blocker": "region:ink-model-right-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0066",
+      "blocker": "region:ink-molecule-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0067",
+      "blocker": "region:ink-molecule-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0068",
+      "blocker": "region:ink-scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0069",
+      "blocker": "region:left-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0070",
+      "blocker": "region:left-panel-frame",
+      "category": "source_model"
+    },
+    {
+      "id": "B0071",
+      "blocker": "region:noise-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0072",
+      "blocker": "region:offline-heading",
+      "category": "source_model"
+    },
+    {
+      "id": "B0073",
+      "blocker": "region:reweight-stage",
+      "category": "source_model"
+    },
+    {
+      "id": "B0074",
+      "blocker": "region:right-model",
+      "category": "source_model"
+    },
+    {
+      "id": "B0075",
+      "blocker": "region:right-panel-frame",
+      "category": "source_model"
+    },
+    {
+      "id": "B0076",
+      "blocker": "region:sample-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0077",
+      "blocker": "region:sampling-heading-distribution",
+      "category": "source_model"
+    },
+    {
+      "id": "B0078",
+      "blocker": "region:target-condition",
+      "category": "source_model"
+    },
+    {
+      "id": "B0079",
+      "blocker": "region:train-flow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0080",
+      "blocker": "region:whole-canvas",
+      "category": "source_model"
+    },
+    {
+      "id": "B0081",
+      "blocker": "visual-contract:V20:arrow-to-train-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0082",
+      "blocker": "visual-contract:V20:condition-label-to-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0083",
+      "blocker": "visual-contract:V20:designs-to-dna",
+      "category": "source_model"
+    },
+    {
+      "id": "B0084",
+      "blocker": "visual-contract:V20:noise-arrow-to-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0085",
+      "blocker": "visual-contract:V20:sample-arrow-to-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0086",
+      "blocker": "visual-contract:V31:designs-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0087",
+      "blocker": "visual-contract:V32:designs-box",
+      "category": "compiler"
+    },
+    {
+      "id": "B0088",
+      "blocker": "visual-contract:V34:chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0089",
+      "blocker": "visual-contract:V34:chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0090",
+      "blocker": "visual-contract:V34:designs-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0091",
+      "blocker": "visual-contract:V34:dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0092",
+      "blocker": "visual-contract:V34:dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0093",
+      "blocker": "visual-contract:V34:gaussian-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0094",
+      "blocker": "visual-contract:V34:scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0095",
+      "blocker": "visual-contract:V4:text-condition",
+      "category": "source_model"
+    },
+    {
+      "id": "B0096",
+      "blocker": "visual-contract:V4:text-dataset-raw-symbol",
+      "category": "source_model"
+    },
+    {
+      "id": "B0097",
+      "blocker": "visual-contract:V4:text-dataset-reweighted-symbol",
+      "category": "source_model"
+    },
+    {
+      "id": "B0098",
+      "blocker": "visual-contract:V4:text-designs",
+      "category": "source_model"
+    },
+    {
+      "id": "B0099",
+      "blocker": "visual-contract:V4:text-model-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0100",
+      "blocker": "visual-contract:V4:text-model-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0101",
+      "blocker": "visual-contract:V4:text-noise",
+      "category": "source_model"
+    },
+    {
+      "id": "B0102",
+      "blocker": "visual-contract:V4:text-offline-subtitle",
+      "category": "source_model"
+    },
+    {
+      "id": "B0103",
+      "blocker": "visual-contract:V4:text-offline-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0104",
+      "blocker": "visual-contract:V4:text-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0105",
+      "blocker": "visual-contract:V4:text-sample",
+      "category": "source_model"
+    },
+    {
+      "id": "B0106",
+      "blocker": "visual-contract:V4:text-sampling-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0107",
+      "blocker": "visual-contract:V4:text-target-objectives",
+      "category": "source_model"
+    },
+    {
+      "id": "B0108",
+      "blocker": "visual-contract:V4:text-train",
+      "category": "source_model"
+    },
+    {
+      "id": "B0109",
+      "blocker": "visual-contract:V5:chart-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0110",
+      "blocker": "visual-contract:V5:chart-target",
+      "category": "source_model"
+    },
+    {
+      "id": "B0111",
+      "blocker": "visual-contract:V5:dataset-raw",
+      "category": "source_model"
+    },
+    {
+      "id": "B0112",
+      "blocker": "visual-contract:V5:dataset-reweighted",
+      "category": "source_model"
+    },
+    {
+      "id": "B0113",
+      "blocker": "visual-contract:V5:dna-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0114",
+      "blocker": "visual-contract:V5:dna-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0115",
+      "blocker": "visual-contract:V5:model-left-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0116",
+      "blocker": "visual-contract:V5:model-left-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0117",
+      "blocker": "visual-contract:V5:model-right-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0118",
+      "blocker": "visual-contract:V5:model-right-watermark",
+      "category": "source_model"
+    },
+    {
+      "id": "B0119",
+      "blocker": "visual-contract:V5:molecule-offline",
+      "category": "source_model"
+    },
+    {
+      "id": "B0120",
+      "blocker": "visual-contract:V5:molecule-output",
+      "category": "source_model"
+    },
+    {
+      "id": "B0121",
+      "blocker": "visual-contract:V5:panel-sampling",
+      "category": "source_model"
+    },
+    {
+      "id": "B0122",
+      "blocker": "visual-contract:V5:scale-reweight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0123",
+      "blocker": "visual-contract:V7:chart-offline",
+      "category": "compiler"
+    },
+    {
+      "id": "B0124",
+      "blocker": "visual-contract:V7:chart-target",
+      "category": "compiler"
+    },
+    {
+      "id": "B0125",
+      "blocker": "visual-contract:V7:dataset-raw",
+      "category": "compiler"
+    },
+    {
+      "id": "B0126",
+      "blocker": "visual-contract:V7:dataset-reweighted",
+      "category": "compiler"
+    },
+    {
+      "id": "B0127",
+      "blocker": "visual-contract:V7:dna-offline",
+      "category": "compiler"
+    },
+    {
+      "id": "B0128",
+      "blocker": "visual-contract:V7:dna-output",
+      "category": "compiler"
+    },
+    {
+      "id": "B0129",
+      "blocker": "visual-contract:V7:model-left-box",
+      "category": "compiler"
+    },
+    {
+      "id": "B0130",
+      "blocker": "visual-contract:V7:model-left-watermark",
+      "category": "compiler"
+    },
+    {
+      "id": "B0131",
+      "blocker": "visual-contract:V7:model-right-box",
+      "category": "compiler"
+    },
+    {
+      "id": "B0132",
+      "blocker": "visual-contract:V7:model-right-watermark",
+      "category": "compiler"
+    },
+    {
+      "id": "B0133",
+      "blocker": "visual-contract:V7:molecule-offline",
+      "category": "compiler"
+    },
+    {
+      "id": "B0134",
+      "blocker": "visual-contract:V7:molecule-output",
+      "category": "compiler"
+    },
+    {
+      "id": "B0135",
+      "blocker": "visual-contract:V7:panel-sampling",
+      "category": "compiler"
+    },
+    {
+      "id": "B0136",
+      "blocker": "visual-contract:V7:scale-reweight",
+      "category": "compiler"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0001",
+        "B0013",
+        "B0014",
+        "B0015",
+        "B0016",
+        "B0017",
+        "B0018",
+        "B0019",
+        "B0020",
+        "B0021",
+        "B0022",
+        "B0023",
+        "B0024",
+        "B0025",
+        "B0026",
+        "B0027",
+        "B0028",
+        "B0029",
+        "B0030",
+        "B0031",
+        "B0032",
+        "B0033",
+        "B0034",
+        "B0035",
+        "B0036",
+        "B0037",
+        "B0038",
+        "B0039",
+        "B0040",
+        "B0044",
+        "B0045",
+        "B0046",
+        "B0047",
+        "B0048",
+        "B0049",
+        "B0050",
+        "B0051",
+        "B0052",
+        "B0053",
+        "B0054",
+        "B0055",
+        "B0056",
+        "B0057",
+        "B0058",
+        "B0059",
+        "B0060",
+        "B0061",
+        "B0062",
+        "B0063",
+        "B0064",
+        "B0065",
+        "B0066",
+        "B0067",
+        "B0068",
+        "B0069",
+        "B0070",
+        "B0071",
+        "B0072",
+        "B0073",
+        "B0074",
+        "B0075",
+        "B0076",
+        "B0077",
+        "B0078",
+        "B0079",
+        "B0080",
+        "B0081",
+        "B0082",
+        "B0083",
+        "B0084",
+        "B0085",
+        "B0086",
+        "B0088",
+        "B0089",
+        "B0090",
+        "B0091",
+        "B0092",
+        "B0093",
+        "B0094",
+        "B0095",
+        "B0096",
+        "B0097",
+        "B0098",
+        "B0099",
+        "B0100",
+        "B0101",
+        "B0102",
+        "B0103",
+        "B0104",
+        "B0105",
+        "B0106",
+        "B0107",
+        "B0108",
+        "B0109",
+        "B0110",
+        "B0111",
+        "B0112",
+        "B0113",
+        "B0114",
+        "B0115",
+        "B0116",
+        "B0117",
+        "B0118",
+        "B0119",
+        "B0120",
+        "B0121",
+        "B0122"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-compiler",
+      "category": "compiler",
+      "covers": [
+        "B0087",
+        "B0123",
+        "B0124",
+        "B0125",
+        "B0126",
+        "B0127",
+        "B0128",
+        "B0129",
+        "B0130",
+        "B0131",
+        "B0132",
+        "B0133",
+        "B0134",
+        "B0135",
+        "B0136"
+      ],
+      "strategy": "fix-deterministic-compiler-and-recompile",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "compiler report",
+        "OOXML readback",
+        "single-visible-object and binding closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0002",
+        "B0008",
+        "B0009",
+        "B0043"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    },
+    {
+      "id": "A-evidence-only",
+      "category": "evidence_only",
+      "covers": [
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0010",
+        "B0011",
+        "B0012",
+        "B0041",
+        "B0042"
+      ],
+      "strategy": "regenerate-hash-bound-evidence-from-unchanged-artifact",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "redraw.svg",
+        "redraw.pptx",
+        "scene.json",
+        "bindings.json"
+      ],
+      "required_verification": [
+        "evidence artifact identity",
+        "QA report digests",
+        "finalizer-bound render receipt"
+      ]
+    }
+  ],
+  "coverage": {
+    "expected_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048",
+      "B0049",
+      "B0050",
+      "B0051",
+      "B0052",
+      "B0053",
+      "B0054",
+      "B0055",
+      "B0056",
+      "B0057",
+      "B0058",
+      "B0059",
+      "B0060",
+      "B0061",
+      "B0062",
+      "B0063",
+      "B0064",
+      "B0065",
+      "B0066",
+      "B0067",
+      "B0068",
+      "B0069",
+      "B0070",
+      "B0071",
+      "B0072",
+      "B0073",
+      "B0074",
+      "B0075",
+      "B0076",
+      "B0077",
+      "B0078",
+      "B0079",
+      "B0080",
+      "B0081",
+      "B0082",
+      "B0083",
+      "B0084",
+      "B0085",
+      "B0086",
+      "B0087",
+      "B0088",
+      "B0089",
+      "B0090",
+      "B0091",
+      "B0092",
+      "B0093",
+      "B0094",
+      "B0095",
+      "B0096",
+      "B0097",
+      "B0098",
+      "B0099",
+      "B0100",
+      "B0101",
+      "B0102",
+      "B0103",
+      "B0104",
+      "B0105",
+      "B0106",
+      "B0107",
+      "B0108",
+      "B0109",
+      "B0110",
+      "B0111",
+      "B0112",
+      "B0113",
+      "B0114",
+      "B0115",
+      "B0116",
+      "B0117",
+      "B0118",
+      "B0119",
+      "B0120",
+      "B0121",
+      "B0122",
+      "B0123",
+      "B0124",
+      "B0125",
+      "B0126",
+      "B0127",
+      "B0128",
+      "B0129",
+      "B0130",
+      "B0131",
+      "B0132",
+      "B0133",
+      "B0134",
+      "B0135",
+      "B0136"
+    ],
+    "covered_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048",
+      "B0049",
+      "B0050",
+      "B0051",
+      "B0052",
+      "B0053",
+      "B0054",
+      "B0055",
+      "B0056",
+      "B0057",
+      "B0058",
+      "B0059",
+      "B0060",
+      "B0061",
+      "B0062",
+      "B0063",
+      "B0064",
+      "B0065",
+      "B0066",
+      "B0067",
+      "B0068",
+      "B0069",
+      "B0070",
+      "B0071",
+      "B0072",
+      "B0073",
+      "B0074",
+      "B0075",
+      "B0076",
+      "B0077",
+      "B0078",
+      "B0079",
+      "B0080",
+      "B0081",
+      "B0082",
+      "B0083",
+      "B0084",
+      "B0085",
+      "B0086",
+      "B0087",
+      "B0088",
+      "B0089",
+      "B0090",
+      "B0091",
+      "B0092",
+      "B0093",
+      "B0094",
+      "B0095",
+      "B0096",
+      "B0097",
+      "B0098",
+      "B0099",
+      "B0100",
+      "B0101",
+      "B0102",
+      "B0103",
+      "B0104",
+      "B0105",
+      "B0106",
+      "B0107",
+      "B0108",
+      "B0109",
+      "B0110",
+      "B0111",
+      "B0112",
+      "B0113",
+      "B0114",
+      "B0115",
+      "B0116",
+      "B0117",
+      "B0118",
+      "B0119",
+      "B0120",
+      "B0121",
+      "B0122",
+      "B0123",
+      "B0124",
+      "B0125",
+      "B0126",
+      "B0127",
+      "B0128",
+      "B0129",
+      "B0130",
+      "B0131",
+      "B0132",
+      "B0133",
+      "B0134",
+      "B0135",
+      "B0136"
+    ],
+    "uncovered_blocker_ids": [],
+    "multiply_covered_blocker_ids": []
+  },
+  "invalid_inputs": [],
+  "classification_counts": {
+    "contract": 0,
+    "source_model": 107,
+    "compiler": 15,
+    "host_compat": 4,
+    "evidence_only": 10
+  },
+  "errors": [],
+  "pass": true,
+  "plan_sha256": "86321e9c2ea6d079fdf57a6f11d1558dbab4d49c3ca89904c1494cdfdb047a05"
+}

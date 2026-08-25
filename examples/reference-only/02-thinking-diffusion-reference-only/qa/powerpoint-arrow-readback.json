@@ -1,0 +1,688 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_arrow_readback",
+  "created_at": "20260824T153713Z",
+  "case": "02-thinking-diffusion-reference-only",
+  "scene_sha256": "e15ab87395c55024012dd14fa819196929da5bb6f7b2208c6695fdeef4ca9c26",
+  "artifact_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+  "bindings_artifact_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+  "saved_reopened": false,
+  "inventory_count": 147,
+  "arrow_count": 6,
+  "records": [
+    {
+      "element_id": "left-input-to-model-arrow",
+      "arrow_spec_sha256": "9b04d9bcfbdd2ecd67d38ba19b42427f1e69cedb7e6a8b95ecdd5cc254f5316e",
+      "shape_id": 24,
+      "shape_name": "af-left-input-to-model-arrow-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "med",
+          "length": "med"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          487.0,
+          94.0
+        ],
+        "expected_end": [
+          487.0,
+          114.0
+        ],
+        "actual_start": [
+          487.0,
+          94.0
+        ],
+        "actual_end": [
+          487.0,
+          114.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 4.0281,
+          "full_path_px": 5.6393,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "9b04d9bcfbdd2ecd67d38ba19b42427f1e69cedb7e6a8b95ecdd5cc254f5316e",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "left-model-to-early-arrow",
+      "arrow_spec_sha256": "45cce0aa133864370112a268424b669b8933b6bb671f43705b4073def0afe4bf",
+      "shape_id": 36,
+      "shape_name": "af-left-model-to-early-arrow-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "med",
+          "length": "med"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          487.0,
+          188.0
+        ],
+        "expected_end": [
+          487.0,
+          238.0
+        ],
+        "actual_start": [
+          487.0,
+          188.0
+        ],
+        "actual_end": [
+          487.0,
+          238.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 4.0281,
+          "full_path_px": 5.6393,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "45cce0aa133864370112a268424b669b8933b6bb671f43705b4073def0afe4bf",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "left-transition-to-late-arrow",
+      "arrow_spec_sha256": "ed33b8bc0b55581bf0fd0bc2579c13abaef7e35e43fb0c6304904228abed927d",
+      "shape_id": 58,
+      "shape_name": "af-left-transition-to-late-arrow-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "med",
+          "length": "med"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          487.0,
+          357.0
+        ],
+        "expected_end": [
+          487.0,
+          382.0
+        ],
+        "actual_start": [
+          487.0,
+          357.0
+        ],
+        "actual_end": [
+          487.0,
+          382.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 4.0281,
+          "full_path_px": 5.6393,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "ed33b8bc0b55581bf0fd0bc2579c13abaef7e35e43fb0c6304904228abed927d",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "right-input-to-model-arrow",
+      "arrow_spec_sha256": "9c7daeddba7b07632cd139278f406e0b44f190adab31fc6a455d6072ec4c7f1c",
+      "shape_id": 103,
+      "shape_name": "af-right-input-to-model-arrow-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "med",
+          "length": "med"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          1259.0,
+          89.0
+        ],
+        "expected_end": [
+          1259.0,
+          109.0
+        ],
+        "actual_start": [
+          1259.0,
+          89.0
+        ],
+        "actual_end": [
+          1259.0,
+          109.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 4.0281,
+          "full_path_px": 5.6393,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "9c7daeddba7b07632cd139278f406e0b44f190adab31fc6a455d6072ec4c7f1c",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "right-model-to-early-arrow",
+      "arrow_spec_sha256": "b9ae052b2f403658003f5e72db7b6a4e46e111694b0b52c232cb8d151aefc43e",
+      "shape_id": 106,
+      "shape_name": "af-right-model-to-early-arrow-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "med",
+          "length": "med"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          1259.0,
+          184.0
+        ],
+        "expected_end": [
+          1259.0,
+          234.0
+        ],
+        "actual_start": [
+          1259.0,
+          184.0
+        ],
+        "actual_end": [
+          1259.0,
+          234.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 4.0281,
+          "full_path_px": 5.6393,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "b9ae052b2f403658003f5e72db7b6a4e46e111694b0b52c232cb8d151aefc43e",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "right-transition-to-late-arrow",
+      "arrow_spec_sha256": "24691f56f175e158fca8a433c6d74947763e97f669cbdff4ad97f5fc2609f3b1",
+      "shape_id": 127,
+      "shape_name": "af-right-transition-to-late-arrow-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "med",
+          "length": "med"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          1259.0,
+          354.0
+        ],
+        "expected_end": [
+          1259.0,
+          379.0
+        ],
+        "actual_start": [
+          1259.0,
+          354.0
+        ],
+        "actual_end": [
+          1259.0,
+          379.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 4.0281,
+          "full_path_px": 5.6393,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "24691f56f175e158fca8a433c6d74947763e97f669cbdff4ad97f5fc2609f3b1",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

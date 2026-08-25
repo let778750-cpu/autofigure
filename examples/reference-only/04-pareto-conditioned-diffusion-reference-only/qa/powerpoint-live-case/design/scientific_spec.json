@@ -1,0 +1,2003 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-04-pareto-conditioned-diffusion-reference-only",
+  "figureRole": "system_architecture",
+  "language": "en",
+  "audience": "Autofigure human review",
+  "claims": [
+    {
+      "claimId": "reference-correspondence",
+      "text": "This editable candidate reconstructs the designated reference; scientific interpretation remains source-bound.",
+      "evidenceType": "conceptual",
+      "sourceIds": [
+        "reference"
+      ],
+      "mustShow": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "canvas-background",
+      "label": "canvas-background",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "panel-offline",
+      "label": "panel-offline",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "panel-sampling",
+      "label": "panel-sampling",
+      "kind": "panel",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-offline-title",
+      "label": "Offline Training",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-offline-subtitle",
+      "label": "Static Multi-Objective Dataset",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-sampling-title",
+      "label": "Sampling",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline",
+      "label": "molecule-offline",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-01",
+      "label": "molecule-offline-atom-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-02",
+      "label": "molecule-offline-atom-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-03",
+      "label": "molecule-offline-atom-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-04",
+      "label": "molecule-offline-atom-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-05",
+      "label": "molecule-offline-atom-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-06",
+      "label": "molecule-offline-atom-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-07",
+      "label": "molecule-offline-atom-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-offline-atom-08",
+      "label": "molecule-offline-atom-08",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline",
+      "label": "dna-offline",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-strand-a",
+      "label": "dna-offline-left-strand-a",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-strand-b",
+      "label": "dna-offline-left-strand-b",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-01",
+      "label": "dna-offline-left-rung-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-02",
+      "label": "dna-offline-left-rung-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-03",
+      "label": "dna-offline-left-rung-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-04",
+      "label": "dna-offline-left-rung-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-05",
+      "label": "dna-offline-left-rung-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-06",
+      "label": "dna-offline-left-rung-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-left-rung-07",
+      "label": "dna-offline-left-rung-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-strand-a",
+      "label": "dna-offline-right-strand-a",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-strand-b",
+      "label": "dna-offline-right-strand-b",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-01",
+      "label": "dna-offline-right-rung-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-02",
+      "label": "dna-offline-right-rung-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-03",
+      "label": "dna-offline-right-rung-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-04",
+      "label": "dna-offline-right-rung-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-05",
+      "label": "dna-offline-right-rung-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-06",
+      "label": "dna-offline-right-rung-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-offline-right-rung-07",
+      "label": "dna-offline-right-rung-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dataset-raw",
+      "label": "dataset-raw",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dataset-raw-body",
+      "label": "dataset-raw-body",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dataset-raw-top",
+      "label": "dataset-raw-top",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-dataset-raw-symbol",
+      "label": "D",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline",
+      "label": "chart-offline",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-axis-y",
+      "label": "chart-offline-axis-y",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-axis-x",
+      "label": "chart-offline-axis-x",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-y-tick-01",
+      "label": "chart-offline-y-tick-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-y-tick-02",
+      "label": "chart-offline-y-tick-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-y-tick-03",
+      "label": "chart-offline-y-tick-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-y-tick-04",
+      "label": "chart-offline-y-tick-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-x-tick-01",
+      "label": "chart-offline-x-tick-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-x-tick-02",
+      "label": "chart-offline-x-tick-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-x-tick-03",
+      "label": "chart-offline-x-tick-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-x-tick-04",
+      "label": "chart-offline-x-tick-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-wick-01",
+      "label": "chart-offline-wick-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-candle-01",
+      "label": "chart-offline-candle-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-wick-02",
+      "label": "chart-offline-wick-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-candle-02",
+      "label": "chart-offline-candle-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-wick-03",
+      "label": "chart-offline-wick-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-candle-03",
+      "label": "chart-offline-candle-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-wick-04",
+      "label": "chart-offline-wick-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-candle-04",
+      "label": "chart-offline-candle-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-wick-05",
+      "label": "chart-offline-wick-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-offline-candle-05",
+      "label": "chart-offline-candle-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dataset-reweighted",
+      "label": "dataset-reweighted",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dataset-reweighted-body",
+      "label": "dataset-reweighted-body",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dataset-reweighted-top",
+      "label": "dataset-reweighted-top",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-dataset-reweighted-symbol",
+      "label": "D",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-reweighted",
+      "label": "Reweighted",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight",
+      "label": "scale-reweight",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-post",
+      "label": "scale-reweight-post",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-beam",
+      "label": "scale-reweight-beam",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-pivot",
+      "label": "scale-reweight-pivot",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-left-hanger",
+      "label": "scale-reweight-left-hanger",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-right-hanger",
+      "label": "scale-reweight-right-hanger",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-left-pan",
+      "label": "scale-reweight-left-pan",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-right-pan",
+      "label": "scale-reweight-right-pan",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "scale-reweight-base",
+      "label": "scale-reweight-base",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-train",
+      "label": "Train",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-box",
+      "label": "model-left-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-watermark",
+      "label": "model-left-watermark",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-01",
+      "label": "model-left-node-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-02",
+      "label": "model-left-node-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-03",
+      "label": "model-left-node-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-04",
+      "label": "model-left-node-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-05",
+      "label": "model-left-node-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-06",
+      "label": "model-left-node-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-left-node-07",
+      "label": "model-left-node-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-model-left",
+      "label": "Pareto-Conditioned\nDiffusion Model",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "gaussian-noise",
+      "label": "gaussian-noise",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "gaussian-noise-baseline",
+      "label": "gaussian-noise-baseline",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "gaussian-noise-curve",
+      "label": "gaussian-noise-curve",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-noise",
+      "label": "Noise",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "target-objectives-box",
+      "label": "target-objectives-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-target-objectives",
+      "label": "Target\nObjectives",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-condition",
+      "label": "Condition",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target",
+      "label": "chart-target",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-axis-y",
+      "label": "chart-target-axis-y",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-axis-x",
+      "label": "chart-target-axis-x",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-y-tick-01",
+      "label": "chart-target-y-tick-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-y-tick-02",
+      "label": "chart-target-y-tick-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-y-tick-03",
+      "label": "chart-target-y-tick-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-y-tick-04",
+      "label": "chart-target-y-tick-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-x-tick-01",
+      "label": "chart-target-x-tick-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-x-tick-02",
+      "label": "chart-target-x-tick-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-x-tick-03",
+      "label": "chart-target-x-tick-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-x-tick-04",
+      "label": "chart-target-x-tick-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-wick-01",
+      "label": "chart-target-wick-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-candle-01",
+      "label": "chart-target-candle-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-wick-02",
+      "label": "chart-target-wick-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-candle-02",
+      "label": "chart-target-candle-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-wick-03",
+      "label": "chart-target-wick-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-candle-03",
+      "label": "chart-target-candle-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-wick-04",
+      "label": "chart-target-wick-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-candle-04",
+      "label": "chart-target-candle-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-wick-05",
+      "label": "chart-target-wick-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "chart-target-candle-05",
+      "label": "chart-target-candle-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-box",
+      "label": "model-right-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-watermark",
+      "label": "model-right-watermark",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-01",
+      "label": "model-right-node-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-02",
+      "label": "model-right-node-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-03",
+      "label": "model-right-node-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-04",
+      "label": "model-right-node-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-05",
+      "label": "model-right-node-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-06",
+      "label": "model-right-node-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "model-right-node-07",
+      "label": "model-right-node-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-model-right",
+      "label": "Pareto-Conditioned\nDiffusion Model",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-sample",
+      "label": "Sample",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "designs-box",
+      "label": "designs-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "designs-box-top",
+      "label": "designs-box-top",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "designs-box-side",
+      "label": "designs-box-side",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "designs-box-front",
+      "label": "designs-box-front",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "text-designs",
+      "label": "Designs",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output",
+      "label": "molecule-output",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-01",
+      "label": "molecule-output-atom-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-02",
+      "label": "molecule-output-atom-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-03",
+      "label": "molecule-output-atom-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-04",
+      "label": "molecule-output-atom-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-05",
+      "label": "molecule-output-atom-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-06",
+      "label": "molecule-output-atom-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-07",
+      "label": "molecule-output-atom-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "molecule-output-atom-08",
+      "label": "molecule-output-atom-08",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output",
+      "label": "dna-output",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-strand-a",
+      "label": "dna-output-left-strand-a",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-strand-b",
+      "label": "dna-output-left-strand-b",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-01",
+      "label": "dna-output-left-rung-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-02",
+      "label": "dna-output-left-rung-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-03",
+      "label": "dna-output-left-rung-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-04",
+      "label": "dna-output-left-rung-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-05",
+      "label": "dna-output-left-rung-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-06",
+      "label": "dna-output-left-rung-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-left-rung-07",
+      "label": "dna-output-left-rung-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-strand-a",
+      "label": "dna-output-right-strand-a",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-strand-b",
+      "label": "dna-output-right-strand-b",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-01",
+      "label": "dna-output-right-rung-01",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-02",
+      "label": "dna-output-right-rung-02",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-03",
+      "label": "dna-output-right-rung-03",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-04",
+      "label": "dna-output-right-rung-04",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-05",
+      "label": "dna-output-right-rung-05",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-06",
+      "label": "dna-output-right-rung-06",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "dna-output-right-rung-07",
+      "label": "dna-output-right-rung-07",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    }
+  ],
+  "relations": [
+    {
+      "relationId": "rel:molecule-offline-bond-01",
+      "source": "molecule-offline-atom-01",
+      "target": "molecule-offline-atom-02",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-offline-bond-02",
+      "source": "molecule-offline-atom-02",
+      "target": "molecule-offline-atom-03",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-offline-bond-03",
+      "source": "molecule-offline-atom-02",
+      "target": "molecule-offline-atom-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-offline-bond-04",
+      "source": "molecule-offline-atom-02",
+      "target": "molecule-offline-atom-05",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-offline-bond-05",
+      "source": "molecule-offline-atom-05",
+      "target": "molecule-offline-atom-06",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-offline-bond-06",
+      "source": "molecule-offline-atom-05",
+      "target": "molecule-offline-atom-07",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-offline-bond-07",
+      "source": "molecule-offline-atom-05",
+      "target": "molecule-offline-atom-08",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:arrow-raw-to-reweighted",
+      "source": "dataset-raw-body",
+      "target": "dataset-reweighted-body",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:arrow-reweighted-to-model",
+      "source": "dataset-reweighted-body",
+      "target": "model-left-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-01",
+      "source": "model-left-node-01",
+      "target": "model-left-node-02",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-02",
+      "source": "model-left-node-01",
+      "target": "model-left-node-03",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-03",
+      "source": "model-left-node-01",
+      "target": "model-left-node-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-04",
+      "source": "model-left-node-02",
+      "target": "model-left-node-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-05",
+      "source": "model-left-node-03",
+      "target": "model-left-node-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-06",
+      "source": "model-left-node-02",
+      "target": "model-left-node-06",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-07",
+      "source": "model-left-node-03",
+      "target": "model-left-node-05",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-08",
+      "source": "model-left-node-04",
+      "target": "model-left-node-05",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-09",
+      "source": "model-left-node-04",
+      "target": "model-left-node-06",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-10",
+      "source": "model-left-node-05",
+      "target": "model-left-node-07",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-left-edge-11",
+      "source": "model-left-node-06",
+      "target": "model-left-node-07",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:arrow-noise-to-model",
+      "source": "gaussian-noise-curve",
+      "target": "model-right-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:arrow-target-to-model",
+      "source": "target-objectives-box",
+      "target": "model-right-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-01",
+      "source": "model-right-node-01",
+      "target": "model-right-node-02",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-02",
+      "source": "model-right-node-01",
+      "target": "model-right-node-03",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-03",
+      "source": "model-right-node-01",
+      "target": "model-right-node-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-04",
+      "source": "model-right-node-02",
+      "target": "model-right-node-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-05",
+      "source": "model-right-node-03",
+      "target": "model-right-node-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-06",
+      "source": "model-right-node-02",
+      "target": "model-right-node-06",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-07",
+      "source": "model-right-node-03",
+      "target": "model-right-node-05",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-08",
+      "source": "model-right-node-04",
+      "target": "model-right-node-05",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-09",
+      "source": "model-right-node-04",
+      "target": "model-right-node-06",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-10",
+      "source": "model-right-node-05",
+      "target": "model-right-node-07",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:model-right-edge-11",
+      "source": "model-right-node-06",
+      "target": "model-right-node-07",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:arrow-model-to-designs",
+      "source": "model-right-box",
+      "target": "designs-box-front",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-01",
+      "source": "molecule-output-atom-01",
+      "target": "molecule-output-atom-02",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-02",
+      "source": "molecule-output-atom-02",
+      "target": "molecule-output-atom-03",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-03",
+      "source": "molecule-output-atom-02",
+      "target": "molecule-output-atom-04",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-04",
+      "source": "molecule-output-atom-02",
+      "target": "molecule-output-atom-05",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-05",
+      "source": "molecule-output-atom-05",
+      "target": "molecule-output-atom-06",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-06",
+      "source": "molecule-output-atom-05",
+      "target": "molecule-output-atom-07",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:molecule-output-bond-07",
+      "source": "molecule-output-atom-05",
+      "target": "molecule-output-atom-08",
+      "kind": "flow",
+      "direction": "none",
+      "sourceIds": [
+        "reference"
+      ]
+    }
+  ],
+  "formulas": [],
+  "evidenceDeclarations": [],
+  "unknowns": [
+    "Independent scientific-semantic approval has not been supplied."
+  ],
+  "approval": {
+    "status": "PENDING",
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Bridge generation does not approve scientific content."
+  }
+}

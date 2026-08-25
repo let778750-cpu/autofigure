@@ -1,0 +1,824 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "region_tasks",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "input_route": "reference-only",
+  "processing_mode": "png_reconstruct",
+  "fidelity_profile": "hybrid_fidelity",
+  "regions_sha256": "d9675ad13137af2a491e6760558e6e7da6eba46f0bd4d143c1faa79bad69d246",
+  "reference_inventory_status": "frozen",
+  "reference_inventory_sha256": "a66eabcb06fa12faba2afcb4ee791c6a8264d0f811795c665098e8a87f7eb002",
+  "result_contract": {
+    "accepted_kinds": [
+      "scene",
+      "region_patch",
+      "svg"
+    ],
+    "stable_element_ids_required": true,
+    "formal_content_must_remain_native": true,
+    "offline_initial_render_carrier": "svg",
+    "scene_or_patch_requires": "existing render carrier or powerpoint-live provider",
+    "svg_authoring_contract": "prompt.md"
+  },
+  "tasks": [
+    {
+      "region_id": "whole-canvas",
+      "label": "Whole canvas",
+      "bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "critical": true,
+      "element_ids": [
+        "canvas-background"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "left-panel-frame",
+      "label": "Offline panel frame",
+      "bbox": [
+        15,
+        48,
+        558,
+        550
+      ],
+      "critical": true,
+      "element_ids": [
+        "panel-offline"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "offline-heading",
+      "label": "Offline heading",
+      "bbox": [
+        95,
+        8,
+        405,
+        94
+      ],
+      "critical": true,
+      "element_ids": [
+        "text-offline-title",
+        "text-offline-subtitle"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "dataset-assets",
+      "label": "Static dataset assets",
+      "bbox": [
+        155,
+        96,
+        280,
+        120
+      ],
+      "critical": true,
+      "element_ids": [
+        "dataset-raw-body",
+        "dataset-raw-top",
+        "molecule-offline-bond-01",
+        "molecule-offline-bond-02",
+        "molecule-offline-bond-03",
+        "molecule-offline-bond-04",
+        "molecule-offline-bond-05",
+        "molecule-offline-bond-06",
+        "molecule-offline-bond-07",
+        "molecule-offline-atom-01",
+        "molecule-offline-atom-02",
+        "molecule-offline-atom-03",
+        "molecule-offline-atom-04",
+        "molecule-offline-atom-05",
+        "molecule-offline-atom-06",
+        "molecule-offline-atom-07",
+        "molecule-offline-atom-08",
+        "dna-offline-left-rung-01",
+        "dna-offline-left-rung-02",
+        "dna-offline-left-rung-03",
+        "dna-offline-left-rung-04",
+        "dna-offline-left-rung-05",
+        "dna-offline-left-rung-06",
+        "dna-offline-left-rung-07",
+        "dna-offline-left-strand-a",
+        "dna-offline-left-strand-b",
+        "dna-offline-right-rung-01",
+        "dna-offline-right-rung-02",
+        "dna-offline-right-rung-03",
+        "dna-offline-right-rung-04",
+        "dna-offline-right-rung-05",
+        "dna-offline-right-rung-06",
+        "dna-offline-right-rung-07",
+        "dna-offline-right-strand-a",
+        "dna-offline-right-strand-b",
+        "chart-offline-axis-x",
+        "chart-offline-axis-y",
+        "chart-offline-y-tick-01",
+        "chart-offline-y-tick-02",
+        "chart-offline-y-tick-03",
+        "chart-offline-y-tick-04",
+        "chart-offline-x-tick-01",
+        "chart-offline-x-tick-02",
+        "chart-offline-x-tick-03",
+        "chart-offline-x-tick-04",
+        "chart-offline-wick-01",
+        "chart-offline-candle-01",
+        "chart-offline-wick-02",
+        "chart-offline-candle-02",
+        "chart-offline-wick-03",
+        "chart-offline-candle-03",
+        "chart-offline-wick-04",
+        "chart-offline-candle-04",
+        "chart-offline-wick-05",
+        "chart-offline-candle-05",
+        "text-dataset-raw-symbol"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "reweight-stage",
+      "label": "Reweight stage",
+      "bbox": [
+        95,
+        250,
+        250,
+        123
+      ],
+      "critical": true,
+      "element_ids": [
+        "dataset-reweighted-body",
+        "dataset-reweighted-top",
+        "scale-reweight-post",
+        "scale-reweight-beam",
+        "scale-reweight-pivot",
+        "scale-reweight-left-hanger",
+        "scale-reweight-right-hanger",
+        "scale-reweight-left-pan",
+        "scale-reweight-right-pan",
+        "scale-reweight-base",
+        "text-reweighted",
+        "text-dataset-reweighted-symbol"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "train-flow",
+      "label": "Train label and flow",
+      "bbox": [
+        260,
+        350,
+        150,
+        96
+      ],
+      "critical": true,
+      "element_ids": [
+        "text-train"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "left-model",
+      "label": "Left diffusion model",
+      "bbox": [
+        145,
+        440,
+        298,
+        139
+      ],
+      "critical": true,
+      "element_ids": [
+        "model-left-box",
+        "model-left-edge-01",
+        "model-left-edge-02",
+        "model-left-edge-03",
+        "model-left-edge-04",
+        "model-left-edge-05",
+        "model-left-edge-06",
+        "model-left-edge-07",
+        "model-left-edge-08",
+        "model-left-edge-09",
+        "model-left-edge-10",
+        "model-left-edge-11",
+        "model-left-node-01",
+        "model-left-node-02",
+        "model-left-node-03",
+        "model-left-node-04",
+        "model-left-node-05",
+        "model-left-node-06",
+        "model-left-node-07",
+        "text-model-left"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "right-panel-frame",
+      "label": "Sampling panel frame",
+      "bbox": [
+        575,
+        48,
+        628,
+        550
+      ],
+      "critical": true,
+      "element_ids": [
+        "panel-sampling"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "sampling-heading-distribution",
+      "label": "Sampling heading and distribution",
+      "bbox": [
+        790,
+        8,
+        390,
+        188
+      ],
+      "critical": true,
+      "element_ids": [
+        "gaussian-noise-baseline",
+        "gaussian-noise-curve",
+        "text-sampling-title"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1048,
+        198,
+        90,
+        36
+      ],
+      "critical": true,
+      "element_ids": [
+        "text-noise"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "target-condition",
+      "label": "Target objectives and condition",
+      "bbox": [
+        605,
+        250,
+        280,
+        196
+      ],
+      "critical": true,
+      "element_ids": [
+        "target-objectives-box",
+        "chart-target-axis-x",
+        "chart-target-axis-y",
+        "chart-target-y-tick-01",
+        "chart-target-y-tick-02",
+        "chart-target-y-tick-03",
+        "chart-target-y-tick-04",
+        "chart-target-x-tick-01",
+        "chart-target-x-tick-02",
+        "chart-target-x-tick-03",
+        "chart-target-x-tick-04",
+        "chart-target-wick-01",
+        "chart-target-candle-01",
+        "chart-target-wick-02",
+        "chart-target-candle-02",
+        "chart-target-wick-03",
+        "chart-target-candle-03",
+        "chart-target-wick-04",
+        "chart-target-candle-04",
+        "chart-target-wick-05",
+        "chart-target-candle-05",
+        "text-target-objectives",
+        "text-condition"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "right-model",
+      "label": "Right diffusion model",
+      "bbox": [
+        875,
+        246,
+        295,
+        138
+      ],
+      "critical": true,
+      "element_ids": [
+        "model-right-box",
+        "model-right-edge-01",
+        "model-right-edge-02",
+        "model-right-edge-03",
+        "model-right-edge-04",
+        "model-right-edge-05",
+        "model-right-edge-06",
+        "model-right-edge-07",
+        "model-right-edge-08",
+        "model-right-edge-09",
+        "model-right-edge-10",
+        "model-right-edge-11",
+        "model-right-node-01",
+        "model-right-node-02",
+        "model-right-node-03",
+        "model-right-node-04",
+        "model-right-node-05",
+        "model-right-node-06",
+        "model-right-node-07",
+        "text-model-right"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "sample-output",
+      "label": "Sample and design outputs",
+      "bbox": [
+        840,
+        376,
+        345,
+        202
+      ],
+      "critical": true,
+      "element_ids": [
+        "designs-box-front",
+        "designs-box-top",
+        "designs-box-side",
+        "molecule-output-bond-01",
+        "molecule-output-bond-02",
+        "molecule-output-bond-03",
+        "molecule-output-bond-04",
+        "molecule-output-bond-05",
+        "molecule-output-bond-06",
+        "molecule-output-bond-07",
+        "molecule-output-atom-01",
+        "molecule-output-atom-02",
+        "molecule-output-atom-03",
+        "molecule-output-atom-04",
+        "molecule-output-atom-05",
+        "molecule-output-atom-06",
+        "molecule-output-atom-07",
+        "molecule-output-atom-08",
+        "dna-output-left-rung-01",
+        "dna-output-left-rung-02",
+        "dna-output-left-rung-03",
+        "dna-output-left-rung-04",
+        "dna-output-left-rung-05",
+        "dna-output-left-rung-06",
+        "dna-output-left-rung-07",
+        "dna-output-left-strand-a",
+        "dna-output-left-strand-b",
+        "dna-output-right-rung-01",
+        "dna-output-right-rung-02",
+        "dna-output-right-rung-03",
+        "dna-output-right-rung-04",
+        "dna-output-right-rung-05",
+        "dna-output-right-rung-06",
+        "dna-output-right-rung-07",
+        "dna-output-right-strand-a",
+        "dna-output-right-strand-b",
+        "text-sample",
+        "text-designs"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-molecule-offline",
+      "label": "Object silhouette: molecule-offline",
+      "bbox": [
+        161,
+        97,
+        82,
+        51
+      ],
+      "critical": true,
+      "element_ids": [
+        "molecule-offline-bond-01",
+        "molecule-offline-bond-02",
+        "molecule-offline-bond-03",
+        "molecule-offline-bond-04",
+        "molecule-offline-bond-05",
+        "molecule-offline-bond-06",
+        "molecule-offline-bond-07",
+        "molecule-offline-atom-01",
+        "molecule-offline-atom-02",
+        "molecule-offline-atom-03",
+        "molecule-offline-atom-04",
+        "molecule-offline-atom-05",
+        "molecule-offline-atom-06",
+        "molecule-offline-atom-07",
+        "molecule-offline-atom-08"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-molecule-output",
+      "label": "Object silhouette: molecule-output",
+      "bbox": [
+        847,
+        500,
+        82,
+        51
+      ],
+      "critical": true,
+      "element_ids": [
+        "molecule-output-bond-01",
+        "molecule-output-bond-02",
+        "molecule-output-bond-03",
+        "molecule-output-bond-04",
+        "molecule-output-bond-05",
+        "molecule-output-bond-06",
+        "molecule-output-bond-07",
+        "molecule-output-atom-01",
+        "molecule-output-atom-02",
+        "molecule-output-atom-03",
+        "molecule-output-atom-04",
+        "molecule-output-atom-05",
+        "molecule-output-atom-06",
+        "molecule-output-atom-07",
+        "molecule-output-atom-08"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-dna-offline",
+      "label": "Object silhouette: dna-offline",
+      "bbox": [
+        171,
+        147,
+        71,
+        66
+      ],
+      "critical": true,
+      "element_ids": [
+        "dna-offline-left-rung-01",
+        "dna-offline-left-rung-02",
+        "dna-offline-left-rung-03",
+        "dna-offline-left-rung-04",
+        "dna-offline-left-rung-05",
+        "dna-offline-left-rung-06",
+        "dna-offline-left-rung-07",
+        "dna-offline-left-strand-a",
+        "dna-offline-left-strand-b",
+        "dna-offline-right-rung-01",
+        "dna-offline-right-rung-02",
+        "dna-offline-right-rung-03",
+        "dna-offline-right-rung-04",
+        "dna-offline-right-rung-05",
+        "dna-offline-right-rung-06",
+        "dna-offline-right-rung-07",
+        "dna-offline-right-strand-a",
+        "dna-offline-right-strand-b"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-dna-output",
+      "label": "Object silhouette: dna-output",
+      "bbox": [
+        1108,
+        461,
+        71,
+        66
+      ],
+      "critical": true,
+      "element_ids": [
+        "dna-output-left-rung-01",
+        "dna-output-left-rung-02",
+        "dna-output-left-rung-03",
+        "dna-output-left-rung-04",
+        "dna-output-left-rung-05",
+        "dna-output-left-rung-06",
+        "dna-output-left-rung-07",
+        "dna-output-left-strand-a",
+        "dna-output-left-strand-b",
+        "dna-output-right-rung-01",
+        "dna-output-right-rung-02",
+        "dna-output-right-rung-03",
+        "dna-output-right-rung-04",
+        "dna-output-right-rung-05",
+        "dna-output-right-rung-06",
+        "dna-output-right-rung-07",
+        "dna-output-right-strand-a",
+        "dna-output-right-strand-b"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-scale-reweight",
+      "label": "Object silhouette: scale-reweight",
+      "bbox": [
+        134,
+        322,
+        65,
+        49
+      ],
+      "critical": true,
+      "element_ids": [
+        "scale-reweight-post",
+        "scale-reweight-beam",
+        "scale-reweight-pivot",
+        "scale-reweight-left-hanger",
+        "scale-reweight-right-hanger",
+        "scale-reweight-left-pan",
+        "scale-reweight-right-pan",
+        "scale-reweight-base"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-model-left-watermark",
+      "label": "Object silhouette: model-left-watermark",
+      "bbox": [
+        233,
+        451,
+        121,
+        117
+      ],
+      "critical": true,
+      "element_ids": [
+        "model-left-edge-01",
+        "model-left-edge-02",
+        "model-left-edge-03",
+        "model-left-edge-04",
+        "model-left-edge-05",
+        "model-left-edge-06",
+        "model-left-edge-07",
+        "model-left-edge-08",
+        "model-left-edge-09",
+        "model-left-edge-10",
+        "model-left-edge-11",
+        "model-left-node-01",
+        "model-left-node-02",
+        "model-left-node-03",
+        "model-left-node-04",
+        "model-left-node-05",
+        "model-left-node-06",
+        "model-left-node-07"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-model-right-watermark",
+      "label": "Object silhouette: model-right-watermark",
+      "bbox": [
+        961,
+        257,
+        122,
+        116
+      ],
+      "critical": true,
+      "element_ids": [
+        "model-right-edge-01",
+        "model-right-edge-02",
+        "model-right-edge-03",
+        "model-right-edge-04",
+        "model-right-edge-05",
+        "model-right-edge-06",
+        "model-right-edge-07",
+        "model-right-edge-08",
+        "model-right-edge-09",
+        "model-right-edge-10",
+        "model-right-edge-11",
+        "model-right-node-01",
+        "model-right-node-02",
+        "model-right-node-03",
+        "model-right-node-04",
+        "model-right-node-05",
+        "model-right-node-06",
+        "model-right-node-07"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-chart-offline",
+      "label": "Object silhouette: chart-offline",
+      "bbox": [
+        350,
+        117,
+        80,
+        66
+      ],
+      "critical": true,
+      "element_ids": [
+        "chart-offline-axis-x",
+        "chart-offline-axis-y",
+        "chart-offline-y-tick-01",
+        "chart-offline-y-tick-02",
+        "chart-offline-y-tick-03",
+        "chart-offline-y-tick-04",
+        "chart-offline-x-tick-01",
+        "chart-offline-x-tick-02",
+        "chart-offline-x-tick-03",
+        "chart-offline-x-tick-04",
+        "chart-offline-wick-01",
+        "chart-offline-candle-01",
+        "chart-offline-wick-02",
+        "chart-offline-candle-02",
+        "chart-offline-wick-03",
+        "chart-offline-candle-03",
+        "chart-offline-wick-04",
+        "chart-offline-candle-04",
+        "chart-offline-wick-05",
+        "chart-offline-candle-05"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-chart-target",
+      "label": "Object silhouette: chart-target",
+      "bbox": [
+        648,
+        376,
+        79,
+        66
+      ],
+      "critical": true,
+      "element_ids": [
+        "chart-target-axis-x",
+        "chart-target-axis-y",
+        "chart-target-y-tick-01",
+        "chart-target-y-tick-02",
+        "chart-target-y-tick-03",
+        "chart-target-y-tick-04",
+        "chart-target-x-tick-01",
+        "chart-target-x-tick-02",
+        "chart-target-x-tick-03",
+        "chart-target-x-tick-04",
+        "chart-target-wick-01",
+        "chart-target-candle-01",
+        "chart-target-wick-02",
+        "chart-target-candle-02",
+        "chart-target-wick-03",
+        "chart-target-candle-03",
+        "chart-target-wick-04",
+        "chart-target-candle-04",
+        "chart-target-wick-05",
+        "chart-target-candle-05"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "ink-gaussian-noise",
+      "label": "Object silhouette: gaussian-noise",
+      "bbox": [
+        870,
+        80,
+        304,
+        113
+      ],
+      "critical": true,
+      "element_ids": [
+        "gaussian-noise-baseline",
+        "gaussian-noise-curve"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "arrow-region-raw-to-reweighted",
+      "label": "arrow-raw-to-reweighted",
+      "bbox": [
+        264,
+        197,
+        60,
+        61
+      ],
+      "critical": true,
+      "element_ids": [
+        "arrow-raw-to-reweighted",
+        "dataset-raw-body",
+        "dataset-reweighted-body"
+      ],
+      "required_relations": [
+        {
+          "id": "arrow-raw-to-reweighted",
+          "source_id": "dataset-raw-body",
+          "target_id": "dataset-reweighted-body",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "arrow-region-reweighted-to-model",
+      "label": "arrow-reweighted-to-model",
+      "bbox": [
+        264,
+        352,
+        60,
+        94
+      ],
+      "critical": true,
+      "element_ids": [
+        "arrow-reweighted-to-model",
+        "dataset-reweighted-body",
+        "model-left-box"
+      ],
+      "required_relations": [
+        {
+          "id": "arrow-reweighted-to-model",
+          "source_id": "dataset-reweighted-body",
+          "target_id": "model-left-box",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "arrow-region-noise-to-model",
+      "label": "arrow-noise-to-model",
+      "bbox": [
+        992,
+        192,
+        60,
+        61
+      ],
+      "critical": true,
+      "element_ids": [
+        "arrow-noise-to-model",
+        "gaussian-noise-curve",
+        "model-right-box"
+      ],
+      "required_relations": [
+        {
+          "id": "arrow-noise-to-model",
+          "source_id": "gaussian-noise-curve",
+          "target_id": "model-right-box",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "arrow-region-target-to-model",
+      "label": "arrow-target-to-model",
+      "bbox": [
+        765,
+        288,
+        119,
+        56
+      ],
+      "critical": true,
+      "element_ids": [
+        "arrow-target-to-model",
+        "target-objectives-box",
+        "model-right-box"
+      ],
+      "required_relations": [
+        {
+          "id": "arrow-target-to-model",
+          "source_id": "target-objectives-box",
+          "target_id": "model-right-box",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "arrow-region-model-to-designs",
+      "label": "arrow-model-to-designs",
+      "bbox": [
+        992,
+        379,
+        60,
+        82
+      ],
+      "critical": true,
+      "element_ids": [
+        "arrow-model-to-designs",
+        "model-right-box",
+        "designs-box-front"
+      ],
+      "required_relations": [
+        {
+          "id": "arrow-model-to-designs",
+          "source_id": "model-right-box",
+          "target_id": "designs-box-front",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    }
+  ]
+}

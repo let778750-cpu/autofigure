@@ -1,0 +1,17 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "revision_receipt",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "lineage_version": "1.0.0",
+  "revision_id": "scene-7461af7e02f84eda",
+  "scene_sha256": "7461af7e02f84eda160683a01eb5aa941a4bd5f3f893be22b6d5cc533af9ad21",
+  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "artifacts": {
+    "redraw_svg": "ce54883a823ed798bc31ed947df5503410a48396e537db327d269f29b5db54d8",
+    "redraw_pptx": "21d037d2f8dcbaaf076256aae19f411274f30351f528d2d6b4f2f48db108db3f",
+    "render_png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f",
+    "bindings": "2c7d0ab6b8c0caa289eb03aa9f3a95b5acae95ddd687487b6cf50aea4942ca4e"
+  },
+  "stamped_at": "20260824T153910Z"
+}

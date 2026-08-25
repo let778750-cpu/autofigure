@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools.check import _match_texts, _normalize, _svg_texts
+from tools import common
+from tools.check import _match_texts, _normalize, _qa_report_hashes, _svg_texts
 
 
 def test_normalize_strips_case_space_and_punct():
@@ -39,3 +40,20 @@ def test_svg_texts_joins_tspans(tmp_path: Path):
         encoding="utf-8",
     )
     assert _svg_texts(svg) == ["zt+1", "plain"]
+
+
+def test_repair_evidence_hashes_fresh_asset_spec_audit(tmp_path: Path):
+    run = common.Run(tmp_path)
+    run.qa_dir.mkdir()
+    audit = run.qa_dir / "asset-spec-audit.json"
+    audit.write_text('{"kind":"asset_spec_audit","pass":true}\n', encoding="utf-8")
+    receipt = run.qa_dir / "asset-contract-receipt.json"
+    receipt.write_text(
+        '{"kind":"asset_contract_freeze_receipt","status":"PASS"}\n',
+        encoding="utf-8",
+    )
+
+    hashes = _qa_report_hashes(run)
+
+    assert hashes["asset-spec-audit.json"] == common.sha256_file(audit)
+    assert hashes["asset-contract-receipt.json"] == common.sha256_file(receipt)

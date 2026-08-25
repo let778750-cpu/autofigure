@@ -1,0 +1,3829 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "scene",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260823T124754Z",
+  "canvas": {
+    "width": 1513,
+    "height": 554,
+    "unit": "px"
+  },
+  "elements": [
+    {
+      "id": "canvas-background",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "0",
+        "y": "0",
+        "width": "1513",
+        "height": "554"
+      },
+      "topology": {},
+      "z_index": 0,
+      "editable": true
+    },
+    {
+      "id": "left-input-image-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "81",
+        "y": "30"
+      },
+      "topology": {},
+      "z_index": 1,
+      "editable": true
+    },
+    {
+      "id": "left-input-image-bracket",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 29 57 L 29 53 C 29 49 31 47 35 47 L 76 47 C 79.3333 47 81 45.3333 81 42 L 81 39 M 81 39 L 81 42 C 81 45.3333 82.6667 47 86 47 L 129 47 C 133 47 135 49 135 53 L 135 57"
+      },
+      "topology": {},
+      "z_index": 2,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "over",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 29.0,
+          "y": 57.0
+        },
+        "axis_end": {
+          "x": 135.0,
+          "y": 57.0
+        },
+        "cusp_axis": {
+          "x": 81.0,
+          "y": 57.0
+        },
+        "cusp_tip": {
+          "x": 81.0,
+          "y": 39.0
+        },
+        "length_px": 106.0,
+        "depth_px": 18.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 10.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 15.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 29 57 L 29 53 C 29 49 31 47 35 47 L 76 47 C 79.3333 47 81 45.3333 81 42 L 81 39 M 81 39 L 81 42 C 81 45.3333 82.6667 47 86 47 L 129 47 C 133 47 135 49 135 53 L 135 57"
+        }
+      }
+    },
+    {
+      "id": "left-input-image-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "20",
+        "y": "61",
+        "width": "35",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 3,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-image-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-input-image-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "64",
+        "y": "61",
+        "width": "35",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 4,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-image-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-input-image-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "108",
+        "y": "61",
+        "width": "35",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 5,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-image-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-input-prompt-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "223",
+        "y": "30"
+      },
+      "topology": {},
+      "z_index": 6,
+      "editable": true
+    },
+    {
+      "id": "left-input-prompt-bracket",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 170 57 L 170 53 C 170 49 172 47 176 47 L 218 47 C 221.3333 47 223 45.3333 223 42 L 223 39 M 223 39 L 223 42 C 223 45.3333 224.6667 47 228 47 L 270 47 C 274 47 276 49 276 53 L 276 57"
+      },
+      "topology": {},
+      "z_index": 7,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "over",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 170.0,
+          "y": 57.0
+        },
+        "axis_end": {
+          "x": 276.0,
+          "y": 57.0
+        },
+        "cusp_axis": {
+          "x": 223.0,
+          "y": 57.0
+        },
+        "cusp_tip": {
+          "x": 223.0,
+          "y": 39.0
+        },
+        "length_px": 106.0,
+        "depth_px": 18.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 10.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 15.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 170 57 L 170 53 C 170 49 172 47 176 47 L 218 47 C 221.3333 47 223 45.3333 223 42 L 223 39 M 223 39 L 223 42 C 223 45.3333 224.6667 47 228 47 L 270 47 C 274 47 276 49 276 53 L 276 57"
+        }
+      }
+    },
+    {
+      "id": "left-input-prompt-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "161",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 8,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-prompt-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-input-prompt-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "205",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 9,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-prompt-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-input-prompt-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "249",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 10,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-prompt-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-input-response-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "487",
+        "y": "30"
+      },
+      "topology": {},
+      "z_index": 11,
+      "editable": true
+    },
+    {
+      "id": "left-input-response-bracket",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 310 57 L 310 53 C 310 49 312 47 316 47 L 481 47 C 485 47 487 45.3333 487 42 L 487 39 M 487 39 L 487 42 C 487 45.3333 489 47 493 47 L 657 47 C 661 47 663 49 663 53 L 663 57"
+      },
+      "topology": {},
+      "z_index": 12,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "over",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 310.0,
+          "y": 57.0
+        },
+        "axis_end": {
+          "x": 663.0,
+          "y": 57.0
+        },
+        "cusp_axis": {
+          "x": 487.0,
+          "y": 57.0
+        },
+        "cusp_tip": {
+          "x": 487.0,
+          "y": 39.0
+        },
+        "length_px": 353.0,
+        "depth_px": 18.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 10.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 6.0,
+        "cusp_neck_px": 15.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 310 57 L 310 53 C 310 49 312 47 316 47 L 481 47 C 485 47 487 45.3333 487 42 L 487 39 M 487 39 L 487 42 C 487 45.3333 489 47 493 47 L 657 47 C 661 47 663 49 663 53 L 663 57"
+        }
+      }
+    },
+    {
+      "id": "left-input-response-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "300",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 13,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-input-response-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "345",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 14,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-input-response-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "389",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 15,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-input-response-token-4",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "434",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 16,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "left-input-response-ellipsis",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "487",
+        "y": "80"
+      },
+      "topology": {},
+      "z_index": 17,
+      "editable": true
+    },
+    {
+      "id": "left-input-response-token-5",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "507",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 18,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-input-response-token-6",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "551",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 19,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-input-response-token-7",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "595",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 20,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-input-response-token-8",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "639",
+        "y": "61",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 21,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "left-input-to-model-arrow",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "487",
+        "y1": "94",
+        "x2": "487",
+        "y2": "114"
+      },
+      "topology": {},
+      "z_index": 22,
+      "editable": true,
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 487.0,
+              "y": 94.0
+            },
+            {
+              "x": 487.0,
+              "y": 114.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            479.0,
+            86.0,
+            16.0,
+            36.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "left-model-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "19",
+        "y": "119",
+        "width": "656",
+        "height": "63",
+        "rx": "10"
+      },
+      "topology": {},
+      "z_index": 23,
+      "editable": true
+    },
+    {
+      "id": "left-model-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "347",
+        "y": "158"
+      },
+      "topology": {},
+      "z_index": 24,
+      "editable": true,
+      "layout": {
+        "container_id": "left-model-box",
+        "padding": "12"
+      }
+    },
+    {
+      "id": "left-legend-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "27.5",
+        "y": "242",
+        "width": "250.5",
+        "height": "158.5",
+        "rx": "24"
+      },
+      "topology": {},
+      "z_index": 25,
+      "editable": true
+    },
+    {
+      "id": "left-legend-token-mask",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "41",
+        "y": "260",
+        "width": "35",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 26,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-legend-token-swatches",
+        "repeat_axis": "vertical",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-legend-label-mask",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "86",
+        "y": "279"
+      },
+      "topology": {},
+      "z_index": 27,
+      "editable": true,
+      "layout": {
+        "container_id": "left-legend-box",
+        "padding": "10"
+      }
+    },
+    {
+      "id": "left-legend-token-less-grounded",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "41",
+        "y": "308",
+        "width": "35",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 28,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-legend-token-swatches",
+        "repeat_axis": "vertical",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-legend-label-less-grounded-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "86",
+        "y": "316"
+      },
+      "topology": {},
+      "z_index": 29,
+      "editable": true,
+      "layout": {
+        "container_id": "left-legend-box",
+        "padding": "10"
+      }
+    },
+    {
+      "id": "left-legend-label-less-grounded-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "86",
+        "y": "335"
+      },
+      "topology": {},
+      "z_index": 30,
+      "editable": true,
+      "layout": {
+        "container_id": "left-legend-box",
+        "padding": "10"
+      }
+    },
+    {
+      "id": "left-legend-token-more-grounded",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "41",
+        "y": "356",
+        "width": "35",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 31,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-legend-token-swatches",
+        "repeat_axis": "vertical",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-legend-label-more-grounded-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "86",
+        "y": "365"
+      },
+      "topology": {},
+      "z_index": 32,
+      "editable": true,
+      "layout": {
+        "container_id": "left-legend-box",
+        "padding": "10"
+      }
+    },
+    {
+      "id": "left-legend-label-more-grounded-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "86",
+        "y": "386"
+      },
+      "topology": {},
+      "z_index": 33,
+      "editable": true,
+      "layout": {
+        "container_id": "left-legend-box",
+        "padding": "10"
+      }
+    },
+    {
+      "id": "left-model-to-early-arrow",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "487",
+        "y1": "188",
+        "x2": "487",
+        "y2": "238"
+      },
+      "topology": {},
+      "z_index": 34,
+      "editable": true,
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 487.0,
+              "y": 188.0
+            },
+            {
+              "x": 487.0,
+              "y": 238.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            479.0,
+            180.0,
+            16.0,
+            66.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "left-early-stage-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "514",
+        "y": "212"
+      },
+      "topology": {},
+      "z_index": 35,
+      "editable": true
+    },
+    {
+      "id": "left-early-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "300",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 36,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-early-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "345",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 37,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-early-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "389",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 38,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-early-token-4",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "434",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 39,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "left-early-token-ellipsis-dot-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "481",
+        "cy": "245",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 40,
+      "editable": true
+    },
+    {
+      "id": "left-early-token-ellipsis-dot-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "487",
+        "cy": "245",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 41,
+      "editable": true
+    },
+    {
+      "id": "left-early-token-ellipsis-dot-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "493",
+        "cy": "245",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 42,
+      "editable": true
+    },
+    {
+      "id": "left-early-token-5",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "507",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 43,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-early-token-6",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "551",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 44,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-early-token-7",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "595",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 45,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-early-token-8",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "639",
+        "y": "230",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 46,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "left-early-word-answer",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "569",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 47,
+      "editable": true
+    },
+    {
+      "id": "left-early-word-is",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "613",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 48,
+      "editable": true
+    },
+    {
+      "id": "left-early-word-b",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "657",
+        "y": "277"
+      },
+      "topology": {},
+      "z_index": 49,
+      "editable": true
+    },
+    {
+      "id": "left-early-answer-underbrace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 559 290 L 559 294 C 559 297.3333 561 299 565 299 L 607.5 299 C 610.8333 299 612.5 300.3333 612.5 303 L 612.5 306 M 612.5 306 L 612.5 303 C 612.5 300.3333 614.1667 299 617.5 299 L 660 299 C 664 299 666 297.3333 666 294 L 666 290"
+      },
+      "topology": {},
+      "z_index": 50,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "under",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 559.0,
+          "y": 290.0
+        },
+        "axis_end": {
+          "x": 666.0,
+          "y": 290.0
+        },
+        "cusp_axis": {
+          "x": 612.5,
+          "y": 290.0
+        },
+        "cusp_tip": {
+          "x": 612.5,
+          "y": 306.0
+        },
+        "length_px": 107.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 559 290 L 559 294 C 559 297.3333 561 299 565 299 L 607.5 299 C 610.8333 299 612.5 300.3333 612.5 303 L 612.5 306 M 612.5 306 L 612.5 303 C 612.5 300.3333 614.1667 299 617.5 299 L 660 299 C 664 299 666 297.3333 666 294 L 666 290"
+        }
+      }
+    },
+    {
+      "id": "left-early-annotation-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "612",
+        "y": "323"
+      },
+      "topology": {},
+      "z_index": 51,
+      "editable": true
+    },
+    {
+      "id": "left-early-annotation-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "612",
+        "y": "345"
+      },
+      "topology": {},
+      "z_index": 52,
+      "editable": true
+    },
+    {
+      "id": "left-early-stage-side-brace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 682 205 L 686 205 C 689.3333 205 691 207 691 211 L 691 238.5 C 691 241.8333 692.3333 243.5 695 243.5 L 698 243.5 M 698 243.5 L 695 243.5 C 692.3333 243.5 691 245.1667 691 248.5 L 691 276 C 691 280 689.3333 282 686 282 L 682 282"
+      },
+      "topology": {},
+      "z_index": 53,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "right",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 682.0,
+          "y": 205.0
+        },
+        "axis_end": {
+          "x": 682.0,
+          "y": 282.0
+        },
+        "cusp_axis": {
+          "x": 682.0,
+          "y": 243.5
+        },
+        "cusp_tip": {
+          "x": 698.0,
+          "y": 243.5
+        },
+        "length_px": 77.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 682 205 L 686 205 C 689.3333 205 691 207 691 211 L 691 238.5 C 691 241.8333 692.3333 243.5 695 243.5 L 698 243.5 M 698 243.5 L 695 243.5 C 692.3333 243.5 691 245.1667 691 248.5 L 691 276 C 691 280 689.3333 282 686 282 L 682 282"
+        }
+      }
+    },
+    {
+      "id": "left-early-stage-side-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "716",
+        "y": "243",
+        "transform": "rotate(-90 716 243)"
+      },
+      "topology": {},
+      "z_index": 54,
+      "editable": true
+    },
+    {
+      "id": "left-stage-transition-ellipsis",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "487",
+        "y": "345"
+      },
+      "topology": {},
+      "z_index": 55,
+      "editable": true
+    },
+    {
+      "id": "left-transition-to-late-arrow",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "487",
+        "y1": "357",
+        "x2": "487",
+        "y2": "382"
+      },
+      "topology": {},
+      "z_index": 56,
+      "editable": true,
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 487.0,
+              "y": 357.0
+            },
+            {
+              "x": 487.0,
+              "y": 382.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            479.0,
+            349.0,
+            16.0,
+            41.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "left-late-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "300",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 57,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-late-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "345",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 58,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-late-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "389",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 59,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-late-token-4",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "434",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 60,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "left-late-token-ellipsis-dot-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "481",
+        "cy": "401.5",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 61,
+      "editable": true
+    },
+    {
+      "id": "left-late-token-ellipsis-dot-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "487",
+        "cy": "401.5",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 62,
+      "editable": true
+    },
+    {
+      "id": "left-late-token-ellipsis-dot-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "493",
+        "cy": "401.5",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 63,
+      "editable": true
+    },
+    {
+      "id": "left-late-token-5",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "507",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 64,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "left-late-token-6",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "551",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 65,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "left-late-token-7",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "595",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 66,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "left-late-token-8",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "639",
+        "y": "388",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 67,
+      "editable": true,
+      "layout": {
+        "repeat_group": "left-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "left-late-word-the",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "317.5",
+        "y": "433"
+      },
+      "topology": {},
+      "z_index": 68,
+      "editable": true
+    },
+    {
+      "id": "left-late-word-stove",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "362",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 69,
+      "editable": true
+    },
+    {
+      "id": "left-late-word-broken",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "450",
+        "y": "433"
+      },
+      "topology": {},
+      "z_index": 70,
+      "editable": true
+    },
+    {
+      "id": "left-late-word-answer",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "567",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 71,
+      "editable": true
+    },
+    {
+      "id": "left-late-word-is",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "613",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 72,
+      "editable": true
+    },
+    {
+      "id": "left-late-word-b",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "658",
+        "y": "432"
+      },
+      "topology": {},
+      "z_index": 73,
+      "editable": true
+    },
+    {
+      "id": "left-late-rationale-underbrace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 339 446 L 339 450 C 339 453.3333 341 455 345 455 L 387.5 455 C 390.8333 455 392.5 456.3333 392.5 459 L 392.5 462 M 392.5 462 L 392.5 459 C 392.5 456.3333 394.1667 455 397.5 455 L 440 455 C 444 455 446 453.3333 446 450 L 446 446"
+      },
+      "topology": {},
+      "z_index": 74,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "under",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 339.0,
+          "y": 446.0
+        },
+        "axis_end": {
+          "x": 446.0,
+          "y": 446.0
+        },
+        "cusp_axis": {
+          "x": 392.5,
+          "y": 446.0
+        },
+        "cusp_tip": {
+          "x": 392.5,
+          "y": 462.0
+        },
+        "length_px": 107.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 339 446 L 339 450 C 339 453.3333 341 455 345 455 L 387.5 455 C 390.8333 455 392.5 456.3333 392.5 459 L 392.5 462 M 392.5 462 L 392.5 459 C 392.5 456.3333 394.1667 455 397.5 455 L 440 455 C 444 455 446 453.3333 446 450 L 446 446"
+        }
+      }
+    },
+    {
+      "id": "left-late-annotation-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "392",
+        "y": "472"
+      },
+      "topology": {},
+      "z_index": 75,
+      "editable": true
+    },
+    {
+      "id": "left-late-annotation-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "392.5",
+        "y": "496"
+      },
+      "topology": {},
+      "z_index": 76,
+      "editable": true
+    },
+    {
+      "id": "left-late-stage-side-brace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 682 363 L 686 363 C 689.3333 363 691 365 691 369 L 691 396.5 C 691 399.8333 692.3333 401.5 695 401.5 L 698 401.5 M 698 401.5 L 695 401.5 C 692.3333 401.5 691 403.1667 691 406.5 L 691 434 C 691 438 689.3333 440 686 440 L 682 440"
+      },
+      "topology": {},
+      "z_index": 77,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "right",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 682.0,
+          "y": 363.0
+        },
+        "axis_end": {
+          "x": 682.0,
+          "y": 440.0
+        },
+        "cusp_axis": {
+          "x": 682.0,
+          "y": 401.5
+        },
+        "cusp_tip": {
+          "x": 698.0,
+          "y": 401.5
+        },
+        "length_px": 77.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 682 363 L 686 363 C 689.3333 363 691 365 691 369 L 691 396.5 C 691 399.8333 692.3333 401.5 695 401.5 L 698 401.5 M 698 401.5 L 695 401.5 C 692.3333 401.5 691 403.1667 691 406.5 L 691 434 C 691 438 689.3333 440 686 440 L 682 440"
+        }
+      }
+    },
+    {
+      "id": "left-late-stage-side-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "716",
+        "y": "402",
+        "transform": "rotate(-90 716 402)"
+      },
+      "topology": {},
+      "z_index": 78,
+      "editable": true
+    },
+    {
+      "id": "left-panel-caption",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "372.5",
+        "y": "534"
+      },
+      "topology": {},
+      "z_index": 79,
+      "editable": true
+    },
+    {
+      "id": "right-input-image-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "854",
+        "y": "26"
+      },
+      "topology": {},
+      "z_index": 80,
+      "editable": true
+    },
+    {
+      "id": "right-input-image-bracket",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 801 53 L 801 49 C 801 45 803 43 807 43 L 849 43 C 852.3333 43 854 41.3333 854 38 L 854 35 M 854 35 L 854 38 C 854 41.3333 855.6667 43 859 43 L 902 43 C 906 43 908 45 908 49 L 908 53"
+      },
+      "topology": {},
+      "z_index": 81,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "over",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 801.0,
+          "y": 52.0
+        },
+        "axis_end": {
+          "x": 908.0,
+          "y": 52.0
+        },
+        "cusp_axis": {
+          "x": 854.0,
+          "y": 52.0
+        },
+        "cusp_tip": {
+          "x": 854.0,
+          "y": 34.0
+        },
+        "length_px": 107.0,
+        "depth_px": 18.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 10.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 15.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 801 52 L 801 48 C 801 44 803 42 807 42 L 849 42 C 852.3333 42 854 40.3333 854 37 L 854 34 M 854 34 L 854 37 C 854 40.3333 855.6667 42 859 42 L 902 42 C 906 42 908 44 908 48 L 908 52"
+        }
+      }
+    },
+    {
+      "id": "right-input-image-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "792",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 82,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-image-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-input-image-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "836",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 83,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-image-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-input-image-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "880",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 84,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-image-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-input-prompt-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "995",
+        "y": "26"
+      },
+      "topology": {},
+      "z_index": 85,
+      "editable": true
+    },
+    {
+      "id": "right-input-prompt-bracket",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 943 53 L 943 49 C 943 45 945 43 949 43 L 990 43 C 993.3333 43 995 41.3333 995 38 L 995 35 M 995 35 L 995 38 C 995 41.3333 996.6667 43 1000 43 L 1043 43 C 1047 43 1049 45 1049 49 L 1049 53"
+      },
+      "topology": {},
+      "z_index": 86,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "over",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 943.0,
+          "y": 52.0
+        },
+        "axis_end": {
+          "x": 1049.0,
+          "y": 52.0
+        },
+        "cusp_axis": {
+          "x": 995.0,
+          "y": 52.0
+        },
+        "cusp_tip": {
+          "x": 995.0,
+          "y": 34.0
+        },
+        "length_px": 106.0,
+        "depth_px": 18.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 10.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 15.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 943 52 L 943 48 C 943 44 945 42 949 42 L 990 42 C 993.3333 42 995 40.3333 995 37 L 995 34 M 995 34 L 995 37 C 995 40.3333 996.6667 42 1000 42 L 1043 42 C 1047 42 1049 44 1049 48 L 1049 52"
+        }
+      }
+    },
+    {
+      "id": "right-input-prompt-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "933",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 87,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-prompt-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-input-prompt-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "977",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 88,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-prompt-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-input-prompt-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1021",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 89,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-prompt-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-input-response-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1259",
+        "y": "26"
+      },
+      "topology": {},
+      "z_index": 90,
+      "editable": true
+    },
+    {
+      "id": "right-input-response-bracket",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1082 53 L 1082 49 C 1082 45 1084 43 1088 43 L 1253 43 C 1257 43 1259 41.3333 1259 38 L 1259 35 M 1259 35 L 1259 38 C 1259 41.3333 1261 43 1265 43 L 1429 43 C 1433 43 1435 45 1435 49 L 1435 53"
+      },
+      "topology": {},
+      "z_index": 91,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "over",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 1082.0,
+          "y": 52.0
+        },
+        "axis_end": {
+          "x": 1435.0,
+          "y": 52.0
+        },
+        "cusp_axis": {
+          "x": 1259.0,
+          "y": 52.0
+        },
+        "cusp_tip": {
+          "x": 1259.0,
+          "y": 34.0
+        },
+        "length_px": 353.0,
+        "depth_px": 18.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 10.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 6.0,
+        "cusp_neck_px": 15.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 1082 52 L 1082 48 C 1082 44 1084 42 1088 42 L 1253 42 C 1257 42 1259 40.3333 1259 37 L 1259 34 M 1259 34 L 1259 37 C 1259 40.3333 1261 42 1265 42 L 1429 42 C 1433 42 1435 44 1435 48 L 1435 52"
+        }
+      }
+    },
+    {
+      "id": "right-input-response-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1072",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 92,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-input-response-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1117",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 93,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-input-response-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1161",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 94,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-input-response-token-4",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1206",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 95,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "right-input-response-ellipsis",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1259",
+        "y": "76"
+      },
+      "topology": {},
+      "z_index": 96,
+      "editable": true
+    },
+    {
+      "id": "right-input-response-token-5",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1278",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 97,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-input-response-token-6",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1323",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 98,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-input-response-token-7",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1367",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 99,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-input-response-token-8",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1412",
+        "y": "57",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 100,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-input-response-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "right-input-to-model-arrow",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1259",
+        "y1": "90",
+        "x2": "1259",
+        "y2": "110"
+      },
+      "topology": {},
+      "z_index": 101,
+      "editable": true,
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 1259.0,
+              "y": 89.0
+            },
+            {
+              "x": 1259.0,
+              "y": 109.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            1251.0,
+            81.0,
+            16.0,
+            36.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "right-model-box",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "791",
+        "y": "115",
+        "width": "656",
+        "height": "63",
+        "rx": "10"
+      },
+      "topology": {},
+      "z_index": 102,
+      "editable": true
+    },
+    {
+      "id": "right-model-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1119",
+        "y": "154"
+      },
+      "topology": {},
+      "z_index": 103,
+      "editable": true,
+      "layout": {
+        "container_id": "right-model-box",
+        "padding": "12"
+      }
+    },
+    {
+      "id": "right-model-to-early-arrow",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1259",
+        "y1": "184",
+        "x2": "1259",
+        "y2": "234"
+      },
+      "topology": {},
+      "z_index": 104,
+      "editable": true,
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 1259.0,
+              "y": 184.0
+            },
+            {
+              "x": 1259.0,
+              "y": 234.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            1251.0,
+            176.0,
+            16.0,
+            66.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "right-early-stage-title",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1282",
+        "y": "208"
+      },
+      "topology": {},
+      "z_index": 105,
+      "editable": true
+    },
+    {
+      "id": "right-early-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1072",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 106,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-early-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1117",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 107,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-early-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1161",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 108,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-early-token-4",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1206",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 109,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "right-early-token-ellipsis-dot-1",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1253",
+        "cy": "241",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 110,
+      "editable": true
+    },
+    {
+      "id": "right-early-token-ellipsis-dot-2",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1259",
+        "cy": "241",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 111,
+      "editable": true
+    },
+    {
+      "id": "right-early-token-ellipsis-dot-3",
+      "kind": "circle",
+      "role": "circle",
+      "svg_tag": "circle",
+      "geometry": {
+        "cx": "1265",
+        "cy": "241",
+        "r": "1.5"
+      },
+      "topology": {},
+      "z_index": 112,
+      "editable": true
+    },
+    {
+      "id": "right-early-token-5",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1278",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 113,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-early-token-6",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1323",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 114,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-early-token-7",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1367",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 115,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-early-token-8",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1412",
+        "y": "227",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 116,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-early-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "right-early-word-stove",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1135",
+        "y": "271"
+      },
+      "topology": {},
+      "z_index": 117,
+      "editable": true
+    },
+    {
+      "id": "right-early-word-old",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1224",
+        "y": "271"
+      },
+      "topology": {},
+      "z_index": 118,
+      "editable": true
+    },
+    {
+      "id": "right-early-rationale-underbrace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1125 287 L 1125 291 C 1125 294.3333 1127 296 1131 296 L 1173.5 296 C 1176.8333 296 1178.5 297.3333 1178.5 300 L 1178.5 303 M 1178.5 303 L 1178.5 300 C 1178.5 297.3333 1180.1667 296 1183.5 296 L 1226 296 C 1230 296 1232 294.3333 1232 291 L 1232 287"
+      },
+      "topology": {},
+      "z_index": 119,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "under",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 1125.0,
+          "y": 287.0
+        },
+        "axis_end": {
+          "x": 1232.0,
+          "y": 287.0
+        },
+        "cusp_axis": {
+          "x": 1178.5,
+          "y": 287.0
+        },
+        "cusp_tip": {
+          "x": 1178.5,
+          "y": 303.0
+        },
+        "length_px": 107.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 1125 287 L 1125 291 C 1125 294.3333 1127 296 1131 296 L 1173.5 296 C 1176.8333 296 1178.5 297.3333 1178.5 300 L 1178.5 303 M 1178.5 303 L 1178.5 300 C 1178.5 297.3333 1180.1667 296 1183.5 296 L 1226 296 C 1230 296 1232 294.3333 1232 291 L 1232 287"
+        }
+      }
+    },
+    {
+      "id": "right-early-annotation-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1179",
+        "y": "313"
+      },
+      "topology": {},
+      "z_index": 120,
+      "editable": true
+    },
+    {
+      "id": "right-early-annotation-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1178.5",
+        "y": "337"
+      },
+      "topology": {},
+      "z_index": 121,
+      "editable": true
+    },
+    {
+      "id": "right-early-stage-side-brace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1454 203 L 1458 203 C 1461.3333 203 1463 205 1463 209 L 1463 236 C 1463 239.3333 1464.3333 241 1467 241 L 1470 241 M 1470 241 L 1467 241 C 1464.3333 241 1463 242.6667 1463 246 L 1463 273 C 1463 277 1461.3333 279 1458 279 L 1454 279"
+      },
+      "topology": {},
+      "z_index": 122,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "right",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 1454.0,
+          "y": 203.0
+        },
+        "axis_end": {
+          "x": 1454.0,
+          "y": 279.0
+        },
+        "cusp_axis": {
+          "x": 1454.0,
+          "y": 241.0
+        },
+        "cusp_tip": {
+          "x": 1470.0,
+          "y": 241.0
+        },
+        "length_px": 76.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 1454 203 L 1458 203 C 1461.3333 203 1463 205 1463 209 L 1463 236 C 1463 239.3333 1464.3333 241 1467 241 L 1470 241 M 1470 241 L 1467 241 C 1464.3333 241 1463 242.6667 1463 246 L 1463 273 C 1463 277 1461.3333 279 1458 279 L 1454 279"
+        }
+      }
+    },
+    {
+      "id": "right-early-stage-side-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1488",
+        "y": "241",
+        "transform": "rotate(-90 1488 241)"
+      },
+      "topology": {},
+      "z_index": 123,
+      "editable": true
+    },
+    {
+      "id": "right-stage-transition-ellipsis",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1259",
+        "y": "342"
+      },
+      "topology": {},
+      "z_index": 124,
+      "editable": true
+    },
+    {
+      "id": "right-transition-to-late-arrow",
+      "kind": "edge",
+      "role": "edge",
+      "svg_tag": "line",
+      "geometry": {
+        "x1": "1259",
+        "y1": "354",
+        "x2": "1259",
+        "y2": "379"
+      },
+      "topology": {},
+      "z_index": 125,
+      "editable": true,
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 1259.0,
+              "y": 354.0
+            },
+            {
+              "x": 1259.0,
+              "y": 379.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            1251.0,
+            346.0,
+            16.0,
+            41.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "right-late-token-1",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1072",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 126,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-late-token-2",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1117",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 127,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-late-token-3",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1161",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 128,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-late-token-4",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1206",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 129,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-prefix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "right-late-token-ellipsis",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1259",
+        "y": "402"
+      },
+      "topology": {},
+      "z_index": 130,
+      "editable": true
+    },
+    {
+      "id": "right-late-token-5",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1278",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 131,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "1"
+      }
+    },
+    {
+      "id": "right-late-token-6",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1323",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 132,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "2"
+      }
+    },
+    {
+      "id": "right-late-token-7",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1367",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 133,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "3"
+      }
+    },
+    {
+      "id": "right-late-token-8",
+      "kind": "rect",
+      "role": "rect",
+      "svg_tag": "rect",
+      "geometry": {
+        "x": "1412",
+        "y": "383",
+        "width": "36",
+        "height": "27",
+        "rx": "4"
+      },
+      "topology": {},
+      "z_index": 134,
+      "editable": true,
+      "layout": {
+        "repeat_group": "right-late-suffix-tokens",
+        "repeat_axis": "horizontal",
+        "repeat_order": "4"
+      }
+    },
+    {
+      "id": "right-late-word-the",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1090",
+        "y": "429"
+      },
+      "topology": {},
+      "z_index": 135,
+      "editable": true
+    },
+    {
+      "id": "right-late-word-stove",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1135",
+        "y": "429"
+      },
+      "topology": {},
+      "z_index": 136,
+      "editable": true
+    },
+    {
+      "id": "right-late-word-is",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1179",
+        "y": "429"
+      },
+      "topology": {},
+      "z_index": 137,
+      "editable": true
+    },
+    {
+      "id": "right-late-word-old",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1224",
+        "y": "429"
+      },
+      "topology": {},
+      "z_index": 138,
+      "editable": true
+    },
+    {
+      "id": "right-late-word-answer",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1341",
+        "y": "429"
+      },
+      "topology": {},
+      "z_index": 139,
+      "editable": true
+    },
+    {
+      "id": "right-late-word-c",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1430",
+        "y": "429"
+      },
+      "topology": {},
+      "z_index": 140,
+      "editable": true
+    },
+    {
+      "id": "right-late-answer-underbrace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1329 441 L 1329 445 C 1329 448.3333 1331 450 1335 450 L 1377 450 C 1380.3333 450 1382 451.3333 1382 454 L 1382 457 M 1382 457 L 1382 454 C 1382 451.3333 1383.6667 450 1387 450 L 1429 450 C 1433 450 1435 448.3333 1435 445 L 1435 441"
+      },
+      "topology": {},
+      "z_index": 141,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "under",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 1329.0,
+          "y": 441.0
+        },
+        "axis_end": {
+          "x": 1435.0,
+          "y": 441.0
+        },
+        "cusp_axis": {
+          "x": 1382.0,
+          "y": 441.0
+        },
+        "cusp_tip": {
+          "x": 1382.0,
+          "y": 457.0
+        },
+        "length_px": 106.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 1329 441 L 1329 445 C 1329 448.3333 1331 450 1335 450 L 1377 450 C 1380.3333 450 1382 451.3333 1382 454 L 1382 457 M 1382 457 L 1382 454 C 1382 451.3333 1383.6667 450 1387 450 L 1429 450 C 1433 450 1435 448.3333 1435 445 L 1435 441"
+        }
+      }
+    },
+    {
+      "id": "right-late-annotation-line-1",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1382",
+        "y": "474"
+      },
+      "topology": {},
+      "z_index": 142,
+      "editable": true
+    },
+    {
+      "id": "right-late-annotation-line-2",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1382",
+        "y": "498"
+      },
+      "topology": {},
+      "z_index": 143,
+      "editable": true
+    },
+    {
+      "id": "right-late-stage-side-brace",
+      "kind": "path",
+      "role": "path",
+      "svg_tag": "path",
+      "geometry": {
+        "d": "M 1454 358 L 1458 358 C 1461.3333 358 1463 360 1463 364 L 1463 391.5 C 1463 394.8333 1464.3333 396.5 1467 396.5 L 1470 396.5 M 1470 396.5 L 1467 396.5 C 1464.3333 396.5 1463 398.1667 1463 401.5 L 1463 429 C 1463 433 1461.3333 435 1458 435 L 1454 435"
+      },
+      "topology": {},
+      "z_index": 144,
+      "editable": true,
+      "primitive_spec": {
+        "schema_version": "1.0.0",
+        "kind": "brace",
+        "generator": "brace_v1",
+        "orientation": "right",
+        "coordinate_space": "canvas",
+        "axis_start": {
+          "x": 1454.0,
+          "y": 358.0
+        },
+        "axis_end": {
+          "x": 1454.0,
+          "y": 435.0
+        },
+        "cusp_axis": {
+          "x": 1454.0,
+          "y": 396.5
+        },
+        "cusp_tip": {
+          "x": 1470.0,
+          "y": 396.5
+        },
+        "length_px": 77.0,
+        "depth_px": 16.0,
+        "terminal_px": 4.0,
+        "shoulder_px": 9.0,
+        "outer_radius_px": 6.0,
+        "cusp_radius_px": 5.0,
+        "cusp_neck_px": 13.0,
+        "double_lobe": true,
+        "central_cusp": true,
+        "expected_subpaths": 2,
+        "expected_command_signature": "MLCLCLMLCLCL",
+        "stroke": {
+          "fill": "none",
+          "color": "#000000",
+          "width_px": 1.0,
+          "line_cap": "round"
+        },
+        "path": {
+          "coordinate_space": "canvas",
+          "d": "M 1454 358 L 1458 358 C 1461.3333 358 1463 360 1463 364 L 1463 391.5 C 1463 394.8333 1464.3333 396.5 1467 396.5 L 1470 396.5 M 1470 396.5 L 1467 396.5 C 1464.3333 396.5 1463 398.1667 1463 401.5 L 1463 429 C 1463 433 1461.3333 435 1458 435 L 1454 435"
+        }
+      }
+    },
+    {
+      "id": "right-late-stage-side-label",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1486",
+        "y": "397",
+        "transform": "rotate(-90 1486 397)"
+      },
+      "topology": {},
+      "z_index": 145,
+      "editable": true
+    },
+    {
+      "id": "right-panel-caption",
+      "kind": "text",
+      "role": "text",
+      "svg_tag": "text",
+      "geometry": {
+        "x": "1144",
+        "y": "534"
+      },
+      "topology": {},
+      "z_index": 146,
+      "editable": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "left-input-to-model-arrow",
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 487.0,
+              "y": 94.0
+            },
+            {
+              "x": 487.0,
+              "y": 114.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            479.0,
+            86.0,
+            16.0,
+            36.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "left-model-to-early-arrow",
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 487.0,
+              "y": 188.0
+            },
+            {
+              "x": 487.0,
+              "y": 238.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            479.0,
+            180.0,
+            16.0,
+            66.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "left-transition-to-late-arrow",
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 487.0,
+              "y": 357.0
+            },
+            {
+              "x": 487.0,
+              "y": 382.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            479.0,
+            349.0,
+            16.0,
+            41.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "right-input-to-model-arrow",
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 1259.0,
+              "y": 89.0
+            },
+            {
+              "x": 1259.0,
+              "y": 109.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            1251.0,
+            81.0,
+            16.0,
+            36.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "right-model-to-early-arrow",
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 1259.0,
+              "y": 184.0
+            },
+            {
+              "x": 1259.0,
+              "y": 234.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            1251.0,
+            176.0,
+            16.0,
+            66.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "id": "right-transition-to-late-arrow",
+      "arrow_spec": {
+        "schema_version": "1.1.0",
+        "representation": "line_arrow",
+        "path": {
+          "kind": "straight",
+          "coordinate_space": "canvas",
+          "points": [
+            {
+              "x": 1259.0,
+              "y": 354.0
+            },
+            {
+              "x": 1259.0,
+              "y": 379.0
+            }
+          ]
+        },
+        "routing": "fixed",
+        "topology": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "body": {
+          "color": "#000000",
+          "width_px": 1.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "start_head": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "end_head": {
+          "type": "triangle",
+          "width": "med",
+          "length": "med",
+          "color": "#000000"
+        },
+        "silhouette_path": null,
+        "fallback_policy": "strict_fail",
+        "single_visible_object": true,
+        "source_evidence": {
+          "input_route": "reference-only",
+          "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+          "reference_bbox": [
+            1251.0,
+            346.0,
+            16.0,
+            41.0
+          ],
+          "confidence": 0.95
+        }
+      }
+    }
+  ],
+  "artifact": {
+    "backend": "pptx-offline",
+    "path": "redraw.pptx",
+    "sha256": "0ff92bfece9b9bba261d1ab5efed287c92eb76da6a1790fc03746e3b7bd2ae02"
+  }
+}

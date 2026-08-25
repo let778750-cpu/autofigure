@@ -1,0 +1,1469 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "regions",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260824T121539Z",
+  "defaults": {
+    "ssim_min": 0.85,
+    "edge_iou_min": 0.75
+  },
+  "arrow_visual_contracts": [
+    {
+      "id": "left-input-to-model-arrow-physical",
+      "element_id": "left-input-to-model-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        484,
+        94,
+        7,
+        22
+      ],
+      "shaft_seed_point": [
+        487,
+        100
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 1,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          0,
+          0,
+          0
+        ],
+        "tolerance": 100
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            483,
+            108,
+            9,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "id": "left-model-to-early-arrow-physical",
+      "element_id": "left-model-to-early-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        484,
+        187,
+        7,
+        50
+      ],
+      "shaft_seed_point": [
+        487,
+        200
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 1,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          0,
+          0,
+          0
+        ],
+        "tolerance": 100
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            483,
+            229,
+            9,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "id": "left-transition-to-late-arrow-physical",
+      "element_id": "left-transition-to-late-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        484,
+        357,
+        7,
+        26
+      ],
+      "shaft_seed_point": [
+        487,
+        365
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 1,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          0,
+          0,
+          0
+        ],
+        "tolerance": 100
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            483,
+            375,
+            9,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "id": "right-input-to-model-arrow-physical",
+      "element_id": "right-input-to-model-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        1256,
+        89,
+        7,
+        22
+      ],
+      "shaft_seed_point": [
+        1259,
+        95
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 1,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          0,
+          0,
+          0
+        ],
+        "tolerance": 100
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1255,
+            103,
+            9,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "id": "right-model-to-early-arrow-physical",
+      "element_id": "right-model-to-early-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        1256,
+        182,
+        7,
+        50
+      ],
+      "shaft_seed_point": [
+        1259,
+        195
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 1,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          0,
+          0,
+          0
+        ],
+        "tolerance": 100
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1255,
+            224,
+            9,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "id": "right-transition-to-late-arrow-physical",
+      "element_id": "right-transition-to-late-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        1256,
+        356,
+        7,
+        22
+      ],
+      "shaft_seed_point": [
+        1259,
+        362
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 1,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          0,
+          0,
+          0
+        ],
+        "tolerance": 100
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1255,
+            370,
+            9,
+            9
+          ]
+        }
+      }
+    }
+  ],
+  "arrow_visual_expectation": {
+    "count": 6,
+    "contracts": [
+      {
+        "element_id": "left-input-to-model-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "82750188fe67323646487d046d0af28e8a7ac2fba918d10cdfb4b8112f116e71"
+      },
+      {
+        "element_id": "left-model-to-early-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "bbd8f9458769bc761657155d40904334a212e8dc16bc9b93570a8b038f2e6d32"
+      },
+      {
+        "element_id": "left-transition-to-late-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "be59513514fd09ff17733e39af4464ddff39f6004713ab87285e6aa87905a85e"
+      },
+      {
+        "element_id": "right-input-to-model-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "34fc610efca630a7800f170166de606bdaaed1faa948c6601d3fc8f7b84d8e1a"
+      },
+      {
+        "element_id": "right-model-to-early-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "1114f8f463362fe17833a5a01c91001ecb027059296bf53e70651d4835032230"
+      },
+      {
+        "element_id": "right-transition-to-late-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "92ff5ed1cddb0b6ab8b12b7c8b832c1cc37bcab9446ba1f0446e0831e4d4e135"
+      }
+    ]
+  },
+  "primitive_expectations": [
+    {
+      "kind": "brace",
+      "count": 14,
+      "primitives": [
+        {
+          "element_id": "left-input-image-bracket",
+          "primitive_spec_sha256": "c499498d76f5ee6db98a2fcaa5418c0d994d93014b2a0b3faf104130287bf83e"
+        },
+        {
+          "element_id": "left-input-prompt-bracket",
+          "primitive_spec_sha256": "2d06fa6f8ec9a25e3fc2561880374a64b285bbae8e4cf46549e7521e3da07e37"
+        },
+        {
+          "element_id": "left-input-response-bracket",
+          "primitive_spec_sha256": "eb4d1a3591b40ebe6b2f1c8dc6a224ceddcb5e4a1ee7673cf0969342dcd4ab46"
+        },
+        {
+          "element_id": "left-early-answer-underbrace",
+          "primitive_spec_sha256": "7c2cab4e47ded074c02f0f2e2ee73ca78bd4097839c099207a457e7293e49e00"
+        },
+        {
+          "element_id": "left-early-stage-side-brace",
+          "primitive_spec_sha256": "eda617f74b3d320bb7dd877682b918ddba3a484112a5b5c8a98682213c313059"
+        },
+        {
+          "element_id": "left-late-rationale-underbrace",
+          "primitive_spec_sha256": "f4ae8790b79c932964d696bc0c454fdf621595c18c5d1c1d8fa7c09d9fd62ed6"
+        },
+        {
+          "element_id": "left-late-stage-side-brace",
+          "primitive_spec_sha256": "e9c2ada7bad5c2f03155b78642947c43bc994a794b1a20573ecc8481e407983d"
+        },
+        {
+          "element_id": "right-input-image-bracket",
+          "primitive_spec_sha256": "b14e662d9ea777443627f5afa7566f697b8a437acfb6e72d9772316e021c84d8"
+        },
+        {
+          "element_id": "right-input-prompt-bracket",
+          "primitive_spec_sha256": "b457231bbcd57fbed6cb717f0c0a48e12289f39c2805ab8dd52b3835214c4122"
+        },
+        {
+          "element_id": "right-input-response-bracket",
+          "primitive_spec_sha256": "ac78a9c6e50889eb275f2beac4a560aac01c78753b148579938e60226abbd7b6"
+        },
+        {
+          "element_id": "right-early-rationale-underbrace",
+          "primitive_spec_sha256": "996e4680c0b8938be9d570fefcdc3b988821a8d319ab26476216da5cd4c319b8"
+        },
+        {
+          "element_id": "right-early-stage-side-brace",
+          "primitive_spec_sha256": "30a7ffc6fceeecb13f95477a179f08a4122630f769fb92b683c5c871d3d7b18d"
+        },
+        {
+          "element_id": "right-late-answer-underbrace",
+          "primitive_spec_sha256": "bec7aab81b1703a74f38c63095d73f2a01d22066ebc965b8df30ac543579a3f0"
+        },
+        {
+          "element_id": "right-late-stage-side-brace",
+          "primitive_spec_sha256": "b827bf16007882bb7f9e4d6301162185b3b48b8c9528d8a9ede360cd2ac7e02b"
+        }
+      ]
+    }
+  ],
+  "critical_region_expectation": {
+    "count": 8,
+    "contracts": [
+      {
+        "id": "left-header-model",
+        "bbox": [
+          15,
+          12,
+          665,
+          174
+        ],
+        "element_ids": [
+          "left-input-image-title",
+          "left-input-image-bracket",
+          "left-input-image-token-1",
+          "left-input-image-token-2",
+          "left-input-image-token-3",
+          "left-input-prompt-title",
+          "left-input-prompt-bracket",
+          "left-input-prompt-token-1",
+          "left-input-prompt-token-2",
+          "left-input-prompt-token-3",
+          "left-input-response-title",
+          "left-input-response-bracket",
+          "left-input-response-token-1",
+          "left-input-response-token-2",
+          "left-input-response-token-3",
+          "left-input-response-token-4",
+          "left-input-response-ellipsis",
+          "left-input-response-token-5",
+          "left-input-response-token-6",
+          "left-input-response-token-7",
+          "left-input-response-token-8",
+          "left-input-to-model-arrow",
+          "left-model-box",
+          "left-model-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "f0e8e353627e9ddcbb92f18fef16fa046e968c70c3d9b6d84ea2e55801958eb9"
+        }
+      },
+      {
+        "id": "left-legend",
+        "bbox": [
+          20,
+          235,
+          263,
+          177
+        ],
+        "element_ids": [
+          "left-legend-box",
+          "left-legend-token-mask",
+          "left-legend-label-mask",
+          "left-legend-token-less-grounded",
+          "left-legend-label-less-grounded-line-1",
+          "left-legend-label-less-grounded-line-2",
+          "left-legend-token-more-grounded",
+          "left-legend-label-more-grounded-line-1",
+          "left-legend-label-more-grounded-line-2"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "ca9af7c141e0632ed224785fa6feacae38af09a04475157b7ee3d60b5c2eac6f"
+        }
+      },
+      {
+        "id": "left-early-step",
+        "bbox": [
+          292,
+          188,
+          430,
+          164
+        ],
+        "element_ids": [
+          "left-model-to-early-arrow",
+          "left-early-stage-title",
+          "left-early-token-1",
+          "left-early-token-2",
+          "left-early-token-3",
+          "left-early-token-4",
+          "left-early-token-ellipsis-dot-1",
+          "left-early-token-ellipsis-dot-2",
+          "left-early-token-ellipsis-dot-3",
+          "left-early-token-5",
+          "left-early-token-6",
+          "left-early-token-7",
+          "left-early-token-8",
+          "left-early-word-answer",
+          "left-early-word-is",
+          "left-early-word-b",
+          "left-early-answer-underbrace",
+          "left-early-annotation-line-1",
+          "left-early-annotation-line-2",
+          "left-early-stage-side-brace",
+          "left-early-stage-side-label",
+          "left-stage-transition-ellipsis"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "6c486d71bfd1e73457314cbece21746d3df1cde3229fc9db388a845bbd1fdb0f",
+          "color_probes": "08e0b72a5ca5a0a42f9d04d300a0fcaad1583ce47a8fca09eb1d126aefc2aa10"
+        }
+      },
+      {
+        "id": "left-late-step",
+        "bbox": [
+          291,
+          357,
+          432,
+          151
+        ],
+        "element_ids": [
+          "left-transition-to-late-arrow",
+          "left-late-token-1",
+          "left-late-token-2",
+          "left-late-token-3",
+          "left-late-token-4",
+          "left-late-token-ellipsis-dot-1",
+          "left-late-token-ellipsis-dot-2",
+          "left-late-token-ellipsis-dot-3",
+          "left-late-token-5",
+          "left-late-token-6",
+          "left-late-token-7",
+          "left-late-token-8",
+          "left-late-word-the",
+          "left-late-word-stove",
+          "left-late-word-broken",
+          "left-late-word-answer",
+          "left-late-word-is",
+          "left-late-word-b",
+          "left-late-rationale-underbrace",
+          "left-late-annotation-line-1",
+          "left-late-annotation-line-2",
+          "left-late-stage-side-brace",
+          "left-late-stage-side-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "865ffd43419836da25656126b34052c051b3cab7bbf5a6da15e1fb06e655c4ef",
+          "color_probes": "3df499dc68d814b1c99af9bdfbc3d01b3dec4d9da8136f954b0ee508c608e2fb"
+        }
+      },
+      {
+        "id": "right-header-model",
+        "bbox": [
+          779,
+          12,
+          675,
+          174
+        ],
+        "element_ids": [
+          "right-input-image-title",
+          "right-input-image-bracket",
+          "right-input-image-token-1",
+          "right-input-image-token-2",
+          "right-input-image-token-3",
+          "right-input-prompt-title",
+          "right-input-prompt-bracket",
+          "right-input-prompt-token-1",
+          "right-input-prompt-token-2",
+          "right-input-prompt-token-3",
+          "right-input-response-title",
+          "right-input-response-bracket",
+          "right-input-response-token-1",
+          "right-input-response-token-2",
+          "right-input-response-token-3",
+          "right-input-response-token-4",
+          "right-input-response-ellipsis",
+          "right-input-response-token-5",
+          "right-input-response-token-6",
+          "right-input-response-token-7",
+          "right-input-response-token-8",
+          "right-input-to-model-arrow",
+          "right-model-box",
+          "right-model-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "ee4c41a4fbcf9846a34cb33dbf129cd1d19a90f2dd5a2f66e10bc176c993a6bf"
+        }
+      },
+      {
+        "id": "right-early-step",
+        "bbox": [
+          1058,
+          186,
+          446,
+          167
+        ],
+        "element_ids": [
+          "right-model-to-early-arrow",
+          "right-early-stage-title",
+          "right-early-token-1",
+          "right-early-token-2",
+          "right-early-token-3",
+          "right-early-token-4",
+          "right-early-token-ellipsis-dot-1",
+          "right-early-token-ellipsis-dot-2",
+          "right-early-token-ellipsis-dot-3",
+          "right-early-token-5",
+          "right-early-token-6",
+          "right-early-token-7",
+          "right-early-token-8",
+          "right-early-word-stove",
+          "right-early-word-old",
+          "right-early-rationale-underbrace",
+          "right-early-annotation-line-1",
+          "right-early-annotation-line-2",
+          "right-early-stage-side-brace",
+          "right-early-stage-side-label",
+          "right-stage-transition-ellipsis"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "b4113d47cdb21a7f3198b64415bdec8fe2b8617be7da58271ba1038dbb782217",
+          "color_probes": "ea19f206da19491cbc03e726eb54f08e62fbcc7c58dd28e16bb01fa4454ab034"
+        }
+      },
+      {
+        "id": "right-late-step",
+        "bbox": [
+          1057,
+          356,
+          447,
+          153
+        ],
+        "element_ids": [
+          "right-transition-to-late-arrow",
+          "right-late-token-1",
+          "right-late-token-2",
+          "right-late-token-3",
+          "right-late-token-4",
+          "right-late-token-ellipsis",
+          "right-late-token-5",
+          "right-late-token-6",
+          "right-late-token-7",
+          "right-late-token-8",
+          "right-late-word-the",
+          "right-late-word-stove",
+          "right-late-word-is",
+          "right-late-word-old",
+          "right-late-word-answer",
+          "right-late-word-c",
+          "right-late-answer-underbrace",
+          "right-late-annotation-line-1",
+          "right-late-annotation-line-2",
+          "right-late-stage-side-brace",
+          "right-late-stage-side-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "9bbb9db82e11d9ef8099521e2602eb57bd3c50fc681e74586ccb895591e91ad7",
+          "color_probes": "e0eb49097407e249a23621e1c4090e490489ca5c0d6ae17c23522210356503db"
+        }
+      },
+      {
+        "id": "captions",
+        "bbox": [
+          190,
+          512,
+          1180,
+          40
+        ],
+        "element_ids": [
+          "left-panel-caption",
+          "right-panel-caption"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1513,
+        554
+      ],
+      "critical": false
+    },
+    {
+      "id": "left-header-model",
+      "label": "Left input groups and diffusion model",
+      "bbox": [
+        15,
+        12,
+        665,
+        174
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-input-image-title",
+        "left-input-image-bracket",
+        "left-input-image-token-1",
+        "left-input-image-token-2",
+        "left-input-image-token-3",
+        "left-input-prompt-title",
+        "left-input-prompt-bracket",
+        "left-input-prompt-token-1",
+        "left-input-prompt-token-2",
+        "left-input-prompt-token-3",
+        "left-input-response-title",
+        "left-input-response-bracket",
+        "left-input-response-token-1",
+        "left-input-response-token-2",
+        "left-input-response-token-3",
+        "left-input-response-token-4",
+        "left-input-response-ellipsis",
+        "left-input-response-token-5",
+        "left-input-response-token-6",
+        "left-input-response-token-7",
+        "left-input-response-token-8",
+        "left-input-to-model-arrow",
+        "left-model-box",
+        "left-model-label"
+      ],
+      "color_probes": [
+        {
+          "id": "left-image-token",
+          "point": [
+            38,
+            75
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "left-prompt-token",
+          "point": [
+            178,
+            75
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "left-model-fill",
+          "point": [
+            50,
+            150
+          ],
+          "radius": 3,
+          "max_delta_e": 5
+        }
+      ]
+    },
+    {
+      "id": "left-legend",
+      "label": "Left token legend",
+      "bbox": [
+        20,
+        235,
+        263,
+        177
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-legend-box",
+        "left-legend-token-mask",
+        "left-legend-label-mask",
+        "left-legend-token-less-grounded",
+        "left-legend-label-less-grounded-line-1",
+        "left-legend-label-less-grounded-line-2",
+        "left-legend-token-more-grounded",
+        "left-legend-label-more-grounded-line-1",
+        "left-legend-label-more-grounded-line-2"
+      ],
+      "color_probes": [
+        {
+          "id": "legend-mask",
+          "point": [
+            58,
+            275
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "legend-less-grounded",
+          "point": [
+            58,
+            320
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "legend-more-grounded",
+          "point": [
+            58,
+            370
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        }
+      ]
+    },
+    {
+      "id": "left-early-step",
+      "label": "Left baseline early step",
+      "bbox": [
+        292,
+        188,
+        430,
+        164
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-model-to-early-arrow",
+        "left-early-stage-title",
+        "left-early-token-1",
+        "left-early-token-2",
+        "left-early-token-3",
+        "left-early-token-4",
+        "left-early-token-ellipsis-dot-1",
+        "left-early-token-ellipsis-dot-2",
+        "left-early-token-ellipsis-dot-3",
+        "left-early-token-5",
+        "left-early-token-6",
+        "left-early-token-7",
+        "left-early-token-8",
+        "left-early-word-answer",
+        "left-early-word-is",
+        "left-early-word-b",
+        "left-early-answer-underbrace",
+        "left-early-annotation-line-1",
+        "left-early-annotation-line-2",
+        "left-early-stage-side-brace",
+        "left-early-stage-side-label",
+        "left-stage-transition-ellipsis"
+      ],
+      "color_probes": [
+        {
+          "id": "left-early-mask",
+          "point": [
+            318,
+            244
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "left-early-less-grounded",
+          "point": [
+            568,
+            244
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        }
+      ],
+      "color_clearance_contracts": [
+        {
+          "id": "left-early-red-annotation-clearance",
+          "subject_element_ids": [
+            "left-early-annotation-line-1",
+            "left-early-annotation-line-2"
+          ],
+          "subject_dominant_channel": "red",
+          "minimum_dominance": 20,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1,
+          "reference_loss_tolerance_px": 1,
+          "subject_bbox": [
+            245,
+            115,
+            152,
+            49
+          ],
+          "native_binding_bbox": [
+            229.2,
+            116.0,
+            181.6,
+            67.0
+          ],
+          "obstacles": [
+            {
+              "id": "answer-underbrace",
+              "element_ids": [
+                "left-early-answer-underbrace"
+              ],
+              "bbox": [
+                264,
+                99,
+                113,
+                22
+              ],
+              "native_binding_bbox": [
+                267.0,
+                102.0,
+                107.0,
+                16.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "stage-transition-ellipsis",
+              "element_ids": [
+                "left-stage-transition-ellipsis"
+              ],
+              "bbox": [
+                185,
+                132,
+                20,
+                32
+              ],
+              "native_binding_bbox": [
+                173.8,
+                138.0,
+                42.4,
+                45.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "early-stage-side-brace",
+              "element_ids": [
+                "left-early-stage-side-brace"
+              ],
+              "bbox": [
+                387,
+                14,
+                23,
+                84
+              ],
+              "native_binding_bbox": [
+                390.0,
+                17.0,
+                16.0,
+                77.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "left-late-step",
+      "label": "Left baseline later step",
+      "bbox": [
+        291,
+        357,
+        432,
+        151
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-transition-to-late-arrow",
+        "left-late-token-1",
+        "left-late-token-2",
+        "left-late-token-3",
+        "left-late-token-4",
+        "left-late-token-ellipsis-dot-1",
+        "left-late-token-ellipsis-dot-2",
+        "left-late-token-ellipsis-dot-3",
+        "left-late-token-5",
+        "left-late-token-6",
+        "left-late-token-7",
+        "left-late-token-8",
+        "left-late-word-the",
+        "left-late-word-stove",
+        "left-late-word-broken",
+        "left-late-word-answer",
+        "left-late-word-is",
+        "left-late-word-b",
+        "left-late-rationale-underbrace",
+        "left-late-annotation-line-1",
+        "left-late-annotation-line-2",
+        "left-late-stage-side-brace",
+        "left-late-stage-side-label"
+      ],
+      "color_probes": [
+        {
+          "id": "left-late-more-grounded",
+          "point": [
+            318,
+            401
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "left-late-less-grounded",
+          "point": [
+            362,
+            401
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        }
+      ],
+      "color_clearance_contracts": [
+        {
+          "id": "left-late-red-annotation-clearance",
+          "subject_element_ids": [
+            "left-late-annotation-line-1",
+            "left-late-annotation-line-2"
+          ],
+          "subject_dominant_channel": "red",
+          "minimum_dominance": 20,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1,
+          "reference_loss_tolerance_px": 1,
+          "subject_bbox": [
+            18,
+            96,
+            175,
+            51
+          ],
+          "native_binding_bbox": [
+            6.527,
+            96.57,
+            188.946,
+            68.25
+          ],
+          "obstacles": [
+            {
+              "id": "rationale-underbrace",
+              "element_ids": [
+                "left-late-rationale-underbrace"
+              ],
+              "bbox": [
+                45,
+                86,
+                113,
+                22
+              ],
+              "native_binding_bbox": [
+                48.0,
+                89.0,
+                107.0,
+                16.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "token-ellipsis",
+              "element_ids": [
+                "left-late-token-ellipsis-dot-1",
+                "left-late-token-ellipsis-dot-2",
+                "left-late-token-ellipsis-dot-3"
+              ],
+              "bbox": [
+                184,
+                39,
+                24,
+                11
+              ],
+              "native_binding_bbox": [
+                188.5,
+                43.0,
+                15.0,
+                3.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "late-stage-side-brace",
+              "element_ids": [
+                "left-late-stage-side-brace"
+              ],
+              "bbox": [
+                388,
+                3,
+                23,
+                84
+              ],
+              "native_binding_bbox": [
+                391.0,
+                6.0,
+                16.0,
+                77.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "right-header-model",
+      "label": "Right input groups and diffusion model",
+      "bbox": [
+        779,
+        12,
+        675,
+        174
+      ],
+      "critical": true,
+      "element_ids": [
+        "right-input-image-title",
+        "right-input-image-bracket",
+        "right-input-image-token-1",
+        "right-input-image-token-2",
+        "right-input-image-token-3",
+        "right-input-prompt-title",
+        "right-input-prompt-bracket",
+        "right-input-prompt-token-1",
+        "right-input-prompt-token-2",
+        "right-input-prompt-token-3",
+        "right-input-response-title",
+        "right-input-response-bracket",
+        "right-input-response-token-1",
+        "right-input-response-token-2",
+        "right-input-response-token-3",
+        "right-input-response-token-4",
+        "right-input-response-ellipsis",
+        "right-input-response-token-5",
+        "right-input-response-token-6",
+        "right-input-response-token-7",
+        "right-input-response-token-8",
+        "right-input-to-model-arrow",
+        "right-model-box",
+        "right-model-label"
+      ],
+      "color_probes": [
+        {
+          "id": "right-image-token",
+          "point": [
+            812,
+            72
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "right-prompt-token",
+          "point": [
+            950,
+            72
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "right-model-fill",
+          "point": [
+            820,
+            145
+          ],
+          "radius": 3,
+          "max_delta_e": 5
+        }
+      ]
+    },
+    {
+      "id": "right-early-step",
+      "label": "Right proposed early step",
+      "bbox": [
+        1058,
+        186,
+        446,
+        167
+      ],
+      "critical": true,
+      "element_ids": [
+        "right-model-to-early-arrow",
+        "right-early-stage-title",
+        "right-early-token-1",
+        "right-early-token-2",
+        "right-early-token-3",
+        "right-early-token-4",
+        "right-early-token-ellipsis-dot-1",
+        "right-early-token-ellipsis-dot-2",
+        "right-early-token-ellipsis-dot-3",
+        "right-early-token-5",
+        "right-early-token-6",
+        "right-early-token-7",
+        "right-early-token-8",
+        "right-early-word-stove",
+        "right-early-word-old",
+        "right-early-rationale-underbrace",
+        "right-early-annotation-line-1",
+        "right-early-annotation-line-2",
+        "right-early-stage-side-brace",
+        "right-early-stage-side-label",
+        "right-stage-transition-ellipsis"
+      ],
+      "color_probes": [
+        {
+          "id": "right-early-mask",
+          "point": [
+            1090,
+            241
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "right-early-more-grounded",
+          "point": [
+            1134,
+            241
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        }
+      ],
+      "color_clearance_contracts": [
+        {
+          "id": "right-early-green-annotation-clearance",
+          "subject_element_ids": [
+            "right-early-annotation-line-1",
+            "right-early-annotation-line-2"
+          ],
+          "subject_dominant_channel": "green",
+          "minimum_dominance": 20,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 0,
+          "reference_loss_tolerance_px": 0,
+          "subject_bbox": [
+            37,
+            110,
+            168,
+            52
+          ],
+          "native_binding_bbox": [
+            26.527,
+            108.57,
+            188.946,
+            68.22
+          ],
+          "obstacles": [
+            {
+              "id": "rationale-underbrace",
+              "element_ids": [
+                "right-early-rationale-underbrace"
+              ],
+              "bbox": [
+                64,
+                98,
+                113,
+                19
+              ],
+              "native_binding_bbox": [
+                67.0,
+                101.0,
+                107.0,
+                16.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "stage-transition-ellipsis",
+              "element_ids": [
+                "right-stage-transition-ellipsis"
+              ],
+              "bbox": [
+                193,
+                136,
+                14,
+                23
+              ],
+              "native_binding_bbox": [
+                179.8,
+                137.0,
+                42.4,
+                45.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "early-stage-side-brace",
+              "element_ids": [
+                "right-early-stage-side-brace"
+              ],
+              "bbox": [
+                393,
+                14,
+                23,
+                82
+              ],
+              "native_binding_bbox": [
+                396.0,
+                17.0,
+                16.0,
+                76.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "right-late-step",
+      "label": "Right proposed later step",
+      "bbox": [
+        1057,
+        356,
+        447,
+        153
+      ],
+      "critical": true,
+      "element_ids": [
+        "right-transition-to-late-arrow",
+        "right-late-token-1",
+        "right-late-token-2",
+        "right-late-token-3",
+        "right-late-token-4",
+        "right-late-token-ellipsis",
+        "right-late-token-5",
+        "right-late-token-6",
+        "right-late-token-7",
+        "right-late-token-8",
+        "right-late-word-the",
+        "right-late-word-stove",
+        "right-late-word-is",
+        "right-late-word-old",
+        "right-late-word-answer",
+        "right-late-word-c",
+        "right-late-answer-underbrace",
+        "right-late-annotation-line-1",
+        "right-late-annotation-line-2",
+        "right-late-stage-side-brace",
+        "right-late-stage-side-label"
+      ],
+      "color_probes": [
+        {
+          "id": "right-late-more-grounded",
+          "point": [
+            1090,
+            399
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "right-late-mask",
+          "point": [
+            1280,
+            399
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        }
+      ],
+      "color_clearance_contracts": [
+        {
+          "id": "right-late-green-annotation-clearance",
+          "subject_element_ids": [
+            "right-late-annotation-line-1",
+            "right-late-annotation-line-2"
+          ],
+          "subject_dominant_channel": "green",
+          "minimum_dominance": 20,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1,
+          "reference_loss_tolerance_px": 1,
+          "subject_bbox": [
+            248,
+            99,
+            154,
+            49
+          ],
+          "native_binding_bbox": [
+            235.322,
+            99.285,
+            179.356,
+            68.625
+          ],
+          "obstacles": [
+            {
+              "id": "answer-underbrace",
+              "element_ids": [
+                "right-late-answer-underbrace"
+              ],
+              "bbox": [
+                269,
+                82,
+                112,
+                22
+              ],
+              "native_binding_bbox": [
+                272.0,
+                85.0,
+                106.0,
+                16.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "token-ellipsis",
+              "element_ids": [
+                "right-late-token-ellipsis"
+              ],
+              "bbox": [
+                190,
+                35,
+                25,
+                15
+              ],
+              "native_binding_bbox": [
+                178.0,
+                27.0,
+                48.0,
+                45.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            },
+            {
+              "id": "late-stage-side-brace",
+              "element_ids": [
+                "right-late-stage-side-brace"
+              ],
+              "bbox": [
+                394,
+                0,
+                23,
+                82
+              ],
+              "native_binding_bbox": [
+                397.0,
+                2.0,
+                16.0,
+                77.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "captions",
+      "label": "Panel captions",
+      "bbox": [
+        190,
+        512,
+        1180,
+        40
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-panel-caption",
+        "right-panel-caption"
+      ]
+    }
+  ]
+}

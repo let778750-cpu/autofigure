@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-02-thinking-diffusion",
+  "taskMode": "RECONSTRUCT_1TO1",
+  "designatedReference": {
+    "sourceId": "reference",
+    "sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+    "usage": "measurement_only",
+    "embedded": false
+  },
+  "reviewIsolation": {
+    "doesNotOverrideAssetManifest": true,
+    "doesNotEstablishScientificValidity": true,
+    "doesNotEstablishRights": true
+  },
+  "reviewStatus": "PENDING",
+  "lifecycleStatus": "DRAFT",
+  "records": []
+}

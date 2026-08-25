@@ -20,8 +20,8 @@ from PIL import Image
 from pptx import Presentation
 
 from tools import common
+from tools.arrow_spec import arrow_direction, spec_sha256
 from tools.contracts import read_json, write_json
-from tools.svggeom import parse_path_d
 
 EMU_PER_PX = 914400 / 96
 TARGET_ID = "autofigure-pptx"
@@ -105,10 +105,17 @@ def _text_spec(shape: Any, fallback_text: str = "") -> dict[str, Any]:
     }
 
 
-def _xml_shape_bounds(path: Path) -> tuple[dict[str, dict[str, float]], dict[int, dict[str, float]]]:
-    """Read geometry for shapes hidden in mc:AlternateContent (notably OMML)."""
+def _xml_shape_bound_indexes(
+    path: Path,
+) -> tuple[
+    dict[str, dict[str, float]],
+    dict[int, dict[str, float]],
+    dict[tuple[int, str], dict[str, float]],
+]:
+    """Read geometry indexes for shapes hidden in mc:AlternateContent."""
     by_name: dict[str, dict[str, float]] = {}
     by_id: dict[int, dict[str, float]] = {}
+    by_identity: dict[tuple[int, str], dict[str, float]] = {}
     drawing_ns = "http://schemas.openxmlformats.org/drawingml/2006/main"
     shape_tags = {"sp", "pic", "cxnSp", "graphicFrame", "grpSp"}
     with zipfile.ZipFile(path) as package:
@@ -147,7 +154,33 @@ def _xml_shape_bounds(path: Path) -> tuple[dict[str, dict[str, float]], dict[int
                     by_name[name] = bounds
                 if shape_id:
                     by_id[shape_id] = bounds
+                if shape_id and name:
+                    by_identity[(shape_id, name)] = bounds
+    return by_name, by_id, by_identity
+
+
+def _xml_shape_bounds(path: Path) -> tuple[dict[str, dict[str, float]], dict[int, dict[str, float]]]:
+    """Return compatibility indexes for callers not yet using paired identity."""
+    by_name, by_id, _ = _xml_shape_bound_indexes(path)
     return by_name, by_id
+
+
+def _binding_identity(binding: dict[str, Any]) -> tuple[int, str]:
+    """Return the complete PowerPoint object identity or fail closed."""
+    shape_id = binding.get("shape_id")
+    shape_name = binding.get("shape_name")
+    if (
+        isinstance(shape_id, bool)
+        or not isinstance(shape_id, int)
+        or shape_id <= 0
+        or not isinstance(shape_name, str)
+        or not shape_name
+    ):
+        raise common.fail(
+            "PowerPoint-live bridge requires an exact (shape_id, shape_name) binding: "
+            f"{binding}"
+        )
+    return shape_id, shape_name
 
 
 def _svg_elements(path: Path) -> dict[str, ET.Element]:
@@ -155,64 +188,31 @@ def _svg_elements(path: Path) -> dict[str, ET.Element]:
     return {element_id: element for element in root.iter() if (element_id := element.get("id"))}
 
 
-def _cubic_path(segments: list[tuple]) -> dict[str, Any] | None:
-    start: tuple[float, float] | None = None
-    current: tuple[float, float] | None = None
-    cubics: list[dict[str, Any]] = []
-    for segment in segments:
-        if segment[0] == "M":
-            start = current = (float(segment[1]), float(segment[2]))
-        elif segment[0] == "L" and current is not None:
-            end = (float(segment[1]), float(segment[2]))
-            cubics.append(
-                {
-                    "control1": {
-                        "x": current[0] + (end[0] - current[0]) / 3,
-                        "y": current[1] + (end[1] - current[1]) / 3,
-                    },
-                    "control2": {
-                        "x": current[0] + 2 * (end[0] - current[0]) / 3,
-                        "y": current[1] + 2 * (end[1] - current[1]) / 3,
-                    },
-                    "end": {"x": end[0], "y": end[1]},
-                }
-            )
-            current = end
-        elif segment[0] == "C" and current is not None:
-            end = (float(segment[5]), float(segment[6]))
-            cubics.append(
-                {
-                    "control1": {"x": float(segment[1]), "y": float(segment[2])},
-                    "control2": {"x": float(segment[3]), "y": float(segment[4])},
-                    "end": {"x": end[0], "y": end[1]},
-                }
-            )
-            current = end
-    if start is None or not cubics:
-        return None
-    return {
-        "kind": "cubic",
-        "coordinateSpace": "canvas",
-        "start": {"x": start[0], "y": start[1]},
-        "segments": cubics,
-    }
-
-
 def _edge_route(element: dict[str, Any]) -> tuple[str, dict[str, Any] | None]:
-    geometry = element.get("geometry", {})
-    d = geometry.get("d")
-    if not d:
+    spec = element.get("arrow_spec", {})
+    if spec.get("representation") == "block_arrow":
+        # A block arrow is one filled shape, not a connector centerline.  The
+        # current PowerPoint-live provider is inspect-only for arrow authoring,
+        # so expose a stable straight semantic route without inventing a second
+        # drawable path.  The exact silhouette remains in ArrowSpec/OOXML QA.
         return "straight", None
-    segments = parse_path_d(d)
-    if any(segment[0] == "C" for segment in segments):
-        return "curved", _cubic_path(segments)
-    points = [
-        {"x": float(segment[1]), "y": float(segment[2])}
-        for segment in segments
-        if segment[0] in {"M", "L"}
-    ]
-    if len(points) > 2:
-        return "polyline", {"kind": "polyline", "coordinateSpace": "canvas", "points": points}
+    path = spec.get("path") or {}
+    kind = path.get("kind")
+    if kind == "straight":
+        return "straight", None
+    if kind == "polyline":
+        return "polyline", {
+            "kind": "polyline",
+            "coordinateSpace": "canvas",
+            "points": path.get("points", []),
+        }
+    if kind == "cubic":
+        return "curved", {
+            "kind": "cubic",
+            "coordinateSpace": "canvas",
+            "start": path.get("start"),
+            "segments": path.get("segments", []),
+        }
     return "straight", None
 
 
@@ -274,12 +274,37 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
         raise common.fail("PowerPoint-live bridge requires current PPTX, scene.json and bindings.json")
     meta = run.load_meta()
     live_root = run.live_case_dir
+    resolved_live_root = live_root.resolve()
+    if resolved_live_root.parent != run.qa_dir.resolve() or resolved_live_root.name != "powerpoint-live-case":
+        raise common.fail(f"unsafe PowerPoint-live case root: {resolved_live_root}")
+    if live_root.exists():
+        # A repair request is a fresh, hash-bound managed case. Reusing an old
+        # build/candidates tree makes finalizer evidence ambiguous.
+        shutil.rmtree(live_root)
     for directory in (live_root / "input", live_root / "design", live_root / "assets"):
         directory.mkdir(parents=True, exist_ok=True)
     reference_copy = live_root / "input" / "reference.png"
     template_copy = live_root / "input" / "candidate.pptx"
     shutil.copy2(run.source_png, reference_copy)
     shutil.copy2(run.pptx_path, template_copy)
+
+    source_candidate_sha256 = common.sha256_file(template_copy)
+    source_bindings_sha256 = common.sha256_file(run.bindings_path)
+    math_summary_path = run.qa_dir / "math-summary.json"
+    source_math_summary_sha256 = (
+        common.sha256_file(math_summary_path) if math_summary_path.is_file() else None
+    )
+    source_math_pptx_sha256 = None
+    if math_summary_path.is_file():
+        math_summary = read_json(math_summary_path)
+        declared_math_pptx_sha256 = math_summary.get("pptx_sha256")
+        if declared_math_pptx_sha256 is not None:
+            if declared_math_pptx_sha256 != source_candidate_sha256:
+                raise common.fail(
+                    "PowerPoint-live bridge refuses math evidence that is not "
+                    "bound to the current redraw.pptx"
+                )
+            source_math_pptx_sha256 = declared_math_pptx_sha256
 
     project_id = _project_id(meta["case"])
     scene_v3 = read_json(run.scene_path)
@@ -290,24 +315,64 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
 
     presentation = Presentation(run.pptx_path)
     shapes = list(_walk_shapes(presentation.slides[0].shapes))
-    by_name = {shape.name: shape for shape in shapes}
-    by_id = {shape.shape_id: shape for shape in shapes}
-    xml_by_name, xml_by_id = _xml_shape_bounds(run.pptx_path)
+    by_identity = {(int(shape.shape_id), shape.name): shape for shape in shapes}
+    _, _, xml_by_identity = _xml_shape_bound_indexes(run.pptx_path)
     binding_rows: dict[str, list[Any]] = {}
     binding_meta: dict[str, dict[str, Any]] = {}
     for binding in bindings.get("bindings", []):
-        shape = (
-            by_name.get(binding.get("shape_name"))
-            or by_id.get(binding.get("shape_id"))
-            or xml_by_name.get(binding.get("shape_name"))
-            or xml_by_id.get(binding.get("shape_id"))
-        )
+        identity = _binding_identity(binding)
+        shape = by_identity.get(identity)
         if shape is None:
-            raise common.fail(f"PowerPoint-live bridge cannot read bound shape: {binding}")
+            shape = xml_by_identity.get(identity)
+        if shape is None:
+            raise common.fail(
+                "PowerPoint-live bridge cannot read exact bound shape identity "
+                f"(shape_id={identity[0]!r}, shape_name={identity[1]!r}): {binding}"
+            )
         binding_rows.setdefault(binding["element_id"], []).append(shape)
         binding_meta.setdefault(binding["element_id"], binding)
+    for binding in bindings.get("logical_group_bindings", []):
+        backend_ids = binding.get("backend_object_ids")
+        backend_names = binding.get("backend_object_names")
+        if (
+            not isinstance(backend_ids, list)
+            or not isinstance(backend_names, list)
+            or not backend_ids
+            or len(backend_ids) != len(backend_names)
+        ):
+            raise common.fail(
+                "PowerPoint-live bridge requires complete logical-group composite "
+                f"identities: {binding}"
+            )
+        group_shapes: list[Any] = []
+        for shape_id, shape_name in zip(backend_ids, backend_names, strict=True):
+            if (
+                not isinstance(shape_id, int)
+                or isinstance(shape_id, bool)
+                or shape_id <= 0
+                or not isinstance(shape_name, str)
+                or not shape_name
+            ):
+                raise common.fail(
+                    "PowerPoint-live bridge received an invalid logical-group "
+                    f"member identity: {binding}"
+                )
+            identity = (shape_id, shape_name)
+            shape = by_identity.get(identity)
+            if shape is None:
+                shape = xml_by_identity.get(identity)
+            if shape is None:
+                raise common.fail(
+                    "PowerPoint-live bridge cannot read logical-group member "
+                    f"(shape_id={shape_id!r}, shape_name={shape_name!r})"
+                )
+            group_shapes.append(shape)
+        binding_rows[binding["element_id"]] = group_shapes
+        binding_meta[binding["element_id"]] = binding
 
     atomic_assets, manifest_assets = _crop_assets(run, live_root, assets_v3)
+    # Text extraction still uses the current SVG carrier; arrow direction and
+    # routing below come exclusively from ArrowSpec.
     svg_by_id = _svg_elements(run.redraw_svg)
     nodes: list[dict[str, Any]] = []
     edges: list[dict[str, Any]] = []
@@ -322,29 +387,32 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
             raise common.fail(f"PowerPoint-live bridge has no shape binding for {element_id}")
         binding = binding_meta[element_id]
         topology = element.get("topology", {})
-        is_edge = bool(topology.get("source") and topology.get("target"))
+        arrow_spec = element.get("arrow_spec") if isinstance(element.get("arrow_spec"), dict) else None
+        arrow_topology = {} if arrow_spec is None else arrow_spec.get("topology", {})
+        source_id = arrow_topology.get("source_id") or topology.get("source")
+        target_id = arrow_topology.get("target_id") or topology.get("target")
+        is_edge = bool(source_id and target_id)
         if is_edge:
             route, path_spec = _edge_route(element)
             relation_id = f"rel:{element_id}"
-            svg_element = svg_by_id.get(element_id)
-            marker_start = svg_element is not None and (
-                svg_element.get("marker-start") is not None
-                or "marker-start" in (svg_element.get("style") or "")
-            )
-            marker_end = svg_element is not None and (
-                svg_element.get("marker-end") is not None
-                or "marker-end" in (svg_element.get("style") or "")
-            )
-            direction = "bidirectional" if marker_start and marker_end else "forward"
+            spec_direction = arrow_direction(arrow_spec) if arrow_spec is not None else "undirected"
+            direction = "none" if spec_direction == "undirected" else spec_direction
             edge = {
                 "id": element_id,
                 "semanticRelationIds": [relation_id],
                 "geometryOnly": False,
-                "source": topology["source"],
-                "target": topology["target"],
+                "source": source_id,
+                "target": target_id,
                 "direction": direction,
                 "route": route,
-                "styleTokens": {"strokePattern": "solid"},
+                "styleTokens": {
+                    "strokePattern": (
+                        "solid"
+                        if arrow_spec is None
+                        or arrow_spec.get("body", {}).get("dash", "solid") == "solid"
+                        else "dashed"
+                    )
+                },
             }
             if path_spec is not None:
                 edge["pathSpec"] = path_spec
@@ -352,8 +420,8 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
             relations.append(
                 {
                     "relationId": relation_id,
-                    "source": topology["source"],
-                    "target": topology["target"],
+                    "source": source_id,
+                    "target": target_id,
                     "kind": "flow",
                     "direction": direction,
                     "sourceIds": ["reference"],
@@ -380,10 +448,16 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
             "editable": bool(element.get("editable", binding.get("editable", True))),
             "zIndex": int(element.get("z_index", len(nodes))),
         }
+        if binding.get("binding_kind") == "logical-group-composite":
+            node["composite"] = True
+            node["memberIds"] = list(binding.get("member_element_ids", []))
         if kind == "text":
             svg_element = svg_by_id.get(element_id)
             fallback_text = "" if svg_element is None else "".join(svg_element.itertext()).strip()
             node["textSpec"] = _text_spec(bound_shapes[0], fallback_text)
+            rotation = round(float(getattr(bound_shapes[0], "rotation", 0.0) or 0.0), 6)
+            if rotation:
+                node["rotation"] = rotation
         elif kind == "asset":
             asset = atomic_assets[element_id]
             node["assetSpec"] = {
@@ -461,6 +535,14 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
         )
 
     element_ids = [item["id"] for item in nodes + edges]
+    from tools.providers import powerpoint_live_arrow_capabilities
+
+    live_arrow_capabilities = powerpoint_live_arrow_capabilities()
+    arrow_spec_hashes = {
+        item["id"]: spec_sha256(item["arrow_spec"])
+        for item in scene_v3.get("elements", [])
+        if isinstance(item.get("arrow_spec"), dict)
+    }
     render_plan = {
         "schemaVersion": "2.0.0",
         "projectId": project_id,
@@ -639,6 +721,10 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
         "target_id": TARGET_ID,
         "task_mode": "RECONSTRUCT_1TO1",
         "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+        "source_candidate_sha256": source_candidate_sha256,
+        "source_bindings_sha256": source_bindings_sha256,
+        "source_math_summary_sha256": source_math_summary_sha256,
+        "source_math_pptx_sha256": source_math_pptx_sha256,
         "reference_sha256": meta["source_sha256"],
         "source_scene_schema_version": scene_v3.get("schema_version"),
         "source_scene_sha256": common.sha256_file(run.scene_path),
@@ -648,6 +734,15 @@ def build_powerpoint_live_bridge(run: common.Run) -> dict[str, Any]:
         "contract_files": {
             relative: common.sha256_file(live_root / relative) for relative in documents
         },
+        "mutation_policy": {
+            "arrow_authoring_allowed": live_arrow_capabilities["arrow_authoring_allowed"],
+            "arrow_operations": live_arrow_capabilities["allowed_arrow_operations"],
+            "offline_compiler_is_authoritative": True,
+        },
+        "provider_capability_fingerprint_sha256": live_arrow_capabilities[
+            "capability_fingerprint_sha256"
+        ],
+        "arrow_spec_hashes": arrow_spec_hashes,
     }
     write_json(run.live_bridge_path, manifest)
     return manifest

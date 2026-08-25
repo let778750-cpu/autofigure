@@ -1,0 +1,265 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_compile_report",
+  "created_at": "20260824T153715Z",
+  "case": "02-thinking-diffusion",
+  "scene_sha256": "7edae89cca63c51a326606e47d96f827313b23ec668b5cae55096fe41162b304",
+  "artifact_sha256": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+  "arrow_count": 6,
+  "records": [
+    {
+      "element_id": "arrow-left-input-to-model",
+      "arrow_spec_sha256": "3ffe9cdc8f5f061c55ce1ec952b712fedc2dde46c96ef5708f2194d5b2fc38a4",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        25
+      ],
+      "shape_names": [
+        "af-arrow-left-input-to-model-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-left-model-to-early-step",
+      "arrow_spec_sha256": "fda3382bea4aae9e54da4ff5ea82ccc618e7c9f617070db963bd908a872675ca",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        28
+      ],
+      "shape_names": [
+        "af-arrow-left-model-to-early-step-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-left-to-later-step",
+      "arrow_spec_sha256": "814543cc03ba5312a69b42a86343b96829dbe9e87000d705708642bf3f9e55a1",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        52
+      ],
+      "shape_names": [
+        "af-arrow-left-to-later-step-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-right-input-to-model",
+      "arrow_spec_sha256": "d9d2990749d4db18c0f9d45867d0fa1035aff65a9a51f3eb016c2b75d024da53",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        108
+      ],
+      "shape_names": [
+        "af-arrow-right-input-to-model-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-right-model-to-early-step",
+      "arrow_spec_sha256": "ea2d49f84482f4086ef839b0e6351c249977a2d2322b9c9d68623cd4604c8b9c",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        111
+      ],
+      "shape_names": [
+        "af-arrow-right-model-to-early-step-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-right-to-later-step",
+      "arrow_spec_sha256": "e7e136ff9f33cc6b22a45e192f198b21761f1ce4933aff86d4e706c0a497217a",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        134
+      ],
+      "shape_names": [
+        "af-arrow-right-to-later-step-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

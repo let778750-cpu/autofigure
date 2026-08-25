@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.1.0",
   "projectId": "autofigure-01-modular-agent",
-  "version": "autofigure-50b3c2385bac",
+  "version": "autofigure-8062d6611e52",
   "canvas": {
     "width": 1429,
     "height": 627,
@@ -1167,8 +1167,8 @@
       }
     },
     {
-      "id": "svg-rect-0019",
-      "semanticId": "svg-rect-0019",
+      "id": "expert-1-box",
+      "semanticId": "expert-1-box",
       "kind": "shape",
       "x": 552.0,
       "y": 229.0,
@@ -1178,8 +1178,8 @@
       "zIndex": 64
     },
     {
-      "id": "svg-rect-0020",
-      "semanticId": "svg-rect-0020",
+      "id": "expert-1-sem",
+      "semanticId": "expert-1-sem",
       "kind": "shape",
       "x": 559.0,
       "y": 243.0,
@@ -1189,8 +1189,8 @@
       "zIndex": 65
     },
     {
-      "id": "svg-rect-0021",
-      "semanticId": "svg-rect-0021",
+      "id": "expert-1-dyn",
+      "semanticId": "expert-1-dyn",
       "kind": "shape",
       "x": 559.0,
       "y": 356.0,
@@ -1200,13 +1200,13 @@
       "zIndex": 66
     },
     {
-      "id": "svg-text-0024",
-      "semanticId": "svg-text-0024",
+      "id": "expert-1-sem-label",
+      "semanticId": "expert-1-sem-label",
       "kind": "text",
-      "x": 544.64,
-      "y": 271.75,
-      "width": 68.72,
-      "height": 42.4999,
+      "x": 536.4999,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 67,
       "textSpec": {
@@ -1230,16 +1230,17 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
-      "id": "svg-text-0025",
-      "semanticId": "svg-text-0025",
+      "id": "expert-1-dyn-label",
+      "semanticId": "expert-1-dyn-label",
       "kind": "text",
-      "x": 547.61,
-      "y": 385.75,
-      "width": 62.7801,
-      "height": 42.4999,
+      "x": 536.4999,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 68,
       "textSpec": {
@@ -1263,7 +1264,8 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "svg-text-0026",
@@ -1299,8 +1301,8 @@
       }
     },
     {
-      "id": "svg-rect-0022",
-      "semanticId": "svg-rect-0022",
+      "id": "expert-2-box",
+      "semanticId": "expert-2-box",
       "kind": "shape",
       "x": 628.0,
       "y": 229.0,
@@ -1310,8 +1312,8 @@
       "zIndex": 70
     },
     {
-      "id": "svg-rect-0023",
-      "semanticId": "svg-rect-0023",
+      "id": "expert-2-sem",
+      "semanticId": "expert-2-sem",
       "kind": "shape",
       "x": 635.0,
       "y": 243.0,
@@ -1321,8 +1323,8 @@
       "zIndex": 71
     },
     {
-      "id": "svg-rect-0024",
-      "semanticId": "svg-rect-0024",
+      "id": "expert-2-dyn",
+      "semanticId": "expert-2-dyn",
       "kind": "shape",
       "x": 635.0,
       "y": 356.0,
@@ -1332,13 +1334,13 @@
       "zIndex": 72
     },
     {
-      "id": "svg-text-0027",
-      "semanticId": "svg-text-0027",
+      "id": "expert-2-sem-label",
+      "semanticId": "expert-2-sem-label",
       "kind": "text",
-      "x": 620.64,
-      "y": 271.75,
-      "width": 68.72,
-      "height": 42.4999,
+      "x": 612.4999,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 73,
       "textSpec": {
@@ -1362,16 +1364,17 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
-      "id": "svg-text-0028",
-      "semanticId": "svg-text-0028",
+      "id": "expert-2-dyn-label",
+      "semanticId": "expert-2-dyn-label",
       "kind": "text",
-      "x": 623.61,
-      "y": 385.75,
-      "width": 62.7801,
-      "height": 42.4999,
+      "x": 612.4999,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 74,
       "textSpec": {
@@ -1395,7 +1398,8 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "svg-text-0029",
@@ -1431,8 +1435,8 @@
       }
     },
     {
-      "id": "svg-rect-0025",
-      "semanticId": "svg-rect-0025",
+      "id": "expert-3-box",
+      "semanticId": "expert-3-box",
       "kind": "shape",
       "x": 706.0,
       "y": 229.0,
@@ -1442,8 +1446,8 @@
       "zIndex": 76
     },
     {
-      "id": "svg-rect-0026",
-      "semanticId": "svg-rect-0026",
+      "id": "expert-3-sem",
+      "semanticId": "expert-3-sem",
       "kind": "shape",
       "x": 713.0,
       "y": 243.0,
@@ -1453,8 +1457,8 @@
       "zIndex": 77
     },
     {
-      "id": "svg-rect-0027",
-      "semanticId": "svg-rect-0027",
+      "id": "expert-3-dyn",
+      "semanticId": "expert-3-dyn",
       "kind": "shape",
       "x": 713.0,
       "y": 356.0,
@@ -1464,13 +1468,13 @@
       "zIndex": 78
     },
     {
-      "id": "svg-text-0030",
-      "semanticId": "svg-text-0030",
+      "id": "expert-3-sem-label",
+      "semanticId": "expert-3-sem-label",
       "kind": "text",
-      "x": 698.64,
-      "y": 271.75,
-      "width": 68.72,
-      "height": 42.4999,
+      "x": 690.4999,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 79,
       "textSpec": {
@@ -1494,16 +1498,17 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
-      "id": "svg-text-0031",
-      "semanticId": "svg-text-0031",
+      "id": "expert-3-dyn-label",
+      "semanticId": "expert-3-dyn-label",
       "kind": "text",
-      "x": 701.61,
-      "y": 385.75,
-      "width": 62.7801,
-      "height": 42.4999,
+      "x": 690.4999,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 80,
       "textSpec": {
@@ -1527,7 +1532,8 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "svg-text-0032",
@@ -1563,8 +1569,8 @@
       }
     },
     {
-      "id": "svg-rect-0028",
-      "semanticId": "svg-rect-0028",
+      "id": "expert-4-box",
+      "semanticId": "expert-4-box",
       "kind": "shape",
       "x": 801.0,
       "y": 229.0,
@@ -1574,8 +1580,8 @@
       "zIndex": 82
     },
     {
-      "id": "svg-rect-0029",
-      "semanticId": "svg-rect-0029",
+      "id": "expert-4-sem",
+      "semanticId": "expert-4-sem",
       "kind": "shape",
       "x": 808.0,
       "y": 243.0,
@@ -1585,8 +1591,8 @@
       "zIndex": 83
     },
     {
-      "id": "svg-rect-0030",
-      "semanticId": "svg-rect-0030",
+      "id": "expert-4-dyn",
+      "semanticId": "expert-4-dyn",
       "kind": "shape",
       "x": 808.0,
       "y": 356.0,
@@ -1596,13 +1602,13 @@
       "zIndex": 84
     },
     {
-      "id": "svg-text-0033",
-      "semanticId": "svg-text-0033",
+      "id": "expert-4-sem-label",
+      "semanticId": "expert-4-sem-label",
       "kind": "text",
-      "x": 793.64,
-      "y": 271.75,
-      "width": 68.72,
-      "height": 42.4999,
+      "x": 785.5001,
+      "y": 272.4999,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 85,
       "textSpec": {
@@ -1626,16 +1632,17 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
-      "id": "svg-text-0034",
-      "semanticId": "svg-text-0034",
+      "id": "expert-4-dyn-label",
+      "semanticId": "expert-4-dyn-label",
       "kind": "text",
-      "x": 796.61,
-      "y": 385.75,
-      "width": 62.7801,
-      "height": 42.4999,
+      "x": 785.5001,
+      "y": 385.0,
+      "width": 82.0,
+      "height": 41.0,
       "editable": true,
       "zIndex": 86,
       "textSpec": {
@@ -1659,7 +1666,8 @@
             "fontSize": 13.5
           }
         ]
-      }
+      },
+      "rotation": 90.0
     },
     {
       "id": "svg-text-0035",
@@ -1728,57 +1736,24 @@
       }
     },
     {
-      "id": "svg-path-0004",
-      "semanticId": "svg-path-0004",
+      "id": "allocator-task1-propagation",
+      "semanticId": "allocator-task1-propagation",
       "kind": "shape",
       "x": 539.0,
       "y": 260.0,
       "width": 362.0,
       "height": 114.0,
       "editable": true,
-      "zIndex": 89
+      "zIndex": 92
     },
     {
-      "id": "svg-path-0005",
-      "semanticId": "svg-path-0005",
+      "id": "allocator-task2-propagation",
+      "semanticId": "allocator-task2-propagation",
       "kind": "shape",
       "x": 539.0,
       "y": 298.0,
       "width": 362.0,
       "height": 135.0,
-      "editable": true,
-      "zIndex": 90
-    },
-    {
-      "id": "allocator-task1-route-1",
-      "semanticId": "allocator-task1-route-1",
-      "kind": "line",
-      "x": 606.0,
-      "y": 316.0,
-      "width": 16.0,
-      "height": 22.0,
-      "editable": true,
-      "zIndex": 91
-    },
-    {
-      "id": "allocator-task1-route-2",
-      "semanticId": "allocator-task1-route-2",
-      "kind": "line",
-      "x": 684.0,
-      "y": 318.0,
-      "width": 16.0,
-      "height": 18.0,
-      "editable": true,
-      "zIndex": 92
-    },
-    {
-      "id": "allocator-task1-skip-edge",
-      "semanticId": "allocator-task1-skip-edge",
-      "kind": "line",
-      "x": 762.0,
-      "y": 408.0,
-      "width": 33.0,
-      "height": 3.0,
       "editable": true,
       "zIndex": 93
     },
@@ -1816,8 +1791,8 @@
       }
     },
     {
-      "id": "svg-rect-0031",
-      "semanticId": "svg-rect-0031",
+      "id": "zt-top-box",
+      "semanticId": "zt-top-box",
       "kind": "shape",
       "x": 902.0,
       "y": 208.0,
@@ -1860,8 +1835,8 @@
       "zIndex": 98
     },
     {
-      "id": "svg-rect-0032",
-      "semanticId": "svg-rect-0032",
+      "id": "zt-bottom-box",
+      "semanticId": "zt-bottom-box",
       "kind": "shape",
       "x": 902.0,
       "y": 353.0,
@@ -1904,28 +1879,6 @@
       "zIndex": 102
     },
     {
-      "id": "top-mixture-to-rollout",
-      "semanticId": "top-mixture-to-rollout",
-      "kind": "line",
-      "x": 945.0,
-      "y": 272.0,
-      "width": 61.0,
-      "height": 40.0,
-      "editable": true,
-      "zIndex": 103
-    },
-    {
-      "id": "bottom-mixture-to-rollout",
-      "semanticId": "bottom-mixture-to-rollout",
-      "kind": "line",
-      "x": 945.0,
-      "y": 323.0,
-      "width": 60.0,
-      "height": 95.0,
-      "editable": true,
-      "zIndex": 104
-    },
-    {
       "id": "task-conditioned-imagination",
       "semanticId": "task-conditioned-imagination",
       "kind": "shape",
@@ -1934,7 +1887,7 @@
       "width": 399.0,
       "height": 89.0,
       "editable": true,
-      "zIndex": 105
+      "zIndex": 103
     },
     {
       "id": "svg-text-0038",
@@ -1945,7 +1898,7 @@
       "width": 286.4,
       "height": 45.0,
       "editable": true,
-      "zIndex": 107,
+      "zIndex": 105,
       "textSpec": {
         "text": "task-conditioned imagination",
         "fontToken": "autofigure-font",
@@ -1978,7 +1931,7 @@
       "width": 48.0,
       "height": 33.0,
       "editable": true,
-      "zIndex": 108
+      "zIndex": 106
     },
     {
       "id": "svg-text-0039",
@@ -1989,7 +1942,7 @@
       "width": 54.95,
       "height": 41.25,
       "editable": true,
-      "zIndex": 109,
+      "zIndex": 107,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2022,7 +1975,7 @@
       "width": 48.0,
       "height": 33.0,
       "editable": true,
-      "zIndex": 110
+      "zIndex": 108
     },
     {
       "id": "svg-text-0040",
@@ -2033,7 +1986,7 @@
       "width": 73.31,
       "height": 41.25,
       "editable": true,
-      "zIndex": 111,
+      "zIndex": 109,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2066,7 +2019,7 @@
       "width": 48.0,
       "height": 33.0,
       "editable": true,
-      "zIndex": 112
+      "zIndex": 110
     },
     {
       "id": "svg-text-0041",
@@ -2077,7 +2030,7 @@
       "width": 73.31,
       "height": 41.25,
       "editable": true,
-      "zIndex": 113,
+      "zIndex": 111,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2110,7 +2063,7 @@
       "width": 48.0,
       "height": 33.0,
       "editable": true,
-      "zIndex": 114
+      "zIndex": 112
     },
     {
       "id": "svg-text-0042",
@@ -2121,7 +2074,7 @@
       "width": 72.63,
       "height": 41.25,
       "editable": true,
-      "zIndex": 115,
+      "zIndex": 113,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2154,7 +2107,7 @@
       "width": 47.0,
       "height": 0.5,
       "editable": true,
-      "zIndex": 116
+      "zIndex": 114
     },
     {
       "id": "imagination-z1-to-z2",
@@ -2165,7 +2118,7 @@
       "width": 48.0,
       "height": 0.5,
       "editable": true,
-      "zIndex": 117
+      "zIndex": 115
     },
     {
       "id": "imagination-z2-to-zh",
@@ -2176,7 +2129,7 @@
       "width": 82.0,
       "height": 0.5,
       "editable": true,
-      "zIndex": 118
+      "zIndex": 116
     },
     {
       "id": "svg-text-0043",
@@ -2187,7 +2140,7 @@
       "width": 48.2,
       "height": 42.4999,
       "editable": true,
-      "zIndex": 119,
+      "zIndex": 117,
       "textSpec": {
         "text": "...",
         "fontToken": "autofigure-font",
@@ -2220,7 +2173,7 @@
       "width": 0.5,
       "height": 27.0,
       "editable": true,
-      "zIndex": 120
+      "zIndex": 118
     },
     {
       "id": "imagination-z1-to-r1",
@@ -2231,7 +2184,7 @@
       "width": 0.5,
       "height": 27.0,
       "editable": true,
-      "zIndex": 121
+      "zIndex": 119
     },
     {
       "id": "imagination-z2-to-r2",
@@ -2242,7 +2195,7 @@
       "width": 0.5,
       "height": 27.0,
       "editable": true,
-      "zIndex": 122
+      "zIndex": 120
     },
     {
       "id": "svg-circle-0018",
@@ -2253,7 +2206,7 @@
       "width": 42.0,
       "height": 42.0,
       "editable": true,
-      "zIndex": 123
+      "zIndex": 121
     },
     {
       "id": "svg-circle-0019",
@@ -2264,7 +2217,7 @@
       "width": 42.0,
       "height": 42.0,
       "editable": true,
-      "zIndex": 124
+      "zIndex": 122
     },
     {
       "id": "svg-circle-0020",
@@ -2275,7 +2228,7 @@
       "width": 42.0,
       "height": 42.0,
       "editable": true,
-      "zIndex": 125
+      "zIndex": 123
     },
     {
       "id": "svg-text-0044",
@@ -2286,7 +2239,7 @@
       "width": 43.73,
       "height": 41.25,
       "editable": true,
-      "zIndex": 126,
+      "zIndex": 124,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2319,7 +2272,7 @@
       "width": 62.09,
       "height": 41.25,
       "editable": true,
-      "zIndex": 127,
+      "zIndex": 125,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2352,7 +2305,7 @@
       "width": 62.09,
       "height": 41.25,
       "editable": true,
-      "zIndex": 128,
+      "zIndex": 126,
       "textSpec": {
         "text": "",
         "fontToken": "autofigure-font",
@@ -2377,59 +2330,59 @@
       }
     },
     {
-      "id": "svg-path-0012",
-      "semanticId": "svg-path-0012",
+      "id": "svg-path-0007",
+      "semanticId": "svg-path-0007",
       "kind": "shape",
       "x": 1294.0,
       "y": 239.0,
       "width": 12.0,
       "height": 11.6667,
       "editable": true,
-      "zIndex": 129
+      "zIndex": 127
     },
     {
-      "id": "svg-path-0013",
-      "semanticId": "svg-path-0013",
+      "id": "svg-path-0008",
+      "semanticId": "svg-path-0008",
       "kind": "shape",
       "x": 1290.3333,
       "y": 241.0,
       "width": 5.6667,
       "height": 6.6667,
       "editable": true,
-      "zIndex": 130
+      "zIndex": 128
     },
     {
-      "id": "svg-path-0014",
-      "semanticId": "svg-path-0014",
+      "id": "svg-path-0009",
+      "semanticId": "svg-path-0009",
       "kind": "shape",
       "x": 1304.0,
       "y": 241.0,
       "width": 5.6667,
       "height": 6.6667,
       "editable": true,
-      "zIndex": 131
+      "zIndex": 129
     },
     {
-      "id": "svg-line-0015",
-      "semanticId": "svg-line-0015",
+      "id": "svg-line-0018",
+      "semanticId": "svg-line-0018",
       "kind": "line",
       "x": 1300.0,
       "y": 251.0,
       "width": 0.5,
       "height": 5.0,
       "editable": true,
-      "zIndex": 132
+      "zIndex": 130
     },
     {
-      "id": "svg-line-0016",
-      "semanticId": "svg-line-0016",
+      "id": "svg-line-0019",
+      "semanticId": "svg-line-0019",
       "kind": "line",
       "x": 1295.0,
       "y": 257.0,
       "width": 10.0,
       "height": 0.5,
       "editable": true,
-      "zIndex": 133
+      "zIndex": 131
     },
     {
       "id": "svg-text-0047",
@@ -2440,7 +2393,7 @@
       "width": 81.4,
       "height": 43.75,
       "editable": true,
-      "zIndex": 134,
+      "zIndex": 132,
       "textSpec": {
         "text": "dense",
         "fontToken": "autofigure-font",
@@ -2473,7 +2426,7 @@
       "width": 90.52,
       "height": 43.75,
       "editable": true,
-      "zIndex": 135,
+      "zIndex": 133,
       "textSpec": {
         "text": "reward",
         "fontToken": "autofigure-font",
@@ -2506,11 +2459,11 @@
       "width": 399.0,
       "height": 173.0,
       "editable": true,
-      "zIndex": 136
+      "zIndex": 134
     },
     {
-      "id": "svg-rect-0039",
-      "semanticId": "svg-rect-0039",
+      "id": "rollout-z0",
+      "semanticId": "rollout-z0",
       "kind": "shape",
       "x": 1009.0,
       "y": 297.0,
@@ -3268,8 +3221,8 @@
       "zIndex": 178
     },
     {
-      "id": "svg-path-0022",
-      "semanticId": "svg-path-0022",
+      "id": "svg-path-0019",
+      "semanticId": "svg-path-0019",
       "kind": "shape",
       "x": 695.0,
       "y": 560.0,
@@ -3279,8 +3232,8 @@
       "zIndex": 179
     },
     {
-      "id": "svg-path-0023",
-      "semanticId": "svg-path-0023",
+      "id": "svg-path-0020",
+      "semanticId": "svg-path-0020",
       "kind": "shape",
       "x": 691.3333,
       "y": 562.0,
@@ -3290,8 +3243,8 @@
       "zIndex": 180
     },
     {
-      "id": "svg-path-0024",
-      "semanticId": "svg-path-0024",
+      "id": "svg-path-0021",
+      "semanticId": "svg-path-0021",
       "kind": "shape",
       "x": 705.0,
       "y": 562.0,
@@ -3301,8 +3254,8 @@
       "zIndex": 181
     },
     {
-      "id": "svg-line-0026",
-      "semanticId": "svg-line-0026",
+      "id": "svg-line-0029",
+      "semanticId": "svg-line-0029",
       "kind": "line",
       "x": 701.0,
       "y": 572.0,
@@ -3312,8 +3265,8 @@
       "zIndex": 182
     },
     {
-      "id": "svg-line-0027",
-      "semanticId": "svg-line-0027",
+      "id": "svg-line-0030",
+      "semanticId": "svg-line-0030",
       "kind": "line",
       "x": 696.0,
       "y": 578.0,
@@ -3367,8 +3320,8 @@
       "zIndex": 185
     },
     {
-      "id": "svg-path-0025",
-      "semanticId": "svg-path-0025",
+      "id": "svg-path-0022",
+      "semanticId": "svg-path-0022",
       "kind": "shape",
       "x": 892.3001,
       "y": 564.6,
@@ -3378,8 +3331,8 @@
       "zIndex": 186
     },
     {
-      "id": "svg-path-0026",
-      "semanticId": "svg-path-0026",
+      "id": "svg-path-0023",
+      "semanticId": "svg-path-0023",
       "kind": "shape",
       "x": 903.2999,
       "y": 564.6,
@@ -3389,8 +3342,8 @@
       "zIndex": 187
     },
     {
-      "id": "svg-line-0028",
-      "semanticId": "svg-line-0028",
+      "id": "svg-line-0031",
+      "semanticId": "svg-line-0031",
       "kind": "line",
       "x": 896.7001,
       "y": 569.0,
@@ -3608,6 +3561,48 @@
       }
     },
     {
+      "id": "allocator-task1-route-1",
+      "semanticRelationIds": [
+        "rel:allocator-task1-route-1"
+      ],
+      "geometryOnly": false,
+      "source": "expert-1-box",
+      "target": "expert-2-box",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "allocator-task1-route-2",
+      "semanticRelationIds": [
+        "rel:allocator-task1-route-2"
+      ],
+      "geometryOnly": false,
+      "source": "expert-2-box",
+      "target": "expert-3-box",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "allocator-task1-skip-edge",
+      "semanticRelationIds": [
+        "rel:allocator-task1-skip-edge"
+      ],
+      "geometryOnly": false,
+      "source": "expert-3-box",
+      "target": "expert-4-box",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
       "id": "mapping-to-imagination",
       "semanticRelationIds": [
         "rel:mapping-to-imagination"
@@ -3615,6 +3610,34 @@
       "geometryOnly": false,
       "source": "task-mapping",
       "target": "task-conditioned-imagination",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "top-mixture-to-rollout",
+      "semanticRelationIds": [
+        "rel:top-mixture-to-rollout"
+      ],
+      "geometryOnly": false,
+      "source": "zt-top-box",
+      "target": "rollout-z0",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "bottom-mixture-to-rollout",
+      "semanticRelationIds": [
+        "rel:bottom-mixture-to-rollout"
+      ],
+      "geometryOnly": false,
+      "source": "zt-bottom-box",
+      "target": "rollout-z0",
       "direction": "forward",
       "route": "straight",
       "styleTokens": {

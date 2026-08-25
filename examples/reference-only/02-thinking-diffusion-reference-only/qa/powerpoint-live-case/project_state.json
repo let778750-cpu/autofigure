@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "2.0.0",
+  "contractVersion": "2.0.0",
+  "projectId": "autofigure-02-thinking-diffusion-reference-only",
+  "taskMode": "RECONSTRUCT_1TO1",
+  "state": "PLANNED",
+  "lastSuccessfulState": "PLANNED",
+  "profileId": "journal-double-column",
+  "requestedBackendIds": [
+    "powerpoint"
+  ],
+  "updatedAt": "2026-08-23T18:19:52.036977Z",
+  "blockedReason": null,
+  "gates": {
+    "environment": "PASS",
+    "scientificApproval": "PENDING",
+    "assetDirection": "PENDING",
+    "styleApproval": "PENDING",
+    "assetIntegrity": "PENDING",
+    "backendAudit": "PENDING",
+    "artifactSetIntegrity": "PENDING",
+    "backendReadback": "PENDING",
+    "crossBackendEquivalence": "PENDING",
+    "quality": "PENDING",
+    "humanApproval": "PENDING",
+    "exportReadback": "PENDING"
+  },
+  "history": [
+    {
+      "state": "PLANNED",
+      "at": "2026-08-23T18:19:52.036977Z",
+      "evidence": [
+        "derived from Autofigure v3 scene/bindings and current PPTX hash"
+      ],
+      "note": "Compatibility case only; releaseAuthority=NONE."
+    }
+  ]
+}

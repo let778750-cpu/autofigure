@@ -4,8 +4,8 @@
 
 | 输入路线 | 案例 | 对象数 | 可编辑文字 | 原生公式 | 可编辑箭头对象 | 箭头审计发现 | 关键区通过 | strict 状态 |
 |---|---|---:|---:|---:|---:|---:|---:|---|
-| svg-seeded | `01-modular-agent` | 196 | 44 | 22 | 46 | 0 | 2/6 | failed |
-| reference-only | `01-modular-agent-reference-only` | 188 | 45 | 22 | 43 | 72 | 2/6 | failed |
+| svg-seeded | `01-modular-agent` | 196 | 44 | 22 | 46 | 0 | 2/8 | failed |
+| reference-only | `01-modular-agent-reference-only` | 186 | 45 | 22 | 40 | 57 | 2/9 | failed |
 
 ## 结论
 

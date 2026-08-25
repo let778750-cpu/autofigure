@@ -1,0 +1,31 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "strict_blocker_inventory",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "artifact_sha256": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+  "revision_id": "scene-e1d4925a5e75c847",
+  "scene_sha256": "e1d4925a5e75c847a1781364adbcbed9e4918ceabfe1603bf9fbfb745945ecde",
+  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "blockers": [
+    "asset-contract:inventory-missing",
+    "bindings:save-reopen-not-verified",
+    "live-binding-evidence-hash-mismatch",
+    "live-candidate-hash-mismatch",
+    "live-evidence-arrow-compile-mismatch",
+    "live-evidence-arrow-readback-mismatch",
+    "live-evidence-bindings-mismatch",
+    "live-evidence-inventory-candidate-mismatch",
+    "live-evidence-layout-audit-mismatch",
+    "live-evidence-math-summary-mismatch",
+    "live-evidence-primitive-audit-mismatch",
+    "live-evidence-regions-mismatch",
+    "live-evidence-scene-mismatch",
+    "live-render-finalizer-unverified",
+    "live-reopened-hash-mismatch",
+    "live-root-save-reopen-missing",
+    "ocr:reference-text-unmatched",
+    "reference-inventory:receipt-missing",
+    "source-gate:seed:unavailable"
+  ]
+}

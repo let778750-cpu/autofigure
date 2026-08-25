@@ -1,4 +1,4 @@
-"""Versioned Autofigure v3.1 contracts and workflow state management.
+"""Versioned Autofigure v4 contracts and workflow state management.
 
 The v2 command surface remains compatible, but every mutating command now binds
 its output to the reference hash and to explicit scene/asset/region/binding
@@ -7,26 +7,37 @@ manifests.  These documents are deliberately model- and renderer-independent.
 
 from __future__ import annotations
 
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SCHEMA_VERSION = "3.1.0"
+SCHEMA_VERSION = "4.0.0"
 TASK_MODE = "RECONSTRUCT_1TO1"
 INPUT_ROUTES = ("reference-only", "svg-seeded")
 PROCESSING_MODES = ("svg_import", "svg_repair", "png_reconstruct")
 # One-release import compatibility. Durable metadata uses ``processing_mode`` only.
 SOURCE_MODES = PROCESSING_MODES
 FIDELITY_PROFILES = ("editable_native", "hybrid_fidelity")
-WORKFLOW_STATES = ("prepared", "candidate", "qa_failed", "repairing", "approved")
+WORKFLOW_STATES = (
+    "prepared",
+    "ready",
+    "candidate",
+    "qa_failed",
+    "repairing",
+    "host_verifying",
+    "approved",
+)
 VALIDATION_STATUSES = ("not_run", "diagnostic", "failed", "passed")
 
 _TRANSITIONS = {
-    "prepared": {"candidate", "repairing", "qa_failed"},
-    "candidate": {"qa_failed", "repairing", "approved"},
-    "qa_failed": {"repairing", "candidate"},
-    "repairing": {"candidate", "qa_failed", "approved"},
+    "prepared": {"ready", "candidate", "repairing", "qa_failed"},
+    "ready": {"candidate", "repairing", "qa_failed"},
+    "candidate": {"qa_failed", "repairing", "host_verifying", "approved"},
+    "qa_failed": {"repairing", "candidate", "ready"},
+    "repairing": {"candidate", "qa_failed", "host_verifying", "approved"},
+    "host_verifying": {"approved", "qa_failed", "repairing", "candidate"},
     "approved": {"repairing", "qa_failed"},
 }
 
@@ -79,6 +90,9 @@ def _validated_processing_mode(meta: dict[str, Any], requested: str | None) -> s
     mode = requested or meta.get("processing_mode") or meta.get("source_mode")
     if mode not in PROCESSING_MODES:
         raise ContractError(f"unsupported processing mode: {mode or '[missing]'}")
+    route = meta.get("input_route")
+    if route == "reference-only" and mode != "png_reconstruct":
+        raise ContractError("reference-only cases must use png_reconstruct")
     return mode
 
 
@@ -99,6 +113,7 @@ def _default_scene(run) -> dict[str, Any]:
     return {
         **_base_document(run, "scene"),
         "canvas": {"width": int(meta["width"]), "height": int(meta["height"]), "unit": "px"},
+        "canonical_source": "scene",
         "elements": [],
         "edges": [],
     }
@@ -112,15 +127,22 @@ def _default_assets(run) -> dict[str, Any]:
             "authorized_atomic_raster_only": True,
             "whole_reference_forbidden": True,
         },
+        "microasset_opportunity_map": [],
         "assets": [],
     }
 
 
 def _default_regions(run) -> dict[str, Any]:
     meta = run.load_meta()
+    from tools.reference_inventory import default_inventory
+
     return {
         **_base_document(run, "regions"),
         "defaults": {"ssim_min": 0.85, "edge_iou_min": 0.75},
+        "critical_region_expectation": {"count": 0, "contracts": []},
+        "reference_inventory": default_inventory(meta["source_sha256"]),
+        "arrow_visual_expectation": {"count": 0, "contracts": []},
+        "primitive_expectations": [],
         "regions": [
             {
                 "id": "whole-canvas",
@@ -133,7 +155,12 @@ def _default_regions(run) -> dict[str, Any]:
 
 
 def _default_bindings(run) -> dict[str, Any]:
-    return {**_base_document(run, "bindings"), "backend": "pptx-offline", "bindings": []}
+    return {
+        **_base_document(run, "bindings"),
+        "backend": "pptx-offline",
+        "bindings": [],
+        "logical_group_bindings": [],
+    }
 
 
 def _default_provenance(run) -> dict[str, Any]:
@@ -149,6 +176,7 @@ def _default_provenance(run) -> dict[str, Any]:
         },
         "external_svg_seed": None,
         "candidate_history": [],
+        "events": [],
         "comparison_group": None,
     }
 
@@ -180,7 +208,7 @@ def initialize_contracts(
     processing_mode: str | None = None,
     fidelity_profile: str | None = None,
 ) -> dict[str, Any]:
-    """Create missing v3.1 contracts without guessing immutable provenance."""
+    """Create missing v4 contracts without guessing immutable provenance."""
     meta = run.load_meta()
     route = _validated_input_route(meta, input_route)
     mode = _validated_processing_mode(meta, processing_mode)
@@ -216,6 +244,9 @@ def initialize_contracts(
             "checked_at": None,
             "blockers": [],
         }
+        changed = True
+    if "active_revision" not in meta:
+        meta["active_revision"] = None
         changed = True
     if "source_mode" in meta:
         meta.pop("source_mode")
@@ -301,6 +332,8 @@ def set_processing_mode(
     if processing_mode is not None:
         if processing_mode not in PROCESSING_MODES:
             raise ContractError(f"unsupported processing mode: {processing_mode}")
+        if meta["input_route"] == "reference-only" and processing_mode != "png_reconstruct":
+            raise ContractError("reference-only cases cannot switch away from png_reconstruct")
         meta["processing_mode"] = processing_mode
     if fidelity_profile is not None:
         if fidelity_profile not in FIDELITY_PROFILES:
@@ -358,12 +391,172 @@ def record_candidate_provenance(
         "ingested_at": utc_now(),
     }
     provenance = read_json(run.provenance_path)
+    if role == "external-seed" and provenance.get("external_svg_seed") is not None:
+        existing = provenance["external_svg_seed"]
+        if existing.get("sha256") != record["sha256"]:
+            raise ContractError(
+                "svg-seeded cases accept exactly one immutable external seed; "
+                "create a new case for a replacement seed"
+            )
+        return existing
     provenance.setdefault("candidate_history", []).append(record)
     if role == "external-seed" and provenance.get("external_svg_seed") is None:
         provenance["external_svg_seed"] = dict(record)
+    provenance.setdefault("events", []).append(
+        {
+            "event": "candidate-ingested",
+            "at": record["ingested_at"],
+            "candidate_sha256": record["sha256"],
+            "role": role,
+            "canonical_path": canonical_path,
+        }
+    )
     provenance["updated_at"] = utc_now()
     write_json(run.provenance_path, provenance)
     return record
+
+
+def record_source_gate_provenance(
+    run,
+    report: dict[str, Any],
+    *,
+    immutable_external_seed: bool = False,
+) -> dict[str, Any]:
+    """Append a content-bound gate event and preserve seed admission evidence.
+
+    ``qa/source-gate-report.json`` describes the latest candidate and is
+    intentionally replaceable.  The sole external seed is different: its
+    admission decision is immutable route evidence and must survive later
+    repair-candidate gates for A/B reporting and fallback audits.
+    """
+
+    if report.get("schema_version") != SCHEMA_VERSION:
+        raise ContractError("source-gate provenance requires schema 4.0.0")
+    if report.get("kind") != "source_gate_report":
+        raise ContractError("source-gate provenance report kind is invalid")
+    decision = report.get("decision")
+    if decision not in {"accept", "repair", "reject"}:
+        raise ContractError("source-gate provenance decision is invalid")
+    route_gate = report.get("route_gate")
+    candidate = report.get("candidate")
+    if not isinstance(route_gate, dict) or not isinstance(candidate, dict):
+        raise ContractError("source-gate provenance identity is incomplete")
+    role = route_gate.get("candidate_role")
+    candidate_sha256 = candidate.get("sha256")
+    if role not in {"external-seed", "reconstruction-candidate", "repair-candidate"}:
+        raise ContractError("source-gate provenance candidate role is invalid")
+    if not isinstance(candidate_sha256, str) or len(candidate_sha256) != 64:
+        raise ContractError("source-gate provenance candidate hash is invalid")
+    report_sha256 = hashlib.sha256(
+        json.dumps(
+            report,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).hexdigest()
+    summary = {
+        "candidate_sha256": candidate_sha256,
+        "candidate_role": role,
+        "decision": decision,
+        "pass": report.get("pass") is True,
+        "next_action": report.get("next_action"),
+        "report_sha256": report_sha256,
+        "blockers": [item for item in report.get("blockers", []) if isinstance(item, str)],
+        "evaluated_at": report.get("created_at") or utc_now(),
+    }
+    provenance = read_json(run.provenance_path)
+    if immutable_external_seed:
+        meta = initialize_contracts(run)
+        if meta["input_route"] != "svg-seeded" or role != "external-seed":
+            raise ContractError("immutable seed gate applies only to svg-seeded external-seed")
+        seed = provenance.get("external_svg_seed")
+        if not isinstance(seed, dict) or seed.get("sha256") != candidate_sha256:
+            raise ContractError("immutable seed gate does not match external-seed provenance")
+        existing = provenance.get("external_seed_gate")
+        if isinstance(existing, dict) and existing.get("report_sha256") != report_sha256:
+            raise ContractError("immutable external seed gate decision already differs")
+        provenance["external_seed_gate"] = dict(summary)
+        seed["source_gate"] = dict(summary)
+        write_json(run.external_seed_source_gate_report_path, report)
+    history = provenance.setdefault("source_gate_history", [])
+    identity = (candidate_sha256, role, decision, report_sha256)
+    if not any(
+        isinstance(item, dict)
+        and (
+            item.get("candidate_sha256"),
+            item.get("candidate_role"),
+            item.get("decision"),
+            item.get("report_sha256"),
+        )
+        == identity
+        for item in history
+    ):
+        history.append(dict(summary))
+        provenance.setdefault("events", []).append(
+            {
+                "event": "source-gate-evaluated",
+                "at": summary["evaluated_at"],
+                "candidate_sha256": candidate_sha256,
+                "role": role,
+                "decision": decision,
+                "report_sha256": report_sha256,
+                "immutable_external_seed": immutable_external_seed,
+            }
+        )
+    provenance["updated_at"] = utc_now()
+    write_json(run.provenance_path, provenance)
+    return summary
+
+
+def record_seed_unavailable(
+    run,
+    *,
+    reason: str,
+    expected_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Record an evidence gap without changing immutable ``input_route``."""
+
+    meta = initialize_contracts(run)
+    if meta["input_route"] != "svg-seeded":
+        raise ContractError("seed_unavailable applies only to svg-seeded cases")
+    if run.external_seed_svg.is_file():
+        raise ContractError("cannot declare seed_unavailable while external-seed.svg exists")
+    if not isinstance(reason, str) or not reason.strip():
+        raise ContractError("seed_unavailable requires an explicit reason")
+    provenance = read_json(run.provenance_path)
+    seed_record = provenance.get("external_svg_seed")
+    if isinstance(seed_record, dict):
+        seed_record["availability"] = "seed_unavailable"
+        seed_record["exact_bytes_available"] = False
+        if expected_sha256 and not seed_record.get("sha256"):
+            seed_record["sha256"] = expected_sha256
+    events = provenance.setdefault("events", [])
+    existing = next(
+        (
+            event
+            for event in events
+            if isinstance(event, dict) and event.get("event") == "seed-unavailable"
+        ),
+        None,
+    )
+    if existing is None:
+        existing = {
+            "event": "seed-unavailable",
+            "at": utc_now(),
+            "reason": reason.strip(),
+            "expected_sha256": expected_sha256,
+            "fallback_processing_mode": "png_reconstruct",
+        }
+        events.append(existing)
+    provenance["updated_at"] = utc_now()
+    write_json(run.provenance_path, provenance)
+    set_processing_mode(
+        run,
+        processing_mode="png_reconstruct",
+        fidelity_profile="hybrid_fidelity",
+    )
+    return existing
 
 
 def _sha256_candidate(path: Path) -> str:

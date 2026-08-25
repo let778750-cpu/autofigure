@@ -16,10 +16,12 @@ fresh render（COM 失败只 warn）。
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
 import sys
+import unicodedata
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
@@ -207,6 +209,409 @@ def _pptx_bound_names_and_omml_count(path: Path) -> tuple[set[str], int]:
     return names, omml_count
 
 
+def _canonical_sha256(value: object) -> str:
+    payload = json.dumps(
+        value, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _native_math_inventory(path: Path) -> tuple[list[dict], int]:
+    """Read logical Office Math objects with branch-normalized semantics."""
+
+    records: list[dict] = []
+    raw_omml_count = 0
+    with zipfile.ZipFile(path) as package:
+        slide_entries = sorted(
+            member
+            for member in package.namelist()
+            if member.startswith("ppt/slides/slide") and member.endswith(".xml")
+        )
+        for member in slide_entries:
+            root = ET.fromstring(package.read(member))
+            raw_omml_count += sum(
+                node.tag.rsplit("}", 1)[-1] == "oMath" for node in root.iter()
+            )
+            for alternate in root.iter():
+                if alternate.tag.rsplit("}", 1)[-1] != "AlternateContent":
+                    continue
+                formulas = [
+                    node
+                    for node in alternate.iter()
+                    if node.tag.rsplit("}", 1)[-1] == "oMath"
+                ]
+                if not formulas:
+                    continue
+                carriers = list(alternate)
+                carrier_names = [
+                    carrier.tag.rsplit("}", 1)[-1] for carrier in carriers
+                ]
+                if (
+                    carrier_names.count("Choice") != 1
+                    or carrier_names.count("Fallback") > 1
+                    or any(
+                        name not in {"Choice", "Fallback"}
+                        for name in carrier_names
+                    )
+                ):
+                    raise common.fail(
+                        "native-math AlternateContent carrier profile is invalid"
+                    )
+                branch_formulas: list[ET.Element] = []
+                formula_branch_identities: list[tuple[int, str]] = []
+                for carrier in carriers:
+                    carrier_formulas = [
+                        node
+                        for node in carrier.iter()
+                        if node.tag.rsplit("}", 1)[-1] == "oMath"
+                    ]
+                    if len(carrier_formulas) > 1:
+                        raise common.fail(
+                            "native-math branch has duplicate oMath objects"
+                        )
+                    if carrier_formulas:
+                        carrier_identities = {
+                            (int(node.get("id")), node.get("name", ""))
+                            for node in carrier.iter()
+                            if node.tag.rsplit("}", 1)[-1] == "cNvPr"
+                            and node.get("id")
+                            and node.get("name")
+                        }
+                        if len(carrier_identities) != 1:
+                            raise common.fail(
+                                "native-math branch has ambiguous shape identity"
+                            )
+                        formula_branch_identities.append(
+                            next(iter(carrier_identities))
+                        )
+                    branch_formulas.extend(carrier_formulas)
+                choice = next(
+                    carrier
+                    for carrier in carriers
+                    if carrier.tag.rsplit("}", 1)[-1] == "Choice"
+                )
+                if not any(
+                    node.tag.rsplit("}", 1)[-1] == "oMath"
+                    for node in choice.iter()
+                ):
+                    raise common.fail("native-math Choice branch has no oMath object")
+                if len(set(formula_branch_identities)) != 1:
+                    raise common.fail(
+                        "native-math branches disagree on shape identity"
+                    )
+                from lxml import etree
+                from tools.powerpoint_native_math import _semantic_omml_sha256
+
+                identities = {
+                    (int(node.get("id")), node.get("name", ""))
+                    for node in alternate.iter()
+                    if node.tag.rsplit("}", 1)[-1] == "cNvPr"
+                    and node.get("id")
+                    and node.get("name")
+                }
+                if len(identities) != 1:
+                    raise common.fail(
+                        "native-math AlternateContent has ambiguous shape identity"
+                    )
+                shape_id, shape_name = next(iter(identities))
+                semantic_hashes = {
+                    _semantic_omml_sha256(
+                        etree.fromstring(ET.tostring(formula, encoding="utf-8"))
+                    )
+                    for formula in branch_formulas
+                }
+                if len(semantic_hashes) != 1:
+                    raise common.fail(
+                        f"native-math branches disagree for {shape_name}"
+                    )
+                normalized_texts = {
+                    "".join(
+                        unicodedata.normalize("NFKC", node.text or "")
+                        for node in formula.iter()
+                        if node.tag.rsplit("}", 1)[-1] == "t"
+                    ).strip()
+                    for formula in branch_formulas
+                }
+                normalized_texts.discard("")
+                if not normalized_texts:
+                    raise common.fail(f"native-math formula text is empty for {shape_name}")
+                core = {
+                    "slide": member,
+                    "shape_id": shape_id,
+                    "shape_name": shape_name,
+                    "normalized_texts": sorted(normalized_texts),
+                    "semantic_omml_sha256": next(iter(semantic_hashes)),
+                }
+                records.append(
+                    {**core, "formula_signature_sha256": _canonical_sha256(core)}
+                )
+    records.sort(key=lambda item: (item["slide"], item["shape_id"], item["shape_name"]))
+    return records, raw_omml_count
+
+
+def _attach_math_artifact_identity(run: common.Run, summary: dict) -> None:
+    records, raw_omml_count = _native_math_inventory(run.pptx_path)
+    summary.update(
+        {
+            "pptx_sha256": common.sha256_file(run.pptx_path),
+            "omml_count": len(records),
+            "logical_formula_count": len(records),
+            "raw_omml_count": raw_omml_count,
+            "formula_inventory_sha256": _canonical_sha256(records),
+            "native_math_inventory": records,
+        }
+    )
+
+
+def verify_existing_native_math(run: common.Run) -> dict:
+    """Read back existing OMML against bindings, plan, and converter receipts."""
+
+    from tools.contracts import read_json, write_json
+
+    records, raw_omml_count = _native_math_inventory(run.pptx_path)
+    if not records:
+        raise common.fail("verify-existing requires native Office Math objects")
+    bindings = read_json(run.bindings_path)
+    native_bindings = [
+        item
+        for item in bindings.get("bindings", [])
+        if item.get("object_kind") == "native-math"
+        or item.get("native_math") is True
+    ]
+    binding_by_identity = {
+        (int(item.get("shape_id", -1)), item.get("shape_name")): item
+        for item in native_bindings
+    }
+    if len(binding_by_identity) != len(records):
+        raise common.fail("native-math binding inventory does not match PPTX readback")
+
+    plan_path = run.qa_dir / "math" / "plan.json"
+    if not plan_path.is_file():
+        raise common.fail("native-math declaration plan is missing")
+    plan = read_json(plan_path)
+    operations = plan.get("operations", [])
+    operation_by_placeholder = {
+        item.get("placeholder_name"): item
+        for item in operations
+        if item.get("placeholder_name")
+    }
+    if len(operation_by_placeholder) != len(records):
+        raise common.fail("native-math declaration list does not match PPTX readback")
+
+    formulas: list[dict] = []
+    for record in records:
+        identity = (record["shape_id"], record["shape_name"])
+        binding = binding_by_identity.get(identity)
+        operation = operation_by_placeholder.get(record["shape_name"])
+        if binding is None or operation is None:
+            raise common.fail(
+                f"native-math declaration is missing for {record['shape_name']}"
+            )
+        formula_id = binding.get("formula_id")
+        if formula_id != operation.get("formula_id"):
+            raise common.fail(
+                f"native-math formula identity mismatch for {record['shape_name']}"
+            )
+        receipt_path = run.qa_dir / "math" / str(operation.get("receipt_path", ""))
+        if (
+            not receipt_path.is_file()
+            or common.sha256_file(receipt_path) != operation.get("receipt_sha256")
+        ):
+            raise common.fail(f"native-math receipt mismatch for {formula_id}")
+        receipt = read_json(receipt_path)
+        if (
+            receipt.get("status") != "PASS"
+            or receipt.get("formula_id") != formula_id
+            or receipt.get("semantic_omml_sha256")
+            != record["semantic_omml_sha256"]
+        ):
+            raise common.fail(
+                f"native-math semantic readback mismatch for {formula_id}"
+            )
+        formulas.append(
+            {
+                "name": record["shape_name"],
+                "placeholder": record["shape_name"],
+                "formula_id": formula_id,
+                "element_id": binding.get("element_id"),
+                "slide_index": int(Path(record["slide"]).stem.removeprefix("slide")),
+                "shape_id": record["shape_id"],
+                "latex": receipt.get("canonical_latex"),
+                "status": "verified",
+                "normalized_texts": record["normalized_texts"],
+                "semantic_omml_sha256": record["semantic_omml_sha256"],
+                "formula_signature_sha256": record["formula_signature_sha256"],
+                "receipt_sha256": operation.get("receipt_sha256"),
+            }
+        )
+
+    summary = {
+        "pptx": "redraw.pptx",
+        "dry_run": True,
+        "verify_existing": True,
+        "audit_mode": "existing-native-math-readback",
+        "detected": len(records),
+        "strong": 0,
+        "weak": 0,
+        "injected": len(records),
+        "verified": len(records),
+        "failed": 0,
+        "warnings": [],
+        "notes": ["Existing native Office Math verified read-only against converter receipts."],
+        "formulas": formulas,
+        "pptx_sha256": common.sha256_file(run.pptx_path),
+        "omml_count": len(records),
+        "logical_formula_count": len(records),
+        "raw_omml_count": raw_omml_count,
+        "formula_inventory_sha256": _canonical_sha256(records),
+        "native_math_inventory": records,
+        "bindings_sha256": common.sha256_file(run.bindings_path),
+        "bindings_complete": bindings.get("bindings_complete") is True,
+        "saved_reopened": bindings.get("saved_reopened") is True,
+        "plan_sha256": common.sha256_file(plan_path),
+    }
+    write_json(run.qa_dir / "math-summary.json", summary)
+    return summary
+
+
+def math_summary_blockers(run: common.Run) -> list[str]:
+    """Return fail-closed blockers for any declared math-summary evidence."""
+
+    summary_path = run.qa_dir / "math-summary.json"
+    try:
+        records, raw_omml_count = _native_math_inventory(run.pptx_path)
+    except (Exception, SystemExit):
+        return ["math-summary:invalid"]
+    if not summary_path.is_file():
+        return ["math-summary:missing"] if records else []
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except (Exception, SystemExit):
+        return ["math-summary:invalid"]
+    blockers: list[str] = []
+    if summary.get("pptx_sha256") != common.sha256_file(run.pptx_path):
+        blockers.append("math-summary:pptx-hash-mismatch")
+    if summary.get("omml_count") != len(records):
+        blockers.append("math-summary:omml-count-mismatch")
+    if summary.get("logical_formula_count") != len(records):
+        blockers.append("math-summary:logical-count-mismatch")
+    if summary.get("raw_omml_count") != raw_omml_count:
+        blockers.append("math-summary:raw-omml-count-mismatch")
+    if summary.get("formula_inventory_sha256") != _canonical_sha256(records):
+        blockers.append("math-summary:formula-signature-mismatch")
+    declared_inventory = summary.get("native_math_inventory")
+    if declared_inventory != records:
+        blockers.append("math-summary:formula-inventory-mismatch")
+    bindings_payload = json.loads(run.bindings_path.read_text(encoding="utf-8"))
+    native_bindings = [
+        item
+        for item in bindings_payload.get("bindings", [])
+        if item.get("object_kind") == "native-math"
+        or item.get("native_math") is True
+    ]
+    declared_formulas = summary.get("formulas")
+    declaration_incomplete = not isinstance(declared_formulas, list)
+    if records:
+        declaration_incomplete = declaration_incomplete or (
+            summary.get("detected") != len(records)
+            or summary.get("injected") != len(records)
+            or summary.get("verified") != len(records)
+            or len(declared_formulas) != len(records)
+            or len(native_bindings) != len(records)
+        )
+    else:
+        # A detector-only dry run is useful diagnostic output, but it is not
+        # proof that editable native math exists in the artifact.  Fail closed
+        # when a stale or detector-only summary declares formulas while the
+        # current PPTX has no logical OMML records.
+        declaration_incomplete = declaration_incomplete or (
+            summary.get("detected") not in (0, None)
+            or summary.get("injected") not in (0, None)
+            or summary.get("verified") not in (0, None)
+            or bool(declared_formulas)
+        )
+    if declaration_incomplete:
+        blockers.append("math-summary:declaration-empty-or-incomplete")
+    if records and summary.get("verify_existing") is not True:
+        blockers.append("math-summary:existing-readback-unverified")
+    if records and summary.get("saved_reopened") is not True:
+        blockers.append("math-summary:save-reopen-unverified")
+    if records:
+        if summary.get("bindings_sha256") != common.sha256_file(run.bindings_path):
+            blockers.append("math-summary:bindings-hash-mismatch")
+        plan_path = run.qa_dir / "math" / "plan.json"
+        if (
+            not plan_path.is_file()
+            or summary.get("plan_sha256") != common.sha256_file(plan_path)
+        ):
+            blockers.append("math-summary:plan-hash-mismatch")
+        else:
+            try:
+                plan = json.loads(plan_path.read_text(encoding="utf-8"))
+                operation_by_placeholder = {
+                    item.get("placeholder_name"): item
+                    for item in plan.get("operations", [])
+                    if item.get("placeholder_name")
+                }
+                binding_by_identity = {
+                    (int(item.get("shape_id", -1)), item.get("shape_name")): item
+                    for item in native_bindings
+                }
+                expected_formulas: list[dict] = []
+                for record in records:
+                    binding = binding_by_identity[
+                        (record["shape_id"], record["shape_name"])
+                    ]
+                    operation = operation_by_placeholder[record["shape_name"]]
+                    formula_id = binding.get("formula_id")
+                    if formula_id != operation.get("formula_id"):
+                        raise KeyError(record["shape_name"])
+                    receipt_path = run.qa_dir / "math" / str(
+                        operation.get("receipt_path", "")
+                    )
+                    if (
+                        not receipt_path.is_file()
+                        or common.sha256_file(receipt_path)
+                        != operation.get("receipt_sha256")
+                    ):
+                        raise KeyError(formula_id)
+                    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+                    if (
+                        receipt.get("formula_id") != formula_id
+                        or receipt.get("status") != "PASS"
+                        or receipt.get("semantic_omml_sha256")
+                        != record["semantic_omml_sha256"]
+                    ):
+                        raise KeyError(formula_id)
+                    expected_formulas.append(
+                        {
+                            "name": record["shape_name"],
+                            "placeholder": record["shape_name"],
+                            "formula_id": formula_id,
+                            "element_id": binding.get("element_id"),
+                            "slide_index": int(
+                                Path(record["slide"]).stem.removeprefix("slide")
+                            ),
+                            "shape_id": record["shape_id"],
+                            "latex": receipt.get("canonical_latex"),
+                            "status": "verified",
+                            "normalized_texts": record["normalized_texts"],
+                            "semantic_omml_sha256": record[
+                                "semantic_omml_sha256"
+                            ],
+                            "formula_signature_sha256": record[
+                                "formula_signature_sha256"
+                            ],
+                            "receipt_sha256": operation.get("receipt_sha256"),
+                        }
+                    )
+                if summary.get("formulas") != expected_formulas:
+                    blockers.append("math-summary:formula-declaration-mismatch")
+            except (KeyError, TypeError, ValueError, json.JSONDecodeError):
+                blockers.append("math-summary:formula-declaration-mismatch")
+    return list(dict.fromkeys(blockers))
+
+
 def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) -> dict:
     """Bind renamed OMML shapes and the new artifact hash back to Scene v3."""
     from tools.contracts import initialize_contracts, read_json, transition, utc_now, write_json
@@ -244,6 +649,27 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
             rebound_elements[binding["element_id"]] = binding["formula_id"]
         binding["readback_found"] = binding.get("shape_name") in readback_names
 
+    for binding in bindings.get("logical_group_bindings", []):
+        backend_names = binding.get("backend_object_names")
+        backend_ids = binding.get("backend_object_ids")
+        if not isinstance(backend_names, list) or not isinstance(backend_ids, list):
+            binding["readback_found"] = False
+            continue
+        rebound_names = [rename_map.get(name, name) for name in backend_names]
+        binding["backend_object_names"] = rebound_names
+        binding["backend_object_identities"] = [
+            {"shape_id": shape_id, "shape_name": shape_name}
+            for shape_id, shape_name in zip(backend_ids, rebound_names, strict=True)
+        ] if len(backend_ids) == len(rebound_names) else []
+        attachment_name = binding.get("attachment_shape_name")
+        if isinstance(attachment_name, str):
+            binding["attachment_shape_name"] = rename_map.get(
+                attachment_name, attachment_name
+            )
+        binding["readback_found"] = bool(rebound_names) and all(
+            name in readback_names for name in rebound_names
+        )
+
     expected = set(formula_by_name)
     rebound = {
         binding.get("shape_name")
@@ -257,8 +683,16 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
         raise common.fail(
             f"OMML save/reopen count is incomplete: expected {len(expected)}, got {omml_count}"
         )
-    bindings_complete = bool(bindings.get("bindings")) and all(
-        binding.get("readback_found") is True for binding in bindings["bindings"]
+    bindings_complete = (
+        bool(bindings.get("bindings"))
+        and all(
+            binding.get("readback_found") is True
+            for binding in bindings["bindings"]
+        )
+        and all(
+            binding.get("readback_found") is True
+            for binding in bindings.get("logical_group_bindings", [])
+        )
     )
     if not bindings_complete:
         raise common.fail("OMML save/reopen left incomplete PowerPoint shape bindings")
@@ -269,7 +703,8 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
             "updated_at": utc_now(),
             "backend": "pptx-offline+native-math",
             "artifact_sha256": pptx_hash,
-            "saved_reopened": True,
+            "package_reopened": True,
+            "saved_reopened": False,
             "bindings_complete": True,
         }
     )
@@ -288,6 +723,13 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
         "sha256": pptx_hash,
     }
     write_json(run.scene_path, scene)
+    from tools.pptx_arrows import write_arrow_reports
+    from tools.primitives import audit_primitives
+    from tools.providers import write_case_capabilities
+
+    write_arrow_reports(run)
+    audit_primitives(run)
+    write_case_capabilities(run)
     from tools.layout import audit_layout
 
     layout_report = audit_layout(run)
@@ -308,7 +750,8 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
         "pptx_sha256": pptx_hash,
         "object_count": len(bindings["bindings"]),
         "omml_count": omml_count,
-        "saved_reopened": True,
+        "package_reopened": True,
+        "saved_reopened": False,
         "bindings_complete": True,
         "layout_pass": layout_report["pass"],
         "layout_findings": len(layout_report["findings"]),
@@ -318,11 +761,16 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
 # ---------------------------------------------------------------- 主流程
 
 
-def upgrade(run: common.Run, *, dry_run: bool = False) -> dict:
+def upgrade(
+    run: common.Run, *, dry_run: bool = False, verify_existing: bool = False
+) -> dict:
     """检测公式框并批量注入 OMML，返回 summary dict（同时落 qa/math-summary.json）。"""
     if not run.pptx_path.is_file():
         raise common.fail(f"未找到 PPTX: {run.pptx_path}（请先运行 autofigure convert）")
     run.qa_dir.mkdir(exist_ok=True)
+    existing_native_math, _ = _native_math_inventory(run.pptx_path)
+    if verify_existing or (dry_run and existing_native_math):
+        return verify_existing_native_math(run)
     prs = Presentation(run.pptx_path)
 
     candidates: list[dict] = []
@@ -334,6 +782,8 @@ def upgrade(run: common.Run, *, dry_run: bool = False) -> dict:
             if signal is None:
                 continue
             candidates.append({"slide_index": slide_index, "shape": shape, "signal": signal})
+    if existing_native_math and not candidates:
+        return verify_existing_native_math(run)
 
     # 编号避开残留 math:NNN 名（上次注入失败后重跑等场景），保证 cNvPr@name 唯一
     candidate_ids = {id(cand["shape"]) for cand in candidates}
@@ -394,6 +844,7 @@ def upgrade(run: common.Run, *, dry_run: bool = False) -> dict:
         summary["failed"] = sum(1 for cand in candidates if cand["status"] == "failed")
         if any(cand["bold"] and cand["status"] == "injected" for cand in candidates):
             summary["notes"].append("部分公式原文为粗体：OMML 数学区不保留粗体（可接受差异）")
+        _attach_math_artifact_identity(run, summary)
         (run.qa_dir / "math-summary.json").write_text(
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
@@ -467,6 +918,9 @@ def upgrade(run: common.Run, *, dry_run: bool = False) -> dict:
 
     summary.update(_refresh_v3_contracts_after_math(run, candidates))
     write_summary()
+    from tools.revisions import stamp_active_revision
+
+    stamp_active_revision(run)
     return summary
 
 
@@ -478,12 +932,26 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="只检测并重建 LaTeX 写 qa/math-summary.json，不改 PPTX",
     )
+    parser.add_argument(
+        "--verify-existing",
+        action="store_true",
+        help="只读验证当前原生 Office Math、bindings、plan 与 receipt，不改 PPTX",
+    )
     args = parser.parse_args(argv)
 
+    if args.dry_run and args.verify_existing:
+        raise common.fail("--dry-run 与 --verify-existing 不能同时使用")
+
     run = common.open_run(args.run_dir)
-    summary = upgrade(run, dry_run=args.dry_run)
+    summary = upgrade(
+        run, dry_run=args.dry_run, verify_existing=args.verify_existing
+    )
     _echo(f"检测到 {summary['detected']} 个公式框（强信号 {summary['strong']} / 弱信号 {summary['weak']}）")
-    if args.dry_run:
+    if args.verify_existing:
+        _echo(
+            f"verify-existing：只读验证 {summary['verified']} 个原生 Office Math，PPTX 未改动"
+        )
+    elif args.dry_run:
         _echo("dry-run：未改动 PPTX")
     elif summary["injected"]:
         _echo(f"已注入 {summary['injected']} 个原生 Office Math；失败 {summary['failed']} 个（保留原文本框）")
@@ -494,12 +962,15 @@ def main(argv: list[str] | None = None) -> int:
     for warning in summary["warnings"]:
         _echo(f"warning: {warning}")
     _echo(f"明细: {run.qa_dir / 'math-summary.json'}")
-    if not args.dry_run and summary["injected"]:
+    if not args.dry_run and not args.verify_existing and summary["injected"]:
         try:
             from tools import render_export
 
             meta = run.load_meta()
             render_export.render(run.pptx_path, run.render_png, int(meta["width"]), int(meta["height"]))
+            from tools.revisions import stamp_active_revision
+
+            stamp_active_revision(run)
             _echo(f"fresh render: {run.render_png}")
         except Exception as exc:  # COM 渲染失败只 warn，注入结果不受影响
             _echo(f"warning: fresh render 刷新失败: {exc}")

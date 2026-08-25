@@ -1,4 +1,4 @@
-"""v3.1 公共约定：案例目录、哈希、路径与输入路线。
+"""v4 公共约定：案例目录、哈希、路径、输入路线与场景投影。
 
 每个案例一个扁平目录（参考样板项目的 per-case 约定，更精炼）：
 
@@ -6,8 +6,10 @@
     ├── run.json              案例清单（case、source SHA-256、尺寸、创建时间）
     ├── reference.png         参考图（prepare 复制）
     ├── prompt.md             prepare 生成的提示词包
-    ├── redraw.svg            用户从 VLM 取回的 SVG（convert 的输入）
-    ├── redraw.pptx           convert 产物（原生可编辑交付物）
+    ├── external-seed.svg     svg-seeded 的不可变外部输入（可选）
+    ├── scene.json            唯一可变构造真值
+    ├── redraw.svg            scene 的确定性 SVG 投影
+    ├── redraw.pptx           scene 的原生可编辑 PowerPoint 投影
     ├── render.png            PowerPoint fresh render
     ├── preview.png           check 对照预览
     ├── check-report.md       check 核验报告（人审入口）
@@ -74,6 +76,10 @@ class Run:
     @property
     def redraw_svg(self) -> Path:
         return self.root / "redraw.svg"
+
+    @property
+    def external_seed_svg(self) -> Path:
+        return self.root / "external-seed.svg"
 
     @property
     def prompt_md(self) -> Path:
@@ -146,6 +152,44 @@ class Run:
     @property
     def layout_audit_path(self) -> Path:
         return self.qa_dir / "layout-audit.json"
+
+    @property
+    def arrow_compile_report_path(self) -> Path:
+        return self.qa_dir / "arrow-compile-report.json"
+
+    @property
+    def powerpoint_arrow_readback_path(self) -> Path:
+        return self.qa_dir / "powerpoint-arrow-readback.json"
+
+    @property
+    def primitive_audit_path(self) -> Path:
+        return self.qa_dir / "primitive-audit.json"
+
+    @property
+    def provider_capabilities_path(self) -> Path:
+        return self.qa_dir / "provider-capabilities.json"
+
+    @property
+    def source_gate_report_path(self) -> Path:
+        return self.qa_dir / "source-gate-report.json"
+
+    @property
+    def external_seed_source_gate_report_path(self) -> Path:
+        """Immutable admission decision for the one authorized external SVG seed."""
+
+        return self.qa_dir / "external-seed-source-gate-report.json"
+
+    @property
+    def repair_plan_path(self) -> Path:
+        return self.qa_dir / "repair-plan.json"
+
+    @property
+    def blockers_path(self) -> Path:
+        return self.qa_dir / "blockers.json"
+
+    @property
+    def revision_receipt_path(self) -> Path:
+        return self.qa_dir / "revision-receipt.json"
 
     def load_meta(self) -> dict:
         if not self.meta_path.is_file():

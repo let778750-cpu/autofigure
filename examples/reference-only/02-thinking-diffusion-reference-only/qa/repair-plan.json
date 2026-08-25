@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "repair-plan",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "artifact_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+  "qa_report_sha256": {
+    "arrow-compile-report.json": "87bba0cef82319f56ff710aa63911bfdd5d5e6a599d1450854db5d7a4fa9c89e",
+    "arrow-visual-report.json": "d4ed0096f097aad4981b676a3b40b6348d6ebd0b5a12a772d62bfc1954e15687",
+    "asset-spec-audit.json": "5d100fb0b9dd9f697e7c0c8758cad346d981f2a1b70da1fa4923f6a9da469f6f",
+    "layout-audit.json": "ecb33adf17bcab7d74067296657112ca11dbef090b0a79076c177002455e92a4",
+    "live-evidence.json": "e8d377c17e98b7e359ca00c4295ff66ec699fe2dda6902de87836754ac67d03e",
+    "math-summary.json": "dcc50ac0f5bc8f9a67c0a4447913f958eacf614e89bd453ea03ab8ad7868695b",
+    "powerpoint-arrow-readback.json": "0a094180de4e4d1ee7d45c0a7dee6381871e942d41021f8db350da806afc52af",
+    "primitive-audit.json": "9f3b0049771e2ebc7e6df12bab4406a1405ba530b629170105eada898b6973ab",
+    "regions-report.json": "f9be7bd805ddea9ddefa803d24328ad64ca75a3df2cceb043afd87890fe3cf55",
+    "visual-contracts-report.json": "273145fe5f78312e3762de80f7a6d2ee91f53b895c25ae282fc32e5a9a3e9ad6"
+  },
+  "input_blockers_sha256": "27cb374faeda22e1441f77897c2c0bff34b2bf0284fe74f9d9cd90a3c776f5f5",
+  "blockers": [
+    {
+      "id": "B0001",
+      "blocker": "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0002",
+      "blocker": "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0003",
+      "blocker": "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0004",
+      "blocker": "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0005",
+      "blocker": "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0006",
+      "blocker": "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0007",
+      "blocker": "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+      "category": "source_model"
+    },
+    {
+      "id": "B0008",
+      "blocker": "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0009",
+      "blocker": "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0010",
+      "blocker": "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0011",
+      "blocker": "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0012",
+      "blocker": "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0013",
+      "blocker": "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0014",
+      "blocker": "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0015",
+      "blocker": "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0016",
+      "blocker": "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0017",
+      "blocker": "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+      "category": "source_model"
+    },
+    {
+      "id": "B0019",
+      "blocker": "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0020",
+      "blocker": "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0021",
+      "blocker": "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+      "category": "source_model"
+    },
+    {
+      "id": "B0022",
+      "blocker": "asset-contract:inventory-missing",
+      "category": "contract"
+    },
+    {
+      "id": "B0023",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0024",
+      "blocker": "live-binding-evidence-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0025",
+      "blocker": "live-candidate-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0026",
+      "blocker": "live-evidence-arrow-compile-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0027",
+      "blocker": "live-evidence-arrow-readback-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0028",
+      "blocker": "live-evidence-bindings-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0029",
+      "blocker": "live-evidence-bridge-manifest-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0030",
+      "blocker": "live-evidence-bridge-source-scene-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0031",
+      "blocker": "live-evidence-inventory-candidate-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0032",
+      "blocker": "live-evidence-layout-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0033",
+      "blocker": "live-evidence-math-summary-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0034",
+      "blocker": "live-evidence-primitive-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0035",
+      "blocker": "live-evidence-regions-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0036",
+      "blocker": "live-evidence-render-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0037",
+      "blocker": "live-evidence-scene-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0038",
+      "blocker": "live-operation-receipt-binding-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0039",
+      "blocker": "live-render-finalizer-unverified",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0040",
+      "blocker": "live-reopened-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0041",
+      "blocker": "live-root-save-reopen-missing",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0042",
+      "blocker": "ocr:reference-text-unmatched",
+      "category": "source_model"
+    },
+    {
+      "id": "B0043",
+      "blocker": "reference-inventory:receipt-missing",
+      "category": "contract"
+    },
+    {
+      "id": "B0044",
+      "blocker": "region:left-early-step",
+      "category": "source_model"
+    },
+    {
+      "id": "B0045",
+      "blocker": "region:left-late-step",
+      "category": "source_model"
+    },
+    {
+      "id": "B0046",
+      "blocker": "region:right-early-step",
+      "category": "source_model"
+    },
+    {
+      "id": "B0047",
+      "blocker": "region:right-late-step",
+      "category": "source_model"
+    },
+    {
+      "id": "B0048",
+      "blocker": "source-gate:isolation:read-manifest-unverified",
+      "category": "contract"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-contract",
+      "category": "contract",
+      "covers": [
+        "B0022",
+        "B0043",
+        "B0048"
+      ],
+      "strategy": "rederive-and-refreeze-reference-contract",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "reference.png",
+        "input_route",
+        "current candidate"
+      ],
+      "required_verification": [
+        "reference inventory closure",
+        "contract receipt hashes",
+        "critical-region expectation closure"
+      ]
+    },
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0001",
+        "B0002",
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0008",
+        "B0009",
+        "B0010",
+        "B0011",
+        "B0012",
+        "B0013",
+        "B0014",
+        "B0015",
+        "B0016",
+        "B0017",
+        "B0018",
+        "B0019",
+        "B0020",
+        "B0021",
+        "B0042",
+        "B0044",
+        "B0045",
+        "B0046",
+        "B0047"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0023",
+        "B0031",
+        "B0033",
+        "B0041"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    },
+    {
+      "id": "A-evidence-only",
+      "category": "evidence_only",
+      "covers": [
+        "B0024",
+        "B0025",
+        "B0026",
+        "B0027",
+        "B0028",
+        "B0029",
+        "B0030",
+        "B0032",
+        "B0034",
+        "B0035",
+        "B0036",
+        "B0037",
+        "B0038",
+        "B0039",
+        "B0040"
+      ],
+      "strategy": "regenerate-hash-bound-evidence-from-unchanged-artifact",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "redraw.svg",
+        "redraw.pptx",
+        "scene.json",
+        "bindings.json"
+      ],
+      "required_verification": [
+        "evidence artifact identity",
+        "QA report digests",
+        "finalizer-bound render receipt"
+      ]
+    }
+  ],
+  "coverage": {
+    "expected_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048"
+    ],
+    "covered_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048"
+    ],
+    "uncovered_blocker_ids": [],
+    "multiply_covered_blocker_ids": []
+  },
+  "invalid_inputs": [],
+  "classification_counts": {
+    "contract": 3,
+    "source_model": 26,
+    "compiler": 0,
+    "host_compat": 4,
+    "evidence_only": 15
+  },
+  "errors": [],
+  "pass": true,
+  "plan_sha256": "a4aabcdab8e752133efb34ac52bff87a2385a8c46502c21eda5cb30f97ccab28"
+}
