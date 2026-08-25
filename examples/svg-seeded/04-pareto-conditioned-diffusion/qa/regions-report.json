@@ -1,0 +1,3740 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "region_evaluation",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "critical_regions": 38,
+  "strict_pass": false,
+  "blockers": [
+    "region:region-offline-title",
+    "region:region-sampling-title",
+    "region:region-static-dataset-label",
+    "region:region-reweighted-label",
+    "region:region-train-label",
+    "region:region-left-model-title",
+    "region:region-left-model-subtitle",
+    "region:region-target-label",
+    "region:region-objectives-label",
+    "region:region-condition-label",
+    "region:region-right-model-title",
+    "region:region-right-model-subtitle",
+    "region:region-noise-label",
+    "region:region-sample-label",
+    "region:region-designs-label",
+    "region:region-dataset-formula",
+    "region:region-reweighted-formula",
+    "region:region-blue-arrow-1",
+    "region:region-blue-arrow-2",
+    "region:region-condition-arrow",
+    "region:region-noise-arrow",
+    "region:region-sample-arrow",
+    "region:region-molecule-left",
+    "region:region-dna-left",
+    "region:region-balance",
+    "region:region-molecule-right",
+    "region:region-dna-right",
+    "region:region-candlestick-left",
+    "region:region-noise-curve",
+    "region:region-candlestick-right",
+    "region:region-left-panel",
+    "region:region-right-panel",
+    "region:region-dataset-cylinder",
+    "region:region-reweighted-cylinder",
+    "region:region-left-model-box",
+    "region:region-target-box",
+    "region:region-right-model-box"
+  ],
+  "contract_audit": {
+    "schema_version": "4.0.0",
+    "kind": "region_contract_audit",
+    "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+    "pass": true,
+    "blockers": [],
+    "regions": [
+      {
+        "id": "region-offline-title",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-sampling-title",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-002"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-static-dataset-label",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-003"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-reweighted-label",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-004"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-train-label",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-005"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-left-model-title",
+        "critical": true,
+        "declared_element_ids": [
+          "left-model-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-left-model-subtitle",
+        "critical": true,
+        "declared_element_ids": [
+          "left-model-text-002"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-target-label",
+        "critical": true,
+        "declared_element_ids": [
+          "target-box-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-objectives-label",
+        "critical": true,
+        "declared_element_ids": [
+          "target-box-text-002"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-condition-label",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-006"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-right-model-title",
+        "critical": true,
+        "declared_element_ids": [
+          "right-model-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-right-model-subtitle",
+        "critical": true,
+        "declared_element_ids": [
+          "right-model-text-002"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-noise-label",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-007"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-sample-label",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-text-008"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-designs-label",
+        "critical": true,
+        "declared_element_ids": [
+          "designs-cuboid-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-dataset-formula",
+        "critical": true,
+        "declared_element_ids": [
+          "dataset-cylinder-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-reweighted-formula",
+        "critical": true,
+        "declared_element_ids": [
+          "reweighted-cylinder-text-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-blue-arrow-1",
+        "critical": true,
+        "declared_element_ids": [
+          "blue-arrow-1",
+          "dataset-cylinder",
+          "reweighted-cylinder"
+        ],
+        "required_relation_ids": [
+          "blue-arrow-1"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-blue-arrow-2",
+        "critical": true,
+        "declared_element_ids": [
+          "blue-arrow-2",
+          "reweighted-cylinder",
+          "left-model"
+        ],
+        "required_relation_ids": [
+          "blue-arrow-2"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-condition-arrow",
+        "critical": true,
+        "declared_element_ids": [
+          "condition-arrow",
+          "target-box",
+          "right-model"
+        ],
+        "required_relation_ids": [
+          "condition-arrow"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-noise-arrow",
+        "critical": true,
+        "declared_element_ids": [
+          "noise-arrow",
+          "noise-curve",
+          "right-model"
+        ],
+        "required_relation_ids": [
+          "noise-arrow"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-sample-arrow",
+        "critical": true,
+        "declared_element_ids": [
+          "sample-arrow",
+          "right-model",
+          "designs-cuboid"
+        ],
+        "required_relation_ids": [
+          "sample-arrow"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-molecule-left",
+        "critical": true,
+        "declared_element_ids": [
+          "molecule-left-g-001-line-001",
+          "molecule-left-g-001-line-002",
+          "molecule-left-g-001-line-003",
+          "molecule-left-g-001-line-004",
+          "molecule-left-g-001-line-005",
+          "molecule-left-g-001-line-006",
+          "molecule-left-circle-001",
+          "molecule-left-circle-002",
+          "molecule-left-circle-003",
+          "molecule-left-circle-004",
+          "molecule-left-circle-005",
+          "molecule-left-circle-006",
+          "molecule-left-circle-007",
+          "molecule-left-circle-008",
+          "molecule-left-line-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-dna-left",
+        "critical": true,
+        "declared_element_ids": [
+          "dna-left-path-001",
+          "dna-left-path-002",
+          "dna-left-path-003",
+          "dna-left-path-004",
+          "dna-left-g-001-line-001",
+          "dna-left-g-001-line-002",
+          "dna-left-g-001-line-003",
+          "dna-left-g-001-line-004",
+          "dna-left-g-001-line-005",
+          "dna-left-g-001-line-006",
+          "dna-left-g-001-line-007",
+          "dna-left-g-001-line-008"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-balance",
+        "critical": true,
+        "declared_element_ids": [
+          "balance-line-001",
+          "balance-line-002",
+          "balance-line-003",
+          "balance-line-004",
+          "balance-line-005",
+          "balance-line-006",
+          "balance-line-007",
+          "balance-line-008",
+          "balance-path-001",
+          "balance-path-002"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-molecule-right",
+        "critical": true,
+        "declared_element_ids": [
+          "molecule-right-g-001-line-001",
+          "molecule-right-g-001-line-002",
+          "molecule-right-g-001-line-003",
+          "molecule-right-g-001-line-004",
+          "molecule-right-g-001-line-005",
+          "molecule-right-g-001-line-006",
+          "molecule-right-circle-001",
+          "molecule-right-circle-002",
+          "molecule-right-circle-003",
+          "molecule-right-circle-004",
+          "molecule-right-circle-005",
+          "molecule-right-circle-006",
+          "molecule-right-circle-007",
+          "molecule-right-circle-008",
+          "molecule-right-line-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-dna-right",
+        "critical": true,
+        "declared_element_ids": [
+          "dna-right-path-001",
+          "dna-right-path-002",
+          "dna-right-path-003",
+          "dna-right-path-004",
+          "dna-right-g-001-line-001",
+          "dna-right-g-001-line-002",
+          "dna-right-g-001-line-003",
+          "dna-right-g-001-line-004",
+          "dna-right-g-001-line-005",
+          "dna-right-g-001-line-006",
+          "dna-right-g-001-line-007",
+          "dna-right-g-001-line-008"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-candlestick-left",
+        "critical": true,
+        "declared_element_ids": [
+          "candlestick-left-top-line-001",
+          "candlestick-left-top-polyline-001",
+          "candlestick-left-top-line-002",
+          "candlestick-left-top-polyline-002",
+          "candlestick-left-top-line-003",
+          "candlestick-left-top-rect-001",
+          "candlestick-left-top-line-004",
+          "candlestick-left-top-rect-002",
+          "candlestick-left-top-line-005",
+          "candlestick-left-top-rect-003",
+          "candlestick-left-top-line-006",
+          "candlestick-left-top-rect-004",
+          "candlestick-left-top-line-007",
+          "candlestick-left-top-rect-005"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-noise-curve",
+        "critical": true,
+        "declared_element_ids": [
+          "noise-curve-line-001",
+          "noise-curve-path-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-candlestick-right",
+        "critical": true,
+        "declared_element_ids": [
+          "candlestick-right-line-001",
+          "candlestick-right-polyline-001",
+          "candlestick-right-line-002",
+          "candlestick-right-polyline-002",
+          "candlestick-right-line-003",
+          "candlestick-right-rect-001",
+          "candlestick-right-line-004",
+          "candlestick-right-rect-002",
+          "candlestick-right-line-005",
+          "candlestick-right-rect-003",
+          "candlestick-right-line-006",
+          "candlestick-right-rect-004",
+          "candlestick-right-line-007",
+          "candlestick-right-rect-005"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-left-panel",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-rect-001"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-right-panel",
+        "critical": true,
+        "declared_element_ids": [
+          "styles-rect-002"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-dataset-cylinder",
+        "critical": true,
+        "declared_element_ids": [
+          "dataset-cylinder"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-reweighted-cylinder",
+        "critical": true,
+        "declared_element_ids": [
+          "reweighted-cylinder"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-left-model-box",
+        "critical": true,
+        "declared_element_ids": [
+          "left-model"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-target-box",
+        "critical": true,
+        "declared_element_ids": [
+          "target-box"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-right-model-box",
+        "critical": true,
+        "declared_element_ids": [
+          "right-model"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "region-designs-cuboid",
+        "critical": true,
+        "declared_element_ids": [
+          "designs-cuboid"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "whole-canvas",
+        "critical": false,
+        "declared_element_ids": [],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      }
+    ]
+  },
+  "critical_region_expectation": {
+    "expected_count": 38,
+    "actual_count": 38,
+    "expected_region_ids": [
+      "region-offline-title",
+      "region-sampling-title",
+      "region-static-dataset-label",
+      "region-reweighted-label",
+      "region-train-label",
+      "region-left-model-title",
+      "region-left-model-subtitle",
+      "region-target-label",
+      "region-objectives-label",
+      "region-condition-label",
+      "region-right-model-title",
+      "region-right-model-subtitle",
+      "region-noise-label",
+      "region-sample-label",
+      "region-designs-label",
+      "region-dataset-formula",
+      "region-reweighted-formula",
+      "region-blue-arrow-1",
+      "region-blue-arrow-2",
+      "region-condition-arrow",
+      "region-noise-arrow",
+      "region-sample-arrow",
+      "region-molecule-left",
+      "region-dna-left",
+      "region-balance",
+      "region-molecule-right",
+      "region-dna-right",
+      "region-candlestick-left",
+      "region-noise-curve",
+      "region-candlestick-right",
+      "region-left-panel",
+      "region-right-panel",
+      "region-dataset-cylinder",
+      "region-reweighted-cylinder",
+      "region-left-model-box",
+      "region-target-box",
+      "region-right-model-box",
+      "region-designs-cuboid"
+    ],
+    "actual_region_ids": [
+      "region-offline-title",
+      "region-sampling-title",
+      "region-static-dataset-label",
+      "region-reweighted-label",
+      "region-train-label",
+      "region-left-model-title",
+      "region-left-model-subtitle",
+      "region-target-label",
+      "region-objectives-label",
+      "region-condition-label",
+      "region-right-model-title",
+      "region-right-model-subtitle",
+      "region-noise-label",
+      "region-sample-label",
+      "region-designs-label",
+      "region-dataset-formula",
+      "region-reweighted-formula",
+      "region-blue-arrow-1",
+      "region-blue-arrow-2",
+      "region-condition-arrow",
+      "region-noise-arrow",
+      "region-sample-arrow",
+      "region-molecule-left",
+      "region-dna-left",
+      "region-balance",
+      "region-molecule-right",
+      "region-dna-right",
+      "region-candlestick-left",
+      "region-noise-curve",
+      "region-candlestick-right",
+      "region-left-panel",
+      "region-right-panel",
+      "region-dataset-cylinder",
+      "region-reweighted-cylinder",
+      "region-left-model-box",
+      "region-target-box",
+      "region-right-model-box",
+      "region-designs-cuboid"
+    ],
+    "missing_region_ids": [],
+    "unexpected_region_ids": [],
+    "duplicate_region_ids": [],
+    "contracts": [
+      {
+        "id": "region-offline-title",
+        "bbox": [
+          140,
+          4,
+          310,
+          50
+        ],
+        "element_ids": [
+          "styles-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          140,
+          4,
+          310,
+          50
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-sampling-title",
+        "bbox": [
+          793,
+          4,
+          193,
+          50
+        ],
+        "element_ids": [
+          "styles-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          793,
+          4,
+          193,
+          50
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-002"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-static-dataset-label",
+        "bbox": [
+          96,
+          62,
+          405,
+          44
+        ],
+        "element_ids": [
+          "styles-text-003"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          96,
+          62,
+          405,
+          44
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-003"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-reweighted-label",
+        "bbox": [
+          99,
+          285,
+          146,
+          42
+        ],
+        "element_ids": [
+          "styles-text-004"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          99,
+          285,
+          146,
+          42
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-004"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-train-label",
+        "bbox": [
+          327,
+          372,
+          74,
+          42
+        ],
+        "element_ids": [
+          "styles-text-005"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          327,
+          372,
+          74,
+          42
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-005"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-left-model-title",
+        "bbox": [
+          170,
+          475,
+          247,
+          40
+        ],
+        "element_ids": [
+          "left-model-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          170,
+          475,
+          247,
+          40
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-model-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-left-model-subtitle",
+        "bbox": [
+          201,
+          506,
+          186,
+          40
+        ],
+        "element_ids": [
+          "left-model-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          201,
+          506,
+          186,
+          40
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-model-text-002"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-target-label",
+        "bbox": [
+          646,
+          279,
+          84,
+          39
+        ],
+        "element_ids": [
+          "target-box-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          646,
+          279,
+          84,
+          39
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "target-box-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-objectives-label",
+        "bbox": [
+          622,
+          311,
+          131,
+          39
+        ],
+        "element_ids": [
+          "target-box-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          622,
+          311,
+          131,
+          39
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "target-box-text-002"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-condition-label",
+        "bbox": [
+          767,
+          259,
+          104,
+          39
+        ],
+        "element_ids": [
+          "styles-text-006"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          767,
+          259,
+          104,
+          39
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-006"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-right-model-title",
+        "bbox": [
+          898,
+          279,
+          247,
+          40
+        ],
+        "element_ids": [
+          "right-model-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          898,
+          279,
+          247,
+          40
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "right-model-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-right-model-subtitle",
+        "bbox": [
+          929,
+          311,
+          187,
+          40
+        ],
+        "element_ids": [
+          "right-model-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          929,
+          311,
+          187,
+          40
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "right-model-text-002"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-noise-label",
+        "bbox": [
+          1055,
+          197,
+          78,
+          41
+        ],
+        "element_ids": [
+          "styles-text-007"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          1055,
+          197,
+          78,
+          41
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-007"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-sample-label",
+        "bbox": [
+          1050,
+          393,
+          101,
+          41
+        ],
+        "element_ids": [
+          "styles-text-008"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          1050,
+          393,
+          101,
+          41
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-text-008"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-designs-label",
+        "bbox": [
+          952,
+          511,
+          113,
+          42
+        ],
+        "element_ids": [
+          "designs-cuboid-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          952,
+          511,
+          113,
+          42
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "designs-cuboid-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-dataset-formula",
+        "bbox": [
+          272,
+          135,
+          44,
+          48
+        ],
+        "element_ids": [
+          "dataset-cylinder-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          272,
+          135,
+          44,
+          48
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dataset-cylinder-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-reweighted-formula",
+        "bbox": [
+          272,
+          291,
+          44,
+          48
+        ],
+        "element_ids": [
+          "reweighted-cylinder-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          272,
+          291,
+          44,
+          48
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "reweighted-cylinder-text-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-blue-arrow-1",
+        "bbox": [
+          264,
+          196,
+          60,
+          62
+        ],
+        "element_ids": [
+          "blue-arrow-1",
+          "dataset-cylinder",
+          "reweighted-cylinder"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "e3405e43554beeda83e92ec3179c7200f97ae99ac59aa42d8c104417117c9d48"
+        },
+        "actual_bbox": [
+          264,
+          196,
+          60,
+          62
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "blue-arrow-1",
+          "dataset-cylinder",
+          "reweighted-cylinder"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "e3405e43554beeda83e92ec3179c7200f97ae99ac59aa42d8c104417117c9d48"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-blue-arrow-2",
+        "bbox": [
+          264,
+          351,
+          60,
+          95
+        ],
+        "element_ids": [
+          "blue-arrow-2",
+          "reweighted-cylinder",
+          "left-model"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "72bf021f210d33865879651f128c57a85f416407fa6d880452861c059201b5e5"
+        },
+        "actual_bbox": [
+          264,
+          351,
+          60,
+          95
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "blue-arrow-2",
+          "reweighted-cylinder",
+          "left-model"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "72bf021f210d33865879651f128c57a85f416407fa6d880452861c059201b5e5"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-condition-arrow",
+        "bbox": [
+          765,
+          290,
+          115,
+          50
+        ],
+        "element_ids": [
+          "condition-arrow",
+          "target-box",
+          "right-model"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "40c784827dfceab1bf4272b9895d0d1275150051c7f1b83c3d2e70db6b18abd1"
+        },
+        "actual_bbox": [
+          765,
+          290,
+          115,
+          50
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "condition-arrow",
+          "target-box",
+          "right-model"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "40c784827dfceab1bf4272b9895d0d1275150051c7f1b83c3d2e70db6b18abd1"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-noise-arrow",
+        "bbox": [
+          992,
+          191,
+          60,
+          62
+        ],
+        "element_ids": [
+          "noise-arrow",
+          "noise-curve",
+          "right-model"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "92d57e0d34cfb35b420864bb88855a0840c598f2aa3cd4878052dadb05dbfbc6"
+        },
+        "actual_bbox": [
+          992,
+          191,
+          60,
+          62
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "noise-arrow",
+          "noise-curve",
+          "right-model"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "92d57e0d34cfb35b420864bb88855a0840c598f2aa3cd4878052dadb05dbfbc6"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-sample-arrow",
+        "bbox": [
+          992,
+          378,
+          60,
+          83
+        ],
+        "element_ids": [
+          "sample-arrow",
+          "right-model",
+          "designs-cuboid"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "e39267c30d79d3c3395a28a73b78b4f74ba25e4f432aee89d7e081e5dc0bf601"
+        },
+        "actual_bbox": [
+          992,
+          378,
+          60,
+          83
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "sample-arrow",
+          "right-model",
+          "designs-cuboid"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "e39267c30d79d3c3395a28a73b78b4f74ba25e4f432aee89d7e081e5dc0bf601"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-molecule-left",
+        "bbox": [
+          164,
+          100,
+          72,
+          43
+        ],
+        "element_ids": [
+          "molecule-left-g-001-line-001",
+          "molecule-left-g-001-line-002",
+          "molecule-left-g-001-line-003",
+          "molecule-left-g-001-line-004",
+          "molecule-left-g-001-line-005",
+          "molecule-left-g-001-line-006",
+          "molecule-left-circle-001",
+          "molecule-left-circle-002",
+          "molecule-left-circle-003",
+          "molecule-left-circle-004",
+          "molecule-left-circle-005",
+          "molecule-left-circle-006",
+          "molecule-left-circle-007",
+          "molecule-left-circle-008",
+          "molecule-left-line-001"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          164,
+          100,
+          72,
+          43
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "molecule-left-g-001-line-001",
+          "molecule-left-g-001-line-002",
+          "molecule-left-g-001-line-003",
+          "molecule-left-g-001-line-004",
+          "molecule-left-g-001-line-005",
+          "molecule-left-g-001-line-006",
+          "molecule-left-circle-001",
+          "molecule-left-circle-002",
+          "molecule-left-circle-003",
+          "molecule-left-circle-004",
+          "molecule-left-circle-005",
+          "molecule-left-circle-006",
+          "molecule-left-circle-007",
+          "molecule-left-circle-008",
+          "molecule-left-line-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-dna-left",
+        "bbox": [
+          170,
+          147,
+          66,
+          65
+        ],
+        "element_ids": [
+          "dna-left-path-001",
+          "dna-left-path-002",
+          "dna-left-path-003",
+          "dna-left-path-004",
+          "dna-left-g-001-line-001",
+          "dna-left-g-001-line-002",
+          "dna-left-g-001-line-003",
+          "dna-left-g-001-line-004",
+          "dna-left-g-001-line-005",
+          "dna-left-g-001-line-006",
+          "dna-left-g-001-line-007",
+          "dna-left-g-001-line-008"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          170,
+          147,
+          66,
+          65
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dna-left-path-001",
+          "dna-left-path-002",
+          "dna-left-path-003",
+          "dna-left-path-004",
+          "dna-left-g-001-line-001",
+          "dna-left-g-001-line-002",
+          "dna-left-g-001-line-003",
+          "dna-left-g-001-line-004",
+          "dna-left-g-001-line-005",
+          "dna-left-g-001-line-006",
+          "dna-left-g-001-line-007",
+          "dna-left-g-001-line-008"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-balance",
+        "bbox": [
+          137,
+          325,
+          58,
+          46
+        ],
+        "element_ids": [
+          "balance-line-001",
+          "balance-line-002",
+          "balance-line-003",
+          "balance-line-004",
+          "balance-line-005",
+          "balance-line-006",
+          "balance-line-007",
+          "balance-line-008",
+          "balance-path-001",
+          "balance-path-002"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          137,
+          325,
+          58,
+          46
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "balance-line-001",
+          "balance-line-002",
+          "balance-line-003",
+          "balance-line-004",
+          "balance-line-005",
+          "balance-line-006",
+          "balance-line-007",
+          "balance-line-008",
+          "balance-path-001",
+          "balance-path-002"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-molecule-right",
+        "bbox": [
+          849,
+          502,
+          72,
+          43
+        ],
+        "element_ids": [
+          "molecule-right-g-001-line-001",
+          "molecule-right-g-001-line-002",
+          "molecule-right-g-001-line-003",
+          "molecule-right-g-001-line-004",
+          "molecule-right-g-001-line-005",
+          "molecule-right-g-001-line-006",
+          "molecule-right-circle-001",
+          "molecule-right-circle-002",
+          "molecule-right-circle-003",
+          "molecule-right-circle-004",
+          "molecule-right-circle-005",
+          "molecule-right-circle-006",
+          "molecule-right-circle-007",
+          "molecule-right-circle-008",
+          "molecule-right-line-001"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          849,
+          502,
+          72,
+          43
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "molecule-right-g-001-line-001",
+          "molecule-right-g-001-line-002",
+          "molecule-right-g-001-line-003",
+          "molecule-right-g-001-line-004",
+          "molecule-right-g-001-line-005",
+          "molecule-right-g-001-line-006",
+          "molecule-right-circle-001",
+          "molecule-right-circle-002",
+          "molecule-right-circle-003",
+          "molecule-right-circle-004",
+          "molecule-right-circle-005",
+          "molecule-right-circle-006",
+          "molecule-right-circle-007",
+          "molecule-right-circle-008",
+          "molecule-right-line-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-dna-right",
+        "bbox": [
+          1110,
+          465,
+          66,
+          65
+        ],
+        "element_ids": [
+          "dna-right-path-001",
+          "dna-right-path-002",
+          "dna-right-path-003",
+          "dna-right-path-004",
+          "dna-right-g-001-line-001",
+          "dna-right-g-001-line-002",
+          "dna-right-g-001-line-003",
+          "dna-right-g-001-line-004",
+          "dna-right-g-001-line-005",
+          "dna-right-g-001-line-006",
+          "dna-right-g-001-line-007",
+          "dna-right-g-001-line-008"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          1110,
+          465,
+          66,
+          65
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dna-right-path-001",
+          "dna-right-path-002",
+          "dna-right-path-003",
+          "dna-right-path-004",
+          "dna-right-g-001-line-001",
+          "dna-right-g-001-line-002",
+          "dna-right-g-001-line-003",
+          "dna-right-g-001-line-004",
+          "dna-right-g-001-line-005",
+          "dna-right-g-001-line-006",
+          "dna-right-g-001-line-007",
+          "dna-right-g-001-line-008"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-candlestick-left",
+        "bbox": [
+          351,
+          119,
+          75,
+          62
+        ],
+        "element_ids": [
+          "candlestick-left-top-line-001",
+          "candlestick-left-top-polyline-001",
+          "candlestick-left-top-line-002",
+          "candlestick-left-top-polyline-002",
+          "candlestick-left-top-line-003",
+          "candlestick-left-top-rect-001",
+          "candlestick-left-top-line-004",
+          "candlestick-left-top-rect-002",
+          "candlestick-left-top-line-005",
+          "candlestick-left-top-rect-003",
+          "candlestick-left-top-line-006",
+          "candlestick-left-top-rect-004",
+          "candlestick-left-top-line-007",
+          "candlestick-left-top-rect-005"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          351,
+          119,
+          75,
+          62
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "candlestick-left-top-line-001",
+          "candlestick-left-top-polyline-001",
+          "candlestick-left-top-line-002",
+          "candlestick-left-top-polyline-002",
+          "candlestick-left-top-line-003",
+          "candlestick-left-top-rect-001",
+          "candlestick-left-top-line-004",
+          "candlestick-left-top-rect-002",
+          "candlestick-left-top-line-005",
+          "candlestick-left-top-rect-003",
+          "candlestick-left-top-line-006",
+          "candlestick-left-top-rect-004",
+          "candlestick-left-top-line-007",
+          "candlestick-left-top-rect-005"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-noise-curve",
+        "bbox": [
+          872,
+          80,
+          300,
+          111
+        ],
+        "element_ids": [
+          "noise-curve-line-001",
+          "noise-curve-path-001"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          872,
+          80,
+          300,
+          111
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "noise-curve-line-001",
+          "noise-curve-path-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-candlestick-right",
+        "bbox": [
+          649,
+          378,
+          75,
+          62
+        ],
+        "element_ids": [
+          "candlestick-right-line-001",
+          "candlestick-right-polyline-001",
+          "candlestick-right-line-002",
+          "candlestick-right-polyline-002",
+          "candlestick-right-line-003",
+          "candlestick-right-rect-001",
+          "candlestick-right-line-004",
+          "candlestick-right-rect-002",
+          "candlestick-right-line-005",
+          "candlestick-right-rect-003",
+          "candlestick-right-line-006",
+          "candlestick-right-rect-004",
+          "candlestick-right-line-007",
+          "candlestick-right-rect-005"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "actual_bbox": [
+          649,
+          378,
+          75,
+          62
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "candlestick-right-line-001",
+          "candlestick-right-polyline-001",
+          "candlestick-right-line-002",
+          "candlestick-right-polyline-002",
+          "candlestick-right-line-003",
+          "candlestick-right-rect-001",
+          "candlestick-right-line-004",
+          "candlestick-right-rect-002",
+          "candlestick-right-line-005",
+          "candlestick-right-rect-003",
+          "candlestick-right-line-006",
+          "candlestick-right-rect-004",
+          "candlestick-right-line-007",
+          "candlestick-right-rect-005"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true
+        },
+        "pass": true
+      },
+      {
+        "id": "region-left-panel",
+        "bbox": [
+          20,
+          53,
+          548,
+          540
+        ],
+        "element_ids": [
+          "styles-rect-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          20,
+          53,
+          548,
+          540
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-rect-001"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-right-panel",
+        "bbox": [
+          580,
+          53,
+          617,
+          540
+        ],
+        "element_ids": [
+          "styles-rect-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          580,
+          53,
+          617,
+          540
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "styles-rect-002"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-dataset-cylinder",
+        "bbox": [
+          247,
+          101,
+          94,
+          97
+        ],
+        "element_ids": [
+          "dataset-cylinder"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          247,
+          101,
+          94,
+          97
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "dataset-cylinder"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-reweighted-cylinder",
+        "bbox": [
+          246,
+          256,
+          95,
+          98
+        ],
+        "element_ids": [
+          "reweighted-cylinder"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          246,
+          256,
+          95,
+          98
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "reweighted-cylinder"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-left-model-box",
+        "bbox": [
+          148,
+          443,
+          291,
+          132
+        ],
+        "element_ids": [
+          "left-model"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          148,
+          443,
+          291,
+          132
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-model"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-target-box",
+        "bbox": [
+          608,
+          256,
+          159,
+          119
+        ],
+        "element_ids": [
+          "target-box"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          608,
+          256,
+          159,
+          119
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "target-box"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-right-model-box",
+        "bbox": [
+          877,
+          249,
+          290,
+          132
+        ],
+        "element_ids": [
+          "right-model"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          877,
+          249,
+          290,
+          132
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "right-model"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "region-designs-cuboid",
+        "bbox": [
+          935,
+          458,
+          173,
+          117
+        ],
+        "element_ids": [
+          "designs-cuboid"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          935,
+          458,
+          173,
+          117
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "designs-cuboid"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "regions": [
+    {
+      "id": "region-offline-title",
+      "label": "Offline Training title",
+      "bbox": [
+        140,
+        4,
+        310,
+        50
+      ],
+      "pixel_bbox": [
+        140,
+        4,
+        310,
+        50
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 20.4335,
+      "ssim": 0.793,
+      "edge_iou": 0.8365,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-sampling-title",
+      "label": "Sampling title",
+      "bbox": [
+        793,
+        4,
+        193,
+        50
+      ],
+      "pixel_bbox": [
+        793,
+        4,
+        193,
+        50
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 19.8193,
+      "ssim": 0.8113,
+      "edge_iou": 0.851,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-static-dataset-label",
+      "label": "Static Multi-Objective Dataset label",
+      "bbox": [
+        96,
+        62,
+        405,
+        44
+      ],
+      "pixel_bbox": [
+        96,
+        62,
+        405,
+        44
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 39.4216,
+      "ssim": 0.3541,
+      "edge_iou": 0.6692,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-reweighted-label",
+      "label": "Reweighted label",
+      "bbox": [
+        99,
+        285,
+        146,
+        42
+      ],
+      "pixel_bbox": [
+        99,
+        285,
+        146,
+        42
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 34.34,
+      "ssim": 0.4128,
+      "edge_iou": 0.7925,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-train-label",
+      "label": "Train label",
+      "bbox": [
+        327,
+        372,
+        74,
+        42
+      ],
+      "pixel_bbox": [
+        327,
+        372,
+        74,
+        42
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 27.9098,
+      "ssim": 0.4869,
+      "edge_iou": 0.8895,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-left-model-title",
+      "label": "Left model title",
+      "bbox": [
+        170,
+        475,
+        247,
+        40
+      ],
+      "pixel_bbox": [
+        170,
+        475,
+        247,
+        40
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 44.6214,
+      "ssim": 0.3048,
+      "edge_iou": 0.6345,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-left-model-subtitle",
+      "label": "Left model subtitle",
+      "bbox": [
+        201,
+        506,
+        186,
+        40
+      ],
+      "pixel_bbox": [
+        201,
+        506,
+        186,
+        40
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 41.7927,
+      "ssim": 0.2392,
+      "edge_iou": 0.6319,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-target-label",
+      "label": "Target label",
+      "bbox": [
+        646,
+        279,
+        84,
+        39
+      ],
+      "pixel_bbox": [
+        646,
+        279,
+        84,
+        39
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 17.8236,
+      "ssim": 0.673,
+      "edge_iou": 0.9901,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-objectives-label",
+      "label": "Objectives label",
+      "bbox": [
+        622,
+        311,
+        131,
+        39
+      ],
+      "pixel_bbox": [
+        622,
+        311,
+        131,
+        39
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 27.5779,
+      "ssim": 0.432,
+      "edge_iou": 0.9148,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-condition-label",
+      "label": "Condition label",
+      "bbox": [
+        767,
+        259,
+        104,
+        39
+      ],
+      "pixel_bbox": [
+        767,
+        259,
+        104,
+        39
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 31.8542,
+      "ssim": 0.3835,
+      "edge_iou": 0.8227,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-right-model-title",
+      "label": "Right model title",
+      "bbox": [
+        898,
+        279,
+        247,
+        40
+      ],
+      "pixel_bbox": [
+        898,
+        279,
+        247,
+        40
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 44.1689,
+      "ssim": 0.3019,
+      "edge_iou": 0.6456,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-right-model-subtitle",
+      "label": "Right model subtitle",
+      "bbox": [
+        929,
+        311,
+        187,
+        40
+      ],
+      "pixel_bbox": [
+        929,
+        311,
+        187,
+        40
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 41.7853,
+      "ssim": 0.2395,
+      "edge_iou": 0.6294,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1055,
+        197,
+        78,
+        41
+      ],
+      "pixel_bbox": [
+        1055,
+        197,
+        78,
+        41
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 11.0141,
+      "ssim": 0.8371,
+      "edge_iou": 0.987,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-sample-label",
+      "label": "Sample label",
+      "bbox": [
+        1050,
+        393,
+        101,
+        41
+      ],
+      "pixel_bbox": [
+        1050,
+        393,
+        101,
+        41
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 15.1634,
+      "ssim": 0.7787,
+      "edge_iou": 0.9625,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-designs-label",
+      "label": "Designs label",
+      "bbox": [
+        952,
+        511,
+        113,
+        42
+      ],
+      "pixel_bbox": [
+        952,
+        511,
+        113,
+        42
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 24.458,
+      "ssim": 0.65,
+      "edge_iou": 0.9297,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-dataset-formula",
+      "label": "Dataset D formula",
+      "bbox": [
+        272,
+        135,
+        44,
+        48
+      ],
+      "pixel_bbox": [
+        272,
+        135,
+        44,
+        48
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 21.3717,
+      "ssim": 0.6427,
+      "edge_iou": 0.7124,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-reweighted-formula",
+      "label": "Reweighted D formula",
+      "bbox": [
+        272,
+        291,
+        44,
+        48
+      ],
+      "pixel_bbox": [
+        272,
+        291,
+        44,
+        48
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 28.7964,
+      "ssim": 0.4879,
+      "edge_iou": 0.5763,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-blue-arrow-1",
+      "label": "Dataset to reweighted block arrow",
+      "bbox": [
+        264,
+        196,
+        60,
+        62
+      ],
+      "pixel_bbox": [
+        264,
+        196,
+        60,
+        62
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 7.8093,
+      "ssim": 0.7767,
+      "edge_iou": 0.8125,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-blue-arrow-2",
+      "label": "Reweighted to training model block arrow",
+      "bbox": [
+        264,
+        351,
+        60,
+        95
+      ],
+      "pixel_bbox": [
+        264,
+        351,
+        60,
+        95
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.3098,
+      "ssim": 0.7703,
+      "edge_iou": 0.6567,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-condition-arrow",
+      "label": "Condition block arrow",
+      "bbox": [
+        765,
+        290,
+        115,
+        50
+      ],
+      "pixel_bbox": [
+        765,
+        290,
+        115,
+        50
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.1639,
+      "ssim": 0.7382,
+      "edge_iou": 0.5722,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-noise-arrow",
+      "label": "Noise block arrow",
+      "bbox": [
+        992,
+        191,
+        60,
+        62
+      ],
+      "pixel_bbox": [
+        992,
+        191,
+        60,
+        62
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 11.6739,
+      "ssim": 0.6514,
+      "edge_iou": 0.6222,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-sample-arrow",
+      "label": "Sample block arrow",
+      "bbox": [
+        992,
+        378,
+        60,
+        83
+      ],
+      "pixel_bbox": [
+        992,
+        378,
+        60,
+        83
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 10.951,
+      "ssim": 0.7095,
+      "edge_iou": 0.5793,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-molecule-left",
+      "label": "Left molecule microasset",
+      "bbox": [
+        164,
+        100,
+        72,
+        43
+      ],
+      "pixel_bbox": [
+        164,
+        100,
+        72,
+        43
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 38.4621,
+      "ssim": 0.2871,
+      "edge_iou": 0.4466,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            0,
+            72,
+            43
+          ],
+          "edges": [
+            0,
+            0,
+            71,
+            42
+          ],
+          "center": [
+            35.5,
+            21.0
+          ],
+          "area_px": 1126
+        },
+        "render": {
+          "bbox": [
+            4,
+            1,
+            67,
+            42
+          ],
+          "edges": [
+            4,
+            1,
+            70,
+            42
+          ],
+          "center": [
+            37.0,
+            21.5
+          ],
+          "area_px": 970
+        },
+        "bbox_edge_errors_px": [
+          4.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 1.5811,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.1385,
+        "area_relative_tolerance": 0.2,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-dna-left",
+      "label": "Left DNA microasset",
+      "bbox": [
+        170,
+        147,
+        66,
+        65
+      ],
+      "pixel_bbox": [
+        170,
+        147,
+        66,
+        65
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 40.0828,
+      "ssim": 0.1418,
+      "edge_iou": 0.4164,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            3,
+            2,
+            63,
+            63
+          ],
+          "edges": [
+            3,
+            2,
+            65,
+            64
+          ],
+          "center": [
+            34.0,
+            33.0
+          ],
+          "area_px": 1261
+        },
+        "render": {
+          "bbox": [
+            6,
+            0,
+            60,
+            65
+          ],
+          "edges": [
+            6,
+            0,
+            65,
+            64
+          ],
+          "center": [
+            35.5,
+            32.0
+          ],
+          "area_px": 1058
+        },
+        "bbox_edge_errors_px": [
+          3.0,
+          2.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 1.8028,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.161,
+        "area_relative_tolerance": 0.2,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-balance",
+      "label": "Balance microasset",
+      "bbox": [
+        137,
+        325,
+        58,
+        46
+      ],
+      "pixel_bbox": [
+        137,
+        325,
+        58,
+        46
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 22.6675,
+      "ssim": 0.4169,
+      "edge_iou": 0.9,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            0,
+            58,
+            44
+          ],
+          "edges": [
+            0,
+            0,
+            57,
+            43
+          ],
+          "center": [
+            28.5,
+            21.5
+          ],
+          "area_px": 801
+        },
+        "render": {
+          "bbox": [
+            1,
+            0,
+            56,
+            46
+          ],
+          "edges": [
+            1,
+            0,
+            56,
+            45
+          ],
+          "center": [
+            28.5,
+            22.5
+          ],
+          "area_px": 663
+        },
+        "bbox_edge_errors_px": [
+          1.0,
+          0.0,
+          1.0,
+          2.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 1.0,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.1723,
+        "area_relative_tolerance": 0.2,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-molecule-right",
+      "label": "Right molecule microasset",
+      "bbox": [
+        849,
+        502,
+        72,
+        43
+      ],
+      "pixel_bbox": [
+        849,
+        502,
+        72,
+        43
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 36.5992,
+      "ssim": 0.3237,
+      "edge_iou": 0.5329,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            1,
+            0,
+            71,
+            43
+          ],
+          "edges": [
+            1,
+            0,
+            71,
+            42
+          ],
+          "center": [
+            36.0,
+            21.0
+          ],
+          "area_px": 1111
+        },
+        "render": {
+          "bbox": [
+            4,
+            1,
+            67,
+            42
+          ],
+          "edges": [
+            4,
+            1,
+            70,
+            42
+          ],
+          "center": [
+            37.0,
+            21.5
+          ],
+          "area_px": 970
+        },
+        "bbox_edge_errors_px": [
+          3.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 1.118,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.1269,
+        "area_relative_tolerance": 0.2,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-dna-right",
+      "label": "Right DNA microasset",
+      "bbox": [
+        1110,
+        465,
+        66,
+        65
+      ],
+      "pixel_bbox": [
+        1110,
+        465,
+        66,
+        65
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 43.2267,
+      "ssim": 0.1062,
+      "edge_iou": 0.3915,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            0,
+            66,
+            61
+          ],
+          "edges": [
+            0,
+            0,
+            65,
+            60
+          ],
+          "center": [
+            32.5,
+            30.0
+          ],
+          "area_px": 1327
+        },
+        "render": {
+          "bbox": [
+            6,
+            0,
+            60,
+            65
+          ],
+          "edges": [
+            6,
+            0,
+            65,
+            64
+          ],
+          "center": [
+            35.5,
+            32.0
+          ],
+          "area_px": 1052
+        },
+        "bbox_edge_errors_px": [
+          6.0,
+          0.0,
+          0.0,
+          4.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 3.6056,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.2072,
+        "area_relative_tolerance": 0.2,
+        "pass": false
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-candlestick-left",
+      "label": "Left candlestick plot",
+      "bbox": [
+        351,
+        119,
+        75,
+        62
+      ],
+      "pixel_bbox": [
+        351,
+        119,
+        75,
+        62
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 69.8484,
+      "ssim": 0.3009,
+      "edge_iou": 0.6406,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            1,
+            0,
+            74,
+            62
+          ],
+          "edges": [
+            1,
+            0,
+            74,
+            61
+          ],
+          "center": [
+            37.5,
+            30.5
+          ],
+          "area_px": 1639
+        },
+        "render": {
+          "bbox": [
+            1,
+            1,
+            74,
+            61
+          ],
+          "edges": [
+            1,
+            1,
+            74,
+            61
+          ],
+          "center": [
+            37.5,
+            31.0
+          ],
+          "area_px": 1388
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 0.5,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.1531,
+        "area_relative_tolerance": 0.2,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-noise-curve",
+      "label": "Gaussian noise plot",
+      "bbox": [
+        872,
+        80,
+        300,
+        111
+      ],
+      "pixel_bbox": [
+        872,
+        80,
+        300,
+        111
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 5.9173,
+      "ssim": 0.8458,
+      "edge_iou": 0.4512,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            0,
+            0,
+            300,
+            111
+          ],
+          "edges": [
+            0,
+            0,
+            299,
+            110
+          ],
+          "center": [
+            149.5,
+            55.0
+          ],
+          "area_px": 1206
+        },
+        "render": {
+          "bbox": [
+            0,
+            1,
+            300,
+            109
+          ],
+          "edges": [
+            0,
+            1,
+            299,
+            109
+          ],
+          "center": [
+            149.5,
+            55.0
+          ],
+          "area_px": 1439
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 0.0,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.1932,
+        "area_relative_tolerance": 0.2,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-candlestick-right",
+      "label": "Right candlestick plot",
+      "bbox": [
+        649,
+        378,
+        75,
+        62
+      ],
+      "pixel_bbox": [
+        649,
+        378,
+        75,
+        62
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 71.0041,
+      "ssim": 0.2855,
+      "edge_iou": 0.6314,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24.0,
+        "reference": {
+          "bbox": [
+            1,
+            0,
+            74,
+            62
+          ],
+          "edges": [
+            1,
+            0,
+            74,
+            61
+          ],
+          "center": [
+            37.5,
+            30.5
+          ],
+          "area_px": 1637
+        },
+        "render": {
+          "bbox": [
+            1,
+            1,
+            74,
+            61
+          ],
+          "edges": [
+            1,
+            1,
+            74,
+            61
+          ],
+          "center": [
+            37.5,
+            31.0
+          ],
+          "area_px": 1388
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 2.0,
+        "center_error_px": 0.5,
+        "center_tolerance_px": 2.0,
+        "area_relative_error": 0.1521,
+        "area_relative_tolerance": 0.2,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-left-panel",
+      "label": "Left dashed process panel",
+      "bbox": [
+        20,
+        53,
+        548,
+        540
+      ],
+      "pixel_bbox": [
+        20,
+        53,
+        548,
+        540
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 11.1149,
+      "ssim": 0.8156,
+      "edge_iou": 0.6932,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-right-panel",
+      "label": "Right dashed sampling panel",
+      "bbox": [
+        580,
+        53,
+        617,
+        540
+      ],
+      "pixel_bbox": [
+        580,
+        53,
+        617,
+        540
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.0565,
+      "ssim": 0.8458,
+      "edge_iou": 0.7236,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-dataset-cylinder",
+      "label": "Dataset cylinder",
+      "bbox": [
+        247,
+        101,
+        94,
+        97
+      ],
+      "pixel_bbox": [
+        247,
+        101,
+        94,
+        97
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.1616,
+      "ssim": 0.7153,
+      "edge_iou": 0.9326,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-reweighted-cylinder",
+      "label": "Reweighted dataset cylinder",
+      "bbox": [
+        246,
+        256,
+        95,
+        98
+      ],
+      "pixel_bbox": [
+        246,
+        256,
+        95,
+        98
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 19.5364,
+      "ssim": 0.6739,
+      "edge_iou": 0.9036,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-left-model-box",
+      "label": "Left diffusion model box and network",
+      "bbox": [
+        148,
+        443,
+        291,
+        132
+      ],
+      "pixel_bbox": [
+        148,
+        443,
+        291,
+        132
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 22.673,
+      "ssim": 0.6035,
+      "edge_iou": 0.7652,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-target-box",
+      "label": "Target objectives box",
+      "bbox": [
+        608,
+        256,
+        159,
+        119
+      ],
+      "pixel_bbox": [
+        608,
+        256,
+        159,
+        119
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.6907,
+      "ssim": 0.7281,
+      "edge_iou": 0.9739,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-right-model-box",
+      "label": "Right diffusion model box and network",
+      "bbox": [
+        877,
+        249,
+        290,
+        132
+      ],
+      "pixel_bbox": [
+        877,
+        249,
+        290,
+        132
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 22.2611,
+      "ssim": 0.6157,
+      "edge_iou": 0.7693,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "region-designs-cuboid",
+      "label": "Designs cuboid",
+      "bbox": [
+        935,
+        458,
+        173,
+        117
+      ],
+      "pixel_bbox": [
+        935,
+        458,
+        173,
+        117
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 14.262,
+      "ssim": 0.8542,
+      "edge_iou": 0.9678,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "pixel_bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "critical": false,
+      "mean_abs_rgb_delta": 9.5003,
+      "ssim": 0.8342,
+      "edge_iou": 0.7152,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_scene_bridge",
+  "ready": true,
+  "release_authority": "NONE",
+  "path_base": "autofigure-case-root",
+  "autofigure_case_root": ".",
+  "case_root": "qa/powerpoint-live-case",
+  "project_id": "autofigure-04-pareto-conditioned-diffusion",
+  "target_id": "autofigure-pptx",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+  "source_candidate_sha256": "18161bdf40bbea6069c0e1e336aa48d249e7cf8a6bff192b26a7bf090e0d0834",
+  "source_bindings_sha256": "c37f68a9f1add026c5611f5d34c5f24e1a61235cdf2cbbe2bdf6d9714b809aca",
+  "source_math_summary_sha256": "68589d3d8a23e284d74cbef80fd84187ad9dde28ef50a9c6ec1824ee4078b04f",
+  "source_math_pptx_sha256": "18161bdf40bbea6069c0e1e336aa48d249e7cf8a6bff192b26a7bf090e0d0834",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "source_scene_schema_version": "4.0.0",
+  "source_scene_sha256": "cdd17c46adb50b8992dad8f604d4e86ca2f593d73c4e20ff4f44f6743b7225d5",
+  "adapter_scene_schema_version": "2.1.0",
+  "adapter_scene_sha256": "06e4a60d9cdf0a04bd32ccd5df133423c6fa21e84e9a07cdf4a2e298639608d4",
+  "element_count": 180,
+  "contract_files": {
+    "project_state.json": "a4c9d4be3b6439f6076f9a3a28ebf0e7eef54e04211ee3596a0e97f552d9d007",
+    "input/source_manifest.json": "76e4ecacd3be639d1cdf23b2a58be8270b6f203ab203656c4ce5242f52b7b9e5",
+    "design/scene_graph.json": "06e4a60d9cdf0a04bd32ccd5df133423c6fa21e84e9a07cdf4a2e298639608d4",
+    "design/render_plan.json": "9fda2effa279dc2b8714ce17f7f00cb82a566fdaa684740f053e740ef67f6bda",
+    "design/scientific_spec.json": "a2c11038fcc17796c8cfe2ad91da5b0999d279e8a86356f3126ba7f4217aec4f",
+    "assets/asset_manifest.json": "c61e4f16c3122e122f1f0eaf76e3367d3c0edf0d36f547db289c69a25dc1a33a",
+    "assets/evidence_provenance.json": "706331a9537acb50f683655676226deea1d68e65f2fdba75cf1b34deca57c595"
+  },
+  "mutation_policy": {
+    "arrow_authoring_allowed": false,
+    "arrow_operations": [
+      "inspect",
+      "audit",
+      "save-reopen"
+    ],
+    "offline_compiler_is_authoritative": true
+  },
+  "provider_capability_fingerprint_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+  "arrow_spec_hashes": {
+    "blue-arrow-1": "31230125470de698b4c5c99c38ba890806728d6c94d98375cbf9bfa67857119d",
+    "blue-arrow-2": "b05375ee9097d865939d4de7b7320a5225b8cd8df71e607c6b303d77611053c6",
+    "condition-arrow": "06114b3ce242bda2d2f4d42fbda54cf550fa36fe57bbf0e90dc352cdd2f787c5",
+    "noise-arrow": "65d538d61b62b240e515ebade0ff7e27aa9cf35f718cb0c9101cb5f7652445a3",
+    "sample-arrow": "53ee8ebdba5e6c3c339a120d9e2e97e7731aac12276f47adb0e91cc322221663"
+  }
+}

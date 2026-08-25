@@ -4,35 +4,452 @@
   "audit_version": "3.0.0",
   "arrows": 41,
   "marker_refs": 42,
-  "marker_defs": 8,
-  "findings": [],
-  "counts": {},
-  "arrow_metrics": [],
-  "calibration_scope": {
-    "top-mixture-to-rollout:end": "element",
-    "bottom-mixture-to-rollout:end": "element",
-    "imagination-z0-to-z1:end": "element",
-    "imagination-z1-to-z2:end": "element",
-    "imagination-z2-to-zh:end": "element",
-    "imagination-z0-to-r0:end": "element",
-    "imagination-z1-to-r1:end": "element",
-    "imagination-z2-to-r2:end": "element",
-    "rollout-z0-to-z1:end": "element",
-    "rollout-z1-to-z2:end": "element",
-    "rollout-z2-to-zh:end": "element",
-    "rollout-z0-to-pi0:end": "element",
-    "rollout-z1-to-pi1:end": "element",
-    "rollout-z2-to-pi2:end": "element",
-    "rollout-pi0-to-a0:end": "element",
-    "rollout-pi1-to-a1:end": "element",
-    "rollout-pi2-to-a2:end": "element",
-    "rollout-a0-to-z1:end": "element",
-    "rollout-a1-to-z2:end": "element",
-    "rollout-a2-to-next:end": "element",
-    "rollout-z0-to-r0:end": "element",
-    "rollout-z1-to-r1:end": "element",
-    "rollout-z2-to-r2:end": "element"
+  "marker_defs": 9,
+  "findings": [
+    {
+      "code": "F2",
+      "element": "imagination-z0-to-z1",
+      "element_index": 14,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1104,
+        182
+      ],
+      "bbox": [
+        1080,
+        158,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "imagination-z1-to-z2",
+      "element_index": 15,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1202,
+        182
+      ],
+      "bbox": [
+        1178,
+        158,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "imagination-z2-to-zh",
+      "element_index": 16,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1334,
+        182
+      ],
+      "bbox": [
+        1310,
+        158,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "imagination-z0-to-r0",
+      "element_index": 17,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1032,
+        226
+      ],
+      "bbox": [
+        1008,
+        202,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "imagination-z1-to-r1",
+      "element_index": 18,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1129,
+        226
+      ],
+      "bbox": [
+        1105,
+        202,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "imagination-z2-to-r2",
+      "element_index": 19,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1228,
+        226
+      ],
+      "bbox": [
+        1204,
+        202,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "top-mixture-to-rollout",
+      "element_index": 20,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1009,
+        314
+      ],
+      "bbox": [
+        985,
+        290,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "bottom-mixture-to-rollout",
+      "element_index": 21,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1009,
+        326
+      ],
+      "bbox": [
+        985,
+        302,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z0-to-z1",
+      "element_index": 22,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1105,
+        314
+      ],
+      "bbox": [
+        1081,
+        290,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z1-to-z2",
+      "element_index": 23,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1202,
+        314
+      ],
+      "bbox": [
+        1178,
+        290,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z2-to-zh",
+      "element_index": 24,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1333,
+        314
+      ],
+      "bbox": [
+        1309,
+        290,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.00 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z0-to-pi0",
+      "element_index": 25,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1033,
+        407
+      ],
+      "bbox": [
+        1009,
+        383,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.62 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z1-to-pi1",
+      "element_index": 26,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1131,
+        407
+      ],
+      "bbox": [
+        1107,
+        383,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.62 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z2-to-pi2",
+      "element_index": 27,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1230,
+        407
+      ],
+      "bbox": [
+        1206,
+        383,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.62 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-pi0-to-a0",
+      "element_index": 28,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1083,
+        396
+      ],
+      "bbox": [
+        1059,
+        372,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-pi1-to-a1",
+      "element_index": 29,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1180,
+        396
+      ],
+      "bbox": [
+        1156,
+        372,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-pi2-to-a2",
+      "element_index": 30,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1279,
+        396
+      ],
+      "bbox": [
+        1255,
+        372,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-a0-to-z1",
+      "element_index": 31,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1129,
+        333
+      ],
+      "bbox": [
+        1105,
+        309,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-a1-to-z2",
+      "element_index": 32,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1227,
+        333
+      ],
+      "bbox": [
+        1203,
+        309,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-a2-to-next",
+      "element_index": 33,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1303,
+        333
+      ],
+      "bbox": [
+        1279,
+        309,
+        48,
+        48
+      ],
+      "marker": "arr-gold",
+      "detail": "head/stroke ratio 5.29 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z0-to-r0",
+      "element_index": 34,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1032,
+        267
+      ],
+      "bbox": [
+        1008,
+        243,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.62 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z1-to-r1",
+      "element_index": 35,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1129,
+        267
+      ],
+      "bbox": [
+        1105,
+        243,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.62 is outside [1.5, 4]"
+    },
+    {
+      "code": "F2",
+      "element": "rollout-z2-to-r2",
+      "element_index": 36,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        1228,
+        267
+      ],
+      "bbox": [
+        1204,
+        243,
+        48,
+        48
+      ],
+      "marker": "arr-mixture",
+      "detail": "head/stroke ratio 5.62 is outside [1.5, 4]"
+    }
+  ],
+  "counts": {
+    "F2": 23
   },
+  "arrow_metrics": [],
+  "embedded_plot_axis_exemptions": [],
+  "embedded_plot_geometry_groups": [],
   "ratio_stats": {
     "median": 5.0,
     "min": 2.0,

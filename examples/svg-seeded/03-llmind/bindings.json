@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "bindings",
   "case": "03-llmind",
   "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
-  "updated_at": "20260821T130720Z",
+  "updated_at": "20260824T141317Z",
   "backend": "pptx-offline+native-math",
   "bindings": [
     {
@@ -1831,5 +1831,11 @@
   "artifact_sha256": "4b876dee3231e7458ba85729ffc897a50f31b89c1f00ed4a1d74cc56c0e7d73a",
   "saved_reopened": true,
   "bindings_complete": true,
-  "task_mode": "RECONSTRUCT_1TO1"
+  "task_mode": "RECONSTRUCT_1TO1",
+  "scene_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-2628f9aff8338ed2",
+    "scene_sha256": "2628f9aff8338ed25948bdad5586c172b093b6fd3389f95d4d18dae5e3b5d556",
+    "compiler_fingerprint": "4d33d8a9c2f4c0aecb20cdd9a42cf64aba6f27869ea49c159b2d37053d4ac582"
+  }
 }

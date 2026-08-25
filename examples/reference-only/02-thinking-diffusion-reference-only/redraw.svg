@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="thinking-diffusion-figure" xmlns="http://www.w3.org/2000/svg" width="1513" height="554" viewBox="0 0 1513 554">
+  <title id="figure-title">Baseline and proposed diffusion multimodal language model inference</title>
+  <desc id="figure-description">Editable reconstruction of a two-panel token inference diagram.</desc>
+  <defs id="figure-defs">
+    <marker id="arrow-left-input-marker" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 4 4">
+      <path id="arrow-left-input-marker-head" d="M0,0 L4,2 L0,4 Z" fill="#000000"/>
+    </marker>
+    <marker id="arrow-left-early-marker" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 4 4">
+      <path id="arrow-left-early-marker-head" d="M0,0 L4,2 L0,4 Z" fill="#000000"/>
+    </marker>
+    <marker id="arrow-left-late-marker" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 4 4">
+      <path id="arrow-left-late-marker-head" d="M0,0 L4,2 L0,4 Z" fill="#000000"/>
+    </marker>
+    <marker id="arrow-right-input-marker" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 4 4">
+      <path id="arrow-right-input-marker-head" d="M0,0 L4,2 L0,4 Z" fill="#000000"/>
+    </marker>
+    <marker id="arrow-right-early-marker" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 4 4">
+      <path id="arrow-right-early-marker-head" d="M0,0 L4,2 L0,4 Z" fill="#000000"/>
+    </marker>
+    <marker id="arrow-right-late-marker" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 4 4">
+      <path id="arrow-right-late-marker-head" d="M0,0 L4,2 L0,4 Z" fill="#000000"/>
+    </marker>
+  </defs>
+  <rect id="canvas-background" x="0" y="0" width="1513" height="554" fill="#FFFFFF"/>
+
+  <g id="left-panel" font-family="Times New Roman, Times, serif" fill="#000000">
+    <g id="left-input-image-group">
+      <text id="left-input-image-title" x="81" y="30" text-anchor="middle" font-size="16" font-weight="700">Image</text>
+      <path id="left-input-image-bracket" d="M 29 57 L 29 53 C 29 49 31 47 35 47 L 77 47 C 80.3333 47 82 45.3333 82 42 L 82 39 M 82 39 L 82 42 C 82 45.3333 83.6667 47 87 47 L 129 47 C 133 47 135 49 135 53 L 135 57" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="over" data-brace-x="29" data-brace-y="57" data-brace-length="106" data-brace-depth="18" data-brace-cusp-offset="53"/>
+      <rect id="left-input-image-token-1" x="20" y="61" width="35" height="27" rx="4" fill="#FFF8E5" stroke="#ECDCAF" stroke-width="0.8" data-repeat-group="left-input-image-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-input-image-token-2" x="64" y="61" width="35" height="27" rx="4" fill="#FFF8E5" stroke="#ECDCAF" stroke-width="0.8" data-repeat-group="left-input-image-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-input-image-token-3" x="108" y="61" width="35" height="27" rx="4" fill="#FFF8E5" stroke="#ECDCAF" stroke-width="0.8" data-repeat-group="left-input-image-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+    </g>
+    <g id="left-input-prompt-group">
+      <text id="left-input-prompt-title" x="223" y="30" text-anchor="middle" font-size="16" font-weight="700">Prompt</text>
+      <path id="left-input-prompt-bracket" d="M170 57 V53 Q170 47 176 47 H218 Q223 47 223 42 V39 M223 39 V42 Q223 47 228 47 H270 Q276 47 276 53 V57" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="over" data-brace-x="170" data-brace-y="57" data-brace-length="106" data-brace-depth="18" data-brace-cusp-offset="53"/>
+      <rect id="left-input-prompt-token-1" x="161" y="61" width="36" height="27" rx="4" fill="#D5E7D4" stroke="#8FBB77" stroke-width="0.8" data-repeat-group="left-input-prompt-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-input-prompt-token-2" x="205" y="61" width="36" height="27" rx="4" fill="#D5E7D4" stroke="#8FBB77" stroke-width="0.8" data-repeat-group="left-input-prompt-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-input-prompt-token-3" x="249" y="61" width="36" height="27" rx="4" fill="#D5E7D4" stroke="#8FBB77" stroke-width="0.8" data-repeat-group="left-input-prompt-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+    </g>
+    <g id="left-input-response-group">
+      <text id="left-input-response-title" x="487" y="30" text-anchor="middle" font-size="16" font-weight="700">Response</text>
+      <path id="left-input-response-bracket" d="M 310 57 L 310 53 C 310 49 312 47 316 47 L 480.5 47 C 484.5 47 486.5 45.3333 486.5 42 L 486.5 39 M 486.5 39 L 486.5 42 C 486.5 45.3333 488.5 47 492.5 47 L 657 47 C 661 47 663 49 663 53 L 663 57" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="over" data-brace-x="310" data-brace-y="57" data-brace-length="353" data-brace-depth="18" data-brace-cusp-offset="176.5" data-brace-cusp-radius="6"/>
+      <rect id="left-input-response-token-1" x="300" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-input-response-token-2" x="345" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-input-response-token-3" x="389" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="left-input-response-token-4" x="434" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="left-input-response-ellipsis" x="487" y="80" text-anchor="middle" font-size="20">…</text>
+      <rect id="left-input-response-token-5" x="507" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-input-response-token-6" x="551" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-input-response-token-7" x="595" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="left-input-response-token-8" x="639" y="61" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <line id="left-input-to-model-arrow" x1="487" y1="94" x2="487" y2="114" stroke="#000000" stroke-width="1" marker-end="url(#arrow-left-input-marker)" data-reference-bbox="479 86 16 36" data-inference-confidence="0.95"/>
+    </g>
+
+    <g id="left-model-group">
+      <rect id="left-model-box" x="19" y="119" width="656" height="63" rx="10" fill="#F7CDCC" stroke="#CE817E" stroke-width="1"/>
+      <text id="left-model-label" x="347" y="158" text-anchor="middle" font-size="21" font-weight="700" data-layout-container="left-model-box" data-layout-padding="12">Diffusion Multimodal Language Model</text>
+    </g>
+
+    <g id="left-legend-group">
+      <rect id="left-legend-box" x="27.5" y="242" width="250.5" height="158.5" rx="24" fill="#FFFFFF" stroke="#000000" stroke-width="1.1"/>
+      <rect id="left-legend-token-mask" x="41" y="260" width="35" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-legend-token-swatches" data-repeat-axis="vertical" data-repeat-order="1"/>
+      <text id="left-legend-label-mask" x="86" y="279" font-size="15.40" font-weight="700" data-layout-container="left-legend-box" data-layout-padding="10">Mask Token</text>
+      <rect id="left-legend-token-less-grounded" x="41" y="308" width="35" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-legend-token-swatches" data-repeat-axis="vertical" data-repeat-order="2"/>
+      <text id="left-legend-label-less-grounded-line-1" x="86" y="316" font-size="15.55" font-weight="700" data-layout-container="left-legend-box" data-layout-padding="10">Less Visual-grounded</text>
+      <text id="left-legend-label-less-grounded-line-2" x="86" y="335" font-size="15.65" font-weight="700" data-layout-container="left-legend-box" data-layout-padding="10">Output Token</text>
+      <rect id="left-legend-token-more-grounded" x="41" y="356" width="35" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="left-legend-token-swatches" data-repeat-axis="vertical" data-repeat-order="3"/>
+      <text id="left-legend-label-more-grounded-line-1" x="86" y="365" font-size="15.62" font-weight="700" data-layout-container="left-legend-box" data-layout-padding="10">More Visual-grounded</text>
+      <text id="left-legend-label-more-grounded-line-2" x="86" y="386" font-size="15.40" font-weight="700" data-layout-container="left-legend-box" data-layout-padding="10">Output Token</text>
+    </g>
+
+    <g id="left-early-stage-group">
+      <line id="left-model-to-early-arrow" x1="487" y1="188" x2="487" y2="238" stroke="#000000" stroke-width="1" marker-end="url(#arrow-left-early-marker)" data-reference-bbox="479 180 16 66" data-inference-confidence="0.95"/>
+      <text id="left-early-stage-title" x="514" y="212" font-size="17" font-weight="700">Base</text>
+      <rect id="left-early-token-1" x="300" y="230" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-early-token-2" x="345" y="230" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-early-token-3" x="389" y="230" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="left-early-token-4" x="434" y="230" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <g id="left-early-token-ellipsis">
+        <circle id="left-early-token-ellipsis-dot-1" cx="481" cy="245" r="1.5" fill="#000000"/>
+        <circle id="left-early-token-ellipsis-dot-2" cx="487" cy="245" r="1.5" fill="#000000"/>
+        <circle id="left-early-token-ellipsis-dot-3" cx="493" cy="245" r="1.5" fill="#000000"/>
+      </g>
+      <rect id="left-early-token-5" x="507" y="230" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-early-token-6" x="551" y="230" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-early-token-7" x="595" y="230" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="left-early-token-8" x="639" y="230" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="left-early-word-answer" x="569" y="277" text-anchor="middle" font-size="14" font-weight="700">answer</text>
+      <text id="left-early-word-is" x="613" y="277" text-anchor="middle" font-size="14" font-weight="700">is</text>
+      <text id="left-early-word-b" x="657" y="277" text-anchor="middle" font-size="14" font-weight="700" fill="#FF0000">B</text>
+      <path id="left-early-answer-underbrace" d="M559 290 V294 Q559 299 565 299 H607.5 Q612.5 299 612.5 303 V306 M612.5 306 V303 Q612.5 299 617.5 299 H660 Q666 299 666 294 V290" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="under" data-brace-x="559" data-brace-y="290" data-brace-length="107" data-brace-depth="16" data-brace-cusp-offset="53.5"/>
+      <text id="left-early-annotation-line-1" x="612" y="323" text-anchor="middle" font-size="20" font-weight="700" fill="#FF0000">Generate answer</text>
+      <text id="left-early-annotation-line-2" x="612" y="345" text-anchor="middle" font-size="20" font-weight="700" fill="#FF0000">before reasoning</text>
+      <path id="left-early-stage-side-brace" d="M682 205 H686 Q691 205 691 211 V238.5 Q691 243.5 695 243.5 H698 M698 243.5 H695 Q691 243.5 691 248.5 V276 Q691 282 686 282 H682" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="right" data-brace-x="682" data-brace-y="205" data-brace-length="77" data-brace-depth="16" data-brace-cusp-offset="38.5"/>
+      <text id="left-early-stage-side-label" x="716" y="243" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 716 243)" font-size="16" font-weight="700" data-text-box-height="80">Early Step</text>
+    </g>
+
+    <g id="left-late-stage-group">
+      <text id="left-stage-transition-ellipsis" x="487" y="345" text-anchor="middle" font-size="20">⋮</text>
+      <line id="left-transition-to-late-arrow" x1="487" y1="357" x2="487" y2="382" stroke="#000000" stroke-width="1" marker-end="url(#arrow-left-late-marker)" data-allow-floating="true" data-reference-bbox="479 349 16 41" data-inference-confidence="0.95"/>
+      <rect id="left-late-token-1" x="300" y="388" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="left-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-late-token-2" x="345" y="388" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-late-token-3" x="389" y="388" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="left-late-token-4" x="434" y="388" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="left-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <g id="left-late-token-ellipsis">
+        <circle id="left-late-token-ellipsis-dot-1" cx="481" cy="401.5" r="1.5" fill="#000000"/>
+        <circle id="left-late-token-ellipsis-dot-2" cx="487" cy="401.5" r="1.5" fill="#000000"/>
+        <circle id="left-late-token-ellipsis-dot-3" cx="493" cy="401.5" r="1.5" fill="#000000"/>
+      </g>
+      <rect id="left-late-token-5" x="507" y="388" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="left-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="left-late-token-6" x="551" y="388" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="left-late-token-7" x="595" y="388" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="left-late-token-8" x="639" y="388" width="36" height="27" rx="4" fill="#D9E7FB" stroke="#98B1D2" stroke-width="0.8" data-repeat-group="left-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="left-late-word-the" x="317.5" y="433" text-anchor="middle" font-size="13.5" font-weight="700">The</text>
+      <text id="left-late-word-stove" x="362" y="432" text-anchor="middle" font-size="14" font-weight="700">stove</text>
+      <text id="left-late-word-broken" x="450" y="433" text-anchor="middle" font-size="13.35" font-weight="700">broken</text>
+      <text id="left-late-word-answer" x="567" y="432" text-anchor="middle" font-size="14" font-weight="700">answer</text>
+      <text id="left-late-word-is" x="613" y="432" text-anchor="middle" font-size="14" font-weight="700">is</text>
+      <text id="left-late-word-b" x="658" y="432" text-anchor="middle" font-size="14" font-weight="700" fill="#FF0000">B</text>
+      <path id="left-late-rationale-underbrace" d="M339 446 V450 Q339 455 345 455 H387.5 Q392.5 455 392.5 459 V462 M392.5 462 V459 Q392.5 455 397.5 455 H440 Q446 455 446 450 V446" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="under" data-brace-x="339" data-brace-y="446" data-brace-length="107" data-brace-depth="16" data-brace-cusp-offset="53.5"/>
+      <text id="left-late-annotation-line-1" x="392" y="472" text-anchor="middle" font-size="19.40" font-weight="700" fill="#FF0000">Generate rationale</text>
+      <text id="left-late-annotation-line-2" x="392.5" y="496" text-anchor="middle" font-size="19.40" font-weight="700" fill="#FF0000">after answering</text>
+      <path id="left-late-stage-side-brace" d="M682 363 H686 Q691 363 691 369 V396.5 Q691 401.5 695 401.5 H698 M698 401.5 H695 Q691 401.5 691 406.5 V434 Q691 440 686 440 H682" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="right" data-brace-x="682" data-brace-y="363" data-brace-length="77" data-brace-depth="16" data-brace-cusp-offset="38.5"/>
+      <text id="left-late-stage-side-label" x="716" y="402" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 716 402)" font-size="16" font-weight="700" data-text-box-height="80">Later Step</text>
+    </g>
+    <text id="left-panel-caption" x="372.5" y="534" text-anchor="middle" font-size="23.85" font-weight="400">(a) Baseline dMLLM Inference.</text>
+  </g>
+
+  <g id="right-panel" font-family="Times New Roman, Times, serif" fill="#000000">
+    <g id="right-input-image-group" transform="translate(0 -1)">
+      <text id="right-input-image-title" x="854" y="26" text-anchor="middle" font-size="16" font-weight="700">Image</text>
+      <path id="right-input-image-bracket" d="M 801 53 L 801 49 C 801 45 803 43 807 43 L 849.5 43 C 852.8333 43 854.5 41.3333 854.5 38 L 854.5 35 M 854.5 35 L 854.5 38 C 854.5 41.3333 856.1667 43 859.5 43 L 902 43 C 906 43 908 45 908 49 L 908 53" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="over" data-brace-x="801" data-brace-y="53" data-brace-length="107" data-brace-depth="18" data-brace-cusp-offset="53.5"/>
+      <rect id="right-input-image-token-1" x="792" y="57" width="36" height="27" rx="4" fill="#FFF8E5" stroke="#ECDCAF" stroke-width="0.8" data-repeat-group="right-input-image-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-input-image-token-2" x="836" y="57" width="36" height="27" rx="4" fill="#FFF8E5" stroke="#ECDCAF" stroke-width="0.8" data-repeat-group="right-input-image-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-input-image-token-3" x="880" y="57" width="36" height="27" rx="4" fill="#FFF8E5" stroke="#ECDCAF" stroke-width="0.8" data-repeat-group="right-input-image-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+    </g>
+    <g id="right-input-prompt-group" transform="translate(0 -1)">
+      <text id="right-input-prompt-title" x="995" y="26" text-anchor="middle" font-size="16" font-weight="700">Prompt</text>
+      <path id="right-input-prompt-bracket" d="M 943 53 L 943 49 C 943 45 945 43 949 43 L 991 43 C 994.3333 43 996 41.3333 996 38 L 996 35 M 996 35 L 996 38 C 996 41.3333 997.6667 43 1001 43 L 1043 43 C 1047 43 1049 45 1049 49 L 1049 53" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="over" data-brace-x="943" data-brace-y="53" data-brace-length="106" data-brace-depth="18" data-brace-cusp-offset="53"/>
+      <rect id="right-input-prompt-token-1" x="933" y="57" width="36" height="27" rx="4" fill="#D5E7D4" stroke="#8FBB77" stroke-width="0.8" data-repeat-group="right-input-prompt-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-input-prompt-token-2" x="977" y="57" width="36" height="27" rx="4" fill="#D5E7D4" stroke="#8FBB77" stroke-width="0.8" data-repeat-group="right-input-prompt-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-input-prompt-token-3" x="1021" y="57" width="36" height="27" rx="4" fill="#D5E7D4" stroke="#8FBB77" stroke-width="0.8" data-repeat-group="right-input-prompt-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+    </g>
+    <g id="right-input-response-group" transform="translate(0 -1)">
+      <text id="right-input-response-title" x="1259" y="26" text-anchor="middle" font-size="16" font-weight="700">Response</text>
+      <path id="right-input-response-bracket" d="M 1082 53 L 1082 49 C 1082 45 1084 43 1088 43 L 1252.5 43 C 1256.5 43 1258.5 41.3333 1258.5 38 L 1258.5 35 M 1258.5 35 L 1258.5 38 C 1258.5 41.3333 1260.5 43 1264.5 43 L 1429 43 C 1433 43 1435 45 1435 49 L 1435 53" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="over" data-brace-x="1082" data-brace-y="53" data-brace-length="353" data-brace-depth="18" data-brace-cusp-offset="176.5" data-brace-cusp-radius="6"/>
+      <rect id="right-input-response-token-1" x="1072" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-input-response-token-2" x="1117" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-input-response-token-3" x="1161" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="right-input-response-token-4" x="1206" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="right-input-response-ellipsis" x="1259" y="76" text-anchor="middle" font-size="20">…</text>
+      <rect id="right-input-response-token-5" x="1278" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-input-response-token-6" x="1323" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-input-response-token-7" x="1367" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="right-input-response-token-8" x="1412" y="57" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-input-response-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <line id="right-input-to-model-arrow" x1="1259" y1="90" x2="1259" y2="110" stroke="#000000" stroke-width="1" marker-end="url(#arrow-right-input-marker)" data-reference-bbox="1251 81 16 36" data-inference-confidence="0.95"/>
+    </g>
+
+    <g id="right-model-group" transform="translate(0 -1)">
+      <rect id="right-model-box" x="791" y="115" width="656" height="63" rx="10" fill="#F7CDCC" stroke="#CE817E" stroke-width="1"/>
+      <text id="right-model-label" x="1119" y="154" text-anchor="middle" font-size="21.20" font-weight="700" data-layout-container="right-model-box" data-layout-padding="12">Diffusion Multimodal Language Model</text>
+    </g>
+
+    <g id="right-early-stage-group">
+      <line id="right-model-to-early-arrow" x1="1259" y1="184" x2="1259" y2="234" stroke="#000000" stroke-width="1" marker-end="url(#arrow-right-early-marker)" data-reference-bbox="1251 176 16 66" data-inference-confidence="0.95"/>
+      <text id="right-early-stage-title" x="1282" y="208" font-size="18.60" font-weight="700">Ours (PSP &amp; VRG)</text>
+      <rect id="right-early-token-1" x="1072" y="227" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-early-token-2" x="1117" y="227" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-early-token-3" x="1161" y="227" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="right-early-token-4" x="1206" y="227" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-early-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <g id="right-early-token-ellipsis">
+        <circle id="right-early-token-ellipsis-dot-1" cx="1253" cy="241" r="1.5" fill="#000000"/>
+        <circle id="right-early-token-ellipsis-dot-2" cx="1259" cy="241" r="1.5" fill="#000000"/>
+        <circle id="right-early-token-ellipsis-dot-3" cx="1265" cy="241" r="1.5" fill="#000000"/>
+      </g>
+      <rect id="right-early-token-5" x="1278" y="227" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-early-token-6" x="1323" y="227" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-early-token-7" x="1367" y="227" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="right-early-token-8" x="1412" y="227" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-early-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="right-early-word-stove" x="1135" y="271" text-anchor="middle" font-size="14.20" font-weight="700">stove</text>
+      <text id="right-early-word-old" x="1224" y="271" text-anchor="middle" font-size="14.20" font-weight="700">old</text>
+      <path id="right-early-rationale-underbrace" d="M1125 287 V291 Q1125 296 1131 296 H1173.5 Q1178.5 296 1178.5 300 V303 M1178.5 303 V300 Q1178.5 296 1183.5 296 H1226 Q1232 296 1232 291 V287" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="under" data-brace-x="1125" data-brace-y="287" data-brace-length="107" data-brace-depth="16" data-brace-cusp-offset="53.5"/>
+      <text id="right-early-annotation-line-1" x="1179" y="313" text-anchor="middle" font-size="19.40" font-weight="700" fill="#13B84A">Generate rationale</text>
+      <text id="right-early-annotation-line-2" x="1178.5" y="337" text-anchor="middle" font-size="19.30" font-weight="700" fill="#13B84A">before answering</text>
+      <path id="right-early-stage-side-brace" d="M1454 203 H1458 Q1463 203 1463 209 V236 Q1463 241 1467 241 H1470 M1470 241 H1467 Q1463 241 1463 246 V273 Q1463 279 1458 279 H1454" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="right" data-brace-x="1454" data-brace-y="203" data-brace-length="76" data-brace-depth="16" data-brace-cusp-offset="38"/>
+      <text id="right-early-stage-side-label" x="1488" y="241" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 1488 241)" font-size="16" font-weight="700" data-text-box-height="80">Early Step</text>
+    </g>
+
+    <g id="right-late-stage-group">
+      <text id="right-stage-transition-ellipsis" x="1259" y="342" text-anchor="middle" font-size="20">⋮</text>
+      <line id="right-transition-to-late-arrow" x1="1259" y1="354" x2="1259" y2="379" stroke="#000000" stroke-width="1" marker-end="url(#arrow-right-late-marker)" data-allow-floating="true" data-reference-bbox="1251 346 16 41" data-inference-confidence="0.95"/>
+      <rect id="right-late-token-1" x="1072" y="383" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-late-token-2" x="1117" y="383" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-late-token-3" x="1161" y="383" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="right-late-token-4" x="1206" y="383" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-late-prefix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="right-late-token-ellipsis" x="1259" y="402" text-anchor="middle" font-size="20">…</text>
+      <rect id="right-late-token-5" x="1278" y="383" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="1"/>
+      <rect id="right-late-token-6" x="1323" y="383" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="2"/>
+      <rect id="right-late-token-7" x="1367" y="383" width="36" height="27" rx="4" fill="#F5F5F5" stroke="#808080" stroke-width="0.8" data-repeat-group="right-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="3"/>
+      <rect id="right-late-token-8" x="1412" y="383" width="36" height="27" rx="4" fill="#1BA1E2" stroke="#117AB7" stroke-width="0.8" data-repeat-group="right-late-suffix-tokens" data-repeat-axis="horizontal" data-repeat-order="4"/>
+      <text id="right-late-word-the" x="1090" y="429" text-anchor="middle" font-size="14" font-weight="700">The</text>
+      <text id="right-late-word-stove" x="1135" y="429" text-anchor="middle" font-size="14" font-weight="700">stove</text>
+      <text id="right-late-word-is" x="1179" y="429" text-anchor="middle" font-size="14" font-weight="700">is</text>
+      <text id="right-late-word-old" x="1224" y="429" text-anchor="middle" font-size="14" font-weight="700">old</text>
+      <text id="right-late-word-answer" x="1341" y="429" text-anchor="middle" font-size="14" font-weight="700">answer</text>
+      <text id="right-late-word-c" x="1430" y="429" text-anchor="middle" font-size="14" font-weight="700" fill="#13B84A">C</text>
+      <path id="right-late-answer-underbrace" d="M1329 441 V445 Q1329 450 1335 450 H1377 Q1382 450 1382 454 V457 M1382 457 V454 Q1382 450 1387 450 H1429 Q1435 450 1435 445 V441" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="under" data-brace-x="1329" data-brace-y="441" data-brace-length="106" data-brace-depth="16" data-brace-cusp-offset="53"/>
+      <text id="right-late-annotation-line-1" x="1382" y="474" text-anchor="middle" font-size="19.70" font-weight="700" fill="#13B84A">Generate answer</text>
+      <text id="right-late-annotation-line-2" x="1382" y="498" text-anchor="middle" font-size="19.70" font-weight="700" fill="#13B84A">after reasoning</text>
+      <path id="right-late-stage-side-brace" d="M1454 358 H1458 Q1463 358 1463 364 V391.5 Q1463 396.5 1467 396.5 H1470 M1470 396.5 H1467 Q1463 396.5 1463 401.5 V429 Q1463 435 1458 435 H1454" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" data-primitive-kind="brace" data-brace-orientation="right" data-brace-x="1454" data-brace-y="358" data-brace-length="77" data-brace-depth="16" data-brace-cusp-offset="38.5"/>
+      <text id="right-late-stage-side-label" x="1486" y="397" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 1486 397)" font-size="15" font-weight="700" data-text-box-height="80">Later Step</text>
+    </g>
+    <text id="right-panel-caption" x="1144" y="534" text-anchor="middle" font-size="23.85" font-weight="400">(b) Our proposed dMLLM inference.</text>
+  </g>
+</svg>

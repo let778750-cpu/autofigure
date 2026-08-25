@@ -1,0 +1,41 @@
+{
+  "mode": "benchmark",
+  "diagnostic_pass": true,
+  "threshold": "mean_abs_rgb_delta<=18 且 top_roi_loss<5%",
+  "sizes": {
+    "target": {
+      "w": 1513,
+      "h": 554
+    },
+    "final": {
+      "w": 1513,
+      "h": 554
+    }
+  },
+  "size_mismatch": false,
+  "mean_abs_rgb_delta": 4.7867,
+  "rmse_rgb_delta": 23.8508,
+  "pixels_over_delta_10_pct": 6.2465,
+  "pixels_over_delta_25_pct": 5.1334,
+  "pixels_over_delta_50_pct": 3.4737,
+  "changed_pixel_ratio_pct": 7.1948,
+  "evaluated_pixel_count": 838202,
+  "excluded_reference_preview_pixel_count": 0,
+  "excluded_reference_preview_pct": 0.0,
+  "excluded_reference_preview_bboxes": [],
+  "top_roi": {
+    "bbox": {
+      "x": 160,
+      "y": 120,
+      "w": 80,
+      "h": 40
+    },
+    "mean_abs_rgb_delta": 37.3135,
+    "loss_contribution_pct": 2.976
+  },
+  "ssim": 0.9127,
+  "notes": [],
+  "summary": "mode=benchmark | mean_abs_rgb_delta=4.7867 | top_roi_loss=2.976% | changed_pixel_ratio=7.1948% | excluded_preview=0.0% | ssim=0.9127 | diagnostic=PASS",
+  "reference_preview_receipts": [],
+  "diff_out": "qa/diff.png"
+}

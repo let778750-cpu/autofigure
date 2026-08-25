@@ -211,11 +211,237 @@
       "status": "injected"
     }
   ],
-  "pptx_sha256": "3bde78a494e889d97dd34d84a01750ffd5592b99010a8a0a866cfe803f406dd2",
-  "object_count": 188,
+  "pptx_sha256": "607ded1adc85c06d86d75b2f2bacd7ddb6510b7757629ab8aac7bf3ee706a048",
+  "object_count": 185,
   "omml_count": 22,
-  "saved_reopened": true,
+  "package_reopened": true,
+  "saved_reopened": false,
   "bindings_complete": true,
   "layout_pass": true,
-  "layout_findings": 0
+  "layout_findings": 0,
+  "logical_formula_count": 22,
+  "raw_omml_count": 22,
+  "formula_inventory_sha256": "7155577ffe80e426dbd88452c6a20ffa07a91d2dd68094af14962e92fb9314d5",
+  "native_math_inventory": [
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 15,
+      "shape_name": "math:001",
+      "normalized_texts": [
+        "τ"
+      ],
+      "semantic_omml_sha256": "1f327d73dddb31f5abcffbcd083e1bf8b05a30f6dfd096eacf7eb9ca0e10a368",
+      "formula_signature_sha256": "eb74075ef06abac9611d2eeea399bfdced532d7e8b606c09dc6599cd2f94a156"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 21,
+      "shape_name": "math:002",
+      "normalized_texts": [
+        "fmap"
+      ],
+      "semantic_omml_sha256": "b8c88766ed644bdeea2de8d1529f2c897e973886219e92580f811f028ea6dcc7",
+      "formula_signature_sha256": "bc13a3ff6dbabf89434b14117c5f831c0b5626af5a99e141eac41ab65171d124"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 50,
+      "shape_name": "math:003",
+      "normalized_texts": [
+        "ev"
+      ],
+      "semantic_omml_sha256": "2f4ef2de4460e52b7b967e5abf4fdb9949723aee6cd37919d4ce9666efe027a8",
+      "formula_signature_sha256": "908b420eccc1ea6a6a4105cbe1741e4b74b67c4c517cb68023b4bd9f64b51993"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 55,
+      "shape_name": "math:004",
+      "normalized_texts": [
+        "st"
+      ],
+      "semantic_omml_sha256": "69dae726f694e54708fb46cb1f4ca3978a88c9b1fbf076f161b185ee8a47bc0d",
+      "formula_signature_sha256": "e0f05379e83eeb8af24a5f28dde8ff9750dc4ed0d0715c1f28e7f85bbc366d2c"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 97,
+      "shape_name": "math:005",
+      "normalized_texts": [
+        "zt"
+      ],
+      "semantic_omml_sha256": "70d2ab96c769014421a8fc199f44314b1aacef5d7dadcbf56d2732c1ba254328",
+      "formula_signature_sha256": "0976235d1044c3b059c84430fc4385a68e9ac31bb0fe9404bd5d764bbf9451d0"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 114,
+      "shape_name": "math:006",
+      "normalized_texts": [
+        "ztτ"
+      ],
+      "semantic_omml_sha256": "7b054e716914a0b698a87cfec4547ef0b66504c1aa57bb44907d44a4c47481ed",
+      "formula_signature_sha256": "83583320ae8e1ac1540e1d45583239307e3a85eb7fb20978c4924b20866cdf45"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 115,
+      "shape_name": "math:007",
+      "normalized_texts": [
+        "zt+1τ"
+      ],
+      "semantic_omml_sha256": "2333ccb8d3dc1877bb41dc0d2be3cfcc122c0fc442397398bb439d1c077a2698",
+      "formula_signature_sha256": "e4d858a89fcfb3fb48363e73152bb0c67cc484af364e249c0174c0e3ded93131"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 116,
+      "shape_name": "math:008",
+      "normalized_texts": [
+        "zt+2τ"
+      ],
+      "semantic_omml_sha256": "178c5a0370674acc764b78f15a10e42c9e3ee4cffecf9659f8335b26e732fffe",
+      "formula_signature_sha256": "f40f5994b7924d77a67e8a599ae101dd0f192baa7dd9ac69ab7915e1c3cc0402"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 118,
+      "shape_name": "math:009",
+      "normalized_texts": [
+        "zt+hτ"
+      ],
+      "semantic_omml_sha256": "035b811570645f6af8dfaa5b0c7c987b67a7ba49e18a85e904c38bcdc85bade8",
+      "formula_signature_sha256": "2ad0d77312045ce600cd055b9e91029c7be38bb94e5eca6149b2b1cb928c4460"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 129,
+      "shape_name": "math:010",
+      "normalized_texts": [
+        "zt"
+      ],
+      "semantic_omml_sha256": "70d2ab96c769014421a8fc199f44314b1aacef5d7dadcbf56d2732c1ba254328",
+      "formula_signature_sha256": "4d91577bb484e9736cae6033158dab4e532ebbd8560beaf4daba2063be546d83"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 130,
+      "shape_name": "math:011",
+      "normalized_texts": [
+        "zt+1"
+      ],
+      "semantic_omml_sha256": "6992b0d489daa23f7eeb2812776224e944a6752414ccbd9e23b44932837f33e6",
+      "formula_signature_sha256": "521558280b41d3ea7fef23de7a1d7f4df2e0301fc81e5cbaca7621920a4aee7e"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 131,
+      "shape_name": "math:012",
+      "normalized_texts": [
+        "zt+2"
+      ],
+      "semantic_omml_sha256": "a5e04f1a76b77824976430ec882cf8cc1a8e99bf37aea1e1ee5b78092c8e4813",
+      "formula_signature_sha256": "768509ee4484b86e8ac1513017e0725af87c7769abd016f36bcf2552c4e4ec8a"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 132,
+      "shape_name": "math:013",
+      "normalized_texts": [
+        "zt+h"
+      ],
+      "semantic_omml_sha256": "81ac6c41aff6abec55ba9ad34b57d3e806cc64c53212c4d844d19c82b4bf5440",
+      "formula_signature_sha256": "0d36f885f88393663092096a8fd37528797d2ceb9722d1c8d73b72bd27b8ac94"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 137,
+      "shape_name": "math:014",
+      "normalized_texts": [
+        "r′t"
+      ],
+      "semantic_omml_sha256": "04bb4c8ac74de8b86c4d2fbc9d1604640a571c852652ee43e699a008ba34e1d4",
+      "formula_signature_sha256": "3b731207d95a4c4823946047164320e424e4653f7ea4453ee9d6285bcc7dc052"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 138,
+      "shape_name": "math:015",
+      "normalized_texts": [
+        "r′t+1"
+      ],
+      "semantic_omml_sha256": "cb78c0c6d9f68f619556986594b1738a1ee90bed777fca531519153360a7f494",
+      "formula_signature_sha256": "006cfad034e94d320b9504c671bb6ecb91cc18d760b259463dabe11c5c36cd5f"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 139,
+      "shape_name": "math:016",
+      "normalized_texts": [
+        "r′t+2"
+      ],
+      "semantic_omml_sha256": "96410db537e6fb78f39bda2467dcafa8319d36e05890725b091205ea9dc45948",
+      "formula_signature_sha256": "a9f0aa78aaf9a25aabe52483f64bc932c9bcfac9780af0921df55e22b40146e6"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 143,
+      "shape_name": "math:017",
+      "normalized_texts": [
+        "π"
+      ],
+      "semantic_omml_sha256": "e89d141c40c6b52343b0638ef7f52816e848585f62551aac3058ced04f769eb6",
+      "formula_signature_sha256": "e6239b9b4f911820ffcfa120ef0eb0e69d4d805438aa8b8d5b71941d36f793c1"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 144,
+      "shape_name": "math:018",
+      "normalized_texts": [
+        "π"
+      ],
+      "semantic_omml_sha256": "e89d141c40c6b52343b0638ef7f52816e848585f62551aac3058ced04f769eb6",
+      "formula_signature_sha256": "6f634d465cc7900e214d6f922290510fe0eae44495894575f2c722d7cbed1e52"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 145,
+      "shape_name": "math:019",
+      "normalized_texts": [
+        "π"
+      ],
+      "semantic_omml_sha256": "e89d141c40c6b52343b0638ef7f52816e848585f62551aac3058ced04f769eb6",
+      "formula_signature_sha256": "325e44edbd3b9d2894e71cfc49f744eb8cd881ffb5cf809af15450d3ab8041b1"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 149,
+      "shape_name": "math:020",
+      "normalized_texts": [
+        "at"
+      ],
+      "semantic_omml_sha256": "58f210e15f738b65a972f282811ca9e20d8141e8e967bcaa84dd7eee0efe831a",
+      "formula_signature_sha256": "bb1d1e7c70e2e996c7f21c7d2c8de8f5203a8178911560966b561db4c41cb377"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 150,
+      "shape_name": "math:021",
+      "normalized_texts": [
+        "at+1"
+      ],
+      "semantic_omml_sha256": "35fe452b448ef81511be907f5eedc9c5b601c37e655fcff467fd971bac8e9ee1",
+      "formula_signature_sha256": "7d75170c87142d28926ac79e3f1713ce352bbcaf68de1814f3a9d14bc56dcf69"
+    },
+    {
+      "slide": "ppt/slides/slide1.xml",
+      "shape_id": 151,
+      "shape_name": "math:022",
+      "normalized_texts": [
+        "at+2"
+      ],
+      "semantic_omml_sha256": "f36d246736c60266d80f1b40f7855194483618f72ac5f9f1bae89a40dfcbc71b",
+      "formula_signature_sha256": "6f4265f0603dde5ce9d64a73d03e388ca678f66be97bde00b6ae3e3cd9c09e07"
+    }
+  ]
 }

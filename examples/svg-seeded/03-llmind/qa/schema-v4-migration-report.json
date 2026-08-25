@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "schema_v4_migration_report",
+  "case": "03-llmind",
+  "input_route": "svg-seeded",
+  "processing_mode": "png_reconstruct",
+  "imported_legacy_carrier": true,
+  "source_gate_decision": "reject",
+  "source_gate_blockers": [
+    "source-gate:seed:unavailable"
+  ],
+  "revision_id": "scene-2628f9aff8338ed2",
+  "scene_sha256": "2628f9aff8338ed25948bdad5586c172b093b6fd3389f95d4d18dae5e3b5d556",
+  "status": "implemented_unverified",
+  "approved": false
+}

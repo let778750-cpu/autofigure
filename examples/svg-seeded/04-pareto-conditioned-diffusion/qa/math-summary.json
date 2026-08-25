@@ -1,0 +1,18 @@
+{
+  "pptx": "redraw.pptx",
+  "dry_run": false,
+  "detected": 0,
+  "strong": 0,
+  "weak": 0,
+  "injected": 0,
+  "failed": 0,
+  "warnings": [],
+  "notes": [],
+  "formulas": [],
+  "pptx_sha256": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+  "omml_count": 0,
+  "logical_formula_count": 0,
+  "raw_omml_count": 0,
+  "formula_inventory_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "native_math_inventory": []
+}

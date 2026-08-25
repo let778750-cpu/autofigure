@@ -24,6 +24,28 @@ INDEX_START = "<!-- AUTOFIGURE_CASE_INDEX:START -->"
 INDEX_END = "<!-- AUTOFIGURE_CASE_INDEX:END -->"
 WINDOWS_ABSOLUTE = re.compile(r"[A-Za-z]:\\")
 PORTABLE_SUFFIXES = {".json", ".md"}
+TRANSIENT_CASE_DIR_NAMES = {
+    ".cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+    "cache",
+    "candidate",
+    "candidates",
+    "session",
+    "sessions",
+    "temp",
+    "tmp",
+}
+TRANSIENT_CASE_DIR_TOKENS = {
+    "cache",
+    "candidate",
+    "candidates",
+    "session",
+    "sessions",
+    "temp",
+    "tmp",
+}
 REQUIRED_CONTRACTS = {
     "scene.json": "scene",
     "assets.json": "assets",
@@ -31,6 +53,45 @@ REQUIRED_CONTRACTS = {
     "bindings.json": "bindings",
     "provenance.json": "provenance",
 }
+
+
+def _is_transient_case_directory(path: Path, case_dir: Path) -> bool:
+    """Return whether a directory is runtime residue forbidden in a formal case."""
+
+    relative = path.relative_to(case_dir)
+    if relative.parts == ("qa", "powerpoint-live-case", "build"):
+        return True
+    name = path.name.lower()
+    if name in TRANSIENT_CASE_DIR_NAMES:
+        return True
+    tokens = {token for token in re.split(r"[-_.]+", name.strip(".")) if token}
+    return bool(tokens & TRANSIENT_CASE_DIR_TOKENS)
+
+
+def _has_duplicate_reference_contract(group: list[dict[str, Any]]) -> bool:
+    routes = {item["input_route"] for item in group}
+    if len(routes) != len(group):
+        return False
+
+    comparison_groups = {item.get("comparison_group") for item in group}
+    if None not in comparison_groups and len(comparison_groups) == 1:
+        return True
+
+    owners = [item for item in group if item.get("comparison_group")]
+    if len(owners) != 1:
+        return False
+    owner = owners[0]
+    peers = owner.get("comparison_peers")
+    if not isinstance(peers, list) or not all(isinstance(item, str) for item in peers):
+        return False
+    if len(peers) != len(set(peers)):
+        return False
+    expected_peers = {
+        f"{item['input_route']}/{item['case']}"
+        for item in group
+        if item is not owner
+    }
+    return set(peers) == expected_peers
 
 
 def discover_cases(cases_root: Path = common.CASES_ROOT) -> tuple[list[dict[str, Any]], list[str]]:
@@ -68,9 +129,7 @@ def discover_cases(cases_root: Path = common.CASES_ROOT) -> tuple[list[dict[str,
     for sha256, group in by_reference.items():
         if len(group) < 2:
             continue
-        comparison_groups = {item.get("comparison_group") for item in group}
-        routes = {item["input_route"] for item in group}
-        if None in comparison_groups or len(comparison_groups) != 1 or len(routes) != len(group):
+        if not _has_duplicate_reference_contract(group):
             findings.append(f"duplicate-reference-without-ab-contract:{sha256}")
 
     return records, findings
@@ -102,6 +161,21 @@ def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any]
     for stale_key in ("source_mode", "source_abspath"):
         if stale_key in meta:
             findings.append(f"stale-run-key:{run_path}:{stale_key}")
+
+    workflow_state = meta.get("workflow", {}).get("state")
+    validation = meta.get("validation", {})
+    if workflow_state == "approved":
+        if validation.get("profile") != "strict":
+            findings.append(f"approved-without-strict-validation:{run_path}")
+        if validation.get("status") != "passed":
+            findings.append(f"approved-validation-not-passed:{run_path}")
+        blockers = validation.get("blockers")
+        if not isinstance(blockers, list) or blockers:
+            findings.append(f"approved-with-blockers:{run_path}")
+        if meta.get("backend_mode") == "hybrid":
+            live_evidence_path = case_dir / "qa" / "live-evidence.json"
+            if not live_evidence_path.is_file():
+                findings.append(f"approved-hybrid-live-evidence-missing:{live_evidence_path}")
 
     reference_path = case_dir / "reference.png"
     reference_sha256 = meta.get("source_sha256")
@@ -138,6 +212,18 @@ def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any]
     if provenance.get("task_mode") != TASK_MODE:
         findings.append(f"provenance-task-mode-mismatch:{provenance_path}")
 
+    transient_roots: list[Path] = []
+    directories = sorted(
+        (item for item in case_dir.rglob("*") if item.is_dir()),
+        key=lambda item: (len(item.relative_to(case_dir).parts), item.as_posix()),
+    )
+    for path in directories:
+        if any(root in path.parents for root in transient_roots):
+            continue
+        if _is_transient_case_directory(path, case_dir):
+            transient_roots.append(path)
+            findings.append(f"transient-case-directory:{path}")
+
     for path in case_dir.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in PORTABLE_SUFFIXES:
             continue
@@ -158,6 +244,7 @@ def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any]
         "validation_status": meta.get("validation", {}).get("status", "not_run"),
         "reference_sha256": reference_sha256,
         "comparison_group": provenance.get("comparison_group"),
+        "comparison_peers": provenance.get("comparison_peers"),
     }
 
 

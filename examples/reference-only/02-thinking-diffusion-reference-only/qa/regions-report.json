@@ -1,0 +1,3892 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "region_evaluation",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "critical_regions": 8,
+  "strict_pass": false,
+  "blockers": [
+    "region:left-early-step",
+    "region:left-late-step",
+    "region:right-early-step",
+    "region:right-late-step"
+  ],
+  "contract_audit": {
+    "schema_version": "4.0.0",
+    "kind": "region_contract_audit",
+    "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+    "pass": true,
+    "blockers": [],
+    "regions": [
+      {
+        "id": "whole-canvas",
+        "critical": false,
+        "declared_element_ids": [],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "left-header-model",
+        "critical": true,
+        "declared_element_ids": [
+          "left-input-image-title",
+          "left-input-image-bracket",
+          "left-input-image-token-1",
+          "left-input-image-token-2",
+          "left-input-image-token-3",
+          "left-input-prompt-title",
+          "left-input-prompt-bracket",
+          "left-input-prompt-token-1",
+          "left-input-prompt-token-2",
+          "left-input-prompt-token-3",
+          "left-input-response-title",
+          "left-input-response-bracket",
+          "left-input-response-token-1",
+          "left-input-response-token-2",
+          "left-input-response-token-3",
+          "left-input-response-token-4",
+          "left-input-response-ellipsis",
+          "left-input-response-token-5",
+          "left-input-response-token-6",
+          "left-input-response-token-7",
+          "left-input-response-token-8",
+          "left-input-to-model-arrow",
+          "left-model-box",
+          "left-model-label"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "left-legend",
+        "critical": true,
+        "declared_element_ids": [
+          "left-legend-box",
+          "left-legend-token-mask",
+          "left-legend-label-mask",
+          "left-legend-token-less-grounded",
+          "left-legend-label-less-grounded-line-1",
+          "left-legend-label-less-grounded-line-2",
+          "left-legend-token-more-grounded",
+          "left-legend-label-more-grounded-line-1",
+          "left-legend-label-more-grounded-line-2"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "left-early-step",
+        "critical": true,
+        "declared_element_ids": [
+          "left-model-to-early-arrow",
+          "left-early-stage-title",
+          "left-early-token-1",
+          "left-early-token-2",
+          "left-early-token-3",
+          "left-early-token-4",
+          "left-early-token-ellipsis-dot-1",
+          "left-early-token-ellipsis-dot-2",
+          "left-early-token-ellipsis-dot-3",
+          "left-early-token-5",
+          "left-early-token-6",
+          "left-early-token-7",
+          "left-early-token-8",
+          "left-early-word-answer",
+          "left-early-word-is",
+          "left-early-word-b",
+          "left-early-answer-underbrace",
+          "left-early-annotation-line-1",
+          "left-early-annotation-line-2",
+          "left-early-stage-side-brace",
+          "left-early-stage-side-label",
+          "left-stage-transition-ellipsis"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "left-late-step",
+        "critical": true,
+        "declared_element_ids": [
+          "left-transition-to-late-arrow",
+          "left-late-token-1",
+          "left-late-token-2",
+          "left-late-token-3",
+          "left-late-token-4",
+          "left-late-token-ellipsis-dot-1",
+          "left-late-token-ellipsis-dot-2",
+          "left-late-token-ellipsis-dot-3",
+          "left-late-token-5",
+          "left-late-token-6",
+          "left-late-token-7",
+          "left-late-token-8",
+          "left-late-word-the",
+          "left-late-word-stove",
+          "left-late-word-broken",
+          "left-late-word-answer",
+          "left-late-word-is",
+          "left-late-word-b",
+          "left-late-rationale-underbrace",
+          "left-late-annotation-line-1",
+          "left-late-annotation-line-2",
+          "left-late-stage-side-brace",
+          "left-late-stage-side-label"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "right-header-model",
+        "critical": true,
+        "declared_element_ids": [
+          "right-input-image-title",
+          "right-input-image-bracket",
+          "right-input-image-token-1",
+          "right-input-image-token-2",
+          "right-input-image-token-3",
+          "right-input-prompt-title",
+          "right-input-prompt-bracket",
+          "right-input-prompt-token-1",
+          "right-input-prompt-token-2",
+          "right-input-prompt-token-3",
+          "right-input-response-title",
+          "right-input-response-bracket",
+          "right-input-response-token-1",
+          "right-input-response-token-2",
+          "right-input-response-token-3",
+          "right-input-response-token-4",
+          "right-input-response-ellipsis",
+          "right-input-response-token-5",
+          "right-input-response-token-6",
+          "right-input-response-token-7",
+          "right-input-response-token-8",
+          "right-input-to-model-arrow",
+          "right-model-box",
+          "right-model-label"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "right-early-step",
+        "critical": true,
+        "declared_element_ids": [
+          "right-model-to-early-arrow",
+          "right-early-stage-title",
+          "right-early-token-1",
+          "right-early-token-2",
+          "right-early-token-3",
+          "right-early-token-4",
+          "right-early-token-ellipsis-dot-1",
+          "right-early-token-ellipsis-dot-2",
+          "right-early-token-ellipsis-dot-3",
+          "right-early-token-5",
+          "right-early-token-6",
+          "right-early-token-7",
+          "right-early-token-8",
+          "right-early-word-stove",
+          "right-early-word-old",
+          "right-early-rationale-underbrace",
+          "right-early-annotation-line-1",
+          "right-early-annotation-line-2",
+          "right-early-stage-side-brace",
+          "right-early-stage-side-label",
+          "right-stage-transition-ellipsis"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "right-late-step",
+        "critical": true,
+        "declared_element_ids": [
+          "right-transition-to-late-arrow",
+          "right-late-token-1",
+          "right-late-token-2",
+          "right-late-token-3",
+          "right-late-token-4",
+          "right-late-token-ellipsis",
+          "right-late-token-5",
+          "right-late-token-6",
+          "right-late-token-7",
+          "right-late-token-8",
+          "right-late-word-the",
+          "right-late-word-stove",
+          "right-late-word-is",
+          "right-late-word-old",
+          "right-late-word-answer",
+          "right-late-word-c",
+          "right-late-answer-underbrace",
+          "right-late-annotation-line-1",
+          "right-late-annotation-line-2",
+          "right-late-stage-side-brace",
+          "right-late-stage-side-label"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "captions",
+        "critical": true,
+        "declared_element_ids": [
+          "left-panel-caption",
+          "right-panel-caption"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      }
+    ]
+  },
+  "critical_region_expectation": {
+    "expected_count": 8,
+    "actual_count": 8,
+    "expected_region_ids": [
+      "left-header-model",
+      "left-legend",
+      "left-early-step",
+      "left-late-step",
+      "right-header-model",
+      "right-early-step",
+      "right-late-step",
+      "captions"
+    ],
+    "actual_region_ids": [
+      "left-header-model",
+      "left-legend",
+      "left-early-step",
+      "left-late-step",
+      "right-header-model",
+      "right-early-step",
+      "right-late-step",
+      "captions"
+    ],
+    "missing_region_ids": [],
+    "unexpected_region_ids": [],
+    "duplicate_region_ids": [],
+    "contracts": [
+      {
+        "id": "left-header-model",
+        "bbox": [
+          15,
+          12,
+          665,
+          174
+        ],
+        "element_ids": [
+          "left-input-image-title",
+          "left-input-image-bracket",
+          "left-input-image-token-1",
+          "left-input-image-token-2",
+          "left-input-image-token-3",
+          "left-input-prompt-title",
+          "left-input-prompt-bracket",
+          "left-input-prompt-token-1",
+          "left-input-prompt-token-2",
+          "left-input-prompt-token-3",
+          "left-input-response-title",
+          "left-input-response-bracket",
+          "left-input-response-token-1",
+          "left-input-response-token-2",
+          "left-input-response-token-3",
+          "left-input-response-token-4",
+          "left-input-response-ellipsis",
+          "left-input-response-token-5",
+          "left-input-response-token-6",
+          "left-input-response-token-7",
+          "left-input-response-token-8",
+          "left-input-to-model-arrow",
+          "left-model-box",
+          "left-model-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "f0e8e353627e9ddcbb92f18fef16fa046e968c70c3d9b6d84ea2e55801958eb9"
+        },
+        "actual_bbox": [
+          15,
+          12,
+          665,
+          174
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-input-image-title",
+          "left-input-image-bracket",
+          "left-input-image-token-1",
+          "left-input-image-token-2",
+          "left-input-image-token-3",
+          "left-input-prompt-title",
+          "left-input-prompt-bracket",
+          "left-input-prompt-token-1",
+          "left-input-prompt-token-2",
+          "left-input-prompt-token-3",
+          "left-input-response-title",
+          "left-input-response-bracket",
+          "left-input-response-token-1",
+          "left-input-response-token-2",
+          "left-input-response-token-3",
+          "left-input-response-token-4",
+          "left-input-response-ellipsis",
+          "left-input-response-token-5",
+          "left-input-response-token-6",
+          "left-input-response-token-7",
+          "left-input-response-token-8",
+          "left-input-to-model-arrow",
+          "left-model-box",
+          "left-model-label"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_probes": "f0e8e353627e9ddcbb92f18fef16fa046e968c70c3d9b6d84ea2e55801958eb9"
+        },
+        "gate_hash_passes": {
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "left-legend",
+        "bbox": [
+          20,
+          235,
+          263,
+          177
+        ],
+        "element_ids": [
+          "left-legend-box",
+          "left-legend-token-mask",
+          "left-legend-label-mask",
+          "left-legend-token-less-grounded",
+          "left-legend-label-less-grounded-line-1",
+          "left-legend-label-less-grounded-line-2",
+          "left-legend-token-more-grounded",
+          "left-legend-label-more-grounded-line-1",
+          "left-legend-label-more-grounded-line-2"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "ca9af7c141e0632ed224785fa6feacae38af09a04475157b7ee3d60b5c2eac6f"
+        },
+        "actual_bbox": [
+          20,
+          235,
+          263,
+          177
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-legend-box",
+          "left-legend-token-mask",
+          "left-legend-label-mask",
+          "left-legend-token-less-grounded",
+          "left-legend-label-less-grounded-line-1",
+          "left-legend-label-less-grounded-line-2",
+          "left-legend-token-more-grounded",
+          "left-legend-label-more-grounded-line-1",
+          "left-legend-label-more-grounded-line-2"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_probes": "ca9af7c141e0632ed224785fa6feacae38af09a04475157b7ee3d60b5c2eac6f"
+        },
+        "gate_hash_passes": {
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "left-early-step",
+        "bbox": [
+          292,
+          188,
+          430,
+          164
+        ],
+        "element_ids": [
+          "left-model-to-early-arrow",
+          "left-early-stage-title",
+          "left-early-token-1",
+          "left-early-token-2",
+          "left-early-token-3",
+          "left-early-token-4",
+          "left-early-token-ellipsis-dot-1",
+          "left-early-token-ellipsis-dot-2",
+          "left-early-token-ellipsis-dot-3",
+          "left-early-token-5",
+          "left-early-token-6",
+          "left-early-token-7",
+          "left-early-token-8",
+          "left-early-word-answer",
+          "left-early-word-is",
+          "left-early-word-b",
+          "left-early-answer-underbrace",
+          "left-early-annotation-line-1",
+          "left-early-annotation-line-2",
+          "left-early-stage-side-brace",
+          "left-early-stage-side-label",
+          "left-stage-transition-ellipsis"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "6c486d71bfd1e73457314cbece21746d3df1cde3229fc9db388a845bbd1fdb0f",
+          "color_probes": "08e0b72a5ca5a0a42f9d04d300a0fcaad1583ce47a8fca09eb1d126aefc2aa10"
+        },
+        "actual_bbox": [
+          292,
+          188,
+          430,
+          164
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-model-to-early-arrow",
+          "left-early-stage-title",
+          "left-early-token-1",
+          "left-early-token-2",
+          "left-early-token-3",
+          "left-early-token-4",
+          "left-early-token-ellipsis-dot-1",
+          "left-early-token-ellipsis-dot-2",
+          "left-early-token-ellipsis-dot-3",
+          "left-early-token-5",
+          "left-early-token-6",
+          "left-early-token-7",
+          "left-early-token-8",
+          "left-early-word-answer",
+          "left-early-word-is",
+          "left-early-word-b",
+          "left-early-answer-underbrace",
+          "left-early-annotation-line-1",
+          "left-early-annotation-line-2",
+          "left-early-stage-side-brace",
+          "left-early-stage-side-label",
+          "left-stage-transition-ellipsis"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_clearance_contracts": "6c486d71bfd1e73457314cbece21746d3df1cde3229fc9db388a845bbd1fdb0f",
+          "color_probes": "08e0b72a5ca5a0a42f9d04d300a0fcaad1583ce47a8fca09eb1d126aefc2aa10"
+        },
+        "gate_hash_passes": {
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "left-late-step",
+        "bbox": [
+          291,
+          357,
+          432,
+          151
+        ],
+        "element_ids": [
+          "left-transition-to-late-arrow",
+          "left-late-token-1",
+          "left-late-token-2",
+          "left-late-token-3",
+          "left-late-token-4",
+          "left-late-token-ellipsis-dot-1",
+          "left-late-token-ellipsis-dot-2",
+          "left-late-token-ellipsis-dot-3",
+          "left-late-token-5",
+          "left-late-token-6",
+          "left-late-token-7",
+          "left-late-token-8",
+          "left-late-word-the",
+          "left-late-word-stove",
+          "left-late-word-broken",
+          "left-late-word-answer",
+          "left-late-word-is",
+          "left-late-word-b",
+          "left-late-rationale-underbrace",
+          "left-late-annotation-line-1",
+          "left-late-annotation-line-2",
+          "left-late-stage-side-brace",
+          "left-late-stage-side-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "865ffd43419836da25656126b34052c051b3cab7bbf5a6da15e1fb06e655c4ef",
+          "color_probes": "3df499dc68d814b1c99af9bdfbc3d01b3dec4d9da8136f954b0ee508c608e2fb"
+        },
+        "actual_bbox": [
+          291,
+          357,
+          432,
+          151
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-transition-to-late-arrow",
+          "left-late-token-1",
+          "left-late-token-2",
+          "left-late-token-3",
+          "left-late-token-4",
+          "left-late-token-ellipsis-dot-1",
+          "left-late-token-ellipsis-dot-2",
+          "left-late-token-ellipsis-dot-3",
+          "left-late-token-5",
+          "left-late-token-6",
+          "left-late-token-7",
+          "left-late-token-8",
+          "left-late-word-the",
+          "left-late-word-stove",
+          "left-late-word-broken",
+          "left-late-word-answer",
+          "left-late-word-is",
+          "left-late-word-b",
+          "left-late-rationale-underbrace",
+          "left-late-annotation-line-1",
+          "left-late-annotation-line-2",
+          "left-late-stage-side-brace",
+          "left-late-stage-side-label"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_clearance_contracts": "865ffd43419836da25656126b34052c051b3cab7bbf5a6da15e1fb06e655c4ef",
+          "color_probes": "3df499dc68d814b1c99af9bdfbc3d01b3dec4d9da8136f954b0ee508c608e2fb"
+        },
+        "gate_hash_passes": {
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "right-header-model",
+        "bbox": [
+          779,
+          12,
+          675,
+          174
+        ],
+        "element_ids": [
+          "right-input-image-title",
+          "right-input-image-bracket",
+          "right-input-image-token-1",
+          "right-input-image-token-2",
+          "right-input-image-token-3",
+          "right-input-prompt-title",
+          "right-input-prompt-bracket",
+          "right-input-prompt-token-1",
+          "right-input-prompt-token-2",
+          "right-input-prompt-token-3",
+          "right-input-response-title",
+          "right-input-response-bracket",
+          "right-input-response-token-1",
+          "right-input-response-token-2",
+          "right-input-response-token-3",
+          "right-input-response-token-4",
+          "right-input-response-ellipsis",
+          "right-input-response-token-5",
+          "right-input-response-token-6",
+          "right-input-response-token-7",
+          "right-input-response-token-8",
+          "right-input-to-model-arrow",
+          "right-model-box",
+          "right-model-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "ee4c41a4fbcf9846a34cb33dbf129cd1d19a90f2dd5a2f66e10bc176c993a6bf"
+        },
+        "actual_bbox": [
+          779,
+          12,
+          675,
+          174
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "right-input-image-title",
+          "right-input-image-bracket",
+          "right-input-image-token-1",
+          "right-input-image-token-2",
+          "right-input-image-token-3",
+          "right-input-prompt-title",
+          "right-input-prompt-bracket",
+          "right-input-prompt-token-1",
+          "right-input-prompt-token-2",
+          "right-input-prompt-token-3",
+          "right-input-response-title",
+          "right-input-response-bracket",
+          "right-input-response-token-1",
+          "right-input-response-token-2",
+          "right-input-response-token-3",
+          "right-input-response-token-4",
+          "right-input-response-ellipsis",
+          "right-input-response-token-5",
+          "right-input-response-token-6",
+          "right-input-response-token-7",
+          "right-input-response-token-8",
+          "right-input-to-model-arrow",
+          "right-model-box",
+          "right-model-label"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_probes": "ee4c41a4fbcf9846a34cb33dbf129cd1d19a90f2dd5a2f66e10bc176c993a6bf"
+        },
+        "gate_hash_passes": {
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "right-early-step",
+        "bbox": [
+          1058,
+          186,
+          446,
+          167
+        ],
+        "element_ids": [
+          "right-model-to-early-arrow",
+          "right-early-stage-title",
+          "right-early-token-1",
+          "right-early-token-2",
+          "right-early-token-3",
+          "right-early-token-4",
+          "right-early-token-ellipsis-dot-1",
+          "right-early-token-ellipsis-dot-2",
+          "right-early-token-ellipsis-dot-3",
+          "right-early-token-5",
+          "right-early-token-6",
+          "right-early-token-7",
+          "right-early-token-8",
+          "right-early-word-stove",
+          "right-early-word-old",
+          "right-early-rationale-underbrace",
+          "right-early-annotation-line-1",
+          "right-early-annotation-line-2",
+          "right-early-stage-side-brace",
+          "right-early-stage-side-label",
+          "right-stage-transition-ellipsis"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "b4113d47cdb21a7f3198b64415bdec8fe2b8617be7da58271ba1038dbb782217",
+          "color_probes": "ea19f206da19491cbc03e726eb54f08e62fbcc7c58dd28e16bb01fa4454ab034"
+        },
+        "actual_bbox": [
+          1058,
+          186,
+          446,
+          167
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "right-model-to-early-arrow",
+          "right-early-stage-title",
+          "right-early-token-1",
+          "right-early-token-2",
+          "right-early-token-3",
+          "right-early-token-4",
+          "right-early-token-ellipsis-dot-1",
+          "right-early-token-ellipsis-dot-2",
+          "right-early-token-ellipsis-dot-3",
+          "right-early-token-5",
+          "right-early-token-6",
+          "right-early-token-7",
+          "right-early-token-8",
+          "right-early-word-stove",
+          "right-early-word-old",
+          "right-early-rationale-underbrace",
+          "right-early-annotation-line-1",
+          "right-early-annotation-line-2",
+          "right-early-stage-side-brace",
+          "right-early-stage-side-label",
+          "right-stage-transition-ellipsis"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_clearance_contracts": "b4113d47cdb21a7f3198b64415bdec8fe2b8617be7da58271ba1038dbb782217",
+          "color_probes": "ea19f206da19491cbc03e726eb54f08e62fbcc7c58dd28e16bb01fa4454ab034"
+        },
+        "gate_hash_passes": {
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "right-late-step",
+        "bbox": [
+          1057,
+          356,
+          447,
+          153
+        ],
+        "element_ids": [
+          "right-transition-to-late-arrow",
+          "right-late-token-1",
+          "right-late-token-2",
+          "right-late-token-3",
+          "right-late-token-4",
+          "right-late-token-ellipsis",
+          "right-late-token-5",
+          "right-late-token-6",
+          "right-late-token-7",
+          "right-late-token-8",
+          "right-late-word-the",
+          "right-late-word-stove",
+          "right-late-word-is",
+          "right-late-word-old",
+          "right-late-word-answer",
+          "right-late-word-c",
+          "right-late-answer-underbrace",
+          "right-late-annotation-line-1",
+          "right-late-annotation-line-2",
+          "right-late-stage-side-brace",
+          "right-late-stage-side-label"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "9bbb9db82e11d9ef8099521e2602eb57bd3c50fc681e74586ccb895591e91ad7",
+          "color_probes": "e0eb49097407e249a23621e1c4090e490489ca5c0d6ae17c23522210356503db"
+        },
+        "actual_bbox": [
+          1057,
+          356,
+          447,
+          153
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "right-transition-to-late-arrow",
+          "right-late-token-1",
+          "right-late-token-2",
+          "right-late-token-3",
+          "right-late-token-4",
+          "right-late-token-ellipsis",
+          "right-late-token-5",
+          "right-late-token-6",
+          "right-late-token-7",
+          "right-late-token-8",
+          "right-late-word-the",
+          "right-late-word-stove",
+          "right-late-word-is",
+          "right-late-word-old",
+          "right-late-word-answer",
+          "right-late-word-c",
+          "right-late-answer-underbrace",
+          "right-late-annotation-line-1",
+          "right-late-annotation-line-2",
+          "right-late-stage-side-brace",
+          "right-late-stage-side-label"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_clearance_contracts": "9bbb9db82e11d9ef8099521e2602eb57bd3c50fc681e74586ccb895591e91ad7",
+          "color_probes": "e0eb49097407e249a23621e1c4090e490489ca5c0d6ae17c23522210356503db"
+        },
+        "gate_hash_passes": {
+          "color_clearance_contracts": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "captions",
+        "bbox": [
+          190,
+          512,
+          1180,
+          40
+        ],
+        "element_ids": [
+          "left-panel-caption",
+          "right-panel-caption"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          190,
+          512,
+          1180,
+          40
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "left-panel-caption",
+          "right-panel-caption"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "regions": [
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1513,
+        554
+      ],
+      "pixel_bbox": [
+        0,
+        0,
+        1513,
+        554
+      ],
+      "critical": false,
+      "mean_abs_rgb_delta": 4.7867,
+      "ssim": 0.9127,
+      "edge_iou": 0.9563,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "left-header-model",
+      "label": "Left input groups and diffusion model",
+      "bbox": [
+        15,
+        12,
+        665,
+        174
+      ],
+      "pixel_bbox": [
+        15,
+        12,
+        665,
+        174
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 6.3595,
+      "ssim": 0.8739,
+      "edge_iou": 0.9572,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "left-image-token",
+          "point": [
+            38,
+            75
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "left-prompt-token",
+          "point": [
+            178,
+            75
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "left-model-fill",
+          "point": [
+            50,
+            150
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "left-legend",
+      "label": "Left token legend",
+      "bbox": [
+        20,
+        235,
+        263,
+        177
+      ],
+      "pixel_bbox": [
+        20,
+        235,
+        263,
+        177
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 10.8178,
+      "ssim": 0.8509,
+      "edge_iou": 0.9356,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "legend-mask",
+          "point": [
+            58,
+            275
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "legend-less-grounded",
+          "point": [
+            58,
+            320
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "legend-more-grounded",
+          "point": [
+            58,
+            370
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "left-early-step",
+      "label": "Left baseline early step",
+      "bbox": [
+        292,
+        188,
+        430,
+        164
+      ],
+      "pixel_bbox": [
+        292,
+        188,
+        430,
+        164
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 7.7528,
+      "ssim": 0.8598,
+      "edge_iou": 0.8916,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "left-early-mask",
+          "point": [
+            318,
+            244
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "left-early-less-grounded",
+          "point": [
+            568,
+            244
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [
+        {
+          "id": "left-early-red-annotation-clearance",
+          "subject_dominant_channel": "red",
+          "subject_element_ids": [
+            "left-early-annotation-line-1",
+            "left-early-annotation-line-2"
+          ],
+          "subject_bbox": [
+            245,
+            115,
+            152,
+            49
+          ],
+          "subject": {
+            "reference": {
+              "bbox": [
+                251,
+                121,
+                140,
+                43
+              ],
+              "edges": [
+                251,
+                121,
+                390,
+                163
+              ],
+              "center": [
+                320.5,
+                142.0
+              ],
+              "area_px": 1803
+            },
+            "render": {
+              "bbox": [
+                249,
+                122,
+                144,
+                39
+              ],
+              "edges": [
+                249,
+                122,
+                392,
+                160
+              ],
+              "center": [
+                320.5,
+                141.0
+              ],
+              "area_px": 1800
+            },
+            "bbox_edge_errors_px": [
+              2.0,
+              1.0,
+              2.0,
+              3.0
+            ],
+            "bbox_tolerance_px": 1.5,
+            "center_error_px": 1.0,
+            "center_tolerance_px": 1.0,
+            "area_relative_error": 0.0017,
+            "area_relative_tolerance": 0.15,
+            "rgb_ssim_diagnostic": 0.6661,
+            "mask_iou": 0.8051,
+            "mask_iou_min": 0.65,
+            "edge_iou": 0.9112,
+            "edge_iou_min": 0.75,
+            "foreground_delta_e00": 0.867,
+            "foreground_delta_e_max": 12.0,
+            "reference_overflow_px": 0,
+            "render_overflow_px": 0,
+            "subject_bbox_halo_px": 1,
+            "overflow_tolerance_px": 0,
+            "overflow_pass": true,
+            "reference_outside_subject_color_px": 66,
+            "render_outside_subject_color_px": 68,
+            "new_outside_subject_color_px": 0,
+            "outside_subject_color_pass": true,
+            "outside_subject_color_components": {
+              "reference_component_count": 1,
+              "render_component_count": 1,
+              "matches": [
+                {
+                  "reference_component_id": 1,
+                  "render_component_id": 1,
+                  "reference": {
+                    "bbox": [
+                      360,
+                      78,
+                      9,
+                      10
+                    ],
+                    "edges": [
+                      360,
+                      78,
+                      368,
+                      87
+                    ],
+                    "center": [
+                      364.0,
+                      82.5
+                    ],
+                    "area_px": 66
+                  },
+                  "render": {
+                    "bbox": [
+                      360,
+                      80,
+                      9,
+                      10
+                    ],
+                    "edges": [
+                      360,
+                      80,
+                      368,
+                      89
+                    ],
+                    "center": [
+                      364.0,
+                      84.5
+                    ],
+                    "area_px": 68
+                  },
+                  "bbox_edge_errors_px": [
+                    0.0,
+                    2.0,
+                    0.0,
+                    2.0
+                  ],
+                  "center_error_px": 2.0,
+                  "area_relative_error": 0.0303,
+                  "fuzzy_mask_iou": 0.9706
+                }
+              ],
+              "unmatched_render_components": [],
+              "new_render_area_px": 0,
+              "pass": true
+            },
+            "pass": false
+          },
+          "reference_clearance_px": 6.2111,
+          "render_clearance_px": 6.0711,
+          "required_clearance_px": 5.2111,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 1.0,
+          "obstacles": [
+            {
+              "id": "answer-underbrace",
+              "element_ids": [
+                "left-early-answer-underbrace"
+              ],
+              "bbox": [
+                264,
+                99,
+                113,
+                22
+              ],
+              "reference": {
+                "bbox": [
+                  267,
+                  102,
+                  108,
+                  16
+                ],
+                "edges": [
+                  267,
+                  102,
+                  374,
+                  117
+                ],
+                "center": [
+                  320.5,
+                  109.5
+                ],
+                "area_px": 241
+              },
+              "render": {
+                "bbox": [
+                  267,
+                  102,
+                  108,
+                  17
+                ],
+                "edges": [
+                  267,
+                  102,
+                  374,
+                  118
+                ],
+                "center": [
+                  320.5,
+                  110.0
+                ],
+                "area_px": 152
+              },
+              "reference_clearance_px": 6.2111,
+              "render_clearance_px": 6.0711,
+              "required_clearance_px": 5.2111,
+              "area_relative_error": 0.3693,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.6173,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1395,
+              "thin_open_reference": true,
+              "edge_iou": 0.9884,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.6003,
+              "mean_abs_rgb_delta_diagnostic": 16.3528,
+              "reference_core_rgb": [
+                84.0,
+                84.0,
+                84.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 24.1793,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 24.1793,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "stage-transition-ellipsis",
+              "element_ids": [
+                "left-stage-transition-ellipsis"
+              ],
+              "bbox": [
+                185,
+                132,
+                20,
+                32
+              ],
+              "reference": {
+                "bbox": [
+                  194,
+                  140,
+                  2,
+                  17
+                ],
+                "edges": [
+                  194,
+                  140,
+                  195,
+                  156
+                ],
+                "center": [
+                  194.5,
+                  148.0
+                ],
+                "area_px": 13
+              },
+              "render": {
+                "bbox": [
+                  194,
+                  142,
+                  3,
+                  15
+                ],
+                "edges": [
+                  194,
+                  142,
+                  196,
+                  156
+                ],
+                "center": [
+                  195.0,
+                  149.0
+                ],
+                "area_px": 21
+              },
+              "reference_clearance_px": 55.8859,
+              "render_clearance_px": 52.0094,
+              "required_clearance_px": 54.8859,
+              "area_relative_error": 0.6154,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                2.0,
+                1.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.5455,
+              "mask_iou_min": 0.65,
+              "reference_fill_fraction": 0.3824,
+              "thin_open_reference": false,
+              "edge_iou": 0.8824,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.7322,
+              "mean_abs_rgb_delta_diagnostic": 5.0609,
+              "reference_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 0.0,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 0.0,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "early-stage-side-brace",
+              "element_ids": [
+                "left-early-stage-side-brace"
+              ],
+              "bbox": [
+                387,
+                14,
+                23,
+                84
+              ],
+              "reference": {
+                "bbox": [
+                  390,
+                  17,
+                  16,
+                  78
+                ],
+                "edges": [
+                  390,
+                  17,
+                  405,
+                  94
+                ],
+                "center": [
+                  397.5,
+                  55.5
+                ],
+                "area_px": 177
+              },
+              "render": {
+                "bbox": [
+                  390,
+                  17,
+                  17,
+                  78
+                ],
+                "edges": [
+                  390,
+                  17,
+                  406,
+                  94
+                ],
+                "center": [
+                  398.0,
+                  55.5
+                ],
+                "area_px": 120
+              },
+              "reference_clearance_px": 31.0,
+              "render_clearance_px": 31.0,
+              "required_clearance_px": 30.0,
+              "area_relative_error": 0.322,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.65,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1418,
+              "thin_open_reference": true,
+              "edge_iou": 0.9949,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.5775,
+              "mean_abs_rgb_delta_diagnostic": 16.499,
+              "reference_core_rgb": [
+                52.5,
+                52.5,
+                52.5
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 13.8664,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 13.8664,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            }
+          ],
+          "pass": false,
+          "binding_bbox_audit": {
+            "id": "left-early-red-annotation-clearance",
+            "targets": [
+              {
+                "role": "subject",
+                "id": "left-early-red-annotation-clearance",
+                "element_ids": [
+                  "left-early-annotation-line-1",
+                  "left-early-annotation-line-2"
+                ],
+                "native_binding_bbox": [
+                  229.2,
+                  116.0,
+                  181.6,
+                  67.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-early-annotation-line-1",
+                    "expected_bbox": [
+                      521.2,
+                      304.0,
+                      181.6,
+                      67.0
+                    ],
+                    "actual_bbox": [
+                      521.2,
+                      304.0,
+                      181.6,
+                      45.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  },
+                  {
+                    "element_id": "left-early-annotation-line-2",
+                    "expected_bbox": [
+                      521.2,
+                      304.0,
+                      181.6,
+                      67.0
+                    ],
+                    "actual_bbox": [
+                      522.7001,
+                      326.0,
+                      178.6,
+                      45.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  521.2,
+                  304.0,
+                  181.6,
+                  67.0
+                ],
+                "actual_bbox": [
+                  521.2,
+                  304.0,
+                  181.6,
+                  67.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "answer-underbrace",
+                "element_ids": [
+                  "left-early-answer-underbrace"
+                ],
+                "native_binding_bbox": [
+                  267.0,
+                  102.0,
+                  107.0,
+                  16.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-early-answer-underbrace",
+                    "expected_bbox": [
+                      559.0,
+                      290.0,
+                      107.0,
+                      16.0
+                    ],
+                    "actual_bbox": [
+                      559.0,
+                      290.0,
+                      107.0,
+                      16.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  559.0,
+                  290.0,
+                  107.0,
+                  16.0
+                ],
+                "actual_bbox": [
+                  559.0,
+                  290.0,
+                  107.0,
+                  16.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "stage-transition-ellipsis",
+                "element_ids": [
+                  "left-stage-transition-ellipsis"
+                ],
+                "native_binding_bbox": [
+                  173.8,
+                  138.0,
+                  42.4,
+                  45.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-stage-transition-ellipsis",
+                    "expected_bbox": [
+                      465.8,
+                      326.0,
+                      42.4,
+                      45.0
+                    ],
+                    "actual_bbox": [
+                      465.8,
+                      326.0,
+                      42.4,
+                      45.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  465.8,
+                  326.0,
+                  42.4,
+                  45.0
+                ],
+                "actual_bbox": [
+                  465.8,
+                  326.0,
+                  42.4,
+                  45.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 7.4194,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "early-stage-side-brace",
+                "element_ids": [
+                  "left-early-stage-side-brace"
+                ],
+                "native_binding_bbox": [
+                  390.0,
+                  17.0,
+                  16.0,
+                  77.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-early-stage-side-brace",
+                    "expected_bbox": [
+                      682.0,
+                      205.0,
+                      16.0,
+                      77.0
+                    ],
+                    "actual_bbox": [
+                      682.0,
+                      205.0,
+                      16.0,
+                      77.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  682.0,
+                  205.0,
+                  16.0,
+                  77.0
+                ],
+                "actual_bbox": [
+                  682.0,
+                  205.0,
+                  16.0,
+                  77.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 9.4374,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              }
+            ],
+            "pass": true
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "left-late-step",
+      "label": "Left baseline later step",
+      "bbox": [
+        291,
+        357,
+        432,
+        151
+      ],
+      "pixel_bbox": [
+        291,
+        357,
+        432,
+        151
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 7.2045,
+      "ssim": 0.8623,
+      "edge_iou": 0.886,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "left-late-more-grounded",
+          "point": [
+            318,
+            401
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "left-late-less-grounded",
+          "point": [
+            362,
+            401
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [
+        {
+          "id": "left-late-red-annotation-clearance",
+          "subject_dominant_channel": "red",
+          "subject_element_ids": [
+            "left-late-annotation-line-1",
+            "left-late-annotation-line-2"
+          ],
+          "subject_bbox": [
+            18,
+            96,
+            175,
+            51
+          ],
+          "subject": {
+            "reference": {
+              "bbox": [
+                24,
+                103,
+                156,
+                43
+              ],
+              "edges": [
+                24,
+                103,
+                179,
+                145
+              ],
+              "center": [
+                101.5,
+                124.0
+              ],
+              "area_px": 1871
+            },
+            "render": {
+              "bbox": [
+                24,
+                104,
+                155,
+                40
+              ],
+              "edges": [
+                24,
+                104,
+                178,
+                143
+              ],
+              "center": [
+                101.0,
+                123.5
+              ],
+              "area_px": 1796
+            },
+            "bbox_edge_errors_px": [
+              0.0,
+              1.0,
+              1.0,
+              2.0
+            ],
+            "bbox_tolerance_px": 1.5,
+            "center_error_px": 0.7071,
+            "center_tolerance_px": 1.0,
+            "area_relative_error": 0.0401,
+            "area_relative_tolerance": 0.15,
+            "rgb_ssim_diagnostic": 0.7708,
+            "mask_iou": 0.9412,
+            "mask_iou_min": 0.65,
+            "edge_iou": 0.9684,
+            "edge_iou_min": 0.75,
+            "foreground_delta_e00": 0.1829,
+            "foreground_delta_e_max": 12.0,
+            "reference_overflow_px": 0,
+            "render_overflow_px": 0,
+            "subject_bbox_halo_px": 1,
+            "overflow_tolerance_px": 0,
+            "overflow_pass": true,
+            "reference_outside_subject_color_px": 66,
+            "render_outside_subject_color_px": 68,
+            "new_outside_subject_color_px": 0,
+            "outside_subject_color_pass": true,
+            "outside_subject_color_components": {
+              "reference_component_count": 1,
+              "render_component_count": 1,
+              "matches": [
+                {
+                  "reference_component_id": 1,
+                  "render_component_id": 1,
+                  "reference": {
+                    "bbox": [
+                      361,
+                      66,
+                      9,
+                      10
+                    ],
+                    "edges": [
+                      361,
+                      66,
+                      369,
+                      75
+                    ],
+                    "center": [
+                      365.0,
+                      70.5
+                    ],
+                    "area_px": 66
+                  },
+                  "render": {
+                    "bbox": [
+                      362,
+                      66,
+                      9,
+                      10
+                    ],
+                    "edges": [
+                      362,
+                      66,
+                      370,
+                      75
+                    ],
+                    "center": [
+                      366.0,
+                      70.5
+                    ],
+                    "area_px": 68
+                  },
+                  "bbox_edge_errors_px": [
+                    1.0,
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  "center_error_px": 1.0,
+                  "area_relative_error": 0.0303,
+                  "fuzzy_mask_iou": 0.9706
+                }
+              ],
+              "unmatched_render_components": [],
+              "new_render_area_px": 0,
+              "pass": true
+            },
+            "pass": false
+          },
+          "reference_clearance_px": 4.0,
+          "render_clearance_px": 2.6056,
+          "required_clearance_px": 3.0,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 1.0,
+          "obstacles": [
+            {
+              "id": "rationale-underbrace",
+              "element_ids": [
+                "left-late-rationale-underbrace"
+              ],
+              "bbox": [
+                45,
+                86,
+                113,
+                22
+              ],
+              "reference": {
+                "bbox": [
+                  48,
+                  89,
+                  108,
+                  16
+                ],
+                "edges": [
+                  48,
+                  89,
+                  155,
+                  104
+                ],
+                "center": [
+                  101.5,
+                  96.5
+                ],
+                "area_px": 238
+              },
+              "render": {
+                "bbox": [
+                  48,
+                  89,
+                  108,
+                  17
+                ],
+                "edges": [
+                  48,
+                  89,
+                  155,
+                  105
+                ],
+                "center": [
+                  101.5,
+                  97.0
+                ],
+                "area_px": 152
+              },
+              "reference_clearance_px": 4.0,
+              "render_clearance_px": 2.6056,
+              "required_clearance_px": 3.0,
+              "area_relative_error": 0.3613,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.6116,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1377,
+              "thin_open_reference": true,
+              "edge_iou": 0.8419,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.5273,
+              "mean_abs_rgb_delta_diagnostic": 21.0725,
+              "reference_core_rgb": [
+                84.0,
+                84.0,
+                84.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 24.1793,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 24.1793,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "token-ellipsis",
+              "element_ids": [
+                "left-late-token-ellipsis-dot-1",
+                "left-late-token-ellipsis-dot-2",
+                "left-late-token-ellipsis-dot-3"
+              ],
+              "bbox": [
+                184,
+                39,
+                24,
+                11
+              ],
+              "reference": {
+                "bbox": [
+                  187,
+                  43,
+                  17,
+                  2
+                ],
+                "edges": [
+                  187,
+                  43,
+                  203,
+                  44
+                ],
+                "center": [
+                  195.0,
+                  43.5
+                ],
+                "area_px": 18
+              },
+              "render": {
+                "bbox": [
+                  189,
+                  43,
+                  15,
+                  3
+                ],
+                "edges": [
+                  189,
+                  43,
+                  203,
+                  45
+                ],
+                "center": [
+                  196.0,
+                  44.0
+                ],
+                "area_px": 27
+              },
+              "reference_clearance_px": 61.6418,
+              "render_clearance_px": 61.2977,
+              "required_clearance_px": 60.6418,
+              "area_relative_error": 0.5,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                2.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.5517,
+              "mask_iou_min": 0.65,
+              "reference_fill_fraction": 0.5294,
+              "thin_open_reference": false,
+              "edge_iou": 0.8387,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.3847,
+              "mean_abs_rgb_delta_diagnostic": 16.3939,
+              "reference_core_rgb": [
+                16.0,
+                16.0,
+                16.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 2.7343,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 2.7343,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "late-stage-side-brace",
+              "element_ids": [
+                "left-late-stage-side-brace"
+              ],
+              "bbox": [
+                388,
+                3,
+                23,
+                84
+              ],
+              "reference": {
+                "bbox": [
+                  391,
+                  6,
+                  16,
+                  78
+                ],
+                "edges": [
+                  391,
+                  6,
+                  406,
+                  83
+                ],
+                "center": [
+                  398.5,
+                  44.5
+                ],
+                "area_px": 178
+              },
+              "render": {
+                "bbox": [
+                  391,
+                  6,
+                  17,
+                  78
+                ],
+                "edges": [
+                  391,
+                  6,
+                  407,
+                  83
+                ],
+                "center": [
+                  399.0,
+                  44.5
+                ],
+                "area_px": 120
+              },
+              "reference_clearance_px": 212.8411,
+              "render_clearance_px": 213.581,
+              "required_clearance_px": 211.8411,
+              "area_relative_error": 0.3258,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.6556,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1426,
+              "thin_open_reference": true,
+              "edge_iou": 0.9898,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.5725,
+              "mean_abs_rgb_delta_diagnostic": 16.6636,
+              "reference_core_rgb": [
+                56.0,
+                56.0,
+                56.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 14.9842,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 14.9842,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            }
+          ],
+          "pass": false,
+          "binding_bbox_audit": {
+            "id": "left-late-red-annotation-clearance",
+            "targets": [
+              {
+                "role": "subject",
+                "id": "left-late-red-annotation-clearance",
+                "element_ids": [
+                  "left-late-annotation-line-1",
+                  "left-late-annotation-line-2"
+                ],
+                "native_binding_bbox": [
+                  6.527,
+                  96.57,
+                  188.946,
+                  68.25
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-late-annotation-line-1",
+                    "expected_bbox": [
+                      297.527,
+                      453.57,
+                      188.946,
+                      68.25
+                    ],
+                    "actual_bbox": [
+                      297.527,
+                      453.57,
+                      188.946,
+                      44.25
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  },
+                  {
+                    "element_id": "left-late-annotation-line-2",
+                    "expected_bbox": [
+                      297.527,
+                      453.57,
+                      188.946,
+                      68.25
+                    ],
+                    "actual_bbox": [
+                      309.57,
+                      477.57,
+                      165.8599,
+                      44.25
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  297.527,
+                  453.57,
+                  188.946,
+                  68.25
+                ],
+                "actual_bbox": [
+                  297.527,
+                  453.57,
+                  188.946,
+                  68.25
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0001,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "rationale-underbrace",
+                "element_ids": [
+                  "left-late-rationale-underbrace"
+                ],
+                "native_binding_bbox": [
+                  48.0,
+                  89.0,
+                  107.0,
+                  16.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-late-rationale-underbrace",
+                    "expected_bbox": [
+                      339.0,
+                      446.0,
+                      107.0,
+                      16.0
+                    ],
+                    "actual_bbox": [
+                      339.0,
+                      446.0,
+                      107.0,
+                      16.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  339.0,
+                  446.0,
+                  107.0,
+                  16.0
+                ],
+                "actual_bbox": [
+                  339.0,
+                  446.0,
+                  107.0,
+                  16.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "token-ellipsis",
+                "element_ids": [
+                  "left-late-token-ellipsis-dot-1",
+                  "left-late-token-ellipsis-dot-2",
+                  "left-late-token-ellipsis-dot-3"
+                ],
+                "native_binding_bbox": [
+                  188.5,
+                  43.0,
+                  15.0,
+                  3.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-late-token-ellipsis-dot-1",
+                    "expected_bbox": [
+                      479.5,
+                      400.0,
+                      15.0,
+                      3.0
+                    ],
+                    "actual_bbox": [
+                      479.5001,
+                      400.0,
+                      3.0,
+                      3.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  },
+                  {
+                    "element_id": "left-late-token-ellipsis-dot-2",
+                    "expected_bbox": [
+                      479.5,
+                      400.0,
+                      15.0,
+                      3.0
+                    ],
+                    "actual_bbox": [
+                      485.5001,
+                      400.0,
+                      3.0,
+                      3.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  },
+                  {
+                    "element_id": "left-late-token-ellipsis-dot-3",
+                    "expected_bbox": [
+                      479.5,
+                      400.0,
+                      15.0,
+                      3.0
+                    ],
+                    "actual_bbox": [
+                      491.5001,
+                      400.0,
+                      3.0,
+                      3.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  479.5,
+                  400.0,
+                  15.0,
+                  3.0
+                ],
+                "actual_bbox": [
+                  479.5001,
+                  400.0,
+                  15.0,
+                  3.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0001,
+                "center_tolerance_px": 3.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "late-stage-side-brace",
+                "element_ids": [
+                  "left-late-stage-side-brace"
+                ],
+                "native_binding_bbox": [
+                  391.0,
+                  6.0,
+                  16.0,
+                  77.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "left-late-stage-side-brace",
+                    "expected_bbox": [
+                      682.0,
+                      363.0,
+                      16.0,
+                      77.0
+                    ],
+                    "actual_bbox": [
+                      682.0,
+                      363.0,
+                      16.0,
+                      77.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  682.0,
+                  363.0,
+                  16.0,
+                  77.0
+                ],
+                "actual_bbox": [
+                  682.0,
+                  363.0,
+                  16.0,
+                  77.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 9.4374,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              }
+            ],
+            "pass": true
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "right-header-model",
+      "label": "Right input groups and diffusion model",
+      "bbox": [
+        779,
+        12,
+        675,
+        174
+      ],
+      "pixel_bbox": [
+        779,
+        12,
+        675,
+        174
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 4.7276,
+      "ssim": 0.8964,
+      "edge_iou": 0.966,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "right-image-token",
+          "point": [
+            812,
+            72
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "right-prompt-token",
+          "point": [
+            950,
+            72
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "right-model-fill",
+          "point": [
+            820,
+            145
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "right-early-step",
+      "label": "Right proposed early step",
+      "bbox": [
+        1058,
+        186,
+        446,
+        167
+      ],
+      "pixel_bbox": [
+        1058,
+        186,
+        446,
+        167
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 6.6149,
+      "ssim": 0.8643,
+      "edge_iou": 0.9912,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "right-early-mask",
+          "point": [
+            1090,
+            241
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "right-early-more-grounded",
+          "point": [
+            1134,
+            241
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [
+        {
+          "id": "right-early-green-annotation-clearance",
+          "subject_dominant_channel": "green",
+          "subject_element_ids": [
+            "right-early-annotation-line-1",
+            "right-early-annotation-line-2"
+          ],
+          "subject_bbox": [
+            37,
+            110,
+            168,
+            52
+          ],
+          "subject": {
+            "reference": {
+              "bbox": [
+                43,
+                116,
+                156,
+                41
+              ],
+              "edges": [
+                43,
+                116,
+                198,
+                156
+              ],
+              "center": [
+                120.5,
+                136.0
+              ],
+              "area_px": 1745
+            },
+            "render": {
+              "bbox": [
+                44,
+                116,
+                155,
+                40
+              ],
+              "edges": [
+                44,
+                116,
+                198,
+                155
+              ],
+              "center": [
+                121.0,
+                135.5
+              ],
+              "area_px": 1649
+            },
+            "bbox_edge_errors_px": [
+              1.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "bbox_tolerance_px": 1.5,
+            "center_error_px": 0.7071,
+            "center_tolerance_px": 1.0,
+            "area_relative_error": 0.055,
+            "area_relative_tolerance": 0.15,
+            "rgb_ssim_diagnostic": 0.6713,
+            "mask_iou": 0.9251,
+            "mask_iou_min": 0.65,
+            "edge_iou": 0.9595,
+            "edge_iou_min": 0.75,
+            "foreground_delta_e00": 0.4517,
+            "foreground_delta_e_max": 12.0,
+            "reference_overflow_px": 0,
+            "render_overflow_px": 0,
+            "subject_bbox_halo_px": 1,
+            "overflow_tolerance_px": 0,
+            "overflow_pass": true,
+            "reference_outside_subject_color_px": 0,
+            "render_outside_subject_color_px": 0,
+            "new_outside_subject_color_px": 0,
+            "outside_subject_color_pass": true,
+            "outside_subject_color_components": {
+              "reference_component_count": 0,
+              "render_component_count": 0,
+              "matches": [],
+              "unmatched_render_components": [],
+              "new_render_area_px": 0,
+              "pass": true
+            },
+            "pass": true
+          },
+          "reference_clearance_px": 0.0,
+          "render_clearance_px": 3.2426,
+          "required_clearance_px": 0.0,
+          "absolute_min_px": 0.0,
+          "reference_loss_tolerance_px": 0.0,
+          "obstacles": [
+            {
+              "id": "rationale-underbrace",
+              "element_ids": [
+                "right-early-rationale-underbrace"
+              ],
+              "bbox": [
+                64,
+                98,
+                113,
+                19
+              ],
+              "reference": {
+                "bbox": [
+                  67,
+                  101,
+                  108,
+                  16
+                ],
+                "edges": [
+                  67,
+                  101,
+                  174,
+                  116
+                ],
+                "center": [
+                  120.5,
+                  108.5
+                ],
+                "area_px": 241
+              },
+              "render": {
+                "bbox": [
+                  67,
+                  101,
+                  108,
+                  16
+                ],
+                "edges": [
+                  67,
+                  101,
+                  174,
+                  116
+                ],
+                "center": [
+                  120.5,
+                  108.5
+                ],
+                "area_px": 150
+              },
+              "reference_clearance_px": 0.0,
+              "render_clearance_px": 3.2426,
+              "required_clearance_px": 0.0,
+              "area_relative_error": 0.3776,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.6224,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1395,
+              "thin_open_reference": true,
+              "edge_iou": 1.0,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.8553,
+              "mean_abs_rgb_delta_diagnostic": 8.3926,
+              "reference_core_rgb": [
+                67.0,
+                67.0,
+                67.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 18.5378,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 18.5378,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "stage-transition-ellipsis",
+              "element_ids": [
+                "right-stage-transition-ellipsis"
+              ],
+              "bbox": [
+                193,
+                136,
+                14,
+                23
+              ],
+              "reference": {
+                "bbox": [
+                  200,
+                  138,
+                  2,
+                  16
+                ],
+                "edges": [
+                  200,
+                  138,
+                  201,
+                  153
+                ],
+                "center": [
+                  200.5,
+                  145.5
+                ],
+                "area_px": 12
+              },
+              "render": {
+                "bbox": [
+                  200,
+                  141,
+                  3,
+                  15
+                ],
+                "edges": [
+                  200,
+                  141,
+                  202,
+                  155
+                ],
+                "center": [
+                  201.0,
+                  148.0
+                ],
+                "area_px": 21
+              },
+              "reference_clearance_px": 8.0,
+              "render_clearance_px": 8.0,
+              "required_clearance_px": 8.0,
+              "area_relative_error": 0.75,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                3.0,
+                1.0,
+                2.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.2222,
+              "mask_iou_min": 0.65,
+              "reference_fill_fraction": 0.375,
+              "thin_open_reference": false,
+              "edge_iou": 0.7436,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.1618,
+              "mean_abs_rgb_delta_diagnostic": 18.1988,
+              "reference_core_rgb": [
+                21.5,
+                21.5,
+                21.5
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 4.1365,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 4.1365,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "early-stage-side-brace",
+              "element_ids": [
+                "right-early-stage-side-brace"
+              ],
+              "bbox": [
+                393,
+                14,
+                23,
+                82
+              ],
+              "reference": {
+                "bbox": [
+                  396,
+                  17,
+                  17,
+                  77
+                ],
+                "edges": [
+                  396,
+                  17,
+                  412,
+                  93
+                ],
+                "center": [
+                  404.0,
+                  55.0
+                ],
+                "area_px": 165
+              },
+              "render": {
+                "bbox": [
+                  396,
+                  17,
+                  17,
+                  77
+                ],
+                "edges": [
+                  396,
+                  17,
+                  412,
+                  93
+                ],
+                "center": [
+                  404.0,
+                  55.0
+                ],
+                "area_px": 116
+              },
+              "reference_clearance_px": 199.2598,
+              "render_clearance_px": 198.97,
+              "required_clearance_px": 199.2598,
+              "area_relative_error": 0.297,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.703,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1261,
+              "thin_open_reference": true,
+              "edge_iou": 0.9797,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.7542,
+              "mean_abs_rgb_delta_diagnostic": 10.8012,
+              "reference_core_rgb": [
+                33.0,
+                33.0,
+                33.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 7.7164,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 7.7164,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            }
+          ],
+          "pass": false,
+          "binding_bbox_audit": {
+            "id": "right-early-green-annotation-clearance",
+            "targets": [
+              {
+                "role": "subject",
+                "id": "right-early-green-annotation-clearance",
+                "element_ids": [
+                  "right-early-annotation-line-1",
+                  "right-early-annotation-line-2"
+                ],
+                "native_binding_bbox": [
+                  26.527,
+                  108.57,
+                  188.946,
+                  68.22
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-early-annotation-line-1",
+                    "expected_bbox": [
+                      1084.527,
+                      294.57,
+                      188.946,
+                      68.22
+                    ],
+                    "actual_bbox": [
+                      1084.527,
+                      294.57,
+                      188.946,
+                      44.25
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  },
+                  {
+                    "element_id": "right-early-annotation-line-2",
+                    "expected_bbox": [
+                      1084.527,
+                      294.57,
+                      188.946,
+                      68.22
+                    ],
+                    "actual_bbox": [
+                      1089.0635,
+                      318.665,
+                      178.873,
+                      44.125
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1084.527,
+                  294.57,
+                  188.946,
+                  68.22
+                ],
+                "actual_bbox": [
+                  1084.527,
+                  294.57,
+                  188.946,
+                  68.2201
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0001,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "rationale-underbrace",
+                "element_ids": [
+                  "right-early-rationale-underbrace"
+                ],
+                "native_binding_bbox": [
+                  67.0,
+                  101.0,
+                  107.0,
+                  16.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-early-rationale-underbrace",
+                    "expected_bbox": [
+                      1125.0,
+                      287.0,
+                      107.0,
+                      16.0
+                    ],
+                    "actual_bbox": [
+                      1125.0,
+                      287.0,
+                      107.0,
+                      16.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1125.0,
+                  287.0,
+                  107.0,
+                  16.0
+                ],
+                "actual_bbox": [
+                  1125.0,
+                  287.0,
+                  107.0,
+                  16.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "stage-transition-ellipsis",
+                "element_ids": [
+                  "right-stage-transition-ellipsis"
+                ],
+                "native_binding_bbox": [
+                  179.8,
+                  137.0,
+                  42.4,
+                  45.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-stage-transition-ellipsis",
+                    "expected_bbox": [
+                      1237.8,
+                      323.0,
+                      42.4,
+                      45.0
+                    ],
+                    "actual_bbox": [
+                      1237.8,
+                      323.0,
+                      42.4,
+                      45.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1237.8,
+                  323.0,
+                  42.4,
+                  45.0
+                ],
+                "actual_bbox": [
+                  1237.8,
+                  323.0,
+                  42.4,
+                  45.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 7.4194,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "early-stage-side-brace",
+                "element_ids": [
+                  "right-early-stage-side-brace"
+                ],
+                "native_binding_bbox": [
+                  396.0,
+                  17.0,
+                  16.0,
+                  76.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-early-stage-side-brace",
+                    "expected_bbox": [
+                      1454.0,
+                      203.0,
+                      16.0,
+                      76.0
+                    ],
+                    "actual_bbox": [
+                      1454.0,
+                      203.0,
+                      16.0,
+                      76.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1454.0,
+                  203.0,
+                  16.0,
+                  76.0
+                ],
+                "actual_bbox": [
+                  1454.0,
+                  203.0,
+                  16.0,
+                  76.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 9.3199,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              }
+            ],
+            "pass": true
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "right-late-step",
+      "label": "Right proposed later step",
+      "bbox": [
+        1057,
+        356,
+        447,
+        153
+      ],
+      "pixel_bbox": [
+        1057,
+        356,
+        447,
+        153
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 5.9273,
+      "ssim": 0.8898,
+      "edge_iou": 0.97,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [
+        {
+          "id": "right-late-more-grounded",
+          "point": [
+            1090,
+            399
+          ],
+          "delta_e00": 0.0,
+          "max_delta_e": 5.0,
+          "pass": true
+        },
+        {
+          "id": "right-late-mask",
+          "point": [
+            1280,
+            399
+          ],
+          "delta_e00": 0.4074,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": null,
+      "color_clearance_contracts": [
+        {
+          "id": "right-late-green-annotation-clearance",
+          "subject_dominant_channel": "green",
+          "subject_element_ids": [
+            "right-late-annotation-line-1",
+            "right-late-annotation-line-2"
+          ],
+          "subject_bbox": [
+            248,
+            99,
+            154,
+            49
+          ],
+          "subject": {
+            "reference": {
+              "bbox": [
+                255,
+                105,
+                141,
+                41
+              ],
+              "edges": [
+                255,
+                105,
+                395,
+                145
+              ],
+              "center": [
+                325.0,
+                125.0
+              ],
+              "area_px": 1550
+            },
+            "render": {
+              "bbox": [
+                255,
+                105,
+                141,
+                41
+              ],
+              "edges": [
+                255,
+                105,
+                395,
+                145
+              ],
+              "center": [
+                325.0,
+                125.0
+              ],
+              "area_px": 1555
+            },
+            "bbox_edge_errors_px": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bbox_tolerance_px": 1.5,
+            "center_error_px": 0.0,
+            "center_tolerance_px": 1.0,
+            "area_relative_error": 0.0032,
+            "area_relative_tolerance": 0.15,
+            "rgb_ssim_diagnostic": 0.8668,
+            "mask_iou": 0.9891,
+            "mask_iou_min": 0.65,
+            "edge_iou": 0.9947,
+            "edge_iou_min": 0.75,
+            "foreground_delta_e00": 0.6036,
+            "foreground_delta_e_max": 12.0,
+            "reference_overflow_px": 0,
+            "render_overflow_px": 0,
+            "subject_bbox_halo_px": 1,
+            "overflow_tolerance_px": 0,
+            "overflow_pass": true,
+            "reference_outside_subject_color_px": 38,
+            "render_outside_subject_color_px": 43,
+            "new_outside_subject_color_px": 0,
+            "outside_subject_color_pass": true,
+            "outside_subject_color_components": {
+              "reference_component_count": 1,
+              "render_component_count": 1,
+              "matches": [
+                {
+                  "reference_component_id": 1,
+                  "render_component_id": 1,
+                  "reference": {
+                    "bbox": [
+                      367,
+                      62,
+                      9,
+                      11
+                    ],
+                    "edges": [
+                      367,
+                      62,
+                      375,
+                      72
+                    ],
+                    "center": [
+                      371.0,
+                      67.0
+                    ],
+                    "area_px": 38
+                  },
+                  "render": {
+                    "bbox": [
+                      368,
+                      64,
+                      10,
+                      10
+                    ],
+                    "edges": [
+                      368,
+                      64,
+                      377,
+                      73
+                    ],
+                    "center": [
+                      372.5,
+                      68.5
+                    ],
+                    "area_px": 43
+                  },
+                  "bbox_edge_errors_px": [
+                    1.0,
+                    2.0,
+                    2.0,
+                    1.0
+                  ],
+                  "center_error_px": 2.1213,
+                  "area_relative_error": 0.1316,
+                  "fuzzy_mask_iou": 0.8837
+                }
+              ],
+              "unmatched_render_components": [],
+              "new_render_area_px": 0,
+              "pass": true
+            },
+            "pass": true
+          },
+          "reference_clearance_px": 6.0711,
+          "render_clearance_px": 6.0711,
+          "required_clearance_px": 5.0711,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 1.0,
+          "obstacles": [
+            {
+              "id": "answer-underbrace",
+              "element_ids": [
+                "right-late-answer-underbrace"
+              ],
+              "bbox": [
+                269,
+                82,
+                112,
+                22
+              ],
+              "reference": {
+                "bbox": [
+                  272,
+                  85,
+                  107,
+                  17
+                ],
+                "edges": [
+                  272,
+                  85,
+                  378,
+                  101
+                ],
+                "center": [
+                  325.0,
+                  93.0
+                ],
+                "area_px": 227
+              },
+              "render": {
+                "bbox": [
+                  272,
+                  85,
+                  107,
+                  17
+                ],
+                "edges": [
+                  272,
+                  85,
+                  378,
+                  101
+                ],
+                "center": [
+                  325.0,
+                  93.0
+                ],
+                "area_px": 148
+              },
+              "reference_clearance_px": 6.0711,
+              "render_clearance_px": 6.0711,
+              "required_clearance_px": 5.0711,
+              "area_relative_error": 0.348,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.652,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1248,
+              "thin_open_reference": true,
+              "edge_iou": 0.9693,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.7759,
+              "mean_abs_rgb_delta_diagnostic": 10.3657,
+              "reference_core_rgb": [
+                29.0,
+                29.0,
+                29.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 6.4632,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 6.4632,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "token-ellipsis",
+              "element_ids": [
+                "right-late-token-ellipsis"
+              ],
+              "bbox": [
+                190,
+                35,
+                25,
+                15
+              ],
+              "reference": {
+                "bbox": [
+                  193,
+                  39,
+                  17,
+                  3
+                ],
+                "edges": [
+                  193,
+                  39,
+                  209,
+                  41
+                ],
+                "center": [
+                  201.0,
+                  40.0
+                ],
+                "area_px": 19
+              },
+              "render": {
+                "bbox": [
+                  194,
+                  44,
+                  16,
+                  2
+                ],
+                "edges": [
+                  194,
+                  44,
+                  209,
+                  45
+                ],
+                "center": [
+                  201.5,
+                  44.5
+                ],
+                "area_px": 16
+              },
+              "reference_clearance_px": 80.2158,
+              "render_clearance_px": 76.6209,
+              "required_clearance_px": 79.2158,
+              "area_relative_error": 0.1579,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                1.0,
+                5.0,
+                0.0,
+                4.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.0,
+              "mask_iou_min": 0.65,
+              "reference_fill_fraction": 0.3725,
+              "thin_open_reference": false,
+              "edge_iou": 0.1273,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": -0.0135,
+              "mean_abs_rgb_delta_diagnostic": 13.464,
+              "reference_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 0.0,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 0.0,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            },
+            {
+              "id": "late-stage-side-brace",
+              "element_ids": [
+                "right-late-stage-side-brace"
+              ],
+              "bbox": [
+                394,
+                0,
+                23,
+                82
+              ],
+              "reference": {
+                "bbox": [
+                  397,
+                  2,
+                  17,
+                  78
+                ],
+                "edges": [
+                  397,
+                  2,
+                  413,
+                  79
+                ],
+                "center": [
+                  405.0,
+                  40.5
+                ],
+                "area_px": 182
+              },
+              "render": {
+                "bbox": [
+                  397,
+                  2,
+                  17,
+                  78
+                ],
+                "edges": [
+                  397,
+                  2,
+                  413,
+                  79
+                ],
+                "center": [
+                  405.0,
+                  40.5
+                ],
+                "area_px": 120
+              },
+              "reference_clearance_px": 29.1496,
+              "render_clearance_px": 29.0666,
+              "required_clearance_px": 28.1496,
+              "area_relative_error": 0.3407,
+              "area_relative_tolerance": 0.25,
+              "bbox_edge_errors_px": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "bbox_tolerance_px": 2.0,
+              "mask_iou": 0.6593,
+              "mask_iou_min": 0.55,
+              "reference_fill_fraction": 0.1373,
+              "thin_open_reference": true,
+              "edge_iou": 0.9899,
+              "edge_iou_min": 0.75,
+              "rgb_ssim_diagnostic": 0.722,
+              "mean_abs_rgb_delta_diagnostic": 12.7545,
+              "reference_core_rgb": [
+                43.0,
+                43.0,
+                43.0
+              ],
+              "render_core_rgb": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "target_color_cosine_min": 0.9,
+              "core_foreground_delta_e00": 10.8572,
+              "core_foreground_delta_e_max": 12.0,
+              "foreground_delta_e00": 10.8572,
+              "foreground_delta_e_max": 12.0,
+              "pass": false
+            }
+          ],
+          "pass": false,
+          "binding_bbox_audit": {
+            "id": "right-late-green-annotation-clearance",
+            "targets": [
+              {
+                "role": "subject",
+                "id": "right-late-green-annotation-clearance",
+                "element_ids": [
+                  "right-late-annotation-line-1",
+                  "right-late-annotation-line-2"
+                ],
+                "native_binding_bbox": [
+                  235.322,
+                  99.285,
+                  179.356,
+                  68.625
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-late-annotation-line-1",
+                    "expected_bbox": [
+                      1292.322,
+                      455.285,
+                      179.356,
+                      68.625
+                    ],
+                    "actual_bbox": [
+                      1292.322,
+                      455.285,
+                      179.356,
+                      44.625
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  },
+                  {
+                    "element_id": "right-late-annotation-line-2",
+                    "expected_bbox": [
+                      1292.322,
+                      455.285,
+                      179.356,
+                      68.625
+                    ],
+                    "actual_bbox": [
+                      1300.793,
+                      479.285,
+                      162.414,
+                      44.625
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1292.322,
+                  455.285,
+                  179.356,
+                  68.625
+                ],
+                "actual_bbox": [
+                  1292.322,
+                  455.285,
+                  179.356,
+                  68.625
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "answer-underbrace",
+                "element_ids": [
+                  "right-late-answer-underbrace"
+                ],
+                "native_binding_bbox": [
+                  272.0,
+                  85.0,
+                  106.0,
+                  16.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-late-answer-underbrace",
+                    "expected_bbox": [
+                      1329.0,
+                      441.0,
+                      106.0,
+                      16.0
+                    ],
+                    "actual_bbox": [
+                      1329.0,
+                      441.0,
+                      106.0,
+                      16.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1329.0,
+                  441.0,
+                  106.0,
+                  16.0
+                ],
+                "actual_bbox": [
+                  1329.0,
+                  441.0,
+                  106.0,
+                  16.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 12.0,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "token-ellipsis",
+                "element_ids": [
+                  "right-late-token-ellipsis"
+                ],
+                "native_binding_bbox": [
+                  178.0,
+                  27.0,
+                  48.0,
+                  45.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-late-token-ellipsis",
+                    "expected_bbox": [
+                      1235.0,
+                      383.0,
+                      48.0,
+                      45.0
+                    ],
+                    "actual_bbox": [
+                      1235.0,
+                      383.0,
+                      48.0,
+                      45.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1235.0,
+                  383.0,
+                  48.0,
+                  45.0
+                ],
+                "actual_bbox": [
+                  1235.0,
+                  383.0,
+                  48.0,
+                  45.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 7.8954,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              },
+              {
+                "role": "obstacle",
+                "id": "late-stage-side-brace",
+                "element_ids": [
+                  "right-late-stage-side-brace"
+                ],
+                "native_binding_bbox": [
+                  397.0,
+                  2.0,
+                  16.0,
+                  77.0
+                ],
+                "missing_element_ids": [],
+                "per_element": [
+                  {
+                    "element_id": "right-late-stage-side-brace",
+                    "expected_bbox": [
+                      1454.0,
+                      358.0,
+                      16.0,
+                      77.0
+                    ],
+                    "actual_bbox": [
+                      1454.0,
+                      358.0,
+                      16.0,
+                      77.0
+                    ],
+                    "actual_fully_inside_native_bbox_with_3px_halo": true,
+                    "pass": true
+                  }
+                ],
+                "expected_bbox": [
+                  1454.0,
+                  358.0,
+                  16.0,
+                  77.0
+                ],
+                "actual_bbox": [
+                  1454.0,
+                  358.0,
+                  16.0,
+                  77.0
+                ],
+                "intersection_over_smaller": 1.0,
+                "intersection_over_smaller_min": 0.35,
+                "center_error_px": 0.0,
+                "center_tolerance_px": 9.4374,
+                "area_ratio": 1.0,
+                "area_ratio_max": 4.0,
+                "actual_fully_inside_native_bbox_with_3px_halo": true,
+                "pass": true
+              }
+            ],
+            "pass": true
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "captions",
+      "label": "Panel captions",
+      "bbox": [
+        190,
+        512,
+        1180,
+        40
+      ],
+      "pixel_bbox": [
+        190,
+        512,
+        1180,
+        40
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 6.3274,
+      "ssim": 0.9343,
+      "edge_iou": 0.9494,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    }
+  ]
+}

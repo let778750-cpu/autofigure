@@ -6,7 +6,7 @@
       "placeholder_name": "math:001",
       "formula_id": "EQ001",
       "receipt_path": "EQ001.json",
-      "receipt_sha256": "ba15ba38a0c7e13fc18e655decd5e23c1bbd96347a0c9e2daf55bb96677632a5",
+      "receipt_sha256": "e3f4b04234b6adc7777b5e2896ab420d929061548d9844650bf70a083c3dd055",
       "target_font_size_pt": 16.5,
       "target_font_color": "#111111"
     },
@@ -15,7 +15,7 @@
       "placeholder_name": "math:002",
       "formula_id": "EQ002",
       "receipt_path": "EQ002.json",
-      "receipt_sha256": "75975080187a146b64ed47f925441fda140867c90457f00db70281cf7c4609cc",
+      "receipt_sha256": "117c385cdd320676f20e09c73cf0d19da22eb7ddb34167136376b3fa70c9f8af",
       "target_font_size_pt": 15.0,
       "target_font_color": "#111111"
     },
@@ -24,7 +24,7 @@
       "placeholder_name": "math:003",
       "formula_id": "EQ003",
       "receipt_path": "EQ003.json",
-      "receipt_sha256": "e8ca4d7cb5bfdefbc9567254ae7f8e0281fb0950f83d4f2e59a785ca767b97c7",
+      "receipt_sha256": "8f276991c1b1a98791d01af0c85b7274f35a419b393bd1afed12befaf59dc11e",
       "target_font_size_pt": 14.25,
       "target_font_color": "#111111"
     },
@@ -33,7 +33,7 @@
       "placeholder_name": "math:004",
       "formula_id": "EQ004",
       "receipt_path": "EQ004.json",
-      "receipt_sha256": "b16866f5902ab7f28b9bc88301f03437e6e8e48ff4ccc5e3a781a34b7716002b",
+      "receipt_sha256": "d2115f46b96dc23198fd84d98021509f42f112b6704c8757f292b83ed9d8a9a8",
       "target_font_size_pt": 13.5,
       "target_font_color": "#111111"
     },
@@ -42,7 +42,7 @@
       "placeholder_name": "math:005",
       "formula_id": "EQ005",
       "receipt_path": "EQ005.json",
-      "receipt_sha256": "586acf67f8c8ec9f29d98c7f5ec664237116eb26209a37cc3996f7c6f3f6cc4b",
+      "receipt_sha256": "a8ecf2524586c77b0fada0c988f787990591f4d03dbb975c24306f8560648ec9",
       "target_font_size_pt": 13.5,
       "target_font_color": "#111111"
     },
@@ -51,7 +51,7 @@
       "placeholder_name": "math:006",
       "formula_id": "EQ006",
       "receipt_path": "EQ006.json",
-      "receipt_sha256": "afeab5b8fde0e8281f866792bd5d12c4ab7e65d6c845d43ba1d40ad1ac22ecde",
+      "receipt_sha256": "5904086351d8cb1bc499f87d2706bfd56a872caa3b8ae0f6f8e99996a282ec26",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -60,7 +60,7 @@
       "placeholder_name": "math:007",
       "formula_id": "EQ007",
       "receipt_path": "EQ007.json",
-      "receipt_sha256": "605e6bfc49ee85eef8f936c4d6409760bcac3827a8bc51e42b296b804e79fa18",
+      "receipt_sha256": "0a0d4156d902427829b41cbd0f15b6f0c08eea1646593c621f7949427aa7c0fa",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -69,7 +69,7 @@
       "placeholder_name": "math:008",
       "formula_id": "EQ008",
       "receipt_path": "EQ008.json",
-      "receipt_sha256": "602921166cd126de70d89fcd50e2b47a29e0b686dab28c341740139d9da81bc0",
+      "receipt_sha256": "584404e6e511b67844113e7a176f1ff325c9f749003fc394d083834a73cdf3ab",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -78,7 +78,7 @@
       "placeholder_name": "math:009",
       "formula_id": "EQ009",
       "receipt_path": "EQ009.json",
-      "receipt_sha256": "184d1b2c1f714d4fca20bc04bd8d798d5c2a402725c098627623e5ea79268a23",
+      "receipt_sha256": "1efd9efa8162093ed401af920f770aced196f46280b00b050a73d5822d246d67",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -87,7 +87,7 @@
       "placeholder_name": "math:010",
       "formula_id": "EQ010",
       "receipt_path": "EQ010.json",
-      "receipt_sha256": "2ab0e43095d6ac8d129641e8192b5ffafc4e234aa1c1c3b50d8ce1ae911bc0de",
+      "receipt_sha256": "b46836d33de91940ec38dadf67ddadece5f94b5a394eb858883ab6a58955e067",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -96,7 +96,7 @@
       "placeholder_name": "math:011",
       "formula_id": "EQ011",
       "receipt_path": "EQ011.json",
-      "receipt_sha256": "fa268b7958a5c40d1bb6f0ac0c40fd7242d5a1db2e49041a57a971381744b559",
+      "receipt_sha256": "d5ec130f8e59616809ff00f870cfaa101c41d938318a8dc1d0a23420dfd75d62",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -105,7 +105,7 @@
       "placeholder_name": "math:012",
       "formula_id": "EQ012",
       "receipt_path": "EQ012.json",
-      "receipt_sha256": "53291ad507b6aaeb9df5b0dde5fd7114505bb35063a6715a134120a206b3bbf7",
+      "receipt_sha256": "6b55a1977df8057afcb3c00a7a848d54a67e739ae17820ce26718a0c1bf4f077",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -114,7 +114,7 @@
       "placeholder_name": "math:013",
       "formula_id": "EQ013",
       "receipt_path": "EQ013.json",
-      "receipt_sha256": "78ed103f25a21c97e2a7c4a3f3932227ffd5364574985c550850eda65344ab87",
+      "receipt_sha256": "cd321c6f489ffc136ce170645d323978f03b5933869de8ecfe53d6e2a948d094",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -123,7 +123,7 @@
       "placeholder_name": "math:014",
       "formula_id": "EQ014",
       "receipt_path": "EQ014.json",
-      "receipt_sha256": "c5a4e357991e6a574332a2ecf51384d58b9c151bac55bf2f39f60e669a854626",
+      "receipt_sha256": "654f857911877dcd643c45ea9f8a95a7683f4a941f1ff3d87b0ed21f1093ba07",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -132,7 +132,7 @@
       "placeholder_name": "math:015",
       "formula_id": "EQ015",
       "receipt_path": "EQ015.json",
-      "receipt_sha256": "02354bfd90e8ab019eb32e30a93d47a3281c28aef57a711b385cdde0ab1c1a9a",
+      "receipt_sha256": "28bc5b7861e00337612cf3f4c4b59a836975bba6be2e58c8224bf4a7b42145de",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -141,7 +141,7 @@
       "placeholder_name": "math:016",
       "formula_id": "EQ016",
       "receipt_path": "EQ016.json",
-      "receipt_sha256": "769271858f6a13e7e2856dc879bf8d6a61fc71c0a11e58108ef781fda8b4e540",
+      "receipt_sha256": "e8cd9f1b2a4285935e4be2df51571b032a55d3a9c9cb3ce52f3362a04541749e",
       "target_font_size_pt": 12.75,
       "target_font_color": "#FFFFFF"
     },
@@ -150,7 +150,7 @@
       "placeholder_name": "math:017",
       "formula_id": "EQ017",
       "receipt_path": "EQ017.json",
-      "receipt_sha256": "66e570c4b9d3af9543aa30d022e8a8a0962dd0d3ec2f1de86992c27ed8672f4a",
+      "receipt_sha256": "de458b7b613651a39dce388f11a8cd3ac1ca4816a06ce49d3a890fc6801ce1c6",
       "target_font_size_pt": 13.5,
       "target_font_color": "#FFFFFF"
     },
@@ -159,7 +159,7 @@
       "placeholder_name": "math:018",
       "formula_id": "EQ018",
       "receipt_path": "EQ018.json",
-      "receipt_sha256": "e1352e3c4a5194729771237d9e68baa5e187f66bd489949f9387f4b6ab5a51f6",
+      "receipt_sha256": "895587da0854f3a6462678a7337c7cf80cb59110b2c66ad7a6ec4e8e651879c1",
       "target_font_size_pt": 13.5,
       "target_font_color": "#FFFFFF"
     },
@@ -168,7 +168,7 @@
       "placeholder_name": "math:019",
       "formula_id": "EQ019",
       "receipt_path": "EQ019.json",
-      "receipt_sha256": "da18125bfc9f76a1b07e716c0df606d67b0f4526421426e1dbbde6e475938526",
+      "receipt_sha256": "af3b9294dba3f3f6a914f0705db7f039a7db08e93ea9b8ba1d35d6992e679962",
       "target_font_size_pt": 13.5,
       "target_font_color": "#FFFFFF"
     },
@@ -177,7 +177,7 @@
       "placeholder_name": "math:020",
       "formula_id": "EQ020",
       "receipt_path": "EQ020.json",
-      "receipt_sha256": "8f336bdd2dbcbb66caf0e0d93fa7a1c82b970cdbbca8ac4ed7f9fde8bb0b809f",
+      "receipt_sha256": "bc686976ba79f43ba186ee2c6cfb8fd79b219df5c9f00725264c08081b9a87a6",
       "target_font_size_pt": 12.0,
       "target_font_color": "#FFFFFF"
     },
@@ -186,7 +186,7 @@
       "placeholder_name": "math:021",
       "formula_id": "EQ021",
       "receipt_path": "EQ021.json",
-      "receipt_sha256": "bc21d6df548051023d3f1591d8a2df7ae64778bc3b0f713493c193630c52f053",
+      "receipt_sha256": "7696da9190bfa267cdeec42bcf42676b1d2fab5802eee9c12de90488242b5ed9",
       "target_font_size_pt": 12.0,
       "target_font_color": "#FFFFFF"
     },
@@ -195,7 +195,7 @@
       "placeholder_name": "math:022",
       "formula_id": "EQ022",
       "receipt_path": "EQ022.json",
-      "receipt_sha256": "3d6b9eddae7943887f663cf21a324b91b22186ac04fa861aead4455c38d67beb",
+      "receipt_sha256": "0294bc90513e06778d76cb258d58b790e6525e48157313b1e90f2d16876d836f",
       "target_font_size_pt": 12.0,
       "target_font_color": "#FFFFFF"
     }

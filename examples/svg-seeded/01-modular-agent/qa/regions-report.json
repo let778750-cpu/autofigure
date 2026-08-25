@@ -1,15 +1,901 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "region_evaluation",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "critical_regions": 6,
+  "critical_regions": 12,
   "strict_pass": false,
   "blockers": [
     "region:task-guided-allocator-topology",
+    "region:expert-gap-arrow-text-detail",
+    "region:mixture-arrow-occlusion-detail",
     "region:six-bicolor-state-circles",
     "region:rollout-arrow-topology",
+    "region:gold-arrowhead-scale-clearance",
     "region:observation-arrows"
   ],
+  "contract_audit": {
+    "schema_version": "4.0.0",
+    "kind": "region_contract_audit",
+    "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+    "pass": true,
+    "blockers": [],
+    "regions": [
+      {
+        "id": "whole-canvas",
+        "critical": false,
+        "declared_element_ids": [],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "task-guided-allocator-topology",
+        "critical": true,
+        "declared_element_ids": [
+          "allocator-task1-propagation",
+          "allocator-task2-propagation",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "expert-gap-arrow-text-detail",
+        "critical": true,
+        "declared_element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "mixture-arrow-occlusion-detail",
+        "critical": true,
+        "declared_element_ids": [
+          "top-mixture-to-rollout",
+          "bottom-mixture-to-rollout",
+          "rollout-panel",
+          "rollout-z0"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "six-bicolor-state-circles",
+        "critical": true,
+        "declared_element_ids": [
+          "svg-text-0037",
+          "zt-top-box",
+          "svg-circle-0012",
+          "svg-circle-0013",
+          "svg-circle-0014",
+          "zt-bottom-box",
+          "svg-circle-0015",
+          "svg-circle-0016",
+          "svg-circle-0017"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "rollout-arrow-topology",
+        "critical": true,
+        "declared_element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "gold-arrowhead-scale-clearance",
+        "critical": true,
+        "declared_element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "svg-circle-0018",
+          "svg-circle-0019",
+          "svg-circle-0020",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "top-reward-trophy-microasset",
+        "critical": true,
+        "declared_element_ids": [
+          "top-reward-trophy-tone-gray-01",
+          "top-reward-trophy-tone-gray-02",
+          "top-reward-trophy-tone-gray-03",
+          "top-reward-trophy-tone-gray-04",
+          "top-reward-trophy-tone-gray-05",
+          "top-reward-trophy-tone-gray-06",
+          "top-reward-trophy-tone-yellow-04",
+          "top-reward-trophy-tone-yellow-05",
+          "top-reward-trophy-tone-yellow-06",
+          "top-reward-trophy-highlight",
+          "top-reward-trophy"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "footer-reward-trophy-microasset",
+        "critical": true,
+        "declared_element_ids": [
+          "footer-reward-trophy-tone-gray-01",
+          "footer-reward-trophy-tone-gray-02",
+          "footer-reward-trophy-tone-gray-03",
+          "footer-reward-trophy-tone-gray-04",
+          "footer-reward-trophy-tone-gray-05",
+          "footer-reward-trophy-tone-gray-06",
+          "footer-reward-trophy-tone-yellow-04",
+          "footer-reward-trophy-tone-yellow-05",
+          "footer-reward-trophy-tone-yellow-06",
+          "footer-reward-trophy-highlight",
+          "footer-reward-trophy"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "footer-action-microasset",
+        "critical": true,
+        "declared_element_ids": [
+          "footer-action-icon-tone-01",
+          "footer-action-icon-tone-02",
+          "footer-action-icon-tone-03",
+          "footer-action-icon-tone-04",
+          "footer-action-icon-tone-05",
+          "footer-action-icon-tone-06",
+          "footer-action-icon"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "observation-creative-asset",
+        "critical": true,
+        "declared_element_ids": [
+          "atomic:observation"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "environment-globe-creative-asset",
+        "critical": true,
+        "declared_element_ids": [
+          "atomic:environment-globe"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "observation-arrows",
+        "critical": true,
+        "declared_element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      }
+    ]
+  },
+  "critical_region_expectation": {
+    "expected_count": 12,
+    "actual_count": 12,
+    "expected_region_ids": [
+      "task-guided-allocator-topology",
+      "expert-gap-arrow-text-detail",
+      "mixture-arrow-occlusion-detail",
+      "six-bicolor-state-circles",
+      "rollout-arrow-topology",
+      "gold-arrowhead-scale-clearance",
+      "top-reward-trophy-microasset",
+      "footer-reward-trophy-microasset",
+      "footer-action-microasset",
+      "observation-creative-asset",
+      "environment-globe-creative-asset",
+      "observation-arrows"
+    ],
+    "actual_region_ids": [
+      "task-guided-allocator-topology",
+      "expert-gap-arrow-text-detail",
+      "mixture-arrow-occlusion-detail",
+      "six-bicolor-state-circles",
+      "rollout-arrow-topology",
+      "gold-arrowhead-scale-clearance",
+      "top-reward-trophy-microasset",
+      "footer-reward-trophy-microasset",
+      "footer-action-microasset",
+      "observation-creative-asset",
+      "environment-globe-creative-asset",
+      "observation-arrows"
+    ],
+    "missing_region_ids": [],
+    "unexpected_region_ids": [],
+    "duplicate_region_ids": [],
+    "contracts": [
+      {
+        "id": "task-guided-allocator-topology",
+        "bbox": [
+          425,
+          124,
+          551,
+          389
+        ],
+        "element_ids": [
+          "allocator-task1-propagation",
+          "allocator-task2-propagation",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          425,
+          124,
+          551,
+          389
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "allocator-task1-propagation",
+          "allocator-task2-propagation",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "expert-gap-arrow-text-detail",
+        "bbox": [
+          548,
+          225,
+          310,
+          245
+        ],
+        "element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          548,
+          225,
+          310,
+          245
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "mixture-arrow-occlusion-detail",
+        "bbox": [
+          938,
+          264,
+          76,
+          164
+        ],
+        "element_ids": [
+          "top-mixture-to-rollout",
+          "bottom-mixture-to-rollout",
+          "rollout-panel",
+          "rollout-z0"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          938,
+          264,
+          76,
+          164
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "top-mixture-to-rollout",
+          "bottom-mixture-to-rollout",
+          "rollout-panel",
+          "rollout-z0"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "six-bicolor-state-circles",
+        "bbox": [
+          898,
+          204,
+          51,
+          278
+        ],
+        "element_ids": [
+          "svg-text-0037",
+          "zt-top-box",
+          "svg-circle-0012",
+          "svg-circle-0013",
+          "svg-circle-0014",
+          "zt-bottom-box",
+          "svg-circle-0015",
+          "svg-circle-0016",
+          "svg-circle-0017"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "63d2c3b215ead5b49ec11c50d427f887c0a040a3e7e965561040164d96667c01"
+        },
+        "actual_bbox": [
+          898,
+          204,
+          51,
+          278
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "svg-text-0037",
+          "zt-top-box",
+          "svg-circle-0012",
+          "svg-circle-0013",
+          "svg-circle-0014",
+          "zt-bottom-box",
+          "svg-circle-0015",
+          "svg-circle-0016",
+          "svg-circle-0017"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_probes": "63d2c3b215ead5b49ec11c50d427f887c0a040a3e7e965561040164d96667c01"
+        },
+        "gate_hash_passes": {
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "rollout-arrow-topology",
+        "bbox": [
+          988,
+          116,
+          410,
+          346
+        ],
+        "element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          988,
+          116,
+          410,
+          346
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "gold-arrowhead-scale-clearance",
+        "bbox": [
+          1018,
+          194,
+          224,
+          108
+        ],
+        "element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "svg-circle-0018",
+          "svg-circle-0019",
+          "svg-circle-0020",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          1018,
+          194,
+          224,
+          108
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "svg-circle-0018",
+          "svg-circle-0019",
+          "svg-circle-0020",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "top-reward-trophy-microasset",
+        "bbox": [
+          1280,
+          228,
+          42,
+          42
+        ],
+        "element_ids": [
+          "top-reward-trophy-tone-gray-01",
+          "top-reward-trophy-tone-gray-02",
+          "top-reward-trophy-tone-gray-03",
+          "top-reward-trophy-tone-gray-04",
+          "top-reward-trophy-tone-gray-05",
+          "top-reward-trophy-tone-gray-06",
+          "top-reward-trophy-tone-yellow-04",
+          "top-reward-trophy-tone-yellow-05",
+          "top-reward-trophy-tone-yellow-06",
+          "top-reward-trophy-highlight",
+          "top-reward-trophy"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "ink_contract": "04f1a07ac86dea21ae092480b06d579444a35f905835cbb85876480e33bdf1e8",
+          "color_probes": "6898602176cac70a1ec1d8b72cf53c9f5d3c1e18b2097bf922e0cc227b3185bb"
+        },
+        "actual_bbox": [
+          1280,
+          228,
+          42,
+          42
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "top-reward-trophy-tone-gray-01",
+          "top-reward-trophy-tone-gray-02",
+          "top-reward-trophy-tone-gray-03",
+          "top-reward-trophy-tone-gray-04",
+          "top-reward-trophy-tone-gray-05",
+          "top-reward-trophy-tone-gray-06",
+          "top-reward-trophy-tone-yellow-04",
+          "top-reward-trophy-tone-yellow-05",
+          "top-reward-trophy-tone-yellow-06",
+          "top-reward-trophy-highlight",
+          "top-reward-trophy"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "04f1a07ac86dea21ae092480b06d579444a35f905835cbb85876480e33bdf1e8",
+          "color_probes": "6898602176cac70a1ec1d8b72cf53c9f5d3c1e18b2097bf922e0cc227b3185bb"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "footer-reward-trophy-microasset",
+        "bbox": [
+          682,
+          550,
+          36,
+          42
+        ],
+        "element_ids": [
+          "footer-reward-trophy-tone-gray-01",
+          "footer-reward-trophy-tone-gray-02",
+          "footer-reward-trophy-tone-gray-03",
+          "footer-reward-trophy-tone-gray-04",
+          "footer-reward-trophy-tone-gray-05",
+          "footer-reward-trophy-tone-gray-06",
+          "footer-reward-trophy-tone-yellow-04",
+          "footer-reward-trophy-tone-yellow-05",
+          "footer-reward-trophy-tone-yellow-06",
+          "footer-reward-trophy-highlight",
+          "footer-reward-trophy"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "ink_contract": "04f1a07ac86dea21ae092480b06d579444a35f905835cbb85876480e33bdf1e8",
+          "color_probes": "54d01b70481430a58eee862e9dfbc104a29a322a1daeb9c9ce93c38834a9ea88"
+        },
+        "actual_bbox": [
+          682,
+          550,
+          36,
+          42
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "footer-reward-trophy-tone-gray-01",
+          "footer-reward-trophy-tone-gray-02",
+          "footer-reward-trophy-tone-gray-03",
+          "footer-reward-trophy-tone-gray-04",
+          "footer-reward-trophy-tone-gray-05",
+          "footer-reward-trophy-tone-gray-06",
+          "footer-reward-trophy-tone-yellow-04",
+          "footer-reward-trophy-tone-yellow-05",
+          "footer-reward-trophy-tone-yellow-06",
+          "footer-reward-trophy-highlight",
+          "footer-reward-trophy"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "04f1a07ac86dea21ae092480b06d579444a35f905835cbb85876480e33bdf1e8",
+          "color_probes": "54d01b70481430a58eee862e9dfbc104a29a322a1daeb9c9ce93c38834a9ea88"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "footer-action-microasset",
+        "bbox": [
+          882,
+          551,
+          42,
+          42
+        ],
+        "element_ids": [
+          "footer-action-icon-tone-01",
+          "footer-action-icon-tone-02",
+          "footer-action-icon-tone-03",
+          "footer-action-icon-tone-04",
+          "footer-action-icon-tone-05",
+          "footer-action-icon-tone-06",
+          "footer-action-icon"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "ink_contract": "04f1a07ac86dea21ae092480b06d579444a35f905835cbb85876480e33bdf1e8",
+          "color_probes": "aa053b8fb257d5c3fa3b0a57789ea4d2f0f8098a62a5d5ddd33f513a11fb965b"
+        },
+        "actual_bbox": [
+          882,
+          551,
+          42,
+          42
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "footer-action-icon-tone-01",
+          "footer-action-icon-tone-02",
+          "footer-action-icon-tone-03",
+          "footer-action-icon-tone-04",
+          "footer-action-icon-tone-05",
+          "footer-action-icon-tone-06",
+          "footer-action-icon"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "ink_contract": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "ink_contract": "04f1a07ac86dea21ae092480b06d579444a35f905835cbb85876480e33bdf1e8",
+          "color_probes": "aa053b8fb257d5c3fa3b0a57789ea4d2f0f8098a62a5d5ddd33f513a11fb965b"
+        },
+        "gate_hash_passes": {
+          "ink_contract": true,
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "observation-creative-asset",
+        "bbox": [
+          42,
+          290,
+          106,
+          86
+        ],
+        "element_ids": [
+          "atomic:observation"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          42,
+          290,
+          106,
+          86
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "atomic:observation"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "environment-globe-creative-asset",
+        "bbox": [
+          1188,
+          533,
+          80,
+          81
+        ],
+        "element_ids": [
+          "atomic:environment-globe"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          1188,
+          533,
+          80,
+          81
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "atomic:environment-globe"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "observation-arrows",
+        "bbox": [
+          132,
+          232,
+          190,
+          254
+        ],
+        "element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          132,
+          232,
+          190,
+          254
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
   "regions": [
     {
       "id": "whole-canvas",
@@ -20,15 +906,23 @@
         1429,
         627
       ],
+      "pixel_bbox": [
+        0,
+        0,
+        1429,
+        627
+      ],
       "critical": false,
-      "mean_abs_rgb_delta": 14.7877,
-      "ssim": 0.7762,
-      "edge_iou": 0.8308,
+      "mean_abs_rgb_delta": 14.3885,
+      "ssim": 0.7812,
+      "edge_iou": 0.8075,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
@@ -40,15 +934,79 @@
         551,
         389
       ],
+      "pixel_bbox": [
+        425,
+        124,
+        551,
+        389
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 15.9384,
+      "mean_abs_rgb_delta": 15.7003,
       "ssim": 0.7454,
-      "edge_iou": 0.7549,
+      "edge_iou": 0.7503,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "expert-gap-arrow-text-detail",
+      "label": "Horizontal inter-expert arrows and rotated Sem/Dyn labels",
+      "bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "pixel_bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 16.5389,
+      "ssim": 0.6915,
+      "edge_iou": 0.6299,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "mixture-arrow-occlusion-detail",
+      "label": "Brown mixture arrows remain visible above rollout panel",
+      "bbox": [
+        938,
+        264,
+        76,
+        164
+      ],
+      "pixel_bbox": [
+        938,
+        264,
+        76,
+        164
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 25.762,
+      "ssim": 0.5884,
+      "edge_iou": 0.8255,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
@@ -60,10 +1018,16 @@
         51,
         278
       ],
+      "pixel_bbox": [
+        898,
+        204,
+        51,
+        278
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 29.1555,
-      "ssim": 0.6077,
-      "edge_iou": 0.8672,
+      "mean_abs_rgb_delta": 28.8686,
+      "ssim": 0.609,
+      "edge_iou": 0.8553,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
@@ -190,6 +1154,8 @@
           "pass": true
         }
       ],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
@@ -201,21 +1167,351 @@
         410,
         346
       ],
+      "pixel_bbox": [
+        988,
+        116,
+        410,
+        346
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 18.087,
-      "ssim": 0.7267,
-      "edge_iou": 0.7887,
+      "mean_abs_rgb_delta": 16.8822,
+      "ssim": 0.7452,
+      "edge_iou": 0.8035,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
+    },
+    {
+      "id": "gold-arrowhead-scale-clearance",
+      "label": "Reference-sized native gold arrowheads and panel-border clearance",
+      "bbox": [
+        1018,
+        194,
+        224,
+        108
+      ],
+      "pixel_bbox": [
+        1018,
+        194,
+        224,
+        108
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 10.1113,
+      "ssim": 0.849,
+      "edge_iou": 0.8649,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "top-reward-trophy-microasset",
+      "label": "Reference-faithful top dense-reward trophy",
+      "bbox": [
+        1280,
+        228,
+        42,
+        42
+      ],
+      "pixel_bbox": [
+        1280,
+        228,
+        42,
+        42
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 1.8362,
+      "ssim": 0.9942,
+      "edge_iou": 0.9695,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.8
+      },
+      "color_probes": [
+        {
+          "id": "top-trophy-yellow-highlight",
+          "point": [
+            1304,
+            247
+          ],
+          "delta_e00": 1.4521,
+          "max_delta_e": 10.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 10.0,
+        "reference": {
+          "bbox": [
+            8,
+            8,
+            26,
+            28
+          ],
+          "edges": [
+            8,
+            8,
+            33,
+            35
+          ],
+          "center": [
+            20.5,
+            21.5
+          ],
+          "area_px": 373
+        },
+        "render": {
+          "bbox": [
+            8,
+            8,
+            26,
+            28
+          ],
+          "edges": [
+            8,
+            8,
+            33,
+            35
+          ],
+          "center": [
+            20.5,
+            21.5
+          ],
+          "area_px": 373
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 1.0,
+        "center_error_px": 0.0,
+        "center_tolerance_px": 1.0,
+        "area_relative_error": 0.0,
+        "area_relative_tolerance": 0.1,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "footer-reward-trophy-microasset",
+      "label": "Reference-faithful footer dense-reward trophy",
+      "bbox": [
+        682,
+        550,
+        36,
+        42
+      ],
+      "pixel_bbox": [
+        682,
+        550,
+        36,
+        42
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 2.2804,
+      "ssim": 0.9941,
+      "edge_iou": 0.9776,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.8
+      },
+      "color_probes": [
+        {
+          "id": "footer-trophy-yellow-highlight",
+          "point": [
+            705,
+            569
+          ],
+          "delta_e00": 2.5724,
+          "max_delta_e": 8.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 10.0,
+        "reference": {
+          "bbox": [
+            5,
+            6,
+            29,
+            30
+          ],
+          "edges": [
+            5,
+            6,
+            33,
+            35
+          ],
+          "center": [
+            19.0,
+            20.5
+          ],
+          "area_px": 422
+        },
+        "render": {
+          "bbox": [
+            5,
+            6,
+            29,
+            30
+          ],
+          "edges": [
+            5,
+            6,
+            33,
+            35
+          ],
+          "center": [
+            19.0,
+            20.5
+          ],
+          "area_px": 422
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 1.0,
+        "center_error_px": 0.0,
+        "center_tolerance_px": 1.0,
+        "area_relative_error": 0.0,
+        "area_relative_tolerance": 0.1,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "footer-action-microasset",
+      "label": "Reference-faithful footer action icon",
+      "bbox": [
+        882,
+        551,
+        42,
+        42
+      ],
+      "pixel_bbox": [
+        882,
+        551,
+        42,
+        42
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 2.011,
+      "ssim": 0.9961,
+      "edge_iou": 0.9772,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.8
+      },
+      "color_probes": [
+        {
+          "id": "footer-action-green",
+          "point": [
+            889,
+            573
+          ],
+          "delta_e00": 1.0084,
+          "max_delta_e": 5.0,
+          "pass": true
+        }
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 10.0,
+        "reference": {
+          "bbox": [
+            5,
+            6,
+            35,
+            33
+          ],
+          "edges": [
+            5,
+            6,
+            39,
+            38
+          ],
+          "center": [
+            22.0,
+            22.0
+          ],
+          "area_px": 572
+        },
+        "render": {
+          "bbox": [
+            5,
+            6,
+            35,
+            33
+          ],
+          "edges": [
+            5,
+            6,
+            39,
+            38
+          ],
+          "center": [
+            22.0,
+            22.0
+          ],
+          "area_px": 599
+        },
+        "bbox_edge_errors_px": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bbox_tolerance_px": 1.0,
+        "center_error_px": 0.0,
+        "center_tolerance_px": 1.0,
+        "area_relative_error": 0.0472,
+        "area_relative_tolerance": 0.1,
+        "pass": true
+      },
+      "color_clearance_contracts": [],
+      "pass": true
     },
     {
       "id": "observation-creative-asset",
       "label": "Reference-faithful observation microasset",
       "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
+      "pixel_bbox": [
         42,
         290,
         106,
@@ -230,12 +1526,20 @@
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": true
     },
     {
       "id": "environment-globe-creative-asset",
       "label": "Reference-faithful environment globe",
       "bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
+      "pixel_bbox": [
         1188,
         533,
         80,
@@ -250,6 +1554,8 @@
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": true
     },
     {
@@ -261,15 +1567,23 @@
         190,
         254
       ],
+      "pixel_bbox": [
+        132,
+        232,
+        190,
+        254
+      ],
       "critical": true,
       "mean_abs_rgb_delta": 11.2195,
       "ssim": 0.8631,
-      "edge_iou": 0.6862,
+      "edge_iou": 0.6519,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     }
   ]

@@ -13,12 +13,15 @@ COMMANDS = {
     "math": "tools.math",
     "arrows": "tools.arrows",
     "ingest": "tools.ingest",
+    "freeze": "tools.reference_inventory",
     "repair": "tools.repair",
     "providers": "tools.providers",
     "layout": "tools.layout",
     "cases": "tools.cases",
     "compare": "tools.compare",
     "hygiene": "tools.hygiene",
+    "migrate-v4": "tools.migrate_v4",
+    "normalize-source": "tools.normalize_source",
 }
 
 

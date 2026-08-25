@@ -7,17 +7,84 @@ from PIL import Image
 from pptx import Presentation
 
 from tools import common
-from tools.contracts import read_json
+from tools.contracts import read_json, write_json
 from tools.convert import convert
 from tools.ingest import main as ingest_main
 from tools.prepare import SVG_AUTHORING_CONTRACT
 from tools.prepare import main as prepare_main
+from tools.reference_inventory import OBJECT_KINDS, freeze_inventory
 
 
 def _reference(tmp_path: Path) -> Path:
     path = tmp_path / "input-only.png"
     Image.new("RGB", (160, 100), "white").save(path)
     return path
+
+
+def _seed(tmp_path: Path) -> Path:
+    path = tmp_path / "external-seed.svg"
+    path.write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" '
+        'viewBox="0 0 160 100"><rect id="panel" x="10" y="10" '
+        'width="140" height="80"/></svg>',
+        encoding="utf-8",
+    )
+    return path
+
+
+def _freeze_panel_inventory(run: common.Run) -> None:
+    regions = read_json(run.regions_path)
+    regions["regions"] = [
+        {
+            "id": "panel-region",
+            "label": "Panel and label",
+            "bbox": [0, 0, 160, 100],
+            "critical": True,
+            "relations_exhaustive": True,
+            "element_ids": ["panel", "label"],
+        }
+    ]
+    inventory = regions["reference_inventory"]
+    inventory["expected_counts"] = {kind: 0 for kind in OBJECT_KINDS}
+    inventory["expected_counts"].update({"text": 1, "shape": 1})
+    inventory["zero_count_authorizations"] = [
+        {
+            "kind": kind,
+            "basis": "full-reference-review",
+            "reviewer": "test-reviewer",
+            "reference_sha256": run.load_meta()["source_sha256"],
+        }
+        for kind in ("arrow", "icon", "brace")
+    ]
+    inventory["objects"] = [
+        {
+            "id": "panel",
+            "kind": "shape",
+            "bbox": [10, 10, 140, 80],
+            "element_ids": ["panel"],
+            "critical_region_ids": ["panel-region"],
+        },
+        {
+            "id": "label",
+            "kind": "text",
+            "bbox": [45, 35, 70, 22],
+            "element_ids": ["label"],
+            "critical_region_ids": ["panel-region"],
+            "typography": {
+                "exact_text": "PNG-only",
+                "font_family": "Arial",
+                "font_size_px": 16,
+                "font_weight": "normal",
+                "font_style": "normal",
+                "line_count": 1,
+                "alignment": "center",
+                "bbox_tolerance_px": 2,
+                "font_size_tolerance_px": 0.5,
+            },
+        },
+    ]
+    write_json(run.regions_path, regions)
+    freeze_inventory(run)
 
 
 def test_prepare_png_only_creates_tasks_without_web_svg_prerequisite(tmp_path: Path):
@@ -57,6 +124,14 @@ def test_prepare_png_only_creates_tasks_without_web_svg_prerequisite(tmp_path: P
     assert "data-repeat-group" in prompt
     assert "data-repeat-axis" in prompt
     assert "data-repeat-order" in prompt
+    assert "required_relations" in prompt
+    assert (
+        "source_id/target_id/direction/start_head_type/end_head_type/"
+        "representation/visible_object_count"
+        in prompt
+    )
+    assert "一个双端 ArrowSpec 和一个 PowerPoint 可见对象" in prompt
+    assert "禁止拆成两条共线反向单头箭头" in prompt
 
 
 def test_png_only_channel_ingests_agent_candidate_and_builds_editable_pptx(tmp_path: Path):
@@ -74,6 +149,7 @@ def test_png_only_channel_ingests_agent_candidate_and_builds_editable_pptx(tmp_p
         ]
     )
     run = common.open_run(cases_root / "reference-only" / "png-to-pptx")
+    _freeze_panel_inventory(run)
     candidate = tmp_path / "agent-candidate.svg"
     candidate.write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" '
@@ -166,22 +242,24 @@ def test_reference_only_rejects_external_seed_before_copy(tmp_path: Path):
 def test_both_input_routes_embed_the_same_svg_authoring_contract(tmp_path: Path):
     cases_root = tmp_path / "examples"
     reference = _reference(tmp_path)
+    seed = _seed(tmp_path)
     for route, case in (
         ("svg-seeded", "seeded-contract-smoke"),
         ("reference-only", "png-only-contract-smoke"),
     ):
+        arguments = [
+            str(reference),
+            "--case",
+            case,
+            "--cases-root",
+            str(cases_root),
+            "--input-route",
+            route,
+        ]
+        if route == "svg-seeded":
+            arguments.extend(["--seed", str(seed)])
         assert (
-            prepare_main(
-                [
-                    str(reference),
-                    "--case",
-                    case,
-                    "--cases-root",
-                    str(cases_root),
-                    "--input-route",
-                    route,
-                ]
-            )
+            prepare_main(arguments)
             == 0
         )
 

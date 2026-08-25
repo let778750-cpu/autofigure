@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "schema_v4_migration_report",
+  "case": "01-modular-agent",
+  "input_route": "svg-seeded",
+  "processing_mode": "png_reconstruct",
+  "imported_legacy_carrier": true,
+  "source_gate_decision": "reject",
+  "source_gate_blockers": [
+    "source-gate:seed:unavailable"
+  ],
+  "revision_id": "scene-455cb286e7c68b86",
+  "scene_sha256": "455cb286e7c68b86e697c6bdd7ff41ba06bfd7e77b714a2b71f23dd9e95c861e",
+  "status": "implemented_unverified",
+  "approved": false
+}

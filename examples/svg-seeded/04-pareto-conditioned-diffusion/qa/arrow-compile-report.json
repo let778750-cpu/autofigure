@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_compile_report",
+  "created_at": "20260824T150521Z",
+  "case": "04-pareto-conditioned-diffusion",
+  "scene_sha256": "92e502d418bd0aa7a324a2672c9523f094de913fb2036d7740ba98ef7f303972",
+  "artifact_sha256": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+  "arrow_count": 5,
+  "records": [
+    {
+      "element_id": "blue-arrow-1",
+      "arrow_spec_sha256": "31230125470de698b4c5c99c38ba890806728d6c94d98375cbf9bfa67857119d",
+      "strategy": "single-closed-freeform",
+      "shape_ids": [
+        52
+      ],
+      "shape_names": [
+        "af-blue-arrow-1-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "blue-arrow-2",
+      "arrow_spec_sha256": "b05375ee9097d865939d4de7b7320a5225b8cd8df71e607c6b303d77611053c6",
+      "strategy": "single-closed-freeform",
+      "shape_ids": [
+        67
+      ],
+      "shape_names": [
+        "af-blue-arrow-2-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "condition-arrow",
+      "arrow_spec_sha256": "06114b3ce242bda2d2f4d42fbda54cf550fa36fe57bbf0e90dc352cdd2f787c5",
+      "strategy": "single-closed-freeform",
+      "shape_ids": [
+        107
+      ],
+      "shape_names": [
+        "af-condition-arrow-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "noise-arrow",
+      "arrow_spec_sha256": "65d538d61b62b240e515ebade0ff7e27aa9cf35f718cb0c9101cb5f7652445a3",
+      "strategy": "single-closed-freeform",
+      "shape_ids": [
+        126
+      ],
+      "shape_names": [
+        "af-noise-arrow-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "sample-arrow",
+      "arrow_spec_sha256": "53ee8ebdba5e6c3c339a120d9e2e97e7731aac12276f47adb0e91cc322221663",
+      "strategy": "single-closed-freeform",
+      "shape_ids": [
+        128
+      ],
+      "shape_names": [
+        "af-sample-arrow-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "max_coordinate_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

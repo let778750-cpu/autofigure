@@ -1,0 +1,22 @@
+{
+  "svg": "redraw.svg",
+  "phase": "audit",
+  "audit_version": "3.0.0",
+  "arrows": 6,
+  "marker_refs": 6,
+  "marker_defs": 6,
+  "findings": [],
+  "counts": {},
+  "arrow_metrics": [],
+  "embedded_plot_axis_exemptions": [],
+  "embedded_plot_geometry_groups": [],
+  "ratio_stats": {
+    "median": 4.0,
+    "min": 4.0,
+    "max": 4.0,
+    "band": [
+      1.5,
+      4.0
+    ]
+  }
+}

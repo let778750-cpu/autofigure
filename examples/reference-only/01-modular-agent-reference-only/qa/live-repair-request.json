@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "powerpoint_live_repair_request",
-  "created_at": "20260821T132118Z",
+  "created_at": "20260823T190521Z",
   "path_base": "autofigure-case-root",
   "case_root": "qa/powerpoint-live-case",
   "autofigure_case_root": ".",
@@ -14,10 +14,11 @@
   "visible": true,
   "failed_regions": [
     "task-guided-allocator-topology",
+    "encoder-peer-size-detail",
+    "expert-gap-arrow-text-detail",
+    "joint-feedback-arrow-detail",
     "six-bicolor-state-circles",
     "rollout-arrow-topology",
-    "observation-creative-asset",
-    "environment-globe-creative-asset",
     "observation-arrows"
   ],
   "failed_region_tasks": [
@@ -35,12 +36,104 @@
         "allocator-funnel",
         "allocator-task1-route-1",
         "allocator-task1-route-2",
-        "allocator-task2-route-1",
-        "allocator-task2-route-2"
+        "allocator-task1-skip-edge",
+        "allocator-task1-propagation",
+        "allocator-task2-propagation"
       ],
       "all_other_elements_protected": true,
       "manual_scope_required": false,
-      "current_metrics": {},
+      "current_metrics": {
+        "ssim": 0.7414,
+        "edge_iou": 0.7463,
+        "mean_abs_rgb_delta": 15.4338
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "encoder-peer-size-detail",
+      "label": "MLLM and WM encoder peer-size fidelity",
+      "bbox": [
+        180,
+        235,
+        142,
+        253
+      ],
+      "allowed_element_ids": [
+        "mllm-encoder",
+        "wm-encoder"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8661,
+        "edge_iou": 0.6599,
+        "mean_abs_rgb_delta": 12.4144
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "expert-gap-arrow-text-detail",
+      "label": "Horizontal inter-expert arrows and rotated Sem/Dyn labels",
+      "bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "allowed_element_ids": [
+        "expert-1-box",
+        "expert-2-box",
+        "expert-3-box",
+        "expert-4-box",
+        "expert-1-sem-label",
+        "expert-1-dyn-label",
+        "expert-2-sem-label",
+        "expert-2-dyn-label",
+        "expert-3-sem-label",
+        "expert-3-dyn-label",
+        "expert-4-sem-label",
+        "expert-4-dyn-label",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6964,
+        "edge_iou": 0.6512,
+        "mean_abs_rgb_delta": 15.9879
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "joint-feedback-arrow-detail",
+      "label": "Thick red joint-optimization feedback arrow",
+      "bbox": [
+        102,
+        514,
+        90,
+        70
+      ],
+      "allowed_element_ids": [
+        "joint-loop-arrow"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8124,
+        "edge_iou": 0.7803,
+        "mean_abs_rgb_delta": 9.2069
+      },
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
@@ -67,7 +160,11 @@
       ],
       "all_other_elements_protected": true,
       "manual_scope_required": false,
-      "current_metrics": {},
+      "current_metrics": {
+        "ssim": 0.3897,
+        "edge_iou": 0.7545,
+        "mean_abs_rgb_delta": 47.1335
+      },
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
@@ -85,12 +182,32 @@
       "allowed_element_ids": [
         "task-conditioned-imagination",
         "rollout-panel",
+        "imag-z0",
+        "imag-z1",
+        "imag-z2",
+        "imag-zh",
+        "reward-r0",
+        "reward-r1",
+        "reward-r2",
+        "rollout-z0",
+        "rollout-z1",
+        "rollout-z2",
+        "rollout-zh",
+        "policy-pi0",
+        "policy-pi1",
+        "policy-pi2",
+        "action-a0",
+        "action-a1",
+        "action-a2",
         "imagination-z0-to-z1",
         "imagination-z1-to-z2",
         "imagination-z2-to-zh",
         "imagination-z0-to-r0",
         "imagination-z1-to-r1",
         "imagination-z2-to-r2",
+        "rollout-z0-to-r0",
+        "rollout-z1-to-r1",
+        "rollout-z2-to-r2",
         "rollout-z0-to-z1",
         "rollout-z1-to-z2",
         "rollout-z2-to-zh",
@@ -106,45 +223,13 @@
       ],
       "all_other_elements_protected": true,
       "manual_scope_required": false,
-      "current_metrics": {},
+      "current_metrics": {
+        "ssim": 0.7135,
+        "edge_iou": 0.7899,
+        "mean_abs_rgb_delta": 16.339
+      },
       "thresholds": {
         "ssim_min": 0.85,
-        "edge_iou_min": 0.75
-      }
-    },
-    {
-      "region_id": "observation-creative-asset",
-      "label": "Reference-faithful observation microasset",
-      "bbox": [
-        42,
-        290,
-        106,
-        86
-      ],
-      "allowed_element_ids": [],
-      "all_other_elements_protected": true,
-      "manual_scope_required": true,
-      "current_metrics": {},
-      "thresholds": {
-        "ssim_min": 0.95,
-        "edge_iou_min": 0.75
-      }
-    },
-    {
-      "region_id": "environment-globe-creative-asset",
-      "label": "Reference-faithful environment globe",
-      "bbox": [
-        1188,
-        533,
-        80,
-        81
-      ],
-      "allowed_element_ids": [],
-      "all_other_elements_protected": true,
-      "manual_scope_required": true,
-      "current_metrics": {},
-      "thresholds": {
-        "ssim_min": 0.95,
         "edge_iou_min": 0.75
       }
     },
@@ -163,7 +248,11 @@
       ],
       "all_other_elements_protected": true,
       "manual_scope_required": false,
-      "current_metrics": {},
+      "current_metrics": {
+        "ssim": 0.868,
+        "edge_iou": 0.6249,
+        "mean_abs_rgb_delta": 11.2219
+      },
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
@@ -178,8 +267,14 @@
     "inspect",
     "audit",
     "save-reopen",
+    "finalize-target",
     "object-bindings"
   ],
+  "mutation_policy": {
+    "arrow_authoring": false,
+    "arrow_authoring_capability_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+    "arrow_updates_must_return_to_offline_compiler": true
+  },
   "scene_element_ids": [
     "background",
     "joint-panel",
@@ -272,8 +367,9 @@
     "expert-index-l",
     "allocator-task1-route-1",
     "allocator-task1-route-2",
-    "allocator-task2-route-1",
-    "allocator-task2-route-2",
+    "allocator-task1-skip-edge",
+    "allocator-task1-propagation",
+    "allocator-task2-propagation",
     "zt-top-box",
     "zt-top-label",
     "zt-top-1",
@@ -284,6 +380,9 @@
     "zt-bottom-2",
     "zt-bottom-3",
     "task-conditioned-imagination",
+    "imagination-z0-to-r0",
+    "imagination-z1-to-r1",
+    "imagination-z2-to-r2",
     "imagination-title",
     "imag-z0",
     "imag-z1",
@@ -295,6 +394,11 @@
     "imag-dots",
     "imag-zh-label",
     "rollout-panel",
+    "rollout-z0-to-r0",
+    "rollout-z1-to-r1",
+    "rollout-z2-to-r2",
+    "zt-top-to-imagination",
+    "zt-bottom-to-rollout",
     "rollout-z0",
     "rollout-z1",
     "rollout-z2",
@@ -325,9 +429,6 @@
     "imagination-z0-to-z1",
     "imagination-z1-to-z2",
     "imagination-z2-to-zh",
-    "imagination-z0-to-r0",
-    "imagination-z1-to-r1",
-    "imagination-z2-to-r2",
     "rollout-z0-to-z1",
     "rollout-z1-to-z2",
     "rollout-z2-to-zh",
@@ -340,8 +441,6 @@
     "rollout-a0-to-z1",
     "rollout-a1-to-z2",
     "rollout-a2-to-next",
-    "zt-top-to-imagination",
-    "zt-bottom-to-rollout",
     "dense-trophy",
     "dense-reward-label",
     "dense-reward-label-2",
@@ -359,8 +458,7 @@
     "action-text",
     "behavior-to-reward",
     "interaction-label",
-    "interaction-left",
-    "interaction-right",
+    "interaction-exchange",
     "atomic:environment-globe",
     "environment-label"
   ],
@@ -398,8 +496,6 @@
     "allocator-box",
     "allocator-label",
     "allocator-funnel",
-    "tau-to-allocator",
-    "tau-to-allocator",
     "tau-to-allocator",
     "mllm-encoder",
     "mllm-line1",
@@ -458,12 +554,9 @@
     "expert-index-l",
     "allocator-task1-route-1",
     "allocator-task1-route-2",
-    "allocator-task2-route-1",
-    "allocator-task2-route-1",
-    "allocator-task2-route-1",
-    "allocator-task2-route-2",
-    "allocator-task2-route-2",
-    "allocator-task2-route-2",
+    "allocator-task1-skip-edge",
+    "allocator-task1-propagation",
+    "allocator-task2-propagation",
     "zt-top-box",
     "zt-top-label",
     "zt-top-1",
@@ -474,6 +567,9 @@
     "zt-bottom-2",
     "zt-bottom-3",
     "task-conditioned-imagination",
+    "imagination-z0-to-r0",
+    "imagination-z1-to-r1",
+    "imagination-z2-to-r2",
     "imagination-title",
     "imag-z0",
     "imag-z1",
@@ -485,6 +581,11 @@
     "imag-dots",
     "imag-zh-label",
     "rollout-panel",
+    "rollout-z0-to-r0",
+    "rollout-z1-to-r1",
+    "rollout-z2-to-r2",
+    "zt-top-to-imagination",
+    "zt-bottom-to-rollout",
     "rollout-z0",
     "rollout-z1",
     "rollout-z2",
@@ -515,9 +616,6 @@
     "imagination-z0-to-z1",
     "imagination-z1-to-z2",
     "imagination-z2-to-zh",
-    "imagination-z0-to-r0",
-    "imagination-z1-to-r1",
-    "imagination-z2-to-r2",
     "rollout-z0-to-z1",
     "rollout-z1-to-z2",
     "rollout-z2-to-zh",
@@ -530,8 +628,6 @@
     "rollout-a0-to-z1",
     "rollout-a1-to-z2",
     "rollout-a2-to-next",
-    "zt-top-to-imagination",
-    "zt-bottom-to-rollout",
     "dense-trophy",
     "dense-reward-label",
     "dense-reward-label-2",
@@ -549,27 +645,30 @@
     "action-text",
     "behavior-to-reward",
     "interaction-label",
-    "interaction-left",
-    "interaction-right",
+    "interaction-exchange",
     "atomic:environment-globe",
     "environment-label"
   ],
   "scene_compatibility": {
     "source_schema_version": "3.1.0",
     "adapter_schema_version": "2.1.0",
-    "adapter_scene_sha256": "b8ff8bf1b7dab45ec586fc20b77aac23c09be0606a8a486be4afd6bb3113ade1",
+    "adapter_scene_sha256": "29553578f6d7e85169d61322bcf9ac7fc348161ad3a5ba61c21ab5f7d106a0b9",
     "bridge_manifest": "qa/powerpoint-live-bridge.json",
     "direct_scene_v3_submission_forbidden": true
   },
   "completion_contract": {
     "saved_reopened": true,
     "bindings_complete": true,
+    "root_candidate_hash_must_equal_reopened_hash": true,
+    "arrow_readback_required": true,
+    "render_must_be_finalizer_bound": true,
     "region_results_required": [
       "task-guided-allocator-topology",
+      "encoder-peer-size-detail",
+      "expert-gap-arrow-text-detail",
+      "joint-feedback-arrow-detail",
       "six-bicolor-state-circles",
       "rollout-arrow-topology",
-      "observation-creative-asset",
-      "environment-globe-creative-asset",
       "observation-arrows"
     ],
     "automatic_release_authority": "NONE"

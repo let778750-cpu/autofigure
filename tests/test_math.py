@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import copy
 import json
+import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 
@@ -12,7 +14,14 @@ from pptx import Presentation
 
 from tools import common
 from tools.convert import convert
-from tools.math import classify_runs, rebuild_latex, upgrade
+from tools.math import (
+    classify_runs,
+    math_summary_blockers,
+    rebuild_latex,
+    upgrade,
+    verify_existing_native_math,
+)
+from tools.pptx_arrows import refresh_bindings
 
 XSL_PATH = Path(r"C:\Program Files\Microsoft Office\root\Office16\MML2OMML.XSL")
 
@@ -150,7 +159,9 @@ def _slide_xml(run: common.Run) -> str:
         return package.read("ppt/slides/slide1.xml").decode("utf-8")
 
 
-def test_dry_run_does_not_touch_pptx(run_factory):
+def test_dry_run_does_not_touch_pptx_but_uninjected_formulas_fail_closed(
+    run_factory,
+):
     run = run_factory(FORMULA_SVG)
     convert(run)
     before = run.pptx_path.read_bytes()
@@ -163,6 +174,49 @@ def test_dry_run_does_not_touch_pptx(run_factory):
     assert on_disk["dry_run"] is True
     assert on_disk["formulas"][0]["latex"] == r"z^{\tau}_{t}"
     assert on_disk["formulas"][0]["status"] == "detected"
+    assert on_disk["pptx_sha256"] == common.sha256_file(run.pptx_path)
+    assert on_disk["omml_count"] == 0
+    assert math_summary_blockers(run) == [
+        "math-summary:declaration-empty-or-incomplete"
+    ]
+
+
+def test_math_gate_rejects_formula_list_when_pptx_has_no_native_omml(
+    run_factory,
+):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><text x="10" y="50">label</text></svg>',
+        size=(200, 100),
+    )
+    convert(run)
+    upgrade(run, dry_run=True)
+    summary_path = run.qa_dir / "math-summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    summary["formulas"] = [{"status": "detected", "latex": r"x"}]
+    summary_path.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    assert "math-summary:declaration-empty-or-incomplete" in (
+        math_summary_blockers(run)
+    )
+
+
+def test_math_summary_hash_drift_fails_closed(run_factory):
+    run = run_factory(FORMULA_SVG)
+    convert(run)
+    upgrade(run, dry_run=True)
+    summary_path = run.qa_dir / "math-summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    summary["pptx_sha256"] = "0" * 64
+    summary_path.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    assert "math-summary:pptx-hash-mismatch" in math_summary_blockers(run)
 
 
 def test_no_formula_leaves_pptx_untouched(run_factory):
@@ -200,8 +254,14 @@ def test_upgrade_injects_omml(run_factory):
     bindings = json.loads(run.bindings_path.read_text(encoding="utf-8"))
     assert bindings["artifact_sha256"] == common.sha256_file(run.pptx_path)
     assert bindings["bindings_complete"] is True
+    assert bindings["package_reopened"] is True
+    assert bindings["saved_reopened"] is False
     native_math = [item for item in bindings["bindings"] if item.get("native_math")]
     assert {item["shape_name"] for item in native_math} == {"math:001", "math:002"}
+    refreshed = refresh_bindings(run, host_saved_reopened=True)
+    assert refreshed["bindings_complete"] is True
+    assert refreshed["binding_count"] == refreshed["object_count"]
+    assert refreshed["saved_reopened"] is True
     scene = json.loads(run.scene_path.read_text(encoding="utf-8"))
     assert scene["artifact"]["sha256"] == bindings["artifact_sha256"]
     assert sum(item.get("native_math") is True for item in scene["elements"]) == 2
@@ -226,10 +286,84 @@ def test_upgrade_rerun_is_noop(run_factory):
     run = run_factory(FORMULA_SVG)
     convert(run)
     assert upgrade(run)["injected"] == 2
-    second = upgrade(run)  # 注入后形状在 AlternateContent 内，不再被检出 → 幂等
-    assert second["detected"] == 0
-    assert second["injected"] == 0
+    second = upgrade(run)  # 已存在 OMML 改走只读 readback，不清空 2 条公式清单
+    assert second["detected"] == 2
+    assert second["injected"] == 2
+    assert second["verified"] == 2
     assert Presentation(run.pptx_path) is not None
+
+
+@requires_engine
+def test_verify_existing_binds_final_pptx_and_formula_receipts(run_factory):
+    run = run_factory(FORMULA_SVG)
+    convert(run)
+    upgrade(run)
+    refresh_bindings(run, host_saved_reopened=True)
+    before = run.pptx_path.read_bytes()
+
+    summary = verify_existing_native_math(run)
+
+    assert run.pptx_path.read_bytes() == before
+    assert summary["pptx_sha256"] == common.sha256_file(run.pptx_path)
+    assert summary["omml_count"] == 2
+    assert summary["logical_formula_count"] == 2
+    assert summary["detected"] == 2
+    assert summary["verified"] == 2
+    assert len(summary["formulas"]) == 2
+    assert all(item["status"] == "verified" for item in summary["formulas"])
+    assert summary["saved_reopened"] is True
+    assert math_summary_blockers(run) == []
+
+    summary_path = run.qa_dir / "math-summary.json"
+    tampered = json.loads(summary_path.read_text(encoding="utf-8"))
+    tampered["formulas"][0]["formula_id"] = "EQ999"
+    summary_path.write_text(
+        json.dumps(tampered, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    assert (
+        "math-summary:formula-declaration-mismatch"
+        in math_summary_blockers(run)
+    )
+
+    summary_path.unlink()
+    assert math_summary_blockers(run) == ["math-summary:missing"]
+
+
+@requires_engine
+def test_math_gate_rejects_duplicate_omml_in_one_choice_branch(run_factory):
+    run = run_factory(FORMULA_SVG)
+    convert(run)
+    upgrade(run)
+    replacement = run.pptx_path.with_name("duplicate-math.pptx")
+    with zipfile.ZipFile(run.pptx_path) as source, zipfile.ZipFile(
+        replacement, "w"
+    ) as target:
+        for info in source.infolist():
+            payload = source.read(info.filename)
+            if info.filename == "ppt/slides/slide1.xml":
+                root = ET.fromstring(payload)
+                parents = {child: parent for parent in root.iter() for child in parent}
+                choice = next(
+                    node
+                    for node in root.iter()
+                    if node.tag.rsplit("}", 1)[-1] == "Choice"
+                    and any(
+                        child.tag.rsplit("}", 1)[-1] == "oMath"
+                        for child in node.iter()
+                    )
+                )
+                formula = next(
+                    child
+                    for child in choice.iter()
+                    if child.tag.rsplit("}", 1)[-1] == "oMath"
+                )
+                parents[formula].append(copy.deepcopy(formula))
+                payload = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+            target.writestr(info, payload)
+    replacement.replace(run.pptx_path)
+
+    assert math_summary_blockers(run) == ["math-summary:invalid"]
 
 
 @requires_engine

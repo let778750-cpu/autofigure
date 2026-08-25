@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_scene_bridge",
+  "ready": true,
+  "release_authority": "NONE",
+  "path_base": "autofigure-case-root",
+  "autofigure_case_root": ".",
+  "case_root": "qa/powerpoint-live-case",
+  "project_id": "autofigure-02-thinking-diffusion-reference-only",
+  "target_id": "autofigure-pptx",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "source_scene_schema_version": "3.1.0",
+  "source_scene_sha256": "356831f9655c17fb560245b5dcda00d29744ee081d6aa2639f39c9adf349b6e1",
+  "adapter_scene_schema_version": "2.1.0",
+  "adapter_scene_sha256": "e07aabfcf990b8038080fecb033ab8d086c228abda7e29854dcf11b09be82e01",
+  "element_count": 147,
+  "contract_files": {
+    "project_state.json": "a74f1e250f56360c8f07043085b119fb93350643067bb1717a13502a6558c5cd",
+    "input/source_manifest.json": "fdc510f7fa44c492856b26f1a46c7a849c4f3d5cb23a17d3e1b16174c7fe5837",
+    "design/scene_graph.json": "e07aabfcf990b8038080fecb033ab8d086c228abda7e29854dcf11b09be82e01",
+    "design/render_plan.json": "5539417b38e1594b108dd46536bac7f6bc33b4990a3ec62d9e989155b5bf75b0",
+    "design/scientific_spec.json": "94169a6e3573ca11c13351fd2a7642e17897c83577a48d4589b9d36271f7561a",
+    "assets/asset_manifest.json": "19fc6e95d115b998c2d93614ff8cef361c5b3dc83e20c11e4cf2e94bf9b2ba4e",
+    "assets/evidence_provenance.json": "c5684ccd2dc7d21881192a6fcf4d2767391d4930eee7f6a6e1b43c8dd7295154"
+  },
+  "mutation_policy": {
+    "arrow_authoring_allowed": false,
+    "arrow_operations": [
+      "inspect",
+      "audit",
+      "save-reopen"
+    ],
+    "offline_compiler_is_authoritative": true
+  },
+  "provider_capability_fingerprint_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+  "arrow_spec_hashes": {
+    "left-input-to-model-arrow": "9b04d9bcfbdd2ecd67d38ba19b42427f1e69cedb7e6a8b95ecdd5cc254f5316e",
+    "left-model-to-early-arrow": "45cce0aa133864370112a268424b669b8933b6bb671f43705b4073def0afe4bf",
+    "left-transition-to-late-arrow": "ed33b8bc0b55581bf0fd0bc2579c13abaef7e35e43fb0c6304904228abed927d",
+    "right-input-to-model-arrow": "9c7daeddba7b07632cd139278f406e0b44f190adab31fc6a455d6072ec4c7f1c",
+    "right-model-to-early-arrow": "b9ae052b2f403658003f5e72db7b6a4e46e111694b0b52c232cb8d151aefc43e",
+    "right-transition-to-late-arrow": "24691f56f175e158fca8a433c6d74947763e97f669cbdff4ad97f5fc2609f3b1"
+  }
+}

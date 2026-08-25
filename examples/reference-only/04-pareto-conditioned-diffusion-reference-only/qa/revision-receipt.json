@@ -1,0 +1,17 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "revision_receipt",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "lineage_version": "1.0.0",
+  "revision_id": "scene-a61af2ff1ee02194",
+  "scene_sha256": "a61af2ff1ee02194743a73d26ca2f61fe6141a66134399a1fc5813f70e34f0f4",
+  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "artifacts": {
+    "redraw_svg": "5e2858f5321c701022ab515e7651cca6a02541ca567dd80f1ec662a18cb9b374",
+    "redraw_pptx": "6610b8fb6b47855afee713c8b56edaa6f2ea5a7582085237267bd7494f50e16a",
+    "render_png": "998c4a9ff40db53a341ab0b8c97fd5284572f65b61a047f528cf06a057d9fb0f",
+    "bindings": "c38703f65927a0b4bd468613276182261e0abe4df9481590f8225bcb62c8e5be"
+  },
+  "stamped_at": "20260824T151926Z"
+}

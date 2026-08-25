@@ -1,10 +1,10 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "regions",
   "task_mode": "RECONSTRUCT_1TO1",
   "case": "01-modular-agent-reference-only",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "updated_at": "20260821T130838Z",
+  "updated_at": "20260824T121534Z",
   "defaults": {
     "ssim_min": 0.85,
     "edge_iou_min": 0.75
@@ -24,21 +24,89 @@
     {
       "id": "task-guided-allocator-topology",
       "label": "Task-Guided Expert Allocator and routing paths",
-      "bbox": [425, 124, 551, 389],
+      "bbox": [
+        425,
+        124,
+        551,
+        389
+      ],
       "critical": true,
       "element_ids": [
         "allocator-box",
         "allocator-funnel",
         "allocator-task1-route-1",
         "allocator-task1-route-2",
-        "allocator-task2-route-1",
-        "allocator-task2-route-2"
+        "allocator-task1-skip-edge",
+        "allocator-task1-propagation",
+        "allocator-task2-propagation"
+      ]
+    },
+    {
+      "id": "encoder-peer-size-detail",
+      "label": "MLLM and WM encoder peer-size fidelity",
+      "bbox": [
+        180,
+        235,
+        142,
+        253
+      ],
+      "critical": true,
+      "element_ids": [
+        "mllm-encoder",
+        "wm-encoder"
+      ]
+    },
+    {
+      "id": "expert-gap-arrow-text-detail",
+      "label": "Horizontal inter-expert arrows and rotated Sem/Dyn labels",
+      "bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "critical": true,
+      "element_ids": [
+        "expert-1-box",
+        "expert-2-box",
+        "expert-3-box",
+        "expert-4-box",
+        "expert-1-sem-label",
+        "expert-1-dyn-label",
+        "expert-2-sem-label",
+        "expert-2-dyn-label",
+        "expert-3-sem-label",
+        "expert-3-dyn-label",
+        "expert-4-sem-label",
+        "expert-4-dyn-label",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge"
+      ]
+    },
+    {
+      "id": "joint-feedback-arrow-detail",
+      "label": "Thick red joint-optimization feedback arrow",
+      "bbox": [
+        102,
+        514,
+        90,
+        70
+      ],
+      "critical": true,
+      "element_ids": [
+        "joint-loop-arrow"
       ]
     },
     {
       "id": "six-bicolor-state-circles",
       "label": "Six independently oriented bicolor circles",
-      "bbox": [898, 204, 51, 278],
+      "bbox": [
+        898,
+        204,
+        51,
+        278
+      ],
       "critical": true,
       "element_ids": [
         "zt-top-box",
@@ -51,34 +119,156 @@
         "zt-bottom-3"
       ],
       "color_probes": [
-        {"id": "top-1-warm-nw", "point": [915, 225], "radius": 2, "max_delta_e": 5},
-        {"id": "top-1-cool-se", "point": [931, 241], "radius": 2, "max_delta_e": 5},
-        {"id": "top-2-warm-nw", "point": [915, 262], "radius": 2, "max_delta_e": 5},
-        {"id": "top-2-cool-se", "point": [931, 278], "radius": 2, "max_delta_e": 5},
-        {"id": "top-3-warm-nw", "point": [915, 298], "radius": 2, "max_delta_e": 5},
-        {"id": "top-3-cool-se", "point": [931, 314], "radius": 2, "max_delta_e": 5},
-        {"id": "bottom-1-warm-ne", "point": [931, 372], "radius": 2, "max_delta_e": 5},
-        {"id": "bottom-1-cool-sw", "point": [915, 388], "radius": 2, "max_delta_e": 5},
-        {"id": "bottom-2-warm-ne", "point": [931, 408], "radius": 2, "max_delta_e": 5},
-        {"id": "bottom-2-cool-sw", "point": [915, 424], "radius": 2, "max_delta_e": 5},
-        {"id": "bottom-3-warm-ne", "point": [931, 445], "radius": 2, "max_delta_e": 5},
-        {"id": "bottom-3-cool-sw", "point": [915, 461], "radius": 2, "max_delta_e": 5}
+        {
+          "id": "top-1-warm-nw",
+          "point": [
+            915,
+            225
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "top-1-cool-se",
+          "point": [
+            931,
+            241
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "top-2-warm-nw",
+          "point": [
+            915,
+            262
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "top-2-cool-se",
+          "point": [
+            931,
+            278
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "top-3-warm-nw",
+          "point": [
+            915,
+            298
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "top-3-cool-se",
+          "point": [
+            931,
+            314
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "bottom-1-warm-ne",
+          "point": [
+            931,
+            372
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "bottom-1-cool-sw",
+          "point": [
+            915,
+            388
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "bottom-2-warm-ne",
+          "point": [
+            931,
+            408
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "bottom-2-cool-sw",
+          "point": [
+            915,
+            424
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "bottom-3-warm-ne",
+          "point": [
+            931,
+            445
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        },
+        {
+          "id": "bottom-3-cool-sw",
+          "point": [
+            915,
+            461
+          ],
+          "radius": 2,
+          "max_delta_e": 5
+        }
       ]
     },
     {
       "id": "rollout-arrow-topology",
       "label": "Task-aware behavior rollout arrows",
-      "bbox": [988, 116, 410, 346],
+      "bbox": [
+        988,
+        116,
+        410,
+        346
+      ],
       "critical": true,
+      "relations_exhaustive": true,
       "element_ids": [
         "task-conditioned-imagination",
         "rollout-panel",
+        "imag-z0",
+        "imag-z1",
+        "imag-z2",
+        "imag-zh",
+        "reward-r0",
+        "reward-r1",
+        "reward-r2",
+        "rollout-z0",
+        "rollout-z1",
+        "rollout-z2",
+        "rollout-zh",
+        "policy-pi0",
+        "policy-pi1",
+        "policy-pi2",
+        "action-a0",
+        "action-a1",
+        "action-a2",
         "imagination-z0-to-z1",
         "imagination-z1-to-z2",
         "imagination-z2-to-zh",
         "imagination-z0-to-r0",
         "imagination-z1-to-r1",
         "imagination-z2-to-r2",
+        "rollout-z0-to-r0",
+        "rollout-z1-to-r1",
+        "rollout-z2-to-r2",
         "rollout-z0-to-z1",
         "rollout-z1-to-z2",
         "rollout-z2-to-zh",
@@ -91,30 +281,2678 @@
         "rollout-a0-to-z1",
         "rollout-a1-to-z2",
         "rollout-a2-to-next"
+      ],
+      "required_relations": [
+        {
+          "id": "imagination-z0-to-z1",
+          "source_id": "imag-z0",
+          "target_id": "imag-z1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z1-to-z2",
+          "source_id": "imag-z1",
+          "target_id": "imag-z2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z2-to-zh",
+          "source_id": "imag-z2",
+          "target_id": "imag-zh",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z0-to-r0",
+          "source_id": "imag-z0",
+          "target_id": "reward-r0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z1-to-r1",
+          "source_id": "imag-z1",
+          "target_id": "reward-r1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z2-to-r2",
+          "source_id": "imag-z2",
+          "target_id": "reward-r2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z0-to-r0",
+          "source_id": "rollout-z0",
+          "target_id": "reward-r0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z1-to-r1",
+          "source_id": "rollout-z1",
+          "target_id": "reward-r1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z2-to-r2",
+          "source_id": "rollout-z2",
+          "target_id": "reward-r2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z0-to-z1",
+          "source_id": "rollout-z0",
+          "target_id": "rollout-z1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z1-to-z2",
+          "source_id": "rollout-z1",
+          "target_id": "rollout-z2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z2-to-zh",
+          "source_id": "rollout-z2",
+          "target_id": "rollout-zh",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z0-to-pi0",
+          "source_id": "rollout-z0",
+          "target_id": "policy-pi0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z1-to-pi1",
+          "source_id": "rollout-z1",
+          "target_id": "policy-pi1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z2-to-pi2",
+          "source_id": "rollout-z2",
+          "target_id": "policy-pi2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-pi0-to-a0",
+          "source_id": "policy-pi0",
+          "target_id": "action-a0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-pi1-to-a1",
+          "source_id": "policy-pi1",
+          "target_id": "action-a1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-pi2-to-a2",
+          "source_id": "policy-pi2",
+          "target_id": "action-a2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-a0-to-z1",
+          "source_id": "action-a0",
+          "target_id": "rollout-z1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-a1-to-z2",
+          "source_id": "action-a1",
+          "target_id": "rollout-z2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-a2-to-next",
+          "source_id": "action-a2",
+          "target_id": "rollout-zh",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        }
       ]
     },
     {
       "id": "observation-creative-asset",
       "label": "Reference-faithful observation microasset",
-      "bbox": [42, 290, 106, 86],
+      "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
       "critical": true,
       "asset_id": "atomic:observation",
-      "thresholds": {"ssim_min": 0.95, "edge_iou_min": 0.75}
+      "thresholds": {
+        "ssim_min": 0.95,
+        "edge_iou_min": 0.75
+      },
+      "element_ids": [
+        "atomic:observation"
+      ]
+    },
+    {
+      "id": "interaction-exchange-block-arrow",
+      "label": "Single native bidirectional interaction block arrow",
+      "bbox": [
+        1008,
+        560,
+        172,
+        25
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "reward-action-box",
+        "interaction-label",
+        "interaction-exchange",
+        "atomic:environment-globe"
+      ],
+      "required_relations": [
+        {
+          "id": "interaction-exchange",
+          "source_id": "reward-action-box",
+          "target_id": "atomic:environment-globe",
+          "direction": "bidirectional",
+          "start_head_type": "triangle",
+          "end_head_type": "triangle",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.85
+      }
     },
     {
       "id": "environment-globe-creative-asset",
       "label": "Reference-faithful environment globe",
-      "bbox": [1188, 533, 80, 81],
+      "bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
       "critical": true,
       "asset_id": "atomic:environment-globe",
-      "thresholds": {"ssim_min": 0.95, "edge_iou_min": 0.75}
+      "thresholds": {
+        "ssim_min": 0.95,
+        "edge_iou_min": 0.75
+      },
+      "element_ids": [
+        "atomic:environment-globe"
+      ]
     },
     {
       "id": "observation-arrows",
       "label": "Observation to MLLM/WM arrows",
-      "bbox": [132, 232, 190, 254],
+      "bbox": [
+        132,
+        232,
+        190,
+        254
+      ],
       "critical": true,
-      "element_ids": ["observation-to-mllm", "observation-to-wm"]
+      "element_ids": [
+        "observation-to-mllm",
+        "observation-to-wm"
+      ]
     }
-  ]
+  ],
+  "primitive_expectations": [],
+  "arrow_visual_contracts": [
+    {
+      "id": "task-input-to-encoder",
+      "element_id": "task-input-to-encoder",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 11.0,
+      "shaft_seed_point": [
+        412,
+        56
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        398,
+        45,
+        29,
+        21
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          127,
+          127,
+          127
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            410,
+            45,
+            17,
+            21
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "task-encoder-to-tau",
+      "element_id": "task-encoder-to-tau",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 11.0,
+      "shaft_seed_point": [
+        572,
+        56
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        564,
+        46,
+        29,
+        21
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          127,
+          127,
+          127
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            576,
+            46,
+            17,
+            21
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "tau-to-mapping",
+      "element_id": "tau-to-mapping",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 11.0,
+      "shaft_seed_point": [
+        742,
+        56
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        732,
+        45,
+        29,
+        21
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          127,
+          127,
+          127
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            744,
+            45,
+            17,
+            21
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "tau-to-allocator",
+      "element_id": "tau-to-allocator",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        661,
+        85
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        654,
+        77,
+        13,
+        52
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          71,
+          118,
+          204
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            656,
+            118,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "observation-to-mllm",
+      "element_id": "observation-to-mllm",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 5.6533,
+      "shaft_seed_point": [
+        158,
+        314
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        150,
+        292,
+        32,
+        32
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          242,
+          118,
+          34
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            164,
+            293,
+            18,
+            19
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -47.0454
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -47.0454
+    },
+    {
+      "id": "observation-to-wm",
+      "element_id": "observation-to-wm",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 10.776,
+      "shaft_seed_point": [
+        159,
+        385
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        149,
+        375,
+        33,
+        31
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          53,
+          103,
+          183
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            163,
+            387,
+            19,
+            19
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": 38.6598
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": 38.6598
+    },
+    {
+      "id": "mllm-to-ev",
+      "element_id": "mllm-to-ev",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 10.0,
+      "shaft_seed_point": [
+        324,
+        274
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        314,
+        264,
+        29,
+        21
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          242,
+          118,
+          34
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            326,
+            264,
+            17,
+            21
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "wm-to-st",
+      "element_id": "wm-to-st",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 10.0,
+      "shaft_seed_point": [
+        324,
+        435
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        314,
+        426,
+        29,
+        20
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          53,
+          103,
+          183
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            326,
+            426,
+            17,
+            20
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "ev-to-joint",
+      "element_id": "ev-to-joint",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 10.0,
+      "shaft_seed_point": [
+        397,
+        274
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        391,
+        264,
+        32,
+        20
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          242,
+          118,
+          34
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            404,
+            264,
+            17,
+            20
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "st-to-joint",
+      "element_id": "st-to-joint",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 10.0,
+      "shaft_seed_point": [
+        400,
+        436
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        392,
+        426,
+        31,
+        21
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          53,
+          103,
+          183
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            404,
+            426,
+            17,
+            21
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "allocator-task1-route-1",
+      "element_id": "allocator-task1-route-1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.0,
+      "shaft_seed_point": [
+        610,
+        347
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        603,
+        340,
+        27,
+        13
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          17,
+          17,
+          17
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            619,
+            342,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "allocator-task1-route-2",
+      "element_id": "allocator-task1-route-2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.0,
+      "shaft_seed_point": [
+        691,
+        345
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        679,
+        341,
+        29,
+        13
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          17,
+          17,
+          17
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            697,
+            342,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "allocator-task1-skip-edge",
+      "element_id": "allocator-task1-skip-edge",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        762,
+        347
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        757,
+        344,
+        46,
+        6
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          17,
+          17,
+          17
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            776,
+            345,
+            10,
+            4
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "imagination-z0-to-r0",
+      "element_id": "imagination-z0-to-r0",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        1032,
+        212
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1027,
+        200,
+        9,
+        25
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1027,
+            215,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "imagination-z1-to-r1",
+      "element_id": "imagination-z1-to-r1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        1129,
+        212
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1125,
+        198,
+        9,
+        27
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1125,
+            215,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "imagination-z2-to-r2",
+      "element_id": "imagination-z2-to-r2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1228,
+        213
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1224,
+        198,
+        9,
+        27
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1224,
+            215,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z0-to-r0",
+      "element_id": "rollout-z0-to-r0",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        1032,
+        294
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1027,
+        268,
+        9,
+        30
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1027,
+            268,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z1-to-r1",
+      "element_id": "rollout-z1-to-r1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        1129,
+        293
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1125,
+        267,
+        9,
+        31
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1125,
+            267,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z2-to-r2",
+      "element_id": "rollout-z2-to-r2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1228,
+        289
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1224,
+        267,
+        9,
+        31
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1224,
+            267,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "zt-top-to-imagination",
+      "element_id": "zt-top-to-imagination",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 2.4831,
+      "shaft_seed_point": [
+        976,
+        293
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        942,
+        270,
+        67,
+        45
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            999,
+            306,
+            10,
+            9
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": 34.1359
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": 34.1359
+    },
+    {
+      "id": "zt-bottom-to-rollout",
+      "element_id": "zt-bottom-to-rollout",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 2.5089,
+      "shaft_seed_point": [
+        988,
+        349
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        941,
+        325,
+        66,
+        93
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            996,
+            325,
+            9,
+            9
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -56.7529
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -56.7529
+    },
+    {
+      "id": "imagination-z0-to-z1",
+      "element_id": "imagination-z0-to-z1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1075,
+        182
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1054,
+        178,
+        52,
+        8
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1096,
+            178,
+            10,
+            8
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "imagination-z1-to-z2",
+      "element_id": "imagination-z1-to-z2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1164,
+        181
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1152,
+        177,
+        53,
+        9
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1195,
+            177,
+            10,
+            9
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "imagination-z2-to-zh",
+      "element_id": "imagination-z2-to-zh",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        1306,
+        183
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1252,
+        179,
+        83,
+        10
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1325,
+            179,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z0-to-z1",
+      "element_id": "rollout-z0-to-z1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1076,
+        313
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1054,
+        309,
+        52,
+        8
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1096,
+            309,
+            10,
+            8
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z1-to-z2",
+      "element_id": "rollout-z1-to-z2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1166,
+        312
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1152,
+        308,
+        53,
+        9
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1195,
+            308,
+            10,
+            9
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z2-to-zh",
+      "element_id": "rollout-z2-to-zh",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 2.0,
+      "shaft_seed_point": [
+        1306,
+        314
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1252,
+        310,
+        83,
+        10
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1325,
+            310,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z0-to-pi0",
+      "element_id": "rollout-z0-to-pi0",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1032,
+        384
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1028,
+        331,
+        9,
+        77
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1028,
+            398,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z1-to-pi1",
+      "element_id": "rollout-z1-to-pi1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1129,
+        343
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1126,
+        330,
+        9,
+        78
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1126,
+            398,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-z2-to-pi2",
+      "element_id": "rollout-z2-to-pi2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "vertical",
+      "shaft_width_px": 1.0,
+      "shaft_seed_point": [
+        1228,
+        343
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1225,
+        330,
+        9,
+        78
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1225,
+            398,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.65,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    },
+    {
+      "id": "rollout-pi0-to-a0",
+      "element_id": "rollout-pi0-to-a0",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 2.3361,
+      "shaft_seed_point": [
+        1058,
+        425
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1050,
+        394,
+        38,
+        36
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1077,
+            394,
+            9,
+            11
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -111.0135
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -10.6838
+    },
+    {
+      "id": "rollout-pi1-to-a1",
+      "element_id": "rollout-pi1-to-a1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 2.1846,
+      "shaft_seed_point": [
+        1158,
+        424
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1147,
+        394,
+        37,
+        36
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1172,
+            394,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -107.6602
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -14.2517
+    },
+    {
+      "id": "rollout-pi2-to-a2",
+      "element_id": "rollout-pi2-to-a2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 2.9504,
+      "shaft_seed_point": [
+        1254,
+        425
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1247,
+        394,
+        38,
+        36
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1266,
+            394,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -107.6064
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -10.4372
+    },
+    {
+      "id": "rollout-a0-to-z1",
+      "element_id": "rollout-a0-to-z1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 5.5027,
+      "shaft_seed_point": [
+        1107,
+        354
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1084,
+        331,
+        30,
+        45
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1105,
+            331,
+            9,
+            14
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -89.5491
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -34.6887
+    },
+    {
+      "id": "rollout-a1-to-z2",
+      "element_id": "rollout-a1-to-z2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 3.4784,
+      "shaft_seed_point": [
+        1207,
+        348
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1181,
+        331,
+        33,
+        45
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1205,
+            331,
+            9,
+            10
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -89.372
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -48.953
+    },
+    {
+      "id": "rollout-a2-to-next",
+      "element_id": "rollout-a2-to-next",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 5.8895,
+      "shaft_seed_point": [
+        1301,
+        351
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1281,
+        331,
+        27,
+        45
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          126,
+          96,
+          0
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1299,
+            331,
+            9,
+            15
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -90.0651
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -41.7323
+    },
+    {
+      "id": "mapping-to-imagination",
+      "element_id": "mapping-to-imagination",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 9.9788,
+      "shaft_seed_point": [
+        974,
+        83
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        952,
+        60,
+        80,
+        91
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          127,
+          127,
+          127
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1015,
+            134,
+            16,
+            16
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": 49.3987
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": 49.3987
+    },
+    {
+      "id": "joint-loop-arrow",
+      "element_id": "joint-loop-arrow",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "angle",
+      "shaft_width_px": 9.0211,
+      "shaft_seed_point": [
+        139,
+        573
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        106,
+        518,
+        80,
+        61
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          215,
+          126,
+          132
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            106,
+            520,
+            23,
+            17
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0,
+          "axis_angle_deg": -90.0
+        }
+      },
+      "obstacles": [],
+      "shaft_axis_angle_deg": -179.7568
+    },
+    {
+      "id": "interaction-exchange",
+      "element_id": "interaction-exchange",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+        "basis": "isolated case reference.png color component bound to ArrowSpec path"
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 9.0,
+      "shaft_seed_point": [
+        1054,
+        572
+      ],
+      "shaft_seed_radius_px": 0,
+      "shaft_probe_half_length_px": 2.0,
+      "shaft_width_tolerance_px": 1.5,
+      "tight_bbox": [
+        1013,
+        563,
+        163,
+        19
+      ],
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          118,
+          113,
+          113
+        ],
+        "tolerance": 48.0
+      },
+      "heads": {
+        "start": {
+          "search_bbox": [
+            1014,
+            563,
+            17,
+            19
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        },
+        "end": {
+          "search_bbox": [
+            1158,
+            563,
+            17,
+            19
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou_min": 0.75,
+          "max_search_padding_px": 4.0
+        }
+      },
+      "obstacles": []
+    }
+  ],
+  "arrow_visual_expectation": {
+    "count": 39,
+    "contracts": [
+      {
+        "element_id": "task-input-to-encoder",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c933a87796b364937c1cf85bf175c0fd5fe5b25a6b6a906c93422e585c21dfff"
+      },
+      {
+        "element_id": "task-encoder-to-tau",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "36d2e962eb75db4ce80ca0982c4c337c3c16bc3c124913ec69277ac80e6e6180"
+      },
+      {
+        "element_id": "tau-to-mapping",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "71bb04bc89c652208419c418a761c8874d837df78a4801c04192e29914eff6b0"
+      },
+      {
+        "element_id": "tau-to-allocator",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "b40c8b1d378e26999668803d886ae251a6a1b9fda4bce7eb5ee4e514b9fdc970"
+      },
+      {
+        "element_id": "observation-to-mllm",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "5f2c3dad4ec4888812c25591651550402324b5700eebae71ca5f87cf252a91b0"
+      },
+      {
+        "element_id": "observation-to-wm",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "935094e6ab23a87eaafedeb43d3c913d7413b697cdf1f23575cfe0dca1e44cc8"
+      },
+      {
+        "element_id": "mllm-to-ev",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c41d9e7d60a5e029ffe53c8ca59e4965aac95130784c66eddcf0cd67cb3af87b"
+      },
+      {
+        "element_id": "wm-to-st",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "f2722ccc307041e8515a0e33e32dc1172e7783d91c6a5302e730322a8fbee658"
+      },
+      {
+        "element_id": "ev-to-joint",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "28214f414240ae8334326655af67b9128933aea3d4f89b744f04e9e9be776f3a"
+      },
+      {
+        "element_id": "st-to-joint",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "eb763eaf3ddee1a1a1f218d3f062eb8872c177ae9899c4356e73b5317da95044"
+      },
+      {
+        "element_id": "allocator-task1-route-1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "612055f42901638713e7fa53c5b3f2e2993c290a065a99812dba53a9bf33997c"
+      },
+      {
+        "element_id": "allocator-task1-route-2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c9c4c375e4ee90752ffdda67c3b95466ed48ef0f5b18c321e5683735ac18d8d0"
+      },
+      {
+        "element_id": "allocator-task1-skip-edge",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "ac4fdc08da72c19e5941ebbe5d4120edaef222a89d16cf7d45c2f1b5066d7dff"
+      },
+      {
+        "element_id": "imagination-z0-to-r0",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "5462ea7e2fdcaac38c027783afce182f864bff7d6a2415751b54a8f37bdb2afe"
+      },
+      {
+        "element_id": "imagination-z1-to-r1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "7f26f8d9c743e12f71cdfdb9ba5462cdecf4db59b9db15745289d2d654b5d2be"
+      },
+      {
+        "element_id": "imagination-z2-to-r2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "75d52bc1b7c9f50c3e4d0de567c0908e1bf7b02065bfa89789e7d65a1d368a16"
+      },
+      {
+        "element_id": "rollout-z0-to-r0",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "e01d42cd7af4c164344aded0a1c32f4c28d01eba49c7577bc72242cffd248926"
+      },
+      {
+        "element_id": "rollout-z1-to-r1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "0167d32d4cebd4e7829b5d2e613cdfe965e724414b4e1426c0b1c6431ce12c9c"
+      },
+      {
+        "element_id": "rollout-z2-to-r2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "e38eec40344d47eb362d4711322ed20df4bb1dd775f1b00373edafa37ed73a2e"
+      },
+      {
+        "element_id": "zt-top-to-imagination",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "dc1f451db522819c5220ac959c9c3cb51cdf6932bd24100d2c8deadfde2db492"
+      },
+      {
+        "element_id": "zt-bottom-to-rollout",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "e55b55f63036c4c584612d6005549e5723cad4491865e1233d03e7e406bc4857"
+      },
+      {
+        "element_id": "imagination-z0-to-z1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "87b642659cedb84c738d0f97543bc3a73c16fa3a2e922ce3c853d61fe6df3401"
+      },
+      {
+        "element_id": "imagination-z1-to-z2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "627bd6d67934b7258475f537c9d108240bc29af693f6743964df4c4756f1703c"
+      },
+      {
+        "element_id": "imagination-z2-to-zh",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c684385e3a8ea72ee39de9178c79f33927b6632f2086fdd7df0a676d9d3ff97e"
+      },
+      {
+        "element_id": "rollout-z0-to-z1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "29ea497f88768b21a9209e62f95f414b52660f9a4b1aed68c216a68991bbd024"
+      },
+      {
+        "element_id": "rollout-z1-to-z2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "ef75102f6de0ed32d0802d2dd22d63d77f33ffb9569aba24ff0759316df0bb96"
+      },
+      {
+        "element_id": "rollout-z2-to-zh",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "880fcb5d971fe9be12c0e3b6033252479766948dd8319b9b420e7ab369fe8817"
+      },
+      {
+        "element_id": "rollout-z0-to-pi0",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "7c1059faf9abf1ce8bc176cc69098a6c520d5fd49f05c09cc9fce09097123d96"
+      },
+      {
+        "element_id": "rollout-z1-to-pi1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "529ad0cd4c53af64c65cf015b48cf4374ff16546032947561dbd01231bcca26d"
+      },
+      {
+        "element_id": "rollout-z2-to-pi2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "fbfef47da1c851c9fb6ef6f45128bd9d50dc32900ceecfca357397142ee46647"
+      },
+      {
+        "element_id": "rollout-pi0-to-a0",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "60735de1f57cc822e5f2563b2848fcc67c28f6f17b031f4d98eb605d0445ba08"
+      },
+      {
+        "element_id": "rollout-pi1-to-a1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "fb8e9ac2574774c350add01d1024cb96a736b6412fe520c7a507c73379a2e3f9"
+      },
+      {
+        "element_id": "rollout-pi2-to-a2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "596d137c431e35794538030459ee33294e39d41bf686fed47c2d4a1dca8adb7c"
+      },
+      {
+        "element_id": "rollout-a0-to-z1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "74a4147a9c460ba58cf07eadc460dc2768de6138ec9331ad28a801a6c629bfbb"
+      },
+      {
+        "element_id": "rollout-a1-to-z2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "8a07991e29a17b56473869329c44ce7dc3bed2880bae3cdb1f5242bb1f32cd47"
+      },
+      {
+        "element_id": "rollout-a2-to-next",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "8f8ee7bb998d97558bb47f24575dc06180116c11d78c09f0ea38b246dd2206e9"
+      },
+      {
+        "element_id": "mapping-to-imagination",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "8c410d9bc2905bdd9d948a23d72e6a728e966ca66f7ee6704103992cc58ae3b0"
+      },
+      {
+        "element_id": "joint-loop-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "d917a9dc1925ba76291668e7ce4fa1c3f9d4c3b5cd0917ddb988679734811a12"
+      },
+      {
+        "element_id": "interaction-exchange",
+        "head_sides": [
+          "start",
+          "end"
+        ],
+        "contract_sha256": "9f25260ef0c093c40dd84538269f970b3b057d321955b1c38982130d77ccb49a"
+      }
+    ]
+  },
+  "critical_region_expectation": {
+    "count": 10,
+    "contracts": [
+      {
+        "id": "task-guided-allocator-topology",
+        "bbox": [
+          425,
+          124,
+          551,
+          389
+        ],
+        "element_ids": [
+          "allocator-box",
+          "allocator-funnel",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge",
+          "allocator-task1-propagation",
+          "allocator-task2-propagation"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "encoder-peer-size-detail",
+        "bbox": [
+          180,
+          235,
+          142,
+          253
+        ],
+        "element_ids": [
+          "mllm-encoder",
+          "wm-encoder"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "expert-gap-arrow-text-detail",
+        "bbox": [
+          548,
+          225,
+          310,
+          245
+        ],
+        "element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "joint-feedback-arrow-detail",
+        "bbox": [
+          102,
+          514,
+          90,
+          70
+        ],
+        "element_ids": [
+          "joint-loop-arrow"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "six-bicolor-state-circles",
+        "bbox": [
+          898,
+          204,
+          51,
+          278
+        ],
+        "element_ids": [
+          "zt-top-box",
+          "zt-top-1",
+          "zt-top-2",
+          "zt-top-3",
+          "zt-bottom-box",
+          "zt-bottom-1",
+          "zt-bottom-2",
+          "zt-bottom-3"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "63d2c3b215ead5b49ec11c50d427f887c0a040a3e7e965561040164d96667c01"
+        }
+      },
+      {
+        "id": "rollout-arrow-topology",
+        "bbox": [
+          988,
+          116,
+          410,
+          346
+        ],
+        "element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imag-z0",
+          "imag-z1",
+          "imag-z2",
+          "imag-zh",
+          "reward-r0",
+          "reward-r1",
+          "reward-r2",
+          "rollout-z0",
+          "rollout-z1",
+          "rollout-z2",
+          "rollout-zh",
+          "policy-pi0",
+          "policy-pi1",
+          "policy-pi2",
+          "action-a0",
+          "action-a1",
+          "action-a2",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "924b793ff57266a5f05f225d637ae3e8013f516fb2d4a8c03ea98c4577f65869"
+        }
+      },
+      {
+        "id": "observation-creative-asset",
+        "bbox": [
+          42,
+          290,
+          106,
+          86
+        ],
+        "element_ids": [
+          "atomic:observation"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "interaction-exchange-block-arrow",
+        "bbox": [
+          1008,
+          560,
+          172,
+          25
+        ],
+        "element_ids": [
+          "reward-action-box",
+          "interaction-label",
+          "interaction-exchange",
+          "atomic:environment-globe"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "ba9ee492dea1ca3511145f186a4906d9ea6fb8b5b893d4bc17f0dde5cd451f1d"
+        }
+      },
+      {
+        "id": "environment-globe-creative-asset",
+        "bbox": [
+          1188,
+          533,
+          80,
+          81
+        ],
+        "element_ids": [
+          "atomic:environment-globe"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "observation-arrows",
+        "bbox": [
+          132,
+          232,
+          190,
+          254
+        ],
+        "element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      }
+    ]
+  }
 }

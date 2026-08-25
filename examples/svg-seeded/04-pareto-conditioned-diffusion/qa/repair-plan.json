@@ -1,0 +1,545 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "repair-plan",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "artifact_sha256": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+  "qa_report_sha256": {
+    "arrow-compile-report.json": "5b87aaa959630ad970a585b06501017c4b06b1f5d2f2e1ba3ae527607fc06eb5",
+    "arrow-visual-report.json": "8ec532f71b6f93861c9ae47074c873b34de6ad5142112052e87814866fe0c9a4",
+    "asset-contract-receipt.json": "60d2a2cd9220950156043af0fd2fadc91a7e08f07c1f0112dd14975bf6c40bbb",
+    "asset-spec-audit.json": "0202096c4154ea903de21336fbae1da3fd4bc12d4305e9681ce314444ee29c12",
+    "layout-audit.json": "796baa3cca5d440d9465c2acd12affaf068f7c44b12e56081bea8a33393613cb",
+    "math-summary.json": "5b8a3a334b5c92cfc6f516b66ca8765e3ed84a34803de035db231adb27e3ce02",
+    "powerpoint-arrow-readback.json": "a36aad10029d7d0743c7248403e5298a1932828b33b9534ebc7ef3f2bedb4e72",
+    "primitive-audit.json": "6059609bfe7437cee2214ad28013384742e10d84ec3d39a2d4ccdd4077a770f4",
+    "regions-report.json": "460e5ee10277b4a7b9c9c8e3182aff2c42efc372aa02e5d2d239d8874c687c37",
+    "visual-contracts-report.json": "90e86dec506f43ae2d7a17e22fd221925597396280c62ac461d17d4104178766"
+  },
+  "input_blockers_sha256": "9b74ec5d65203e0416a8e440634e6addb4af262055ba47621ee37efb34bb9686",
+  "blockers": [
+    {
+      "id": "B0001",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0002",
+      "blocker": "live-evidence-missing",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0003",
+      "blocker": "ocr:reference-text-unmatched",
+      "category": "source_model"
+    },
+    {
+      "id": "B0004",
+      "blocker": "region:region-balance",
+      "category": "source_model"
+    },
+    {
+      "id": "B0005",
+      "blocker": "region:region-blue-arrow-1",
+      "category": "source_model"
+    },
+    {
+      "id": "B0006",
+      "blocker": "region:region-blue-arrow-2",
+      "category": "source_model"
+    },
+    {
+      "id": "B0007",
+      "blocker": "region:region-candlestick-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0008",
+      "blocker": "region:region-candlestick-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0009",
+      "blocker": "region:region-condition-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0010",
+      "blocker": "region:region-condition-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0011",
+      "blocker": "region:region-dataset-cylinder",
+      "category": "source_model"
+    },
+    {
+      "id": "B0012",
+      "blocker": "region:region-dataset-formula",
+      "category": "source_model"
+    },
+    {
+      "id": "B0013",
+      "blocker": "region:region-designs-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0014",
+      "blocker": "region:region-dna-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0015",
+      "blocker": "region:region-dna-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0016",
+      "blocker": "region:region-left-model-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0017",
+      "blocker": "region:region-left-model-subtitle",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "region:region-left-model-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0019",
+      "blocker": "region:region-left-panel",
+      "category": "source_model"
+    },
+    {
+      "id": "B0020",
+      "blocker": "region:region-molecule-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0021",
+      "blocker": "region:region-molecule-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0022",
+      "blocker": "region:region-noise-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0023",
+      "blocker": "region:region-noise-curve",
+      "category": "source_model"
+    },
+    {
+      "id": "B0024",
+      "blocker": "region:region-noise-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0025",
+      "blocker": "region:region-objectives-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0026",
+      "blocker": "region:region-offline-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0027",
+      "blocker": "region:region-reweighted-cylinder",
+      "category": "source_model"
+    },
+    {
+      "id": "B0028",
+      "blocker": "region:region-reweighted-formula",
+      "category": "source_model"
+    },
+    {
+      "id": "B0029",
+      "blocker": "region:region-reweighted-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0030",
+      "blocker": "region:region-right-model-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0031",
+      "blocker": "region:region-right-model-subtitle",
+      "category": "source_model"
+    },
+    {
+      "id": "B0032",
+      "blocker": "region:region-right-model-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0033",
+      "blocker": "region:region-right-panel",
+      "category": "source_model"
+    },
+    {
+      "id": "B0034",
+      "blocker": "region:region-sample-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0035",
+      "blocker": "region:region-sample-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0036",
+      "blocker": "region:region-sampling-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0037",
+      "blocker": "region:region-static-dataset-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0038",
+      "blocker": "region:region-target-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0039",
+      "blocker": "region:region-target-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0040",
+      "blocker": "region:region-train-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0041",
+      "blocker": "visual-contract:V5:candlestick-left-top",
+      "category": "source_model"
+    },
+    {
+      "id": "B0042",
+      "blocker": "visual-contract:V5:candlestick-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0043",
+      "blocker": "visual-contract:V5:dna-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0044",
+      "blocker": "visual-contract:V5:dna-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0045",
+      "blocker": "visual-contract:V5:molecule-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0046",
+      "blocker": "visual-contract:V5:molecule-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0047",
+      "blocker": "visual-contract:V7:candlestick-left-top",
+      "category": "compiler"
+    },
+    {
+      "id": "B0048",
+      "blocker": "visual-contract:V7:candlestick-right",
+      "category": "compiler"
+    },
+    {
+      "id": "B0049",
+      "blocker": "visual-contract:V7:dataset-cylinder",
+      "category": "compiler"
+    },
+    {
+      "id": "B0050",
+      "blocker": "visual-contract:V7:dna-left",
+      "category": "compiler"
+    },
+    {
+      "id": "B0051",
+      "blocker": "visual-contract:V7:dna-right",
+      "category": "compiler"
+    },
+    {
+      "id": "B0052",
+      "blocker": "visual-contract:V7:molecule-left",
+      "category": "compiler"
+    },
+    {
+      "id": "B0053",
+      "blocker": "visual-contract:V7:molecule-right",
+      "category": "compiler"
+    },
+    {
+      "id": "B0054",
+      "blocker": "visual-contract:V7:reweighted-cylinder",
+      "category": "compiler"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0008",
+        "B0009",
+        "B0010",
+        "B0011",
+        "B0012",
+        "B0013",
+        "B0014",
+        "B0015",
+        "B0016",
+        "B0017",
+        "B0018",
+        "B0019",
+        "B0020",
+        "B0021",
+        "B0022",
+        "B0023",
+        "B0024",
+        "B0025",
+        "B0026",
+        "B0027",
+        "B0028",
+        "B0029",
+        "B0030",
+        "B0031",
+        "B0032",
+        "B0033",
+        "B0034",
+        "B0035",
+        "B0036",
+        "B0037",
+        "B0038",
+        "B0039",
+        "B0040",
+        "B0041",
+        "B0042",
+        "B0043",
+        "B0044",
+        "B0045",
+        "B0046"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-compiler",
+      "category": "compiler",
+      "covers": [
+        "B0047",
+        "B0048",
+        "B0049",
+        "B0050",
+        "B0051",
+        "B0052",
+        "B0053",
+        "B0054"
+      ],
+      "strategy": "fix-deterministic-compiler-and-recompile",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "compiler report",
+        "OOXML readback",
+        "single-visible-object and binding closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0001"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    },
+    {
+      "id": "A-evidence-only",
+      "category": "evidence_only",
+      "covers": [
+        "B0002"
+      ],
+      "strategy": "regenerate-hash-bound-evidence-from-unchanged-artifact",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "redraw.svg",
+        "redraw.pptx",
+        "scene.json",
+        "bindings.json"
+      ],
+      "required_verification": [
+        "evidence artifact identity",
+        "QA report digests",
+        "finalizer-bound render receipt"
+      ]
+    }
+  ],
+  "coverage": {
+    "expected_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048",
+      "B0049",
+      "B0050",
+      "B0051",
+      "B0052",
+      "B0053",
+      "B0054"
+    ],
+    "covered_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048",
+      "B0049",
+      "B0050",
+      "B0051",
+      "B0052",
+      "B0053",
+      "B0054"
+    ],
+    "uncovered_blocker_ids": [],
+    "multiply_covered_blocker_ids": []
+  },
+  "invalid_inputs": [],
+  "classification_counts": {
+    "contract": 0,
+    "source_model": 44,
+    "compiler": 8,
+    "host_compat": 1,
+    "evidence_only": 1
+  },
+  "errors": [],
+  "pass": true,
+  "plan_sha256": "a5f9a05c6c341efb9a7ada568dfbc07a243a8c0f09468616e07b845d30ab2c38"
+}

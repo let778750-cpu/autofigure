@@ -1,0 +1,1592 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-02-thinking-diffusion",
+  "figureRole": "system_architecture",
+  "language": "en",
+  "audience": "Autofigure human review",
+  "claims": [
+    {
+      "claimId": "reference-correspondence",
+      "text": "This editable candidate reconstructs the designated reference; scientific interpretation remains source-bound.",
+      "evidenceType": "conceptual",
+      "sourceIds": [
+        "reference"
+      ],
+      "mustShow": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "svg-text-0001",
+      "label": "Image",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0002",
+      "label": "Prompt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0003",
+      "label": "Response",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-top-left-image",
+      "label": "brace-top-left-image",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-top-left-prompt",
+      "label": "brace-top-left-prompt",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-top-left-response",
+      "label": "brace-top-left-response",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0001",
+      "label": "svg-rect-0001",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0002",
+      "label": "svg-rect-0002",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0003",
+      "label": "svg-rect-0003",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0004",
+      "label": "svg-rect-0004",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0005",
+      "label": "svg-rect-0005",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0006",
+      "label": "svg-rect-0006",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0007",
+      "label": "svg-rect-0007",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0008",
+      "label": "svg-rect-0008",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0009",
+      "label": "svg-rect-0009",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0010",
+      "label": "svg-rect-0010",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0001",
+      "label": "svg-circle-0001",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0002",
+      "label": "svg-circle-0002",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0003",
+      "label": "svg-circle-0003",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0011",
+      "label": "svg-rect-0011",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0012",
+      "label": "svg-rect-0012",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0013",
+      "label": "svg-rect-0013",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0014",
+      "label": "svg-rect-0014",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "arrow-left-input-to-model",
+      "label": "arrow-left-input-to-model",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0015",
+      "label": "svg-rect-0015",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0004",
+      "label": "Diffusion Multimodal Language Model",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "arrow-left-model-to-early-step",
+      "label": "arrow-left-model-to-early-step",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0005",
+      "label": "Base",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0016",
+      "label": "svg-rect-0016",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0017",
+      "label": "svg-rect-0017",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0018",
+      "label": "svg-rect-0018",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0019",
+      "label": "svg-rect-0019",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0004",
+      "label": "svg-circle-0004",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0005",
+      "label": "svg-circle-0005",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0006",
+      "label": "svg-circle-0006",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0020",
+      "label": "svg-rect-0020",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0021",
+      "label": "svg-rect-0021",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0022",
+      "label": "svg-rect-0022",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0023",
+      "label": "svg-rect-0023",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0006",
+      "label": "answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0007",
+      "label": "is",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0008",
+      "label": "B",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-left-early-answer-under",
+      "label": "brace-left-early-answer-under",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0009",
+      "label": "Early Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-left-early-step-side",
+      "label": "brace-left-early-step-side",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-left-early-line1",
+      "label": "Generate answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-left-early-line2",
+      "label": "before reasoning",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-left-transition-dot-1",
+      "label": "ellipsis-left-transition-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-left-transition-dot-2",
+      "label": "ellipsis-left-transition-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-left-transition-dot-3",
+      "label": "ellipsis-left-transition-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "arrow-left-to-later-step",
+      "label": "arrow-left-to-later-step",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0024",
+      "label": "svg-rect-0024",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0025",
+      "label": "svg-rect-0025",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0026",
+      "label": "svg-rect-0026",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0027",
+      "label": "svg-rect-0027",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-left-later-row-dot-1",
+      "label": "ellipsis-left-later-row-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-left-later-row-dot-2",
+      "label": "ellipsis-left-later-row-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-left-later-row-dot-3",
+      "label": "ellipsis-left-later-row-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0028",
+      "label": "svg-rect-0028",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0029",
+      "label": "svg-rect-0029",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0030",
+      "label": "svg-rect-0030",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0031",
+      "label": "svg-rect-0031",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0012",
+      "label": "The",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0013",
+      "label": "stove",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0014",
+      "label": "broken",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0015",
+      "label": "answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0016",
+      "label": "is",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0017",
+      "label": "B",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-left-later-rationale-under",
+      "label": "brace-left-later-rationale-under",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0018",
+      "label": "Later Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-left-later-step-side",
+      "label": "brace-left-later-step-side",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-left-later-line1",
+      "label": "Generate rationale",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-left-later-line2",
+      "label": "after answering",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0032",
+      "label": "svg-rect-0032",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0033",
+      "label": "svg-rect-0033",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0021",
+      "label": "Mask Token",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0034",
+      "label": "svg-rect-0034",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0022",
+      "label": "Less Visual-grounded",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0023",
+      "label": "Output Token",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0035",
+      "label": "svg-rect-0035",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0024",
+      "label": "More Visual-grounded",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0025",
+      "label": "Output Token",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0026",
+      "label": "(a) Baseline dMLLM Inference.",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0027",
+      "label": "Image",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0028",
+      "label": "Prompt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0029",
+      "label": "Response",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-top-right-image",
+      "label": "brace-top-right-image",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-top-right-prompt",
+      "label": "brace-top-right-prompt",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-top-right-response",
+      "label": "brace-top-right-response",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0036",
+      "label": "svg-rect-0036",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0037",
+      "label": "svg-rect-0037",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0038",
+      "label": "svg-rect-0038",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0039",
+      "label": "svg-rect-0039",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0040",
+      "label": "svg-rect-0040",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0041",
+      "label": "svg-rect-0041",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0042",
+      "label": "svg-rect-0042",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0043",
+      "label": "svg-rect-0043",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0044",
+      "label": "svg-rect-0044",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0045",
+      "label": "svg-rect-0045",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0013",
+      "label": "svg-circle-0013",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0014",
+      "label": "svg-circle-0014",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0015",
+      "label": "svg-circle-0015",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0046",
+      "label": "svg-rect-0046",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0047",
+      "label": "svg-rect-0047",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0048",
+      "label": "svg-rect-0048",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0049",
+      "label": "svg-rect-0049",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "arrow-right-input-to-model",
+      "label": "arrow-right-input-to-model",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0050",
+      "label": "svg-rect-0050",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0030",
+      "label": "Diffusion Multimodal Language Model",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "arrow-right-model-to-early-step",
+      "label": "arrow-right-model-to-early-step",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0031",
+      "label": "Ours (PSP & VRG)",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0051",
+      "label": "svg-rect-0051",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0052",
+      "label": "svg-rect-0052",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0053",
+      "label": "svg-rect-0053",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0054",
+      "label": "svg-rect-0054",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0016",
+      "label": "svg-circle-0016",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0017",
+      "label": "svg-circle-0017",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-circle-0018",
+      "label": "svg-circle-0018",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0055",
+      "label": "svg-rect-0055",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0056",
+      "label": "svg-rect-0056",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0057",
+      "label": "svg-rect-0057",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0058",
+      "label": "svg-rect-0058",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0032",
+      "label": "stove",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0033",
+      "label": "old",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-right-early-rationale-under",
+      "label": "brace-right-early-rationale-under",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0034",
+      "label": "Early Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-right-early-step-side",
+      "label": "brace-right-early-step-side",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-right-early-line1",
+      "label": "Generate rationale",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-right-early-line2",
+      "label": "before answering",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-right-transition-dot-1",
+      "label": "ellipsis-right-transition-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-right-transition-dot-2",
+      "label": "ellipsis-right-transition-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-right-transition-dot-3",
+      "label": "ellipsis-right-transition-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "arrow-right-to-later-step",
+      "label": "arrow-right-to-later-step",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0059",
+      "label": "svg-rect-0059",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0060",
+      "label": "svg-rect-0060",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0061",
+      "label": "svg-rect-0061",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0062",
+      "label": "svg-rect-0062",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-right-later-row-dot-1",
+      "label": "ellipsis-right-later-row-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-right-later-row-dot-2",
+      "label": "ellipsis-right-later-row-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "ellipsis-right-later-row-dot-3",
+      "label": "ellipsis-right-later-row-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0063",
+      "label": "svg-rect-0063",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0064",
+      "label": "svg-rect-0064",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0065",
+      "label": "svg-rect-0065",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-rect-0066",
+      "label": "svg-rect-0066",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0037",
+      "label": "The",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0038",
+      "label": "stove",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0039",
+      "label": "is",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0040",
+      "label": "old",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0041",
+      "label": "answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0042",
+      "label": "C",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-right-later-answer-under",
+      "label": "brace-right-later-answer-under",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0043",
+      "label": "Later Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "brace-right-later-step-side",
+      "label": "brace-right-later-step-side",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-right-later-line1",
+      "label": "Generate answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "caption-right-later-line2",
+      "label": "after reasoning",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "svg-text-0046",
+      "label": "(b) Our proposed dMLLM inference.",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    }
+  ],
+  "relations": [],
+  "formulas": [],
+  "evidenceDeclarations": [],
+  "unknowns": [
+    "Independent scientific-semantic approval has not been supplied."
+  ],
+  "approval": {
+    "status": "PENDING",
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Bridge generation does not approve scientific content."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_composition_audit",
+  "created_at": "20260824T151852Z",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "scene_sha256": "2830a479df30fab3a36e29744f08d2e10a494b7e5c0123410e3d0a37956e56b7",
+  "artifact_sha256": "6610b8fb6b47855afee713c8b56edaa6f2ea5a7582085237267bd7494f50e16a",
+  "source_findings": [],
+  "readback_findings": [],
+  "readback_inconclusive": [],
+  "blockers": [],
+  "pass": true
+}

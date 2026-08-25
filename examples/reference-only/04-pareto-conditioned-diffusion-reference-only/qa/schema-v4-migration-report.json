@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "schema_v4_migration_report",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "input_route": "reference-only",
+  "processing_mode": "png_reconstruct",
+  "imported_legacy_carrier": true,
+  "source_gate_decision": "repair",
+  "source_gate_blockers": [
+    "source-gate:isolation:read-manifest-unverified"
+  ],
+  "revision_id": "scene-ffda2f284c7250fe",
+  "scene_sha256": "ffda2f284c7250feba89e577a14da19a59f5e3d9703ca0276f7dde920936ca18",
+  "status": "implemented_unverified",
+  "approved": false
+}

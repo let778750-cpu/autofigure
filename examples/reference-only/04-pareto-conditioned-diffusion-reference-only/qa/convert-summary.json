@@ -1,0 +1,39 @@
+{
+  "svg": "redraw.svg",
+  "pptx": "redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 184,
+  "textbox_with_text": 14,
+  "emitted": {
+    "rect": 17,
+    "text": 14,
+    "line": 99,
+    "ellipse": 32,
+    "freeform": 22,
+    "native-arrowhead": 4
+  },
+  "warnings": [
+    "text-dataset-raw-symbol: transparent text box constrained to dataset-raw-body (padding=8px)",
+    "text-dataset-reweighted-symbol: transparent text box constrained to dataset-reweighted-body (padding=8px)",
+    "text-model-left: transparent text box constrained to model-left-box (padding=14px)",
+    "text-target-objectives: transparent text box constrained to target-objectives-box (padding=12px)",
+    "text-model-right: transparent text box constrained to model-right-box (padding=14px)",
+    "text-designs: transparent text box constrained to designs-box-front (padding=14px)"
+  ],
+  "layout_pass": true,
+  "layout_findings": 0,
+  "arrow_compile_pass": true,
+  "arrow_readback_pass": true,
+  "primitive_pass": true,
+  "asset_spec_pass": true,
+  "asset_spec_count": 10,
+  "asset_spec_readback_count": 152,
+  "asset_spec_findings": 0,
+  "arrow_authoring_allowed": false,
+  "revision_id": "scene-a61af2ff1ee02194",
+  "scene_sha256": "a61af2ff1ee02194743a73d26ca2f61fe6141a66134399a1fc5813f70e34f0f4",
+  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "pptx_sha256": "6610b8fb6b47855afee713c8b56edaa6f2ea5a7582085237267bd7494f50e16a",
+  "object_count": 184,
+  "bindings_complete": true
+}

@@ -1,0 +1,2816 @@
+{
+  "schemaVersion": "2.1.0",
+  "projectId": "autofigure-04-pareto-conditioned-diffusion-reference-only",
+  "version": "autofigure-1e289eed1d95",
+  "canvas": {
+    "width": 1217,
+    "height": 609,
+    "unit": "px",
+    "profileId": "journal-double-column",
+    "backgroundToken": "white"
+  },
+  "nodes": [
+    {
+      "id": "canvas-background",
+      "semanticId": "canvas-background",
+      "kind": "shape",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1217.0,
+      "height": 609.0,
+      "editable": true,
+      "zIndex": 0
+    },
+    {
+      "id": "panel-offline",
+      "semanticId": "panel-offline",
+      "kind": "shape",
+      "x": 20.0,
+      "y": 53.0,
+      "width": 549.0,
+      "height": 541.0,
+      "editable": true,
+      "zIndex": 1
+    },
+    {
+      "id": "panel-sampling",
+      "semanticId": "panel-sampling",
+      "kind": "shape",
+      "x": 580.0,
+      "y": 53.0,
+      "width": 617.0,
+      "height": 541.0,
+      "editable": true,
+      "zIndex": 2
+    },
+    {
+      "id": "text-offline-title",
+      "semanticId": "text-offline-title",
+      "kind": "text",
+      "x": 139.8999,
+      "y": 5.0,
+      "width": 307.2,
+      "height": 70.0,
+      "editable": true,
+      "zIndex": 3,
+      "textSpec": {
+        "text": "Offline Training",
+        "fontToken": "autofigure-font",
+        "fontSize": 30.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Offline Training",
+            "fontToken": "Arial",
+            "fontSize": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "text-offline-subtitle",
+      "semanticId": "text-offline-subtitle",
+      "kind": "text",
+      "x": 81.1755,
+      "y": 66.1336,
+      "width": 425.6488,
+      "height": 56.6662,
+      "editable": true,
+      "zIndex": 4,
+      "textSpec": {
+        "text": "Static Multi-Objective Dataset",
+        "fontToken": "autofigure-font",
+        "fontSize": 21.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Static Multi-Objective Dataset",
+            "fontToken": "Arial",
+            "fontSize": 21.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "text-sampling-title",
+      "semanticId": "text-sampling-title",
+      "kind": "text",
+      "x": 788.8,
+      "y": 5.0,
+      "width": 198.4,
+      "height": 70.0,
+      "editable": true,
+      "zIndex": 5,
+      "textSpec": {
+        "text": "Sampling",
+        "fontToken": "autofigure-font",
+        "fontSize": 30.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sampling",
+            "fontToken": "Arial",
+            "fontSize": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "molecule-offline",
+      "semanticId": "molecule-offline",
+      "kind": "shape",
+      "x": 164.0,
+      "y": 103.0,
+      "width": 73.0,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 6,
+      "composite": true,
+      "memberIds": [
+        "molecule-offline-bond-01",
+        "molecule-offline-bond-02",
+        "molecule-offline-bond-03",
+        "molecule-offline-bond-04",
+        "molecule-offline-bond-05",
+        "molecule-offline-bond-06",
+        "molecule-offline-bond-07",
+        "molecule-offline-atom-01",
+        "molecule-offline-atom-02",
+        "molecule-offline-atom-03",
+        "molecule-offline-atom-04",
+        "molecule-offline-atom-05",
+        "molecule-offline-atom-06",
+        "molecule-offline-atom-07",
+        "molecule-offline-atom-08"
+      ]
+    },
+    {
+      "id": "molecule-offline-atom-01",
+      "semanticId": "molecule-offline-atom-01",
+      "kind": "shape",
+      "x": 164.0,
+      "y": 110.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 14
+    },
+    {
+      "id": "molecule-offline-atom-02",
+      "semanticId": "molecule-offline-atom-02",
+      "kind": "shape",
+      "x": 180.0,
+      "y": 114.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 15
+    },
+    {
+      "id": "molecule-offline-atom-03",
+      "semanticId": "molecule-offline-atom-03",
+      "kind": "shape",
+      "x": 196.0,
+      "y": 103.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 16
+    },
+    {
+      "id": "molecule-offline-atom-04",
+      "semanticId": "molecule-offline-atom-04",
+      "kind": "shape",
+      "x": 174.0,
+      "y": 131.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 17
+    },
+    {
+      "id": "molecule-offline-atom-05",
+      "semanticId": "molecule-offline-atom-05",
+      "kind": "shape",
+      "x": 198.0,
+      "y": 122.0,
+      "width": 12.0,
+      "height": 12.0,
+      "editable": true,
+      "zIndex": 18
+    },
+    {
+      "id": "molecule-offline-atom-06",
+      "semanticId": "molecule-offline-atom-06",
+      "kind": "shape",
+      "x": 215.0,
+      "y": 111.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 19
+    },
+    {
+      "id": "molecule-offline-atom-07",
+      "semanticId": "molecule-offline-atom-07",
+      "kind": "shape",
+      "x": 199.0,
+      "y": 138.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 20
+    },
+    {
+      "id": "molecule-offline-atom-08",
+      "semanticId": "molecule-offline-atom-08",
+      "kind": "shape",
+      "x": 227.0,
+      "y": 131.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 21
+    },
+    {
+      "id": "dna-offline",
+      "semanticId": "dna-offline",
+      "kind": "shape",
+      "x": 168.0,
+      "y": 150.0,
+      "width": 79.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 22,
+      "composite": true,
+      "memberIds": [
+        "dna-offline-left-strand-a",
+        "dna-offline-left-strand-b",
+        "dna-offline-left-rung-01",
+        "dna-offline-left-rung-02",
+        "dna-offline-left-rung-03",
+        "dna-offline-left-rung-04",
+        "dna-offline-left-rung-05",
+        "dna-offline-left-rung-06",
+        "dna-offline-left-rung-07",
+        "dna-offline-right-strand-a",
+        "dna-offline-right-strand-b",
+        "dna-offline-right-rung-01",
+        "dna-offline-right-rung-02",
+        "dna-offline-right-rung-03",
+        "dna-offline-right-rung-04",
+        "dna-offline-right-rung-05",
+        "dna-offline-right-rung-06",
+        "dna-offline-right-rung-07"
+      ]
+    },
+    {
+      "id": "dna-offline-left-strand-a",
+      "semanticId": "dna-offline-left-strand-a",
+      "kind": "shape",
+      "x": 168.0,
+      "y": 150.0,
+      "width": 40.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 23
+    },
+    {
+      "id": "dna-offline-left-strand-b",
+      "semanticId": "dna-offline-left-strand-b",
+      "kind": "shape",
+      "x": 169.0,
+      "y": 150.0,
+      "width": 41.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 24
+    },
+    {
+      "id": "dna-offline-left-rung-01",
+      "semanticId": "dna-offline-left-rung-01",
+      "kind": "line",
+      "x": 181.0,
+      "y": 154.0,
+      "width": 16.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 25
+    },
+    {
+      "id": "dna-offline-left-rung-02",
+      "semanticId": "dna-offline-left-rung-02",
+      "kind": "line",
+      "x": 184.0,
+      "y": 162.0,
+      "width": 10.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 26
+    },
+    {
+      "id": "dna-offline-left-rung-03",
+      "semanticId": "dna-offline-left-rung-03",
+      "kind": "line",
+      "x": 180.0,
+      "y": 170.0,
+      "width": 17.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 27
+    },
+    {
+      "id": "dna-offline-left-rung-04",
+      "semanticId": "dna-offline-left-rung-04",
+      "kind": "line",
+      "x": 176.0,
+      "y": 178.0,
+      "width": 27.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 28
+    },
+    {
+      "id": "dna-offline-left-rung-05",
+      "semanticId": "dna-offline-left-rung-05",
+      "kind": "line",
+      "x": 181.0,
+      "y": 187.0,
+      "width": 17.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 29
+    },
+    {
+      "id": "dna-offline-left-rung-06",
+      "semanticId": "dna-offline-left-rung-06",
+      "kind": "line",
+      "x": 176.0,
+      "y": 197.0,
+      "width": 25.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 30
+    },
+    {
+      "id": "dna-offline-left-rung-07",
+      "semanticId": "dna-offline-left-rung-07",
+      "kind": "line",
+      "x": 182.0,
+      "y": 205.0,
+      "width": 13.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 31
+    },
+    {
+      "id": "dna-offline-right-strand-a",
+      "semanticId": "dna-offline-right-strand-a",
+      "kind": "shape",
+      "x": 216.0,
+      "y": 152.0,
+      "width": 26.0,
+      "height": 57.0,
+      "editable": true,
+      "zIndex": 32
+    },
+    {
+      "id": "dna-offline-right-strand-b",
+      "semanticId": "dna-offline-right-strand-b",
+      "kind": "shape",
+      "x": 219.0,
+      "y": 153.0,
+      "width": 28.0,
+      "height": 56.0,
+      "editable": true,
+      "zIndex": 33
+    },
+    {
+      "id": "dna-offline-right-rung-01",
+      "semanticId": "dna-offline-right-rung-01",
+      "kind": "line",
+      "x": 228.0,
+      "y": 156.0,
+      "width": 9.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 34
+    },
+    {
+      "id": "dna-offline-right-rung-02",
+      "semanticId": "dna-offline-right-rung-02",
+      "kind": "line",
+      "x": 228.0,
+      "y": 163.0,
+      "width": 8.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 35
+    },
+    {
+      "id": "dna-offline-right-rung-03",
+      "semanticId": "dna-offline-right-rung-03",
+      "kind": "line",
+      "x": 225.0,
+      "y": 171.0,
+      "width": 13.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 36
+    },
+    {
+      "id": "dna-offline-right-rung-04",
+      "semanticId": "dna-offline-right-rung-04",
+      "kind": "line",
+      "x": 220.0,
+      "y": 178.0,
+      "width": 23.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 37
+    },
+    {
+      "id": "dna-offline-right-rung-05",
+      "semanticId": "dna-offline-right-rung-05",
+      "kind": "line",
+      "x": 223.0,
+      "y": 186.0,
+      "width": 17.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 38
+    },
+    {
+      "id": "dna-offline-right-rung-06",
+      "semanticId": "dna-offline-right-rung-06",
+      "kind": "line",
+      "x": 226.0,
+      "y": 194.0,
+      "width": 12.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 39
+    },
+    {
+      "id": "dna-offline-right-rung-07",
+      "semanticId": "dna-offline-right-rung-07",
+      "kind": "line",
+      "x": 225.0,
+      "y": 202.0,
+      "width": 12.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 40
+    },
+    {
+      "id": "dataset-raw",
+      "semanticId": "dataset-raw",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 106.0,
+      "width": 84.0,
+      "height": 89.0,
+      "editable": true,
+      "zIndex": 41,
+      "composite": true,
+      "memberIds": [
+        "dataset-raw-body",
+        "dataset-raw-top",
+        "text-dataset-raw-symbol"
+      ]
+    },
+    {
+      "id": "dataset-raw-body",
+      "semanticId": "dataset-raw-body",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 121.0,
+      "width": 84.0,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 42
+    },
+    {
+      "id": "dataset-raw-top",
+      "semanticId": "dataset-raw-top",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 106.0,
+      "width": 84.0,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 43
+    },
+    {
+      "id": "text-dataset-raw-symbol",
+      "semanticId": "text-dataset-raw-symbol",
+      "kind": "text",
+      "x": 264.6,
+      "y": 133.0,
+      "width": 58.8,
+      "height": 54.0,
+      "editable": true,
+      "zIndex": 44,
+      "textSpec": {
+        "text": "D",
+        "fontToken": "autofigure-font",
+        "fontSize": 30.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "D",
+            "fontToken": "Cambria Math",
+            "fontSize": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "chart-offline",
+      "semanticId": "chart-offline",
+      "kind": "shape",
+      "x": 352.0,
+      "y": 121.0,
+      "width": 75.0,
+      "height": 58.0,
+      "editable": true,
+      "zIndex": 45,
+      "composite": true,
+      "memberIds": [
+        "chart-offline-axis-y",
+        "chart-offline-axis-x",
+        "chart-offline-y-tick-01",
+        "chart-offline-y-tick-02",
+        "chart-offline-y-tick-03",
+        "chart-offline-y-tick-04",
+        "chart-offline-x-tick-01",
+        "chart-offline-x-tick-02",
+        "chart-offline-x-tick-03",
+        "chart-offline-x-tick-04",
+        "chart-offline-wick-01",
+        "chart-offline-candle-01",
+        "chart-offline-wick-02",
+        "chart-offline-candle-02",
+        "chart-offline-wick-03",
+        "chart-offline-candle-03",
+        "chart-offline-wick-04",
+        "chart-offline-candle-04",
+        "chart-offline-wick-05",
+        "chart-offline-candle-05"
+      ]
+    },
+    {
+      "id": "chart-offline-axis-y",
+      "semanticId": "chart-offline-axis-y",
+      "kind": "line",
+      "x": 355.0,
+      "y": 121.0,
+      "width": 0.5,
+      "height": 56.0,
+      "editable": true,
+      "zIndex": 46
+    },
+    {
+      "id": "chart-offline-axis-x",
+      "semanticId": "chart-offline-axis-x",
+      "kind": "line",
+      "x": 354.0,
+      "y": 176.0,
+      "width": 73.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 47
+    },
+    {
+      "id": "chart-offline-y-tick-01",
+      "semanticId": "chart-offline-y-tick-01",
+      "kind": "line",
+      "x": 352.0,
+      "y": 165.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 48
+    },
+    {
+      "id": "chart-offline-y-tick-02",
+      "semanticId": "chart-offline-y-tick-02",
+      "kind": "line",
+      "x": 352.0,
+      "y": 153.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 49
+    },
+    {
+      "id": "chart-offline-y-tick-03",
+      "semanticId": "chart-offline-y-tick-03",
+      "kind": "line",
+      "x": 352.0,
+      "y": 141.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 50
+    },
+    {
+      "id": "chart-offline-y-tick-04",
+      "semanticId": "chart-offline-y-tick-04",
+      "kind": "line",
+      "x": 352.0,
+      "y": 129.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 51
+    },
+    {
+      "id": "chart-offline-x-tick-01",
+      "semanticId": "chart-offline-x-tick-01",
+      "kind": "line",
+      "x": 369.0,
+      "y": 173.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 52
+    },
+    {
+      "id": "chart-offline-x-tick-02",
+      "semanticId": "chart-offline-x-tick-02",
+      "kind": "line",
+      "x": 383.0,
+      "y": 173.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 53
+    },
+    {
+      "id": "chart-offline-x-tick-03",
+      "semanticId": "chart-offline-x-tick-03",
+      "kind": "line",
+      "x": 397.0,
+      "y": 173.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 54
+    },
+    {
+      "id": "chart-offline-x-tick-04",
+      "semanticId": "chart-offline-x-tick-04",
+      "kind": "line",
+      "x": 411.0,
+      "y": 173.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 55
+    },
+    {
+      "id": "chart-offline-wick-01",
+      "semanticId": "chart-offline-wick-01",
+      "kind": "line",
+      "x": 366.0,
+      "y": 128.0,
+      "width": 0.5,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 56
+    },
+    {
+      "id": "chart-offline-candle-01",
+      "semanticId": "chart-offline-candle-01",
+      "kind": "shape",
+      "x": 362.0,
+      "y": 137.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 57
+    },
+    {
+      "id": "chart-offline-wick-02",
+      "semanticId": "chart-offline-wick-02",
+      "kind": "line",
+      "x": 378.0,
+      "y": 141.0,
+      "width": 0.5,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 58
+    },
+    {
+      "id": "chart-offline-candle-02",
+      "semanticId": "chart-offline-candle-02",
+      "kind": "shape",
+      "x": 374.0,
+      "y": 148.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 59
+    },
+    {
+      "id": "chart-offline-wick-03",
+      "semanticId": "chart-offline-wick-03",
+      "kind": "line",
+      "x": 390.0,
+      "y": 133.0,
+      "width": 0.5,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 60
+    },
+    {
+      "id": "chart-offline-candle-03",
+      "semanticId": "chart-offline-candle-03",
+      "kind": "shape",
+      "x": 386.0,
+      "y": 145.0,
+      "width": 8.0,
+      "height": 13.0,
+      "editable": true,
+      "zIndex": 61
+    },
+    {
+      "id": "chart-offline-wick-04",
+      "semanticId": "chart-offline-wick-04",
+      "kind": "line",
+      "x": 402.0,
+      "y": 127.0,
+      "width": 0.5,
+      "height": 32.0,
+      "editable": true,
+      "zIndex": 62
+    },
+    {
+      "id": "chart-offline-candle-04",
+      "semanticId": "chart-offline-candle-04",
+      "kind": "shape",
+      "x": 398.0,
+      "y": 136.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 63
+    },
+    {
+      "id": "chart-offline-wick-05",
+      "semanticId": "chart-offline-wick-05",
+      "kind": "line",
+      "x": 414.0,
+      "y": 121.0,
+      "width": 0.5,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 64
+    },
+    {
+      "id": "chart-offline-candle-05",
+      "semanticId": "chart-offline-candle-05",
+      "kind": "shape",
+      "x": 410.0,
+      "y": 132.0,
+      "width": 8.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 65
+    },
+    {
+      "id": "dataset-reweighted",
+      "semanticId": "dataset-reweighted",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 261.0,
+      "width": 84.0,
+      "height": 89.0,
+      "editable": true,
+      "zIndex": 67,
+      "composite": true,
+      "memberIds": [
+        "dataset-reweighted-body",
+        "dataset-reweighted-top",
+        "text-dataset-reweighted-symbol"
+      ]
+    },
+    {
+      "id": "dataset-reweighted-body",
+      "semanticId": "dataset-reweighted-body",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 276.0,
+      "width": 84.0,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 68
+    },
+    {
+      "id": "dataset-reweighted-top",
+      "semanticId": "dataset-reweighted-top",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 261.0,
+      "width": 84.0,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 69
+    },
+    {
+      "id": "text-dataset-reweighted-symbol",
+      "semanticId": "text-dataset-reweighted-symbol",
+      "kind": "text",
+      "x": 264.6,
+      "y": 288.0,
+      "width": 58.8,
+      "height": 54.0,
+      "editable": true,
+      "zIndex": 70,
+      "textSpec": {
+        "text": "D",
+        "fontToken": "autofigure-font",
+        "fontSize": 30.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "D",
+            "fontToken": "Cambria Math",
+            "fontSize": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "text-reweighted",
+      "semanticId": "text-reweighted",
+      "kind": "text",
+      "x": 105.0,
+      "y": 290.9336,
+      "width": 163.7315,
+      "height": 51.6662,
+      "editable": true,
+      "zIndex": 71,
+      "textSpec": {
+        "text": "Reweighted",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Reweighted",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "scale-reweight",
+      "semanticId": "scale-reweight",
+      "kind": "shape",
+      "x": 137.0,
+      "y": 328.0,
+      "width": 61.0,
+      "height": 41.0,
+      "editable": true,
+      "zIndex": 72,
+      "composite": true,
+      "memberIds": [
+        "scale-reweight-post",
+        "scale-reweight-beam",
+        "scale-reweight-pivot",
+        "scale-reweight-left-hanger",
+        "scale-reweight-right-hanger",
+        "scale-reweight-left-pan",
+        "scale-reweight-right-pan",
+        "scale-reweight-base"
+      ]
+    },
+    {
+      "id": "scale-reweight-post",
+      "semanticId": "scale-reweight-post",
+      "kind": "line",
+      "x": 167.0,
+      "y": 328.0,
+      "width": 0.5,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 73
+    },
+    {
+      "id": "scale-reweight-beam",
+      "semanticId": "scale-reweight-beam",
+      "kind": "line",
+      "x": 143.0,
+      "y": 331.0,
+      "width": 48.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 74
+    },
+    {
+      "id": "scale-reweight-pivot",
+      "semanticId": "scale-reweight-pivot",
+      "kind": "shape",
+      "x": 160.0,
+      "y": 334.0,
+      "width": 14.0,
+      "height": 9.0,
+      "editable": true,
+      "zIndex": 75
+    },
+    {
+      "id": "scale-reweight-left-hanger",
+      "semanticId": "scale-reweight-left-hanger",
+      "kind": "line",
+      "x": 149.0,
+      "y": 332.0,
+      "width": 0.5,
+      "height": 17.0,
+      "editable": true,
+      "zIndex": 76
+    },
+    {
+      "id": "scale-reweight-right-hanger",
+      "semanticId": "scale-reweight-right-hanger",
+      "kind": "line",
+      "x": 186.0,
+      "y": 332.0,
+      "width": 0.5,
+      "height": 17.0,
+      "editable": true,
+      "zIndex": 77
+    },
+    {
+      "id": "scale-reweight-left-pan",
+      "semanticId": "scale-reweight-left-pan",
+      "kind": "shape",
+      "x": 137.0,
+      "y": 349.0,
+      "width": 23.0,
+      "height": 10.6667,
+      "editable": true,
+      "zIndex": 78
+    },
+    {
+      "id": "scale-reweight-right-pan",
+      "semanticId": "scale-reweight-right-pan",
+      "kind": "shape",
+      "x": 175.0,
+      "y": 349.0,
+      "width": 23.0,
+      "height": 10.6667,
+      "editable": true,
+      "zIndex": 79
+    },
+    {
+      "id": "scale-reweight-base",
+      "semanticId": "scale-reweight-base",
+      "kind": "shape",
+      "x": 156.0,
+      "y": 364.0,
+      "width": 23.0,
+      "height": 5.0,
+      "editable": true,
+      "zIndex": 80
+    },
+    {
+      "id": "text-train",
+      "semanticId": "text-train",
+      "kind": "text",
+      "x": 333.0,
+      "y": 376.6664,
+      "width": 94.6674,
+      "height": 53.3338,
+      "editable": true,
+      "zIndex": 82,
+      "textSpec": {
+        "text": "Train",
+        "fontToken": "autofigure-font",
+        "fontSize": 20.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Train",
+            "fontToken": "Arial",
+            "fontSize": 20.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "model-left-box",
+      "semanticId": "model-left-box",
+      "kind": "shape",
+      "x": 152.0,
+      "y": 447.0,
+      "width": 284.0,
+      "height": 124.0,
+      "editable": true,
+      "zIndex": 83
+    },
+    {
+      "id": "model-left-watermark",
+      "semanticId": "model-left-watermark",
+      "kind": "shape",
+      "x": 255.0,
+      "y": 452.0,
+      "width": 78.0,
+      "height": 113.0,
+      "editable": true,
+      "zIndex": 84,
+      "composite": true,
+      "memberIds": [
+        "model-left-edge-01",
+        "model-left-edge-02",
+        "model-left-edge-03",
+        "model-left-edge-04",
+        "model-left-edge-05",
+        "model-left-edge-06",
+        "model-left-edge-07",
+        "model-left-edge-08",
+        "model-left-edge-09",
+        "model-left-edge-10",
+        "model-left-edge-11",
+        "model-left-node-01",
+        "model-left-node-02",
+        "model-left-node-03",
+        "model-left-node-04",
+        "model-left-node-05",
+        "model-left-node-06",
+        "model-left-node-07"
+      ]
+    },
+    {
+      "id": "model-left-node-01",
+      "semanticId": "model-left-node-01",
+      "kind": "shape",
+      "x": 287.0,
+      "y": 452.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 96
+    },
+    {
+      "id": "model-left-node-02",
+      "semanticId": "model-left-node-02",
+      "kind": "shape",
+      "x": 255.0,
+      "y": 473.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 97
+    },
+    {
+      "id": "model-left-node-03",
+      "semanticId": "model-left-node-03",
+      "kind": "shape",
+      "x": 319.0,
+      "y": 473.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 98
+    },
+    {
+      "id": "model-left-node-04",
+      "semanticId": "model-left-node-04",
+      "kind": "shape",
+      "x": 287.0,
+      "y": 498.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 99
+    },
+    {
+      "id": "model-left-node-05",
+      "semanticId": "model-left-node-05",
+      "kind": "shape",
+      "x": 256.0,
+      "y": 529.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 100
+    },
+    {
+      "id": "model-left-node-06",
+      "semanticId": "model-left-node-06",
+      "kind": "shape",
+      "x": 318.0,
+      "y": 529.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 101
+    },
+    {
+      "id": "model-left-node-07",
+      "semanticId": "model-left-node-07",
+      "kind": "shape",
+      "x": 287.0,
+      "y": 551.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 102
+    },
+    {
+      "id": "text-model-left",
+      "semanticId": "text-model-left",
+      "kind": "text",
+      "x": 170.588,
+      "y": 479.9336,
+      "width": 246.8238,
+      "height": 77.0664,
+      "editable": true,
+      "zIndex": 103,
+      "textSpec": {
+        "text": "Pareto-Conditioned\nDiffusion Model",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Pareto-Conditioned\nDiffusion Model",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "gaussian-noise",
+      "semanticId": "gaussian-noise",
+      "kind": "shape",
+      "x": 872.0,
+      "y": 83.0,
+      "width": 300.0,
+      "height": 106.5,
+      "editable": true,
+      "zIndex": 104,
+      "composite": true,
+      "memberIds": [
+        "gaussian-noise-baseline",
+        "gaussian-noise-curve"
+      ]
+    },
+    {
+      "id": "gaussian-noise-baseline",
+      "semanticId": "gaussian-noise-baseline",
+      "kind": "line",
+      "x": 872.0,
+      "y": 189.0,
+      "width": 300.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 105
+    },
+    {
+      "id": "gaussian-noise-curve",
+      "semanticId": "gaussian-noise-curve",
+      "kind": "shape",
+      "x": 872.0,
+      "y": 83.0,
+      "width": 300.0,
+      "height": 105.0,
+      "editable": true,
+      "zIndex": 106
+    },
+    {
+      "id": "text-noise",
+      "semanticId": "text-noise",
+      "kind": "text",
+      "x": 1060.0,
+      "y": 200.9336,
+      "width": 95.5858,
+      "height": 51.6662,
+      "editable": true,
+      "zIndex": 108,
+      "textSpec": {
+        "text": "Noise",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Noise",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "target-objectives-box",
+      "semanticId": "target-objectives-box",
+      "kind": "shape",
+      "x": 612.0,
+      "y": 260.0,
+      "width": 151.0,
+      "height": 110.0,
+      "editable": true,
+      "zIndex": 109
+    },
+    {
+      "id": "text-target-objectives",
+      "semanticId": "text-target-objectives",
+      "kind": "text",
+      "x": 624.0,
+      "y": 284.9336,
+      "width": 127.0,
+      "height": 73.0664,
+      "editable": true,
+      "zIndex": 110,
+      "textSpec": {
+        "text": "Target\nObjectives",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Target\nObjectives",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "text-condition",
+      "semanticId": "text-condition",
+      "kind": "text",
+      "x": 772.0,
+      "y": 265.7336,
+      "width": 120.7453,
+      "height": 46.6662,
+      "editable": true,
+      "zIndex": 111,
+      "textSpec": {
+        "text": "Condition",
+        "fontToken": "autofigure-font",
+        "fontSize": 15.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Condition",
+            "fontToken": "Arial",
+            "fontSize": 15.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "chart-target",
+      "semanticId": "chart-target",
+      "kind": "shape",
+      "x": 650.0,
+      "y": 381.0,
+      "width": 75.0,
+      "height": 58.0,
+      "editable": true,
+      "zIndex": 112,
+      "composite": true,
+      "memberIds": [
+        "chart-target-axis-y",
+        "chart-target-axis-x",
+        "chart-target-y-tick-01",
+        "chart-target-y-tick-02",
+        "chart-target-y-tick-03",
+        "chart-target-y-tick-04",
+        "chart-target-x-tick-01",
+        "chart-target-x-tick-02",
+        "chart-target-x-tick-03",
+        "chart-target-x-tick-04",
+        "chart-target-wick-01",
+        "chart-target-candle-01",
+        "chart-target-wick-02",
+        "chart-target-candle-02",
+        "chart-target-wick-03",
+        "chart-target-candle-03",
+        "chart-target-wick-04",
+        "chart-target-candle-04",
+        "chart-target-wick-05",
+        "chart-target-candle-05"
+      ]
+    },
+    {
+      "id": "chart-target-axis-y",
+      "semanticId": "chart-target-axis-y",
+      "kind": "line",
+      "x": 653.0,
+      "y": 381.0,
+      "width": 0.5,
+      "height": 56.0,
+      "editable": true,
+      "zIndex": 113
+    },
+    {
+      "id": "chart-target-axis-x",
+      "semanticId": "chart-target-axis-x",
+      "kind": "line",
+      "x": 652.0,
+      "y": 436.0,
+      "width": 73.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 114
+    },
+    {
+      "id": "chart-target-y-tick-01",
+      "semanticId": "chart-target-y-tick-01",
+      "kind": "line",
+      "x": 650.0,
+      "y": 425.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 115
+    },
+    {
+      "id": "chart-target-y-tick-02",
+      "semanticId": "chart-target-y-tick-02",
+      "kind": "line",
+      "x": 650.0,
+      "y": 413.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 116
+    },
+    {
+      "id": "chart-target-y-tick-03",
+      "semanticId": "chart-target-y-tick-03",
+      "kind": "line",
+      "x": 650.0,
+      "y": 401.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 117
+    },
+    {
+      "id": "chart-target-y-tick-04",
+      "semanticId": "chart-target-y-tick-04",
+      "kind": "line",
+      "x": 650.0,
+      "y": 389.0,
+      "width": 6.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 118
+    },
+    {
+      "id": "chart-target-x-tick-01",
+      "semanticId": "chart-target-x-tick-01",
+      "kind": "line",
+      "x": 667.0,
+      "y": 433.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 119
+    },
+    {
+      "id": "chart-target-x-tick-02",
+      "semanticId": "chart-target-x-tick-02",
+      "kind": "line",
+      "x": 681.0,
+      "y": 433.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 120
+    },
+    {
+      "id": "chart-target-x-tick-03",
+      "semanticId": "chart-target-x-tick-03",
+      "kind": "line",
+      "x": 695.0,
+      "y": 433.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 121
+    },
+    {
+      "id": "chart-target-x-tick-04",
+      "semanticId": "chart-target-x-tick-04",
+      "kind": "line",
+      "x": 709.0,
+      "y": 433.0,
+      "width": 0.5,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 122
+    },
+    {
+      "id": "chart-target-wick-01",
+      "semanticId": "chart-target-wick-01",
+      "kind": "line",
+      "x": 664.0,
+      "y": 388.0,
+      "width": 0.5,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 123
+    },
+    {
+      "id": "chart-target-candle-01",
+      "semanticId": "chart-target-candle-01",
+      "kind": "shape",
+      "x": 660.0,
+      "y": 397.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 124
+    },
+    {
+      "id": "chart-target-wick-02",
+      "semanticId": "chart-target-wick-02",
+      "kind": "line",
+      "x": 676.0,
+      "y": 401.0,
+      "width": 0.5,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 125
+    },
+    {
+      "id": "chart-target-candle-02",
+      "semanticId": "chart-target-candle-02",
+      "kind": "shape",
+      "x": 672.0,
+      "y": 408.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 126
+    },
+    {
+      "id": "chart-target-wick-03",
+      "semanticId": "chart-target-wick-03",
+      "kind": "line",
+      "x": 688.0,
+      "y": 393.0,
+      "width": 0.5,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 127
+    },
+    {
+      "id": "chart-target-candle-03",
+      "semanticId": "chart-target-candle-03",
+      "kind": "shape",
+      "x": 684.0,
+      "y": 405.0,
+      "width": 8.0,
+      "height": 13.0,
+      "editable": true,
+      "zIndex": 128
+    },
+    {
+      "id": "chart-target-wick-04",
+      "semanticId": "chart-target-wick-04",
+      "kind": "line",
+      "x": 700.0,
+      "y": 387.0,
+      "width": 0.5,
+      "height": 32.0,
+      "editable": true,
+      "zIndex": 129
+    },
+    {
+      "id": "chart-target-candle-04",
+      "semanticId": "chart-target-candle-04",
+      "kind": "shape",
+      "x": 696.0,
+      "y": 396.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 130
+    },
+    {
+      "id": "chart-target-wick-05",
+      "semanticId": "chart-target-wick-05",
+      "kind": "line",
+      "x": 712.0,
+      "y": 381.0,
+      "width": 0.5,
+      "height": 34.0,
+      "editable": true,
+      "zIndex": 131
+    },
+    {
+      "id": "chart-target-candle-05",
+      "semanticId": "chart-target-candle-05",
+      "kind": "shape",
+      "x": 708.0,
+      "y": 392.0,
+      "width": 8.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 132
+    },
+    {
+      "id": "model-right-box",
+      "semanticId": "model-right-box",
+      "kind": "shape",
+      "x": 881.0,
+      "y": 252.0,
+      "width": 284.0,
+      "height": 124.0,
+      "editable": true,
+      "zIndex": 134
+    },
+    {
+      "id": "model-right-watermark",
+      "semanticId": "model-right-watermark",
+      "kind": "shape",
+      "x": 983.0,
+      "y": 257.0,
+      "width": 78.0,
+      "height": 113.0,
+      "editable": true,
+      "zIndex": 135,
+      "composite": true,
+      "memberIds": [
+        "model-right-edge-01",
+        "model-right-edge-02",
+        "model-right-edge-03",
+        "model-right-edge-04",
+        "model-right-edge-05",
+        "model-right-edge-06",
+        "model-right-edge-07",
+        "model-right-edge-08",
+        "model-right-edge-09",
+        "model-right-edge-10",
+        "model-right-edge-11",
+        "model-right-node-01",
+        "model-right-node-02",
+        "model-right-node-03",
+        "model-right-node-04",
+        "model-right-node-05",
+        "model-right-node-06",
+        "model-right-node-07"
+      ]
+    },
+    {
+      "id": "model-right-node-01",
+      "semanticId": "model-right-node-01",
+      "kind": "shape",
+      "x": 1015.0,
+      "y": 257.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 147
+    },
+    {
+      "id": "model-right-node-02",
+      "semanticId": "model-right-node-02",
+      "kind": "shape",
+      "x": 983.0,
+      "y": 278.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 148
+    },
+    {
+      "id": "model-right-node-03",
+      "semanticId": "model-right-node-03",
+      "kind": "shape",
+      "x": 1047.0,
+      "y": 278.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 149
+    },
+    {
+      "id": "model-right-node-04",
+      "semanticId": "model-right-node-04",
+      "kind": "shape",
+      "x": 1015.0,
+      "y": 303.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 150
+    },
+    {
+      "id": "model-right-node-05",
+      "semanticId": "model-right-node-05",
+      "kind": "shape",
+      "x": 984.0,
+      "y": 334.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 151
+    },
+    {
+      "id": "model-right-node-06",
+      "semanticId": "model-right-node-06",
+      "kind": "shape",
+      "x": 1046.0,
+      "y": 334.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 152
+    },
+    {
+      "id": "model-right-node-07",
+      "semanticId": "model-right-node-07",
+      "kind": "shape",
+      "x": 1015.0,
+      "y": 356.0,
+      "width": 14.0,
+      "height": 14.0,
+      "editable": true,
+      "zIndex": 153
+    },
+    {
+      "id": "text-model-right",
+      "semanticId": "text-model-right",
+      "kind": "text",
+      "x": 899.588,
+      "y": 284.9336,
+      "width": 246.8238,
+      "height": 77.0664,
+      "editable": true,
+      "zIndex": 154,
+      "textSpec": {
+        "text": "Pareto-Conditioned\nDiffusion Model",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Pareto-Conditioned\nDiffusion Model",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "text-sample",
+      "semanticId": "text-sample",
+      "kind": "text",
+      "x": 1055.0,
+      "y": 398.9336,
+      "width": 117.1188,
+      "height": 51.6662,
+      "editable": true,
+      "zIndex": 156,
+      "textSpec": {
+        "text": "Sample",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sample",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "designs-box",
+      "semanticId": "designs-box",
+      "kind": "shape",
+      "x": 939.0,
+      "y": 461.0,
+      "width": 165.0,
+      "height": 110.0,
+      "editable": true,
+      "zIndex": 157,
+      "composite": true,
+      "memberIds": [
+        "designs-box-top",
+        "designs-box-side",
+        "designs-box-front",
+        "text-designs"
+      ]
+    },
+    {
+      "id": "designs-box-top",
+      "semanticId": "designs-box-top",
+      "kind": "shape",
+      "x": 939.0,
+      "y": 461.0,
+      "width": 165.0,
+      "height": 28.0,
+      "editable": true,
+      "zIndex": 158
+    },
+    {
+      "id": "designs-box-side",
+      "semanticId": "designs-box-side",
+      "kind": "shape",
+      "x": 1077.0,
+      "y": 461.0,
+      "width": 27.0,
+      "height": 110.0,
+      "editable": true,
+      "zIndex": 159
+    },
+    {
+      "id": "designs-box-front",
+      "semanticId": "designs-box-front",
+      "kind": "shape",
+      "x": 939.0,
+      "y": 489.0,
+      "width": 138.0,
+      "height": 82.0,
+      "editable": true,
+      "zIndex": 160
+    },
+    {
+      "id": "text-designs",
+      "semanticId": "text-designs",
+      "kind": "text",
+      "x": 953.0,
+      "y": 515.9336,
+      "width": 110.0,
+      "height": 41.0664,
+      "editable": true,
+      "zIndex": 161,
+      "textSpec": {
+        "text": "Designs",
+        "fontToken": "autofigure-font",
+        "fontSize": 18.99,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Designs",
+            "fontToken": "Arial",
+            "fontSize": 18.99
+          }
+        ]
+      }
+    },
+    {
+      "id": "molecule-output",
+      "semanticId": "molecule-output",
+      "kind": "shape",
+      "x": 850.0,
+      "y": 506.0,
+      "width": 73.0,
+      "height": 45.0,
+      "editable": true,
+      "zIndex": 162,
+      "composite": true,
+      "memberIds": [
+        "molecule-output-bond-01",
+        "molecule-output-bond-02",
+        "molecule-output-bond-03",
+        "molecule-output-bond-04",
+        "molecule-output-bond-05",
+        "molecule-output-bond-06",
+        "molecule-output-bond-07",
+        "molecule-output-atom-01",
+        "molecule-output-atom-02",
+        "molecule-output-atom-03",
+        "molecule-output-atom-04",
+        "molecule-output-atom-05",
+        "molecule-output-atom-06",
+        "molecule-output-atom-07",
+        "molecule-output-atom-08"
+      ]
+    },
+    {
+      "id": "molecule-output-atom-01",
+      "semanticId": "molecule-output-atom-01",
+      "kind": "shape",
+      "x": 850.0,
+      "y": 513.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 170
+    },
+    {
+      "id": "molecule-output-atom-02",
+      "semanticId": "molecule-output-atom-02",
+      "kind": "shape",
+      "x": 866.0,
+      "y": 517.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 171
+    },
+    {
+      "id": "molecule-output-atom-03",
+      "semanticId": "molecule-output-atom-03",
+      "kind": "shape",
+      "x": 882.0,
+      "y": 506.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 172
+    },
+    {
+      "id": "molecule-output-atom-04",
+      "semanticId": "molecule-output-atom-04",
+      "kind": "shape",
+      "x": 860.0,
+      "y": 534.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 173
+    },
+    {
+      "id": "molecule-output-atom-05",
+      "semanticId": "molecule-output-atom-05",
+      "kind": "shape",
+      "x": 884.0,
+      "y": 525.0,
+      "width": 12.0,
+      "height": 12.0,
+      "editable": true,
+      "zIndex": 174
+    },
+    {
+      "id": "molecule-output-atom-06",
+      "semanticId": "molecule-output-atom-06",
+      "kind": "shape",
+      "x": 901.0,
+      "y": 514.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 175
+    },
+    {
+      "id": "molecule-output-atom-07",
+      "semanticId": "molecule-output-atom-07",
+      "kind": "shape",
+      "x": 885.0,
+      "y": 541.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 176
+    },
+    {
+      "id": "molecule-output-atom-08",
+      "semanticId": "molecule-output-atom-08",
+      "kind": "shape",
+      "x": 913.0,
+      "y": 534.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 177
+    },
+    {
+      "id": "dna-output",
+      "semanticId": "dna-output",
+      "kind": "shape",
+      "x": 1105.0,
+      "y": 464.0,
+      "width": 79.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 178,
+      "composite": true,
+      "memberIds": [
+        "dna-output-left-strand-a",
+        "dna-output-left-strand-b",
+        "dna-output-left-rung-01",
+        "dna-output-left-rung-02",
+        "dna-output-left-rung-03",
+        "dna-output-left-rung-04",
+        "dna-output-left-rung-05",
+        "dna-output-left-rung-06",
+        "dna-output-left-rung-07",
+        "dna-output-right-strand-a",
+        "dna-output-right-strand-b",
+        "dna-output-right-rung-01",
+        "dna-output-right-rung-02",
+        "dna-output-right-rung-03",
+        "dna-output-right-rung-04",
+        "dna-output-right-rung-05",
+        "dna-output-right-rung-06",
+        "dna-output-right-rung-07"
+      ]
+    },
+    {
+      "id": "dna-output-left-strand-a",
+      "semanticId": "dna-output-left-strand-a",
+      "kind": "shape",
+      "x": 1105.0,
+      "y": 464.0,
+      "width": 40.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 179
+    },
+    {
+      "id": "dna-output-left-strand-b",
+      "semanticId": "dna-output-left-strand-b",
+      "kind": "shape",
+      "x": 1106.0,
+      "y": 464.0,
+      "width": 41.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 180
+    },
+    {
+      "id": "dna-output-left-rung-01",
+      "semanticId": "dna-output-left-rung-01",
+      "kind": "line",
+      "x": 1118.0,
+      "y": 468.0,
+      "width": 16.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 181
+    },
+    {
+      "id": "dna-output-left-rung-02",
+      "semanticId": "dna-output-left-rung-02",
+      "kind": "line",
+      "x": 1121.0,
+      "y": 476.0,
+      "width": 10.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 182
+    },
+    {
+      "id": "dna-output-left-rung-03",
+      "semanticId": "dna-output-left-rung-03",
+      "kind": "line",
+      "x": 1117.0,
+      "y": 484.0,
+      "width": 17.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 183
+    },
+    {
+      "id": "dna-output-left-rung-04",
+      "semanticId": "dna-output-left-rung-04",
+      "kind": "line",
+      "x": 1113.0,
+      "y": 492.0,
+      "width": 27.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 184
+    },
+    {
+      "id": "dna-output-left-rung-05",
+      "semanticId": "dna-output-left-rung-05",
+      "kind": "line",
+      "x": 1118.0,
+      "y": 501.0,
+      "width": 17.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 185
+    },
+    {
+      "id": "dna-output-left-rung-06",
+      "semanticId": "dna-output-left-rung-06",
+      "kind": "line",
+      "x": 1113.0,
+      "y": 511.0,
+      "width": 25.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 186
+    },
+    {
+      "id": "dna-output-left-rung-07",
+      "semanticId": "dna-output-left-rung-07",
+      "kind": "line",
+      "x": 1119.0,
+      "y": 519.0,
+      "width": 13.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 187
+    },
+    {
+      "id": "dna-output-right-strand-a",
+      "semanticId": "dna-output-right-strand-a",
+      "kind": "shape",
+      "x": 1153.0,
+      "y": 466.0,
+      "width": 26.0,
+      "height": 57.0,
+      "editable": true,
+      "zIndex": 188
+    },
+    {
+      "id": "dna-output-right-strand-b",
+      "semanticId": "dna-output-right-strand-b",
+      "kind": "shape",
+      "x": 1156.0,
+      "y": 467.0,
+      "width": 28.0,
+      "height": 56.0,
+      "editable": true,
+      "zIndex": 189
+    },
+    {
+      "id": "dna-output-right-rung-01",
+      "semanticId": "dna-output-right-rung-01",
+      "kind": "line",
+      "x": 1165.0,
+      "y": 470.0,
+      "width": 9.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 190
+    },
+    {
+      "id": "dna-output-right-rung-02",
+      "semanticId": "dna-output-right-rung-02",
+      "kind": "line",
+      "x": 1165.0,
+      "y": 477.0,
+      "width": 8.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 191
+    },
+    {
+      "id": "dna-output-right-rung-03",
+      "semanticId": "dna-output-right-rung-03",
+      "kind": "line",
+      "x": 1162.0,
+      "y": 485.0,
+      "width": 13.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 192
+    },
+    {
+      "id": "dna-output-right-rung-04",
+      "semanticId": "dna-output-right-rung-04",
+      "kind": "line",
+      "x": 1157.0,
+      "y": 492.0,
+      "width": 23.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 193
+    },
+    {
+      "id": "dna-output-right-rung-05",
+      "semanticId": "dna-output-right-rung-05",
+      "kind": "line",
+      "x": 1160.0,
+      "y": 500.0,
+      "width": 17.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 194
+    },
+    {
+      "id": "dna-output-right-rung-06",
+      "semanticId": "dna-output-right-rung-06",
+      "kind": "line",
+      "x": 1163.0,
+      "y": 508.0,
+      "width": 12.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 195
+    },
+    {
+      "id": "dna-output-right-rung-07",
+      "semanticId": "dna-output-right-rung-07",
+      "kind": "line",
+      "x": 1162.0,
+      "y": 516.0,
+      "width": 12.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 196
+    }
+  ],
+  "edges": [
+    {
+      "id": "molecule-offline-bond-01",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-01"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-01",
+      "target": "molecule-offline-atom-02",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-offline-bond-02",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-02"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-02",
+      "target": "molecule-offline-atom-03",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-offline-bond-03",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-03"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-02",
+      "target": "molecule-offline-atom-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-offline-bond-04",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-04"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-02",
+      "target": "molecule-offline-atom-05",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-offline-bond-05",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-05"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-05",
+      "target": "molecule-offline-atom-06",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-offline-bond-06",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-06"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-05",
+      "target": "molecule-offline-atom-07",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-offline-bond-07",
+      "semanticRelationIds": [
+        "rel:molecule-offline-bond-07"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-offline-atom-05",
+      "target": "molecule-offline-atom-08",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "arrow-raw-to-reweighted",
+      "semanticRelationIds": [
+        "rel:arrow-raw-to-reweighted"
+      ],
+      "geometryOnly": false,
+      "source": "dataset-raw-body",
+      "target": "dataset-reweighted-body",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "arrow-reweighted-to-model",
+      "semanticRelationIds": [
+        "rel:arrow-reweighted-to-model"
+      ],
+      "geometryOnly": false,
+      "source": "dataset-reweighted-body",
+      "target": "model-left-box",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-01",
+      "semanticRelationIds": [
+        "rel:model-left-edge-01"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-01",
+      "target": "model-left-node-02",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-02",
+      "semanticRelationIds": [
+        "rel:model-left-edge-02"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-01",
+      "target": "model-left-node-03",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-03",
+      "semanticRelationIds": [
+        "rel:model-left-edge-03"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-01",
+      "target": "model-left-node-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-04",
+      "semanticRelationIds": [
+        "rel:model-left-edge-04"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-02",
+      "target": "model-left-node-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-05",
+      "semanticRelationIds": [
+        "rel:model-left-edge-05"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-03",
+      "target": "model-left-node-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-06",
+      "semanticRelationIds": [
+        "rel:model-left-edge-06"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-02",
+      "target": "model-left-node-06",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-07",
+      "semanticRelationIds": [
+        "rel:model-left-edge-07"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-03",
+      "target": "model-left-node-05",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-08",
+      "semanticRelationIds": [
+        "rel:model-left-edge-08"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-04",
+      "target": "model-left-node-05",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-09",
+      "semanticRelationIds": [
+        "rel:model-left-edge-09"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-04",
+      "target": "model-left-node-06",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-10",
+      "semanticRelationIds": [
+        "rel:model-left-edge-10"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-05",
+      "target": "model-left-node-07",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-left-edge-11",
+      "semanticRelationIds": [
+        "rel:model-left-edge-11"
+      ],
+      "geometryOnly": false,
+      "source": "model-left-node-06",
+      "target": "model-left-node-07",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "arrow-noise-to-model",
+      "semanticRelationIds": [
+        "rel:arrow-noise-to-model"
+      ],
+      "geometryOnly": false,
+      "source": "gaussian-noise-curve",
+      "target": "model-right-box",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "arrow-target-to-model",
+      "semanticRelationIds": [
+        "rel:arrow-target-to-model"
+      ],
+      "geometryOnly": false,
+      "source": "target-objectives-box",
+      "target": "model-right-box",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-01",
+      "semanticRelationIds": [
+        "rel:model-right-edge-01"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-01",
+      "target": "model-right-node-02",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-02",
+      "semanticRelationIds": [
+        "rel:model-right-edge-02"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-01",
+      "target": "model-right-node-03",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-03",
+      "semanticRelationIds": [
+        "rel:model-right-edge-03"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-01",
+      "target": "model-right-node-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-04",
+      "semanticRelationIds": [
+        "rel:model-right-edge-04"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-02",
+      "target": "model-right-node-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-05",
+      "semanticRelationIds": [
+        "rel:model-right-edge-05"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-03",
+      "target": "model-right-node-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-06",
+      "semanticRelationIds": [
+        "rel:model-right-edge-06"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-02",
+      "target": "model-right-node-06",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-07",
+      "semanticRelationIds": [
+        "rel:model-right-edge-07"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-03",
+      "target": "model-right-node-05",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-08",
+      "semanticRelationIds": [
+        "rel:model-right-edge-08"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-04",
+      "target": "model-right-node-05",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-09",
+      "semanticRelationIds": [
+        "rel:model-right-edge-09"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-04",
+      "target": "model-right-node-06",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-10",
+      "semanticRelationIds": [
+        "rel:model-right-edge-10"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-05",
+      "target": "model-right-node-07",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "model-right-edge-11",
+      "semanticRelationIds": [
+        "rel:model-right-edge-11"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-node-06",
+      "target": "model-right-node-07",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "arrow-model-to-designs",
+      "semanticRelationIds": [
+        "rel:arrow-model-to-designs"
+      ],
+      "geometryOnly": false,
+      "source": "model-right-box",
+      "target": "designs-box-front",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-01",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-01"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-01",
+      "target": "molecule-output-atom-02",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-02",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-02"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-02",
+      "target": "molecule-output-atom-03",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-03",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-03"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-02",
+      "target": "molecule-output-atom-04",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-04",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-04"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-02",
+      "target": "molecule-output-atom-05",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-05",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-05"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-05",
+      "target": "molecule-output-atom-06",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-06",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-06"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-05",
+      "target": "molecule-output-atom-07",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-output-bond-07",
+      "semanticRelationIds": [
+        "rel:molecule-output-bond-07"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-output-atom-05",
+      "target": "molecule-output-atom-08",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    }
+  ],
+  "assetSlots": []
+}

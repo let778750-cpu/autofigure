@@ -1,0 +1,265 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_compile_report",
+  "created_at": "20260824T153713Z",
+  "case": "02-thinking-diffusion-reference-only",
+  "scene_sha256": "e15ab87395c55024012dd14fa819196929da5bb6f7b2208c6695fdeef4ca9c26",
+  "artifact_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+  "arrow_count": 6,
+  "records": [
+    {
+      "element_id": "left-input-to-model-arrow",
+      "arrow_spec_sha256": "9b04d9bcfbdd2ecd67d38ba19b42427f1e69cedb7e6a8b95ecdd5cc254f5316e",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        24
+      ],
+      "shape_names": [
+        "af-left-input-to-model-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "left-model-to-early-arrow",
+      "arrow_spec_sha256": "45cce0aa133864370112a268424b669b8933b6bb671f43705b4073def0afe4bf",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        36
+      ],
+      "shape_names": [
+        "af-left-model-to-early-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "left-transition-to-late-arrow",
+      "arrow_spec_sha256": "ed33b8bc0b55581bf0fd0bc2579c13abaef7e35e43fb0c6304904228abed927d",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        58
+      ],
+      "shape_names": [
+        "af-left-transition-to-late-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "right-input-to-model-arrow",
+      "arrow_spec_sha256": "9c7daeddba7b07632cd139278f406e0b44f190adab31fc6a455d6072ec4c7f1c",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        103
+      ],
+      "shape_names": [
+        "af-right-input-to-model-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "right-model-to-early-arrow",
+      "arrow_spec_sha256": "b9ae052b2f403658003f5e72db7b6a4e46e111694b0b52c232cb8d151aefc43e",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        106
+      ],
+      "shape_names": [
+        "af-right-model-to-early-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "right-transition-to-late-arrow",
+      "arrow_spec_sha256": "24691f56f175e158fca8a433c6d74947763e97f669cbdff4ad97f5fc2609f3b1",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        127
+      ],
+      "shape_names": [
+        "af-right-transition-to-late-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

@@ -9,8 +9,20 @@
     <marker id="arrow-blue" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M 0 0 L 10 5.5 L 0 11 Z" fill="#3567b7"/>
     </marker>
-    <marker id="arrow-gold" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#9a7600"/>
+    <marker id="arrow-allocator-blue" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5.5 L 0 11 Z" fill="#4776cc"/>
+    </marker>
+    <marker id="arrow-task2-red" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5.5 L 0 11 Z" fill="#d40000"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#7e6000"/>
+    </marker>
+    <marker id="arrow-black" markerWidth="12" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#111111"/>
+    </marker>
+    <marker id="arrow-feedback" markerWidth="20" markerHeight="20" refX="20" refY="10" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 20 10 L 0 20 Z" fill="#d77e84"/>
     </marker>
     <linearGradient id="ztop" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f3a46e"/><stop offset="0.48" stop-color="#f3a46e"/>
@@ -65,12 +77,12 @@
   <rect id="allocator-box" x="485" y="132" width="352" height="46" fill="#ffffff" stroke="#4776cc" stroke-width="3"/>
   <text id="allocator-label" x="661" y="164" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="allocator-box" data-layout-padding="6">Task-Guided Expert Allocator</text>
   <path id="allocator-funnel" d="M 485 178 L 837 178 L 710 208 L 612 208 Z" fill="url(#allocator-fade)" stroke="none"/>
-  <line id="tau-to-allocator" x1="660" y1="80" x2="660" y2="127" stroke="#4776cc" stroke-width="3" marker-end="url(#arrow-blue)" data-source-id="tau-box" data-target-id="allocator-box"/>
+  <line id="tau-to-allocator" x1="660" y1="80" x2="660" y2="127" stroke="#4776cc" stroke-width="3" marker-end="url(#arrow-allocator-blue)" data-source-id="tau-box" data-target-id="allocator-box"/>
 
-  <rect id="mllm-encoder" x="188" y="243" width="124" height="112" rx="14" fill="#fff0e5" stroke="none"/>
+  <rect id="mllm-encoder" x="187" y="242" width="124" height="78" rx="13" fill="#fff0e5" stroke="none" data-peer-size-group="encoder-pair" data-peer-size-tolerance="1"/>
   <text id="mllm-line1" x="250" y="276" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="mllm-encoder" data-layout-padding="7">MLLM</text>
   <text id="mllm-line2" x="250" y="304" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="mllm-encoder" data-layout-padding="7">Encoder</text>
-  <rect id="wm-encoder" x="188" y="401" width="124" height="87" rx="14" fill="#e5f0fb" stroke="none"/>
+  <rect id="wm-encoder" x="188" y="401" width="125" height="78" rx="13" fill="#e5f0fb" stroke="none" data-peer-size-group="encoder-pair" data-peer-size-tolerance="1"/>
   <text id="wm-line1" x="250" y="436" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="wm-encoder" data-layout-padding="7">WM</text>
   <text id="wm-line2" x="250" y="464" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="wm-encoder" data-layout-padding="7">Encoder</text>
   <rect id="atomic:observation" x="42" y="290" width="106" height="86" fill="#eeeeee" stroke="#999999"/>
@@ -102,32 +114,32 @@
   <text id="task-2-label" x="490" y="420" text-anchor="middle" font-family="Arial" font-size="22" fill="#ffffff" data-layout-container="task-2-box" data-layout-padding="5">Task 2</text>
 
   <g id="expert-1">
-    <rect id="expert-1-box" x="552" y="229" width="51" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
+    <rect id="expert-1-box" x="552" y="229" width="52" height="237" fill="#fafafa" stroke="#8c8c8c" stroke-width="2" data-peer-size-group="expert-columns" data-peer-size-tolerance="0"/>
     <rect id="expert-1-sem" x="559" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
-    <rect id="expert-1-dyn" x="559" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
-    <text id="expert-1-sem-label" x="578" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-1-sem" data-layout-padding="3"><tspan x="578">S</tspan><tspan x="578" dy="15">e</tspan><tspan x="578" dy="15">m</tspan></text>
-    <text id="expert-1-dyn-label" x="578" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-1-dyn" data-layout-padding="3"><tspan x="578">D</tspan><tspan x="578" dy="15">y</tspan><tspan x="578" dy="15">n</tspan></text>
+    <rect id="expert-1-dyn" x="559" y="356" width="37" height="99" rx="7" fill="#dceaf7"/>
+    <text id="expert-1-sem-label" x="577.5" y="293" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 577.5 293)" data-text-flow="rotated-word" data-text-container="expert-1-sem" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Sem</text>
+    <text id="expert-1-dyn-label" x="577.5" y="405.5" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 577.5 405.5)" data-text-flow="rotated-word" data-text-container="expert-1-dyn" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Dyn</text>
   </g>
   <g id="expert-2">
-    <rect id="expert-2-box" x="628" y="229" width="52" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
-    <rect id="expert-2-sem" x="636" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
-    <rect id="expert-2-dyn" x="636" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
-    <text id="expert-2-sem-label" x="655" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-2-sem" data-layout-padding="3"><tspan x="655">S</tspan><tspan x="655" dy="15">e</tspan><tspan x="655" dy="15">m</tspan></text>
-    <text id="expert-2-dyn-label" x="655" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-2-dyn" data-layout-padding="3"><tspan x="655">D</tspan><tspan x="655" dy="15">y</tspan><tspan x="655" dy="15">n</tspan></text>
+    <rect id="expert-2-box" x="628" y="229" width="52" height="237" fill="#fafafa" stroke="#8c8c8c" stroke-width="2" data-peer-size-group="expert-columns" data-peer-size-tolerance="0"/>
+    <rect id="expert-2-sem" x="635" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-2-dyn" x="635" y="356" width="37" height="99" rx="7" fill="#dceaf7"/>
+    <text id="expert-2-sem-label" x="653.5" y="293" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 653.5 293)" data-text-flow="rotated-word" data-text-container="expert-2-sem" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Sem</text>
+    <text id="expert-2-dyn-label" x="653.5" y="405.5" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 653.5 405.5)" data-text-flow="rotated-word" data-text-container="expert-2-dyn" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Dyn</text>
   </g>
   <g id="expert-3">
-    <rect id="expert-3-box" x="707" y="229" width="51" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
-    <rect id="expert-3-sem" x="714" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
-    <rect id="expert-3-dyn" x="714" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
-    <text id="expert-3-sem-label" x="733" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-3-sem" data-layout-padding="3"><tspan x="733">S</tspan><tspan x="733" dy="15">e</tspan><tspan x="733" dy="15">m</tspan></text>
-    <text id="expert-3-dyn-label" x="733" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-3-dyn" data-layout-padding="3"><tspan x="733">D</tspan><tspan x="733" dy="15">y</tspan><tspan x="733" dy="15">n</tspan></text>
+    <rect id="expert-3-box" x="706" y="229" width="52" height="237" fill="#fafafa" stroke="#8c8c8c" stroke-width="2" data-peer-size-group="expert-columns" data-peer-size-tolerance="0"/>
+    <rect id="expert-3-sem" x="713" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-3-dyn" x="713" y="356" width="37" height="99" rx="7" fill="#dceaf7"/>
+    <text id="expert-3-sem-label" x="731.5" y="293" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 731.5 293)" data-text-flow="rotated-word" data-text-container="expert-3-sem" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Sem</text>
+    <text id="expert-3-dyn-label" x="731.5" y="405.5" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 731.5 405.5)" data-text-flow="rotated-word" data-text-container="expert-3-dyn" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Dyn</text>
   </g>
   <g id="expert-4">
-    <rect id="expert-4-box" x="799" y="229" width="52" height="236" fill="#fafafa" stroke="#8c8c8c" stroke-width="2"/>
-    <rect id="expert-4-sem" x="807" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
-    <rect id="expert-4-dyn" x="807" y="356" width="37" height="100" rx="7" fill="#dceaf7"/>
-    <text id="expert-4-sem-label" x="825" y="277" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-4-sem" data-layout-padding="3"><tspan x="825">S</tspan><tspan x="825" dy="15">e</tspan><tspan x="825" dy="15">m</tspan></text>
-    <text id="expert-4-dyn-label" x="825" y="390" text-anchor="middle" font-family="Arial" font-size="13" data-layout-container="expert-4-dyn" data-layout-padding="3"><tspan x="825">D</tspan><tspan x="825" dy="15">y</tspan><tspan x="825" dy="15">n</tspan></text>
+    <rect id="expert-4-box" x="801" y="229" width="52" height="237" fill="#fafafa" stroke="#8c8c8c" stroke-width="2" data-peer-size-group="expert-columns" data-peer-size-tolerance="0"/>
+    <rect id="expert-4-sem" x="808" y="243" width="37" height="100" rx="8" fill="#fde4d4"/>
+    <rect id="expert-4-dyn" x="808" y="356" width="37" height="99" rx="7" fill="#dceaf7"/>
+    <text id="expert-4-sem-label" x="826.5" y="293" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 826.5 293)" data-text-flow="rotated-word" data-text-container="expert-4-sem" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Sem</text>
+    <text id="expert-4-dyn-label" x="826.5" y="405.5" text-anchor="middle" font-family="Arial" font-size="18" transform="rotate(90 826.5 405.5)" data-text-flow="rotated-word" data-text-container="expert-4-dyn" data-text-box-width="82" data-text-box-height="41" data-text-frame-overflow-tolerance="2">Dyn</text>
   </g>
   <text id="expert-index-1" x="578" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">1</text>
   <text id="expert-index-2" x="654" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">2</text>
@@ -135,10 +147,11 @@
   <text id="expert-index-dots" x="781" y="456" text-anchor="middle" font-family="Arial" font-size="19" fill="#888888">...</text>
   <text id="expert-index-l" x="825" y="487" text-anchor="middle" font-family="Times New Roman" font-size="20" font-style="italic">l</text>
 
-  <path id="allocator-task1-route-1" d="M 537 289 C 570 260 583 277 618 347" fill="none" stroke="#3567b7" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-blue)" data-source-id="task-1-box" data-target-id="expert-1-dyn"/>
-  <path id="allocator-task1-route-2" d="M 538 290 C 622 250 623 430 700 428 C 760 426 785 264 861 284" fill="none" stroke="#3567b7" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-blue)" data-source-id="task-1-box" data-target-id="zt-top-box"/>
-  <path id="allocator-task2-route-1" d="M 537 410 C 620 392 632 441 682 384 C 716 346 720 280 754 282" fill="none" stroke="#d40000" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-orange)" data-source-id="task-2-box" data-target-id="expert-3-sem"/>
-  <path id="allocator-task2-route-2" d="M 537 410 C 622 403 644 424 692 382 C 741 339 781 455 862 418" fill="none" stroke="#d40000" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-orange)" data-source-id="task-2-box" data-target-id="zt-bottom-box"/>
+  <line id="allocator-task1-route-1" x1="604" y1="347" x2="628" y2="347" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-black)" data-source-id="expert-1-box" data-target-id="expert-2-box" data-source-site="3" data-target-site="1" data-routing="host" data-source-gap="0" data-target-gap="0" data-gap-source-id="expert-1-box" data-gap-target-id="expert-2-box" data-gap-axis="horizontal" data-gap-start-inset="0" data-gap-end-inset="0" data-gap-cross-position="347" data-gap-tolerance="0.25" data-z-below="allocator-task1-propagation allocator-task2-propagation" data-reference-bbox="603 341 25 12" data-inference-confidence="0.99"/>
+  <line id="allocator-task1-route-2" x1="680" y1="347" x2="706" y2="347" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-black)" data-source-id="expert-2-box" data-target-id="expert-3-box" data-source-site="3" data-target-site="1" data-routing="host" data-source-gap="0" data-target-gap="0" data-gap-source-id="expert-2-box" data-gap-target-id="expert-3-box" data-gap-axis="horizontal" data-gap-start-inset="0" data-gap-end-inset="0" data-gap-cross-position="347" data-gap-tolerance="0.25" data-z-below="allocator-task1-propagation allocator-task2-propagation" data-reference-bbox="680 341 27 12" data-inference-confidence="0.99"/>
+  <line id="allocator-task1-skip-edge" x1="758" y1="347" x2="801" y2="347" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-black)" data-source-id="expert-3-box" data-target-id="expert-4-box" data-source-site="3" data-target-site="1" data-routing="host" data-source-gap="0" data-target-gap="0" data-gap-source-id="expert-3-box" data-gap-target-id="expert-4-box" data-gap-axis="horizontal" data-gap-start-inset="0" data-gap-end-inset="0" data-gap-cross-position="347" data-gap-tolerance="0.25" data-z-below="allocator-task1-propagation allocator-task2-propagation" data-reference-bbox="758 341 42 12" data-inference-confidence="0.99"/>
+  <path id="allocator-task1-propagation" d="M 539 289 C 562 260, 579 275, 590 311 C 603 350, 625 344, 639 321 C 655 294, 670 299, 686 337 C 701 372, 721 374, 735 334 C 751 287, 778 279, 799 289 C 824 300, 850 265, 901 287" fill="none" stroke="#2d5ea8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4"/>
+  <path id="allocator-task2-propagation" d="M 539 410 C 565 403, 590 424, 618 418 C 646 410, 663 370, 684 334 C 700 308, 713 298, 728 310 C 745 327, 758 386, 787 410 C 815 433, 844 420, 901 413" fill="none" stroke="#d20c0c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 4"/>
 
   <rect id="zt-top-box" x="903" y="208" width="42" height="128" fill="#ffffff" stroke="#19365f" stroke-width="3"/>
   <text id="zt-top-label" x="924" y="198" text-anchor="middle" font-family="Times New Roman" font-size="18" font-style="italic">z<tspan baseline-shift="sub" font-size="12">t</tspan></text>
@@ -151,6 +164,9 @@
   <circle id="zt-bottom-3" cx="924" cy="454" r="16" fill="url(#zbottom)" data-repeat-group="zt-bottom" data-repeat-axis="vertical" data-repeat-order="3"/>
 
   <rect id="task-conditioned-imagination" x="993" y="121" width="400" height="91" rx="17" fill="#f3f3f3" stroke="#19365f" stroke-width="2.3"/>
+  <line id="imagination-z0-to-r0" x1="1033" y1="201" x2="1033" y2="223" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z0" data-target-id="reward-r0" data-source-site="2" data-target-site="0" data-routing="host" data-z-above="task-conditioned-imagination" data-z-below="imag-z0 reward-r0"/>
+  <line id="imagination-z1-to-r1" x1="1129" y1="201" x2="1129" y2="223" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z1" data-target-id="reward-r1" data-source-site="2" data-target-site="0" data-routing="host" data-z-above="task-conditioned-imagination" data-z-below="imag-z1 reward-r1"/>
+  <line id="imagination-z2-to-r2" x1="1229" y1="201" x2="1229" y2="223" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z2" data-target-id="reward-r2" data-source-site="2" data-target-site="0" data-routing="host" data-z-above="task-conditioned-imagination" data-z-below="imag-z2 reward-r2"/>
   <text id="imagination-title" x="1193" y="153" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" data-layout-container="task-conditioned-imagination" data-layout-padding="7">task-conditioned imagination</text>
   <rect id="imag-z0" x="1009" y="166" width="46" height="34" rx="6" fill="#8fc0e8"/>
   <rect id="imag-z1" x="1106" y="166" width="46" height="34" rx="6" fill="#8fc0e8"/>
@@ -163,6 +179,12 @@
   <text id="imag-zh-label" x="1358" y="188" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff" data-layout-container="imag-zh" data-layout-padding="3">z<tspan baseline-shift="super" font-size="11">τ</tspan><tspan baseline-shift="sub" font-size="11">t+h</tspan></text>
 
   <rect id="rollout-panel" x="993" y="281" width="400" height="173" rx="20" fill="#f3f3f3" stroke="#19365f" stroke-width="2.3"/>
+  <!-- Reward fan-in: above the panel, below the reward/state nodes. -->
+  <line id="rollout-z0-to-r0" x1="1033" y1="296" x2="1033" y2="269" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="reward-r0" data-source-site="0" data-target-site="2" data-routing="host" data-z-above="rollout-panel" data-z-below="reward-r0 rollout-z0" data-reference-bbox="1028 269 8 27" data-inference-confidence="0.99"/>
+  <line id="rollout-z1-to-r1" x1="1129" y1="296" x2="1129" y2="268" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="reward-r1" data-source-site="0" data-target-site="2" data-routing="host" data-z-above="rollout-panel" data-z-below="reward-r1 rollout-z1" data-reference-bbox="1125 268 8 27" data-inference-confidence="0.99"/>
+  <line id="rollout-z2-to-r2" x1="1229" y1="296" x2="1229" y2="268" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="reward-r2" data-source-site="0" data-target-site="2" data-routing="host" data-z-above="rollout-panel" data-z-below="reward-r2 rollout-z2" data-reference-bbox="1225 268 7 27" data-inference-confidence="0.99"/>
+  <line id="zt-top-to-imagination" x1="946" y1="272" x2="1005" y2="312" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="zt-top-box" data-target-id="rollout-z0" data-source-site="3" data-target-site="1" data-routing="host" data-z-above="rollout-panel" data-z-below="rollout-z0"/>
+  <line id="zt-bottom-to-rollout" x1="946" y1="416" x2="1005" y2="326" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="zt-bottom-box" data-target-id="rollout-z0" data-source-site="3" data-target-site="1" data-routing="host" data-z-above="rollout-panel" data-z-below="rollout-z0"/>
   <rect id="rollout-z0" x="1011" y="296" width="45" height="36" rx="6" fill="#2f72b8"/>
   <rect id="rollout-z1" x="1107" y="296" width="45" height="36" rx="6" fill="#2f72b8"/>
   <rect id="rollout-z2" x="1207" y="296" width="45" height="36" rx="6" fill="#2f72b8"/>
@@ -192,27 +214,21 @@
   <text id="action-a1-label" x="1180" y="381" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">a<tspan baseline-shift="sub" font-size="11">t+1</tspan></text>
   <text id="action-a2-label" x="1280" y="381" text-anchor="middle" font-family="Times New Roman" font-size="17" font-style="italic" fill="#ffffff">a<tspan baseline-shift="sub" font-size="11">t+2</tspan></text>
 
-  <line id="imagination-z0-to-z1" x1="1056" y1="182" x2="1101" y2="182" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z0" data-target-id="imag-z1"/>
-  <line id="imagination-z1-to-z2" x1="1153" y1="182" x2="1200" y2="182" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z1" data-target-id="imag-z2"/>
-  <line id="imagination-z2-to-zh" x1="1253" y1="182" x2="1330" y2="182" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z2" data-target-id="imag-zh"/>
-  <line id="imagination-z0-to-r0" x1="1033" y1="201" x2="1033" y2="223" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z0" data-target-id="reward-r0"/>
-  <line id="imagination-z1-to-r1" x1="1129" y1="201" x2="1129" y2="223" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z1" data-target-id="reward-r1"/>
-  <line id="imagination-z2-to-r2" x1="1229" y1="201" x2="1229" y2="223" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z2" data-target-id="reward-r2"/>
-  <line id="rollout-z0-to-z1" x1="1057" y1="314" x2="1102" y2="314" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="rollout-z1"/>
-  <line id="rollout-z1-to-z2" x1="1153" y1="314" x2="1202" y2="314" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="rollout-z2"/>
-  <line id="rollout-z2-to-zh" x1="1253" y1="314" x2="1330" y2="314" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="rollout-zh"/>
-  <line id="rollout-z0-to-pi0" x1="1033" y1="333" x2="1033" y2="404" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="policy-pi0"/>
-  <line id="rollout-z1-to-pi1" x1="1130" y1="333" x2="1130" y2="404" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="policy-pi1"/>
-  <line id="rollout-z2-to-pi2" x1="1230" y1="333" x2="1230" y2="404" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="policy-pi2"/>
-  <path id="rollout-pi0-to-a0" d="M 1051 428 C 1080 425 1090 412 1084 397" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi0" data-target-id="action-a0"/>
-  <path id="rollout-pi1-to-a1" d="M 1148 428 C 1175 425 1185 412 1180 397" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi1" data-target-id="action-a1"/>
-  <path id="rollout-pi2-to-a2" d="M 1248 428 C 1275 425 1286 412 1281 397" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi2" data-target-id="action-a2"/>
-  <path id="rollout-a0-to-z1" d="M 1085 355 C 1105 355 1110 343 1110 333" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a0" data-target-id="rollout-z1"/>
-  <path id="rollout-a1-to-z2" d="M 1182 355 C 1203 355 1210 343 1210 333" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a1" data-target-id="rollout-z2"/>
-  <path id="rollout-a2-to-next" d="M 1282 355 C 1305 355 1304 345 1304 333" fill="none" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a2" data-target-id="rollout-zh"/>
-
-  <line id="zt-top-to-imagination" x1="946" y1="272" x2="1005" y2="312" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="zt-top-box" data-target-id="rollout-z0"/>
-  <line id="zt-bottom-to-rollout" x1="946" y1="416" x2="1005" y2="326" stroke="#9a7600" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="zt-bottom-box" data-target-id="rollout-z0"/>
+  <line id="imagination-z0-to-z1" x1="1056" y1="182" x2="1101" y2="182" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z0" data-target-id="imag-z1" data-source-site="3" data-target-site="1" data-routing="host"/>
+  <line id="imagination-z1-to-z2" x1="1153" y1="182" x2="1200" y2="182" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z1" data-target-id="imag-z2" data-source-site="3" data-target-site="1" data-routing="host"/>
+  <line id="imagination-z2-to-zh" x1="1253" y1="182" x2="1330" y2="182" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="imag-z2" data-target-id="imag-zh" data-source-site="3" data-target-site="1" data-routing="host"/>
+  <line id="rollout-z0-to-z1" x1="1057" y1="314" x2="1102" y2="314" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="rollout-z1" data-source-site="3" data-target-site="1" data-routing="host"/>
+  <line id="rollout-z1-to-z2" x1="1153" y1="314" x2="1202" y2="314" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="rollout-z2" data-source-site="3" data-target-site="1" data-routing="host"/>
+  <line id="rollout-z2-to-zh" x1="1253" y1="314" x2="1330" y2="314" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="rollout-zh" data-source-site="3" data-target-site="1" data-routing="host"/>
+  <line id="rollout-z0-to-pi0" x1="1033" y1="333" x2="1033" y2="404" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z0" data-target-id="policy-pi0" data-source-site="2" data-target-site="0" data-routing="host"/>
+  <line id="rollout-z1-to-pi1" x1="1130" y1="333" x2="1130" y2="404" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z1" data-target-id="policy-pi1" data-source-site="2" data-target-site="0" data-routing="host"/>
+  <line id="rollout-z2-to-pi2" x1="1230" y1="333" x2="1230" y2="404" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="rollout-z2" data-target-id="policy-pi2" data-source-site="2" data-target-site="0" data-routing="host"/>
+  <path id="rollout-pi0-to-a0" d="M 1051 428 C 1080 425 1090 412 1084 397" fill="none" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi0" data-target-id="action-a0" data-source-site="3" data-target-site="2"/>
+  <path id="rollout-pi1-to-a1" d="M 1148 428 C 1175 425 1185 412 1180 397" fill="none" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi1" data-target-id="action-a1" data-source-site="3" data-target-site="2"/>
+  <path id="rollout-pi2-to-a2" d="M 1248 428 C 1275 425 1286 412 1281 397" fill="none" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="policy-pi2" data-target-id="action-a2" data-source-site="3" data-target-site="2"/>
+  <path id="rollout-a0-to-z1" d="M 1085 355 C 1105 355 1110 343 1110 333" fill="none" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a0" data-target-id="rollout-z1" data-source-site="0" data-target-site="2"/>
+  <path id="rollout-a1-to-z2" d="M 1182 355 C 1203 355 1210 343 1210 333" fill="none" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a1" data-target-id="rollout-z2" data-source-site="0" data-target-site="2"/>
+  <path id="rollout-a2-to-next" d="M 1282 355 C 1305 355 1304 345 1304 333" fill="none" stroke="#7e6000" stroke-width="2" marker-end="url(#arrow-gold)" data-source-id="action-a2" data-target-id="rollout-zh" data-source-site="0" data-target-site="2"/>
 
   <text id="dense-trophy" x="1288" y="258" font-family="Segoe UI Symbol" font-size="28" fill="#6f5c24">♕</text>
   <text id="dense-reward-label" x="1325" y="243" font-family="Arial" font-size="19" fill="#666666">dense</text>
@@ -223,7 +239,7 @@
 
   <rect id="joint-optimization-box" x="187" y="546" width="421" height="52" fill="#ffffff" stroke="#17355f" stroke-width="2" stroke-dasharray="2 2"/>
   <text id="joint-optimization-label" x="398" y="581" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700" data-layout-container="joint-optimization-box" data-layout-padding="6">MLLM-WM Joint Optimization</text>
-  <path id="joint-loop-arrow" d="M 187 574 L 139 574 C 122 574 116 566 116 550 L 116 523 L 106 535 L 116 520 L 127 535 L 120 526 L 120 550 C 120 564 127 569 140 569 L 187 569 Z" fill="#d8747d" stroke="none"/>
+  <path id="joint-loop-arrow" d="M 180 573 L 139 573 Q 117 573 117 550 L 117 519" fill="none" stroke="#d77e84" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-feedback)" data-source-id="joint-optimization-box" data-target-id="joint-panel" data-source-gap="7" data-target-gap="1" data-attach="false" data-reference-bbox="107 520 77 59" data-inference-confidence="0.99"/>
   <path id="optimization-to-reward" d="M 669 564 L 642 564 L 642 557 L 611 572 L 642 587 L 642 579 L 669 579 Z" fill="#d8747d" stroke="none"/>
   <rect id="reward-action-box" x="674" y="544" width="327" height="55" rx="10" fill="#ffffff" stroke="#19365f" stroke-width="2"/>
   <text id="reward-icon" x="692" y="582" font-family="Segoe UI Symbol" font-size="31" fill="#88732d" data-layout-container="reward-action-box" data-layout-padding="6">♕</text>
@@ -233,8 +249,7 @@
   <text id="action-text" x="929" y="580" font-family="Arial" font-size="20" fill="#777777" data-layout-container="reward-action-box" data-layout-padding="6">action</text>
   <path id="behavior-to-reward" d="M 1059 518 L 1008 537 L 1013 546 L 998 542 L 1001 527 L 1005 535 L 1055 516 Z" fill="#d8747d" stroke="none"/>
   <text id="interaction-label" x="1102" y="561" text-anchor="middle" font-family="Arial" font-size="21">interaction</text>
-  <line id="interaction-left" x1="1168" y1="573" x2="1015" y2="573" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="atomic:environment-globe" data-target-id="reward-action-box"/>
-  <line id="interaction-right" x1="1015" y1="573" x2="1177" y2="573" stroke="#7f7f7f" stroke-width="7" marker-end="url(#arrow-gray)" data-source-id="reward-action-box" data-target-id="atomic:environment-globe"/>
+  <polygon id="interaction-exchange" data-role="edge" data-arrow-representation="block_arrow" data-ppt-autoshape="leftRightArrow" data-ppt-adjustments="0.529411765 0.470588235" data-arrow-body-width="9" data-start-head-type="triangle" data-end-head-type="triangle" data-start-arrow-width="lg" data-end-arrow-width="lg" data-start-arrow-length="sm" data-end-arrow-length="sm" data-source-id="reward-action-box" data-target-id="atomic:environment-globe" data-routing="fixed" data-attach="false" data-source-site="0" data-target-site="0" data-reference-bbox="1008 560 172 25" data-inference-confidence="0.995" points="1014,572 1022,563.5 1022,567.5 1166,567.5 1166,563.5 1174,572 1166,580.5 1166,576.5 1022,576.5 1022,580.5" fill="#767171" stroke="none"/>
   <rect id="atomic:environment-globe" x="1188" y="533" width="80" height="81" fill="#eeeeee" stroke="#999999"/>
   <text id="environment-label" x="1273" y="592" font-family="Arial" font-size="22">Environment</text>
 </svg>

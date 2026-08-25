@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "assets",
   "case": "03-llmind",
   "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
-  "updated_at": "20260821T130720Z",
+  "updated_at": "20260824T141317Z",
   "policy": {
     "formal_content_native": true,
     "authorized_atomic_raster_only": true,
@@ -47,5 +47,6 @@
       "decomposition_note": "No faithful native decomposition; formal text, formulas, nodes, and topology remain native."
     }
   ],
+  "microasset_opportunity_map": [],
   "task_mode": "RECONSTRUCT_1TO1"
 }

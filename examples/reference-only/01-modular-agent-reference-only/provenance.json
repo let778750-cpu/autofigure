@@ -1,10 +1,10 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "provenance",
   "task_mode": "RECONSTRUCT_1TO1",
   "case": "01-modular-agent-reference-only",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "updated_at": "20260821T132025Z",
+  "updated_at": "20260824T121534Z",
   "input_route": "reference-only",
   "reference": {
     "path": "reference.png",

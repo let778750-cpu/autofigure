@@ -1,0 +1,138 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "assets",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "updated_at": "20260824T151852Z",
+  "policy": {
+    "formal_content_native": true,
+    "authorized_atomic_raster_only": true,
+    "whole_reference_forbidden": true
+  },
+  "assets": [],
+  "raster_count": 0,
+  "reference_embedded": false,
+  "microasset_opportunity_map": [
+    {
+      "slot_id": "molecule-offline",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        163,
+        99,
+        78,
+        47
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "molecule-output",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        849,
+        502,
+        78,
+        47
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "dna-offline",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        173,
+        149,
+        67,
+        62
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "dna-output",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        1110,
+        463,
+        67,
+        62
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "scale-reweight",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        136,
+        324,
+        61,
+        45
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "model-left-watermark",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        235,
+        453,
+        117,
+        113
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "model-right-watermark",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        963,
+        259,
+        118,
+        112
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "chart-offline",
+      "object_kind": "plot",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        352,
+        119,
+        76,
+        62
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "chart-target",
+      "object_kind": "plot",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        650,
+        378,
+        75,
+        62
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "gaussian-noise",
+      "object_kind": "plot",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        872,
+        82,
+        300,
+        109
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    }
+  ]
+}

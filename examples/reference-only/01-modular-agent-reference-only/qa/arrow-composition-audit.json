@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_composition_audit",
+  "created_at": "20260824T153857Z",
+  "case": "01-modular-agent-reference-only",
+  "scene_sha256": "fe4f26502413f125e722e6fef558b05185669acbba23e6c8298b241ac0be50b5",
+  "artifact_sha256": "607ded1adc85c06d86d75b2f2bacd7ddb6510b7757629ab8aac7bf3ee706a048",
+  "source_findings": [],
+  "readback_findings": [],
+  "readback_inconclusive": [],
+  "blockers": [],
+  "pass": true
+}

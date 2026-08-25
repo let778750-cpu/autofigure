@@ -1,0 +1,1070 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "arrow_visual_audit",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "contract_count": 5,
+  "expectation": {
+    "expected_count": 5,
+    "actual_count": 5,
+    "expected_element_ids": [
+      "blue-arrow-1",
+      "blue-arrow-2",
+      "condition-arrow",
+      "noise-arrow",
+      "sample-arrow"
+    ],
+    "actual_element_ids": [
+      "blue-arrow-1",
+      "blue-arrow-2",
+      "condition-arrow",
+      "noise-arrow",
+      "sample-arrow"
+    ],
+    "expected_heads": {
+      "blue-arrow-1": [
+        "end"
+      ],
+      "blue-arrow-2": [
+        "end"
+      ],
+      "condition-arrow": [
+        "end"
+      ],
+      "noise-arrow": [
+        "end"
+      ],
+      "sample-arrow": [
+        "end"
+      ]
+    },
+    "actual_heads": {
+      "blue-arrow-1": [
+        "end"
+      ],
+      "blue-arrow-2": [
+        "end"
+      ],
+      "condition-arrow": [
+        "end"
+      ],
+      "noise-arrow": [
+        "end"
+      ],
+      "sample-arrow": [
+        "end"
+      ]
+    },
+    "expected_contract_sha256": {
+      "blue-arrow-1": "c59d71231adb3cc3c471cc7cc348f21676d5fa603f120913aac02775adebf019",
+      "blue-arrow-2": "da12f14c155a916a64dff343a905dfca43e56e55120cbc227a7729a778c7f81c",
+      "condition-arrow": "d9d2806e95af52928932687e144cf32c76ce5d4b25c85f045dbf78475a19660e",
+      "noise-arrow": "42638ccba0b2e31bf6f14b7b748b46eabca6dc39e7ae39e9a563ca8643f158fa",
+      "sample-arrow": "d57f093f32676b6cba70fd62cb962314e77df831e9ab12591086cb4c65313442"
+    },
+    "actual_contract_sha256": {
+      "blue-arrow-1": "c59d71231adb3cc3c471cc7cc348f21676d5fa603f120913aac02775adebf019",
+      "blue-arrow-2": "da12f14c155a916a64dff343a905dfca43e56e55120cbc227a7729a778c7f81c",
+      "condition-arrow": "d9d2806e95af52928932687e144cf32c76ce5d4b25c85f045dbf78475a19660e",
+      "noise-arrow": "42638ccba0b2e31bf6f14b7b748b46eabca6dc39e7ae39e9a563ca8643f158fa",
+      "sample-arrow": "d57f093f32676b6cba70fd62cb962314e77df831e9ab12591086cb4c65313442"
+    },
+    "missing_element_ids": [],
+    "unexpected_element_ids": [],
+    "head_side_mismatches": [],
+    "contract_hash_mismatches": [],
+    "invalid_contract_head_ids": [],
+    "exemptions": [],
+    "exempt_element_ids": [],
+    "scene_arrow_spec_mismatches": [],
+    "pass": true
+  },
+  "records": [
+    {
+      "id": "arrow-visual-blue-arrow-1",
+      "element_id": "blue-arrow-1",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 24.0,
+      "shaft_seed_point": [
+        294,
+        214
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 1,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": true,
+      "tight_bbox": [
+        270,
+        201,
+        318,
+        253
+      ],
+      "reference_arrow": {
+        "bbox": [
+          271,
+          202,
+          46,
+          50
+        ],
+        "edges": [
+          271,
+          202,
+          316,
+          251
+        ],
+        "area_px": 1200
+      },
+      "render_arrow": {
+        "bbox": [
+          272,
+          202,
+          45,
+          50
+        ],
+        "edges": [
+          272,
+          202,
+          316,
+          251
+        ],
+        "area_px": 1152
+      },
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement": {
+        "reference_width_px": 24.0,
+        "render_width_px": 23.0,
+        "render_error_px": 1.0,
+        "declared_width_px": 24.0,
+        "declaration_error_px": 0.0,
+        "tolerance_px": 1.5,
+        "pass": true
+      },
+      "silhouette_bbox_edge_errors_px": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "silhouette_bbox_tolerance_px": 1.5,
+      "silhouette_mask_iou": 0.96,
+      "silhouette_mask_iou_min": 0.75,
+      "silhouette_area_relative_error": 0.04,
+      "silhouette_area_relative_tolerance": 0.2,
+      "reference_foreground_fraction": 0.4808,
+      "render_foreground_fraction": 0.4615,
+      "max_foreground_fraction": 0.8,
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            271,
+            228,
+            318,
+            253
+          ],
+          "expected": {
+            "bbox": [
+              271,
+              228,
+              46,
+              24
+            ],
+            "edges": [
+              271,
+              228,
+              316,
+              251
+            ],
+            "area_px": 576,
+            "width_px": 46.0,
+            "length_px": 24.0
+          },
+          "search_padding_px": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "max_search_padding_px": 4.0,
+          "render": {
+            "bbox": [
+              272,
+              228,
+              45,
+              24
+            ],
+            "edges": [
+              272,
+              228,
+              316,
+              251
+            ],
+            "area_px": 554,
+            "width_px": 45.0,
+            "length_px": 24.0
+          },
+          "bbox_edge_errors_px": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "width_error_px": 1.0,
+          "length_error_px": 0.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou": 0.9618,
+          "mask_iou_min": 0.75,
+          "canonical_orientation": {
+            "observable": true,
+            "direct_iou": 0.9618,
+            "opposite_iou": 0.3647,
+            "self_opposite_iou": 0.3714,
+            "margin": 0.5971,
+            "pass": true,
+            "resolved_pass": true
+          },
+          "scene_taper": {
+            "head_type": "custom",
+            "outward_angle_deg": 90.0,
+            "reference_taper": 0.7391,
+            "render_taper": 0.7556,
+            "minimum_reference_taper": 0.15,
+            "maximum_taper_delta": 0.25,
+            "pass": true
+          },
+          "expected_head_to_shaft_ratio": 1.9167,
+          "render_head_to_shaft_ratio": 1.875,
+          "min_head_to_shaft_ratio": 1.5,
+          "pass": true
+        }
+      ],
+      "obstacles": [],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-blue-arrow-2",
+      "element_id": "blue-arrow-2",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 24.0,
+      "shaft_seed_point": [
+        294,
+        382
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 1,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": true,
+      "tight_bbox": [
+        270,
+        356,
+        318,
+        441
+      ],
+      "reference_arrow": {
+        "bbox": [
+          271,
+          357,
+          46,
+          83
+        ],
+        "edges": [
+          271,
+          357,
+          316,
+          439
+        ],
+        "area_px": 1992
+      },
+      "render_arrow": {
+        "bbox": [
+          272,
+          357,
+          45,
+          83
+        ],
+        "edges": [
+          272,
+          357,
+          316,
+          439
+        ],
+        "area_px": 1911
+      },
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement": {
+        "reference_width_px": 24.0,
+        "render_width_px": 23.0,
+        "render_error_px": 1.0,
+        "declared_width_px": 24.0,
+        "declaration_error_px": 0.0,
+        "tolerance_px": 1.5,
+        "pass": true
+      },
+      "silhouette_bbox_edge_errors_px": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "silhouette_bbox_tolerance_px": 1.5,
+      "silhouette_mask_iou": 0.9593,
+      "silhouette_mask_iou_min": 0.75,
+      "silhouette_area_relative_error": 0.0407,
+      "silhouette_area_relative_tolerance": 0.2,
+      "reference_foreground_fraction": 0.4882,
+      "render_foreground_fraction": 0.4684,
+      "max_foreground_fraction": 0.8,
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            271,
+            416,
+            318,
+            441
+          ],
+          "expected": {
+            "bbox": [
+              271,
+              416,
+              46,
+              24
+            ],
+            "edges": [
+              271,
+              416,
+              316,
+              439
+            ],
+            "area_px": 576,
+            "width_px": 46.0,
+            "length_px": 24.0
+          },
+          "search_padding_px": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "max_search_padding_px": 4.0,
+          "render": {
+            "bbox": [
+              272,
+              416,
+              45,
+              24
+            ],
+            "edges": [
+              272,
+              416,
+              316,
+              439
+            ],
+            "area_px": 554,
+            "width_px": 45.0,
+            "length_px": 24.0
+          },
+          "bbox_edge_errors_px": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "width_error_px": 1.0,
+          "length_error_px": 0.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou": 0.9618,
+          "mask_iou_min": 0.75,
+          "canonical_orientation": {
+            "observable": true,
+            "direct_iou": 0.9618,
+            "opposite_iou": 0.3647,
+            "self_opposite_iou": 0.3714,
+            "margin": 0.5971,
+            "pass": true,
+            "resolved_pass": true
+          },
+          "scene_taper": {
+            "head_type": "custom",
+            "outward_angle_deg": 90.0,
+            "reference_taper": 0.7391,
+            "render_taper": 0.7556,
+            "minimum_reference_taper": 0.15,
+            "maximum_taper_delta": 0.25,
+            "pass": true
+          },
+          "expected_head_to_shaft_ratio": 1.9167,
+          "render_head_to_shaft_ratio": 1.875,
+          "min_head_to_shaft_ratio": 1.5,
+          "pass": true
+        }
+      ],
+      "obstacles": [],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-condition-arrow",
+      "element_id": "condition-arrow",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 18.0,
+      "shaft_seed_point": [
+        810,
+        315
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 1,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": true,
+      "tight_bbox": [
+        769,
+        296,
+        875,
+        333
+      ],
+      "reference_arrow": {
+        "bbox": [
+          770,
+          297,
+          104,
+          35
+        ],
+        "edges": [
+          770,
+          297,
+          873,
+          331
+        ],
+        "area_px": 1959
+      },
+      "render_arrow": {
+        "bbox": [
+          770,
+          297,
+          104,
+          35
+        ],
+        "edges": [
+          770,
+          297,
+          873,
+          331
+        ],
+        "area_px": 1963
+      },
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement": {
+        "reference_width_px": 19.0,
+        "render_width_px": 19.0,
+        "render_error_px": 0.0,
+        "declared_width_px": 18.0,
+        "declaration_error_px": 1.0,
+        "tolerance_px": 1.5,
+        "pass": true
+      },
+      "silhouette_bbox_edge_errors_px": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "silhouette_bbox_tolerance_px": 1.5,
+      "silhouette_mask_iou": 0.998,
+      "silhouette_mask_iou_min": 0.75,
+      "silhouette_area_relative_error": 0.002,
+      "silhouette_area_relative_tolerance": 0.2,
+      "reference_foreground_fraction": 0.4995,
+      "render_foreground_fraction": 0.5005,
+      "max_foreground_fraction": 0.8,
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            854,
+            296,
+            875,
+            333
+          ],
+          "expected": {
+            "bbox": [
+              854,
+              297,
+              20,
+              35
+            ],
+            "edges": [
+              854,
+              297,
+              873,
+              331
+            ],
+            "area_px": 363,
+            "width_px": 35.0,
+            "length_px": 20.0
+          },
+          "search_padding_px": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "max_search_padding_px": 4.0,
+          "render": {
+            "bbox": [
+              854,
+              297,
+              20,
+              35
+            ],
+            "edges": [
+              854,
+              297,
+              873,
+              331
+            ],
+            "area_px": 367,
+            "width_px": 35.0,
+            "length_px": 20.0
+          },
+          "bbox_edge_errors_px": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "width_error_px": 0.0,
+          "length_error_px": 0.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou": 0.9891,
+          "mask_iou_min": 0.75,
+          "canonical_orientation": {
+            "observable": true,
+            "direct_iou": 0.8814,
+            "opposite_iou": 0.3774,
+            "self_opposite_iou": 0.3802,
+            "margin": 0.5041,
+            "pass": true,
+            "resolved_pass": true
+          },
+          "scene_taper": {
+            "head_type": "custom",
+            "outward_angle_deg": 0.0,
+            "reference_taper": 0.7429,
+            "render_taper": 0.7429,
+            "minimum_reference_taper": 0.15,
+            "maximum_taper_delta": 0.25,
+            "pass": true
+          },
+          "expected_head_to_shaft_ratio": 1.9444,
+          "render_head_to_shaft_ratio": 1.9444,
+          "min_head_to_shaft_ratio": 1.5,
+          "pass": true
+        }
+      ],
+      "obstacles": [],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-noise-arrow",
+      "element_id": "noise-arrow",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 24.0,
+      "shaft_seed_point": [
+        1022,
+        208
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 1,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": true,
+      "tight_bbox": [
+        999,
+        196,
+        1045,
+        247
+      ],
+      "reference_arrow": {
+        "bbox": [
+          1000,
+          197,
+          44,
+          49
+        ],
+        "edges": [
+          1000,
+          197,
+          1043,
+          245
+        ],
+        "area_px": 1155
+      },
+      "render_arrow": {
+        "bbox": [
+          1001,
+          197,
+          43,
+          50
+        ],
+        "edges": [
+          1001,
+          197,
+          1043,
+          246
+        ],
+        "area_px": 1118
+      },
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement": {
+        "reference_width_px": 24.0,
+        "render_width_px": 23.0,
+        "render_error_px": 1.0,
+        "declared_width_px": 24.0,
+        "declaration_error_px": 0.0,
+        "tolerance_px": 1.5,
+        "pass": true
+      },
+      "silhouette_bbox_edge_errors_px": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "silhouette_bbox_tolerance_px": 1.5,
+      "silhouette_mask_iou": 0.968,
+      "silhouette_mask_iou_min": 0.75,
+      "silhouette_area_relative_error": 0.032,
+      "silhouette_area_relative_tolerance": 0.2,
+      "reference_foreground_fraction": 0.4923,
+      "render_foreground_fraction": 0.4766,
+      "max_foreground_fraction": 0.8,
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            999,
+            223,
+            1045,
+            247
+          ],
+          "expected": {
+            "bbox": [
+              1000,
+              223,
+              44,
+              23
+            ],
+            "edges": [
+              1000,
+              223,
+              1043,
+              245
+            ],
+            "area_px": 531,
+            "width_px": 44.0,
+            "length_px": 23.0
+          },
+          "search_padding_px": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "max_search_padding_px": 4.0,
+          "render": {
+            "bbox": [
+              1001,
+              223,
+              43,
+              24
+            ],
+            "edges": [
+              1001,
+              223,
+              1043,
+              246
+            ],
+            "area_px": 520,
+            "width_px": 43.0,
+            "length_px": 24.0
+          },
+          "bbox_edge_errors_px": [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "width_error_px": 1.0,
+          "length_error_px": 1.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou": 0.9793,
+          "mask_iou_min": 0.75,
+          "canonical_orientation": {
+            "observable": true,
+            "direct_iou": 0.9572,
+            "opposite_iou": 0.3389,
+            "self_opposite_iou": 0.3308,
+            "margin": 0.6183,
+            "pass": true,
+            "resolved_pass": true
+          },
+          "scene_taper": {
+            "head_type": "custom",
+            "outward_angle_deg": 90.0,
+            "reference_taper": 0.7273,
+            "render_taper": 0.7442,
+            "minimum_reference_taper": 0.15,
+            "maximum_taper_delta": 0.25,
+            "pass": true
+          },
+          "expected_head_to_shaft_ratio": 1.8333,
+          "render_head_to_shaft_ratio": 1.7917,
+          "min_head_to_shaft_ratio": 1.5,
+          "pass": true
+        }
+      ],
+      "obstacles": [],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-sample-arrow",
+      "element_id": "sample-arrow",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 24.0,
+      "shaft_seed_point": [
+        1022,
+        402
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 1,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": true,
+      "tight_bbox": [
+        999,
+        383,
+        1046,
+        456
+      ],
+      "reference_arrow": {
+        "bbox": [
+          1000,
+          384,
+          45,
+          71
+        ],
+        "edges": [
+          1000,
+          384,
+          1044,
+          454
+        ],
+        "area_px": 1681
+      },
+      "render_arrow": {
+        "bbox": [
+          1001,
+          384,
+          44,
+          71
+        ],
+        "edges": [
+          1001,
+          384,
+          1044,
+          454
+        ],
+        "area_px": 1634
+      },
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement": {
+        "reference_width_px": 24.0,
+        "render_width_px": 23.0,
+        "render_error_px": 1.0,
+        "declared_width_px": 24.0,
+        "declaration_error_px": 0.0,
+        "tolerance_px": 1.5,
+        "pass": true
+      },
+      "silhouette_bbox_edge_errors_px": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "silhouette_bbox_tolerance_px": 1.5,
+      "silhouette_mask_iou": 0.972,
+      "silhouette_mask_iou_min": 0.75,
+      "silhouette_area_relative_error": 0.028,
+      "silhouette_area_relative_tolerance": 0.2,
+      "reference_foreground_fraction": 0.4899,
+      "render_foreground_fraction": 0.4762,
+      "max_foreground_fraction": 0.8,
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            999,
+            431,
+            1046,
+            456
+          ],
+          "expected": {
+            "bbox": [
+              1000,
+              431,
+              45,
+              24
+            ],
+            "edges": [
+              1000,
+              431,
+              1044,
+              454
+            ],
+            "area_px": 553,
+            "width_px": 45.0,
+            "length_px": 24.0
+          },
+          "search_padding_px": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "max_search_padding_px": 4.0,
+          "render": {
+            "bbox": [
+              1001,
+              431,
+              44,
+              24
+            ],
+            "edges": [
+              1001,
+              431,
+              1044,
+              454
+            ],
+            "area_px": 553,
+            "width_px": 44.0,
+            "length_px": 24.0
+          },
+          "bbox_edge_errors_px": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "width_error_px": 1.0,
+          "length_error_px": 0.0,
+          "size_tolerance_px": 2.0,
+          "mask_iou": 1.0,
+          "mask_iou_min": 0.75,
+          "canonical_orientation": {
+            "observable": true,
+            "direct_iou": 0.961,
+            "opposite_iou": 0.3705,
+            "self_opposite_iou": 0.3521,
+            "margin": 0.5905,
+            "pass": true,
+            "resolved_pass": true
+          },
+          "scene_taper": {
+            "head_type": "custom",
+            "outward_angle_deg": 90.0,
+            "reference_taper": 0.7556,
+            "render_taper": 0.7273,
+            "minimum_reference_taper": 0.15,
+            "maximum_taper_delta": 0.25,
+            "pass": true
+          },
+          "expected_head_to_shaft_ratio": 1.875,
+          "render_head_to_shaft_ratio": 1.8333,
+          "min_head_to_shaft_ratio": 1.5,
+          "pass": true
+        }
+      ],
+      "obstacles": [],
+      "pass": true
+    }
+  ],
+  "declared_head_lengths": [],
+  "trusted_head_lengths": {
+    "blue-arrow-1:end": 24.0,
+    "blue-arrow-2:end": 24.0,
+    "condition-arrow:end": 20.0,
+    "noise-arrow:end": 23.0,
+    "sample-arrow:end": 24.0
+  },
+  "blockers": [],
+  "pass": true,
+  "scene_path_bindings": [
+    {
+      "id": "arrow-visual-blue-arrow-1",
+      "element_id": "blue-arrow-1",
+      "shaft_seed_point": [
+        294.0,
+        214.0
+      ],
+      "distance_to_arrow_spec_path_px": 0.0,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": true,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            294.0,
+            253.0
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-blue-arrow-2",
+      "element_id": "blue-arrow-2",
+      "shaft_seed_point": [
+        294.0,
+        382.0
+      ],
+      "distance_to_arrow_spec_path_px": 0.0,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": true,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            294.0,
+            441.0
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-condition-arrow",
+      "element_id": "condition-arrow",
+      "shaft_seed_point": [
+        810.0,
+        315.0
+      ],
+      "distance_to_arrow_spec_path_px": 0.0,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": true,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            875.0,
+            315.0
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-noise-arrow",
+      "element_id": "noise-arrow",
+      "shaft_seed_point": [
+        1022.0,
+        208.0
+      ],
+      "distance_to_arrow_spec_path_px": 0.0,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": true,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1022.0,
+            247.0
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "arrow-visual-sample-arrow",
+      "element_id": "sample-arrow",
+      "shaft_seed_point": [
+        1022.0,
+        402.0
+      ],
+      "distance_to_arrow_spec_path_px": 0.5,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": true,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1022.5,
+            456.0
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

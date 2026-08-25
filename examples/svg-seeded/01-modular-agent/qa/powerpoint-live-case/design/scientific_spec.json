@@ -597,8 +597,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0019",
-      "label": "svg-rect-0019",
+      "entityId": "expert-1-box",
+      "label": "expert-1-box",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -607,8 +607,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0020",
-      "label": "svg-rect-0020",
+      "entityId": "expert-1-sem",
+      "label": "expert-1-sem",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -617,8 +617,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0021",
-      "label": "svg-rect-0021",
+      "entityId": "expert-1-dyn",
+      "label": "expert-1-dyn",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -627,7 +627,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0024",
+      "entityId": "expert-1-sem-label",
       "label": "Sem",
       "kind": "annotation",
       "sourceIds": [
@@ -637,7 +637,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0025",
+      "entityId": "expert-1-dyn-label",
       "label": "Dyn",
       "kind": "annotation",
       "sourceIds": [
@@ -657,8 +657,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0022",
-      "label": "svg-rect-0022",
+      "entityId": "expert-2-box",
+      "label": "expert-2-box",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -667,8 +667,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0023",
-      "label": "svg-rect-0023",
+      "entityId": "expert-2-sem",
+      "label": "expert-2-sem",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -677,8 +677,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0024",
-      "label": "svg-rect-0024",
+      "entityId": "expert-2-dyn",
+      "label": "expert-2-dyn",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -687,7 +687,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0027",
+      "entityId": "expert-2-sem-label",
       "label": "Sem",
       "kind": "annotation",
       "sourceIds": [
@@ -697,7 +697,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0028",
+      "entityId": "expert-2-dyn-label",
       "label": "Dyn",
       "kind": "annotation",
       "sourceIds": [
@@ -717,8 +717,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0025",
-      "label": "svg-rect-0025",
+      "entityId": "expert-3-box",
+      "label": "expert-3-box",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -727,8 +727,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0026",
-      "label": "svg-rect-0026",
+      "entityId": "expert-3-sem",
+      "label": "expert-3-sem",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -737,8 +737,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0027",
-      "label": "svg-rect-0027",
+      "entityId": "expert-3-dyn",
+      "label": "expert-3-dyn",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -747,7 +747,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0030",
+      "entityId": "expert-3-sem-label",
       "label": "Sem",
       "kind": "annotation",
       "sourceIds": [
@@ -757,7 +757,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0031",
+      "entityId": "expert-3-dyn-label",
       "label": "Dyn",
       "kind": "annotation",
       "sourceIds": [
@@ -777,8 +777,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0028",
-      "label": "svg-rect-0028",
+      "entityId": "expert-4-box",
+      "label": "expert-4-box",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -787,8 +787,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0029",
-      "label": "svg-rect-0029",
+      "entityId": "expert-4-sem",
+      "label": "expert-4-sem",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -797,8 +797,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0030",
-      "label": "svg-rect-0030",
+      "entityId": "expert-4-dyn",
+      "label": "expert-4-dyn",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -807,7 +807,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0033",
+      "entityId": "expert-4-sem-label",
       "label": "Sem",
       "kind": "annotation",
       "sourceIds": [
@@ -817,7 +817,7 @@
       "editable": true
     },
     {
-      "entityId": "svg-text-0034",
+      "entityId": "expert-4-dyn-label",
       "label": "Dyn",
       "kind": "annotation",
       "sourceIds": [
@@ -847,8 +847,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0004",
-      "label": "svg-path-0004",
+      "entityId": "allocator-task1-propagation",
+      "label": "allocator-task1-propagation",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -857,38 +857,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0005",
-      "label": "svg-path-0005",
-      "kind": "component",
-      "sourceIds": [
-        "reference"
-      ],
-      "required": true,
-      "editable": true
-    },
-    {
-      "entityId": "allocator-task1-route-1",
-      "label": "allocator-task1-route-1",
-      "kind": "component",
-      "sourceIds": [
-        "reference"
-      ],
-      "required": true,
-      "editable": true
-    },
-    {
-      "entityId": "allocator-task1-route-2",
-      "label": "allocator-task1-route-2",
-      "kind": "component",
-      "sourceIds": [
-        "reference"
-      ],
-      "required": true,
-      "editable": true
-    },
-    {
-      "entityId": "allocator-task1-skip-edge",
-      "label": "allocator-task1-skip-edge",
+      "entityId": "allocator-task2-propagation",
+      "label": "allocator-task2-propagation",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -907,8 +877,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0031",
-      "label": "svg-rect-0031",
+      "entityId": "zt-top-box",
+      "label": "zt-top-box",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -947,8 +917,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0032",
-      "label": "svg-rect-0032",
+      "entityId": "zt-bottom-box",
+      "label": "zt-bottom-box",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -979,26 +949,6 @@
     {
       "entityId": "svg-circle-0017",
       "label": "svg-circle-0017",
-      "kind": "component",
-      "sourceIds": [
-        "reference"
-      ],
-      "required": true,
-      "editable": true
-    },
-    {
-      "entityId": "top-mixture-to-rollout",
-      "label": "top-mixture-to-rollout",
-      "kind": "component",
-      "sourceIds": [
-        "reference"
-      ],
-      "required": true,
-      "editable": true
-    },
-    {
-      "entityId": "bottom-mixture-to-rollout",
-      "label": "bottom-mixture-to-rollout",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1237,8 +1187,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0012",
-      "label": "svg-path-0012",
+      "entityId": "svg-path-0007",
+      "label": "svg-path-0007",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1247,8 +1197,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0013",
-      "label": "svg-path-0013",
+      "entityId": "svg-path-0008",
+      "label": "svg-path-0008",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1257,8 +1207,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0014",
-      "label": "svg-path-0014",
+      "entityId": "svg-path-0009",
+      "label": "svg-path-0009",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1267,8 +1217,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-line-0015",
-      "label": "svg-line-0015",
+      "entityId": "svg-line-0018",
+      "label": "svg-line-0018",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1277,8 +1227,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-line-0016",
-      "label": "svg-line-0016",
+      "entityId": "svg-line-0019",
+      "label": "svg-line-0019",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1317,8 +1267,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-rect-0039",
-      "label": "svg-rect-0039",
+      "entityId": "rollout-z0",
+      "label": "rollout-z0",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1727,8 +1677,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0022",
-      "label": "svg-path-0022",
+      "entityId": "svg-path-0019",
+      "label": "svg-path-0019",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1737,8 +1687,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0023",
-      "label": "svg-path-0023",
+      "entityId": "svg-path-0020",
+      "label": "svg-path-0020",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1747,8 +1697,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0024",
-      "label": "svg-path-0024",
+      "entityId": "svg-path-0021",
+      "label": "svg-path-0021",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1757,8 +1707,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-line-0026",
-      "label": "svg-line-0026",
+      "entityId": "svg-line-0029",
+      "label": "svg-line-0029",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1767,8 +1717,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-line-0027",
-      "label": "svg-line-0027",
+      "entityId": "svg-line-0030",
+      "label": "svg-line-0030",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1797,8 +1747,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0025",
-      "label": "svg-path-0025",
+      "entityId": "svg-path-0022",
+      "label": "svg-path-0022",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1807,8 +1757,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-path-0026",
-      "label": "svg-path-0026",
+      "entityId": "svg-path-0023",
+      "label": "svg-path-0023",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1817,8 +1767,8 @@
       "editable": true
     },
     {
-      "entityId": "svg-line-0028",
-      "label": "svg-line-0028",
+      "entityId": "svg-line-0031",
+      "label": "svg-line-0031",
       "kind": "component",
       "sourceIds": [
         "reference"
@@ -1929,9 +1879,59 @@
       ]
     },
     {
+      "relationId": "rel:allocator-task1-route-1",
+      "source": "expert-1-box",
+      "target": "expert-2-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:allocator-task1-route-2",
+      "source": "expert-2-box",
+      "target": "expert-3-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:allocator-task1-skip-edge",
+      "source": "expert-3-box",
+      "target": "expert-4-box",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
       "relationId": "rel:mapping-to-imagination",
       "source": "task-mapping",
       "target": "task-conditioned-imagination",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:top-mixture-to-rollout",
+      "source": "zt-top-box",
+      "target": "rollout-z0",
+      "kind": "flow",
+      "direction": "forward",
+      "sourceIds": [
+        "reference"
+      ]
+    },
+    {
+      "relationId": "rel:bottom-mixture-to-rollout",
+      "source": "zt-bottom-box",
+      "target": "rollout-z0",
       "kind": "flow",
       "direction": "forward",
       "sourceIds": [

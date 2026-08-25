@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1217" height="609" viewBox="0 0 1217 609">
+  <rect x="0" y="0" width="1217" height="609" fill="#ffffff"/>
+  <g id="styles" font-family="Arial, Helvetica, sans-serif" fill="#073b68" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Panel boundaries -->
+    <rect x="20" y="53" width="548" height="540" rx="84" ry="84" fill="none" stroke="#4a86e8" stroke-width="2.7" stroke-dasharray="20 10"/>
+    <rect x="580" y="53" width="617" height="540" rx="84" ry="84" fill="none" stroke="#ff8a00" stroke-width="2.7" stroke-dasharray="20 10"/>
+
+    <!-- Titles -->
+    <text x="294" y="43" text-anchor="middle" font-size="40" font-weight="700" fill="#185dc1">Offline Training</text>
+    <text x="889" y="43" text-anchor="middle" font-size="40" font-weight="700" fill="#b45d00">Sampling</text>
+    <text x="102" y="93" font-size="31" font-weight="400" fill="#073b68">Static Multi-Objective Dataset</text>
+
+    <!-- Left top molecule -->
+    <g id="molecule-left" transform="translate(165 101)">
+      <g stroke="#b97a2f" stroke-width="3">
+        <line x1="8" y1="14" x2="27" y2="18"/><line x1="27" y1="18" x2="40" y2="5"/>
+        <line x1="27" y1="18" x2="46" y2="24"/><line x1="46" y1="24" x2="64" y2="17"/>
+        <line x1="27" y1="18" x2="29" y2="36"/><line x1="29" y1="36" x2="47" y2="41"/>
+      </g>
+      <circle cx="8" cy="14" r="5" fill="#f0aa2a" stroke="#d88c17"/>
+      <circle cx="27" cy="18" r="6" fill="#e4503d" stroke="#c64131"/>
+      <circle cx="40" cy="5" r="5" fill="#7abb79" stroke="#5e9a5e"/>
+      <circle cx="46" cy="24" r="5" fill="#f3a527" stroke="#d98c16"/>
+      <circle cx="64" cy="17" r="5" fill="#e35b4a" stroke="#c24538"/>
+      <circle cx="29" cy="36" r="5" fill="#74b87e" stroke="#59955f"/>
+      <circle cx="47" cy="41" r="4.8" fill="#f2a72e" stroke="#d58c18"/>
+      <circle cx="17" cy="33" r="5" fill="#77b47b" stroke="#5c955f"/>
+      <line x1="17" y1="33" x2="29" y2="36" stroke="#b97a2f" stroke-width="3"/>
+    </g>
+
+    <!-- Left DNA helix -->
+    <g id="dna-left" transform="translate(170 147)" fill="none">
+      <path d="M7,1 C31,7 48,19 64,34 C48,49 31,60 7,65" stroke="#376fc3" stroke-width="3"/>
+      <path d="M59,1 C35,7 18,19 2,34 C18,49 35,60 59,65" stroke="#7f8f76" stroke-width="3"/>
+      <g stroke="#9f6c57" stroke-width="1.3" opacity="0.9">
+        <line x1="11" y1="7" x2="53" y2="7"/><line x1="16" y1="14" x2="47" y2="14"/>
+        <line x1="23" y1="22" x2="39" y2="22"/><line x1="29" y1="29" x2="33" y2="29"/>
+        <line x1="27" y1="38" x2="35" y2="38"/><line x1="21" y1="46" x2="42" y2="46"/>
+        <line x1="15" y1="54" x2="49" y2="54"/><line x1="10" y1="61" x2="54" y2="61"/>
+      </g>
+    </g>
+
+    <!-- Left database cylinder 1 -->
+    <g id="dataset-cylinder" stroke="#d49b00" stroke-width="2.7">
+      <path d="M252,120 L252,178 C252,187 271,194 294,194 C317,194 336,187 336,178 L336,120" fill="#fff4c6"/>
+      <ellipse cx="294" cy="120" rx="42" ry="14.5" fill="#fff4c6"/>
+      <text x="294" y="169" text-anchor="middle" font-size="34" font-family="Times New Roman, serif" font-style="italic" fill="#000000" stroke="none">D</text>
+    </g>
+
+    <!-- left candlestick chart top -->
+    <g id="candlestick-left-top" transform="translate(352 119)" stroke="#000" fill="#fff" stroke-width="3">
+      <line x1="6" y1="3" x2="6" y2="57"/><polyline points="1,9 6,3 11,9" fill="none"/>
+      <line x1="6" y1="57" x2="73" y2="57"/><polyline points="67,52 73,57 67,62" fill="none"/>
+      <line x1="16" y1="13" x2="16" y2="44"/><rect x="12" y="20" width="8" height="15"/>
+      <line x1="29" y1="23" x2="29" y2="51"/><rect x="25" y="28" width="8" height="13"/>
+      <line x1="42" y1="8" x2="42" y2="43"/><rect x="38" y="15" width="8" height="16"/>
+      <line x1="56" y1="18" x2="56" y2="48"/><rect x="52" y="25" width="8" height="13"/>
+      <line x1="67" y1="2" x2="67" y2="35"/><rect x="63" y="8" width="8" height="15"/>
+    </g>
+
+    <!-- Open blue arrow: dataset -> reweighted -->
+    <g id="blue-arrow-1" stroke="#2f69b6" stroke-width="2.2" fill="none">
+      <line x1="294" y1="201" x2="294" y2="246"/>
+      <polyline points="283,235 294,246 305,235"/>
+    </g>
+
+    <!-- Reweighted label + balance -->
+    <text x="104" y="314" font-size="28" fill="#073b68">Reweighted</text>
+    <g id="balance" transform="translate(137 326)" stroke="#999" fill="none" stroke-width="2.2">
+      <line x1="29" y1="1" x2="29" y2="43"/>
+      <line x1="9" y1="6" x2="50" y2="6"/>
+      <line x1="29" y1="-1" x2="25" y2="6"/>
+      <line x1="12" y1="6" x2="4" y2="27"/><line x1="12" y1="6" x2="20" y2="27"/>
+      <line x1="46" y1="6" x2="38" y2="27"/><line x1="46" y1="6" x2="54" y2="27"/>
+      <path d="M1,27 Q12,41 23,27 Z" fill="#b5b5b5" stroke="none"/>
+      <path d="M35,27 Q46,41 57,27 Z" fill="#b5b5b5" stroke="none"/>
+      <line x1="19" y1="43" x2="39" y2="43" stroke-width="3"/>
+    </g>
+
+    <!-- Left database cylinder 2 -->
+    <g id="reweighted-cylinder" stroke="#c69000" stroke-width="2.7">
+      <path d="M251,276 L251,334 C251,343 270,350 294,350 C318,350 336,343 336,334 L336,276" fill="#fff4c6"/>
+      <ellipse cx="294" cy="276" rx="42.5" ry="15" fill="#fff4c6"/>
+      <text x="294" y="326" text-anchor="middle" font-size="34" font-family="Times New Roman, serif" font-style="italic" fill="#000000" stroke="none">D</text>
+    </g>
+
+    <!-- Open blue arrow: reweighted -> model -->
+    <g id="blue-arrow-2" stroke="#2f69b6" stroke-width="2.2" fill="none">
+      <line x1="294" y1="356" x2="294" y2="433"/>
+      <polyline points="283,422 294,433 305,422"/>
+    </g>
+    <text x="332" y="401" font-size="28" fill="#073b68">Train</text>
+
+    <!-- Left model box -->
+    <g id="left-model">
+      <rect x="152" y="447" width="283" height="124" fill="#ffffff" stroke="#6ca6d9" stroke-width="4"/>
+      <g stroke="#d3d3d3" stroke-width="2" fill="#d3d3d3" opacity="0.75">
+        <line x1="294" y1="459" x2="252" y2="485"/><line x1="294" y1="459" x2="336" y2="485"/>
+        <line x1="252" y1="485" x2="294" y2="510"/><line x1="336" y1="485" x2="294" y2="510"/>
+        <line x1="294" y1="510" x2="252" y2="535"/><line x1="294" y1="510" x2="336" y2="535"/>
+        <line x1="252" y1="535" x2="294" y2="558"/><line x1="336" y1="535" x2="294" y2="558"/>
+        <circle cx="294" cy="459" r="7.5"/><circle cx="252" cy="485" r="7.5"/><circle cx="336" cy="485" r="7.5"/>
+        <circle cx="294" cy="510" r="7.5"/><circle cx="252" cy="535" r="7.5"/><circle cx="336" cy="535" r="7.5"/><circle cx="294" cy="558" r="7.5"/>
+      </g>
+      <text x="294" y="504" text-anchor="middle" font-size="27" font-weight="700" fill="#073b68">Pareto-Conditioned</text>
+      <text x="294" y="534" text-anchor="middle" font-size="27" fill="#073b68">Diffusion Model</text>
+    </g>
+
+    <!-- Right gaussian noise curve -->
+    <g id="noise-curve" fill="none" stroke="#8e8e8e" stroke-width="1.7">
+      <line x1="873" y1="189" x2="1171" y2="189"/>
+      <path d="M873,189 C914,189 934,186 947,173 C965,154 981,101 1008,85 C1016,80 1024,82 1032,91 C1056,118 1063,159 1093,178 C1111,189 1138,189 1171,189"/>
+    </g>
+
+    <!-- Target objectives box -->
+    <g id="target-box">
+      <rect x="612" y="260" width="151" height="111" fill="#c7d8f2" stroke="#1e5593" stroke-width="1.4"/>
+      <text x="687.5" y="309" text-anchor="middle" font-size="25.5" fill="#073b68">Target</text>
+      <text x="687.5" y="341" text-anchor="middle" font-size="25.5" fill="#073b68">Objectives</text>
+    </g>
+
+    <!-- right candlestick chart -->
+    <g id="candlestick-right" transform="translate(650 378)" stroke="#000" fill="#fff" stroke-width="3">
+      <line x1="6" y1="3" x2="6" y2="57"/><polyline points="1,9 6,3 11,9" fill="none"/>
+      <line x1="6" y1="57" x2="73" y2="57"/><polyline points="67,52 73,57 67,62" fill="none"/>
+      <line x1="16" y1="13" x2="16" y2="44"/><rect x="12" y="20" width="8" height="15"/>
+      <line x1="29" y1="23" x2="29" y2="51"/><rect x="25" y="28" width="8" height="13"/>
+      <line x1="42" y1="8" x2="42" y2="43"/><rect x="38" y="15" width="8" height="16"/>
+      <line x1="56" y1="18" x2="56" y2="48"/><rect x="52" y="25" width="8" height="13"/>
+      <line x1="67" y1="2" x2="67" y2="35"/><rect x="63" y="8" width="8" height="15"/>
+    </g>
+
+    <!-- Condition arrow + label -->
+    <text x="772" y="286" font-size="23.5" fill="#073b68">Condition</text>
+    <g id="condition-arrow" stroke="#c56e11" stroke-width="2.2" fill="none">
+      <line x1="769" y1="315" x2="869" y2="315"/>
+      <polyline points="857,304 869,315 857,326"/>
+    </g>
+
+    <!-- Right model box -->
+    <g id="right-model">
+      <rect x="881" y="253" width="282" height="124" fill="#ffffff" stroke="#6ca6d9" stroke-width="4"/>
+      <g stroke="#d3d3d3" stroke-width="2" fill="#d3d3d3" opacity="0.75">
+        <line x1="1022" y1="266" x2="980" y2="291"/><line x1="1022" y1="266" x2="1064" y2="291"/>
+        <line x1="980" y1="291" x2="1022" y2="316"/><line x1="1064" y1="291" x2="1022" y2="316"/>
+        <line x1="1022" y1="316" x2="980" y2="341"/><line x1="1022" y1="316" x2="1064" y2="341"/>
+        <line x1="980" y1="341" x2="1022" y2="364"/><line x1="1064" y1="341" x2="1022" y2="364"/>
+        <circle cx="1022" cy="266" r="7.5"/><circle cx="980" cy="291" r="7.5"/><circle cx="1064" cy="291" r="7.5"/>
+        <circle cx="1022" cy="316" r="7.5"/><circle cx="980" cy="341" r="7.5"/><circle cx="1064" cy="341" r="7.5"/><circle cx="1022" cy="364" r="7.5"/>
+      </g>
+      <text x="1022" y="309" text-anchor="middle" font-size="27" font-weight="700" fill="#073b68">Pareto-Conditioned</text>
+      <text x="1022" y="340" text-anchor="middle" font-size="27" fill="#073b68">Diffusion Model</text>
+    </g>
+
+    <!-- Noise arrow -->
+    <g id="noise-arrow" stroke="#c56e11" stroke-width="2.2" fill="none">
+      <line x1="1022" y1="196" x2="1022" y2="246"/>
+      <polyline points="1011,234 1022,246 1033,234"/>
+    </g>
+    <text x="1060" y="226" font-size="26" fill="#073b68">Noise</text>
+
+    <!-- Sample arrow -->
+    <g id="sample-arrow" stroke="#c56e11" stroke-width="2.2" fill="none">
+      <line x1="1022" y1="383" x2="1022" y2="452"/>
+      <polyline points="1011,440 1022,452 1033,440"/>
+    </g>
+    <text x="1055" y="423" font-size="26" fill="#073b68">Sample</text>
+
+    <!-- Designs cuboid -->
+    <g id="designs-cuboid" stroke="#154f91" stroke-width="1.5">
+      <polygon points="939,488 966,462 1104,462 1077,488" fill="#d6e4f3"/>
+      <polygon points="1077,488 1104,462 1104,544 1077,571" fill="#9eb9d7"/>
+      <rect x="939" y="488" width="138" height="83" fill="#c8dcee"/>
+      <text x="1008" y="540" text-anchor="middle" font-size="27" font-weight="700" fill="#073b68" stroke="none">Designs</text>
+    </g>
+
+    <!-- Right molecule -->
+    <g id="molecule-right" transform="translate(850 503)">
+      <g stroke="#b97a2f" stroke-width="3">
+        <line x1="8" y1="14" x2="27" y2="18"/><line x1="27" y1="18" x2="40" y2="5"/>
+        <line x1="27" y1="18" x2="46" y2="24"/><line x1="46" y1="24" x2="64" y2="17"/>
+        <line x1="27" y1="18" x2="29" y2="36"/><line x1="29" y1="36" x2="47" y2="41"/>
+      </g>
+      <circle cx="8" cy="14" r="5" fill="#f0aa2a" stroke="#d88c17"/>
+      <circle cx="27" cy="18" r="6" fill="#e4503d" stroke="#c64131"/>
+      <circle cx="40" cy="5" r="5" fill="#7abb79" stroke="#5e9a5e"/>
+      <circle cx="46" cy="24" r="5" fill="#f3a527" stroke="#d98c16"/>
+      <circle cx="64" cy="17" r="5" fill="#e35b4a" stroke="#c24538"/>
+      <circle cx="29" cy="36" r="5" fill="#74b87e" stroke="#59955f"/>
+      <circle cx="47" cy="41" r="4.8" fill="#f2a72e" stroke="#d58c18"/>
+      <circle cx="17" cy="33" r="5" fill="#77b47b" stroke="#5c955f"/>
+      <line x1="17" y1="33" x2="29" y2="36" stroke="#b97a2f" stroke-width="3"/>
+    </g>
+
+    <!-- Right DNA -->
+    <g id="dna-right" transform="translate(1110 465)" fill="none">
+      <path d="M7,1 C31,7 48,19 64,34 C48,49 31,60 7,65" stroke="#376fc3" stroke-width="3"/>
+      <path d="M59,1 C35,7 18,19 2,34 C18,49 35,60 59,65" stroke="#7f8f76" stroke-width="3"/>
+      <g stroke="#9f6c57" stroke-width="1.3" opacity="0.9">
+        <line x1="11" y1="7" x2="53" y2="7"/><line x1="16" y1="14" x2="47" y2="14"/>
+        <line x1="23" y1="22" x2="39" y2="22"/><line x1="29" y1="29" x2="33" y2="29"/>
+        <line x1="27" y1="38" x2="35" y2="38"/><line x1="21" y1="46" x2="42" y2="46"/>
+        <line x1="15" y1="54" x2="49" y2="54"/><line x1="10" y1="61" x2="54" y2="61"/>
+      </g>
+    </g>
+  </g>
+</svg>

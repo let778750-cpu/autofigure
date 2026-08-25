@@ -1,24 +1,1668 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "regions",
   "case": "02-thinking-diffusion",
   "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
-  "updated_at": "20260821T130720Z",
+  "updated_at": "20260824T121558Z",
   "defaults": {
     "ssim_min": 0.85,
     "edge_iou_min": 0.75
   },
+  "primitive_expectations": [
+    {
+      "kind": "brace",
+      "count": 14,
+      "primitives": [
+        {
+          "element_id": "brace-top-left-image",
+          "primitive_spec_sha256": "5c93e3b88729a32268a364a04d02ea544effbb3a90c9ad6b48af75ff1cbef471"
+        },
+        {
+          "element_id": "brace-top-left-prompt",
+          "primitive_spec_sha256": "49cda7351bbbdb0a01f8a7bedf77dcad130492a0bfffe0e6194fd3b5f41533fc"
+        },
+        {
+          "element_id": "brace-top-left-response",
+          "primitive_spec_sha256": "b0714461b1a73066d422722218b9833ec51149beab1aaed6297e227e14368e7e"
+        },
+        {
+          "element_id": "brace-left-early-answer-under",
+          "primitive_spec_sha256": "bf904cdc1cc31f242d09a65ea9ee2d4c55db751f7d57527b4ac7a2b03c3cd4cd"
+        },
+        {
+          "element_id": "brace-left-early-step-side",
+          "primitive_spec_sha256": "542ce5d3df54cbf1517ed5e11b999e68496cd61d7497d6a7553d8cb5626a5d68"
+        },
+        {
+          "element_id": "brace-left-later-rationale-under",
+          "primitive_spec_sha256": "8d59cb0013aaa2f8e6894fb083ece3acbaad4abbb3bf9a947e2b7ab96578747e"
+        },
+        {
+          "element_id": "brace-left-later-step-side",
+          "primitive_spec_sha256": "de0952819aefecdd272f0f4fc3751a530c60c180d99cf15db867b57e226f63ec"
+        },
+        {
+          "element_id": "brace-top-right-image",
+          "primitive_spec_sha256": "d05155485ade0decfedb8588bd0d048b5426fca0f64a43989706076d9a10b77e"
+        },
+        {
+          "element_id": "brace-top-right-prompt",
+          "primitive_spec_sha256": "70001b40e30efd9956ba25043546a4f497dc07a329bf7d203e5d9500bb5cbacc"
+        },
+        {
+          "element_id": "brace-top-right-response",
+          "primitive_spec_sha256": "299d9c484ba8d7ce5aa0938b40a49c8a4e0ed7004a58e0c34c478045ce8866cf"
+        },
+        {
+          "element_id": "brace-right-early-rationale-under",
+          "primitive_spec_sha256": "6d80d7a4a43033d62f97430451ca3777c54dd3458c17268b41880e17ac8fcc83"
+        },
+        {
+          "element_id": "brace-right-early-step-side",
+          "primitive_spec_sha256": "8ef8f0f660d58bd192880aafda538f76bad8648401fe9c3fb3cf522b10bc4cf2"
+        },
+        {
+          "element_id": "brace-right-later-answer-under",
+          "primitive_spec_sha256": "db8718cf72118dde450fa69999c47678410d2876a5df39cf53f9cf3a9fe5a07b"
+        },
+        {
+          "element_id": "brace-right-later-step-side",
+          "primitive_spec_sha256": "a6a9feb9035eca3e29aa7a6760d0eb19939466fd08a181b26ffb1e1834ffaa87"
+        }
+      ]
+    }
+  ],
+  "critical_region_expectation": {
+    "count": 18,
+    "contracts": [
+      {
+        "id": "brace-top-left-image-region",
+        "bbox": [
+          26,
+          38,
+          112,
+          20
+        ],
+        "element_ids": [
+          "brace-top-left-image"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "64d500ee19adb6efd18c3a1e9dedf6e6f0cb7ef78335b853f955b81c79c8f670"
+        }
+      },
+      {
+        "id": "brace-top-left-prompt-region",
+        "bbox": [
+          168,
+          38,
+          111,
+          20
+        ],
+        "element_ids": [
+          "brace-top-left-prompt"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "64d500ee19adb6efd18c3a1e9dedf6e6f0cb7ef78335b853f955b81c79c8f670"
+        }
+      },
+      {
+        "id": "brace-top-left-response-region",
+        "bbox": [
+          309,
+          38,
+          357,
+          20
+        ],
+        "element_ids": [
+          "brace-top-left-response"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "64d500ee19adb6efd18c3a1e9dedf6e6f0cb7ef78335b853f955b81c79c8f670"
+        }
+      },
+      {
+        "id": "brace-left-early-answer-under-region",
+        "bbox": [
+          557,
+          288,
+          112,
+          20
+        ],
+        "element_ids": [
+          "brace-left-early-answer-under"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "8c211cce668ccf288cd14ddce262e268a26a0ae1ef78c1020dfe813924f8dfde"
+        }
+      },
+      {
+        "id": "brace-left-early-step-side-region",
+        "bbox": [
+          680,
+          203,
+          20,
+          82
+        ],
+        "element_ids": [
+          "brace-left-early-step-side"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "1bdf627d2a7a51938577cf3131d71039e8eb3b194006d021fda6075cc466debd"
+        }
+      },
+      {
+        "id": "brace-left-later-rationale-under-region",
+        "bbox": [
+          337,
+          444,
+          112,
+          17
+        ],
+        "element_ids": [
+          "brace-left-later-rationale-under"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "1bdf627d2a7a51938577cf3131d71039e8eb3b194006d021fda6075cc466debd"
+        }
+      },
+      {
+        "id": "brace-left-later-step-side-region",
+        "bbox": [
+          680,
+          361,
+          20,
+          82
+        ],
+        "element_ids": [
+          "brace-left-later-step-side"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "1bdf627d2a7a51938577cf3131d71039e8eb3b194006d021fda6075cc466debd"
+        }
+      },
+      {
+        "id": "brace-top-right-image-region",
+        "bbox": [
+          798,
+          33,
+          112,
+          20
+        ],
+        "element_ids": [
+          "brace-top-right-image"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "d439f7659cddb302d9afd6898d2e2e1d0a64a9dd20fe1c9cf75bd328dc5ebc5e"
+        }
+      },
+      {
+        "id": "brace-top-right-prompt-region",
+        "bbox": [
+          940,
+          33,
+          111,
+          20
+        ],
+        "element_ids": [
+          "brace-top-right-prompt"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "d439f7659cddb302d9afd6898d2e2e1d0a64a9dd20fe1c9cf75bd328dc5ebc5e"
+        }
+      },
+      {
+        "id": "brace-top-right-response-region",
+        "bbox": [
+          1081,
+          33,
+          357,
+          20
+        ],
+        "element_ids": [
+          "brace-top-right-response"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "d439f7659cddb302d9afd6898d2e2e1d0a64a9dd20fe1c9cf75bd328dc5ebc5e"
+        }
+      },
+      {
+        "id": "brace-right-early-rationale-under-region",
+        "bbox": [
+          1123,
+          285,
+          112,
+          17
+        ],
+        "element_ids": [
+          "brace-right-early-rationale-under"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "1bdf627d2a7a51938577cf3131d71039e8eb3b194006d021fda6075cc466debd"
+        }
+      },
+      {
+        "id": "brace-right-early-step-side-region",
+        "bbox": [
+          1452,
+          201,
+          21,
+          81
+        ],
+        "element_ids": [
+          "brace-right-early-step-side"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "64d500ee19adb6efd18c3a1e9dedf6e6f0cb7ef78335b853f955b81c79c8f670"
+        }
+      },
+      {
+        "id": "brace-right-later-answer-under-region",
+        "bbox": [
+          1327,
+          439,
+          111,
+          20
+        ],
+        "element_ids": [
+          "brace-right-later-answer-under"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "64d500ee19adb6efd18c3a1e9dedf6e6f0cb7ef78335b853f955b81c79c8f670"
+        }
+      },
+      {
+        "id": "brace-right-later-step-side-region",
+        "bbox": [
+          1452,
+          356,
+          20,
+          82
+        ],
+        "element_ids": [
+          "brace-right-later-step-side"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "64d500ee19adb6efd18c3a1e9dedf6e6f0cb7ef78335b853f955b81c79c8f670"
+        }
+      },
+      {
+        "id": "caption-left-early-region",
+        "bbox": [
+          300,
+          285,
+          450,
+          101
+        ],
+        "pixel_bbox": [
+          463,
+          299,
+          301,
+          63
+        ],
+        "element_ids": [
+          "caption-left-early-line1",
+          "caption-left-early-line2",
+          "brace-left-early-answer-under",
+          "ellipsis-left-transition-dot-1",
+          "ellipsis-left-transition-dot-2",
+          "ellipsis-left-transition-dot-3",
+          "arrow-left-to-later-step"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "16f67a0ab9790e6754ae30731d48661dd5531631943bd2a5bdee5704591d6221"
+        }
+      },
+      {
+        "id": "caption-left-later-region",
+        "bbox": [
+          200,
+          358,
+          500,
+          152
+        ],
+        "pixel_bbox": [
+          235,
+          450,
+          316,
+          63
+        ],
+        "element_ids": [
+          "caption-left-later-line1",
+          "caption-left-later-line2",
+          "brace-left-later-rationale-under",
+          "ellipsis-left-later-row-dot-1",
+          "ellipsis-left-later-row-dot-2",
+          "ellipsis-left-later-row-dot-3",
+          "arrow-left-to-later-step"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "c1d142ee7edac60949d1da2995b0145079ea7a530446876a90c318d67c81d968"
+        }
+      },
+      {
+        "id": "caption-right-early-region",
+        "bbox": [
+          800,
+          282,
+          464,
+          101
+        ],
+        "pixel_bbox": [
+          1021,
+          291,
+          316,
+          63
+        ],
+        "element_ids": [
+          "caption-right-early-line1",
+          "caption-right-early-line2",
+          "brace-right-early-rationale-under",
+          "ellipsis-right-transition-dot-1",
+          "ellipsis-right-transition-dot-2",
+          "ellipsis-right-transition-dot-3",
+          "arrow-right-to-later-step"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "d46d82948eac00d46d8b49729cfea160be90308460cbd486418a5a2f3eae11d3"
+        }
+      },
+      {
+        "id": "caption-right-later-region",
+        "bbox": [
+          1000,
+          352,
+          513,
+          153
+        ],
+        "pixel_bbox": [
+          1212,
+          450,
+          301,
+          63
+        ],
+        "element_ids": [
+          "caption-right-later-line1",
+          "caption-right-later-line2",
+          "brace-right-later-answer-under",
+          "ellipsis-right-later-row-dot-1",
+          "ellipsis-right-later-row-dot-2",
+          "ellipsis-right-later-row-dot-3",
+          "arrow-right-to-later-step"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_clearance_contracts"
+        ],
+        "gate_sha256": {
+          "color_clearance_contracts": "33a9a93b876993170c0a661f0acd954354340d4c9bfd2606106c0c61020bbb3d"
+        }
+      }
+    ]
+  },
+  "arrow_visual_expectation": {
+    "count": 6,
+    "contracts": [
+      {
+        "element_id": "arrow-left-input-to-model",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "0208a5907b636670f715f333024fe50b4335128b57bd06fe6bac9d8f635267d9"
+      },
+      {
+        "element_id": "arrow-left-model-to-early-step",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "91cd7a47cd8ecf59ac8821f635ae63f78d8b8ca50979f8d95d92f7c5aa982486"
+      },
+      {
+        "element_id": "arrow-left-to-later-step",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "419f615a78bece7719d11a53eb835c3a9770df478d0b79fb82407b1befc23921"
+      },
+      {
+        "element_id": "arrow-right-input-to-model",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "294f7980c6bd4407a02a6c5c07aebcc6a45efba79f9aaf0e9d112a4f6c44780b"
+      },
+      {
+        "element_id": "arrow-right-model-to-early-step",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "2bd949d0b660bb24671cb60c3ae61b46e090c2486528451cb8aac6bebc260abb"
+      },
+      {
+        "element_id": "arrow-right-to-later-step",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "69586a1a2351035eb3df315744aa6c8bc5ffa5ddda5fc38dd074e325bd60cdef"
+      }
+    ]
+  },
+  "arrow_visual_contracts": [
+    {
+      "id": "arrow-left-input-to-model-visual",
+      "element_id": "arrow-left-input-to-model",
+      "axis": "vertical",
+      "tight_bbox": [
+        482,
+        92,
+        11,
+        25
+      ],
+      "shaft_seed_point": [
+        487,
+        100
+      ],
+      "shaft_width_px": 2.0,
+      "silhouette_bbox_tolerance_px": 1.5,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            482,
+            107,
+            11,
+            10
+          ],
+          "bbox_tolerance_px": 1.5,
+          "size_tolerance_px": 1.5
+        }
+      }
+    },
+    {
+      "id": "arrow-left-model-to-early-step-visual",
+      "element_id": "arrow-left-model-to-early-step",
+      "axis": "vertical",
+      "tight_bbox": [
+        482,
+        186,
+        11,
+        52
+      ],
+      "shaft_seed_point": [
+        487,
+        200
+      ],
+      "shaft_width_px": 2.0,
+      "silhouette_bbox_tolerance_px": 1.5,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            482,
+            227,
+            11,
+            11
+          ],
+          "bbox_tolerance_px": 1.5,
+          "size_tolerance_px": 1.5
+        }
+      }
+    },
+    {
+      "id": "arrow-left-to-later-step-visual",
+      "element_id": "arrow-left-to-later-step",
+      "axis": "vertical",
+      "tight_bbox": [
+        482,
+        359,
+        11,
+        25
+      ],
+      "shaft_seed_point": [
+        487,
+        365
+      ],
+      "shaft_width_px": 2.0,
+      "silhouette_bbox_tolerance_px": 1.5,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            482,
+            375,
+            11,
+            9
+          ],
+          "bbox_tolerance_px": 1.5,
+          "size_tolerance_px": 1.5
+        }
+      }
+    },
+    {
+      "id": "arrow-right-input-to-model-visual",
+      "element_id": "arrow-right-input-to-model",
+      "axis": "vertical",
+      "tight_bbox": [
+        1255,
+        87,
+        10,
+        26
+      ],
+      "shaft_seed_point": [
+        1259,
+        95
+      ],
+      "shaft_width_px": 2.0,
+      "silhouette_bbox_tolerance_px": 1.5,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1255,
+            103,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 1.5,
+          "size_tolerance_px": 1.5
+        }
+      }
+    },
+    {
+      "id": "arrow-right-model-to-early-step-visual",
+      "element_id": "arrow-right-model-to-early-step",
+      "axis": "vertical",
+      "tight_bbox": [
+        1255,
+        181,
+        10,
+        53
+      ],
+      "shaft_seed_point": [
+        1259,
+        195
+      ],
+      "shaft_width_px": 2.0,
+      "silhouette_bbox_tolerance_px": 1.5,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1255,
+            224,
+            10,
+            10
+          ],
+          "bbox_tolerance_px": 1.5,
+          "size_tolerance_px": 1.5
+        }
+      }
+    },
+    {
+      "id": "arrow-right-to-later-step-visual",
+      "element_id": "arrow-right-to-later-step",
+      "axis": "vertical",
+      "tight_bbox": [
+        1254,
+        354,
+        11,
+        25
+      ],
+      "shaft_seed_point": [
+        1259,
+        360
+      ],
+      "shaft_width_px": 2.0,
+      "silhouette_bbox_tolerance_px": 1.5,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1254,
+            370,
+            11,
+            9
+          ],
+          "bbox_tolerance_px": 1.5,
+          "size_tolerance_px": 1.5
+        }
+      }
+    }
+  ],
   "regions": [
     {
-      "id": "whole-canvas",
-      "label": "Whole canvas (diagnostic only)",
+      "id": "brace-top-left-image-region",
+      "label": "Left top Image overbrace",
       "bbox": [
-        0,
-        0,
-        1513,
-        554
+        26,
+        38,
+        112,
+        20
       ],
-      "critical": false
+      "critical": true,
+      "element_ids": [
+        "brace-top-left-image"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-top-left-prompt-region",
+      "label": "Left top Prompt overbrace",
+      "bbox": [
+        168,
+        38,
+        111,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-top-left-prompt"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-top-left-response-region",
+      "label": "Left top Response overbrace",
+      "bbox": [
+        309,
+        38,
+        357,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-top-left-response"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-left-early-answer-under-region",
+      "label": "Left Early Step answer underbrace",
+      "bbox": [
+        557,
+        288,
+        112,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-left-early-answer-under"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 80,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-left-early-step-side-region",
+      "label": "Left Early Step side brace",
+      "bbox": [
+        680,
+        203,
+        20,
+        82
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-left-early-step-side"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 60,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-left-later-rationale-under-region",
+      "label": "Left Later Step rationale underbrace",
+      "bbox": [
+        337,
+        444,
+        112,
+        17
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-left-later-rationale-under"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 60,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-left-later-step-side-region",
+      "label": "Left Later Step side brace",
+      "bbox": [
+        680,
+        361,
+        20,
+        82
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-left-later-step-side"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 60,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-top-right-image-region",
+      "label": "Right top Image overbrace",
+      "bbox": [
+        798,
+        33,
+        112,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-top-right-image"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 40,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-top-right-prompt-region",
+      "label": "Right top Prompt overbrace",
+      "bbox": [
+        940,
+        33,
+        111,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-top-right-prompt"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 40,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-top-right-response-region",
+      "label": "Right top Response overbrace",
+      "bbox": [
+        1081,
+        33,
+        357,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-top-right-response"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 40,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-right-early-rationale-under-region",
+      "label": "Right Early Step rationale underbrace",
+      "bbox": [
+        1123,
+        285,
+        112,
+        17
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-right-early-rationale-under"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 60,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-right-early-step-side-region",
+      "label": "Right Early Step side brace",
+      "bbox": [
+        1452,
+        201,
+        21,
+        81
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-right-early-step-side"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-right-later-answer-under-region",
+      "label": "Right Later Step answer underbrace",
+      "bbox": [
+        1327,
+        439,
+        111,
+        20
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-right-later-answer-under"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "brace-right-later-step-side-region",
+      "label": "Right Later Step side brace",
+      "bbox": [
+        1452,
+        356,
+        20,
+        82
+      ],
+      "critical": true,
+      "element_ids": [
+        "brace-right-later-step-side"
+      ],
+      "expected_primitive_kind": "brace",
+      "expected_primitive_count": 1,
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 1.5,
+        "center_tolerance_px": 1.0,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "caption-left-early-region",
+      "label": "Left Early Step two-line red caption",
+      "bbox": [
+        300,
+        285,
+        450,
+        101
+      ],
+      "pixel_bbox": [
+        463,
+        299,
+        301,
+        63
+      ],
+      "critical": true,
+      "element_ids": [
+        "caption-left-early-line1",
+        "caption-left-early-line2",
+        "brace-left-early-answer-under",
+        "ellipsis-left-transition-dot-1",
+        "ellipsis-left-transition-dot-2",
+        "ellipsis-left-transition-dot-3",
+        "arrow-left-to-later-step"
+      ],
+      "expected_text_object_count": 2,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_clearance_contracts": [
+        {
+          "id": "caption-left-early-critical-clearance",
+          "subject_element_ids": [
+            "caption-left-early-line1",
+            "caption-left-early-line2"
+          ],
+          "subject_dominant_channel": "red",
+          "minimum_dominance": 1,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 2.0,
+          "subject_bbox": [
+            240,
+            22,
+            146,
+            47
+          ],
+          "native_binding_bbox": [
+            223.57,
+            17.475,
+            177.8599,
+            68.375
+          ],
+          "subject_bbox_tolerance_px": 2.0,
+          "subject_center_tolerance_px": 1.5,
+          "subject_area_relative_tolerance": 0.15,
+          "obstacles": [
+            {
+              "id": "underbrace",
+              "element_ids": [
+                "brace-left-early-answer-under"
+              ],
+              "bbox": [
+                257,
+                3,
+                112,
+                20
+              ],
+              "native_binding_bbox": [
+                259.0,
+                6.0,
+                106.0,
+                13.0
+              ],
+              "area_relative_tolerance": 0.45,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "ellipsis",
+              "element_ids": [
+                "ellipsis-left-transition-dot-1",
+                "ellipsis-left-transition-dot-2",
+                "ellipsis-left-transition-dot-3"
+              ],
+              "bbox": [
+                184,
+                41,
+                6,
+                22
+              ],
+              "native_binding_bbox": [
+                186.0,
+                43.0,
+                2.0,
+                17.0
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "vertical-arrow",
+              "element_ids": [
+                "arrow-left-to-later-step"
+              ],
+              "bbox": [
+                182,
+                74,
+                11,
+                25
+              ],
+              "native_binding_bbox": [
+                187.0,
+                75.0,
+                0.0,
+                23.0
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caption-left-later-region",
+      "label": "Left Later Step two-line red caption",
+      "bbox": [
+        200,
+        358,
+        500,
+        152
+      ],
+      "pixel_bbox": [
+        235,
+        450,
+        316,
+        63
+      ],
+      "critical": true,
+      "element_ids": [
+        "caption-left-later-line1",
+        "caption-left-later-line2",
+        "brace-left-later-rationale-under",
+        "ellipsis-left-later-row-dot-1",
+        "ellipsis-left-later-row-dot-2",
+        "ellipsis-left-later-row-dot-3",
+        "arrow-left-to-later-step"
+      ],
+      "expected_text_object_count": 2,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_clearance_contracts": [
+        {
+          "id": "caption-left-later-critical-clearance",
+          "subject_element_ids": [
+            "caption-left-later-line1",
+            "caption-left-later-line2"
+          ],
+          "subject_dominant_channel": "red",
+          "minimum_dominance": 1,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 2.0,
+          "subject_bbox": [
+            112,
+            103,
+            161,
+            47
+          ],
+          "native_binding_bbox": [
+            97.1225,
+            95.475,
+            189.755,
+            68.375
+          ],
+          "subject_bbox_tolerance_px": 2.0,
+          "subject_center_tolerance_px": 1.5,
+          "subject_area_relative_tolerance": 0.15,
+          "obstacles": [
+            {
+              "id": "underbrace",
+              "element_ids": [
+                "brace-left-later-rationale-under"
+              ],
+              "bbox": [
+                137,
+                86,
+                112,
+                17
+              ],
+              "native_binding_bbox": [
+                139.0,
+                89.0,
+                106.0,
+                13.0
+              ],
+              "area_relative_tolerance": 0.45,
+              "bbox_tolerance_px": 2.0,
+              "absolute_min_px": 0.0
+            },
+            {
+              "id": "ellipsis",
+              "element_ids": [
+                "ellipsis-left-later-row-dot-1",
+                "ellipsis-left-later-row-dot-2",
+                "ellipsis-left-later-row-dot-3"
+              ],
+              "bbox": [
+                277,
+                40,
+                22,
+                7
+              ],
+              "native_binding_bbox": [
+                278.25,
+                41.75,
+                16.4999,
+                2.4999
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "vertical-arrow",
+              "element_ids": [
+                "arrow-left-to-later-step"
+              ],
+              "bbox": [
+                282,
+                1,
+                11,
+                25
+              ],
+              "native_binding_bbox": [
+                287.0,
+                2.0,
+                0.0,
+                23.0
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caption-right-early-region",
+      "label": "Right Early Step two-line green caption",
+      "bbox": [
+        800,
+        282,
+        464,
+        101
+      ],
+      "pixel_bbox": [
+        1021,
+        291,
+        316,
+        63
+      ],
+      "critical": true,
+      "element_ids": [
+        "caption-right-early-line1",
+        "caption-right-early-line2",
+        "brace-right-early-rationale-under",
+        "ellipsis-right-transition-dot-1",
+        "ellipsis-right-transition-dot-2",
+        "ellipsis-right-transition-dot-3",
+        "arrow-right-to-later-step"
+      ],
+      "expected_text_object_count": 2,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_clearance_contracts": [
+        {
+          "id": "caption-right-early-critical-clearance",
+          "subject_element_ids": [
+            "caption-right-early-line1",
+            "caption-right-early-line2"
+          ],
+          "subject_dominant_channel": "green",
+          "minimum_dominance": 1,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 2.0,
+          "subject_bbox": [
+            299,
+            20,
+            160,
+            44
+          ],
+          "native_binding_bbox": [
+            283.6225,
+            12.475,
+            189.755,
+            68.375
+          ],
+          "subject_bbox_tolerance_px": 2.0,
+          "subject_center_tolerance_px": 1.5,
+          "subject_area_relative_tolerance": 0.15,
+          "obstacles": [
+            {
+              "id": "underbrace",
+              "element_ids": [
+                "brace-right-early-rationale-under"
+              ],
+              "bbox": [
+                323,
+                3,
+                112,
+                17
+              ],
+              "native_binding_bbox": [
+                325.0,
+                6.0,
+                106.0,
+                14.0
+              ],
+              "area_relative_tolerance": 0.45,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "ellipsis",
+              "element_ids": [
+                "ellipsis-right-transition-dot-1",
+                "ellipsis-right-transition-dot-2",
+                "ellipsis-right-transition-dot-3"
+              ],
+              "bbox": [
+                457,
+                40,
+                6,
+                20
+              ],
+              "native_binding_bbox": [
+                458.0,
+                42.0,
+                2.0,
+                16.0
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "vertical-arrow",
+              "element_ids": [
+                "arrow-right-to-later-step"
+              ],
+              "bbox": [
+                454,
+                72,
+                10,
+                25
+              ],
+              "native_binding_bbox": [
+                459.0,
+                73.0,
+                0.0,
+                23.0
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caption-right-later-region",
+      "label": "Right Later Step two-line green caption",
+      "bbox": [
+        1000,
+        352,
+        513,
+        153
+      ],
+      "pixel_bbox": [
+        1212,
+        450,
+        301,
+        63
+      ],
+      "critical": true,
+      "element_ids": [
+        "caption-right-later-line1",
+        "caption-right-later-line2",
+        "brace-right-later-answer-under",
+        "ellipsis-right-later-row-dot-1",
+        "ellipsis-right-later-row-dot-2",
+        "ellipsis-right-later-row-dot-3",
+        "arrow-right-to-later-step"
+      ],
+      "expected_text_object_count": 2,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_clearance_contracts": [
+        {
+          "id": "caption-right-later-critical-clearance",
+          "subject_element_ids": [
+            "caption-right-later-line1",
+            "caption-right-later-line2"
+          ],
+          "subject_dominant_channel": "green",
+          "minimum_dominance": 1,
+          "background_rgb": [
+            255,
+            255,
+            255
+          ],
+          "background_tolerance": 24,
+          "absolute_min_px": 1.0,
+          "reference_loss_tolerance_px": 2.0,
+          "subject_bbox": [
+            309,
+            106,
+            147,
+            47
+          ],
+          "native_binding_bbox": [
+            292.57,
+            101.475,
+            177.8599,
+            68.375
+          ],
+          "subject_bbox_tolerance_px": 2.0,
+          "subject_center_tolerance_px": 1.5,
+          "subject_area_relative_tolerance": 0.15,
+          "obstacles": [
+            {
+              "id": "underbrace",
+              "element_ids": [
+                "brace-right-later-answer-under"
+              ],
+              "bbox": [
+                327,
+                87,
+                111,
+                20
+              ],
+              "native_binding_bbox": [
+                329.0,
+                89.0,
+                106.0,
+                16.0
+              ],
+              "area_relative_tolerance": 0.25,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "ellipsis",
+              "element_ids": [
+                "ellipsis-right-later-row-dot-1",
+                "ellipsis-right-later-row-dot-2",
+                "ellipsis-right-later-row-dot-3"
+              ],
+              "bbox": [
+                248,
+                41,
+                22,
+                7
+              ],
+              "native_binding_bbox": [
+                250.25,
+                43.25,
+                17.0,
+                2.4999
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            },
+            {
+              "id": "vertical-arrow",
+              "element_ids": [
+                "arrow-right-to-later-step"
+              ],
+              "bbox": [
+                254,
+                2,
+                11,
+                25
+              ],
+              "native_binding_bbox": [
+                259.0,
+                3.0,
+                0.0,
+                23.0
+              ],
+              "area_relative_tolerance": 0.35,
+              "bbox_tolerance_px": 2.0
+            }
+          ]
+        }
+      ]
     }
   ],
   "task_mode": "RECONSTRUCT_1TO1"

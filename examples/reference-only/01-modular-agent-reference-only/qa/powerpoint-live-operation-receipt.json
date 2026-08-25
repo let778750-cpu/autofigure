@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_operation_receipt",
+  "provider": "powerpoint-live",
+  "publication_mode": "save-reopen-only",
+  "session_id": "bf956831-362e-4501-8563-bac1aff047b5",
+  "target_id": "autofigure-pptx",
+  "event_index_base": 0,
+  "begin_event_index": 0,
+  "operation_event_index": 1,
+  "operation_log_path": "build/sessions/powerpoint/bf956831-362e-4501-8563-bac1aff047b5/operation-log.ndjson",
+  "operation_log_sha256": "f0d9a54ac31306d3b77f0d3281e5c02629062c2018e59d641e2959e70afa8333",
+  "begin_event": {
+    "event": "begin_session",
+    "revision": 0,
+    "target_id": "autofigure-pptx",
+    "scene_schema_version": "2.1.0",
+    "scene_graph_sha256": "29553578f6d7e85169d61322bcf9ac7fc348161ad3a5ba61c21ab5f7d106a0b9",
+    "render_plan_sha256": "43c7261ff8b4e7e467468e641e4599b7a3169fa9fff6b63119b38d4fa32eae31",
+    "contract_hashes": {
+      "sourceManifestSha256": "676188c50cec2c588315f03397213d634923c880308476f08f4da8e49ab3a813",
+      "scientificSpecSha256": "5acdacf23903e85a7fb7214121722354938f35c224b09c37dcce98584894a5e0",
+      "sceneGraphSha256": "29553578f6d7e85169d61322bcf9ac7fc348161ad3a5ba61c21ab5f7d106a0b9",
+      "renderPlanSha256": "43c7261ff8b4e7e467468e641e4599b7a3169fa9fff6b63119b38d4fa32eae31",
+      "assetManifestSha256": "9b46a998558b4a557ff6266d14a90cfb19f3eb0a13d7a9120214f1205f28788e",
+      "evidenceProvenanceSha256": "ef285be5eb6fea6fe6be6c38387182b6549931dd36969ec0f930464dee213d48",
+      "targetProfileSha256": "e3ea27790bb826987d72a04062f5346eea5fac67e4a16f2f35735834c9fe97df",
+      "designTokensSha256": "e7b55495947c48cf37af9f00b34eefeb164fb2e7e2ee87a791594deb8cd4f9c3"
+    }
+  },
+  "begin_event_sha256": "1cd32585acadd2c6a9f84e61ca556411eeaf1e13f37e56c9623f260125c03ab3",
+  "matching_begin_event_sha256": "fafd5200994d856034191026bef7e22fd4d85ad9693ad608218c3f983007ebdc",
+  "operation_event": {
+    "event": "save_candidate",
+    "tool": "powerpoint_save_candidate",
+    "revision": 0,
+    "request_sha256": "2049cad5a6fb086d678d78790c64aeab5c231876bab97eddf8ddc05c98230ec0",
+    "candidate_path": "build/candidates/refonly01-roundtrip.pptx",
+    "candidate_sha256": "7e97dfa29d5e73cefefdf6f59b8a1a7fc7a7f950ad5af9a2e585cdec93541fcd",
+    "reopened_inventory_sha256": "e696e11c3b4fb56ea76d8be5d3dfff731a91a17662d26e37ae052bf02ea786a9"
+  },
+  "operation_event_sha256": "2fc230d129c651732b243bf5e14cb25099117f017d7e0cacfbb6b6cb40decf86",
+  "matching_operation_event_sha256": "066c9ca878530ab5449cd838450d6e352ef9cea18361100f3165b3811abda38d"
+}

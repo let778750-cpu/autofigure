@@ -1,0 +1,44 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "source_gate_report",
+  "created_at": "20260824T141317Z",
+  "case": "03-llmind",
+  "decision": "reject",
+  "pass": false,
+  "next_action": "reconstruct-from-reference",
+  "route_gate": {
+    "input_route": "svg-seeded",
+    "candidate_role": "legacy-unverified-candidate",
+    "seed_gate_status": "rejected"
+  },
+  "candidate": {
+    "path_base": "case-root",
+    "source_name": "scene.json:canonical_svg",
+    "kind": "svg",
+    "sha256": "a8a97e65d0fecb58a4799f6e4be3a8e60f17a8e1ef7247be22ca1df7e9de4d96"
+  },
+  "reference": {
+    "path_base": "case-root",
+    "path": "reference.png",
+    "expected_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+    "actual_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953"
+  },
+  "reference_inventory_sha256": null,
+  "checks": [],
+  "findings": [
+    {
+      "category": "route",
+      "decision": "reject",
+      "code": "source-gate:seed:unavailable",
+      "message": "legacy construction evidence is insufficient for schema 4 admission"
+    }
+  ],
+  "blockers": [
+    "source-gate:seed:unavailable"
+  ],
+  "reject_reasons": [
+    "source-gate:seed:unavailable"
+  ],
+  "repair_reasons": [],
+  "repair_actions": []
+}

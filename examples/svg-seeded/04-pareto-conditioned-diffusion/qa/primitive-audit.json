@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "vector_primitive_audit",
+  "created_at": "20260824T150521Z",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "svg_sha256": "7c9af0152daf291939c305da3a167a021f668a72ba36ea3981bb1bfd12452384",
+  "scene_sha256": "92e502d418bd0aa7a324a2672c9523f094de913fb2036d7740ba98ef7f303972",
+  "artifact_sha256": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+  "primitive_count": 0,
+  "expectations": [],
+  "records": [],
+  "findings": [],
+  "pass": true
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "source_gate_report",
+  "created_at": "2026-08-24T13:29:40.528701Z",
+  "decision": "accept",
+  "pass": true,
+  "next_action": "normalize-candidate-to-scene",
+  "route_gate": {
+    "input_route": "svg-seeded",
+    "candidate_role": "repair-candidate",
+    "seed_gate_status": "accepted"
+  },
+  "candidate": {
+    "path_base": "staging-root",
+    "source_name": "case04-seeded-repair-final.svg",
+    "kind": "svg",
+    "sha256": "7c9af0152daf291939c305da3a167a021f668a72ba36ea3981bb1bfd12452384",
+    "expected_sha256": "7c9af0152daf291939c305da3a167a021f668a72ba36ea3981bb1bfd12452384",
+    "byte_count": 26741
+  },
+  "reference": {
+    "path_base": "case-root",
+    "path": "reference.png",
+    "expected_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+    "actual_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+    "declared_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+    "canvas": [
+      1217,
+      609
+    ]
+  },
+  "canvas": {
+    "expected": {
+      "width": 1217,
+      "height": 609
+    },
+    "observed": {
+      "width": 1217.0,
+      "height": 609.0,
+      "view_box": [
+        0.0,
+        0.0,
+        1217.0,
+        609.0
+      ]
+    }
+  },
+  "image_usage": {
+    "count": 0,
+    "max_area_ratio": 0.5,
+    "whole_reference_forbidden": true,
+    "declared_area_ratio": 0.0,
+    "authorized_image_ids": [],
+    "items": []
+  },
+  "unsupported_features": {
+    "count": 0,
+    "items": []
+  },
+  "semantic_metadata": {
+    "required_fields": [
+      "semantic_schema_version",
+      "reference_sha256",
+      "object_inventory_sha256",
+      "stable_element_ids",
+      "relations_exhaustive",
+      "case"
+    ],
+    "observed": {
+      "semantic_schema_version": "4.0.0",
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+      "object_inventory_sha256": "a41f291b26e14676fe4a09f23f8bf5c24cae86576b16b68509cabbe510136f11",
+      "stable_element_ids": true,
+      "relations_exhaustive": true,
+      "case": "04-pareto-conditioned-diffusion"
+    },
+    "missing_fields": [],
+    "invalid_fields": [],
+    "conflicting_fields": [],
+    "structure": {
+      "drawable_count": 159,
+      "missing_id_count": 0,
+      "duplicate_ids": [],
+      "declared_relation_count": 40,
+      "invalid_relation_count": 0,
+      "split_arrow_group_count": 0
+    }
+  },
+  "checks": [
+    {
+      "id": "source",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "route",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "hash",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "canvas",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "image",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "unsupported_feature",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "semantic_metadata",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    }
+  ],
+  "findings": [],
+  "blockers": [],
+  "reject_reasons": [],
+  "repair_reasons": [],
+  "repair_actions": [],
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_inventory_sha256": "a41f291b26e14676fe4a09f23f8bf5c24cae86576b16b68509cabbe510136f11"
+}

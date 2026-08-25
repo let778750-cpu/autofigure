@@ -1,10 +1,10 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "bindings",
   "task_mode": "RECONSTRUCT_1TO1",
   "case": "01-modular-agent-reference-only",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "updated_at": "20260821T132056Z",
+  "updated_at": "20260824T153857Z",
   "backend": "pptx-offline+native-math",
   "bindings": [
     {
@@ -198,6 +198,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "task-input-to-encoder",
+      "arrow_spec_sha256": "7d5ed98d70de50a89dd6a62b357199f31c630caa2dd759ba7ae7a496a0e1eecf",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -207,6 +209,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "task-encoder-to-tau",
+      "arrow_spec_sha256": "05f855fe9d4755df68c702b5553583fc088577e9b45784efd59df6e8c718dd59",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -216,6 +220,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "tau-to-mapping",
+      "arrow_spec_sha256": "33f6262b8e70635ec86353616d887f9de74d8a4b1bbaa2086a181b9ce9bf3ca8",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -315,33 +321,13 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "tau-to-allocator",
-      "group_shape_id": 37,
-      "physically_grouped": true,
-      "readback_found": true
-    },
-    {
-      "element_id": "tau-to-allocator",
-      "shape_id": 36,
-      "shape_name": "af-tau-to-allocator-arrowhead-fallback-01",
-      "object_kind": "arrowhead-fallback",
-      "editable": true,
-      "semantic_group_id": "tau-to-allocator",
-      "group_shape_id": 37,
-      "physically_grouped": true,
-      "readback_found": true
-    },
-    {
-      "element_id": "tau-to-allocator",
-      "shape_id": 37,
-      "shape_name": "af-tau-to-allocator-arrow-group-01",
-      "object_kind": "arrow-group",
-      "editable": true,
-      "semantic_group_id": "tau-to-allocator",
+      "arrow_spec_sha256": "d8c4063c82e8d9a3ade452a78b6f955ac9341a0939856ec54367e9fa98b620ea",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "mllm-encoder",
-      "shape_id": 38,
+      "shape_id": 36,
       "shape_name": "af-mllm-encoder-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -350,7 +336,7 @@
     },
     {
       "element_id": "mllm-line1",
-      "shape_id": 39,
+      "shape_id": 37,
       "shape_name": "af-mllm-line1-text-01",
       "object_kind": "text",
       "editable": true,
@@ -359,7 +345,7 @@
     },
     {
       "element_id": "mllm-line2",
-      "shape_id": 40,
+      "shape_id": 38,
       "shape_name": "af-mllm-line2-text-01",
       "object_kind": "text",
       "editable": true,
@@ -368,7 +354,7 @@
     },
     {
       "element_id": "wm-encoder",
-      "shape_id": 41,
+      "shape_id": 39,
       "shape_name": "af-wm-encoder-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -377,7 +363,7 @@
     },
     {
       "element_id": "wm-line1",
-      "shape_id": 42,
+      "shape_id": 40,
       "shape_name": "af-wm-line1-text-01",
       "object_kind": "text",
       "editable": true,
@@ -386,7 +372,7 @@
     },
     {
       "element_id": "wm-line2",
-      "shape_id": 43,
+      "shape_id": 41,
       "shape_name": "af-wm-line2-text-01",
       "object_kind": "text",
       "editable": true,
@@ -395,7 +381,7 @@
     },
     {
       "element_id": "atomic:observation",
-      "shape_id": 44,
+      "shape_id": 42,
       "shape_name": "af-atomic-observation-atomic-raster-01",
       "object_kind": "atomic-raster",
       "editable": false,
@@ -404,7 +390,7 @@
     },
     {
       "element_id": "observation-ellipsis",
-      "shape_id": 45,
+      "shape_id": 43,
       "shape_name": "af-observation-ellipsis-text-01",
       "object_kind": "text",
       "editable": true,
@@ -413,7 +399,7 @@
     },
     {
       "element_id": "observation-label",
-      "shape_id": 46,
+      "shape_id": 44,
       "shape_name": "af-observation-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -422,43 +408,51 @@
     },
     {
       "element_id": "observation-to-mllm",
-      "shape_id": 47,
+      "shape_id": 45,
       "shape_name": "af-observation-to-mllm-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "observation-to-mllm",
+      "arrow_spec_sha256": "3cab0196d88eae7a9574892caff0477e76eab7638867f5c01b82892d8e2985fb",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "observation-to-wm",
-      "shape_id": 48,
+      "shape_id": 46,
       "shape_name": "af-observation-to-wm-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "observation-to-wm",
+      "arrow_spec_sha256": "1d0f12eeb40e0a9811ab7ed54c4f80700c2b2a1969d6ebdd788ab71ed95eed10",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "mllm-to-ev",
-      "shape_id": 49,
+      "shape_id": 47,
       "shape_name": "af-mllm-to-ev-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "mllm-to-ev",
+      "arrow_spec_sha256": "c5231c3d364c2a3a757f4df602ea7f81e74ded078934016208a5db594f840fb8",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "wm-to-st",
-      "shape_id": 50,
+      "shape_id": 48,
       "shape_name": "af-wm-to-st-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "wm-to-st",
+      "arrow_spec_sha256": "6ee36a15d74b8141f18e430f2effd81d2e629dffe0badd2fb924d38745dd2e47",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "ev-box",
-      "shape_id": 51,
+      "shape_id": 49,
       "shape_name": "af-ev-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -467,7 +461,7 @@
     },
     {
       "element_id": "ev-label",
-      "shape_id": 52,
+      "shape_id": 50,
       "shape_name": "math:003",
       "object_kind": "native-math",
       "editable": true,
@@ -478,7 +472,7 @@
     },
     {
       "element_id": "ev-node-1",
-      "shape_id": 53,
+      "shape_id": 51,
       "shape_name": "af-ev-node-1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -487,7 +481,7 @@
     },
     {
       "element_id": "ev-node-2",
-      "shape_id": 54,
+      "shape_id": 52,
       "shape_name": "af-ev-node-2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -496,7 +490,7 @@
     },
     {
       "element_id": "ev-node-3",
-      "shape_id": 55,
+      "shape_id": 53,
       "shape_name": "af-ev-node-3-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -505,7 +499,7 @@
     },
     {
       "element_id": "st-box",
-      "shape_id": 56,
+      "shape_id": 54,
       "shape_name": "af-st-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -514,7 +508,7 @@
     },
     {
       "element_id": "st-label",
-      "shape_id": 57,
+      "shape_id": 55,
       "shape_name": "math:004",
       "object_kind": "native-math",
       "editable": true,
@@ -525,7 +519,7 @@
     },
     {
       "element_id": "st-node-1",
-      "shape_id": 58,
+      "shape_id": 56,
       "shape_name": "af-st-node-1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -534,7 +528,7 @@
     },
     {
       "element_id": "st-node-2",
-      "shape_id": 59,
+      "shape_id": 57,
       "shape_name": "af-st-node-2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -543,7 +537,7 @@
     },
     {
       "element_id": "st-node-3",
-      "shape_id": 60,
+      "shape_id": 58,
       "shape_name": "af-st-node-3-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -552,25 +546,29 @@
     },
     {
       "element_id": "ev-to-joint",
-      "shape_id": 61,
+      "shape_id": 59,
       "shape_name": "af-ev-to-joint-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "ev-to-joint",
+      "arrow_spec_sha256": "2743c5155df451b92bded2a93e94e1343ea81788ad369fd3f1fd6364872ea2d3",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "st-to-joint",
-      "shape_id": 62,
+      "shape_id": 60,
       "shape_name": "af-st-to-joint-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "st-to-joint",
+      "arrow_spec_sha256": "4f9a34eeaa8a625ad80fbbaae38c5b411ea19815ad1981009e623f09ee549901",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "joint-core",
-      "shape_id": 63,
+      "shape_id": 61,
       "shape_name": "af-joint-core-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -579,7 +577,7 @@
     },
     {
       "element_id": "task-1-box",
-      "shape_id": 64,
+      "shape_id": 62,
       "shape_name": "af-task-1-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -588,7 +586,7 @@
     },
     {
       "element_id": "task-1-label",
-      "shape_id": 65,
+      "shape_id": 63,
       "shape_name": "af-task-1-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -597,7 +595,7 @@
     },
     {
       "element_id": "task-2-box",
-      "shape_id": 66,
+      "shape_id": 64,
       "shape_name": "af-task-2-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -606,7 +604,7 @@
     },
     {
       "element_id": "task-2-label",
-      "shape_id": 67,
+      "shape_id": 65,
       "shape_name": "af-task-2-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -615,187 +613,247 @@
     },
     {
       "element_id": "expert-1-box",
-      "shape_id": 68,
+      "shape_id": 66,
       "shape_name": "af-expert-1-box-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-1-box",
+      "logical_group_ids": [
+        "expert-1"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-1-sem",
-      "shape_id": 69,
+      "shape_id": 67,
       "shape_name": "af-expert-1-sem-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-1-sem",
+      "logical_group_ids": [
+        "expert-1"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-1-dyn",
-      "shape_id": 70,
+      "shape_id": 68,
       "shape_name": "af-expert-1-dyn-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-1-dyn",
+      "logical_group_ids": [
+        "expert-1"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-1-sem-label",
-      "shape_id": 71,
+      "shape_id": 69,
       "shape_name": "af-expert-1-sem-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-1-sem-label",
+      "logical_group_ids": [
+        "expert-1"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-1-dyn-label",
-      "shape_id": 72,
+      "shape_id": 70,
       "shape_name": "af-expert-1-dyn-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-1-dyn-label",
+      "logical_group_ids": [
+        "expert-1"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-2-box",
-      "shape_id": 73,
+      "shape_id": 71,
       "shape_name": "af-expert-2-box-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-2-box",
+      "logical_group_ids": [
+        "expert-2"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-2-sem",
-      "shape_id": 74,
+      "shape_id": 72,
       "shape_name": "af-expert-2-sem-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-2-sem",
+      "logical_group_ids": [
+        "expert-2"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-2-dyn",
-      "shape_id": 75,
+      "shape_id": 73,
       "shape_name": "af-expert-2-dyn-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-2-dyn",
+      "logical_group_ids": [
+        "expert-2"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-2-sem-label",
-      "shape_id": 76,
+      "shape_id": 74,
       "shape_name": "af-expert-2-sem-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-2-sem-label",
+      "logical_group_ids": [
+        "expert-2"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-2-dyn-label",
-      "shape_id": 77,
+      "shape_id": 75,
       "shape_name": "af-expert-2-dyn-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-2-dyn-label",
+      "logical_group_ids": [
+        "expert-2"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-3-box",
-      "shape_id": 78,
+      "shape_id": 76,
       "shape_name": "af-expert-3-box-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-3-box",
+      "logical_group_ids": [
+        "expert-3"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-3-sem",
-      "shape_id": 79,
+      "shape_id": 77,
       "shape_name": "af-expert-3-sem-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-3-sem",
+      "logical_group_ids": [
+        "expert-3"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-3-dyn",
-      "shape_id": 80,
+      "shape_id": 78,
       "shape_name": "af-expert-3-dyn-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-3-dyn",
+      "logical_group_ids": [
+        "expert-3"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-3-sem-label",
-      "shape_id": 81,
+      "shape_id": 79,
       "shape_name": "af-expert-3-sem-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-3-sem-label",
+      "logical_group_ids": [
+        "expert-3"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-3-dyn-label",
-      "shape_id": 82,
+      "shape_id": 80,
       "shape_name": "af-expert-3-dyn-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-3-dyn-label",
+      "logical_group_ids": [
+        "expert-3"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-4-box",
-      "shape_id": 83,
+      "shape_id": 81,
       "shape_name": "af-expert-4-box-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-4-box",
+      "logical_group_ids": [
+        "expert-4"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-4-sem",
-      "shape_id": 84,
+      "shape_id": 82,
       "shape_name": "af-expert-4-sem-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-4-sem",
+      "logical_group_ids": [
+        "expert-4"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-4-dyn",
-      "shape_id": 85,
+      "shape_id": 83,
       "shape_name": "af-expert-4-dyn-rect-01",
       "object_kind": "rect",
       "editable": true,
       "semantic_group_id": "expert-4-dyn",
+      "logical_group_ids": [
+        "expert-4"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-4-sem-label",
-      "shape_id": 86,
+      "shape_id": 84,
       "shape_name": "af-expert-4-sem-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-4-sem-label",
+      "logical_group_ids": [
+        "expert-4"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-4-dyn-label",
-      "shape_id": 87,
+      "shape_id": 85,
       "shape_name": "af-expert-4-dyn-label-text-01",
       "object_kind": "text",
       "editable": true,
       "semantic_group_id": "expert-4-dyn-label",
+      "logical_group_ids": [
+        "expert-4"
+      ],
       "readback_found": true
     },
     {
       "element_id": "expert-index-1",
-      "shape_id": 88,
+      "shape_id": 86,
       "shape_name": "af-expert-index-1-text-01",
       "object_kind": "text",
       "editable": true,
@@ -804,7 +862,7 @@
     },
     {
       "element_id": "expert-index-2",
-      "shape_id": 89,
+      "shape_id": 87,
       "shape_name": "af-expert-index-2-text-01",
       "object_kind": "text",
       "editable": true,
@@ -813,7 +871,7 @@
     },
     {
       "element_id": "expert-index-3",
-      "shape_id": 90,
+      "shape_id": 88,
       "shape_name": "af-expert-index-3-text-01",
       "object_kind": "text",
       "editable": true,
@@ -822,7 +880,7 @@
     },
     {
       "element_id": "expert-index-dots",
-      "shape_id": 91,
+      "shape_id": 89,
       "shape_name": "af-expert-index-dots-text-01",
       "object_kind": "text",
       "editable": true,
@@ -831,7 +889,7 @@
     },
     {
       "element_id": "expert-index-l",
-      "shape_id": 92,
+      "shape_id": 90,
       "shape_name": "af-expert-index-l-text-01",
       "object_kind": "text",
       "editable": true,
@@ -840,87 +898,58 @@
     },
     {
       "element_id": "allocator-task1-route-1",
-      "shape_id": 93,
-      "shape_name": "af-allocator-task1-route-1-freeform-arrow-01",
-      "object_kind": "freeform-arrow",
+      "shape_id": 91,
+      "shape_name": "af-allocator-task1-route-1-connector-01",
+      "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "allocator-task1-route-1",
+      "arrow_spec_sha256": "b5bea0e182ef3ce4043d70053b8e87d0453d194fe89d9a2cb29e28180f568f8a",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "allocator-task1-route-2",
-      "shape_id": 94,
-      "shape_name": "af-allocator-task1-route-2-freeform-arrow-01",
-      "object_kind": "freeform-arrow",
+      "shape_id": 92,
+      "shape_name": "af-allocator-task1-route-2-connector-01",
+      "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "allocator-task1-route-2",
+      "arrow_spec_sha256": "b7bde9d1bb63d8af3c4718594c86fb71006c13399cd8ff148661ac67d2cdb7e7",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
-      "element_id": "allocator-task2-route-1",
+      "element_id": "allocator-task1-skip-edge",
+      "shape_id": 93,
+      "shape_name": "af-allocator-task1-skip-edge-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-skip-edge",
+      "arrow_spec_sha256": "292d1612085c6f6c9d9ad25840e06098a6769ba8f23e73901111891a12021bfc",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task1-propagation",
+      "shape_id": 94,
+      "shape_name": "af-allocator-task1-propagation-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "allocator-task1-propagation",
+      "readback_found": true
+    },
+    {
+      "element_id": "allocator-task2-propagation",
       "shape_id": 95,
-      "shape_name": "af-allocator-task2-route-1-freeform-arrow-01",
-      "object_kind": "freeform-arrow",
+      "shape_name": "af-allocator-task2-propagation-freeform-01",
+      "object_kind": "freeform",
       "editable": true,
-      "semantic_group_id": "allocator-task2-route-1",
-      "group_shape_id": 97,
-      "physically_grouped": true,
-      "readback_found": true
-    },
-    {
-      "element_id": "allocator-task2-route-1",
-      "shape_id": 96,
-      "shape_name": "af-allocator-task2-route-1-arrowhead-fallback-01",
-      "object_kind": "arrowhead-fallback",
-      "editable": true,
-      "semantic_group_id": "allocator-task2-route-1",
-      "group_shape_id": 97,
-      "physically_grouped": true,
-      "readback_found": true
-    },
-    {
-      "element_id": "allocator-task2-route-1",
-      "shape_id": 97,
-      "shape_name": "af-allocator-task2-route-1-arrow-group-01",
-      "object_kind": "arrow-group",
-      "editable": true,
-      "semantic_group_id": "allocator-task2-route-1",
-      "readback_found": true
-    },
-    {
-      "element_id": "allocator-task2-route-2",
-      "shape_id": 98,
-      "shape_name": "af-allocator-task2-route-2-freeform-arrow-01",
-      "object_kind": "freeform-arrow",
-      "editable": true,
-      "semantic_group_id": "allocator-task2-route-2",
-      "group_shape_id": 100,
-      "physically_grouped": true,
-      "readback_found": true
-    },
-    {
-      "element_id": "allocator-task2-route-2",
-      "shape_id": 99,
-      "shape_name": "af-allocator-task2-route-2-arrowhead-fallback-01",
-      "object_kind": "arrowhead-fallback",
-      "editable": true,
-      "semantic_group_id": "allocator-task2-route-2",
-      "group_shape_id": 100,
-      "physically_grouped": true,
-      "readback_found": true
-    },
-    {
-      "element_id": "allocator-task2-route-2",
-      "shape_id": 100,
-      "shape_name": "af-allocator-task2-route-2-arrow-group-01",
-      "object_kind": "arrow-group",
-      "editable": true,
-      "semantic_group_id": "allocator-task2-route-2",
+      "semantic_group_id": "allocator-task2-propagation",
       "readback_found": true
     },
     {
       "element_id": "zt-top-box",
-      "shape_id": 101,
+      "shape_id": 96,
       "shape_name": "af-zt-top-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -929,7 +958,7 @@
     },
     {
       "element_id": "zt-top-label",
-      "shape_id": 102,
+      "shape_id": 97,
       "shape_name": "math:005",
       "object_kind": "native-math",
       "editable": true,
@@ -940,7 +969,7 @@
     },
     {
       "element_id": "zt-top-1",
-      "shape_id": 103,
+      "shape_id": 98,
       "shape_name": "af-zt-top-1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -949,7 +978,7 @@
     },
     {
       "element_id": "zt-top-2",
-      "shape_id": 104,
+      "shape_id": 99,
       "shape_name": "af-zt-top-2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -958,7 +987,7 @@
     },
     {
       "element_id": "zt-top-3",
-      "shape_id": 105,
+      "shape_id": 100,
       "shape_name": "af-zt-top-3-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -967,7 +996,7 @@
     },
     {
       "element_id": "zt-bottom-box",
-      "shape_id": 106,
+      "shape_id": 101,
       "shape_name": "af-zt-bottom-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -976,7 +1005,7 @@
     },
     {
       "element_id": "zt-bottom-1",
-      "shape_id": 107,
+      "shape_id": 102,
       "shape_name": "af-zt-bottom-1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -985,7 +1014,7 @@
     },
     {
       "element_id": "zt-bottom-2",
-      "shape_id": 108,
+      "shape_id": 103,
       "shape_name": "af-zt-bottom-2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -994,7 +1023,7 @@
     },
     {
       "element_id": "zt-bottom-3",
-      "shape_id": 109,
+      "shape_id": 104,
       "shape_name": "af-zt-bottom-3-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1003,7 +1032,7 @@
     },
     {
       "element_id": "task-conditioned-imagination",
-      "shape_id": 110,
+      "shape_id": 105,
       "shape_name": "af-task-conditioned-imagination-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1011,8 +1040,41 @@
       "readback_found": true
     },
     {
+      "element_id": "imagination-z0-to-r0",
+      "shape_id": 106,
+      "shape_name": "af-imagination-z0-to-r0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z0-to-r0",
+      "arrow_spec_sha256": "b710a3e44ce73e2e535d86b3e048149b0efe91fa911338748891c50a84f7d670",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z1-to-r1",
+      "shape_id": 107,
+      "shape_name": "af-imagination-z1-to-r1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z1-to-r1",
+      "arrow_spec_sha256": "ad49b582533b015dc77663531ef5656428eb09c41ce001350fd93bfaf61d79e6",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "imagination-z2-to-r2",
+      "shape_id": 108,
+      "shape_name": "af-imagination-z2-to-r2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "imagination-z2-to-r2",
+      "arrow_spec_sha256": "38fc40e9194a569ecf61954c16b0ca03224f7e03b69a84bddd9cec40a8c51ae8",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
       "element_id": "imagination-title",
-      "shape_id": 111,
+      "shape_id": 109,
       "shape_name": "af-imagination-title-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1021,7 +1083,7 @@
     },
     {
       "element_id": "imag-z0",
-      "shape_id": 112,
+      "shape_id": 110,
       "shape_name": "af-imag-z0-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1030,7 +1092,7 @@
     },
     {
       "element_id": "imag-z1",
-      "shape_id": 113,
+      "shape_id": 111,
       "shape_name": "af-imag-z1-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1039,7 +1101,7 @@
     },
     {
       "element_id": "imag-z2",
-      "shape_id": 114,
+      "shape_id": 112,
       "shape_name": "af-imag-z2-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1048,7 +1110,7 @@
     },
     {
       "element_id": "imag-zh",
-      "shape_id": 115,
+      "shape_id": 113,
       "shape_name": "af-imag-zh-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1057,7 +1119,7 @@
     },
     {
       "element_id": "imag-z0-label",
-      "shape_id": 116,
+      "shape_id": 114,
       "shape_name": "math:006",
       "object_kind": "native-math",
       "editable": true,
@@ -1068,7 +1130,7 @@
     },
     {
       "element_id": "imag-z1-label",
-      "shape_id": 117,
+      "shape_id": 115,
       "shape_name": "math:007",
       "object_kind": "native-math",
       "editable": true,
@@ -1079,7 +1141,7 @@
     },
     {
       "element_id": "imag-z2-label",
-      "shape_id": 118,
+      "shape_id": 116,
       "shape_name": "math:008",
       "object_kind": "native-math",
       "editable": true,
@@ -1090,7 +1152,7 @@
     },
     {
       "element_id": "imag-dots",
-      "shape_id": 119,
+      "shape_id": 117,
       "shape_name": "af-imag-dots-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1099,7 +1161,7 @@
     },
     {
       "element_id": "imag-zh-label",
-      "shape_id": 120,
+      "shape_id": 118,
       "shape_name": "math:009",
       "object_kind": "native-math",
       "editable": true,
@@ -1110,7 +1172,7 @@
     },
     {
       "element_id": "rollout-panel",
-      "shape_id": 121,
+      "shape_id": 119,
       "shape_name": "af-rollout-panel-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1118,8 +1180,63 @@
       "readback_found": true
     },
     {
-      "element_id": "rollout-z0",
+      "element_id": "rollout-z0-to-r0",
+      "shape_id": 120,
+      "shape_name": "af-rollout-z0-to-r0-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z0-to-r0",
+      "arrow_spec_sha256": "94e973578aadc00531dbed3007f1ad265f363d9c390b7d9d992475ebe57ccaf1",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z1-to-r1",
+      "shape_id": 121,
+      "shape_name": "af-rollout-z1-to-r1-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z1-to-r1",
+      "arrow_spec_sha256": "0a8c03b2edd5440e6980b8cd35a97c1694bce46df95ab111ffec56d67ed577e4",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z2-to-r2",
       "shape_id": 122,
+      "shape_name": "af-rollout-z2-to-r2-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "rollout-z2-to-r2",
+      "arrow_spec_sha256": "65d2b5223168c18ecc6f49d53117072503fa0b4f64cf3167db67ec12fdc58930",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-top-to-imagination",
+      "shape_id": 123,
+      "shape_name": "af-zt-top-to-imagination-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "zt-top-to-imagination",
+      "arrow_spec_sha256": "92baa490b7e35be95ec0e5b41bcbaacac44577452dfb5fcd7c63dcfef2485503",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "zt-bottom-to-rollout",
+      "shape_id": 124,
+      "shape_name": "af-zt-bottom-to-rollout-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "zt-bottom-to-rollout",
+      "arrow_spec_sha256": "34e29b869a4e4167c361e387c10a862d8aa755a68c5dd317cee798142207a7e8",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "rollout-z0",
+      "shape_id": 125,
       "shape_name": "af-rollout-z0-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1128,7 +1245,7 @@
     },
     {
       "element_id": "rollout-z1",
-      "shape_id": 123,
+      "shape_id": 126,
       "shape_name": "af-rollout-z1-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1137,7 +1254,7 @@
     },
     {
       "element_id": "rollout-z2",
-      "shape_id": 124,
+      "shape_id": 127,
       "shape_name": "af-rollout-z2-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1146,7 +1263,7 @@
     },
     {
       "element_id": "rollout-zh",
-      "shape_id": 125,
+      "shape_id": 128,
       "shape_name": "af-rollout-zh-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1155,7 +1272,7 @@
     },
     {
       "element_id": "rollout-z0-label",
-      "shape_id": 126,
+      "shape_id": 129,
       "shape_name": "math:010",
       "object_kind": "native-math",
       "editable": true,
@@ -1166,7 +1283,7 @@
     },
     {
       "element_id": "rollout-z1-label",
-      "shape_id": 127,
+      "shape_id": 130,
       "shape_name": "math:011",
       "object_kind": "native-math",
       "editable": true,
@@ -1177,7 +1294,7 @@
     },
     {
       "element_id": "rollout-z2-label",
-      "shape_id": 128,
+      "shape_id": 131,
       "shape_name": "math:012",
       "object_kind": "native-math",
       "editable": true,
@@ -1188,7 +1305,7 @@
     },
     {
       "element_id": "rollout-zh-label",
-      "shape_id": 129,
+      "shape_id": 132,
       "shape_name": "math:013",
       "object_kind": "native-math",
       "editable": true,
@@ -1199,7 +1316,7 @@
     },
     {
       "element_id": "rollout-label",
-      "shape_id": 130,
+      "shape_id": 133,
       "shape_name": "af-rollout-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1208,7 +1325,7 @@
     },
     {
       "element_id": "reward-r0",
-      "shape_id": 131,
+      "shape_id": 134,
       "shape_name": "af-reward-r0-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1217,7 +1334,7 @@
     },
     {
       "element_id": "reward-r1",
-      "shape_id": 132,
+      "shape_id": 135,
       "shape_name": "af-reward-r1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1226,7 +1343,7 @@
     },
     {
       "element_id": "reward-r2",
-      "shape_id": 133,
+      "shape_id": 136,
       "shape_name": "af-reward-r2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1235,7 +1352,7 @@
     },
     {
       "element_id": "reward-r0-label",
-      "shape_id": 134,
+      "shape_id": 137,
       "shape_name": "math:014",
       "object_kind": "native-math",
       "editable": true,
@@ -1246,7 +1363,7 @@
     },
     {
       "element_id": "reward-r1-label",
-      "shape_id": 135,
+      "shape_id": 138,
       "shape_name": "math:015",
       "object_kind": "native-math",
       "editable": true,
@@ -1257,7 +1374,7 @@
     },
     {
       "element_id": "reward-r2-label",
-      "shape_id": 136,
+      "shape_id": 139,
       "shape_name": "math:016",
       "object_kind": "native-math",
       "editable": true,
@@ -1268,7 +1385,7 @@
     },
     {
       "element_id": "policy-pi0",
-      "shape_id": 137,
+      "shape_id": 140,
       "shape_name": "af-policy-pi0-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1277,7 +1394,7 @@
     },
     {
       "element_id": "policy-pi1",
-      "shape_id": 138,
+      "shape_id": 141,
       "shape_name": "af-policy-pi1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1286,7 +1403,7 @@
     },
     {
       "element_id": "policy-pi2",
-      "shape_id": 139,
+      "shape_id": 142,
       "shape_name": "af-policy-pi2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1295,7 +1412,7 @@
     },
     {
       "element_id": "policy-pi0-label",
-      "shape_id": 140,
+      "shape_id": 143,
       "shape_name": "math:017",
       "object_kind": "native-math",
       "editable": true,
@@ -1306,7 +1423,7 @@
     },
     {
       "element_id": "policy-pi1-label",
-      "shape_id": 141,
+      "shape_id": 144,
       "shape_name": "math:018",
       "object_kind": "native-math",
       "editable": true,
@@ -1317,7 +1434,7 @@
     },
     {
       "element_id": "policy-pi2-label",
-      "shape_id": 142,
+      "shape_id": 145,
       "shape_name": "math:019",
       "object_kind": "native-math",
       "editable": true,
@@ -1328,7 +1445,7 @@
     },
     {
       "element_id": "action-a0",
-      "shape_id": 143,
+      "shape_id": 146,
       "shape_name": "af-action-a0-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1337,7 +1454,7 @@
     },
     {
       "element_id": "action-a1",
-      "shape_id": 144,
+      "shape_id": 147,
       "shape_name": "af-action-a1-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1346,7 +1463,7 @@
     },
     {
       "element_id": "action-a2",
-      "shape_id": 145,
+      "shape_id": 148,
       "shape_name": "af-action-a2-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1355,7 +1472,7 @@
     },
     {
       "element_id": "action-a0-label",
-      "shape_id": 146,
+      "shape_id": 149,
       "shape_name": "math:020",
       "object_kind": "native-math",
       "editable": true,
@@ -1366,7 +1483,7 @@
     },
     {
       "element_id": "action-a1-label",
-      "shape_id": 147,
+      "shape_id": 150,
       "shape_name": "math:021",
       "object_kind": "native-math",
       "editable": true,
@@ -1377,7 +1494,7 @@
     },
     {
       "element_id": "action-a2-label",
-      "shape_id": 148,
+      "shape_id": 151,
       "shape_name": "math:022",
       "object_kind": "native-math",
       "editable": true,
@@ -1388,56 +1505,35 @@
     },
     {
       "element_id": "imagination-z0-to-z1",
-      "shape_id": 149,
+      "shape_id": 152,
       "shape_name": "af-imagination-z0-to-z1-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "imagination-z0-to-z1",
+      "arrow_spec_sha256": "162c70926207ff1c2d0241b318e7855c96602fe2f53126846b7e286712304bbc",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "imagination-z1-to-z2",
-      "shape_id": 150,
+      "shape_id": 153,
       "shape_name": "af-imagination-z1-to-z2-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "imagination-z1-to-z2",
+      "arrow_spec_sha256": "88fbbf5aff693f06bb03b61a8851bc248ab7dd1e04675ec5ebe524e1674a9b9c",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "imagination-z2-to-zh",
-      "shape_id": 151,
+      "shape_id": 154,
       "shape_name": "af-imagination-z2-to-zh-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "imagination-z2-to-zh",
-      "readback_found": true
-    },
-    {
-      "element_id": "imagination-z0-to-r0",
-      "shape_id": 152,
-      "shape_name": "af-imagination-z0-to-r0-connector-01",
-      "object_kind": "connector",
-      "editable": true,
-      "semantic_group_id": "imagination-z0-to-r0",
-      "readback_found": true
-    },
-    {
-      "element_id": "imagination-z1-to-r1",
-      "shape_id": 153,
-      "shape_name": "af-imagination-z1-to-r1-connector-01",
-      "object_kind": "connector",
-      "editable": true,
-      "semantic_group_id": "imagination-z1-to-r1",
-      "readback_found": true
-    },
-    {
-      "element_id": "imagination-z2-to-r2",
-      "shape_id": 154,
-      "shape_name": "af-imagination-z2-to-r2-connector-01",
-      "object_kind": "connector",
-      "editable": true,
-      "semantic_group_id": "imagination-z2-to-r2",
+      "arrow_spec_sha256": "5a73e0e78b4259011c9231b3b1473fc80cb9044560062b702452cf84473f039b",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1447,6 +1543,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "rollout-z0-to-z1",
+      "arrow_spec_sha256": "59a636ef104730e3561865e9d8495723f944d4a0d43c97bae9c3dfa2d71d39dd",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1456,6 +1554,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "rollout-z1-to-z2",
+      "arrow_spec_sha256": "37d17d470c3cc157b89ce6b88cb0dd0564135bca99139b757464e8b22e3bfacb",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1465,6 +1565,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "rollout-z2-to-zh",
+      "arrow_spec_sha256": "efaf7995767a87968ee2b34c153a950065ed5f60e7fd8673221a46030fb0d77a",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1474,6 +1576,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "rollout-z0-to-pi0",
+      "arrow_spec_sha256": "62aa437f811c2704d0562268e73cafe4a11401ae568e957b1c264eff18363999",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1483,6 +1587,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "rollout-z1-to-pi1",
+      "arrow_spec_sha256": "fd7e896f11c0e894c5605cd0a55f0966385c41476cf5f14f91679a9734a1e188",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1492,6 +1598,8 @@
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "rollout-z2-to-pi2",
+      "arrow_spec_sha256": "23aa9ddcc23ed34705ea14831614a9f92be4ee2d89408f173fdd223b5b20ff21",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1501,6 +1609,8 @@
       "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "rollout-pi0-to-a0",
+      "arrow_spec_sha256": "f297f4212bbaf79bc81e1538525275bb95d78d5c3fbc5076f932f3f4a9202497",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1510,6 +1620,8 @@
       "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "rollout-pi1-to-a1",
+      "arrow_spec_sha256": "80bc16fd8946a61a1d0c7178dbdbd8ac4d85d34bca79e1c966fdef806a265611",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1519,6 +1631,8 @@
       "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "rollout-pi2-to-a2",
+      "arrow_spec_sha256": "8c3a2ec0b5993063f2cabd8879419baaa0352aca827503318c5bf4022d70485a",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1528,6 +1642,8 @@
       "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "rollout-a0-to-z1",
+      "arrow_spec_sha256": "6e58ece868c5939e8982211c105139d70af47a839ac6b30cdf58eb58392049d2",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1537,6 +1653,8 @@
       "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "rollout-a1-to-z2",
+      "arrow_spec_sha256": "29ae1ddb54088f6d2443b556aa6e4b20807f349a89f04edec077ef1d4775891b",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
@@ -1546,29 +1664,13 @@
       "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "rollout-a2-to-next",
-      "readback_found": true
-    },
-    {
-      "element_id": "zt-top-to-imagination",
-      "shape_id": 167,
-      "shape_name": "af-zt-top-to-imagination-connector-01",
-      "object_kind": "connector",
-      "editable": true,
-      "semantic_group_id": "zt-top-to-imagination",
-      "readback_found": true
-    },
-    {
-      "element_id": "zt-bottom-to-rollout",
-      "shape_id": 168,
-      "shape_name": "af-zt-bottom-to-rollout-connector-01",
-      "object_kind": "connector",
-      "editable": true,
-      "semantic_group_id": "zt-bottom-to-rollout",
+      "arrow_spec_sha256": "8e92be1f44bce5d76e810cc5db05054e1886b2e383ea77c31d539340fc4f4573",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "dense-trophy",
-      "shape_id": 169,
+      "shape_id": 167,
       "shape_name": "af-dense-trophy-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1577,7 +1679,7 @@
     },
     {
       "element_id": "dense-reward-label",
-      "shape_id": 170,
+      "shape_id": 168,
       "shape_name": "af-dense-reward-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1586,7 +1688,7 @@
     },
     {
       "element_id": "dense-reward-label-2",
-      "shape_id": 171,
+      "shape_id": 169,
       "shape_name": "af-dense-reward-label-2-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1595,7 +1697,7 @@
     },
     {
       "element_id": "behavior-title",
-      "shape_id": 172,
+      "shape_id": 170,
       "shape_name": "af-behavior-title-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1604,16 +1706,18 @@
     },
     {
       "element_id": "mapping-to-imagination",
-      "shape_id": 173,
+      "shape_id": 171,
       "shape_name": "af-mapping-to-imagination-connector-01",
       "object_kind": "connector",
       "editable": true,
       "semantic_group_id": "mapping-to-imagination",
+      "arrow_spec_sha256": "35f5c5b14f7d55da1c3f80440453112a0bcf6f7d260e07f8da121d0d3ef86385",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "joint-optimization-box",
-      "shape_id": 174,
+      "shape_id": 172,
       "shape_name": "af-joint-optimization-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1622,7 +1726,7 @@
     },
     {
       "element_id": "joint-optimization-label",
-      "shape_id": 175,
+      "shape_id": 173,
       "shape_name": "af-joint-optimization-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1631,16 +1735,18 @@
     },
     {
       "element_id": "joint-loop-arrow",
-      "shape_id": 176,
-      "shape_name": "af-joint-loop-arrow-freeform-01",
-      "object_kind": "freeform",
+      "shape_id": 174,
+      "shape_name": "af-joint-loop-arrow-freeform-arrow-01",
+      "object_kind": "freeform-arrow",
       "editable": true,
       "semantic_group_id": "joint-loop-arrow",
+      "arrow_spec_sha256": "11e8f198de3aa2ea64a78181ee4a87985cbb2a5d072f3d8e47093c566e3c29ad",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "optimization-to-reward",
-      "shape_id": 177,
+      "shape_id": 175,
       "shape_name": "af-optimization-to-reward-freeform-01",
       "object_kind": "freeform",
       "editable": true,
@@ -1649,7 +1755,7 @@
     },
     {
       "element_id": "reward-action-box",
-      "shape_id": 178,
+      "shape_id": 176,
       "shape_name": "af-reward-action-box-rect-01",
       "object_kind": "rect",
       "editable": true,
@@ -1658,7 +1764,7 @@
     },
     {
       "element_id": "reward-icon",
-      "shape_id": 179,
+      "shape_id": 177,
       "shape_name": "af-reward-icon-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1667,7 +1773,7 @@
     },
     {
       "element_id": "reward-text",
-      "shape_id": 180,
+      "shape_id": 178,
       "shape_name": "af-reward-text-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1676,7 +1782,7 @@
     },
     {
       "element_id": "action-icon",
-      "shape_id": 181,
+      "shape_id": 179,
       "shape_name": "af-action-icon-ellipse-01",
       "object_kind": "ellipse",
       "editable": true,
@@ -1685,7 +1791,7 @@
     },
     {
       "element_id": "action-icon-path",
-      "shape_id": 182,
+      "shape_id": 180,
       "shape_name": "af-action-icon-path-freeform-01",
       "object_kind": "freeform",
       "editable": true,
@@ -1694,7 +1800,7 @@
     },
     {
       "element_id": "action-text",
-      "shape_id": 183,
+      "shape_id": 181,
       "shape_name": "af-action-text-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1703,7 +1809,7 @@
     },
     {
       "element_id": "behavior-to-reward",
-      "shape_id": 184,
+      "shape_id": 182,
       "shape_name": "af-behavior-to-reward-freeform-01",
       "object_kind": "freeform",
       "editable": true,
@@ -1712,7 +1818,7 @@
     },
     {
       "element_id": "interaction-label",
-      "shape_id": 185,
+      "shape_id": 183,
       "shape_name": "af-interaction-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1720,26 +1826,19 @@
       "readback_found": true
     },
     {
-      "element_id": "interaction-left",
-      "shape_id": 186,
-      "shape_name": "af-interaction-left-connector-01",
-      "object_kind": "connector",
+      "element_id": "interaction-exchange",
+      "shape_id": 184,
+      "shape_name": "af-interaction-exchange-block-arrow-autoshape-01",
+      "object_kind": "block-arrow-autoshape",
       "editable": true,
-      "semantic_group_id": "interaction-left",
-      "readback_found": true
-    },
-    {
-      "element_id": "interaction-right",
-      "shape_id": 187,
-      "shape_name": "af-interaction-right-connector-01",
-      "object_kind": "connector",
-      "editable": true,
-      "semantic_group_id": "interaction-right",
+      "semantic_group_id": "interaction-exchange",
+      "arrow_spec_sha256": "c81c2d12be45956611bfd35a779c39c8e3144f198070787cdc5d34249a579e15",
+      "single_visible_object": true,
       "readback_found": true
     },
     {
       "element_id": "atomic:environment-globe",
-      "shape_id": 188,
+      "shape_id": 185,
       "shape_name": "af-atomic-environment-globe-atomic-raster-01",
       "object_kind": "atomic-raster",
       "editable": false,
@@ -1748,7 +1847,7 @@
     },
     {
       "element_id": "environment-label",
-      "shape_id": 189,
+      "shape_id": 186,
       "shape_name": "af-environment-label-text-01",
       "object_kind": "text",
       "editable": true,
@@ -1756,7 +1855,236 @@
       "readback_found": true
     }
   ],
-  "artifact_sha256": "3bde78a494e889d97dd34d84a01750ffd5592b99010a8a0a866cfe803f406dd2",
-  "saved_reopened": true,
-  "bindings_complete": true
+  "artifact_sha256": "607ded1adc85c06d86d75b2f2bacd7ddb6510b7757629ab8aac7bf3ee706a048",
+  "saved_reopened": false,
+  "bindings_complete": true,
+  "package_reopened": true,
+  "scene_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-188dc7595e8a72bf",
+    "scene_sha256": "188dc7595e8a72bf809989df8c9e33a1bb4d6e7bbb8964cfc6b0871fe72a4fac",
+    "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462"
+  },
+  "logical_group_bindings": [
+    {
+      "element_id": "expert-1",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "expert-1-box",
+        "expert-1-sem",
+        "expert-1-dyn",
+        "expert-1-sem-label",
+        "expert-1-dyn-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "backend_object_names": [
+        "af-expert-1-box-rect-01",
+        "af-expert-1-sem-rect-01",
+        "af-expert-1-dyn-rect-01",
+        "af-expert-1-sem-label-text-01",
+        "af-expert-1-dyn-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 66,
+          "shape_name": "af-expert-1-box-rect-01"
+        },
+        {
+          "shape_id": 67,
+          "shape_name": "af-expert-1-sem-rect-01"
+        },
+        {
+          "shape_id": 68,
+          "shape_name": "af-expert-1-dyn-rect-01"
+        },
+        {
+          "shape_id": 69,
+          "shape_name": "af-expert-1-sem-label-text-01"
+        },
+        {
+          "shape_id": 70,
+          "shape_name": "af-expert-1-dyn-label-text-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 66,
+      "attachment_shape_name": "af-expert-1-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-2",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "expert-2-box",
+        "expert-2-sem",
+        "expert-2-dyn",
+        "expert-2-sem-label",
+        "expert-2-dyn-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "backend_object_names": [
+        "af-expert-2-box-rect-01",
+        "af-expert-2-sem-rect-01",
+        "af-expert-2-dyn-rect-01",
+        "af-expert-2-sem-label-text-01",
+        "af-expert-2-dyn-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 71,
+          "shape_name": "af-expert-2-box-rect-01"
+        },
+        {
+          "shape_id": 72,
+          "shape_name": "af-expert-2-sem-rect-01"
+        },
+        {
+          "shape_id": 73,
+          "shape_name": "af-expert-2-dyn-rect-01"
+        },
+        {
+          "shape_id": 74,
+          "shape_name": "af-expert-2-sem-label-text-01"
+        },
+        {
+          "shape_id": 75,
+          "shape_name": "af-expert-2-dyn-label-text-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 71,
+      "attachment_shape_name": "af-expert-2-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-3",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "expert-3-box",
+        "expert-3-sem",
+        "expert-3-dyn",
+        "expert-3-sem-label",
+        "expert-3-dyn-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "backend_object_names": [
+        "af-expert-3-box-rect-01",
+        "af-expert-3-sem-rect-01",
+        "af-expert-3-dyn-rect-01",
+        "af-expert-3-sem-label-text-01",
+        "af-expert-3-dyn-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 76,
+          "shape_name": "af-expert-3-box-rect-01"
+        },
+        {
+          "shape_id": 77,
+          "shape_name": "af-expert-3-sem-rect-01"
+        },
+        {
+          "shape_id": 78,
+          "shape_name": "af-expert-3-dyn-rect-01"
+        },
+        {
+          "shape_id": 79,
+          "shape_name": "af-expert-3-sem-label-text-01"
+        },
+        {
+          "shape_id": 80,
+          "shape_name": "af-expert-3-dyn-label-text-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 76,
+      "attachment_shape_name": "af-expert-3-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "expert-4",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "expert-4-box",
+        "expert-4-sem",
+        "expert-4-dyn",
+        "expert-4-sem-label",
+        "expert-4-dyn-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "backend_object_names": [
+        "af-expert-4-box-rect-01",
+        "af-expert-4-sem-rect-01",
+        "af-expert-4-dyn-rect-01",
+        "af-expert-4-sem-label-text-01",
+        "af-expert-4-dyn-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 81,
+          "shape_name": "af-expert-4-box-rect-01"
+        },
+        {
+          "shape_id": 82,
+          "shape_name": "af-expert-4-sem-rect-01"
+        },
+        {
+          "shape_id": 83,
+          "shape_name": "af-expert-4-dyn-rect-01"
+        },
+        {
+          "shape_id": 84,
+          "shape_name": "af-expert-4-sem-label-text-01"
+        },
+        {
+          "shape_id": 85,
+          "shape_name": "af-expert-4-dyn-label-text-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 81,
+      "attachment_shape_name": "af-expert-4-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    }
+  ]
 }

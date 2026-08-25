@@ -1,0 +1,1502 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "autofigure-02-thinking-diffusion-reference-only",
+  "figureRole": "system_architecture",
+  "language": "en",
+  "audience": "Autofigure human review",
+  "claims": [
+    {
+      "claimId": "reference-correspondence",
+      "text": "This editable candidate reconstructs the designated reference; scientific interpretation remains source-bound.",
+      "evidenceType": "conceptual",
+      "sourceIds": [
+        "reference"
+      ],
+      "mustShow": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "canvas-background",
+      "label": "canvas-background",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-image-title",
+      "label": "Image",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-image-bracket",
+      "label": "left-input-image-bracket",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-image-token-1",
+      "label": "left-input-image-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-image-token-2",
+      "label": "left-input-image-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-image-token-3",
+      "label": "left-input-image-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-prompt-title",
+      "label": "Prompt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-prompt-bracket",
+      "label": "left-input-prompt-bracket",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-prompt-token-1",
+      "label": "left-input-prompt-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-prompt-token-2",
+      "label": "left-input-prompt-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-prompt-token-3",
+      "label": "left-input-prompt-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-title",
+      "label": "Response",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-bracket",
+      "label": "left-input-response-bracket",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-1",
+      "label": "left-input-response-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-2",
+      "label": "left-input-response-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-3",
+      "label": "left-input-response-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-4",
+      "label": "left-input-response-token-4",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-ellipsis",
+      "label": "…",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-5",
+      "label": "left-input-response-token-5",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-6",
+      "label": "left-input-response-token-6",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-7",
+      "label": "left-input-response-token-7",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-response-token-8",
+      "label": "left-input-response-token-8",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-input-to-model-arrow",
+      "label": "left-input-to-model-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-model-box",
+      "label": "left-model-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-model-label",
+      "label": "Diffusion Multimodal Language Model",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-box",
+      "label": "left-legend-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-token-mask",
+      "label": "left-legend-token-mask",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-label-mask",
+      "label": "Mask Token",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-token-less-grounded",
+      "label": "left-legend-token-less-grounded",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-label-less-grounded-line-1",
+      "label": "Less Visual-grounded",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-label-less-grounded-line-2",
+      "label": "Output Token",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-token-more-grounded",
+      "label": "left-legend-token-more-grounded",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-label-more-grounded-line-1",
+      "label": "More Visual-grounded",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-legend-label-more-grounded-line-2",
+      "label": "Output Token",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-model-to-early-arrow",
+      "label": "left-model-to-early-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-stage-title",
+      "label": "Base",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-1",
+      "label": "left-early-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-2",
+      "label": "left-early-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-3",
+      "label": "left-early-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-4",
+      "label": "left-early-token-4",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-ellipsis-dot-1",
+      "label": "left-early-token-ellipsis-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-ellipsis-dot-2",
+      "label": "left-early-token-ellipsis-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-ellipsis-dot-3",
+      "label": "left-early-token-ellipsis-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-5",
+      "label": "left-early-token-5",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-6",
+      "label": "left-early-token-6",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-7",
+      "label": "left-early-token-7",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-token-8",
+      "label": "left-early-token-8",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-word-answer",
+      "label": "answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-word-is",
+      "label": "is",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-word-b",
+      "label": "B",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-answer-underbrace",
+      "label": "left-early-answer-underbrace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-annotation-line-1",
+      "label": "Generate answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-annotation-line-2",
+      "label": "before reasoning",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-stage-side-brace",
+      "label": "left-early-stage-side-brace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-early-stage-side-label",
+      "label": "Early Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-stage-transition-ellipsis",
+      "label": "⋮",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-transition-to-late-arrow",
+      "label": "left-transition-to-late-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-1",
+      "label": "left-late-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-2",
+      "label": "left-late-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-3",
+      "label": "left-late-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-4",
+      "label": "left-late-token-4",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-ellipsis-dot-1",
+      "label": "left-late-token-ellipsis-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-ellipsis-dot-2",
+      "label": "left-late-token-ellipsis-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-ellipsis-dot-3",
+      "label": "left-late-token-ellipsis-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-5",
+      "label": "left-late-token-5",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-6",
+      "label": "left-late-token-6",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-7",
+      "label": "left-late-token-7",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-token-8",
+      "label": "left-late-token-8",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-word-the",
+      "label": "The",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-word-stove",
+      "label": "stove",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-word-broken",
+      "label": "broken",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-word-answer",
+      "label": "answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-word-is",
+      "label": "is",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-word-b",
+      "label": "B",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-rationale-underbrace",
+      "label": "left-late-rationale-underbrace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-annotation-line-1",
+      "label": "Generate rationale",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-annotation-line-2",
+      "label": "after answering",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-stage-side-brace",
+      "label": "left-late-stage-side-brace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-late-stage-side-label",
+      "label": "Later Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "left-panel-caption",
+      "label": "(a) Baseline dMLLM Inference.",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-image-title",
+      "label": "Image",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-image-bracket",
+      "label": "right-input-image-bracket",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-image-token-1",
+      "label": "right-input-image-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-image-token-2",
+      "label": "right-input-image-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-image-token-3",
+      "label": "right-input-image-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-prompt-title",
+      "label": "Prompt",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-prompt-bracket",
+      "label": "right-input-prompt-bracket",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-prompt-token-1",
+      "label": "right-input-prompt-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-prompt-token-2",
+      "label": "right-input-prompt-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-prompt-token-3",
+      "label": "right-input-prompt-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-title",
+      "label": "Response",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-bracket",
+      "label": "right-input-response-bracket",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-1",
+      "label": "right-input-response-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-2",
+      "label": "right-input-response-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-3",
+      "label": "right-input-response-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-4",
+      "label": "right-input-response-token-4",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-ellipsis",
+      "label": "…",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-5",
+      "label": "right-input-response-token-5",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-6",
+      "label": "right-input-response-token-6",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-7",
+      "label": "right-input-response-token-7",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-response-token-8",
+      "label": "right-input-response-token-8",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-input-to-model-arrow",
+      "label": "right-input-to-model-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-model-box",
+      "label": "right-model-box",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-model-label",
+      "label": "Diffusion Multimodal Language Model",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-model-to-early-arrow",
+      "label": "right-model-to-early-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-stage-title",
+      "label": "Ours (PSP & VRG)",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-1",
+      "label": "right-early-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-2",
+      "label": "right-early-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-3",
+      "label": "right-early-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-4",
+      "label": "right-early-token-4",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-ellipsis-dot-1",
+      "label": "right-early-token-ellipsis-dot-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-ellipsis-dot-2",
+      "label": "right-early-token-ellipsis-dot-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-ellipsis-dot-3",
+      "label": "right-early-token-ellipsis-dot-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-5",
+      "label": "right-early-token-5",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-6",
+      "label": "right-early-token-6",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-7",
+      "label": "right-early-token-7",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-token-8",
+      "label": "right-early-token-8",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-word-stove",
+      "label": "stove",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-word-old",
+      "label": "old",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-rationale-underbrace",
+      "label": "right-early-rationale-underbrace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-annotation-line-1",
+      "label": "Generate rationale",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-annotation-line-2",
+      "label": "before answering",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-stage-side-brace",
+      "label": "right-early-stage-side-brace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-early-stage-side-label",
+      "label": "Early Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-stage-transition-ellipsis",
+      "label": "⋮",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-transition-to-late-arrow",
+      "label": "right-transition-to-late-arrow",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-1",
+      "label": "right-late-token-1",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-2",
+      "label": "right-late-token-2",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-3",
+      "label": "right-late-token-3",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-4",
+      "label": "right-late-token-4",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-ellipsis",
+      "label": "…",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-5",
+      "label": "right-late-token-5",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-6",
+      "label": "right-late-token-6",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-7",
+      "label": "right-late-token-7",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-token-8",
+      "label": "right-late-token-8",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-word-the",
+      "label": "The",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-word-stove",
+      "label": "stove",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-word-is",
+      "label": "is",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-word-old",
+      "label": "old",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-word-answer",
+      "label": "answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-word-c",
+      "label": "C",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-answer-underbrace",
+      "label": "right-late-answer-underbrace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-annotation-line-1",
+      "label": "Generate answer",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-annotation-line-2",
+      "label": "after reasoning",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-stage-side-brace",
+      "label": "right-late-stage-side-brace",
+      "kind": "component",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-late-stage-side-label",
+      "label": "Later Step",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    },
+    {
+      "entityId": "right-panel-caption",
+      "label": "(b) Our proposed dMLLM inference.",
+      "kind": "annotation",
+      "sourceIds": [
+        "reference"
+      ],
+      "required": true,
+      "editable": true
+    }
+  ],
+  "relations": [],
+  "formulas": [],
+  "evidenceDeclarations": [],
+  "unknowns": [
+    "Independent scientific-semantic approval has not been supplied."
+  ],
+  "approval": {
+    "status": "PENDING",
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Bridge generation does not approve scientific content."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "source_gate_report",
+  "created_at": "20260824T121733Z",
+  "case": "01-modular-agent-reference-only",
+  "decision": "repair",
+  "pass": false,
+  "next_action": "establish-verifiable-read-manifest-and-rerun-gate",
+  "route_gate": {
+    "input_route": "reference-only",
+    "candidate_role": "legacy-unverified-candidate",
+    "seed_gate_status": "forbidden"
+  },
+  "candidate": {
+    "path_base": "case-root",
+    "source_name": "scene.json:canonical_svg",
+    "kind": "svg",
+    "sha256": "249813dc478b2112135638d0d3086606ce3d47e0614d7d39e11c902bcb37498c"
+  },
+  "reference": {
+    "path_base": "case-root",
+    "path": "reference.png",
+    "expected_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+    "actual_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340"
+  },
+  "reference_inventory_sha256": null,
+  "checks": [],
+  "findings": [
+    {
+      "category": "route",
+      "decision": "repair",
+      "code": "source-gate:isolation:read-manifest-unverified",
+      "message": "legacy construction evidence is insufficient for schema 4 admission"
+    }
+  ],
+  "blockers": [
+    "source-gate:isolation:read-manifest-unverified"
+  ],
+  "reject_reasons": [],
+  "repair_reasons": [
+    "source-gate:isolation:read-manifest-unverified"
+  ],
+  "repair_actions": []
+}

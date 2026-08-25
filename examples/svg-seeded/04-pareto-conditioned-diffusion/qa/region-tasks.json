@@ -1,0 +1,768 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "region_tasks",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "input_route": "svg-seeded",
+  "processing_mode": "svg_repair",
+  "fidelity_profile": "editable_native",
+  "regions_sha256": "e834fa50fd3a05b23498a4fe9a9735cc8fc894f268cab8ccb7a6fd17dab6fead",
+  "reference_inventory_status": "frozen",
+  "reference_inventory_sha256": "a41f291b26e14676fe4a09f23f8bf5c24cae86576b16b68509cabbe510136f11",
+  "result_contract": {
+    "accepted_kinds": [
+      "scene",
+      "region_patch",
+      "svg"
+    ],
+    "stable_element_ids_required": true,
+    "formal_content_must_remain_native": true,
+    "offline_initial_render_carrier": "svg",
+    "scene_or_patch_requires": "existing render carrier or powerpoint-live provider",
+    "svg_authoring_contract": "prompt.md"
+  },
+  "tasks": [
+    {
+      "region_id": "region-offline-title",
+      "label": "Offline Training title",
+      "bbox": [
+        140,
+        4,
+        310,
+        50
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-sampling-title",
+      "label": "Sampling title",
+      "bbox": [
+        793,
+        4,
+        193,
+        50
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-002"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-static-dataset-label",
+      "label": "Static Multi-Objective Dataset label",
+      "bbox": [
+        96,
+        62,
+        405,
+        44
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-003"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-reweighted-label",
+      "label": "Reweighted label",
+      "bbox": [
+        99,
+        285,
+        146,
+        42
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-004"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-train-label",
+      "label": "Train label",
+      "bbox": [
+        327,
+        372,
+        74,
+        42
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-005"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-left-model-title",
+      "label": "Left model title",
+      "bbox": [
+        170,
+        475,
+        247,
+        40
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-model-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-left-model-subtitle",
+      "label": "Left model subtitle",
+      "bbox": [
+        201,
+        506,
+        186,
+        40
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-model-text-002"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-target-label",
+      "label": "Target label",
+      "bbox": [
+        646,
+        279,
+        84,
+        39
+      ],
+      "critical": true,
+      "element_ids": [
+        "target-box-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-objectives-label",
+      "label": "Objectives label",
+      "bbox": [
+        622,
+        311,
+        131,
+        39
+      ],
+      "critical": true,
+      "element_ids": [
+        "target-box-text-002"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-condition-label",
+      "label": "Condition label",
+      "bbox": [
+        767,
+        259,
+        104,
+        39
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-006"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-right-model-title",
+      "label": "Right model title",
+      "bbox": [
+        898,
+        279,
+        247,
+        40
+      ],
+      "critical": true,
+      "element_ids": [
+        "right-model-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-right-model-subtitle",
+      "label": "Right model subtitle",
+      "bbox": [
+        929,
+        311,
+        187,
+        40
+      ],
+      "critical": true,
+      "element_ids": [
+        "right-model-text-002"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1055,
+        197,
+        78,
+        41
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-007"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-sample-label",
+      "label": "Sample label",
+      "bbox": [
+        1050,
+        393,
+        101,
+        41
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-text-008"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-designs-label",
+      "label": "Designs label",
+      "bbox": [
+        952,
+        511,
+        113,
+        42
+      ],
+      "critical": true,
+      "element_ids": [
+        "designs-cuboid-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-dataset-formula",
+      "label": "Dataset D formula",
+      "bbox": [
+        272,
+        135,
+        44,
+        48
+      ],
+      "critical": true,
+      "element_ids": [
+        "dataset-cylinder-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-reweighted-formula",
+      "label": "Reweighted D formula",
+      "bbox": [
+        272,
+        291,
+        44,
+        48
+      ],
+      "critical": true,
+      "element_ids": [
+        "reweighted-cylinder-text-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-blue-arrow-1",
+      "label": "Dataset to reweighted block arrow",
+      "bbox": [
+        264,
+        196,
+        60,
+        62
+      ],
+      "critical": true,
+      "element_ids": [
+        "blue-arrow-1",
+        "dataset-cylinder",
+        "reweighted-cylinder"
+      ],
+      "required_relations": [
+        {
+          "id": "blue-arrow-1",
+          "source_id": "dataset-cylinder",
+          "target_id": "reweighted-cylinder",
+          "relation": "directed-flow",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-blue-arrow-2",
+      "label": "Reweighted to training model block arrow",
+      "bbox": [
+        264,
+        351,
+        60,
+        95
+      ],
+      "critical": true,
+      "element_ids": [
+        "blue-arrow-2",
+        "reweighted-cylinder",
+        "left-model"
+      ],
+      "required_relations": [
+        {
+          "id": "blue-arrow-2",
+          "source_id": "reweighted-cylinder",
+          "target_id": "left-model",
+          "relation": "directed-flow",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-condition-arrow",
+      "label": "Condition block arrow",
+      "bbox": [
+        765,
+        290,
+        115,
+        50
+      ],
+      "critical": true,
+      "element_ids": [
+        "condition-arrow",
+        "target-box",
+        "right-model"
+      ],
+      "required_relations": [
+        {
+          "id": "condition-arrow",
+          "source_id": "target-box",
+          "target_id": "right-model",
+          "relation": "conditioning",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-noise-arrow",
+      "label": "Noise block arrow",
+      "bbox": [
+        992,
+        191,
+        60,
+        62
+      ],
+      "critical": true,
+      "element_ids": [
+        "noise-arrow",
+        "noise-curve",
+        "right-model"
+      ],
+      "required_relations": [
+        {
+          "id": "noise-arrow",
+          "source_id": "noise-curve",
+          "target_id": "right-model",
+          "relation": "noise-input",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-sample-arrow",
+      "label": "Sample block arrow",
+      "bbox": [
+        992,
+        378,
+        60,
+        83
+      ],
+      "critical": true,
+      "element_ids": [
+        "sample-arrow",
+        "right-model",
+        "designs-cuboid"
+      ],
+      "required_relations": [
+        {
+          "id": "sample-arrow",
+          "source_id": "right-model",
+          "target_id": "designs-cuboid",
+          "relation": "sampling-output",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-molecule-left",
+      "label": "Left molecule microasset",
+      "bbox": [
+        164,
+        100,
+        72,
+        43
+      ],
+      "critical": true,
+      "element_ids": [
+        "molecule-left-g-001-line-001",
+        "molecule-left-g-001-line-002",
+        "molecule-left-g-001-line-003",
+        "molecule-left-g-001-line-004",
+        "molecule-left-g-001-line-005",
+        "molecule-left-g-001-line-006",
+        "molecule-left-circle-001",
+        "molecule-left-circle-002",
+        "molecule-left-circle-003",
+        "molecule-left-circle-004",
+        "molecule-left-circle-005",
+        "molecule-left-circle-006",
+        "molecule-left-circle-007",
+        "molecule-left-circle-008",
+        "molecule-left-line-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-dna-left",
+      "label": "Left DNA microasset",
+      "bbox": [
+        170,
+        147,
+        66,
+        65
+      ],
+      "critical": true,
+      "element_ids": [
+        "dna-left-path-001",
+        "dna-left-path-002",
+        "dna-left-path-003",
+        "dna-left-path-004",
+        "dna-left-g-001-line-001",
+        "dna-left-g-001-line-002",
+        "dna-left-g-001-line-003",
+        "dna-left-g-001-line-004",
+        "dna-left-g-001-line-005",
+        "dna-left-g-001-line-006",
+        "dna-left-g-001-line-007",
+        "dna-left-g-001-line-008"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-balance",
+      "label": "Balance microasset",
+      "bbox": [
+        137,
+        325,
+        58,
+        46
+      ],
+      "critical": true,
+      "element_ids": [
+        "balance-line-001",
+        "balance-line-002",
+        "balance-line-003",
+        "balance-line-004",
+        "balance-line-005",
+        "balance-line-006",
+        "balance-line-007",
+        "balance-line-008",
+        "balance-path-001",
+        "balance-path-002"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-molecule-right",
+      "label": "Right molecule microasset",
+      "bbox": [
+        849,
+        502,
+        72,
+        43
+      ],
+      "critical": true,
+      "element_ids": [
+        "molecule-right-g-001-line-001",
+        "molecule-right-g-001-line-002",
+        "molecule-right-g-001-line-003",
+        "molecule-right-g-001-line-004",
+        "molecule-right-g-001-line-005",
+        "molecule-right-g-001-line-006",
+        "molecule-right-circle-001",
+        "molecule-right-circle-002",
+        "molecule-right-circle-003",
+        "molecule-right-circle-004",
+        "molecule-right-circle-005",
+        "molecule-right-circle-006",
+        "molecule-right-circle-007",
+        "molecule-right-circle-008",
+        "molecule-right-line-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-dna-right",
+      "label": "Right DNA microasset",
+      "bbox": [
+        1110,
+        465,
+        66,
+        65
+      ],
+      "critical": true,
+      "element_ids": [
+        "dna-right-path-001",
+        "dna-right-path-002",
+        "dna-right-path-003",
+        "dna-right-path-004",
+        "dna-right-g-001-line-001",
+        "dna-right-g-001-line-002",
+        "dna-right-g-001-line-003",
+        "dna-right-g-001-line-004",
+        "dna-right-g-001-line-005",
+        "dna-right-g-001-line-006",
+        "dna-right-g-001-line-007",
+        "dna-right-g-001-line-008"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-candlestick-left",
+      "label": "Left candlestick plot",
+      "bbox": [
+        351,
+        119,
+        75,
+        62
+      ],
+      "critical": true,
+      "element_ids": [
+        "candlestick-left-top-line-001",
+        "candlestick-left-top-polyline-001",
+        "candlestick-left-top-line-002",
+        "candlestick-left-top-polyline-002",
+        "candlestick-left-top-line-003",
+        "candlestick-left-top-rect-001",
+        "candlestick-left-top-line-004",
+        "candlestick-left-top-rect-002",
+        "candlestick-left-top-line-005",
+        "candlestick-left-top-rect-003",
+        "candlestick-left-top-line-006",
+        "candlestick-left-top-rect-004",
+        "candlestick-left-top-line-007",
+        "candlestick-left-top-rect-005"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-noise-curve",
+      "label": "Gaussian noise plot",
+      "bbox": [
+        872,
+        80,
+        300,
+        111
+      ],
+      "critical": true,
+      "element_ids": [
+        "noise-curve-line-001",
+        "noise-curve-path-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-candlestick-right",
+      "label": "Right candlestick plot",
+      "bbox": [
+        649,
+        378,
+        75,
+        62
+      ],
+      "critical": true,
+      "element_ids": [
+        "candlestick-right-line-001",
+        "candlestick-right-polyline-001",
+        "candlestick-right-line-002",
+        "candlestick-right-polyline-002",
+        "candlestick-right-line-003",
+        "candlestick-right-rect-001",
+        "candlestick-right-line-004",
+        "candlestick-right-rect-002",
+        "candlestick-right-line-005",
+        "candlestick-right-rect-003",
+        "candlestick-right-line-006",
+        "candlestick-right-rect-004",
+        "candlestick-right-line-007",
+        "candlestick-right-rect-005"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-left-panel",
+      "label": "Left dashed process panel",
+      "bbox": [
+        20,
+        53,
+        548,
+        540
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-rect-001"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-right-panel",
+      "label": "Right dashed sampling panel",
+      "bbox": [
+        580,
+        53,
+        617,
+        540
+      ],
+      "critical": true,
+      "element_ids": [
+        "styles-rect-002"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-dataset-cylinder",
+      "label": "Dataset cylinder",
+      "bbox": [
+        247,
+        101,
+        94,
+        97
+      ],
+      "critical": true,
+      "element_ids": [
+        "dataset-cylinder"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-reweighted-cylinder",
+      "label": "Reweighted dataset cylinder",
+      "bbox": [
+        246,
+        256,
+        95,
+        98
+      ],
+      "critical": true,
+      "element_ids": [
+        "reweighted-cylinder"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-left-model-box",
+      "label": "Left diffusion model box and network",
+      "bbox": [
+        148,
+        443,
+        291,
+        132
+      ],
+      "critical": true,
+      "element_ids": [
+        "left-model"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-target-box",
+      "label": "Target objectives box",
+      "bbox": [
+        608,
+        256,
+        159,
+        119
+      ],
+      "critical": true,
+      "element_ids": [
+        "target-box"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-right-model-box",
+      "label": "Right diffusion model box and network",
+      "bbox": [
+        877,
+        249,
+        290,
+        132
+      ],
+      "critical": true,
+      "element_ids": [
+        "right-model"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "region-designs-cuboid",
+      "label": "Designs cuboid",
+      "bbox": [
+        935,
+        458,
+        173,
+        117
+      ],
+      "critical": true,
+      "element_ids": [
+        "designs-cuboid"
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "critical": false
+    }
+  ]
+}

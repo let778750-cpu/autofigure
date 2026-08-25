@@ -1,0 +1,28 @@
+{
+  "schema_version": "3.1.0",
+  "kind": "region_tasks",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "input_route": "reference-only",
+  "processing_mode": "png_reconstruct",
+  "fidelity_profile": "hybrid_fidelity",
+  "result_contract": {
+    "accepted_kinds": ["scene", "region_patch", "svg"],
+    "stable_element_ids_required": true,
+    "formal_content_must_remain_native": true,
+    "offline_initial_render_carrier": "svg",
+    "scene_or_patch_requires": "existing render carrier or powerpoint-live provider",
+    "svg_authoring_contract": "prompt.md"
+  },
+  "tasks": [
+    {"region_id": "whole-canvas", "label": "Whole canvas (diagnostic only)", "bbox": [0, 0, 1513, 554], "critical": false},
+    {"region_id": "left-header-model", "label": "Left input groups and diffusion model", "bbox": [15, 12, 665, 174], "critical": true},
+    {"region_id": "left-legend", "label": "Left token legend", "bbox": [20, 235, 263, 177], "critical": true},
+    {"region_id": "left-early-step", "label": "Left baseline early step", "bbox": [292, 188, 430, 164], "critical": true},
+    {"region_id": "left-late-step", "label": "Left baseline later step", "bbox": [291, 357, 432, 151], "critical": true},
+    {"region_id": "right-header-model", "label": "Right input groups and diffusion model", "bbox": [779, 12, 675, 174], "critical": true},
+    {"region_id": "right-early-step", "label": "Right proposed early step", "bbox": [1058, 186, 446, 167], "critical": true},
+    {"region_id": "right-late-step", "label": "Right proposed later step", "bbox": [1057, 356, 447, 153], "critical": true},
+    {"region_id": "captions", "label": "Panel captions", "bbox": [190, 512, 1180, 40], "critical": true}
+  ]
+}
