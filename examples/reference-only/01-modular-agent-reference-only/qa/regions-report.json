@@ -11,6 +11,7 @@
     "region:joint-feedback-arrow-detail",
     "region:six-bicolor-state-circles",
     "region:rollout-arrow-topology",
+    "region:environment-globe-creative-asset",
     "region:observation-arrows"
   ],
   "contract_audit": {
@@ -773,9 +774,9 @@
         627
       ],
       "critical": false,
-      "mean_abs_rgb_delta": 14.8954,
-      "ssim": 0.7648,
-      "edge_iou": 0.7853,
+      "mean_abs_rgb_delta": 15.0326,
+      "ssim": 0.763,
+      "edge_iou": 0.7826,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
@@ -1146,9 +1147,9 @@
         81
       ],
       "critical": true,
-      "mean_abs_rgb_delta": 0.0,
-      "ssim": 1.0,
-      "edge_iou": 1.0,
+      "mean_abs_rgb_delta": 19.2905,
+      "ssim": 0.8065,
+      "edge_iou": 0.8825,
       "thresholds": {
         "ssim_min": 0.95,
         "edge_iou_min": 0.75
@@ -1156,7 +1157,7 @@
       "color_probes": [],
       "ink_contract": null,
       "color_clearance_contracts": [],
-      "pass": true
+      "pass": false
     },
     {
       "id": "observation-arrows",

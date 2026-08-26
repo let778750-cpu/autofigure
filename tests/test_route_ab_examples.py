@@ -39,14 +39,17 @@ def test_real_modular_agent_route_ab_is_truthfully_qa_failed() -> None:
     regions = read_json(direct.qa_dir / "regions-report.json")
     critical = [item for item in regions["regions"] if item["critical"]]
     assert len(critical) == 10
-    assert sum(item["pass"] for item in critical) == 3
+    assert sum(item["pass"] for item in critical) == 2
+    # environment-globe-creative-asset is compiled from the atomic-vector
+    # (vtracer) representation and no longer meets its frozen raster-grade
+    # 0.95 SSIM threshold; adopting the vector-grade floor for that region is
+    # a separate per-asset re-freeze decision, so the region honestly fails.
     assert {
         item["id"]
         for item in critical
         if item["pass"]
     } == {
         "observation-creative-asset",
-        "environment-globe-creative-asset",
         "interaction-exchange-block-arrow",
     }
 

@@ -10,5 +10,6 @@ lxml>=5.0               # convert/arrows/native_math：SVG 与 OOXML 解析
 latex2mathml>=3.81      # math 命令：LaTeX→MathML（OMML 转换用本机 Office XSL）
 pywin32>=306            # live_bridge/render_export：PowerPoint COM fresh render
 jsonschema>=4.0         # figure_lint 合同校验
+vtracer==0.6.15         # asset_trace/providers：微资产确定性描摹（锁版本，改动需重跑试点校准）
 pytest>=8.0
 ruff>=0.6

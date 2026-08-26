@@ -3,20 +3,21 @@
   "kind": "repair-plan",
   "case": "01-modular-agent-reference-only",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "artifact_sha256": "607ded1adc85c06d86d75b2f2bacd7ddb6510b7757629ab8aac7bf3ee706a048",
+  "artifact_sha256": "8ae245b6efb256dd1db83fb15ec48dac5a844f760fb1bc2ba86c1d629415d710",
   "qa_report_sha256": {
-    "arrow-compile-report.json": "4627be1e7f697f9da84275712c732d9dc9c94952ae9077965884109653087cd8",
+    "arrow-compile-report.json": "9f59ee003fb2b66ce3e0e46610a4583bcd156a7c306ddd9e7283290dfd2a796f",
     "arrow-visual-report.json": "6e66d228c3457ac55440d2f261e5833c84e0f891c3c357e942ccd40c5d6f5334",
-    "asset-spec-audit.json": "d4b1962a19e5a5c931bd33dcb9ad1fb9c506e5e80e260cb7e9487aa116028a56",
-    "layout-audit.json": "1501c855d55787e75cdc4d7584d1cd3ccb3c722b3fb74295b6553a21034bf9ec",
-    "live-evidence.json": "5ce1d4874087d2485f6d7ab58e22ad3b2c74a2984f4086fe65e3f16cddbb0fe6",
-    "math-summary.json": "2b65d056de781d058c340aa5eb53a948b048f0b8ec8d9bc6ce994fced283f02f",
-    "powerpoint-arrow-readback.json": "283b9e3a0e88157f428c05906274ec4a94b749c97daf8bc383633aabbdd60e32",
-    "primitive-audit.json": "08f1cfb73169b6a8e574ecbc9d98a38a5b66b8154fa5bf69086d35ff6e99bbdb",
-    "regions-report.json": "c12c14e4fa88179baa35059cc56ea28d0f92b588e63ce81683d4d3fd12d763b5",
+    "asset-spec-audit.json": "20858fad2408b54743cca244acc70e92b59212e12c6055c8202f0ed74347d63d",
+    "atomic-vector-report.json": "575d175e60fc440fad00cd5065c87083aafa17471632da11ace00ce8c2f6467d",
+    "layout-audit.json": "314a23cec67a5d3fa10b7b37428952131f9db72f74cc984b03ae03f388ca4a06",
+    "live-evidence.json": "d3216ebb2d5778c8fe4cbd32f805dd3fd1ca2f9457fc2e80f9899d3d2fc9f89d",
+    "math-summary.json": "8384be54fd71d3ab0d5ff0278d543ed26208d51f86984e74ffac2c36ec2f9677",
+    "powerpoint-arrow-readback.json": "5cc15b76b97f18c93cb59b021b596814f277145dde0c6c440222f09a22cd82c3",
+    "primitive-audit.json": "d3888cc47626a823f13d9e19356f13d3eceb0524790014612914df3921afff21",
+    "regions-report.json": "d8e9b8228bdc3c2f08fc6fde708f0886cda92930579665df57fa8c2f395d2b53",
     "visual-contracts-report.json": "273145fe5f78312e3762de80f7a6d2ee91f53b895c25ae282fc32e5a9a3e9ad6"
   },
-  "input_blockers_sha256": "872fcad69a51d2e108a9127f75bbfba4b147497b7fceac351501266bbdd6c8ef",
+  "input_blockers_sha256": "3b3fd149227d8031e56607f2f5bbd534ecd6f987f7b10305c9d3d9910b74e52e",
   "blockers": [
     {
       "id": "B0001",
@@ -1115,191 +1116,241 @@
     },
     {
       "id": "B0220",
+      "blocker": "atomic-vector:atomic:environment-globe-vector:fallback-required:atomic:environment-globe",
+      "category": null
+    },
+    {
+      "id": "B0221",
+      "blocker": "atomic-vector:atomic:environment-globe-vector:ink-contract-missing:environment-globe-creative-asset",
+      "category": null
+    },
+    {
+      "id": "B0222",
       "blocker": "bindings:save-reopen-not-verified",
       "category": "host_compat"
     },
     {
-      "id": "B0221",
+      "id": "B0223",
       "blocker": "live-binding-evidence-hash-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0222",
+      "id": "B0224",
       "blocker": "live-candidate-hash-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0223",
+      "id": "B0225",
       "blocker": "live-evidence-arrow-compile-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0224",
+      "id": "B0226",
       "blocker": "live-evidence-arrow-readback-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0225",
+      "id": "B0227",
       "blocker": "live-evidence-bindings-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0226",
-      "blocker": "live-evidence-inventory-candidate-mismatch",
-      "category": "host_compat"
-    },
-    {
-      "id": "B0227",
-      "blocker": "live-evidence-layout-audit-mismatch",
+      "id": "B0228",
+      "blocker": "live-evidence-bridge-manifest-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0228",
-      "blocker": "live-evidence-math-summary-mismatch",
-      "category": "host_compat"
-    },
-    {
       "id": "B0229",
-      "blocker": "live-evidence-primitive-audit-mismatch",
+      "blocker": "live-evidence-bridge-source-scene-mismatch",
       "category": "evidence_only"
     },
     {
       "id": "B0230",
-      "blocker": "live-evidence-regions-mismatch",
-      "category": "evidence_only"
+      "blocker": "live-evidence-inventory-candidate-mismatch",
+      "category": "host_compat"
     },
     {
       "id": "B0231",
-      "blocker": "live-evidence-scene-mismatch",
+      "blocker": "live-evidence-inventory-file-mismatch",
       "category": "evidence_only"
     },
     {
       "id": "B0232",
-      "blocker": "live-region:encoder-peer-size-detail",
-      "category": "source_model"
+      "blocker": "live-evidence-layout-audit-mismatch",
+      "category": "evidence_only"
     },
     {
       "id": "B0233",
-      "blocker": "live-region:expert-gap-arrow-text-detail",
-      "category": "source_model"
+      "blocker": "live-evidence-math-summary-mismatch",
+      "category": "host_compat"
     },
     {
       "id": "B0234",
-      "blocker": "live-region:joint-feedback-arrow-detail",
-      "category": "source_model"
+      "blocker": "live-evidence-operation-receipt-mismatch",
+      "category": "evidence_only"
     },
     {
       "id": "B0235",
-      "blocker": "live-region:observation-arrows",
-      "category": "source_model"
+      "blocker": "live-evidence-primitive-audit-mismatch",
+      "category": "evidence_only"
     },
     {
       "id": "B0236",
-      "blocker": "live-region:rollout-arrow-topology",
-      "category": "source_model"
+      "blocker": "live-evidence-regions-mismatch",
+      "category": "evidence_only"
     },
     {
       "id": "B0237",
-      "blocker": "live-region:six-bicolor-state-circles",
-      "category": "source_model"
+      "blocker": "live-evidence-render-mismatch",
+      "category": "evidence_only"
     },
     {
       "id": "B0238",
-      "blocker": "live-region:task-guided-allocator-topology",
-      "category": "source_model"
+      "blocker": "live-evidence-scene-mismatch",
+      "category": "evidence_only"
     },
     {
       "id": "B0239",
-      "blocker": "live-render-finalizer-unverified",
+      "blocker": "live-evidence-source-scene-mismatch",
       "category": "evidence_only"
     },
     {
       "id": "B0240",
+      "blocker": "live-region:encoder-peer-size-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0241",
+      "blocker": "live-region:expert-gap-arrow-text-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0242",
+      "blocker": "live-region:joint-feedback-arrow-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0243",
+      "blocker": "live-region:observation-arrows",
+      "category": "source_model"
+    },
+    {
+      "id": "B0244",
+      "blocker": "live-region:rollout-arrow-topology",
+      "category": "source_model"
+    },
+    {
+      "id": "B0245",
+      "blocker": "live-region:six-bicolor-state-circles",
+      "category": "source_model"
+    },
+    {
+      "id": "B0246",
+      "blocker": "live-region:task-guided-allocator-topology",
+      "category": "source_model"
+    },
+    {
+      "id": "B0247",
+      "blocker": "live-render-finalizer-unverified",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0248",
       "blocker": "live-reopened-hash-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0241",
+      "id": "B0249",
       "blocker": "live-root-save-reopen-missing",
       "category": "host_compat"
     },
     {
-      "id": "B0242",
+      "id": "B0250",
       "blocker": "math-summary:bindings-hash-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0243",
+      "id": "B0251",
       "blocker": "math-summary:declaration-empty-or-incomplete",
       "category": "compiler"
     },
     {
-      "id": "B0244",
+      "id": "B0252",
       "blocker": "math-summary:existing-readback-unverified",
       "category": "host_compat"
     },
     {
-      "id": "B0245",
+      "id": "B0253",
       "blocker": "math-summary:plan-hash-mismatch",
       "category": "evidence_only"
     },
     {
-      "id": "B0246",
+      "id": "B0254",
       "blocker": "math-summary:save-reopen-unverified",
       "category": "host_compat"
     },
     {
-      "id": "B0247",
+      "id": "B0255",
       "blocker": "ocr:reference-text-unmatched",
       "category": "source_model"
     },
     {
-      "id": "B0248",
+      "id": "B0256",
       "blocker": "ocr:svg-text-unmatched",
       "category": "source_model"
     },
     {
-      "id": "B0249",
+      "id": "B0257",
       "blocker": "reference-inventory:receipt-missing",
       "category": "contract"
     },
     {
-      "id": "B0250",
+      "id": "B0258",
       "blocker": "region:encoder-peer-size-detail",
       "category": "source_model"
     },
     {
-      "id": "B0251",
+      "id": "B0259",
+      "blocker": "region:environment-globe-creative-asset",
+      "category": "source_model"
+    },
+    {
+      "id": "B0260",
       "blocker": "region:expert-gap-arrow-text-detail",
       "category": "source_model"
     },
     {
-      "id": "B0252",
+      "id": "B0261",
       "blocker": "region:joint-feedback-arrow-detail",
       "category": "source_model"
     },
     {
-      "id": "B0253",
+      "id": "B0262",
       "blocker": "region:observation-arrows",
       "category": "source_model"
     },
     {
-      "id": "B0254",
+      "id": "B0263",
       "blocker": "region:rollout-arrow-topology",
       "category": "source_model"
     },
     {
-      "id": "B0255",
+      "id": "B0264",
       "blocker": "region:six-bicolor-state-circles",
       "category": "source_model"
     },
     {
-      "id": "B0256",
+      "id": "B0265",
       "blocker": "region:task-guided-allocator-topology",
       "category": "source_model"
     },
     {
-      "id": "B0257",
+      "id": "B0266",
+      "blocker": "repair-plan:incomplete",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0267",
       "blocker": "source-gate:isolation:read-manifest-unverified",
       "category": "contract"
     }
@@ -1310,8 +1361,8 @@
       "category": "contract",
       "covers": [
         "B0219",
-        "B0249",
-        "B0257"
+        "B0257",
+        "B0267"
       ],
       "strategy": "rederive-and-refreeze-reference-contract",
       "artifact_mutation_allowed": false,
@@ -1548,22 +1599,23 @@
         "B0216",
         "B0217",
         "B0218",
-        "B0232",
-        "B0233",
-        "B0234",
-        "B0235",
-        "B0236",
-        "B0237",
-        "B0238",
-        "B0247",
-        "B0248",
-        "B0250",
-        "B0251",
-        "B0252",
-        "B0253",
-        "B0254",
+        "B0240",
+        "B0241",
+        "B0242",
+        "B0243",
+        "B0244",
+        "B0245",
+        "B0246",
         "B0255",
-        "B0256"
+        "B0256",
+        "B0258",
+        "B0259",
+        "B0260",
+        "B0261",
+        "B0262",
+        "B0263",
+        "B0264",
+        "B0265"
       ],
       "strategy": "repair-or-regenerate-failed-source-regions",
       "artifact_mutation_allowed": true,
@@ -1581,7 +1633,7 @@
       "id": "A-compiler",
       "category": "compiler",
       "covers": [
-        "B0243"
+        "B0251"
       ],
       "strategy": "fix-deterministic-compiler-and-recompile",
       "artifact_mutation_allowed": true,
@@ -1599,12 +1651,12 @@
       "id": "A-host-compat",
       "category": "host_compat",
       "covers": [
-        "B0220",
-        "B0226",
-        "B0228",
-        "B0241",
-        "B0244",
-        "B0246"
+        "B0222",
+        "B0230",
+        "B0233",
+        "B0249",
+        "B0252",
+        "B0254"
       ],
       "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
       "artifact_mutation_allowed": true,
@@ -1622,19 +1674,26 @@
       "id": "A-evidence-only",
       "category": "evidence_only",
       "covers": [
-        "B0221",
-        "B0222",
         "B0223",
         "B0224",
         "B0225",
+        "B0226",
         "B0227",
+        "B0228",
         "B0229",
-        "B0230",
         "B0231",
+        "B0232",
+        "B0234",
+        "B0235",
+        "B0236",
+        "B0237",
+        "B0238",
         "B0239",
-        "B0240",
-        "B0242",
-        "B0245"
+        "B0247",
+        "B0248",
+        "B0250",
+        "B0253",
+        "B0266"
       ],
       "strategy": "regenerate-hash-bound-evidence-from-unchanged-artifact",
       "artifact_mutation_allowed": false,
@@ -1909,7 +1968,17 @@
       "B0254",
       "B0255",
       "B0256",
-      "B0257"
+      "B0257",
+      "B0258",
+      "B0259",
+      "B0260",
+      "B0261",
+      "B0262",
+      "B0263",
+      "B0264",
+      "B0265",
+      "B0266",
+      "B0267"
     ],
     "covered_blocker_ids": [
       "B0001",
@@ -2131,8 +2200,6 @@
       "B0217",
       "B0218",
       "B0219",
-      "B0220",
-      "B0221",
       "B0222",
       "B0223",
       "B0224",
@@ -2168,20 +2235,38 @@
       "B0254",
       "B0255",
       "B0256",
-      "B0257"
+      "B0257",
+      "B0258",
+      "B0259",
+      "B0260",
+      "B0261",
+      "B0262",
+      "B0263",
+      "B0264",
+      "B0265",
+      "B0266",
+      "B0267"
     ],
-    "uncovered_blocker_ids": [],
+    "uncovered_blocker_ids": [
+      "B0220",
+      "B0221"
+    ],
     "multiply_covered_blocker_ids": []
   },
   "invalid_inputs": [],
   "classification_counts": {
     "contract": 3,
-    "source_model": 234,
+    "source_model": 235,
     "compiler": 1,
     "host_compat": 6,
-    "evidence_only": 13
+    "evidence_only": 20
   },
-  "errors": [],
-  "pass": true,
-  "plan_sha256": "f1c1b9c7b544b17433c8c44384128a5217d20ee76b7f96c82b4c228715a06dd9"
+  "errors": [
+    "unclassified-blocker:B0220",
+    "unclassified-blocker:B0221",
+    "uncovered-blocker:B0220",
+    "uncovered-blocker:B0221"
+  ],
+  "pass": false,
+  "plan_sha256": "8acff085114a39e492dc9dcff48f020f512b40ac11e1da479a7d802bc096dfdb"
 }

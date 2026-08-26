@@ -4,11 +4,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import posixpath
+import re
 import subprocess
 import sys
 import unicodedata
 import xml.etree.ElementTree as ET
+import zipfile
 from pathlib import Path
+from typing import Any
 
 from tools import common
 
@@ -91,11 +95,453 @@ def _qa_report_hashes(run: common.Run) -> dict[str, str]:
         "visual-contracts-report.json",
         "math-summary.json",
         "live-evidence.json",
+        "atomic-vector-report.json",
     )
     return {
         name: common.sha256_file(run.qa_dir / name)
         for name in names
         if (run.qa_dir / name).is_file()
+    }
+
+
+# ---------------------------------------------------------------------------
+# Atomic-vector (vtracer-trace) asset gates
+# (docs/ILLUSTRATOR_VECTOR_AUTHORING_PLAN.md Phase 2 §3.4).  Each authorized
+# traced asset is judged on five axes: assets.json contract, native binding,
+# regional fidelity, provenance, and the fallback audit.  Any failure blocks
+# and explicitly demands the documented atomic-raster fallback; check only
+# judges and records, it never rewrites assets.json.
+
+ATOMIC_VECTOR_REPORT_NAME = "atomic-vector-report.json"
+
+# 初始值,逐案例 freeze 冻结;出处 docs/vtracer-pilot/README.md(平面插画类
+# 描摹实测 SSIM 0.81–0.82)。
+ATOMIC_VECTOR_SSIM_FLOOR = 0.80
+
+_PML_NS = "http://schemas.openxmlformats.org/presentationml/2006/main"
+_PACKAGE_REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
+_OFFICE_REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+_SLIDE_PART_RE = re.compile(r"ppt/slides/slide[0-9]+\.xml")
+_NV_CONTAINER_NAMES = {
+    "pic": "nvPicPr",
+    "sp": "nvSpPr",
+    "grpSp": "nvGrpSpPr",
+    "cxnSp": "nvCxnSpPr",
+    "graphicFrame": "nvGraphicFramePr",
+}
+
+
+def _pptx_shape_metadata(pptx_path: Path) -> dict[tuple[int, str], dict[str, Any]]:
+    """Read every slide shape's OOXML container kind and PowerPoint Tags.
+
+    The result keys shapes by the same ``(shape_id, shape_name)`` identity the
+    compiler bindings use, so gates resolve one binding row to its saved
+    package truth without PowerPoint.
+    """
+
+    metadata: dict[tuple[int, str], dict[str, Any]] = {}
+    with zipfile.ZipFile(pptx_path) as package:
+        part_names = set(package.namelist())
+        for slide_name in sorted(
+            name for name in part_names if _SLIDE_PART_RE.fullmatch(name)
+        ):
+            relationships: dict[str, str] = {}
+            rels_name = f"ppt/slides/_rels/{slide_name.rsplit('/', 1)[-1]}.rels"
+            if rels_name in part_names:
+                rel_root = ET.fromstring(package.read(rels_name))
+                for relationship in rel_root.iter(f"{{{_PACKAGE_REL_NS}}}Relationship"):
+                    rel_id = relationship.get("Id")
+                    target = relationship.get("Target")
+                    if rel_id and target:
+                        relationships[rel_id] = posixpath.normpath(
+                            posixpath.join("ppt/slides", target)
+                        )
+            slide_root = ET.fromstring(package.read(slide_name))
+            for shape in slide_root.iter():
+                if not isinstance(shape.tag, str):
+                    continue
+                local_name = shape.tag.rsplit("}", 1)[-1]
+                container_name = _NV_CONTAINER_NAMES.get(local_name)
+                if container_name is None:
+                    continue
+                container = shape.find(f"{{{_PML_NS}}}{container_name}")
+                if container is None:
+                    continue
+                c_nv_pr = container.find(f"{{{_PML_NS}}}cNvPr")
+                if c_nv_pr is None:
+                    continue
+                try:
+                    shape_id = int(c_nv_pr.get("id") or "")
+                except ValueError:
+                    continue
+                shape_name = c_nv_pr.get("name") or ""
+                tags: dict[str, str] = {}
+                nv_pr = container.find(f"{{{_PML_NS}}}nvPr")
+                tags_reference = (
+                    nv_pr.find(f"{{{_PML_NS}}}custDataLst/{{{_PML_NS}}}tags")
+                    if nv_pr is not None
+                    else None
+                )
+                if tags_reference is not None:
+                    rel_id = tags_reference.get(f"{{{_OFFICE_REL_NS}}}id")
+                    part_name = relationships.get(rel_id or "")
+                    if part_name in part_names:
+                        tag_root = ET.fromstring(package.read(part_name))
+                        for tag in tag_root.iter(f"{{{_PML_NS}}}tag"):
+                            name = tag.get("name")
+                            if name:
+                                tags[name] = tag.get("val") or ""
+                metadata[(shape_id, shape_name)] = {
+                    "shape_kind": local_name,
+                    "tags": tags,
+                }
+    return metadata
+
+
+def _atomic_vector_expected_tags(entry: dict[str, Any]) -> dict[str, str]:
+    """PowerPoint Tags contract for one atomic-vector shape.
+
+    命名跟随 convert 的 atomic-raster Tags 分支(AISCIENTIFICILLUSTRATOR 前缀
+    大写连写):资产身份、vector_source_svg 源哈希、editable=true 与 origin。
+    """
+
+    return {
+        "AISCIENTIFICILLUSTRATORASSETID": entry["id"],
+        "AISCIENTIFICILLUSTRATORSOURCESHA256": entry["vector_source_svg"]["sha256"],
+        "AISCIENTIFICILLUSTRATOREDITABLE": "True",
+        "AISCIENTIFICILLUSTRATORORIGIN": "vtracer-provider",
+    }
+
+
+def _binding_identity(row: dict[str, Any]) -> tuple[int, str] | None:
+    shape_id = row.get("shape_id")
+    shape_name = row.get("shape_name")
+    if (
+        isinstance(shape_id, bool)
+        or not isinstance(shape_id, int)
+        or not isinstance(shape_name, str)
+    ):
+        return None
+    return (shape_id, shape_name)
+
+
+def _atomic_vector_nativeness_blockers(
+    entry: dict[str, Any],
+    bindings: dict[str, Any],
+    shape_metadata: dict[tuple[int, str], dict[str, Any]],
+) -> list[str]:
+    """② 原生性:原生 freeform/group 绑定、无 picture、Tags 完整且 editable。
+
+    bindings 链接规则与 convert 一致:先按矢量条目 id 查 element_id,无命中
+    再按 ``fallback_atomic_raster``(位图条目 id)查——链接场景下 convert 以
+    场景元素 id(位图 id)登记 object_kind="atomic-vector" 的绑定行。位图 id
+    下只认 object_kind="atomic-vector" 的行;同 element_id 的 atomic-raster
+    行是位图层的独立绑定,其活跃性由 ⑤ 回退审计判定,不计入原生性。
+    """
+
+    asset_id = entry["id"]
+    rows = [
+        row
+        for row in bindings.get("bindings", [])
+        if isinstance(row, dict) and row.get("element_id") == asset_id
+    ]
+    group_rows = [
+        row
+        for row in bindings.get("logical_group_bindings", [])
+        if isinstance(row, dict) and row.get("element_id") == asset_id
+    ]
+    if not rows and not group_rows:
+        fallback_id = entry.get("fallback_atomic_raster")
+        if isinstance(fallback_id, str) and fallback_id:
+            rows = [
+                row
+                for row in bindings.get("bindings", [])
+                if isinstance(row, dict)
+                and row.get("element_id") == fallback_id
+                and row.get("object_kind") == "atomic-vector"
+            ]
+            group_rows = [
+                row
+                for row in bindings.get("logical_group_bindings", [])
+                if isinstance(row, dict)
+                and row.get("element_id") == fallback_id
+                and row.get("object_kind") == "atomic-vector"
+            ]
+    if not rows and not group_rows:
+        return [f"atomic-vector:{asset_id}:binding-missing"]
+
+    blockers: list[str] = []
+    identities: list[tuple[int, str] | None] = []
+    tag_carriers: list[tuple[int, str] | None] = []
+    for row in [*rows, *group_rows]:
+        kind = row.get("object_kind")
+        if kind != "atomic-vector":
+            blockers.append(f"atomic-vector:{asset_id}:binding-kind:{kind or '[missing]'}")
+        if row.get("editable") is not True:
+            blockers.append(f"atomic-vector:{asset_id}:binding-not-editable")
+    for row in rows:
+        identity = _binding_identity(row)
+        identities.append(identity)
+        tag_carriers.append(identity)
+    for row in group_rows:
+        members = [
+            _binding_identity(item)
+            for item in row.get("backend_object_identities", [])
+            if isinstance(item, dict)
+        ]
+        identities.extend(members)
+        attachment = _binding_identity(
+            {
+                "shape_id": row.get("attachment_shape_id"),
+                "shape_name": row.get("attachment_shape_name"),
+            }
+        )
+        identities.append(attachment)
+        tag_carriers.append(attachment)
+    identities = list(dict.fromkeys(identities))
+    for identity in identities:
+        if identity is None:
+            blockers.append(f"atomic-vector:{asset_id}:shape-unresolved:[missing-identity]")
+            continue
+        info = shape_metadata.get(identity)
+        if info is None:
+            blockers.append(f"atomic-vector:{asset_id}:shape-unresolved:{identity[1]}")
+        elif info.get("shape_kind") == "pic":
+            blockers.append(f"atomic-vector:{asset_id}:picture-binding:{identity[1]}")
+
+    expected_tags = _atomic_vector_expected_tags(entry)
+    carriers = list(dict.fromkeys(item for item in tag_carriers if item is not None))
+    if not carriers:
+        blockers.append(f"atomic-vector:{asset_id}:tags-missing")
+    for identity in carriers:
+        info = shape_metadata.get(identity)
+        if info is None:
+            continue  # shape-unresolved 已在上面按 fail-closed 报告
+        missing = {
+            name: value
+            for name, value in expected_tags.items()
+            if info.get("tags", {}).get(name) != value
+        }
+        if missing:
+            blockers.append(f"atomic-vector:{asset_id}:tags-incomplete:{identity[1]}")
+    return blockers
+
+
+def _atomic_vector_region_blockers(
+    entry: dict[str, Any],
+    regions_payload: dict[str, Any],
+    regions_report: dict[str, Any],
+    *,
+    edge_iou_floor: float,
+) -> list[str]:
+    """③ 区域保真:紧边界 ink_contract + SSIM/Edge IoU 底线 + ΔE00 冻结探针。"""
+
+    asset_id = entry["id"]
+    region_id = entry["ink_contract_region_id"]
+    definitions = {
+        region.get("id"): region
+        for region in regions_payload.get("regions", [])
+        if isinstance(region, dict)
+    }
+    results = {
+        region.get("id"): region
+        for region in regions_report.get("regions", [])
+        if isinstance(region, dict)
+    }
+    definition = definitions.get(region_id)
+    result = results.get(region_id)
+    if definition is None or result is None:
+        return [f"atomic-vector:{asset_id}:region-missing:{region_id}"]
+    blockers: list[str] = []
+    if not isinstance(definition.get("ink_contract"), dict):
+        blockers.append(f"atomic-vector:{asset_id}:ink-contract-missing:{region_id}")
+    else:
+        ink_contract = result.get("ink_contract")
+        if not isinstance(ink_contract, dict) or ink_contract.get("pass") is not True:
+            blockers.append(f"atomic-vector:{asset_id}:ink-contract-failed:{region_id}")
+    ssim = result.get("ssim")
+    if (
+        not isinstance(ssim, (int, float))
+        or isinstance(ssim, bool)
+        or ssim < ATOMIC_VECTOR_SSIM_FLOOR
+    ):
+        blockers.append(f"atomic-vector:{asset_id}:ssim:{ssim}")
+    edge_iou = result.get("edge_iou")
+    if (
+        not isinstance(edge_iou, (int, float))
+        or isinstance(edge_iou, bool)
+        or edge_iou < edge_iou_floor
+    ):
+        blockers.append(f"atomic-vector:{asset_id}:edge-iou:{edge_iou}")
+    for probe in result.get("color_probes") or []:
+        if isinstance(probe, dict) and probe.get("pass") is not True:
+            blockers.append(
+                f"atomic-vector:{asset_id}:color-probe:{region_id}:"
+                f"{probe.get('id', '[missing-id]')}"
+            )
+    return blockers
+
+
+def _provenance_records(document: dict[str, Any]) -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    for value in document.values():
+        if isinstance(value, list):
+            records.extend(item for item in value if isinstance(item, dict))
+    return records
+
+
+def _atomic_vector_provenance_blockers(
+    case_root: Path,
+    entry: dict[str, Any],
+    provenance: dict[str, Any],
+) -> list[str]:
+    """④ vector_source_svg 内容哈希绑定 + 引擎版本/参数/候选 SHA-256 留档。"""
+
+    from tools.asset_trace import check_svg_contract_subset
+
+    asset_id = entry["id"]
+    vector_source = entry["vector_source_svg"]
+    declared_sha256 = vector_source["sha256"]
+    blockers: list[str] = []
+    svg_path = case_root.joinpath(*vector_source["path"].split("/"))
+    if not svg_path.is_file():
+        blockers.append(f"atomic-vector:{asset_id}:vector-source-missing")
+    elif common.sha256_file(svg_path) != declared_sha256:
+        blockers.append(f"atomic-vector:{asset_id}:vector-source-hash-mismatch")
+    else:
+        blockers.extend(
+            f"atomic-vector:{asset_id}:contract-subset:{violation}"
+            for violation in check_svg_contract_subset(svg_path)
+        )
+
+    records = [
+        record
+        for record in _provenance_records(provenance)
+        if record.get("origin") == "vtracer-provider"
+        and record.get("sha256") == declared_sha256
+    ]
+    if not records:
+        blockers.append(f"atomic-vector:{asset_id}:provenance-missing")
+        return blockers
+    record = records[0]
+    if record.get("trace_engine_version") != entry["trace_engine_version"]:
+        blockers.append(f"atomic-vector:{asset_id}:provenance-engine-version")
+    parameters = record.get("parameters")
+    if not isinstance(parameters, dict) or not parameters:
+        blockers.append(f"atomic-vector:{asset_id}:provenance-parameters")
+    if not any(
+        isinstance(record.get(key), str) and record.get(key)
+        for key in ("ingested_at", "traced_at", "at")
+    ):
+        blockers.append(f"atomic-vector:{asset_id}:provenance-timestamp")
+    return blockers
+
+
+def audit_atomic_vector_qa(
+    case_root: Path,
+    *,
+    assets: dict[str, Any],
+    bindings: dict[str, Any],
+    regions_payload: dict[str, Any],
+    regions_report: dict[str, Any],
+    provenance: dict[str, Any],
+    shape_metadata: dict[tuple[int, str], dict[str, Any]],
+) -> dict[str, Any]:
+    """Judge every atomic-vector (vtracer-trace) asset in one case.
+
+    Returns the ``atomic-vector-report.json`` document; ``blockers`` follows
+    the existing ``asset:<id>:...`` / ``region:<id>`` naming style.  The audit
+    is read-only: fallback to atomic-raster is executed by the outer
+    workflow, never by check.
+    """
+
+    from tools.asset_spec import (
+        ATOMIC_VECTOR_SOURCE,
+        audit_atomic_vector_assets,
+        validate_atomic_vector_asset,
+    )
+    from tools.regions import CRITICAL_EDGE_IOU_FLOOR
+
+    entries = [
+        item
+        for item in assets.get("assets", [])
+        if isinstance(item, dict) and item.get("source") == ATOMIC_VECTOR_SOURCE
+    ]
+    raster_entry_ids = {
+        item.get("id")
+        for item in assets.get("assets", [])
+        if isinstance(item, dict) and item.get("source") == "reference_crop"
+    }
+    active_raster_binding_ids = {
+        row.get("element_id")
+        for row in bindings.get("bindings", [])
+        if isinstance(row, dict) and row.get("object_kind") == "atomic-raster"
+    }
+    # ① assets.json 合同层(11 字段闭集合 + fallback_atomic_raster 同文档解析)。
+    blockers = audit_atomic_vector_assets(assets)
+
+    asset_reports: list[dict[str, Any]] = []
+    for entry in entries:
+        raw_id = entry.get("id")
+        asset_id = raw_id if isinstance(raw_id, str) and raw_id else "[missing-id]"
+        gates: dict[str, list[str]] = {}
+        gates["contract"] = [
+            f"atomic-vector-asset:{asset_id}:{error}"
+            for error in validate_atomic_vector_asset(entry)
+        ]
+        if gates["contract"]:
+            # 合同字段不可信时下游门禁无法安全求值;合同 blocker 已 fail closed。
+            gates["nativeness"] = []
+            gates["region"] = []
+            gates["provenance"] = []
+        else:
+            gates["nativeness"] = _atomic_vector_nativeness_blockers(
+                entry, bindings, shape_metadata
+            )
+            gates["region"] = _atomic_vector_region_blockers(
+                entry,
+                regions_payload,
+                regions_report,
+                edge_iou_floor=CRITICAL_EDGE_IOU_FLOOR,
+            )
+            gates["provenance"] = _atomic_vector_provenance_blockers(
+                case_root, entry, provenance
+            )
+        entry_blockers = [item for gate in gates.values() for item in gate]
+        # ⑤ 回退审计:矢量为准;矢量门禁失败时显式要求回退其声明的位图层,
+        # 矢量全过而位图层仍在编译产物中则为表示分歧。
+        fallback = entry.get("fallback_atomic_raster")
+        fallback_id = fallback if isinstance(fallback, str) and fallback else "[unresolved]"
+        fallback_resolved = fallback_id in raster_entry_ids
+        fallback_blockers: list[str] = []
+        if entry_blockers or not fallback_resolved:
+            fallback_blockers.append(
+                f"atomic-vector:{asset_id}:fallback-required:{fallback_id}"
+            )
+        elif fallback_id in active_raster_binding_ids:
+            fallback_blockers.append(f"atomic-vector:{asset_id}:fallback-active:{fallback_id}")
+        gates["fallback"] = fallback_blockers
+        entry_blockers.extend(fallback_blockers)
+        asset_reports.append(
+            {
+                "id": asset_id,
+                "ink_contract_region_id": entry.get("ink_contract_region_id"),
+                "fallback_atomic_raster": entry.get("fallback_atomic_raster"),
+                "gates": gates,
+                "pass": not entry_blockers,
+                "blockers": entry_blockers,
+            }
+        )
+        blockers.extend(entry_blockers)
+    blockers = list(dict.fromkeys(blockers))
+    return {
+        "schema_version": "4.0.0",
+        "kind": "atomic_vector_audit",
+        "reference_sha256": assets.get("reference_sha256"),
+        "asset_count": len(entries),
+        "assets": asset_reports,
+        "pass": not blockers,
+        "blockers": blockers,
     }
 
 
@@ -371,7 +817,8 @@ def main(argv: list[str] | None = None) -> int:
         "- 结构证据: qa/arrow-visual-report.json、qa/arrow-compile-report.json、"
         "qa/powerpoint-arrow-readback.json、qa/primitive-audit.json、"
         "qa/asset-spec-audit.json、qa/asset-contract-receipt.json、"
-        "qa/visual-contracts-report.json、qa/provider-capabilities.json",
+        "qa/visual-contracts-report.json、qa/provider-capabilities.json、"
+        "qa/atomic-vector-report.json",
         "",
         "## 文本比对（SVG 文字 vs 参考图 OCR）",
         f"- SVG 侧未匹配 {len(unmatched_svg)} 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）",
@@ -436,6 +883,25 @@ def main(argv: list[str] | None = None) -> int:
         strict_blockers.append("bindings:save-reopen-not-verified")
     if bindings.get("bindings_complete") is not True:
         strict_blockers.append("bindings:incomplete")
+    from tools.asset_spec import ATOMIC_VECTOR_SOURCE
+
+    has_atomic_vector = any(
+        isinstance(item, dict) and item.get("source") == ATOMIC_VECTOR_SOURCE
+        for item in assets.get("assets", [])
+    )
+    atomic_vector_report = audit_atomic_vector_qa(
+        run.root,
+        assets=assets,
+        bindings=bindings,
+        regions_payload=read_json(run.regions_path),
+        regions_report=regions,
+        provenance=read_json(run.provenance_path),
+        shape_metadata=_pptx_shape_metadata(run.pptx_path) if has_atomic_vector else {},
+    )
+    from tools.contracts import write_json
+
+    write_json(run.qa_dir / ATOMIC_VECTOR_REPORT_NAME, atomic_vector_report)
+    strict_blockers.extend(atomic_vector_report["blockers"])
     from tools.math import math_summary_blockers
 
     strict_blockers.extend(math_summary_blockers(run))
@@ -496,6 +962,8 @@ def main(argv: list[str] | None = None) -> int:
             "- blocker inventory: qa/blockers.json",
             "- repair plan: qa/repair-plan.json",
             "- QA lineage: qa/qa-lineage-manifest.json",
+            f"- atomic-vector 资产门禁: {'PASS' if atomic_vector_report['pass'] else 'FAIL'}"
+            f"（{atomic_vector_report['asset_count']} 个资产;明细 qa/atomic-vector-report.json）",
             (
                 "- PowerPoint Live: REQUIRED — "
                 + ("PASS" if not live_blockers else "FAIL")

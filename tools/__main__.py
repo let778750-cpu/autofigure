@@ -13,6 +13,7 @@ COMMANDS = {
     "math": "tools.math",
     "arrows": "tools.arrows",
     "ingest": "tools.ingest",
+    "trace": "tools.trace",
     "freeze": "tools.reference_inventory",
     "repair": "tools.repair",
     "release": "tools.release",

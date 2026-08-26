@@ -4,7 +4,7 @@ import copy
 from pathlib import Path
 
 import pytest
-from PIL import Image
+from PIL import Image, ImageDraw
 
 from tools import common
 from tools.asset_spec import (
@@ -17,14 +17,17 @@ from tools.asset_spec import (
     canonical_asset_contract_payload,
     freeze_asset_contract,
 )
+from tools.asset_trace import compute_trace_eligibility
 from tools.contracts import read_json, write_json
 from tools.prepare import main as prepare_main
-from tools.reference_inventory import OBJECT_KINDS, freeze_inventory
+from tools.reference_inventory import OBJECT_KINDS, canonical_sha256, freeze_inventory
 
 
-def _run(tmp_path: Path, case: str) -> common.Run:
+def _run(tmp_path: Path, case: str, image: Image.Image | None = None) -> common.Run:
     reference = tmp_path / f"{case}.png"
-    Image.new("RGB", (160, 100), "white").save(reference)
+    (image if image is not None else Image.new("RGB", (160, 100), "white")).save(
+        reference
+    )
     cases_root = tmp_path / "examples"
     assert (
         prepare_main(
@@ -348,3 +351,99 @@ def test_receipt_schema_and_opportunity_schema_fail_closed(tmp_path: Path):
     assets["microasset_opportunity_map"][0]["unreviewed_hint"] = "not contracted"
     with pytest.raises(AssetSpecError, match="schema"):
         canonical_asset_contract_payload(assets)
+
+
+def _flat_icon_reference() -> Image.Image:
+    image = Image.new("RGB", (160, 100), (245, 245, 245))
+    draw = ImageDraw.Draw(image)
+    draw.rectangle((24, 24, 39, 39), fill=(200, 60, 50))
+    draw.rectangle((40, 24, 55, 39), fill=(60, 130, 200))
+    draw.rectangle((24, 40, 39, 47), fill=(240, 190, 60))
+    draw.rectangle((40, 40, 55, 47), fill=(90, 170, 90))
+    return image
+
+
+def test_freeze_stamps_trace_eligibility_into_opportunity_map(tmp_path: Path):
+    run = _run(tmp_path, "eligibility-stamp")
+    _configure_asset_inventory(run)
+    freeze_inventory(run)
+    assets = read_json(run.assets_path)
+    opportunity = assets["microasset_opportunity_map"][0]
+    with Image.open(run.source_png) as reference:
+        expected = compute_trace_eligibility(reference.convert("RGB").crop((20, 20, 60, 50)))
+    assert opportunity["trace_eligibility"] == expected["classification"]
+    assert opportunity["trace_eligibility_statistics"] == expected["statistics"]
+    receipt = read_json(run.root / ASSET_CONTRACT_RECEIPT_PATH)
+    assert receipt["asset_contract_sha256"] == asset_contract_sha256(assets)
+    assert asset_contract_blockers(run) == []
+
+
+def test_freeze_eligibility_classifies_flat_illustration_crop(tmp_path: Path):
+    run = _run(tmp_path, "eligibility-flat", image=_flat_icon_reference())
+    _configure_asset_inventory(run)
+    freeze_inventory(run)
+    opportunity = read_json(run.assets_path)["microasset_opportunity_map"][0]
+    assert opportunity["trace_eligibility"] == "flat-illustration"
+    statistics = opportunity["trace_eligibility_statistics"]
+    assert statistics["width"] == 40
+    assert statistics["height"] == 30
+    assert asset_contract_blockers(run) == []
+
+
+def test_eligibility_stamp_is_stable_across_refreezes(tmp_path: Path):
+    run = _run(tmp_path, "eligibility-refreeze")
+    _configure_asset_inventory(run)
+    freeze_inventory(run)
+    stamped_assets = run.assets_path.read_bytes()
+    first_sha256 = read_json(run.root / ASSET_CONTRACT_RECEIPT_PATH)[
+        "asset_contract_sha256"
+    ]
+    freeze_inventory(run)
+    assert run.assets_path.read_bytes() == stamped_assets
+    assert (
+        read_json(run.root / ASSET_CONTRACT_RECEIPT_PATH)["asset_contract_sha256"]
+        == first_sha256
+    )
+    assert asset_contract_blockers(run) == []
+
+
+def test_legacy_frozen_map_without_eligibility_fields_still_verifies(tmp_path: Path):
+    run = _run(tmp_path, "eligibility-legacy")
+    _configure_asset_inventory(run)
+    freeze_inventory(run)
+    assets = read_json(run.assets_path)
+    for item in assets["microasset_opportunity_map"]:
+        item.pop("trace_eligibility", None)
+        item.pop("trace_eligibility_statistics", None)
+    write_json(run.assets_path, assets)
+    receipt_path = run.root / ASSET_CONTRACT_RECEIPT_PATH
+    receipt = read_json(receipt_path)
+    payload = canonical_asset_contract_payload(assets)
+    receipt["asset_contract_sha256"] = asset_contract_sha256(assets)
+    receipt["microasset_opportunity_map_sha256"] = canonical_sha256(
+        payload["microasset_opportunity_map"]
+    )
+    write_json(receipt_path, receipt)
+    assert asset_contract_blockers(run) == []
+
+
+def test_trace_eligibility_fields_are_optional_but_validated(tmp_path: Path):
+    run = _run(tmp_path, "eligibility-schema")
+    _configure_asset_inventory(run)
+    assets = read_json(run.assets_path)
+    opportunity = assets["microasset_opportunity_map"][0]
+
+    opportunity["trace_eligibility"] = "not-a-class"
+    with pytest.raises(AssetSpecError, match="trace-eligibility"):
+        canonical_asset_contract_payload(assets)
+
+    opportunity["trace_eligibility"] = "flat-illustration"
+    with pytest.raises(AssetSpecError, match="trace-eligibility-pairing"):
+        canonical_asset_contract_payload(assets)
+
+    opportunity["trace_eligibility_statistics"] = {"width": "40"}
+    with pytest.raises(AssetSpecError, match="trace-eligibility-statistics"):
+        canonical_asset_contract_payload(assets)
+
+    opportunity["trace_eligibility_statistics"] = {"width": 40, "height": 30}
+    canonical_asset_contract_payload(assets)

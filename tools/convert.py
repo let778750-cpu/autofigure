@@ -4,7 +4,9 @@
 - rect/circle/ellipse/line/polyline/polygon/path → 原生形状 / custGeom 自由曲线（保留三次贝塞尔）
 - text/tspan → 原生文本框 runs（italic、字号、颜色、baseline-shift → 上下标）
 - linearGradient → a:gradFill；stroke-dasharray → prstDash；marker → 原生线端，无法单对象表达时拒绝
-- <rect id="atomic:*"> 占位符 → 从参考图裁剪对应 bbox 嵌入为位图
+- <rect id="atomic:*"> 占位符 → 从参考图裁剪对应 bbox 嵌入为位图；assets.json 登记了
+  同原子 id 的 source=vtracer-trace 条目时改走 atomic-vector 分支：哈希核验登记的
+  vector_source_svg 片段，每个 path 编译为原生 custGeom 成员并包成单个 group
 - <image> 容错：按 bbox 从参考图裁剪替代并记 warning；覆盖画布 ≥50% 直接拒绝（防整图截图冒充矢量）
 - <g id> 保留为 scene 中的 logical_group，并以成员对象身份建立复合绑定；
   PowerPoint 中仍只生成子对象，不伪造第二个可见 group 对象
@@ -396,6 +398,7 @@ class ConvertContext:
         layout_boxes: dict[str, Box] | None = None,
         input_route: str = "svg-seeded",
         reference_sha256: str = "",
+        case_root: Path | None = None,
     ):
         self.slide = slide
         self.defs = defs
@@ -407,6 +410,7 @@ class ConvertContext:
         self.layout_boxes = layout_boxes or {}
         self.input_route = input_route
         self.reference_sha256 = reference_sha256
+        self.case_root = case_root
         self.warnings: list[str] = []
         self.counts: dict[str, int] = {}
         self.bindings: list[dict] = []
@@ -914,6 +918,22 @@ class ConvertContext:
                 f"{asset_id}: atomic raster has no explicit assets.json authorization; "
                 "strict approval will fail"
             )
+
+    def register_vector_asset(self, asset_id: str) -> None:
+        """Record one compiled atomic-vector asset for the assets.json merge.
+
+        The derived assets.json entry already carries the full atomic-vector
+        contract fields (``tools/asset_spec.py``).  The generated record only
+        asserts identity, source, and editability so the merge keeps the entry
+        inside its closed field set.
+        """
+        self.assets.append(
+            {
+                "id": asset_id,
+                "editable": True,
+                "source": "vtracer-trace",
+            }
+        )
 
     def add_pending_connection(self, shape, element: ET.Element) -> None:
         if not _has_explicit_edge_semantics(element):
@@ -1894,14 +1914,14 @@ def _transform_segments(segments: list[tuple], matrix: Matrix) -> list[tuple]:
     return result
 
 
-def _emit_freeform(
-    ctx: ConvertContext,
-    segments: list[tuple],
-    style: dict[str, str],
-    *,
-    object_kind: str = "freeform",
-    editable: bool = True,
-):
+def _build_freeform_sp(ctx: ConvertContext, segments: list[tuple]):
+    """Build one custGeom freeform ``p:sp`` element without placing it.
+
+    Returns ``(element, shape_id)``, or ``None`` when the segments carry no
+    points.  The caller owns tree placement, fill/line, and registration, so
+    the same geometry path serves top-level shapes and atomic-vector group
+    members alike.
+    """
     # bbox 必须包含贝塞尔控制点：控制多边形永远包住曲线本体，
     # 否则坐标越出声明的 path w/h，PowerPoint 会判定文件损坏。
     xs: list[float] = []
@@ -1957,7 +1977,21 @@ def _emit_freeform(
         f"<a:pathLst>{''.join(path_xml)}</a:pathLst></a:custGeom>"
         "</p:spPr></p:sp>"
     )
-    sp = _parse_sp_xml(xml)
+    return _parse_sp_xml(xml), shape_id
+
+
+def _emit_freeform(
+    ctx: ConvertContext,
+    segments: list[tuple],
+    style: dict[str, str],
+    *,
+    object_kind: str = "freeform",
+    editable: bool = True,
+):
+    built = _build_freeform_sp(ctx, segments)
+    if built is None:
+        return None
+    sp, shape_id = built
     ctx.slide.shapes._spTree.append(sp)
     sp_pr = sp.find(qn("p:spPr"))
     _apply_fill_and_line(sp_pr, style, ctx)
@@ -2016,7 +2050,224 @@ def _attach_atomic_raster_tags(
     nv_pr.append(custom_data)
 
 
+def _attach_atomic_vector_tags(
+    ctx: ConvertContext,
+    group,
+    asset_id: str,
+    entry: dict,
+    source_sha256: str,
+) -> None:
+    """Persist hash-bound atomic-vector metadata in the raster tag style."""
+    tags = {
+        "AISCIENTIFICILLUSTRATORASSETID": asset_id,
+        "AISCIENTIFICILLUSTRATORSOURCESHA256": source_sha256,
+        "AISCIENTIFICILLUSTRATORREPRESENTATION": "atomic-vector",
+        "AISCIENTIFICILLUSTRATOREDITABLE": "True",
+        "AISCIENTIFICILLUSTRATORORIGIN": "vtracer-provider",
+        "AISCIENTIFICILLUSTRATORTRACEMETHOD": entry["trace_method"],
+        "AISCIENTIFICILLUSTRATORTRACEENGINEVERSION": entry["trace_engine_version"],
+    }
+    tag_list = ET.Element(f"{{{PML_NS}}}tagLst")
+    for name, value in tags.items():
+        ET.SubElement(tag_list, f"{{{PML_NS}}}tag", {"name": name, "val": str(value)})
+    tag_part = Part(
+        ctx.slide.part.package.next_partname("/ppt/tags/tag%d.xml"),
+        CT.PML_TAGS,
+        ctx.slide.part.package,
+        ET.tostring(tag_list, encoding="utf-8", xml_declaration=True),
+    )
+    relationship_id = ctx.slide.part.relate_to(tag_part, RT.TAGS)
+    nv_pr = group.find(f"{qn('p:nvGrpSpPr')}/{qn('p:nvPr')}")
+    if nv_pr is None:
+        raise common.fail(f"{asset_id}: group has no p:nvPr for vector metadata")
+    old = nv_pr.find(qn("p:custDataLst"))
+    if old is not None:
+        nv_pr.remove(old)
+    custom_data = OxmlElement("p:custDataLst")
+    tag_reference = OxmlElement("p:tags")
+    tag_reference.set(qn("r:id"), relationship_id)
+    custom_data.append(tag_reference)
+    nv_pr.append(custom_data)
+
+
+def _vector_fragment_view_box(fragment: ET.Element, asset_id: str) -> tuple[float, float, float, float]:
+    """Return the fragment root geometry as ``(x, y, width, height)``."""
+    parts = [
+        float(part)
+        for part in re.split(r"[\s,]+", (fragment.get("viewBox") or "").strip())
+        if part
+    ]
+    if len(parts) == 4 and parts[2] > 0 and parts[3] > 0:
+        return parts[0], parts[1], parts[2], parts[3]
+    width = _svg_dimension(fragment.get("width"))
+    height = _svg_dimension(fragment.get("height"))
+    if width is None or height is None or width <= 0 or height <= 0:
+        raise common.fail(f"{asset_id}: vector_source_svg 缺少有效 viewBox/尺寸")
+    return 0.0, 0.0, width, height
+
+
+def _emit_atomic_vector(
+    ctx: ConvertContext,
+    asset_id: str,
+    entry: dict,
+    x: float,
+    y: float,
+    w: float,
+    h: float,
+    matrix: Matrix,
+) -> None:
+    """Compile one authorized traced SVG fragment into a native freeform group.
+
+    The fragment replaces the reference-crop picture for this atomic id:
+    every path keeps its curve geometry as a custGeom member of a single
+    PowerPoint group, mapped deterministically from the SVG root geometry
+    onto the element bbox.  The declared ``vector_source_svg`` bytes are
+    hash-verified and contract-subset-checked before any shape is emitted
+    (fail closed).
+    """
+    from tools.asset_spec import validate_atomic_vector_asset
+    from tools.asset_trace import check_svg_contract_subset
+
+    errors = validate_atomic_vector_asset(entry)
+    if errors:
+        raise common.fail(f"{asset_id}: atomic-vector 资产条目无效: {', '.join(errors)}")
+    if ctx.case_root is None:
+        raise common.fail(f"{asset_id}: 缺少案例根目录，无法核验 vector_source_svg")
+    declared = entry["vector_source_svg"]
+    case_root = ctx.case_root.resolve()
+    svg_path = (case_root / declared["path"]).resolve()
+    if svg_path != case_root and case_root not in svg_path.parents:
+        raise common.fail(f"{asset_id}: vector_source_svg 越出案例目录: {declared['path']}")
+    if not svg_path.is_file():
+        raise common.fail(f"{asset_id}: vector_source_svg 不存在: {declared['path']}")
+    source_sha256 = common.sha256_file(svg_path)
+    if source_sha256 != declared["sha256"]:
+        raise common.fail(
+            f"{asset_id}: vector_source_svg SHA-256 与 assets.json 登记不一致，已拒绝编译"
+        )
+    violations = check_svg_contract_subset(svg_path)
+    if violations:
+        raise common.fail(
+            f"{asset_id}: vector_source_svg 违反 SVG 合同子集: {', '.join(violations)}"
+        )
+    try:
+        fragment = ET.parse(svg_path).getroot()
+    except ET.ParseError as exc:
+        raise common.fail(f"{asset_id}: vector_source_svg 解析失败: {exc}") from exc
+
+    vb_x, vb_y, vb_w, vb_h = _vector_fragment_view_box(fragment, asset_id)
+    scale_x, scale_y = w / vb_w, h / vb_h
+    placement = Matrix(a=scale_x, d=scale_y, e=x - vb_x * scale_x, f=y - vb_y * scale_y)
+    members: list[tuple[list[tuple], dict[str, str]]] = []
+
+    def collect(element: ET.Element, style: dict[str, str], fragment_matrix: Matrix) -> None:
+        own_style = _element_style(element, style)
+        own_matrix = fragment_matrix.multiply(parse_transform(element.get("transform")))
+        if element.tag.rsplit("}", 1)[-1] == "path":
+            d = (element.get("d") or "").strip()
+            if d:
+                members.append((_transform_segments(parse_path_d(d), own_matrix), own_style))
+            return
+        for child in element:
+            collect(child, own_style, own_matrix)
+
+    collect(fragment, {}, placement)
+    if matrix != Matrix():
+        members = [(_transform_segments(segments, matrix), style) for segments, style in members]
+    if not members:
+        raise common.fail(f"{asset_id}: vector_source_svg 不含任何 path 几何")
+
+    group_id = _next_shape_id(ctx.slide)
+    group = _parse_sp_xml(
+        '<p:grpSp xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" '
+        'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">'
+        f'<p:nvGrpSpPr><p:cNvPr id="{group_id}" name="group-{group_id}"/>'
+        "<p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>"
+        "<p:grpSpPr><a:xfrm>"
+        '<a:off x="0" y="0"/><a:ext cx="0" cy="0"/>'
+        '<a:chOff x="0" y="0"/><a:chExt cx="0" cy="0"/>'
+        "</a:xfrm></p:grpSpPr></p:grpSp>"
+    )
+    ctx.slide.shapes._spTree.append(group)
+    member_boxes: list[tuple[int, int, int, int]] = []
+    for segments, style in members:
+        built = _build_freeform_sp(ctx, segments)
+        if built is None:
+            continue
+        member, _member_shape_id = built
+        group.append(member)
+        sp_pr = member.find(qn("p:spPr"))
+        _apply_fill_and_line(sp_pr, style, ctx)
+        xfrm = sp_pr.find(qn("a:xfrm"))
+        off = xfrm.find(qn("a:off"))
+        ext = xfrm.find(qn("a:ext"))
+        member_boxes.append(
+            (int(off.get("x")), int(off.get("y")), int(ext.get("cx")), int(ext.get("cy")))
+        )
+    if not member_boxes:
+        ctx.slide.shapes._spTree.remove(group)
+        raise common.fail(f"{asset_id}: vector_source_svg 未产生任何可编译几何")
+    # 子坐标系与父坐标系 1:1（chOff/chExt == off/ext），成员保持画布绝对 EMU 坐标。
+    min_x = min(box[0] for box in member_boxes)
+    min_y = min(box[1] for box in member_boxes)
+    max_x = max(box[0] + box[2] for box in member_boxes)
+    max_y = max(box[1] + box[3] for box in member_boxes)
+    group_xfrm = group.find(f"{qn('p:grpSpPr')}/{qn('a:xfrm')}")
+    for tag, attributes in (
+        ("a:off", {"x": str(min_x), "y": str(min_y)}),
+        ("a:ext", {"cx": str(max_x - min_x), "cy": str(max_y - min_y)}),
+        ("a:chOff", {"x": str(min_x), "y": str(min_y)}),
+        ("a:chExt", {"cx": str(max_x - min_x), "cy": str(max_y - min_y)}),
+    ):
+        node = group_xfrm.find(qn(tag))
+        for name, value in attributes.items():
+            node.set(name, value)
+    _attach_atomic_vector_tags(ctx, group, asset_id, entry, source_sha256)
+    ctx.register_xml(group, group_id, "atomic-vector", editable=True)
+    ctx.register_vector_asset(asset_id)
+    ctx.bump("atomic-vector")
+
+
+def _match_atomic_vector_entry(ctx: ConvertContext, element_id: str) -> dict | None:
+    """Resolve the authorized vtracer-trace entry linked to one atomic element id.
+
+    An entry matches when its id equals the element id, or when it is a
+    ``vtracer-trace`` entry whose ``fallback_atomic_raster`` equals the
+    element id (vector entry id ``atomic:<slug>-vector`` linked back to the
+    raster entry ``atomic:<slug>``).  Both rules hitting different entries
+    is ambiguous and fails closed instead of silently picking one.
+    """
+    from tools.asset_spec import ATOMIC_VECTOR_SOURCE
+
+    exact = ctx.asset_authorizations.get(element_id)
+    if not (isinstance(exact, dict) and exact.get("source") == ATOMIC_VECTOR_SOURCE):
+        exact = None
+    linked = [
+        item
+        for item in ctx.asset_authorizations.values()
+        if isinstance(item, dict)
+        and item.get("source") == ATOMIC_VECTOR_SOURCE
+        and item.get("fallback_atomic_raster") == element_id
+    ]
+    candidates = ([exact] if exact is not None else []) + [
+        item for item in linked if item is not exact
+    ]
+    if not candidates:
+        return None
+    matched_ids = sorted({str(item.get("id")) for item in candidates})
+    if len(matched_ids) > 1:
+        raise common.fail(
+            f"{element_id}: atomic-vector 条目匹配歧义（{', '.join(matched_ids)}），已拒绝编译"
+        )
+    return candidates[0]
+
+
 def _emit_atomic(ctx: ConvertContext, element_id: str, x: float, y: float, w: float, h: float, matrix: Matrix) -> None:
+    asset_id = ctx.current_element_id or element_id
+    vector_entry = _match_atomic_vector_entry(ctx, asset_id)
+    if vector_entry is not None:
+        _emit_atomic_vector(ctx, vector_entry["id"], vector_entry, x, y, w, h, matrix)
+        return
     if ctx.source_png is None:
         ctx.warn(f"{element_id}: 缺少参考图，无法裁剪嵌入")
         return
@@ -2039,7 +2290,6 @@ def _emit_atomic(ctx: ConvertContext, element_id: str, x: float, y: float, w: fl
         _px(right - left),
         _px(bottom - top),
     )
-    asset_id = ctx.current_element_id or element_id
     _attach_atomic_raster_tags(ctx, picture, asset_id, source_sha256)
     ctx.register_shape(picture, "atomic-raster", editable=False)
     ctx.register_asset(
@@ -2750,7 +3000,9 @@ def _write_conversion_contracts(run: common.Run, ctx: ConvertContext, reopened) 
     generated_assets = []
     for generated in ctx.assets:
         existing = existing_assets.pop(generated["id"], {})
-        generated_assets.append({**generated, **existing, "editable": False})
+        # editable 以编译器生成记录为准：atomic-raster 恒为 False（位图层），
+        # atomic-vector 恒为 True（原生 group），既有条目的其余字段原样保留。
+        generated_assets.append({**generated, **existing, "editable": generated.get("editable", False)})
     generated_assets.extend(existing_assets.values())
     assets.update({"updated_at": utc_now(), "assets": generated_assets})
     write_json(run.assets_path, assets)
@@ -3175,6 +3427,7 @@ def _convert_in_place(run: common.Run) -> dict:
         layout_boxes=collect_svg_boxes(root),
         input_route=meta["input_route"],
         reference_sha256=meta["source_sha256"],
+        case_root=run.root,
     )
     _walk(ctx, root, {}, Matrix())
     regions_document = read_json(run.regions_path)
