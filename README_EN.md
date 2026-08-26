@@ -152,6 +152,8 @@ Cross-theme conclusion: both routes run end to end and bind objects to native ed
 
 Requirements: Windows, Microsoft PowerPoint, and Python 3.12. Third-party PowerPoint add-ins are not core dependencies.
 
+For a quick standalone redraw (PNG → editable SVG without the pipeline), send your figure together with the universal prompt in [`references/universal-redraw-prompt.md`](references/universal-redraw-prompt.md) to a multimodal model.
+
 ```bat
 python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt

@@ -164,6 +164,8 @@ flowchart TD
 
 要求：Windows、Microsoft PowerPoint、Python 3.12。第三方 PowerPoint 插件不是核心依赖。
 
+只想把一张 PNG 快速重绘为可编辑 SVG（不走管线）时，把图片和 [`references/universal-redraw-prompt.md`](references/universal-redraw-prompt.md) 里的通用提示词一起发给多模态大模型即可。
+
 ```bat
 python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt

@@ -29,7 +29,3 @@
 - `<g>` 分组：当前按拍平处理（样式与变换会正确继承，但不产生原生 group 对象）。
 - `radialGradient`、`marker-mid`：暂不支持，遇到记 warning 降级。
 - `style="k:v"` 内联样式与 presentation 属性都支持；不支持 CSS 类/外部样式表。
-
-## ModularAgent 实例（2026-08-18 实测）
-
-GPT-5 按本合同对 1429×627 架构图直出的 SVG：66 个 `<text>`、公式 tspan 上下标完整（含 `ƒ_map`）、渐变楔形与中段箭头一次到位。经 `convert` 转为 255 个原生对象后，PowerPoint 渲染对参考图 mean_abs_rgb_delta=17.40（诊断口径）。
