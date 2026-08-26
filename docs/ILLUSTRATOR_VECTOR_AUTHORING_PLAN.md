@@ -40,7 +40,7 @@ Inkscape(可视修版与 CLI 清洗)+ 免费科研矢量库(bioicons / SciDraw),
 
 ### 2.1 几何层天花板已经被 custGeom 解决
 
-`tools/convert.py` 的 `_emit_freeform` 手写 OOXML `a:custGeom`,完整保留
+`tools/pipeline/convert.py` 的 `_emit_freeform` 手写 OOXML `a:custGeom`,完整保留
 `a:moveTo / a:lnTo / a:cubicBezTo`(三次贝塞尔);`_svg_dimension`/`_px` 保证像素坐标
 确定性换算。冻结证据:`examples/route-comparison-modular-agent-route-ab.json`
 (2026-08-23 受控 A/B 快照):svg-seeded 案例 `01-modular-agent` 196 个绑定对象
@@ -71,7 +71,7 @@ marker 枚举、混合模式),这些是 OOXML 格式约束,引入任何上游创
 | mixture-arrow-occlusion-detail SSIM | 0.5802 | — |
 | strict 状态 | qa_failed | qa_failed |
 
-这类失败归因为 source 侧(视觉测量或候选几何错误,分类见 `tools/repair_plan.py` 的
+这类失败归因为 source 侧(视觉测量或候选几何错误,分类见 `tools/repair/repair_plan.py` 的
 source_model/backend blocker 划分)。PowerPoint Live 会话只能修改 PPTX 对象,无法修正
 source SVG 本身;`live-evidence-missing` 长期存在于 blocker 列表。**source 侧
 需要一个能直接编辑矢量载体的可视会话**——这是 Phase 3 的动机。
@@ -120,7 +120,7 @@ source SVG 本身;`live-evidence-missing` 长期存在于 blocker 列表。**sou
                                                           与 Live 对偶)→ 回灌 ingest → convert → check
 ```
 
-Provider 注册表(tools/providers/ 的 `_CATALOG`,路径按 tools/ 重组后布局书写,下同)
+Provider 注册表(`tools/providers/providers.py` 的 `_CATALOG`)
 新增两行;Illustrator 等付费栈见 §5.3,不进默认注册表:
 
 | provider_id | role | 初始状态 | capabilities |
@@ -140,7 +140,7 @@ undo`):
    哈希绑定」满足 undo 与审计(与 `JournaledMockProvider` 语义对齐)。不满足 undo 的
    provider 不得进入生产栈。
 2. **幂等键**:`execute(operation, idempotency_key)`;同键重复调用返回既有事务。会话
-   显式绑定 case、reference SHA-256、revision、目标区域清单(与 `tools/repair.py`
+   显式绑定 case、reference SHA-256、revision、目标区域清单(与 `tools/repair/repair.py`
    `build_live_request` 的哈希绑定结构同构)。
 3. **前台披露**:任何会把应用切到前台的栈,`health` 必须如实报告;会话期间不得并发
    操作其他前台应用。
@@ -244,8 +244,6 @@ undo`):
 
 ## 7. 代码与合同变更清单(逐文件)
 
-> 路径按 tools/ 重组后布局书写;当前扁平布局对应 `tools/<file>.py`。
-
 | 文件 | 变更 | 阶段 |
 |---|---|---|
 | `tools/providers/providers.py` | `_CATALOG` 加 `vtracer` / `inkscape` 行;两个 adapter | 1 |
@@ -320,14 +318,14 @@ undo`):
 - `examples/reference-only/01-modular-agent-reference-only/assets.json` — 现行
   atomic-raster 微资产合同(editable=false、紧边界、授权依据、rights_status)。
 - `examples/svg-seeded/01-modular-agent/provenance.json` — `web-vlm` origin 纪律先例。
-- `tools/convert.py` — `_emit_freeform`(手写 `a:custGeom`,`a:moveTo/a:lnTo/a:cubicBezTo`)、
+- `tools/pipeline/convert.py` — `_emit_freeform`(手写 `a:custGeom`,`a:moveTo/a:lnTo/a:cubicBezTo`)、
   `_emit_atomic`(`add_picture` 位图路径)、`register_asset`、shape Tags。
-- `tools/providers.py` — `ProviderAdapter` 协议(六方法)、`_CATALOG`、
+- `tools/providers/providers.py` — `ProviderAdapter` 协议(六方法)、`_CATALOG`、
   `JournaledMockProvider`(幂等/undo 参照实现)。
-- `tools/repair.py` — `build_live_request` / `ingest_live_evidence`(哈希绑定请求与
-  证据纪律先例);`tools/repair_plan.py` — source_model/backend blocker 分类。
-- `tools/ingest.py` — `--candidate-origin` choices、`build_region_tasks`。
-- `tools/prepare.py` — `SVG_AUTHORING_CONTRACT`(双路线共享 SVG 输出合同)。
+- `tools/repair/repair.py` — `build_live_request` / `ingest_live_evidence`(哈希绑定请求与
+  证据纪律先例);`tools/repair/repair_plan.py` — source_model/backend blocker 分类。
+- `tools/pipeline/ingest.py` — `--candidate-origin` choices、`build_region_tasks`。
+- `tools/pipeline/prepare.py` — `SVG_AUTHORING_CONTRACT`(双路线共享 SVG 输出合同)。
 - `HIGH_FIDELITY.md` / `PROJECT_ARCHITECTURE.md` / `SKILL.md` — 质量门禁、插件
   provider 边界、交付纪律。
 
