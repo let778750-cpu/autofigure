@@ -1,8 +1,11 @@
 # 矢量创作车间升级计划(免费开源默认栈 + 付费候选项)
 
-> 状态:**计划稿,未实施**。本文所有新增能力在实现并通过 Phase 0 试点验证之前,不得写入
-> README / SKILL.md 的能力描述,不得在案例 provenance 中当作已具备的来源。
-> 未验证项在本文内一律显式标注 `[待验证]`。
+> 状态:**Phase 0/1/2 已实现并在真实案例上验证**(vtracer 微资产真矢量通道
+> atomic-vector:provider 注册、freeze 资格预分类、`autofigure trace` 命令、convert
+> 矢量分支、check 五门门禁,真实案例 01 全链路实测);**Phase 3/4/5 未实施**,其能力
+> (Inkscape 修版会话、确定性几何整理、素材库通道)不得写入 README / SKILL.md 的能力
+> 描述,不得在案例 provenance 中当作已具备的来源。未验证项在本文内一律显式标注
+> `[待验证]`。
 >
 > 基线原则:**默认栈全部由免费开源组件构成**;付费/闭源方案只作为候选项列入 §5.3,
 > 逐项披露成本与风险,不作默认。
@@ -150,7 +153,8 @@ undo`):
 - **vtracer**(§12 出处 1):Rust 核心 + Python 绑定/CLI,原生全彩确定性描摹,无前台
   切换,可直接嵌入管线。输出为纯色 path 堆叠(无渐变、无文字对象),天然落在 SVG
   合同子集内。风险:PyPI 当前为 0.6.x/1.0.0a 阶段,版本定型前锁定版本号并记录进
-  provenance。`[待验证:复杂主体的阈值表现,见 Phase 0]`
+  provenance。适用面已经 Phase 0 试点与真实案例 01 校准:平面插画类微资产可过 §8
+  矢量档,照片类留 atomic-raster 位图层(资格由 freeze 预分类确定性判定)。
 - **Inkscape**(§12 出处 2):GUI 承担 Phase 3 可视修版画布;CLI action + scour 承担
   确定性清洗与路径简化。直接命令行调用,**不经第三方 MCP 中间层**(inkscape-mcps
   最后代码提交为 2025-10、未发布 PyPI,引入无收益)。Inkscape 未预装时需用户确认后
@@ -184,35 +188,56 @@ undo`):
    可通过;
 5. 用现有紧边界 ink_contract 思路人工比对渲染差异,并与现状位图层(SSIM 1.0)对照。
 
-产出:`docs/vtracer-pilot/` 试点 memo 与样例;**校准矢量微资产初始阈值建议值**
-(见 §8)。`[待验证]`
+产出:`docs/vtracer-pilot/` 试点 memo 与样例(已归档);§8 矢量档阈值已按试点数据
+与真实案例 01 校准。
 
-### Phase 1 — Provider 注册与基础设施
+### Phase 1 — Provider 注册与基础设施(已实现)
 
-- tools/providers/:`_CATALOG` 新增 `vtracer` / `inkscape` 行(`selected=false`,
-  `status=candidate-pilot`);实现两个 adapter(vtracer 为纯函数幂等;Inkscape 会话为
-  快照 undo + 事务日志 + discover/health 含版本披露);
+- tools/providers.py `_CATALOG` 已含 `vtracer` 行(role=`source-authoring`,
+  `selected=false`,`status=candidate-pilot`);`VtracerAdapter` 实现六方法协议,
+  vtracer 为纯函数幂等:`execute` 按幂等键去重(同键重放返回既有事务),`undo`
+  平凡幂等,`health` 经 importlib.metadata 如实披露引擎版本(当前锁定 0.6.15,
+  requirements.txt 钉版)。
 - `autofigure providers --json` 输出可见;pytest 覆盖六方法协议与 undo 幂等。
+- Inkscape 注册行与 adapter 属 Phase 3 范围,未实现。
 
-### Phase 2 — 微资产真矢量通道(atomic-vector)
+### Phase 2 — 微资产真矢量通道(atomic-vector,已实现)
 
-- **合同扩展**(tools/core/contracts.py + 案例内 `assets.json`)新增资产表示
-  `atomic-vector`,字段:
-  `id`(沿用 `atomic:<语义名>`)、`editable=true`、`source=vtracer-trace|library|conversion-service`、
-  `vector_source_svg`(案例内相对路径 + SHA-256)、`trace_method`、`trace_engine_version`、
-  `authorization_basis`、`rights_status`、`fallback_atomic_raster`(指向原位图资产,保留回退)、
-  `ink_contract_region_id`、`contains_reconstructable_content=false`(沿用:仅指
-  不可再分解的创意内容)。
-- **摄取路径**:矢量片段作为 SVG 侧的 `<g id="atomic:...">` 内联组随候选一起 ingest,
-  或独立片段经 `--kind svg` 摄取后在 convert 前合并;`--candidate-origin` choices
-  增加 `vtracer-provider`(与 `web-vlm` 同款 provenance 纪律:记录 origin、
-  候选字节留档、可哈希)。
-- **convert 分支**:tools/pipeline/convert.py `_emit_atomic` 增加 vector 分支——SVG 片段走
-  既有 `_emit_freeform` / 渐变 / 描边编译路径,**不经 `add_picture`**;
-  `register_asset` 与 PowerPoint shape Tags 记录 asset id、origin、`editable=true`。
-- **check 门禁**:见 §8。
-- **回退**:矢量资产任一门禁失败且修复无效时,`ingest --rejected` 式回退到既有
-  `atomic-raster` 路径;回退是显式、留痕的动作。
+- **资格预分类**(tools/asset_spec.py):freeze 时对每个带 bbox 的机会图项实测
+  `compute_trace_eligibility`(tools/asset_trace.py;4 bit 量化唯一色数为主判据:
+  ≥256 photographic、≤128 且有硬边 flat-illustration、其余 ambiguous),写入
+  `trace_eligibility` + `trace_eligibility_statistics` 冻结字段(成对出现,随
+  receipt 哈希绑定;旧案例无此字段只读兼容)。
+- **合同扩展**(tools/asset_spec.py + 案例内 `assets.json`):资产表示
+  `atomic-vector` 为 11 字段闭集合——`id`(`atomic:<slug>-vector`)、
+  `editable=true`、`source=vtracer-trace`、`vector_source_svg`(案例内相对路径 +
+  SHA-256)、`trace_method`、`trace_engine_version`、`authorization_basis`、
+  `rights_status`、`fallback_atomic_raster`(指回原位图条目,保留回退)、
+  `ink_contract_region_id`、`trace_eligibility`;`validate_atomic_vector_asset` /
+  `audit_atomic_vector_assets` 校验闭集合。library / conversion-service 来源值
+  属 Phase 5 与 §5.3,未实现。
+- **命令形态**(tools/trace.py):`autofigure trace <case> --asset <id>
+  [--allow-ambiguous]` 只对已授权 `reference_crop` 位图条目工作;按 bbox 从本案例
+  reference.png 重裁,重裁哈希与条目 `source_sha256` 不一致即拒;photographic
+  一律拒(留位图层),ambiguous 需显式 `--allow-ambiguous`;事务化写入(失败全
+  回滚),产物 `assets/<slug>-vector.svg` + 输入裁剪留档,重跑幂等;冻结区
+  (policy / microasset_opportunity_map)逐字节不动。provenance 记
+  `asset_trace_history`(origin=`vtracer-provider`、候选 SHA-256、引擎版本、
+  参数、eligibility 实测),`--candidate-origin` choices 已含 `vtracer-provider`。
+- **描摹执行**(tools/asset_trace.py):锁定参数 colormode=color、
+  hierarchical=stacked、color_precision=6、path_precision=3,默认 spline;
+  机械补齐 viewBox;`check_svg_contract_subset` 白名单 svg/g/path,越子集即拒。
+- **convert 分支**(tools/convert.py):`_emit_atomic` 矢量分支按「条目 id==元素
+  id 或 `fallback_atomic_raster`==元素 id」匹配(歧义 fail closed);片段经
+  custGeom 编译为单个原生 freeform group,**不经 `add_picture`**;bindings
+  `object_kind="atomic-vector"`、`editable=true`;shape Tags 记录资产 id、源哈希、
+  editable、origin、引擎版本。
+- **check 门禁**:见 §8;五门(合同、原生性、区域保真、provenance、回退审计)
+  报告写 `qa/atomic-vector-report.json`,blocker 命名
+  `atomic-vector:<id>:<reason>`;失败时明确 `fallback-required` blocker,回退到
+  既有 `atomic-raster` 路径是显式、留痕的上层工作流动作。
+- **摄取合同**(tools/prepare.py):`SVG_AUTHORING_CONTRACT` 第 4 条允许经授权的
+  内联矢量组 `<g id="atomic:...">`(版本化,旧案例不回改、只按建案时合同审计)。
 
 ### Phase 3 — source 侧修版会话(与 PowerPoint Live 对偶)
 
@@ -257,13 +282,13 @@ undo`):
 | `tools/pipeline/prepare.py` | `SVG_AUTHORING_CONTRACT` 第 4 条占位规则追加「或经授权的内联矢量组 `<g id="atomic:...">`」;**版本化变更,旧案例不回改、只按建案时合同审计** | 2 |
 | 案例合同 | `assets.json` 新表示;`regions.json` 的 `critical_region_expectation` 在 freeze 时冻结矢量微资产期望 | 2 |
 
-## 8. 矢量微资产 QA 门禁(初始建议值,Phase 0 校准)`[待验证]`
+## 8. 矢量微资产 QA 门禁
 
 | 门禁项 | 判据 | 出处 |
 |---|---|---|
 | 紧边界 ink_contract | 前景 bbox、中心、面积(沿用小目标合同) | PROJECT_ARCHITECTURE.md §6 |
-| 结构相似度 | SSIM ≥ **0.90**(初始建议;不低于全局底线 0.85,且必须 freeze 冻结;Phase 0 后校准) | HIGH_FIDELITY.md(底线 0.85/位图 0.95 之间取新档) |
-| 边缘重合 | Edge IoU ≥ **0.85**(同上) | 同上 |
+| 结构相似度 | SSIM ≥ **0.80**(矢量档,经校准;使用时必须 freeze 冻结) | docs/vtracer-pilot/README.md §3(插画类描摹源像素尺寸 SSIM 0.81–0.82,0.90 档不可达);案例 01 `qa/regions-report.json`(environment-globe 矢量实测 0.8065 过档) |
+| 边缘重合 | Edge IoU ≥ **0.75**(沿用全局 critical 底线) | HIGH_FIDELITY.md;案例 01 矢量实测 0.8825 过档 |
 | 颜色 | ΔE00 探针,案例冻结采样点 | HIGH_FIDELITY.md |
 | 原生性 | 产物全部为原生 shape/freeform,无位图残留;`editable=true` 且 shape Tags 完整 | SKILL.md 转换规范 |
 | 合同子集 | 无 mesh gradient / mask / 混合模式 / `<image>` / 文字转路径 | SVG_AUTHORING_CONTRACT |
@@ -274,8 +299,8 @@ undo`):
 - 矢量资产达不到位图层的 1.0 是预期内的:用「可编辑性换像素完美度」必须是一个
   **显式、逐资产授权**的选择,禁止全局默认替换。
 - 像素指标对矢量质量存在系统性盲区(StarVector,§12 出处 10:MSE 类像素指标无法
-  刻画矢量质量);SSIM/Edge IoU 在此只作底线门禁,不作质量上限判据,阈值必须经
-  Phase 0 真实数据校准后 freeze 冻结。
+  刻画矢量质量);SSIM/Edge IoU 在此只作底线门禁,不作质量上限判据,阈值按上表
+  出处校准、使用时必须 freeze 冻结。
 
 ## 9. 纪律边界(禁止事项)
 

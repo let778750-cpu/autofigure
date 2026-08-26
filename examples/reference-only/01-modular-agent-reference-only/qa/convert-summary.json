@@ -11,8 +11,9 @@
     "text": 67,
     "native-arrowhead": 38,
     "line": 31,
-    "atomic": 2,
-    "block-arrow-autoshape": 1
+    "atomic": 1,
+    "block-arrow-autoshape": 1,
+    "atomic-vector": 1
   },
   "warnings": [
     "task-line-2: transparent text box constrained to task-input-box (padding=6px)",
@@ -50,10 +51,10 @@
   "asset_spec_readback_count": 0,
   "asset_spec_findings": 0,
   "arrow_authoring_allowed": false,
-  "revision_id": "scene-85b6fd7b5ff1e4b6",
-  "scene_sha256": "85b6fd7b5ff1e4b654744cc250a246ef59f49e5ca3f36f607e6946511148af01",
-  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
-  "pptx_sha256": "3c9fd29a60e6223474c66ae0875c0009e00c43a647ff409fbd52811cda9a3723",
-  "object_count": 185,
+  "revision_id": "scene-f2379e41060823ca",
+  "scene_sha256": "f2379e41060823ca331df407ddcaec5da0d10ed5a9fbf9ca4ff103884909d177",
+  "compiler_fingerprint": "a25219669b5dc716384b21f7d989ae4f7220a866b074da0ac3ed8bcfc8465b60",
+  "pptx_sha256": "56b90abac44e5cb7b90c629f7b9857ed981f1043d3d9c9e66377c2dc6dea99f7",
+  "object_count": 248,
   "bindings_complete": true
 }

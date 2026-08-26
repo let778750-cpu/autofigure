@@ -31,6 +31,23 @@ WORKFLOW_STATES = (
 )
 VALIDATION_STATUSES = ("not_run", "diagnostic", "failed", "passed")
 
+# Asset representation kinds recorded in assets.json asset entries.
+# ``atomic-raster`` is the authorized tight reference crop (editable=false);
+# ``atomic-vector`` is the authorized traced SVG fragment compiled to native
+# freeforms (editable=true), with the raster entry kept as its fallback layer.
+ASSET_REPRESENTATIONS = ("atomic-raster", "atomic-vector")
+# ``trace_eligibility`` classes recorded in atomic-vector asset contracts.
+# Classification statistics and thresholds are calibrated from the pilot data
+# in docs/vtracer-pilot/README.md (flat illustration: 61 quantized colors;
+# photograph: 94 colors plus continuous tone); initial threshold values remain
+# subject to per-case freeze calibration.
+TRACE_ELIGIBILITY_VALUES = ("photographic", "flat-illustration", "ambiguous")
+# Authoritative ``--candidate-origin`` vocabulary.  ``vtracer-provider`` marks
+# candidates produced by the vtracer source-authoring provider
+# (docs/ILLUSTRATOR_VECTOR_AUTHORING_PLAN.md Phase 2).  The argparse choices in
+# tools/ingest.py reference this enum directly.
+CANDIDATE_ORIGINS = ("web-vlm", "local-vlm", "codex", "human", "vtracer-provider", "unknown")
+
 _TRANSITIONS = {
     "prepared": {"ready", "candidate", "repairing", "qa_failed"},
     "ready": {"candidate", "repairing", "qa_failed"},

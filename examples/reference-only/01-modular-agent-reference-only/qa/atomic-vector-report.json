@@ -1,0 +1,34 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "atomic_vector_audit",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "asset_count": 1,
+  "assets": [
+    {
+      "id": "atomic:environment-globe-vector",
+      "ink_contract_region_id": "environment-globe-creative-asset",
+      "fallback_atomic_raster": "atomic:environment-globe",
+      "gates": {
+        "contract": [],
+        "nativeness": [],
+        "region": [
+          "atomic-vector:atomic:environment-globe-vector:ink-contract-missing:environment-globe-creative-asset"
+        ],
+        "provenance": [],
+        "fallback": [
+          "atomic-vector:atomic:environment-globe-vector:fallback-required:atomic:environment-globe"
+        ]
+      },
+      "pass": false,
+      "blockers": [
+        "atomic-vector:atomic:environment-globe-vector:ink-contract-missing:environment-globe-creative-asset",
+        "atomic-vector:atomic:environment-globe-vector:fallback-required:atomic:environment-globe"
+      ]
+    }
+  ],
+  "pass": false,
+  "blockers": [
+    "atomic-vector:atomic:environment-globe-vector:ink-contract-missing:environment-globe-creative-asset",
+    "atomic-vector:atomic:environment-globe-vector:fallback-required:atomic:environment-globe"
+  ]
+}

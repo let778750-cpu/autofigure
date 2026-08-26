@@ -25,6 +25,7 @@ from tools import common
 from tools.contracts import (
     SCHEMA_VERSION as PROJECT_SCHEMA_VERSION,
     TASK_MODE,
+    TRACE_ELIGIBILITY_VALUES,
     ContractError,
     read_json,
     utc_now,
@@ -89,6 +90,10 @@ _OPPORTUNITY_KEYS = {
     "scaleX",
     "scaleY",
     "transform",
+    # freeze 时由 annotate_trace_eligibility 实测写入的可选冻结字段(成对出现);
+    # 旧案例机会图项无此字段,schema 保持只读兼容。
+    "trace_eligibility",
+    "trace_eligibility_statistics",
 }
 _SPEC_KEYS = {
     "schema_version",
@@ -112,6 +117,29 @@ _SPEC_KEYS = {
 _TRANSFORM_RE = re.compile(
     r"(?:matrix|translate|scale|rotate|skewX|skewY)\s*\([^)]*\)",
 )
+
+# Atomic-vector asset entry contract for the assets.json ``assets`` list.  An
+# atomic-vector entry is the authorized traced vector form of one microasset;
+# the original atomic-raster entry stays in the same document as its explicit
+# fallback layer.  Field set per docs/ILLUSTRATOR_VECTOR_AUTHORING_PLAN.md
+# Phase 2.
+ATOMIC_VECTOR_ID_PREFIX = "atomic:"
+ATOMIC_VECTOR_SOURCE = "vtracer-trace"
+ATOMIC_VECTOR_FALLBACK_SOURCE = "reference_crop"
+_ATOMIC_VECTOR_ASSET_KEYS = {
+    "id",
+    "editable",
+    "source",
+    "vector_source_svg",
+    "trace_method",
+    "trace_engine_version",
+    "authorization_basis",
+    "rights_status",
+    "fallback_atomic_raster",
+    "ink_contract_region_id",
+    "trace_eligibility",
+}
+_WINDOWS_ABSOLUTE_PATH_RE = re.compile(r"^[A-Za-z]:")
 
 
 class AssetSpecError(ValueError):
@@ -147,6 +175,18 @@ def _valid_sha256(value: Any) -> bool:
 
 def _finite(value: Any) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def _valid_eligibility_statistics(value: Any) -> bool:
+    """Statistics dicts stay open-ended so future classifier signals remain
+    readable on already-frozen cases; only shape and numeric values are enforced."""
+
+    return (
+        isinstance(value, dict)
+        and bool(value)
+        and all(_stable_string(key) for key in value)
+        and all(_finite(item) for item in value.values())
+    )
 
 
 def _normalize_bbox(value: Any) -> list[float] | None:
@@ -256,6 +296,18 @@ def _asset_contract_payload(
             errors.append(f"asset-contract:opportunity:{slot_id}:single_logical_asset")
         if _record_declares_nonuniform_scale(raw):
             errors.append(f"asset-contract:opportunity:{slot_id}:nonuniform-scale")
+        eligibility = raw.get("trace_eligibility")
+        eligibility_statistics = raw.get("trace_eligibility_statistics")
+        if (eligibility is None) != (eligibility_statistics is None):
+            errors.append(f"asset-contract:opportunity:{slot_id}:trace-eligibility-pairing")
+        if eligibility is not None and eligibility not in TRACE_ELIGIBILITY_VALUES:
+            errors.append(f"asset-contract:opportunity:{slot_id}:trace-eligibility")
+        if eligibility_statistics is not None and not _valid_eligibility_statistics(
+            eligibility_statistics
+        ):
+            errors.append(
+                f"asset-contract:opportunity:{slot_id}:trace-eligibility-statistics"
+            )
         opportunity_reference = raw.get("reference_sha256")
         if (
             not _valid_sha256(opportunity_reference)
@@ -583,9 +635,62 @@ def _asset_contract_expectation(
     }, []
 
 
+def annotate_trace_eligibility(run: common.Run) -> None:
+    """Stamp measured trace eligibility onto every opportunity map record.
+
+    The stamp is a pure function of the hash-bound reference crop and the
+    record's ``reference_bbox`` (same tight-crop rounding as the converter),
+    so repeated freezes rewrite identical values and leave assets.json
+    untouched.  Records carry both fields or neither; the receipt binds the
+    stamped values, so the frozen map always reflects measurement rather than
+    authored claims.
+    """
+
+    assets = read_json(run.assets_path)
+    opportunities = assets.get("microasset_opportunity_map")
+    if not isinstance(opportunities, list):
+        return
+    targets: list[tuple[dict[str, Any], list[float]]] = []
+    for item in opportunities:
+        if not isinstance(item, dict):
+            continue
+        bbox = _normalize_bbox(item.get("reference_bbox"))
+        if bbox is None or bbox[0] < 0 or bbox[1] < 0:
+            continue
+        targets.append((item, bbox))
+    if not targets:
+        return
+    if not run.source_png.is_file():
+        raise common.fail(
+            "asset contract freeze requires reference.png for trace eligibility stamping"
+        )
+    from PIL import Image
+
+    from tools.asset_trace import compute_trace_eligibility
+
+    changed = False
+    with Image.open(run.source_png) as reference:
+        rgb = reference.convert("RGB")
+        for item, bbox in targets:
+            x, y, width, height = bbox
+            crop = rgb.crop((round(x), round(y), round(x + width), round(y + height)))
+            result = compute_trace_eligibility(crop)
+            if (
+                item.get("trace_eligibility") != result["classification"]
+                or item.get("trace_eligibility_statistics") != result["statistics"]
+            ):
+                item["trace_eligibility"] = result["classification"]
+                item["trace_eligibility_statistics"] = result["statistics"]
+                changed = True
+    if changed:
+        assets["updated_at"] = utc_now()
+        write_json(run.assets_path, assets)
+
+
 def freeze_asset_contract(run: common.Run) -> dict[str, Any]:
     """Freeze the reference/inventory-bound asset evaluation oracle."""
 
+    annotate_trace_eligibility(run)
     expected, blockers = _asset_contract_expectation(run)
     if expected is None or blockers:
         raise common.fail("asset contract cannot be frozen: " + ", ".join(blockers))
@@ -1326,6 +1431,100 @@ def validate_asset_spec(spec: dict[str, Any]) -> list[str]:
         errors.append("aspect-ratio-policy")
     if spec.get("single_logical_asset") is not True:
         errors.append("single-logical-asset")
+    return list(dict.fromkeys(errors))
+
+
+def _valid_atomic_asset_id(value: Any) -> bool:
+    return (
+        _stable_string(value)
+        and value.startswith(ATOMIC_VECTOR_ID_PREFIX)
+        and _stable_string(value[len(ATOMIC_VECTOR_ID_PREFIX):])
+    )
+
+
+def _valid_case_relative_svg_path(value: Any) -> bool:
+    if (
+        not _stable_string(value)
+        or "\\" in value
+        or value.startswith("/")
+        or _WINDOWS_ABSOLUTE_PATH_RE.match(value)
+    ):
+        return False
+    parts = value.split("/")
+    if any(part in ("", ".", "..") for part in parts):
+        return False
+    return parts[-1].endswith(".svg")
+
+
+def validate_atomic_vector_asset(entry: Any) -> list[str]:
+    """Validate one self-contained atomic-vector assets.json entry."""
+
+    errors: list[str] = []
+    if not isinstance(entry, dict):
+        return ["atomic-vector-asset"]
+    if set(entry) != _ATOMIC_VECTOR_ASSET_KEYS:
+        errors.append("fields")
+    if not _valid_atomic_asset_id(entry.get("id")):
+        errors.append("id")
+    if entry.get("editable") is not True:
+        errors.append("editable")
+    if entry.get("source") != ATOMIC_VECTOR_SOURCE:
+        errors.append("source")
+    vector_source = entry.get("vector_source_svg")
+    if not (
+        isinstance(vector_source, dict)
+        and set(vector_source) == {"path", "sha256"}
+        and _valid_case_relative_svg_path(vector_source.get("path"))
+        and _valid_sha256(vector_source.get("sha256"))
+        and vector_source["sha256"] == vector_source["sha256"].lower()
+    ):
+        errors.append("vector-source-svg")
+    if not _stable_string(entry.get("trace_method")):
+        errors.append("trace-method")
+    if not _stable_string(entry.get("trace_engine_version")):
+        errors.append("trace-engine-version")
+    if not _stable_string(entry.get("authorization_basis")):
+        errors.append("authorization-basis")
+    if not _stable_string(entry.get("rights_status")):
+        errors.append("rights-status")
+    if not _valid_atomic_asset_id(entry.get("fallback_atomic_raster")):
+        errors.append("fallback-atomic-raster")
+    if not _stable_string(entry.get("ink_contract_region_id")):
+        errors.append("ink-contract-region-id")
+    if entry.get("trace_eligibility") not in TRACE_ELIGIBILITY_VALUES:
+        errors.append("trace-eligibility")
+    return list(dict.fromkeys(errors))
+
+
+def audit_atomic_vector_assets(assets: Any) -> list[str]:
+    """Audit every atomic-vector entry in one assets.json document.
+
+    Entries with other ``source`` values keep their own contracts; the
+    atomic-vector checks additionally verify that each declared
+    ``fallback_atomic_raster`` resolves to an atomic-raster entry in the same
+    document.
+    """
+
+    if not isinstance(assets, dict) or not isinstance(assets.get("assets"), list):
+        return ["atomic-vector-asset:assets"]
+    entries = [item for item in assets["assets"] if isinstance(item, dict)]
+    raster_ids = {
+        item.get("id")
+        for item in entries
+        if item.get("source") == ATOMIC_VECTOR_FALLBACK_SOURCE
+    }
+    errors: list[str] = []
+    for item in entries:
+        if item.get("source") != ATOMIC_VECTOR_SOURCE:
+            continue
+        label = item.get("id") if _stable_string(item.get("id")) else "[missing-id]"
+        errors.extend(
+            f"atomic-vector-asset:{label}:{error}"
+            for error in validate_atomic_vector_asset(item)
+        )
+        fallback = item.get("fallback_atomic_raster")
+        if _valid_atomic_asset_id(fallback) and fallback not in raster_ids:
+            errors.append(f"atomic-vector-asset:{label}:fallback-unresolved")
     return list(dict.fromkeys(errors))
 
 

@@ -1,10 +1,10 @@
 # check 报告（strict） — 01-modular-agent-reference-only
 
 ## 像素诊断（figure_lint，软信号）
-- mean_abs_rgb_delta: 14.8954
-- changed_pixel_ratio: 36.0565%
-- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 31.796, 'loss_contribution_pct': 7.0213}
-- ssim: 0.7648
+- mean_abs_rgb_delta: 15.0326
+- changed_pixel_ratio: 36.7584%
+- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 33.0635, 'loss_contribution_pct': 6.9572}
+- ssim: 0.763
 - diff 图: qa/diff.png
 - 对照预览: preview.png
 - 关键区域 strict_pass: False（10 个关键区域）
@@ -19,7 +19,7 @@
 - 冻结资产输入 receipt: FAIL（1 项）
 - 字体/图标尺度/重叠合同: PASS（0 个冻结对象）
 - PowerPoint Live 箭头创作: DISABLED / inspect-only
-- 结构证据: qa/arrow-visual-report.json、qa/arrow-compile-report.json、qa/powerpoint-arrow-readback.json、qa/primitive-audit.json、qa/asset-spec-audit.json、qa/asset-contract-receipt.json、qa/visual-contracts-report.json、qa/provider-capabilities.json
+- 结构证据: qa/arrow-visual-report.json、qa/arrow-compile-report.json、qa/powerpoint-arrow-readback.json、qa/primitive-audit.json、qa/asset-spec-audit.json、qa/asset-contract-receipt.json、qa/visual-contracts-report.json、qa/provider-capabilities.json、qa/atomic-vector-report.json
 
 ## 文本比对（SVG 文字 vs 参考图 OCR）
 - SVG 侧未匹配 1 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）
@@ -110,11 +110,12 @@
 
 
 ## 验收状态（strict）
-- blockers: 257
-- repair plan coverage: PASS
+- blockers: 267
+- repair plan coverage: FAIL
 - blocker inventory: qa/blockers.json
 - repair plan: qa/repair-plan.json
 - QA lineage: qa/qa-lineage-manifest.json
+- atomic-vector 资产门禁: FAIL（1 个资产;明细 qa/atomic-vector-report.json）
 - PowerPoint Live: REQUIRED — FAIL
 - region:task-guided-allocator-topology
 - region:encoder-peer-size-detail
@@ -122,6 +123,7 @@
 - region:joint-feedback-arrow-detail
 - region:six-bicolor-state-circles
 - region:rollout-arrow-topology
+- region:environment-globe-creative-asset
 - region:observation-arrows
 - arrow-visual:task-input-to-encoder:shaft-width
 - arrow-visual:task-input-to-encoder:silhouette-bbox
@@ -345,6 +347,8 @@
 - ocr:svg-text-unmatched
 - ocr:reference-text-unmatched
 - bindings:save-reopen-not-verified
+- atomic-vector:atomic:environment-globe-vector:ink-contract-missing:environment-globe-creative-asset
+- atomic-vector:atomic:environment-globe-vector:fallback-required:atomic:environment-globe
 - math-summary:declaration-empty-or-incomplete
 - math-summary:existing-readback-unverified
 - math-summary:save-reopen-unverified
@@ -353,19 +357,25 @@
 - reference-inventory:receipt-missing
 - source-gate:isolation:read-manifest-unverified
 - live-render-finalizer-unverified
+- live-evidence-operation-receipt-mismatch
 - live-root-save-reopen-missing
 - live-candidate-hash-mismatch
 - live-reopened-hash-mismatch
 - live-binding-evidence-hash-mismatch
 - live-evidence-bindings-mismatch
 - live-evidence-scene-mismatch
+- live-evidence-source-scene-mismatch
+- live-evidence-bridge-manifest-mismatch
+- live-evidence-inventory-file-mismatch
 - live-evidence-arrow-readback-mismatch
 - live-evidence-arrow-compile-mismatch
 - live-evidence-primitive-audit-mismatch
 - live-evidence-layout-audit-mismatch
 - live-evidence-regions-mismatch
+- live-evidence-render-mismatch
 - live-evidence-math-summary-mismatch
 - live-evidence-inventory-candidate-mismatch
+- live-evidence-bridge-source-scene-mismatch
 - live-region:task-guided-allocator-topology
 - live-region:encoder-peer-size-detail
 - live-region:expert-gap-arrow-text-detail
@@ -373,5 +383,15 @@
 - live-region:six-bicolor-state-circles
 - live-region:rollout-arrow-topology
 - live-region:observation-arrows
+- repair-plan:incomplete
+
+## QA 状态六维度
+- offline_package_consistency: fail（1 项 blocker）
+- saved_reopened_consistency: fail（1 项 blocker）
+- reference_fidelity: fail（228 项 blocker）
+- repair_plan_coverage: fail（5 项 blocker）
+- repair_execution: fail（268 项 blocker）
+- release_eligibility: fail（6 项 blocker）
+- 维度明细: qa/qa-status.json
 
 > strict 使用关键区域、箭头/图元结构与所声明的 Live 回读共同门禁；全图均值不能覆盖局部失败。

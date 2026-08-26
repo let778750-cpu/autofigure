@@ -280,10 +280,10 @@
       {
         "element": "atomic:environment-globe",
         "box": {
-          "x": 1188.0,
-          "y": 533.0,
-          "width": 80.0,
-          "height": 81.0
+          "x": 1187.47895,
+          "y": 530.809974,
+          "width": 80.52105,
+          "height": 83.431076
         },
         "overflow_px": {
           "left": 0.0,
