@@ -5,9 +5,9 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.contracts import read_json
-from tools.prepare import main as prepare_main
+from tools.core import common
+from tools.core.contracts import read_json
+from tools.pipeline.prepare import main as prepare_main
 
 
 def _reference(tmp_path: Path) -> Path:

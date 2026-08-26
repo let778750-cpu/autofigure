@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 from PIL import Image, ImageDraw
 
-from tools.arrow_visual import (
+from tools.arrows.arrow_visual import (
     _contract_sha256,
     _foreground_mask,
     evaluate_arrow_visual_contracts,

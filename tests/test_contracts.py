@@ -7,8 +7,8 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.contracts import (
+from tools.core import common
+from tools.core.contracts import (
     SCHEMA_VERSION,
     ContractError,
     initialize_contracts,

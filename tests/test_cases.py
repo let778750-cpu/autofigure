@@ -5,9 +5,9 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.cases import discover_cases, main as cases_main
-from tools.contracts import read_json, write_json
+from tools.core import common
+from tools.qa.cases import discover_cases, main as cases_main
+from tools.core.contracts import read_json, write_json
 
 
 def _reference(tmp_path: Path) -> Path:

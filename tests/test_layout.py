@@ -7,11 +7,11 @@ from PIL import Image
 from pptx import Presentation
 from pptx.util import Pt
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.layout import audit_layout, strict_blockers
-from tools.pptx_arrows import refresh_bindings, write_arrow_reports
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.pipeline.layout import audit_layout, strict_blockers
+from tools.arrows.pptx_arrows import refresh_bindings, write_arrow_reports
 
 
 @pytest.fixture()

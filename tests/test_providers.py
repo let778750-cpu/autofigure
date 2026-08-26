@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools.providers import (
+from tools.providers.providers import (
     JournaledMockProvider,
     powerpoint_live_arrow_capabilities,
     provider_catalog,

@@ -7,11 +7,11 @@ from PIL import Image
 from pptx import Presentation
 from pptx.util import Pt
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.reference_inventory import topology_contracts_sha256
-from tools.visual_contracts import evaluate_visual_contracts, strict_blockers
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.assets.reference_inventory import topology_contracts_sha256
+from tools.regions.visual_contracts import evaluate_visual_contracts, strict_blockers
 
 
 @pytest.fixture()

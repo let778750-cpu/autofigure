@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from tools import common
-from tools.contracts import read_json
+from tools.core import common
+from tools.core.contracts import read_json
 
 
 def test_real_modular_agent_route_ab_is_truthfully_qa_failed() -> None:

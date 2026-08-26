@@ -7,22 +7,22 @@ import importlib
 import sys
 
 COMMANDS = {
-    "prepare": "tools.prepare",
-    "convert": "tools.convert",
-    "check": "tools.check",
-    "math": "tools.math",
-    "arrows": "tools.arrows",
-    "ingest": "tools.ingest",
-    "freeze": "tools.reference_inventory",
-    "repair": "tools.repair",
-    "release": "tools.release",
-    "providers": "tools.providers",
-    "layout": "tools.layout",
-    "cases": "tools.cases",
-    "compare": "tools.compare",
-    "hygiene": "tools.hygiene",
+    "prepare": "tools.pipeline.prepare",
+    "convert": "tools.pipeline.convert",
+    "check": "tools.pipeline.check",
+    "math": "tools.pipeline.math",
+    "arrows": "tools.arrows.arrows",
+    "ingest": "tools.pipeline.ingest",
+    "freeze": "tools.assets.reference_inventory",
+    "repair": "tools.repair.repair",
+    "release": "tools.qa.release",
+    "providers": "tools.providers.providers",
+    "layout": "tools.pipeline.layout",
+    "cases": "tools.qa.cases",
+    "compare": "tools.qa.compare",
+    "hygiene": "tools.qa.hygiene",
     "migrate-v4": "tools.migrate_v4",
-    "normalize-source": "tools.normalize_source",
+    "normalize-source": "tools.pipeline.normalize_source",
 }
 
 

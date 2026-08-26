@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools import common
-from tools.contracts import read_json
-from tools.qa_status import QA_STATUS_NAME, write_qa_status
-from tools.release import (
+from tools.core import common
+from tools.core.contracts import read_json
+from tools.qa.qa_status import QA_STATUS_NAME, write_qa_status
+from tools.qa.release import (
     RELEASE_ARTIFACTS,
     main as release_main,
     release_manifest_path,

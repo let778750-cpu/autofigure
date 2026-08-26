@@ -10,8 +10,8 @@ from PIL import Image, ImageChops
 from pptx import Presentation
 from pptx.enum.shapes import MSO_AUTO_SHAPE_TYPE, MSO_SHAPE_TYPE
 
-from tools import common
-from tools.layout import audit_layout
+from tools.core import common
+from tools.pipeline.layout import audit_layout
 
 
 CASE = (

@@ -6,9 +6,9 @@ from pathlib import Path
 
 from PIL import Image
 
-from tools import common
-from tools.compare import build_comparison, main as compare_main
-from tools.contracts import read_json, write_json
+from tools.core import common
+from tools.qa.compare import build_comparison, main as compare_main
+from tools.core.contracts import read_json, write_json
 
 
 def _case(tmp_path: Path, route: str, case: str) -> common.Run:

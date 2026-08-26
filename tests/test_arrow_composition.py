@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from copy import deepcopy
 
-from tools.arrow_composition import (
+from tools.arrows.arrow_composition import (
     find_reciprocal_arrow_overlaps,
     reciprocal_overlap_finding,
 )
-from tools.arrow_spec import ARROW_SPEC_VERSION, head, path_from_segments
+from tools.arrows.arrow_spec import ARROW_SPEC_VERSION, head, path_from_segments
 
 
 def _spec(

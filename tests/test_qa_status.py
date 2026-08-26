@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.qa_lineage import validate_qa_lineage_manifest, write_qa_lineage_manifest
-from tools.qa_status import (
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.qa.qa_lineage import validate_qa_lineage_manifest, write_qa_lineage_manifest
+from tools.qa.qa_status import (
     QA_DIMENSIONS,
     QA_STATUS_NAME,
     compute_qa_dimensions,
@@ -17,7 +17,7 @@ from tests.qa_fixtures import SVG, make_approved_case, make_case
 
 
 def _write_artifacts_only(run: common.Run) -> None:
-    from tools.revisions import bind_canonical_svg, materialize_svg, stamp_active_revision
+    from tools.core.revisions import bind_canonical_svg, materialize_svg, stamp_active_revision
 
     scene = read_json(run.scene_path)
     bind_canonical_svg(scene, SVG, source_role="reference-reconstruction")

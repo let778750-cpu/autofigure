@@ -6,13 +6,13 @@ import pytest
 from PIL import Image
 from pptx import Presentation
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.ingest import main as ingest_main
-from tools.prepare import SVG_AUTHORING_CONTRACT
-from tools.prepare import main as prepare_main
-from tools.reference_inventory import OBJECT_KINDS, freeze_inventory
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.pipeline.ingest import main as ingest_main
+from tools.pipeline.prepare import SVG_AUTHORING_CONTRACT
+from tools.pipeline.prepare import main as prepare_main
+from tools.assets.reference_inventory import OBJECT_KINDS, freeze_inventory
 
 
 def _reference(tmp_path: Path) -> Path:

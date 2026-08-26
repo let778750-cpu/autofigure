@@ -12,16 +12,16 @@ import pytest
 from PIL import Image
 from pptx import Presentation
 
-from tools import common
-from tools.convert import convert
-from tools.math import (
+from tools.core import common
+from tools.pipeline.convert import convert
+from tools.pipeline.math import (
     classify_runs,
     math_summary_blockers,
     rebuild_latex,
     upgrade,
     verify_existing_native_math,
 )
-from tools.pptx_arrows import refresh_bindings
+from tools.arrows.pptx_arrows import refresh_bindings
 
 XSL_PATH = Path(r"C:\Program Files\Microsoft Office\root\Office16\MML2OMML.XSL")
 

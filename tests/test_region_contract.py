@@ -4,11 +4,11 @@ from pathlib import Path
 
 from PIL import Image
 
-from tools import common
-from tools.arrow_spec import spec_sha256
-from tools.contracts import read_json, write_json
-from tools.ingest import build_region_tasks
-from tools.regions import build_critical_region_expectation, evaluate_regions
+from tools.core import common
+from tools.arrows.arrow_spec import spec_sha256
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.ingest import build_region_tasks
+from tools.regions.regions import build_critical_region_expectation, evaluate_regions
 
 
 def _head(kind: str) -> dict:

@@ -7,8 +7,8 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.convert import convert
+from tools.core import common
+from tools.pipeline.convert import convert
 
 
 def _case(tmp_path: Path) -> common.Run:
@@ -50,7 +50,7 @@ def test_conversion_writer_failure_never_touches_formal_case(
     def fail_after_package(*_args, **_kwargs):
         raise RuntimeError("injected conversion QA failure")
 
-    monkeypatch.setattr("tools.pptx_arrows.write_arrow_reports", fail_after_package)
+    monkeypatch.setattr("tools.arrows.pptx_arrows.write_arrow_reports", fail_after_package)
     with pytest.raises(RuntimeError, match="injected conversion QA failure"):
         convert(run)
 
@@ -68,7 +68,7 @@ def test_partial_publication_failure_restores_every_previous_file(
     convert(run)
     before = _file_bytes(run.root)
 
-    from tools import transactions
+    from tools.core import transactions
 
     original = transactions._publish_replace
     replacements = 0
