@@ -101,7 +101,6 @@ jobs:
     environment: scientific-release
     env:
       CASE_RUN_DIR: ${{ inputs.case_run_dir }}
-      FRESH_RENDER: ${{ runner.temp }}\autofigure-powerpoint-fresh.png
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -128,6 +127,9 @@ jobs:
           "RESOLVED_CASE_RUN_DIR=$casePath" | Out-File -FilePath $env:GITHUB_ENV -Append
       - name: PowerPoint COM fresh render
         shell: pwsh
+        env:
+          # runner context 在 job 级 env 不可用(GitHub schema),移至 step 级。
+          FRESH_RENDER: ${{ runner.temp }}\autofigure-powerpoint-fresh.png
         run: >-
           python -c "import os; from pathlib import Path; from tools.core import common;
           from tools.pipeline.render_export import render; run=common.open_run(Path(os.environ['RESOLVED_CASE_RUN_DIR']));
