@@ -28,17 +28,11 @@ import numpy as np
 from jsonschema import Draft202012Validator, FormatChecker
 from PIL import Image
 
-TOOLS_DIRECTORY = Path(__file__).resolve().parent
-if str(TOOLS_DIRECTORY) not in sys.path:
-    sys.path.insert(0, str(TOOLS_DIRECTORY))
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-try:
-    from output_policy import resolve_output_path
-except ModuleNotFoundError:  # Support: python -m tools.figure_lint
-    try:
-        from .output_policy import resolve_output_path
-    except ImportError:  # Support importlib loading a standalone file from the project root.
-        from tools.core.output_policy import resolve_output_path
+from tools.core.output_policy import resolve_output_path  # noqa: E402  # sys.path 引导后才能解析
 
 
 REFERENCE_PREVIEW_SCHEMA_PATH = (
