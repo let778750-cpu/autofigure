@@ -1,0 +1,8770 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "regions",
+  "case": "05-sting-autophagy",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "regions": [
+    {
+      "id": "figure-root",
+      "label": "Full figure (performance benchmark scope)",
+      "bbox": [
+        0,
+        0,
+        2100,
+        1324
+      ],
+      "critical": true,
+      "element_ids": [
+        "seed-auto-0003",
+        "seed-auto-0004",
+        "seed-auto-0019",
+        "seed-auto-0043",
+        "seed-auto-0045",
+        "seed-auto-0053",
+        "seed-auto-0062",
+        "seed-auto-0071",
+        "seed-auto-0080",
+        "seed-auto-0081",
+        "seed-auto-0082",
+        "seed-auto-0097",
+        "seed-auto-0099",
+        "seed-auto-0103",
+        "seed-auto-0104",
+        "seed-auto-0110",
+        "seed-auto-0111",
+        "seed-auto-0114",
+        "seed-auto-0128",
+        "seed-auto-0129",
+        "seed-auto-0130",
+        "seed-auto-0153",
+        "seed-auto-0157",
+        "seed-auto-0159",
+        "seed-auto-0223",
+        "seed-auto-0260",
+        "seed-auto-0274",
+        "seed-auto-0276",
+        "seed-auto-0278",
+        "seed-auto-0280",
+        "seed-auto-0288",
+        "seed-auto-0289",
+        "seed-auto-0317",
+        "seed-auto-0340",
+        "seed-auto-0353",
+        "seed-auto-0374",
+        "seed-auto-0378",
+        "seed-auto-0391",
+        "seed-auto-0015",
+        "seed-auto-0020",
+        "seed-auto-0046",
+        "seed-auto-0054",
+        "seed-auto-0055",
+        "seed-auto-0061",
+        "seed-auto-0079",
+        "seed-auto-0083",
+        "seed-auto-0112",
+        "seed-auto-0145",
+        "seed-auto-0146",
+        "seed-auto-0158",
+        "seed-auto-0176",
+        "seed-auto-0222",
+        "seed-auto-0259",
+        "seed-auto-0285",
+        "seed-auto-0341",
+        "seed-auto-0392",
+        "seed-auto-0002",
+        "seed-auto-0005",
+        "seed-auto-0006",
+        "seed-auto-0007",
+        "seed-auto-0008",
+        "seed-auto-0009",
+        "seed-auto-0010",
+        "seed-auto-0011",
+        "seed-auto-0012",
+        "seed-auto-0013",
+        "seed-auto-0014",
+        "seed-auto-0016",
+        "seed-auto-0017",
+        "seed-auto-0018",
+        "seed-auto-0021",
+        "seed-auto-0022",
+        "seed-auto-0023",
+        "seed-auto-0024",
+        "seed-auto-0025",
+        "seed-auto-0026",
+        "seed-auto-0027",
+        "seed-auto-0028",
+        "seed-auto-0029",
+        "seed-auto-0030",
+        "seed-auto-0031",
+        "seed-auto-0032",
+        "seed-auto-0033",
+        "seed-auto-0034",
+        "seed-auto-0035",
+        "seed-auto-0036",
+        "seed-auto-0037",
+        "seed-auto-0038",
+        "seed-auto-0039",
+        "seed-auto-0040",
+        "seed-auto-0041",
+        "seed-auto-0042",
+        "seed-auto-0044",
+        "seed-auto-0047",
+        "seed-auto-0048",
+        "seed-auto-0049",
+        "seed-auto-0050",
+        "seed-auto-0051",
+        "seed-auto-0052",
+        "seed-auto-0056",
+        "seed-auto-0057",
+        "seed-auto-0058",
+        "seed-auto-0059",
+        "seed-auto-0060",
+        "seed-auto-0063",
+        "seed-auto-0064",
+        "seed-auto-0065",
+        "seed-auto-0066",
+        "seed-auto-0067",
+        "seed-auto-0068",
+        "seed-auto-0069",
+        "seed-auto-0070",
+        "seed-auto-0072",
+        "seed-auto-0073",
+        "seed-auto-0074",
+        "seed-auto-0075",
+        "seed-auto-0076",
+        "seed-auto-0077",
+        "seed-auto-0078",
+        "seed-auto-0084",
+        "seed-auto-0085",
+        "seed-auto-0086",
+        "seed-auto-0087",
+        "seed-auto-0088",
+        "seed-auto-0089",
+        "seed-auto-0090",
+        "seed-auto-0091",
+        "seed-auto-0092",
+        "seed-auto-0093",
+        "seed-auto-0094",
+        "seed-auto-0095",
+        "seed-auto-0096",
+        "seed-auto-0098",
+        "seed-auto-0100",
+        "seed-auto-0101",
+        "seed-auto-0102",
+        "seed-auto-0105",
+        "seed-auto-0106",
+        "seed-auto-0107",
+        "seed-auto-0108",
+        "seed-auto-0109",
+        "seed-auto-0113",
+        "seed-auto-0115",
+        "seed-auto-0116",
+        "seed-auto-0117",
+        "seed-auto-0118",
+        "seed-auto-0119",
+        "seed-auto-0120",
+        "seed-auto-0121",
+        "seed-auto-0122",
+        "seed-auto-0123",
+        "seed-auto-0124",
+        "seed-auto-0125",
+        "seed-auto-0126",
+        "seed-auto-0127",
+        "seed-auto-0131",
+        "seed-auto-0132",
+        "seed-auto-0133",
+        "seed-auto-0134",
+        "seed-auto-0135",
+        "seed-auto-0136",
+        "seed-auto-0137",
+        "seed-auto-0138",
+        "seed-auto-0139",
+        "seed-auto-0140",
+        "seed-auto-0141",
+        "seed-auto-0142",
+        "seed-auto-0143",
+        "seed-auto-0144",
+        "seed-auto-0147",
+        "seed-auto-0148",
+        "seed-auto-0149",
+        "seed-auto-0150",
+        "seed-auto-0151",
+        "seed-auto-0152",
+        "seed-auto-0154",
+        "seed-auto-0155",
+        "seed-auto-0156",
+        "seed-auto-0160",
+        "seed-auto-0161",
+        "seed-auto-0162",
+        "seed-auto-0163",
+        "seed-auto-0164",
+        "seed-auto-0165",
+        "seed-auto-0166",
+        "seed-auto-0167",
+        "seed-auto-0168",
+        "seed-auto-0169",
+        "seed-auto-0170",
+        "seed-auto-0171",
+        "seed-auto-0172",
+        "seed-auto-0173",
+        "seed-auto-0174",
+        "seed-auto-0175",
+        "seed-auto-0177",
+        "seed-auto-0178",
+        "seed-auto-0179",
+        "seed-auto-0180",
+        "seed-auto-0181",
+        "seed-auto-0182",
+        "seed-auto-0183",
+        "seed-auto-0184",
+        "seed-auto-0185",
+        "seed-auto-0186",
+        "seed-auto-0187",
+        "seed-auto-0188",
+        "seed-auto-0189",
+        "seed-auto-0190",
+        "seed-auto-0191",
+        "seed-auto-0192",
+        "seed-auto-0193",
+        "seed-auto-0194",
+        "seed-auto-0195",
+        "seed-auto-0196",
+        "seed-auto-0197",
+        "seed-auto-0198",
+        "seed-auto-0199",
+        "seed-auto-0200",
+        "seed-auto-0201",
+        "seed-auto-0202",
+        "seed-auto-0203",
+        "seed-auto-0204",
+        "seed-auto-0205",
+        "seed-auto-0206",
+        "seed-auto-0207",
+        "seed-auto-0208",
+        "seed-auto-0209",
+        "seed-auto-0210",
+        "seed-auto-0211",
+        "seed-auto-0212",
+        "seed-auto-0213",
+        "seed-auto-0214",
+        "seed-auto-0215",
+        "seed-auto-0216",
+        "seed-auto-0217",
+        "seed-auto-0218",
+        "seed-auto-0219",
+        "seed-auto-0220",
+        "seed-auto-0221",
+        "seed-auto-0224",
+        "seed-auto-0225",
+        "seed-auto-0226",
+        "seed-auto-0227",
+        "seed-auto-0228",
+        "seed-auto-0229",
+        "seed-auto-0230",
+        "seed-auto-0231",
+        "seed-auto-0232",
+        "seed-auto-0233",
+        "seed-auto-0234",
+        "seed-auto-0235",
+        "seed-auto-0236",
+        "seed-auto-0237",
+        "seed-auto-0238",
+        "seed-auto-0239",
+        "seed-auto-0240",
+        "seed-auto-0241",
+        "seed-auto-0242",
+        "seed-auto-0243",
+        "seed-auto-0244",
+        "seed-auto-0245",
+        "seed-auto-0246",
+        "seed-auto-0247",
+        "seed-auto-0248",
+        "seed-auto-0249",
+        "seed-auto-0250",
+        "seed-auto-0251",
+        "seed-auto-0252",
+        "seed-auto-0253",
+        "seed-auto-0254",
+        "seed-auto-0255",
+        "seed-auto-0256",
+        "seed-auto-0257",
+        "seed-auto-0258",
+        "seed-auto-0261",
+        "seed-auto-0262",
+        "seed-auto-0263",
+        "seed-auto-0264",
+        "seed-auto-0265",
+        "seed-auto-0266",
+        "seed-auto-0267",
+        "seed-auto-0268",
+        "seed-auto-0269",
+        "seed-auto-0270",
+        "seed-auto-0271",
+        "seed-auto-0272",
+        "seed-auto-0273",
+        "seed-auto-0275",
+        "seed-auto-0277",
+        "seed-auto-0279",
+        "seed-auto-0281",
+        "seed-auto-0282",
+        "seed-auto-0283",
+        "seed-auto-0284",
+        "seed-auto-0286",
+        "seed-auto-0287",
+        "seed-auto-0290",
+        "seed-auto-0291",
+        "seed-auto-0292",
+        "seed-auto-0293",
+        "seed-auto-0294",
+        "seed-auto-0295",
+        "seed-auto-0296",
+        "seed-auto-0297",
+        "seed-auto-0298",
+        "seed-auto-0299",
+        "seed-auto-0300",
+        "seed-auto-0301",
+        "seed-auto-0302",
+        "seed-auto-0303",
+        "seed-auto-0304",
+        "seed-auto-0305",
+        "seed-auto-0306",
+        "seed-auto-0307",
+        "seed-auto-0308",
+        "seed-auto-0309",
+        "seed-auto-0310",
+        "seed-auto-0311",
+        "seed-auto-0312",
+        "seed-auto-0313",
+        "seed-auto-0314",
+        "seed-auto-0315",
+        "seed-auto-0316",
+        "seed-auto-0318",
+        "seed-auto-0319",
+        "seed-auto-0320",
+        "seed-auto-0321",
+        "seed-auto-0322",
+        "seed-auto-0323",
+        "seed-auto-0324",
+        "seed-auto-0325",
+        "seed-auto-0326",
+        "seed-auto-0327",
+        "seed-auto-0328",
+        "seed-auto-0329",
+        "seed-auto-0330",
+        "seed-auto-0331",
+        "seed-auto-0332",
+        "seed-auto-0333",
+        "seed-auto-0334",
+        "seed-auto-0335",
+        "seed-auto-0336",
+        "seed-auto-0337",
+        "seed-auto-0338",
+        "seed-auto-0339",
+        "seed-auto-0342",
+        "seed-auto-0343",
+        "seed-auto-0344",
+        "seed-auto-0345",
+        "seed-auto-0346",
+        "seed-auto-0347",
+        "seed-auto-0348",
+        "seed-auto-0349",
+        "seed-auto-0350",
+        "seed-auto-0351",
+        "seed-auto-0352",
+        "seed-auto-0354",
+        "seed-auto-0355",
+        "seed-auto-0356",
+        "seed-auto-0357",
+        "seed-auto-0358",
+        "seed-auto-0359",
+        "seed-auto-0360",
+        "seed-auto-0361",
+        "seed-auto-0362",
+        "seed-auto-0363",
+        "seed-auto-0364",
+        "seed-auto-0365",
+        "seed-auto-0366",
+        "seed-auto-0367",
+        "seed-auto-0368",
+        "seed-auto-0369",
+        "seed-auto-0370",
+        "seed-auto-0371",
+        "seed-auto-0372",
+        "seed-auto-0373",
+        "seed-auto-0375",
+        "seed-auto-0376",
+        "seed-auto-0377",
+        "seed-auto-0379",
+        "seed-auto-0380",
+        "seed-auto-0381",
+        "seed-auto-0382",
+        "seed-auto-0383",
+        "seed-auto-0384",
+        "seed-auto-0385",
+        "seed-auto-0386",
+        "seed-auto-0387",
+        "seed-auto-0388",
+        "seed-auto-0389",
+        "seed-auto-0390"
+      ],
+      "relations_exhaustive": true,
+      "required_relations": [
+        {
+          "id": "seed-auto-0015",
+          "source_id": "seed-auto-0014",
+          "target_id": "seed-auto-0011",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0020",
+          "source_id": "seed-auto-0005",
+          "target_id": "seed-auto-0025",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0046",
+          "source_id": "seed-auto-0009",
+          "target_id": "seed-auto-0053",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0054",
+          "source_id": "seed-auto-0044",
+          "target_id": "seed-auto-0063",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0055",
+          "source_id": "seed-auto-0063",
+          "target_id": "seed-auto-0071",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0061",
+          "source_id": "seed-auto-0053",
+          "target_id": "seed-auto-0009",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0079",
+          "source_id": "seed-auto-0071",
+          "target_id": "seed-auto-0063",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0083",
+          "source_id": "seed-auto-0025",
+          "target_id": "seed-auto-0084",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0112",
+          "source_id": "seed-auto-0098",
+          "target_id": "seed-auto-0114",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0145",
+          "source_id": "seed-auto-0113",
+          "target_id": "seed-auto-0131",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0146",
+          "source_id": "seed-auto-0066",
+          "target_id": "seed-auto-0147",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0158",
+          "source_id": "seed-auto-0152",
+          "target_id": "seed-auto-0160",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0176",
+          "source_id": "seed-auto-0160",
+          "target_id": "seed-auto-0184",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0222",
+          "source_id": "seed-auto-0177",
+          "target_id": "seed-auto-0224",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0259",
+          "source_id": "seed-auto-0340",
+          "target_id": "seed-auto-0189",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0285",
+          "source_id": "seed-auto-0280",
+          "target_id": "seed-auto-0082",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0341",
+          "source_id": "seed-auto-0340",
+          "target_id": "seed-auto-0317",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        },
+        {
+          "id": "seed-auto-0392",
+          "source_id": "seed-auto-0353",
+          "target_id": "seed-auto-0340",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "open",
+          "representation": "line_arrow",
+          "visible_object_count": 1
+        }
+      ]
+    }
+  ],
+  "arrow_visual_contracts": [
+    {
+      "id": "avc-seed-auto-0015",
+      "element_id": "seed-auto-0015",
+      "axis": "horizontal",
+      "tight_bbox": [
+        668.5,
+        421.5,
+        76.0,
+        66.0
+      ],
+      "shaft_seed_point": [
+        706.5,
+        454.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            660.0,
+            468.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0020",
+      "element_id": "seed-auto-0020",
+      "axis": "horizontal",
+      "tight_bbox": [
+        370.5,
+        225.5,
+        70.0,
+        18.0
+      ],
+      "shaft_seed_point": [
+        405.5,
+        234.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            421.0,
+            217.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0046",
+      "element_id": "seed-auto-0046",
+      "axis": "vertical",
+      "tight_bbox": [
+        258.5,
+        525.5,
+        34.0,
+        85.0
+      ],
+      "shaft_seed_point": [
+        275.5,
+        568.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            250.0,
+            591.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0054",
+      "element_id": "seed-auto-0054",
+      "axis": "horizontal",
+      "tight_bbox": [
+        281.5,
+        660.5,
+        77.0,
+        61.0
+      ],
+      "shaft_seed_point": [
+        320.0,
+        691.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            339.0,
+            702.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0055",
+      "element_id": "seed-auto-0055",
+      "axis": "horizontal",
+      "tight_bbox": [
+        156.5,
+        711.5,
+        162.0,
+        12.0
+      ],
+      "shaft_seed_point": [
+        237.5,
+        717.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            148.0,
+            703.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0061",
+      "element_id": "seed-auto-0061",
+      "axis": "vertical",
+      "tight_bbox": [
+        105.5,
+        497.5,
+        55.0,
+        158.0
+      ],
+      "shaft_seed_point": [
+        133.0,
+        576.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            141.0,
+            489.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0079",
+      "element_id": "seed-auto-0079",
+      "axis": "horizontal",
+      "tight_bbox": [
+        257.5,
+        760.5,
+        89.0,
+        66.0
+      ],
+      "shaft_seed_point": [
+        302.0,
+        793.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            327.0,
+            752.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0083",
+      "element_id": "seed-auto-0083",
+      "axis": "horizontal",
+      "tight_bbox": [
+        539.5,
+        209.5,
+        450.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        764.5,
+        215.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            970.0,
+            201.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0112",
+      "element_id": "seed-auto-0112",
+      "axis": "horizontal",
+      "tight_bbox": [
+        1232.5,
+        209.5,
+        313.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        1389.0,
+        215.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1526.0,
+            201.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0145",
+      "element_id": "seed-auto-0145",
+      "axis": "vertical",
+      "tight_bbox": [
+        1748.5,
+        229.5,
+        113.0,
+        116.0
+      ],
+      "shaft_seed_point": [
+        1805.0,
+        287.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1842.0,
+            326.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0146",
+      "element_id": "seed-auto-0146",
+      "axis": "horizontal",
+      "tight_bbox": [
+        585.5,
+        728.5,
+        142.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        656.5,
+        734.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            708.0,
+            720.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0158",
+      "element_id": "seed-auto-0158",
+      "axis": "horizontal",
+      "tight_bbox": [
+        791.5,
+        728.5,
+        170.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        876.5,
+        734.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            942.0,
+            720.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0176",
+      "element_id": "seed-auto-0176",
+      "axis": "horizontal",
+      "tight_bbox": [
+        1038.5,
+        728.5,
+        151.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        1114.0,
+        734.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1170.0,
+            720.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0222",
+      "element_id": "seed-auto-0222",
+      "axis": "horizontal",
+      "tight_bbox": [
+        1336.5,
+        728.5,
+        169.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        1421.0,
+        734.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1486.0,
+            720.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0259",
+      "element_id": "seed-auto-0259",
+      "axis": "vertical",
+      "tight_bbox": [
+        1384.5,
+        791.5,
+        163.0,
+        166.0
+      ],
+      "shaft_seed_point": [
+        1466.0,
+        874.5
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1376.0,
+            783.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0285",
+      "element_id": "seed-auto-0285",
+      "axis": "horizontal",
+      "tight_bbox": [
+        718.5,
+        1048.5,
+        71.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        754.0,
+        1054.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            710.0,
+            1040.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0341",
+      "element_id": "seed-auto-0341",
+      "axis": "horizontal",
+      "tight_bbox": [
+        1184.5,
+        1048.5,
+        86.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        1227.5,
+        1054.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1176.0,
+            1040.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    },
+    {
+      "id": "avc-seed-auto-0392",
+      "element_id": "seed-auto-0392",
+      "axis": "horizontal",
+      "tight_bbox": [
+        1462.5,
+        1064.5,
+        132.0,
+        11.0
+      ],
+      "shaft_seed_point": [
+        1528.5,
+        1070.0
+      ],
+      "shaft_width_px": 3.5,
+      "silhouette_bbox_tolerance_px": 2.0,
+      "mask": {
+        "mode": "background_delta",
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "tolerance": 40
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            1454.0,
+            1056.0,
+            28.0,
+            28.0
+          ],
+          "bbox_tolerance_px": 2.0,
+          "size_tolerance_px": 2.0
+        }
+      }
+    }
+  ],
+  "arrow_visual_expectation": {
+    "count": 18,
+    "contracts": [
+      {
+        "element_id": "seed-auto-0015",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "98977d5c269dc52b13d1176a09c51480a40e92eb0da4bdb3045629c728dc83a4"
+      },
+      {
+        "element_id": "seed-auto-0020",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "d47546305d3ae7a7f2cadfaf953426486e5c0645e2b493b8861ab66bc8e2b8df"
+      },
+      {
+        "element_id": "seed-auto-0046",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "05847848bc5cb1a82d6ea1728233d59c83331a83336b59ab13a54dbaee5f2da1"
+      },
+      {
+        "element_id": "seed-auto-0054",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "44c0b06127904d9bc529db5ddc74946fae1e459470cefcd668acac5a39204c2d"
+      },
+      {
+        "element_id": "seed-auto-0055",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "e64388532273e2b3afd8a06efda47c8de9765497d8bbe39e504d0eac799153cc"
+      },
+      {
+        "element_id": "seed-auto-0061",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c8e88e879fc8a2cf99141c11479cf6ccef1232608fce792ed1af092c6b8429f0"
+      },
+      {
+        "element_id": "seed-auto-0079",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "777f116f6a1ce5fc35e0a0cec4aad084e09ee44faa1bddd98e0c46c169ff07bc"
+      },
+      {
+        "element_id": "seed-auto-0083",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "fa4655f9e4784f2bb5032e995322af1cdab859fe607b7352eec1521f387ee6a7"
+      },
+      {
+        "element_id": "seed-auto-0112",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "406e23b07bd3f5a6e12e56b1f1d292266780ee9c7c607715998ab7fe675fb7cb"
+      },
+      {
+        "element_id": "seed-auto-0145",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "919fd7c65e62d081da0ea8685a646ce2ca43e3f1ab2809b6b02388a076f07c61"
+      },
+      {
+        "element_id": "seed-auto-0146",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c5803939c07550ae1036b1d54d18d9e5d4112e1043902881419a446261f688d7"
+      },
+      {
+        "element_id": "seed-auto-0158",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "f09d4bc53d305f9417c22ab70c5f6d8ac7f2772e56a4c510bb8df4e94c064510"
+      },
+      {
+        "element_id": "seed-auto-0176",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "07ed0af550fd390c199f0bb201d6553318899b2ef382a07abc867fbc2b39aac9"
+      },
+      {
+        "element_id": "seed-auto-0222",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "ff3c9c1d8f5bdb03a13a42349ac6c7095b152c1796c08f6c4b297c7cdc5e88ff"
+      },
+      {
+        "element_id": "seed-auto-0259",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "5e57dc62e11f7d41459d1cb07cdab7c3a45c98817336c9730a8b789b71939966"
+      },
+      {
+        "element_id": "seed-auto-0285",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "f3d678d506b69e035aaca873cfec20c02f687362ab011524b731666ecc9f2c10"
+      },
+      {
+        "element_id": "seed-auto-0341",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "b2fd0046487065244efdfae808e6b41c28e307c11d7df1ce9a20007062578953"
+      },
+      {
+        "element_id": "seed-auto-0392",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "6f72069bf2e4fb4f9fc964732199ac0de1f5697963d56053e22dddf01f0dab7f"
+      }
+    ],
+    "exemptions": []
+  },
+  "reference_inventory": {
+    "schema_version": "1.0.0",
+    "required": true,
+    "status": "frozen",
+    "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "receipt_path": "qa/reference-inventory-receipt.json",
+    "expected_counts": {
+      "text": 38,
+      "formula": 0,
+      "arrow": 18,
+      "icon": 0,
+      "brace": 0,
+      "plot": 0,
+      "shape": 335
+    },
+    "zero_count_authorizations": [
+      {
+        "kind": "icon",
+        "basis": "full-reference-review",
+        "reviewer": "case05-benchmark-agent",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      },
+      {
+        "kind": "brace",
+        "basis": "full-reference-review",
+        "reviewer": "case05-benchmark-agent",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+      }
+    ],
+    "objects": [
+      {
+        "id": "inv-text-001",
+        "kind": "text",
+        "bbox": [
+          33.0,
+          228.65,
+          211.42,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0003"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Trans Golgi",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-002",
+        "kind": "text",
+        "bbox": [
+          0.0,
+          435.65,
+          172.98,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0004"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Cis Golgi",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-003",
+        "kind": "text",
+        "bbox": [
+          246.0,
+          193.65,
+          134.54,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0019"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "ARFGEFs",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-004",
+        "kind": "text",
+        "bbox": [
+          380.0,
+          517.65,
+          134.54,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0043"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "ARFGEFs",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-005",
+        "kind": "text",
+        "bbox": [
+          357.0,
+          581.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0045"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "ARFs",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-006",
+        "kind": "text",
+        "bbox": [
+          150.0,
+          550.65,
+          96.1,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0053"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "COP I",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-007",
+        "kind": "text",
+        "bbox": [
+          448.0,
+          623.65,
+          96.1,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0062"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "ERGIC",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-008",
+        "kind": "text",
+        "bbox": [
+          90.0,
+          825.65,
+          115.32,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0071"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "COP II",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-009",
+        "kind": "text",
+        "bbox": [
+          798.0,
+          126.65,
+          115.32,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0080"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Step 3",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-010",
+        "kind": "text",
+        "bbox": [
+          673.0,
+          607.65,
+          115.32,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0081"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Step 2",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-011",
+        "kind": "text",
+        "bbox": [
+          671.0,
+          948.65,
+          115.32,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0082"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Step 1",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-012",
+        "kind": "text",
+        "bbox": [
+          1004.0,
+          298.65,
+          153.76,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0097"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Endosome",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-013",
+        "kind": "text",
+        "bbox": [
+          1127.56,
+          122.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0099"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "TBK1",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-014",
+        "kind": "text",
+        "bbox": [
+          9.56,
+          0.0,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0103"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "IRF3",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-015",
+        "kind": "text",
+        "bbox": [
+          9.56,
+          37.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0104"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "IRF3",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-016",
+        "kind": "text",
+        "bbox": [
+          1455.0,
+          0.0,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0110"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "IFN;",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-017",
+        "kind": "text",
+        "bbox": [
+          1416.0,
+          27.65,
+          172.98,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0111"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "cytokines",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-018",
+        "kind": "text",
+        "bbox": [
+          1484.0,
+          285.65,
+          57.66,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0114"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "MVB",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-019",
+        "kind": "text",
+        "bbox": [
+          1888.0,
+          280.65,
+          153.76,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0128"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Lysosome",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-020",
+        "kind": "text",
+        "bbox": [
+          1706.0,
+          390.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0129"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "RAB7",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-021",
+        "kind": "text",
+        "bbox": [
+          1730.0,
+          504.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0130"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "RAB7",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-022",
+        "kind": "text",
+        "bbox": [
+          737.0,
+          785.65,
+          96.1,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0153"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "WIPI2",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-023",
+        "kind": "text",
+        "bbox": [
+          832.0,
+          806.65,
+          57.66,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0157"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "LC3",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-024",
+        "kind": "text",
+        "bbox": [
+          872.0,
+          568.65,
+          345.96,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0159"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Isolation membrane",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-025",
+        "kind": "text",
+        "bbox": [
+          1407.0,
+          565.65,
+          249.86,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0223"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Autophagosome",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-026",
+        "kind": "text",
+        "bbox": [
+          44.0,
+          1053.65,
+          38.44,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0260"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "ER",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-027",
+        "kind": "text",
+        "bbox": [
+          589.0,
+          1035.65,
+          96.1,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0274"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "STING",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-028",
+        "kind": "text",
+        "bbox": [
+          170.0,
+          1041.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0276"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "SAR1",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-029",
+        "kind": "text",
+        "bbox": [
+          327.0,
+          934.65,
+          115.32,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0278"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "SEC24C",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-030",
+        "kind": "text",
+        "bbox": [
+          790.0,
+          1009.65,
+          96.1,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0280"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "cGAMP",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-031",
+        "kind": "text",
+        "bbox": [
+          36.56,
+          0.0,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0288"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "cGAS",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-032",
+        "kind": "text",
+        "bbox": [
+          36.56,
+          37.65,
+          76.88,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0289"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "cGAS",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-033",
+        "kind": "text",
+        "bbox": [
+          1087.0,
+          1206.65,
+          211.42,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0317"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "ATP and GTP",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-034",
+        "kind": "text",
+        "bbox": [
+          1335.0,
+          969.65,
+          57.66,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0340"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "DNA",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-035",
+        "kind": "text",
+        "bbox": [
+          1713.0,
+          951.65,
+          57.66,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0353"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "DNA",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-036",
+        "kind": "text",
+        "bbox": [
+          1712.0,
+          1035.65,
+          192.2,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0374"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Retrovirus",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-037",
+        "kind": "text",
+        "bbox": [
+          1712.0,
+          1124.65,
+          172.98,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0378"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "DNA virus",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-text-038",
+        "kind": "text",
+        "bbox": [
+          1712.0,
+          1208.65,
+          153.76,
+          41.85
+        ],
+        "element_ids": [
+          "seed-auto-0391"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "typography": {
+          "exact_text": "Bacteria",
+          "font_family": "Arial, Helvetica, sans-serif",
+          "font_size_px": 31.0,
+          "font_weight": "normal",
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "start",
+          "bbox_tolerance_px": 3.0,
+          "font_size_tolerance_px": 2.0
+        }
+      },
+      {
+        "id": "inv-arrow-001",
+        "kind": "arrow",
+        "bbox": [
+          674.0,
+          427.0,
+          67.0,
+          57.0
+        ],
+        "element_ids": [
+          "seed-auto-0015"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0015"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0015"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-002",
+        "kind": "arrow",
+        "bbox": [
+          376.0,
+          231.0,
+          61.0,
+          9.0
+        ],
+        "element_ids": [
+          "seed-auto-0020"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0020"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0020"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-003",
+        "kind": "arrow",
+        "bbox": [
+          264.0,
+          531.0,
+          25.0,
+          76.0
+        ],
+        "element_ids": [
+          "seed-auto-0046"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0046"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0046"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-004",
+        "kind": "arrow",
+        "bbox": [
+          287.0,
+          666.0,
+          68.0,
+          52.0
+        ],
+        "element_ids": [
+          "seed-auto-0054"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0054"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0054"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-005",
+        "kind": "arrow",
+        "bbox": [
+          162.0,
+          717.0,
+          153.0,
+          3.0
+        ],
+        "element_ids": [
+          "seed-auto-0055"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0055"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0055"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-006",
+        "kind": "arrow",
+        "bbox": [
+          111.0,
+          503.0,
+          46.0,
+          149.0
+        ],
+        "element_ids": [
+          "seed-auto-0061"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0061"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0061"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-007",
+        "kind": "arrow",
+        "bbox": [
+          263.0,
+          766.0,
+          80.0,
+          57.0
+        ],
+        "element_ids": [
+          "seed-auto-0079"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0079"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0079"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-008",
+        "kind": "arrow",
+        "bbox": [
+          545.0,
+          215.0,
+          441.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0083"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0083"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0083"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-009",
+        "kind": "arrow",
+        "bbox": [
+          1238.0,
+          215.0,
+          304.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0112"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0112"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0112"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-010",
+        "kind": "arrow",
+        "bbox": [
+          1754.0,
+          235.0,
+          104.0,
+          107.0
+        ],
+        "element_ids": [
+          "seed-auto-0145"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0145"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0145"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-011",
+        "kind": "arrow",
+        "bbox": [
+          591.0,
+          734.0,
+          133.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0146"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0146"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0146"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-012",
+        "kind": "arrow",
+        "bbox": [
+          797.0,
+          734.0,
+          161.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0158"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0158"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0158"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-013",
+        "kind": "arrow",
+        "bbox": [
+          1044.0,
+          734.0,
+          142.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0176"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0176"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0176"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-014",
+        "kind": "arrow",
+        "bbox": [
+          1342.0,
+          734.0,
+          160.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0222"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0222"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0222"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-015",
+        "kind": "arrow",
+        "bbox": [
+          1390.0,
+          797.0,
+          154.0,
+          157.0
+        ],
+        "element_ids": [
+          "seed-auto-0259"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0259"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0259"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-016",
+        "kind": "arrow",
+        "bbox": [
+          724.0,
+          1054.0,
+          62.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0285"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0285"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0285"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-017",
+        "kind": "arrow",
+        "bbox": [
+          1190.0,
+          1054.0,
+          77.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0341"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0341"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0341"
+          }
+        }
+      },
+      {
+        "id": "inv-arrow-018",
+        "kind": "arrow",
+        "bbox": [
+          1468.0,
+          1070.0,
+          123.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0392"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "figure-root",
+            "relation_id": "seed-auto-0392"
+          },
+          "arrow_visual": {
+            "contract_id": "avc-seed-auto-0392"
+          }
+        }
+      },
+      {
+        "id": "inv-shape-001",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          2048.0,
+          1291.0
+        ],
+        "element_ids": [
+          "seed-auto-0002"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-002",
+        "kind": "shape",
+        "bbox": [
+          165.0,
+          237.0,
+          410.0,
+          121.0
+        ],
+        "element_ids": [
+          "seed-auto-0005"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-003",
+        "kind": "shape",
+        "bbox": [
+          81.0,
+          310.0,
+          615.0,
+          129.0
+        ],
+        "element_ids": [
+          "seed-auto-0006"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-004",
+        "kind": "shape",
+        "bbox": [
+          166.0,
+          417.0,
+          239.0,
+          59.0
+        ],
+        "element_ids": [
+          "seed-auto-0007"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-005",
+        "kind": "shape",
+        "bbox": [
+          424.0,
+          429.0,
+          210.0,
+          46.0
+        ],
+        "element_ids": [
+          "seed-auto-0008"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-006",
+        "kind": "shape",
+        "bbox": [
+          171.0,
+          472.0,
+          76.0,
+          68.0
+        ],
+        "element_ids": [
+          "seed-auto-0009"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-007",
+        "kind": "shape",
+        "bbox": [
+          229.0,
+          477.0,
+          379.0,
+          55.0
+        ],
+        "element_ids": [
+          "seed-auto-0010"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-008",
+        "kind": "shape",
+        "bbox": [
+          661.0,
+          416.0,
+          24.0,
+          24.0
+        ],
+        "element_ids": [
+          "seed-auto-0011"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-009",
+        "kind": "shape",
+        "bbox": [
+          152.0,
+          316.0,
+          34.0,
+          34.0
+        ],
+        "element_ids": [
+          "seed-auto-0012"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-010",
+        "kind": "shape",
+        "bbox": [
+          639.0,
+          318.0,
+          36.0,
+          36.0
+        ],
+        "element_ids": [
+          "seed-auto-0013"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-011",
+        "kind": "shape",
+        "bbox": [
+          689.0,
+          323.0,
+          64.0,
+          114.0
+        ],
+        "element_ids": [
+          "seed-auto-0014"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-012",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          34.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0016"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-013",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          23.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0017"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-014",
+        "kind": "shape",
+        "bbox": [
+          6.0,
+          0.0,
+          24.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0018"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-015",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0021"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-016",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0022"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-017",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0023"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-018",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0024"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-019",
+        "kind": "shape",
+        "bbox": [
+          444.0,
+          147.0,
+          54.0,
+          82.0
+        ],
+        "element_ids": [
+          "seed-auto-0025"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-020",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          80.0,
+          80.0
+        ],
+        "element_ids": [
+          "seed-auto-0026"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-021",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          94.0,
+          94.0
+        ],
+        "element_ids": [
+          "seed-auto-0027"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-022",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0028"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-023",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0029"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-024",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0030"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-025",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0031"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-026",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0032"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-027",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0033"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-028",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0034"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-029",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0035"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-030",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0036"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-031",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0037"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-032",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0038"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-033",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0039"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-034",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          34.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0040"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-035",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          23.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0041"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-036",
+        "kind": "shape",
+        "bbox": [
+          6.0,
+          0.0,
+          24.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0042"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-037",
+        "kind": "shape",
+        "bbox": [
+          334.0,
+          574.0,
+          28.0,
+          40.0
+        ],
+        "element_ids": [
+          "seed-auto-0044"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-038",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          56.0,
+          56.0
+        ],
+        "element_ids": [
+          "seed-auto-0047"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-039",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          72.0,
+          72.0
+        ],
+        "element_ids": [
+          "seed-auto-0048"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-040",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0049"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-041",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0050"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-042",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0051"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-043",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0052"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-044",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          52.0,
+          52.0
+        ],
+        "element_ids": [
+          "seed-auto-0056"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-045",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0057"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-046",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0058"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-047",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0059"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-048",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0060"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-049",
+        "kind": "shape",
+        "bbox": [
+          344.0,
+          707.0,
+          80.0,
+          37.0
+        ],
+        "element_ids": [
+          "seed-auto-0063"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-050",
+        "kind": "shape",
+        "bbox": [
+          407.0,
+          706.0,
+          61.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0064"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-051",
+        "kind": "shape",
+        "bbox": [
+          350.0,
+          741.0,
+          225.0,
+          41.0
+        ],
+        "element_ids": [
+          "seed-auto-0065"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-052",
+        "kind": "shape",
+        "bbox": [
+          512.0,
+          759.0,
+          24.0,
+          24.0
+        ],
+        "element_ids": [
+          "seed-auto-0066"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-053",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0067"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-054",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0068"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-055",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0069"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-056",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0070"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-057",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          54.0,
+          54.0
+        ],
+        "element_ids": [
+          "seed-auto-0072"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-058",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          70.0,
+          70.0
+        ],
+        "element_ids": [
+          "seed-auto-0073"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-059",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0074"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-060",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0075"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-061",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0076"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-062",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0077"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-063",
+        "kind": "shape",
+        "bbox": [
+          255.0,
+          896.0,
+          24.0,
+          87.0
+        ],
+        "element_ids": [
+          "seed-auto-0078"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-064",
+        "kind": "shape",
+        "bbox": [
+          1000.0,
+          183.0,
+          178.0,
+          63.0
+        ],
+        "element_ids": [
+          "seed-auto-0084"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-065",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0085"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-066",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0086"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-067",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0087"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-068",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0088"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-069",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0089"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-070",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0090"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-071",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0091"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-072",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0092"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-073",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0093"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-074",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0094"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-075",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0095"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-076",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0096"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-077",
+        "kind": "shape",
+        "bbox": [
+          1117.0,
+          124.0,
+          98.0,
+          48.0
+        ],
+        "element_ids": [
+          "seed-auto-0098"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-078",
+        "kind": "shape",
+        "bbox": [
+          1128.0,
+          77.0,
+          72.0,
+          50.0
+        ],
+        "element_ids": [
+          "seed-auto-0100"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-079",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          95.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0101"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-080",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          43.0,
+          95.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0102"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-081",
+        "kind": "shape",
+        "bbox": [
+          99.0,
+          6.0,
+          32.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0105"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-082",
+        "kind": "shape",
+        "bbox": [
+          99.0,
+          48.0,
+          32.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0106"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-083",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          110.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0107"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-084",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          110.0,
+          52.0
+        ],
+        "element_ids": [
+          "seed-auto-0108"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-085",
+        "kind": "shape",
+        "bbox": [
+          1339.0,
+          41.0,
+          68.0,
+          2.0
+        ],
+        "element_ids": [
+          "seed-auto-0109"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-086",
+        "kind": "shape",
+        "bbox": [
+          1531.0,
+          123.0,
+          210.0,
+          205.0
+        ],
+        "element_ids": [
+          "seed-auto-0113"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-087",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          52.0,
+          52.0
+        ],
+        "element_ids": [
+          "seed-auto-0115"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-088",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0116"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-089",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0117"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-090",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0118"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-091",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0119"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-092",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          37.0,
+          46.0
+        ],
+        "element_ids": [
+          "seed-auto-0120"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-093",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          52.0,
+          52.0
+        ],
+        "element_ids": [
+          "seed-auto-0121"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-094",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0122"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-095",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0123"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-096",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0124"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-097",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0125"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-098",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          38.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0126"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-099",
+        "kind": "shape",
+        "bbox": [
+          1742.0,
+          326.0,
+          229.0,
+          242.0
+        ],
+        "element_ids": [
+          "seed-auto-0127"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-100",
+        "kind": "shape",
+        "bbox": [
+          1798.0,
+          424.0,
+          28.0,
+          18.0
+        ],
+        "element_ids": [
+          "seed-auto-0131"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-101",
+        "kind": "shape",
+        "bbox": [
+          1777.0,
+          475.0,
+          28.0,
+          18.0
+        ],
+        "element_ids": [
+          "seed-auto-0132"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-102",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          62.0,
+          62.0
+        ],
+        "element_ids": [
+          "seed-auto-0133"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-103",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0134"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-104",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0135"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-105",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0136"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-106",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0137"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-107",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          47.0,
+          45.0
+        ],
+        "element_ids": [
+          "seed-auto-0138"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-108",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          70.0,
+          70.0
+        ],
+        "element_ids": [
+          "seed-auto-0139"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-109",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0140"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-110",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0141"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-111",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0142"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-112",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0143"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-113",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          88.0,
+          88.0
+        ],
+        "element_ids": [
+          "seed-auto-0144"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-114",
+        "kind": "shape",
+        "bbox": [
+          740.0,
+          678.0,
+          31.0,
+          109.0
+        ],
+        "element_ids": [
+          "seed-auto-0147"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-115",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0148"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-116",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0149"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-117",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0150"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-118",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0151"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-119",
+        "kind": "shape",
+        "bbox": [
+          783.0,
+          762.0,
+          20.0,
+          20.0
+        ],
+        "element_ids": [
+          "seed-auto-0152"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-120",
+        "kind": "shape",
+        "bbox": [
+          841.0,
+          769.0,
+          16.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0154"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-121",
+        "kind": "shape",
+        "bbox": [
+          854.0,
+          778.0,
+          16.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0155"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-122",
+        "kind": "shape",
+        "bbox": [
+          843.0,
+          785.0,
+          16.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0156"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-123",
+        "kind": "shape",
+        "bbox": [
+          955.0,
+          646.0,
+          42.0,
+          208.0
+        ],
+        "element_ids": [
+          "seed-auto-0160"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-124",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0161"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-125",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0162"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-126",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          25.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0163"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-127",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          40.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0164"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-128",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          55.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0165"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-129",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          70.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0166"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-130",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          85.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0167"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-131",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          100.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0168"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-132",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          115.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0169"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-133",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          130.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0170"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-134",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          145.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0171"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-135",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0172"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-136",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0173"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-137",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0174"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-138",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0175"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-139",
+        "kind": "shape",
+        "bbox": [
+          1199.0,
+          595.0,
+          108.0,
+          268.0
+        ],
+        "element_ids": [
+          "seed-auto-0177"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-140",
+        "kind": "shape",
+        "bbox": [
+          1235.0,
+          626.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0178"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-141",
+        "kind": "shape",
+        "bbox": [
+          1225.0,
+          640.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0179"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-142",
+        "kind": "shape",
+        "bbox": [
+          1215.0,
+          656.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0180"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-143",
+        "kind": "shape",
+        "bbox": [
+          1208.0,
+          674.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0181"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-144",
+        "kind": "shape",
+        "bbox": [
+          1204.0,
+          694.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0182"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-145",
+        "kind": "shape",
+        "bbox": [
+          1204.0,
+          715.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0183"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-146",
+        "kind": "shape",
+        "bbox": [
+          1205.0,
+          737.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0184"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-147",
+        "kind": "shape",
+        "bbox": [
+          1210.0,
+          759.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0185"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-148",
+        "kind": "shape",
+        "bbox": [
+          1216.0,
+          780.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0186"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-149",
+        "kind": "shape",
+        "bbox": [
+          1226.0,
+          801.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0187"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-150",
+        "kind": "shape",
+        "bbox": [
+          1237.0,
+          820.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0188"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-151",
+        "kind": "shape",
+        "bbox": [
+          1251.0,
+          837.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0189"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-152",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0190"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-153",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0191"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-154",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0192"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-155",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0193"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-156",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0194"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-157",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0195"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-158",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0196"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-159",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0197"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-160",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0198"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-161",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0199"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-162",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0200"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-163",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0201"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-164",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0202"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-165",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0203"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-166",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0204"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-167",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0205"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-168",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0206"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-169",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0207"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-170",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0208"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-171",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          22.0,
+          22.0
+        ],
+        "element_ids": [
+          "seed-auto-0209"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-172",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          6.0,
+          6.0
+        ],
+        "element_ids": [
+          "seed-auto-0210"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-173",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          7.0
+        ],
+        "element_ids": [
+          "seed-auto-0211"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-174",
+        "kind": "shape",
+        "bbox": [
+          8.0,
+          0.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0212"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-175",
+        "kind": "shape",
+        "bbox": [
+          12.0,
+          0.0,
+          7.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0213"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-176",
+        "kind": "shape",
+        "bbox": [
+          8.0,
+          8.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0214"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-177",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          12.0,
+          1.0,
+          7.0
+        ],
+        "element_ids": [
+          "seed-auto-0215"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-178",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0216"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-179",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          7.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0217"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-180",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0218"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-181",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          41.0,
+          60.0
+        ],
+        "element_ids": [
+          "seed-auto-0219"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-182",
+        "kind": "shape",
+        "bbox": [
+          8.0,
+          6.0,
+          19.0,
+          50.0
+        ],
+        "element_ids": [
+          "seed-auto-0220"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-183",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          71.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0221"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-184",
+        "kind": "shape",
+        "bbox": [
+          1509.0,
+          607.0,
+          252.0,
+          252.0
+        ],
+        "element_ids": [
+          "seed-auto-0224"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-185",
+        "kind": "shape",
+        "bbox": [
+          1529.0,
+          627.0,
+          212.0,
+          212.0
+        ],
+        "element_ids": [
+          "seed-auto-0225"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-186",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0226"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-187",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0227"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-188",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0228"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-189",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0229"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-190",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          36.0,
+          26.0
+        ],
+        "element_ids": [
+          "seed-auto-0230"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-191",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0231"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-192",
+        "kind": "shape",
+        "bbox": [
+          3.2,
+          0.0,
+          9.6,
+          9.6
+        ],
+        "element_ids": [
+          "seed-auto-0232"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-193",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          7.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0233"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-194",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0234"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-195",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0235"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-196",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0236"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-197",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0237"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-198",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0238"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-199",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0239"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-200",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0240"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-201",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0241"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-202",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0242"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-203",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0243"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-204",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0244"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-205",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          22.0,
+          22.0
+        ],
+        "element_ids": [
+          "seed-auto-0245"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-206",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          6.0,
+          6.0
+        ],
+        "element_ids": [
+          "seed-auto-0246"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-207",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          7.0
+        ],
+        "element_ids": [
+          "seed-auto-0247"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-208",
+        "kind": "shape",
+        "bbox": [
+          8.0,
+          0.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0248"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-209",
+        "kind": "shape",
+        "bbox": [
+          12.0,
+          0.0,
+          7.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0249"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-210",
+        "kind": "shape",
+        "bbox": [
+          8.0,
+          8.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0250"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-211",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          12.0,
+          1.0,
+          7.0
+        ],
+        "element_ids": [
+          "seed-auto-0251"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-212",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0252"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-213",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          7.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0253"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-214",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          5.0,
+          5.0
+        ],
+        "element_ids": [
+          "seed-auto-0254"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-215",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          41.0,
+          60.0
+        ],
+        "element_ids": [
+          "seed-auto-0255"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-216",
+        "kind": "shape",
+        "bbox": [
+          8.0,
+          6.0,
+          19.0,
+          50.0
+        ],
+        "element_ids": [
+          "seed-auto-0256"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-217",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          71.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0257"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-218",
+        "kind": "shape",
+        "bbox": [
+          1750.0,
+          548.0,
+          104.0,
+          107.0
+        ],
+        "element_ids": [
+          "seed-auto-0258"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-219",
+        "kind": "shape",
+        "bbox": [
+          101.0,
+          1110.0,
+          559.0,
+          74.0
+        ],
+        "element_ids": [
+          "seed-auto-0261"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-220",
+        "kind": "shape",
+        "bbox": [
+          151.0,
+          1180.0,
+          214.0,
+          52.0
+        ],
+        "element_ids": [
+          "seed-auto-0262"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-221",
+        "kind": "shape",
+        "bbox": [
+          437.0,
+          1158.0,
+          383.0,
+          73.0
+        ],
+        "element_ids": [
+          "seed-auto-0263"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-222",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          30.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0264"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-223",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          32.0,
+          18.0
+        ],
+        "element_ids": [
+          "seed-auto-0265"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-224",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0266"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-225",
+        "kind": "shape",
+        "bbox": [
+          3.0,
+          0.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0267"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-226",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          10.0,
+          17.0
+        ],
+        "element_ids": [
+          "seed-auto-0268"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-227",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          30.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0269"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-228",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          32.0,
+          18.0
+        ],
+        "element_ids": [
+          "seed-auto-0270"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-229",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0271"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-230",
+        "kind": "shape",
+        "bbox": [
+          3.0,
+          0.0,
+          10.0,
+          10.0
+        ],
+        "element_ids": [
+          "seed-auto-0272"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-231",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          10.0,
+          17.0
+        ],
+        "element_ids": [
+          "seed-auto-0273"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-232",
+        "kind": "shape",
+        "bbox": [
+          240.0,
+          1010.0,
+          53.0,
+          85.0
+        ],
+        "element_ids": [
+          "seed-auto-0275"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-233",
+        "kind": "shape",
+        "bbox": [
+          270.0,
+          964.0,
+          42.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0277"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-234",
+        "kind": "shape",
+        "bbox": [
+          299.0,
+          992.0,
+          21.0,
+          20.0
+        ],
+        "element_ids": [
+          "seed-auto-0279"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-235",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          30.0,
+          20.0
+        ],
+        "element_ids": [
+          "seed-auto-0281"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-236",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          30.0,
+          20.0
+        ],
+        "element_ids": [
+          "seed-auto-0282"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-237",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          4.0,
+          30.0,
+          20.0
+        ],
+        "element_ids": [
+          "seed-auto-0283"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-238",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          8.0,
+          30.0,
+          20.0
+        ],
+        "element_ids": [
+          "seed-auto-0284"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-239",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          150.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0286"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-240",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          42.0,
+          150.0,
+          42.0
+        ],
+        "element_ids": [
+          "seed-auto-0287"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-241",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0290"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-242",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0291"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-243",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0292"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-244",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0293"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-245",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0294"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-246",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0295"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-247",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0296"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-248",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0297"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-249",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0298"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-250",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0299"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-251",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0300"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-252",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0301"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-253",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0302"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-254",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0303"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-255",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0304"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-256",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0305"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-257",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0306"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-258",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0307"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-259",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0308"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-260",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0309"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-261",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0310"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-262",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0311"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-263",
+        "kind": "shape",
+        "bbox": [
+          887.0,
+          1054.0,
+          122.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0312"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-264",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          22.0,
+          22.0
+        ],
+        "element_ids": [
+          "seed-auto-0313"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-265",
+        "kind": "shape",
+        "bbox": [
+          27.0,
+          11.0,
+          22.0,
+          22.0
+        ],
+        "element_ids": [
+          "seed-auto-0314"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-266",
+        "kind": "shape",
+        "bbox": [
+          28.0,
+          0.0,
+          22.0,
+          22.0
+        ],
+        "element_ids": [
+          "seed-auto-0315"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-267",
+        "kind": "shape",
+        "bbox": [
+          65.0,
+          0.0,
+          22.0,
+          22.0
+        ],
+        "element_ids": [
+          "seed-auto-0316"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-268",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0318"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-269",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0319"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-270",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0320"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-271",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0321"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-272",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0322"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-273",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0323"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-274",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0324"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-275",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0325"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-276",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0326"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-277",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0327"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-278",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0328"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-279",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0329"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-280",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0330"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-281",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0331"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-282",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0332"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-283",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0333"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-284",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0334"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-285",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0335"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-286",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0336"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-287",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0337"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-288",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0338"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-289",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0339"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-290",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0342"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-291",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          135.0,
+          32.0
+        ],
+        "element_ids": [
+          "seed-auto-0343"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-292",
+        "kind": "shape",
+        "bbox": [
+          10.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0344"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-293",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0345"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-294",
+        "kind": "shape",
+        "bbox": [
+          40.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0346"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-295",
+        "kind": "shape",
+        "bbox": [
+          55.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0347"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-296",
+        "kind": "shape",
+        "bbox": [
+          70.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0348"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-297",
+        "kind": "shape",
+        "bbox": [
+          85.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0349"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-298",
+        "kind": "shape",
+        "bbox": [
+          100.0,
+          0.0,
+          1.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0350"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-299",
+        "kind": "shape",
+        "bbox": [
+          115.0,
+          0.0,
+          1.0,
+          16.0
+        ],
+        "element_ids": [
+          "seed-auto-0351"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-300",
+        "kind": "shape",
+        "bbox": [
+          130.0,
+          0.0,
+          1.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0352"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-301",
+        "kind": "shape",
+        "bbox": [
+          1468.0,
+          1054.0,
+          73.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0354"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-302",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          68.0,
+          68.0
+        ],
+        "element_ids": [
+          "seed-auto-0355"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-303",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          28.0,
+          28.0
+        ],
+        "element_ids": [
+          "seed-auto-0356"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-304",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          23.0,
+          18.0
+        ],
+        "element_ids": [
+          "seed-auto-0357"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-305",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          17.0
+        ],
+        "element_ids": [
+          "seed-auto-0358"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-306",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0359"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-307",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          0.0,
+          12.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0360"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-308",
+        "kind": "shape",
+        "bbox": [
+          38.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0361"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-309",
+        "kind": "shape",
+        "bbox": [
+          35.0,
+          0.0,
+          17.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0362"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-310",
+        "kind": "shape",
+        "bbox": [
+          53.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0363"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-311",
+        "kind": "shape",
+        "bbox": [
+          25.0,
+          25.0,
+          12.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0364"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-312",
+        "kind": "shape",
+        "bbox": [
+          38.0,
+          38.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0365"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-313",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          35.0,
+          1.0,
+          17.0
+        ],
+        "element_ids": [
+          "seed-auto-0366"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-314",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          53.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0367"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-315",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          25.0,
+          12.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0368"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-316",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          38.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0369"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-317",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          17.0,
+          1.0
+        ],
+        "element_ids": [
+          "seed-auto-0370"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-318",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0371"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-319",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          12.0,
+          12.0
+        ],
+        "element_ids": [
+          "seed-auto-0372"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-320",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0373"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-321",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          66.0,
+          68.0
+        ],
+        "element_ids": [
+          "seed-auto-0375"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-322",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          19.0,
+          35.0
+        ],
+        "element_ids": [
+          "seed-auto-0376"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-323",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          20.0,
+          37.0
+        ],
+        "element_ids": [
+          "seed-auto-0377"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-324",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          76.0,
+          38.0
+        ],
+        "element_ids": [
+          "seed-auto-0379"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-325",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0380"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-326",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          2.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0381"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-327",
+        "kind": "shape",
+        "bbox": [
+          14.0,
+          0.0,
+          8.0,
+          8.0
+        ],
+        "element_ids": [
+          "seed-auto-0382"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-328",
+        "kind": "shape",
+        "bbox": [
+          15.0,
+          6.0,
+          33.0,
+          24.0
+        ],
+        "element_ids": [
+          "seed-auto-0383"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-329",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          7.0,
+          13.0
+        ],
+        "element_ids": [
+          "seed-auto-0384"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-330",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          0.0,
+          2.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0385"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-331",
+        "kind": "shape",
+        "bbox": [
+          12.0,
+          0.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0386"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-332",
+        "kind": "shape",
+        "bbox": [
+          29.0,
+          0.0,
+          10.0,
+          11.0
+        ],
+        "element_ids": [
+          "seed-auto-0387"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-333",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          18.0,
+          7.0,
+          13.0
+        ],
+        "element_ids": [
+          "seed-auto-0388"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-334",
+        "kind": "shape",
+        "bbox": [
+          0.0,
+          19.0,
+          2.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0389"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      },
+      {
+        "id": "inv-shape-335",
+        "kind": "shape",
+        "bbox": [
+          12.0,
+          18.0,
+          4.0,
+          14.0
+        ],
+        "element_ids": [
+          "seed-auto-0390"
+        ],
+        "critical_region_ids": [
+          "figure-root"
+        ]
+      }
+    ],
+    "frozen_at": "20260827T130554Z"
+  },
+  "critical_region_expectation": {
+    "count": 1,
+    "contracts": [
+      {
+        "id": "figure-root",
+        "bbox": [
+          0,
+          0,
+          2100,
+          1324
+        ],
+        "element_ids": [
+          "seed-auto-0003",
+          "seed-auto-0004",
+          "seed-auto-0019",
+          "seed-auto-0043",
+          "seed-auto-0045",
+          "seed-auto-0053",
+          "seed-auto-0062",
+          "seed-auto-0071",
+          "seed-auto-0080",
+          "seed-auto-0081",
+          "seed-auto-0082",
+          "seed-auto-0097",
+          "seed-auto-0099",
+          "seed-auto-0103",
+          "seed-auto-0104",
+          "seed-auto-0110",
+          "seed-auto-0111",
+          "seed-auto-0114",
+          "seed-auto-0128",
+          "seed-auto-0129",
+          "seed-auto-0130",
+          "seed-auto-0153",
+          "seed-auto-0157",
+          "seed-auto-0159",
+          "seed-auto-0223",
+          "seed-auto-0260",
+          "seed-auto-0274",
+          "seed-auto-0276",
+          "seed-auto-0278",
+          "seed-auto-0280",
+          "seed-auto-0288",
+          "seed-auto-0289",
+          "seed-auto-0317",
+          "seed-auto-0340",
+          "seed-auto-0353",
+          "seed-auto-0374",
+          "seed-auto-0378",
+          "seed-auto-0391",
+          "seed-auto-0015",
+          "seed-auto-0020",
+          "seed-auto-0046",
+          "seed-auto-0054",
+          "seed-auto-0055",
+          "seed-auto-0061",
+          "seed-auto-0079",
+          "seed-auto-0083",
+          "seed-auto-0112",
+          "seed-auto-0145",
+          "seed-auto-0146",
+          "seed-auto-0158",
+          "seed-auto-0176",
+          "seed-auto-0222",
+          "seed-auto-0259",
+          "seed-auto-0285",
+          "seed-auto-0341",
+          "seed-auto-0392",
+          "seed-auto-0002",
+          "seed-auto-0005",
+          "seed-auto-0006",
+          "seed-auto-0007",
+          "seed-auto-0008",
+          "seed-auto-0009",
+          "seed-auto-0010",
+          "seed-auto-0011",
+          "seed-auto-0012",
+          "seed-auto-0013",
+          "seed-auto-0014",
+          "seed-auto-0016",
+          "seed-auto-0017",
+          "seed-auto-0018",
+          "seed-auto-0021",
+          "seed-auto-0022",
+          "seed-auto-0023",
+          "seed-auto-0024",
+          "seed-auto-0025",
+          "seed-auto-0026",
+          "seed-auto-0027",
+          "seed-auto-0028",
+          "seed-auto-0029",
+          "seed-auto-0030",
+          "seed-auto-0031",
+          "seed-auto-0032",
+          "seed-auto-0033",
+          "seed-auto-0034",
+          "seed-auto-0035",
+          "seed-auto-0036",
+          "seed-auto-0037",
+          "seed-auto-0038",
+          "seed-auto-0039",
+          "seed-auto-0040",
+          "seed-auto-0041",
+          "seed-auto-0042",
+          "seed-auto-0044",
+          "seed-auto-0047",
+          "seed-auto-0048",
+          "seed-auto-0049",
+          "seed-auto-0050",
+          "seed-auto-0051",
+          "seed-auto-0052",
+          "seed-auto-0056",
+          "seed-auto-0057",
+          "seed-auto-0058",
+          "seed-auto-0059",
+          "seed-auto-0060",
+          "seed-auto-0063",
+          "seed-auto-0064",
+          "seed-auto-0065",
+          "seed-auto-0066",
+          "seed-auto-0067",
+          "seed-auto-0068",
+          "seed-auto-0069",
+          "seed-auto-0070",
+          "seed-auto-0072",
+          "seed-auto-0073",
+          "seed-auto-0074",
+          "seed-auto-0075",
+          "seed-auto-0076",
+          "seed-auto-0077",
+          "seed-auto-0078",
+          "seed-auto-0084",
+          "seed-auto-0085",
+          "seed-auto-0086",
+          "seed-auto-0087",
+          "seed-auto-0088",
+          "seed-auto-0089",
+          "seed-auto-0090",
+          "seed-auto-0091",
+          "seed-auto-0092",
+          "seed-auto-0093",
+          "seed-auto-0094",
+          "seed-auto-0095",
+          "seed-auto-0096",
+          "seed-auto-0098",
+          "seed-auto-0100",
+          "seed-auto-0101",
+          "seed-auto-0102",
+          "seed-auto-0105",
+          "seed-auto-0106",
+          "seed-auto-0107",
+          "seed-auto-0108",
+          "seed-auto-0109",
+          "seed-auto-0113",
+          "seed-auto-0115",
+          "seed-auto-0116",
+          "seed-auto-0117",
+          "seed-auto-0118",
+          "seed-auto-0119",
+          "seed-auto-0120",
+          "seed-auto-0121",
+          "seed-auto-0122",
+          "seed-auto-0123",
+          "seed-auto-0124",
+          "seed-auto-0125",
+          "seed-auto-0126",
+          "seed-auto-0127",
+          "seed-auto-0131",
+          "seed-auto-0132",
+          "seed-auto-0133",
+          "seed-auto-0134",
+          "seed-auto-0135",
+          "seed-auto-0136",
+          "seed-auto-0137",
+          "seed-auto-0138",
+          "seed-auto-0139",
+          "seed-auto-0140",
+          "seed-auto-0141",
+          "seed-auto-0142",
+          "seed-auto-0143",
+          "seed-auto-0144",
+          "seed-auto-0147",
+          "seed-auto-0148",
+          "seed-auto-0149",
+          "seed-auto-0150",
+          "seed-auto-0151",
+          "seed-auto-0152",
+          "seed-auto-0154",
+          "seed-auto-0155",
+          "seed-auto-0156",
+          "seed-auto-0160",
+          "seed-auto-0161",
+          "seed-auto-0162",
+          "seed-auto-0163",
+          "seed-auto-0164",
+          "seed-auto-0165",
+          "seed-auto-0166",
+          "seed-auto-0167",
+          "seed-auto-0168",
+          "seed-auto-0169",
+          "seed-auto-0170",
+          "seed-auto-0171",
+          "seed-auto-0172",
+          "seed-auto-0173",
+          "seed-auto-0174",
+          "seed-auto-0175",
+          "seed-auto-0177",
+          "seed-auto-0178",
+          "seed-auto-0179",
+          "seed-auto-0180",
+          "seed-auto-0181",
+          "seed-auto-0182",
+          "seed-auto-0183",
+          "seed-auto-0184",
+          "seed-auto-0185",
+          "seed-auto-0186",
+          "seed-auto-0187",
+          "seed-auto-0188",
+          "seed-auto-0189",
+          "seed-auto-0190",
+          "seed-auto-0191",
+          "seed-auto-0192",
+          "seed-auto-0193",
+          "seed-auto-0194",
+          "seed-auto-0195",
+          "seed-auto-0196",
+          "seed-auto-0197",
+          "seed-auto-0198",
+          "seed-auto-0199",
+          "seed-auto-0200",
+          "seed-auto-0201",
+          "seed-auto-0202",
+          "seed-auto-0203",
+          "seed-auto-0204",
+          "seed-auto-0205",
+          "seed-auto-0206",
+          "seed-auto-0207",
+          "seed-auto-0208",
+          "seed-auto-0209",
+          "seed-auto-0210",
+          "seed-auto-0211",
+          "seed-auto-0212",
+          "seed-auto-0213",
+          "seed-auto-0214",
+          "seed-auto-0215",
+          "seed-auto-0216",
+          "seed-auto-0217",
+          "seed-auto-0218",
+          "seed-auto-0219",
+          "seed-auto-0220",
+          "seed-auto-0221",
+          "seed-auto-0224",
+          "seed-auto-0225",
+          "seed-auto-0226",
+          "seed-auto-0227",
+          "seed-auto-0228",
+          "seed-auto-0229",
+          "seed-auto-0230",
+          "seed-auto-0231",
+          "seed-auto-0232",
+          "seed-auto-0233",
+          "seed-auto-0234",
+          "seed-auto-0235",
+          "seed-auto-0236",
+          "seed-auto-0237",
+          "seed-auto-0238",
+          "seed-auto-0239",
+          "seed-auto-0240",
+          "seed-auto-0241",
+          "seed-auto-0242",
+          "seed-auto-0243",
+          "seed-auto-0244",
+          "seed-auto-0245",
+          "seed-auto-0246",
+          "seed-auto-0247",
+          "seed-auto-0248",
+          "seed-auto-0249",
+          "seed-auto-0250",
+          "seed-auto-0251",
+          "seed-auto-0252",
+          "seed-auto-0253",
+          "seed-auto-0254",
+          "seed-auto-0255",
+          "seed-auto-0256",
+          "seed-auto-0257",
+          "seed-auto-0258",
+          "seed-auto-0261",
+          "seed-auto-0262",
+          "seed-auto-0263",
+          "seed-auto-0264",
+          "seed-auto-0265",
+          "seed-auto-0266",
+          "seed-auto-0267",
+          "seed-auto-0268",
+          "seed-auto-0269",
+          "seed-auto-0270",
+          "seed-auto-0271",
+          "seed-auto-0272",
+          "seed-auto-0273",
+          "seed-auto-0275",
+          "seed-auto-0277",
+          "seed-auto-0279",
+          "seed-auto-0281",
+          "seed-auto-0282",
+          "seed-auto-0283",
+          "seed-auto-0284",
+          "seed-auto-0286",
+          "seed-auto-0287",
+          "seed-auto-0290",
+          "seed-auto-0291",
+          "seed-auto-0292",
+          "seed-auto-0293",
+          "seed-auto-0294",
+          "seed-auto-0295",
+          "seed-auto-0296",
+          "seed-auto-0297",
+          "seed-auto-0298",
+          "seed-auto-0299",
+          "seed-auto-0300",
+          "seed-auto-0301",
+          "seed-auto-0302",
+          "seed-auto-0303",
+          "seed-auto-0304",
+          "seed-auto-0305",
+          "seed-auto-0306",
+          "seed-auto-0307",
+          "seed-auto-0308",
+          "seed-auto-0309",
+          "seed-auto-0310",
+          "seed-auto-0311",
+          "seed-auto-0312",
+          "seed-auto-0313",
+          "seed-auto-0314",
+          "seed-auto-0315",
+          "seed-auto-0316",
+          "seed-auto-0318",
+          "seed-auto-0319",
+          "seed-auto-0320",
+          "seed-auto-0321",
+          "seed-auto-0322",
+          "seed-auto-0323",
+          "seed-auto-0324",
+          "seed-auto-0325",
+          "seed-auto-0326",
+          "seed-auto-0327",
+          "seed-auto-0328",
+          "seed-auto-0329",
+          "seed-auto-0330",
+          "seed-auto-0331",
+          "seed-auto-0332",
+          "seed-auto-0333",
+          "seed-auto-0334",
+          "seed-auto-0335",
+          "seed-auto-0336",
+          "seed-auto-0337",
+          "seed-auto-0338",
+          "seed-auto-0339",
+          "seed-auto-0342",
+          "seed-auto-0343",
+          "seed-auto-0344",
+          "seed-auto-0345",
+          "seed-auto-0346",
+          "seed-auto-0347",
+          "seed-auto-0348",
+          "seed-auto-0349",
+          "seed-auto-0350",
+          "seed-auto-0351",
+          "seed-auto-0352",
+          "seed-auto-0354",
+          "seed-auto-0355",
+          "seed-auto-0356",
+          "seed-auto-0357",
+          "seed-auto-0358",
+          "seed-auto-0359",
+          "seed-auto-0360",
+          "seed-auto-0361",
+          "seed-auto-0362",
+          "seed-auto-0363",
+          "seed-auto-0364",
+          "seed-auto-0365",
+          "seed-auto-0366",
+          "seed-auto-0367",
+          "seed-auto-0368",
+          "seed-auto-0369",
+          "seed-auto-0370",
+          "seed-auto-0371",
+          "seed-auto-0372",
+          "seed-auto-0373",
+          "seed-auto-0375",
+          "seed-auto-0376",
+          "seed-auto-0377",
+          "seed-auto-0379",
+          "seed-auto-0380",
+          "seed-auto-0381",
+          "seed-auto-0382",
+          "seed-auto-0383",
+          "seed-auto-0384",
+          "seed-auto-0385",
+          "seed-auto-0386",
+          "seed-auto-0387",
+          "seed-auto-0388",
+          "seed-auto-0389",
+          "seed-auto-0390"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "88d7b3f6e2a759681d34a6ed53acdbd39ba8fa9e8a6963d2eef7cf5db06ba4d8"
+        }
+      }
+    ]
+  },
+  "updated_at": "20260827T130554Z"
+}

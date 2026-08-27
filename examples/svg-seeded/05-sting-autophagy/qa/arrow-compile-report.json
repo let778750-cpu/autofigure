@@ -1,0 +1,1063 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_compile_report",
+  "created_at": "20260827T130657Z",
+  "case": "05-sting-autophagy",
+  "scene_sha256": "f18e1502a20414681cbedea986ccc278b0ec834cdd691cb4706fe1ddc44c57f3",
+  "artifact_sha256": "90a662961538b9b22d6e8a6ec40a92358e91cf2ee48dbdb64cc204070cebd152",
+  "arrow_count": 25,
+  "records": [
+    {
+      "element_id": "seed-auto-0015",
+      "arrow_spec_sha256": "5f86e83d885f46245549fd3118a21643837a71821317f770dddafe5dd43eb3e7",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        15
+      ],
+      "shape_names": [
+        "af-seed-auto-0015-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0020",
+      "arrow_spec_sha256": "22290665e80404f6b499a2413611927bb8323aabe9841c8ef1b041f7a7ea2a61",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        20
+      ],
+      "shape_names": [
+        "af-seed-auto-0020-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0046",
+      "arrow_spec_sha256": "7c437ca1ee665d80d4ba2609aa445a12454cf3eed2fbafa7ec601c25dbc0a6e2",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        46
+      ],
+      "shape_names": [
+        "af-seed-auto-0046-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0054",
+      "arrow_spec_sha256": "4333ab1c97d0309526387c85d3f5dd42039f4114d6cea555b608535b3e4d4202",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        54
+      ],
+      "shape_names": [
+        "af-seed-auto-0054-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0055",
+      "arrow_spec_sha256": "91a177c819bb5f9ef19add0763ca172c25163f680e542b6d6fe500017dcf5218",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        55
+      ],
+      "shape_names": [
+        "af-seed-auto-0055-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0061",
+      "arrow_spec_sha256": "7f8fde998cc868a66bf0f45467ff8ae83106ac41e45ba8da3a4bb31e354289ec",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        61
+      ],
+      "shape_names": [
+        "af-seed-auto-0061-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0078",
+      "arrow_spec_sha256": "bae61e73ab3b35b6ff98f97ce5b30f19a68f597b256b35459f6e3905000b7647",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        78
+      ],
+      "shape_names": [
+        "af-seed-auto-0078-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0079",
+      "arrow_spec_sha256": "ead8879f16a7b54f3dce07566e756aa6800480d360f9a0e9f04dc39a5b200c5d",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        79
+      ],
+      "shape_names": [
+        "af-seed-auto-0079-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0083",
+      "arrow_spec_sha256": "40176f19e1e9b20c732f8429fe100024641f2e85c43258630f483014e8468851",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        83
+      ],
+      "shape_names": [
+        "af-seed-auto-0083-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0100",
+      "arrow_spec_sha256": "b29d6a107350c7eaa2c3e054f0fdab7559cf96de0f43d42179f8c19480d1474a",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        100
+      ],
+      "shape_names": [
+        "af-seed-auto-0100-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0109",
+      "arrow_spec_sha256": "4dcc45ea70e9af2c6517cf237c3acbd7960ce4f89e7e63f9e957975b21747ef3",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        109
+      ],
+      "shape_names": [
+        "af-seed-auto-0109-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0112",
+      "arrow_spec_sha256": "2664772fb5f5e97f929e8cf6b2cb97e659198198edc6d6877b0f9a99f9905133",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        112
+      ],
+      "shape_names": [
+        "af-seed-auto-0112-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0145",
+      "arrow_spec_sha256": "5de0551b2477126e2586aafa94b311cc74e5f71697ff667e96a2f711f24024c1",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        145
+      ],
+      "shape_names": [
+        "af-seed-auto-0145-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0146",
+      "arrow_spec_sha256": "b526bc1e649a91092f6653570a6d0e8f6de9ca4818a5ab6e46eb51d799f88e75",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        146
+      ],
+      "shape_names": [
+        "af-seed-auto-0146-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0158",
+      "arrow_spec_sha256": "e48d952ec7540a84fa34a47f568c1f0f2598086dc4b49ff1b5c6b9e2ec9f3e0f",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        158
+      ],
+      "shape_names": [
+        "af-seed-auto-0158-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0176",
+      "arrow_spec_sha256": "77c8800c7718dabae64ff5af978701b2c8ff0da2ad4182b4716e1e1ddd35f50d",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        176
+      ],
+      "shape_names": [
+        "af-seed-auto-0176-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0222",
+      "arrow_spec_sha256": "8d70c969885c44f58e5a7db29290631044283008ad85efaf6b375ee09c3bde0f",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        222
+      ],
+      "shape_names": [
+        "af-seed-auto-0222-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0258",
+      "arrow_spec_sha256": "d42116af50f5fdadbe38b8c46d3b9d77970e2da799cf1814c0d0bfc03c05957f",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        258
+      ],
+      "shape_names": [
+        "af-seed-auto-0258-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0259",
+      "arrow_spec_sha256": "75d56ded94e8c247427f0ba6f59a0840048173f28d990d83de68afedff9c3283",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        259
+      ],
+      "shape_names": [
+        "af-seed-auto-0259-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0279",
+      "arrow_spec_sha256": "fe0fa155087a1c9ff005a16d2de3d532eefd63fd6e619caf8a7c50db32adb0ec",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        279
+      ],
+      "shape_names": [
+        "af-seed-auto-0279-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0285",
+      "arrow_spec_sha256": "f6aa872ef917106870968899386de8ae7a76f10c659dcfe8eacc5ca7c07cc49d",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        285
+      ],
+      "shape_names": [
+        "af-seed-auto-0285-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0312",
+      "arrow_spec_sha256": "cb808b2b553d245976893f736b7315edb8bb413d6c85f58a3edebb08a0421ef0",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        312
+      ],
+      "shape_names": [
+        "af-seed-auto-0312-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0341",
+      "arrow_spec_sha256": "a7cb03d883c3f50d3009e3a0d04d3948c73a6c3d42443f0ffd8c7bafc40ef8f1",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        341
+      ],
+      "shape_names": [
+        "af-seed-auto-0341-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0354",
+      "arrow_spec_sha256": "63421166d5261bf04c275b29bb5fe344b7de1bcfd992719490506884c707b2f5",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        354
+      ],
+      "shape_names": [
+        "af-seed-auto-0354-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "seed-auto-0392",
+      "arrow_spec_sha256": "66afc39a3c82c7be14252a347faedb972766f095372f7eead70ad8dadd500a5f",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        392
+      ],
+      "shape_names": [
+        "af-seed-auto-0392-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

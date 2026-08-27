@@ -1,2 +1,6 @@
 # Hash-bound scene, manifest, binding, and QA contracts require stable bytes.
 *.json text eol=lf
+# Benchmark fixtures are hash-bound immutable inputs: EOL translation is forbidden.
+benchmarks/fixtures/** -text
+benchmarks/fixtures/**/*.svg text eol=lf
+benchmarks/fixtures/**/*.json text eol=lf

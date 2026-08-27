@@ -1,0 +1,386 @@
+{
+  "svg": "redraw.svg",
+  "phase": "audit",
+  "audit_version": "3.0.0",
+  "arrows": 25,
+  "marker_refs": 25,
+  "marker_defs": 1,
+  "findings": [
+    {
+      "code": "F3",
+      "element": "seed-auto-0015",
+      "element_index": 0,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        691,
+        494
+      ],
+      "bbox": [
+        667,
+        470,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 43.09px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0055",
+      "element_index": 4,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        166,
+        735
+      ],
+      "bbox": [
+        142,
+        711,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 28.81px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0061",
+      "element_index": 5,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        159,
+        516
+      ],
+      "bbox": [
+        135,
+        492,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 18.13px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0078",
+      "element_index": 6,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        286,
+        1008
+      ],
+      "bbox": [
+        262,
+        984,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 9.05px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0079",
+      "element_index": 7,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        350,
+        786
+      ],
+      "bbox": [
+        326,
+        762,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 16.85px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0083",
+      "element_index": 8,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1009,
+        220
+      ],
+      "bbox": [
+        985,
+        196,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 16.41px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0109",
+      "element_index": 10,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1443,
+        44
+      ],
+      "bbox": [
+        1419,
+        20,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 44.10px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0145",
+      "element_index": 12,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1903,
+        349
+      ],
+      "bbox": [
+        1879,
+        325,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 7.37px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0146",
+      "element_index": 13,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        740,
+        753
+      ],
+      "bbox": [
+        716,
+        729,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 18.46px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0176",
+      "element_index": 15,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1214,
+        753
+      ],
+      "bbox": [
+        1190,
+        729,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 19.80px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0222",
+      "element_index": 16,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1538,
+        753
+      ],
+      "bbox": [
+        1514,
+        729,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 9.26px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0258",
+      "element_index": 17,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1901,
+        562
+      ],
+      "bbox": [
+        1877,
+        538,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 11.79px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0259",
+      "element_index": 18,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1425,
+        817
+      ],
+      "bbox": [
+        1401,
+        793,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 102.45px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0279",
+      "element_index": 19,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        328,
+        1017
+      ],
+      "bbox": [
+        304,
+        993,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 9.07px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0285",
+      "element_index": 20,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        742,
+        1081
+      ],
+      "bbox": [
+        718,
+        1057,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 69.93px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0312",
+      "element_index": 21,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        910,
+        1081
+      ],
+      "bbox": [
+        886,
+        1057,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 44.12px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0341",
+      "element_index": 22,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1220,
+        1081
+      ],
+      "bbox": [
+        1196,
+        1057,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 21.53px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0354",
+      "element_index": 23,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1505,
+        1081
+      ],
+      "bbox": [
+        1481,
+        1057,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 99.87px (limit 6.00px)"
+    },
+    {
+      "code": "F3",
+      "element": "seed-auto-0392",
+      "element_index": 24,
+      "tag": "path",
+      "side": "end",
+      "endpoint": [
+        1505,
+        1097
+      ],
+      "bbox": [
+        1481,
+        1073,
+        48,
+        48
+      ],
+      "marker": "openArrow",
+      "detail": "endpoint boundary/gap error is 99.71px (limit 6.00px)"
+    }
+  ],
+  "counts": {
+    "F3": 19
+  },
+  "arrow_metrics": [],
+  "embedded_plot_axis_exemptions": [],
+  "embedded_plot_geometry_groups": [],
+  "ratio_stats": {
+    "median": 2.29,
+    "min": 2.29,
+    "max": 2.29,
+    "band": [
+      1.5,
+      4.0
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "asset_contract_freeze_receipt",
+  "case": "05-sting-autophagy",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "inventory_sha256": "64fadfc56943d7ead3c3b0d553341e7c91bd2817668b5c0faa4322126500d4bc",
+  "asset_contract_sha256": "0726e5d0d11936d2c63ec11f973fb777663d2f6ad402bbbfa2854337d9a40df1",
+  "policy_sha256": "8056509bad55e1b95600d1196e369ed73c8af8132abbdb831612a1104790f38b",
+  "microasset_opportunity_map_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "opportunity_count": 0,
+  "status": "PASS",
+  "frozen_at": "20260827T130554Z"
+}

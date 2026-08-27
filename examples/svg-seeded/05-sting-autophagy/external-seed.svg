@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="2100" height="1324" viewBox="0 0 2100 1324">
+  <ns0:g id="seed-canvas-rescale" transform="scale(1.025390625,1.025561580)">
+    <ns0:defs>
+      <ns0:marker id="openArrow" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+        <ns0:path d="M1,1 L9,5 L1,9" fill="none" stroke="#111" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0001" />
+      </ns0:marker>
+    </ns0:defs>
+    <ns0:rect width="2048" height="1291" fill="white" id="seed-auto-0002" />
+    <ns0:text x="33" y="255" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0003">Trans Golgi</ns0:text>
+    <ns0:text x="0" y="462" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0004">Cis Golgi</ns0:text>
+    <ns0:path d="M190 279 C208 253,235 245,265 252 C354 275,431 273,515 247 C548 237,575 249,566 276 C557 303,529 316,488 327 C379 358,275 352,188 316 C165 306,166 293,190 279Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0005" />
+    <ns0:path d="M99 350 C112 320,140 312,168 323 C268 358,396 373,538 341 C603 326,646 310,668 315 C696 321,696 349,677 366 C654 388,588 405,508 416 C351 439,198 420,112 390 C81 379,83 367,99 350Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0006" />
+    <ns0:path d="M184 432 C203 419,223 417,249 421 L372 429 C396 431,405 445,396 459 C387 473,366 476,338 475 L206 470 C176 469,166 444,184 432Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0007" />
+    <ns0:path d="M425 442 C451 434,492 433,535 433 C572 433,602 429,616 437 C634 447,623 463,604 467 C569 474,516 475,467 472 C440 470,424 458,425 442Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0008" />
+    <ns0:path d="M179 486 C194 472,219 473,233 486 C247 499,241 521,224 530 C204 540,180 531,175 513 C171 503,172 494,179 486Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0009" />
+    <ns0:path d="M243 489 C265 477,289 478,314 483 C374 494,444 497,510 487 C537 483,562 482,582 486 C606 491,608 510,588 520 C563 532,530 530,486 530 L286 529 C253 529,229 507,243 489Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0010" />
+    <ns0:circle cx="673" cy="428" r="12" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0011" />
+    <ns0:circle cx="169" cy="333" r="17" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0012" />
+    <ns0:circle cx="657" cy="336" r="18" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0013" />
+    <ns0:path d="M719 332 C742 323,753 345,751 365 C748 398,724 423,689 437" stroke-dasharray="2 8" stroke-width="3.5" stroke="#111" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0014" />
+    <ns0:path d="M739 427 C727 452,704 470,674 482" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0015" />
+    <ns0:g id="" transform="translate(349 294) scale(1.45) translate(0,0)">
+      <ns0:path d="M-18 -3 C-12 -18,2 -18,7 -5 C10 4,4 13,-8 15 C-17 17,-24 8,-18 -3Z" fill="#284E9A" id="seed-auto-0016" />
+      <ns0:path d="M3 -14 C13 -17,23 -7,21 4 C19 14,8 18,0 12 C8 8,11 2,3 -14Z" fill="#203D7E" id="seed-auto-0017" />
+      <ns0:ellipse cx="18" cy="-13" rx="12" ry="16" fill="#F9C316" id="seed-auto-0018" />
+    </ns0:g>
+    <ns0:text x="246" y="220" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0019">ARFGEFs</ns0:text>
+    <ns0:path d="M376 238 C393 224,417 220,435 231" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0020" />
+    <ns0:g id="" transform="translate(473 213) scale(0.95) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0021" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0022" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0023" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0024" />
+    </ns0:g>
+    <ns0:path d="M498 229 C493 208,480 194,466 184 C452 172,444 160,447 147" fill="none" stroke="#2A63A3" stroke-width="3" id="seed-auto-0025" />
+    <ns0:g transform="translate(474 218)">
+      <ns0:circle cx="0" cy="0" r="40" fill="#C4D6ED" stroke="#5B8FC8" stroke-width="2.5" id="seed-auto-0026" />
+      <ns0:circle cx="0" cy="0" r="47" fill="none" stroke="#2F3E73" stroke-width="7" stroke-dasharray="2 8" stroke-linecap="round" id="seed-auto-0027" />
+      <ns0:g id="" transform="translate(0,-43) scale(0.86) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0028" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0029" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0030" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0031" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:g id="" transform="translate(305 520) scale(0.85) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0032" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0033" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0034" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0035" />
+    </ns0:g>
+    <ns0:g id="" transform="translate(574 515) scale(0.83) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0036" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0037" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0038" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0039" />
+    </ns0:g>
+    <ns0:g id="" transform="translate(350 525) scale(0.9) translate(0,0)">
+      <ns0:path d="M-18 -3 C-12 -18,2 -18,7 -5 C10 4,4 13,-8 15 C-17 17,-24 8,-18 -3Z" fill="#284E9A" id="seed-auto-0040" />
+      <ns0:path d="M3 -14 C13 -17,23 -7,21 4 C19 14,8 18,0 12 C8 8,11 2,3 -14Z" fill="#203D7E" id="seed-auto-0041" />
+      <ns0:ellipse cx="18" cy="-13" rx="12" ry="16" fill="#F9C316" id="seed-auto-0042" />
+    </ns0:g>
+    <ns0:text x="380" y="544" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0043">ARFGEFs</ns0:text>
+    <ns0:ellipse cx="348" cy="594" rx="14" ry="20" fill="#F6C11A" id="seed-auto-0044" />
+    <ns0:text x="357" y="608" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0045">ARFs</ns0:text>
+    <ns0:path d="M287 531 C269 558,263 586,264 605" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0046" />
+    <ns0:g transform="translate(266 632)">
+      <ns0:circle r="28" fill="#F5D8C5" stroke="#D38E61" stroke-width="2" id="seed-auto-0047" />
+      <ns0:circle r="36" fill="none" stroke="#33447D" stroke-width="6" stroke-dasharray="2 6" id="seed-auto-0048" />
+      <ns0:g id="" transform="translate(12,-24) scale(0.58) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0049" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0050" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0051" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0052" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:text x="150" y="577" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0053">COP I</ns0:text>
+    <ns0:path d="M287 666 C300 694,327 708,353 716" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0054" />
+    <ns0:path d="M313 718 C260 736,210 740,162 717" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0055" />
+    <ns0:g transform="translate(132 672)">
+      <ns0:circle r="26" fill="#F7DED2" stroke="#D99868" stroke-width="2" id="seed-auto-0056" />
+      <ns0:g id="" transform="translate(-10,-28) scale(0.58) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0057" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0058" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0059" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0060" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:path d="M111 650 C107 592,124 536,155 503" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0061" />
+    <ns0:text x="448" y="650" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0062">ERGIC</ns0:text>
+    <ns0:path d="M347 724 C364 707,395 707,409 716 C424 726,414 739,394 741 C371 744,344 740,347 724Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0063" />
+    <ns0:path d="M420 720 C437 706,461 710,465 722 C468 734,455 742,439 745 C420 748,407 734,420 720Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0064" />
+    <ns0:path d="M357 750 C378 741,400 746,421 752 C456 763,496 759,526 749 C547 742,567 745,571 757 C575 771,556 781,533 782 L404 781 C377 781,350 770,357 750Z" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0065" />
+    <ns0:circle cx="524" cy="771" r="12" fill="#BFD2EA" stroke="#5E8FCA" stroke-width="2.2" stroke-linejoin="round" id="seed-auto-0066" />
+    <ns0:g id="" transform="translate(484 704) scale(0.66) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0067" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0068" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0069" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0070" />
+    </ns0:g>
+    <ns0:text x="90" y="852" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0071">COP II</ns0:text>
+    <ns0:g transform="translate(252 851)">
+      <ns0:circle r="27" fill="#F6D5C3" stroke="#D28C60" stroke-width="2" id="seed-auto-0072" />
+      <ns0:circle r="35" fill="none" stroke="#D4422E" stroke-width="5" stroke-dasharray="2 5" id="seed-auto-0073" />
+      <ns0:g id="" transform="translate(9,-27) scale(0.55) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0074" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0075" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0076" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0077" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:path d="M260 896 C255 922,257 952,279 983" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0078" />
+    <ns0:path d="M263 821 C280 795,313 774,341 766" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0079" />
+    <ns0:text x="798" y="153" font-family="Arial, Helvetica, sans-serif" font-size="44px" font-weight="700" fill="#222" dominant-baseline="middle" id="seed-auto-0080">Step 3</ns0:text>
+    <ns0:text x="673" y="634" font-family="Arial, Helvetica, sans-serif" font-size="44px" font-weight="700" fill="#222" dominant-baseline="middle" id="seed-auto-0081">Step 2</ns0:text>
+    <ns0:text x="671" y="975" font-family="Arial, Helvetica, sans-serif" font-size="44px" font-weight="700" fill="#222" dominant-baseline="middle" id="seed-auto-0082">Step 1</ns0:text>
+    <ns0:path d="M545 215 L984 215" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0083" />
+    <ns0:rect x="1000" y="183" width="178" height="63" rx="31" fill="#0D5D9E" stroke="#174982" stroke-width="2.5" id="seed-auto-0084" />
+    <ns0:g id="" transform="translate(1088 176) rotate(180) scale(0.66) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0085" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0086" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0087" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0088" />
+    </ns0:g>
+    <ns0:g id="" transform="translate(1056 255) scale(0.62) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0089" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0090" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0091" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0092" />
+    </ns0:g>
+    <ns0:g id="" transform="translate(1134 255) scale(0.62) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0093" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0094" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0095" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0096" />
+    </ns0:g>
+    <ns0:text x="1004" y="325" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0097">Endosome</ns0:text>
+    <ns0:ellipse cx="1166" cy="148" rx="49" ry="24" fill="#E6B7DD" stroke="#A35A9F" stroke-width="2" id="seed-auto-0098" />
+    <ns0:text x="1166" y="149" text-anchor="middle" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0099">TBK1</ns0:text>
+    <ns0:path d="M1128 127 C1152 106,1177 88,1200 77" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0100" />
+    <ns0:g transform="translate(1205 4)">
+      <ns0:rect x="0" y="0" width="95" height="42" rx="8" fill="#C9D6E7" stroke="#2873B1" stroke-width="2" id="seed-auto-0101" />
+      <ns0:rect x="0" y="43" width="95" height="42" rx="8" fill="#C9D6E7" stroke="#2873B1" stroke-width="2" id="seed-auto-0102" />
+      <ns0:text x="48" y="22" text-anchor="middle" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0103">IRF3</ns0:text>
+      <ns0:text x="48" y="64" text-anchor="middle" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0104">IRF3</ns0:text>
+      <ns0:circle cx="115" cy="22" r="16" fill="#A4C85B" stroke="#527C24" stroke-width="1.8" id="seed-auto-0105" />
+      <ns0:circle cx="115" cy="64" r="16" fill="#A4C85B" stroke="#527C24" stroke-width="1.8" id="seed-auto-0106" />
+      <ns0:path d="M110 18 q8 8 0 16" fill="none" stroke="#2B5A76" stroke-width="2" id="seed-auto-0107" />
+      <ns0:path d="M110 60 q8 8 0 16" fill="none" stroke="#2B5A76" stroke-width="2" id="seed-auto-0108" />
+    </ns0:g>
+    <ns0:path d="M1339 41 L1407 43" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0109" />
+    <ns0:text x="1455" y="25" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0110">IFN;</ns0:text>
+    <ns0:text x="1416" y="54" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0111">cytokines</ns0:text>
+    <ns0:path d="M1238 215 L1540 215" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0112" />
+    <ns0:path d="M1600 145 C1665 123,1723 156,1734 209 C1741 249,1718 277,1679 296 C1638 316,1604 328,1577 314 C1545 297,1544 260,1552 235 C1531 232,1533 197,1543 177 C1554 156,1571 149,1600 145Z" fill="#EFEDEB" stroke="#5E8FCA" stroke-width="2" id="seed-auto-0113" />
+    <ns0:text x="1484" y="312" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0114">MVB</ns0:text>
+    <ns0:g transform="translate(1626 198)">
+      <ns0:circle r="26" fill="none" stroke="#5E8FCA" stroke-width="2" id="seed-auto-0115" />
+      <ns0:g id="" transform="translate(6,-6) scale(0.5) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0116" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0117" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0118" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0119" />
+      </ns0:g>
+      <ns0:path d="M-18 -2 q10 -25 18 -14 q6 9 18 4 q-4 12 -1 21 q-9 -6 -16 4 q-12 -11 -19 -15Z" fill="none" stroke="#6794C8" stroke-width="1.5" id="seed-auto-0120" />
+    </ns0:g>
+    <ns0:g transform="translate(1694 235)">
+      <ns0:circle r="26" fill="none" stroke="#5E8FCA" stroke-width="2" id="seed-auto-0121" />
+      <ns0:g id="" transform="translate(6,-6) scale(0.5) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0122" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0123" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0124" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0125" />
+      </ns0:g>
+      <ns0:path d="M-17 -4 q12 -23 19 -11 q5 8 17 3 q-5 12 0 19 q-10 -6 -17 4 q-12 -9 -19 -15Z" fill="none" stroke="#6794C8" stroke-width="1.5" id="seed-auto-0126" />
+    </ns0:g>
+    <ns0:path d="M1768 326 C1819 337,1858 345,1892 362 C1942 387,1971 430,1970 480 C1969 528,1942 548,1906 558 C1870 568,1833 559,1802 536 C1778 517,1765 493,1768 465 C1750 455,1742 440,1746 421 C1750 400,1765 389,1788 389 C1773 371,1763 349,1768 326Z" fill="#FDE9A7" stroke="#648DC6" stroke-width="2" id="seed-auto-0127" />
+    <ns0:text x="1888" y="307" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0128">Lysosome</ns0:text>
+    <ns0:text x="1706" y="417" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0129">RAB7</ns0:text>
+    <ns0:text x="1730" y="531" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0130">RAB7</ns0:text>
+    <ns0:ellipse cx="1812" cy="433" rx="14" ry="9" fill="#E22A2F" transform="rotate(20 1812 433)" id="seed-auto-0131" />
+    <ns0:ellipse cx="1791" cy="484" rx="14" ry="9" fill="#E22A2F" transform="rotate(-18 1791 484)" id="seed-auto-0132" />
+    <ns0:g transform="translate(1901 412)">
+      <ns0:circle r="31" fill="none" stroke="#5E8FCA" stroke-width="2" id="seed-auto-0133" />
+      <ns0:g id="" transform="translate(5,-6) scale(0.55) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0134" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0135" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0136" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0137" />
+      </ns0:g>
+      <ns0:path d="M-24 0 q13 -25 22 -13 q6 7 17 3 q-2 11 3 20 q-12 -8 -17 4 q-10 -12 -25 -14Z" fill="none" stroke="#6794C8" stroke-width="1.7" id="seed-auto-0138" />
+    </ns0:g>
+    <ns0:g transform="translate(1915 492)">
+      <ns0:circle r="35" fill="none" stroke="#5E8FCA" stroke-width="2" id="seed-auto-0139" />
+      <ns0:g id="" transform="translate(5,-4) scale(0.55) translate(0,0)">
+        <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0140" />
+        <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0141" />
+        <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0142" />
+        <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0143" />
+      </ns0:g>
+      <ns0:circle r="44" fill="none" stroke="#5A2C9C" stroke-width="7" stroke-dasharray="2 12" stroke-linecap="round" id="seed-auto-0144" />
+    </ns0:g>
+    <ns0:path d="M1754 235 C1798 250,1834 286,1856 340" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0145" />
+    <ns0:path d="M591 734 L722 734" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0146" />
+    <ns0:rect x="740" y="678" width="31" height="109" rx="15" fill="#D5E1F2" stroke="#5E8FCA" stroke-width="2" id="seed-auto-0147" />
+    <ns0:g id="" transform="translate(773 733) rotate(90) scale(0.52) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0148" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0149" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0150" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0151" />
+    </ns0:g>
+    <ns0:circle cx="793" cy="772" r="10" fill="#20A951" id="seed-auto-0152" />
+    <ns0:text x="737" y="812" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0153">WIPI2</ns0:text>
+    <ns0:g fill="#5A2C9C">
+      <ns0:circle cx="849" cy="777" r="8" id="seed-auto-0154" />
+      <ns0:circle cx="862" cy="786" r="8" id="seed-auto-0155" />
+      <ns0:circle cx="851" cy="793" r="8" id="seed-auto-0156" />
+    </ns0:g>
+    <ns0:text x="832" y="833" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0157">LC3</ns0:text>
+    <ns0:path d="M797 734 L956 734" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0158" />
+    <ns0:text x="872" y="595" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0159">Isolation membrane</ns0:text>
+    <ns0:path d="M997 646 C965 674,955 710,957 758 C960 802,975 833,997 854" fill="#E7EEF7" stroke="#648FC7" stroke-width="2.2" id="seed-auto-0160" />
+    <ns0:g id="" transform="translate(1010 655) translate(0,0)">
+      <ns0:circle cx="0" cy="0" r="5" id="seed-auto-0161" />
+      <ns0:circle cx="0" cy="15" r="5" id="seed-auto-0162" />
+      <ns0:circle cx="0" cy="30" r="5" id="seed-auto-0163" />
+      <ns0:circle cx="0" cy="45" r="5" id="seed-auto-0164" />
+      <ns0:circle cx="0" cy="60" r="5" id="seed-auto-0165" />
+      <ns0:circle cx="0" cy="75" r="5" id="seed-auto-0166" />
+      <ns0:circle cx="0" cy="90" r="5" id="seed-auto-0167" />
+      <ns0:circle cx="0" cy="105" r="5" id="seed-auto-0168" />
+      <ns0:circle cx="0" cy="120" r="5" id="seed-auto-0169" />
+      <ns0:circle cx="0" cy="135" r="5" id="seed-auto-0170" />
+      <ns0:circle cx="0" cy="150" r="5" id="seed-auto-0171" />
+    </ns0:g>
+    <ns0:g id="" transform="translate(1029 726) rotate(90) scale(0.6) translate(0,0)">
+      <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0172" />
+      <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0173" />
+      <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0174" />
+      <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0175" />
+    </ns0:g>
+    <ns0:path d="M1044 734 L1184 734" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0176" />
+    <ns0:path d="M1247 608 C1210 640,1199 693,1204 742 C1209 791,1231 838,1273 857 C1286 863,1297 862,1304 857 C1272 832,1258 795,1256 752 C1253 704,1265 668,1299 643 C1307 636,1307 626,1300 615 C1288 597,1265 595,1247 608Z" fill="#EEF1F4" stroke="#638EC6" stroke-width="2" id="seed-auto-0177" />
+    <ns0:g fill="#5A2C9C">
+      <ns0:circle cx="1240" cy="631" r="5" id="seed-auto-0178" />
+      <ns0:circle cx="1230" cy="645" r="5" id="seed-auto-0179" />
+      <ns0:circle cx="1220" cy="661" r="5" id="seed-auto-0180" />
+      <ns0:circle cx="1213" cy="679" r="5" id="seed-auto-0181" />
+      <ns0:circle cx="1209" cy="699" r="5" id="seed-auto-0182" />
+      <ns0:circle cx="1209" cy="720" r="5" id="seed-auto-0183" />
+      <ns0:circle cx="1210" cy="742" r="5" id="seed-auto-0184" />
+      <ns0:circle cx="1215" cy="764" r="5" id="seed-auto-0185" />
+      <ns0:circle cx="1221" cy="785" r="5" id="seed-auto-0186" />
+      <ns0:circle cx="1231" cy="806" r="5" id="seed-auto-0187" />
+      <ns0:circle cx="1242" cy="825" r="5" id="seed-auto-0188" />
+      <ns0:circle cx="1256" cy="842" r="5" id="seed-auto-0189" />
+    </ns0:g>
+    <ns0:g transform="translate(1280 734)">
+      <ns0:g id="" transform="scale(0.82) translate(0,0)">
+        <ns0:g id="" transform="translate(-55,-35) scale(0.75) translate(0,0)">
+          <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0190" />
+          <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0191" />
+          <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0192" />
+          <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0193" />
+        </ns0:g>
+        <ns0:g id="" transform="translate(55,-35) scale(0.75) translate(0,0)">
+          <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0194" />
+          <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0195" />
+          <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0196" />
+          <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0197" />
+        </ns0:g>
+        <ns0:g id="" transform="translate(-25,-5) scale(0.38) translate(0,0)">
+          <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0198" />
+          <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0199" />
+          <ns0:g stroke="#98CBE7" stroke-width="2">
+            <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0200" />
+            <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0201" />
+            <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0202" />
+            <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0203" />
+            <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0204" />
+            <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0205" />
+            <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0206" />
+            <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0207" />
+            <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0208" />
+          </ns0:g>
+        </ns0:g>
+        <ns0:g transform="translate(-65,35)" stroke="#D8452F" fill="none" stroke-width="1.7">
+          <ns0:circle r="11" id="seed-auto-0209" />
+          <ns0:circle r="3" id="seed-auto-0210" />
+          <ns0:line x1="0" y1="-19" x2="0" y2="-12" id="seed-auto-0211" />
+          <ns0:line x1="13" y1="-13" x2="8" y2="-8" id="seed-auto-0212" />
+          <ns0:line x1="19" y1="0" x2="12" y2="0" id="seed-auto-0213" />
+          <ns0:line x1="13" y1="13" x2="8" y2="8" id="seed-auto-0214" />
+          <ns0:line x1="0" y1="19" x2="0" y2="12" id="seed-auto-0215" />
+          <ns0:line x1="-13" y1="13" x2="-8" y2="8" id="seed-auto-0216" />
+          <ns0:line x1="-19" y1="0" x2="-12" y2="0" id="seed-auto-0217" />
+          <ns0:line x1="-13" y1="-13" x2="-8" y2="-8" id="seed-auto-0218" />
+        </ns0:g>
+        <ns0:path d="M-8 42 q14 -18 26 -2 q-6 15 -15 16 q-12 0 -11 -14Z" fill="#7DB43C" stroke="#4A8121" stroke-width="1.5" id="seed-auto-0219" />
+        <ns0:path d="M8 56 q20 6 27 20" fill="none" stroke="#4A8121" stroke-width="2" id="seed-auto-0220" />
+        <ns0:path d="M55 22 l13 -7 l9 11 l-4 15 l-16 4 l-9 -10 z" fill="none" stroke="#5B8FC9" stroke-width="2" id="seed-auto-0221" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:path d="M1342 734 L1500 734" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0222" />
+    <ns0:text x="1407" y="592" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0223">Autophagosome</ns0:text>
+    <ns0:circle cx="1635" cy="733" r="126" fill="#F2F3F3" stroke="#638EC6" stroke-width="2" id="seed-auto-0224" />
+    <ns0:circle cx="1635" cy="733" r="106" fill="none" stroke="#5A2C9C" stroke-width="7" stroke-dasharray="2 12" stroke-linecap="round" id="seed-auto-0225" />
+    <ns0:g transform="translate(1635 733)">
+      <ns0:g id="" transform="scale(1.05) translate(0,0)">
+        <ns0:g id="" transform="translate(-55,-35) scale(0.75) translate(0,0)">
+          <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0226" />
+          <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0227" />
+          <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0228" />
+          <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0229" />
+        </ns0:g>
+        <ns0:g id="" transform="translate(55,-35) scale(0.75) translate(0,0)">
+          <ns0:path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8" id="seed-auto-0230" />
+          <ns0:circle cx="-8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0231" />
+          <ns0:circle cx="8" cy="-14" r="4.8" fill="#7FB43C" id="seed-auto-0232" />
+          <ns0:path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5" id="seed-auto-0233" />
+        </ns0:g>
+        <ns0:g id="" transform="translate(-25,-5) scale(0.38) translate(0,0)">
+          <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0234" />
+          <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0235" />
+          <ns0:g stroke="#98CBE7" stroke-width="2">
+            <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0236" />
+            <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0237" />
+            <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0238" />
+            <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0239" />
+            <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0240" />
+            <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0241" />
+            <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0242" />
+            <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0243" />
+            <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0244" />
+          </ns0:g>
+        </ns0:g>
+        <ns0:g transform="translate(-65,35)" stroke="#D8452F" fill="none" stroke-width="1.7">
+          <ns0:circle r="11" id="seed-auto-0245" />
+          <ns0:circle r="3" id="seed-auto-0246" />
+          <ns0:line x1="0" y1="-19" x2="0" y2="-12" id="seed-auto-0247" />
+          <ns0:line x1="13" y1="-13" x2="8" y2="-8" id="seed-auto-0248" />
+          <ns0:line x1="19" y1="0" x2="12" y2="0" id="seed-auto-0249" />
+          <ns0:line x1="13" y1="13" x2="8" y2="8" id="seed-auto-0250" />
+          <ns0:line x1="0" y1="19" x2="0" y2="12" id="seed-auto-0251" />
+          <ns0:line x1="-13" y1="13" x2="-8" y2="8" id="seed-auto-0252" />
+          <ns0:line x1="-19" y1="0" x2="-12" y2="0" id="seed-auto-0253" />
+          <ns0:line x1="-13" y1="-13" x2="-8" y2="-8" id="seed-auto-0254" />
+        </ns0:g>
+        <ns0:path d="M-8 42 q14 -18 26 -2 q-6 15 -15 16 q-12 0 -11 -14Z" fill="#7DB43C" stroke="#4A8121" stroke-width="1.5" id="seed-auto-0255" />
+        <ns0:path d="M8 56 q20 6 27 20" fill="none" stroke="#4A8121" stroke-width="2" id="seed-auto-0256" />
+        <ns0:path d="M55 22 l13 -7 l9 11 l-4 15 l-16 4 l-9 -10 z" fill="none" stroke="#5B8FC9" stroke-width="2" id="seed-auto-0257" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:path d="M1750 655 C1800 630,1833 595,1854 548" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0258" />
+    <ns0:path d="M1542 952 C1530 908,1503 866,1465 837 C1437 816,1415 804,1390 797" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0259" />
+    <ns0:text x="44" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="33px" font-weight="700" fill="#243E8F" dominant-baseline="middle" id="seed-auto-0260">ER</ns0:text>
+    <ns0:path d="M119 1130 C184 1114,286 1126,351 1136 C432 1148,518 1139,586 1119 C617 1110,642 1115,650 1130 C660 1150,638 1164,606 1168 C507 1181,424 1184,347 1176 C269 1168,208 1170,155 1175 C120 1178,101 1167,103 1150 C105 1140,110 1135,119 1130Z" fill="#FBE8D9" stroke="#D79A5A" stroke-width="2.2" id="seed-auto-0261" />
+    <ns0:path d="M151 1187 C220 1180,280 1185,337 1187 C357 1188,365 1203,357 1216 C350 1228,333 1231,309 1231 L199 1232 C168 1232,154 1217,151 1187Z" fill="#FBE8D9" stroke="#D79A5A" stroke-width="2.2" id="seed-auto-0262" />
+    <ns0:path d="M454 1184 C506 1182,548 1186,602 1182 C663 1178,714 1170,759 1163 C793 1158,817 1167,819 1182 C820 1199,803 1211,777 1217 C718 1231,651 1230,585 1226 C549 1224,514 1223,484 1225 C455 1226,437 1212,441 1197 C444 1190,448 1186,454 1184Z" fill="#FBE8D9" stroke="#D79A5A" stroke-width="2.2" id="seed-auto-0263" />
+    <ns0:g id="" transform="translate(350 1040) scale(1.25) translate(0,0)">
+      <ns0:path d="M-15 18 C-10 5,-2 -2,0 -17 C2 -2,10 5,15 18" fill="#3F81B9" stroke="#245B93" stroke-width="2" id="seed-auto-0264" />
+      <ns0:path d="M-16 18 C-8 4,-4 0,0 0 C4 0,8 4,16 18" fill="#547FB5" stroke="#245B93" stroke-width="2" id="seed-auto-0265" />
+      <ns0:circle cx="-8" cy="-13" r="5" fill="#7FB43C" id="seed-auto-0266" />
+      <ns0:circle cx="8" cy="-13" r="5" fill="#7FB43C" id="seed-auto-0267" />
+      <ns0:path d="M0 19 c-5 9 -5 17 0 25 c5 8 5 16 0 24" fill="none" stroke="#2A63A3" stroke-width="3" id="seed-auto-0268" />
+    </ns0:g>
+    <ns0:g id="" transform="translate(493 1043) scale(1.22) translate(0,0)">
+      <ns0:path d="M-15 18 C-10 5,-2 -2,0 -17 C2 -2,10 5,15 18" fill="#3F81B9" stroke="#245B93" stroke-width="2" id="seed-auto-0269" />
+      <ns0:path d="M-16 18 C-8 4,-4 0,0 0 C4 0,8 4,16 18" fill="#547FB5" stroke="#245B93" stroke-width="2" id="seed-auto-0270" />
+      <ns0:circle cx="-8" cy="-13" r="5" fill="#7FB43C" id="seed-auto-0271" />
+      <ns0:circle cx="8" cy="-13" r="5" fill="#7FB43C" id="seed-auto-0272" />
+      <ns0:path d="M0 19 c-5 9 -5 17 0 25 c5 8 5 16 0 24" fill="none" stroke="#2A63A3" stroke-width="3" id="seed-auto-0273" />
+    </ns0:g>
+    <ns0:text x="589" y="1062" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0274">STING</ns0:text>
+    <ns0:rect x="240" y="1010" width="53" height="85" rx="10" fill="#FBE6D7" stroke="#D79A5A" stroke-width="2" id="seed-auto-0275" />
+    <ns0:text x="170" y="1068" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0276">SAR1</ns0:text>
+    <ns0:circle cx="291" cy="985" r="21" fill="#D82B2B" id="seed-auto-0277" />
+    <ns0:text x="327" y="961" font-family="Arial, Helvetica, sans-serif" font-size="32px" font-weight="700" fill="#C82B2B" dominant-baseline="middle" id="seed-auto-0278">SEC24C</ns0:text>
+    <ns0:path d="M299 1012 C308 1010,316 1002,320 992" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0279" />
+    <ns0:text x="790" y="1036" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0280">cGAMP</ns0:text>
+    <ns0:g transform="translate(817 1072)">
+      <ns0:ellipse cx="-12" cy="0" rx="15" ry="10" fill="#4F9AD4" id="seed-auto-0281" />
+      <ns0:ellipse cx="13" cy="-8" rx="15" ry="10" fill="#7EB43D" id="seed-auto-0282" />
+      <ns0:ellipse cx="12" cy="14" rx="15" ry="10" fill="#7EB43D" id="seed-auto-0283" />
+      <ns0:ellipse cx="-15" cy="18" rx="15" ry="10" fill="#4F9AD4" id="seed-auto-0284" />
+    </ns0:g>
+    <ns0:path d="M784 1054 L724 1054" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0285" />
+    <ns0:g id="" transform="translate(1022 1010) scale(0.98) translate(0,0)">
+      <ns0:rect x="0" y="0" width="150" height="42" rx="3" fill="#F7B27F" stroke="#D7672E" stroke-width="2.2" id="seed-auto-0286" />
+      <ns0:rect x="0" y="42" width="150" height="42" rx="3" fill="#F7B27F" stroke="#D7672E" stroke-width="2.2" id="seed-auto-0287" />
+      <ns0:text x="75" y="22" text-anchor="middle" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0288">cGAS</ns0:text>
+      <ns0:text x="75" y="64" text-anchor="middle" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0289">cGAS</ns0:text>
+      <ns0:g id="" transform="translate(6,-5) scale(1.02,0.72) translate(0,0)">
+        <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0290" />
+        <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0291" />
+        <ns0:g stroke="#98CBE7" stroke-width="2">
+          <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0292" />
+          <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0293" />
+          <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0294" />
+          <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0295" />
+          <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0296" />
+          <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0297" />
+          <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0298" />
+          <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0299" />
+          <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0300" />
+        </ns0:g>
+      </ns0:g>
+      <ns0:g id="" transform="translate(6,90) scale(1.02,0.72) translate(0,0)">
+        <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0301" />
+        <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0302" />
+        <ns0:g stroke="#98CBE7" stroke-width="2">
+          <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0303" />
+          <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0304" />
+          <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0305" />
+          <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0306" />
+          <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0307" />
+          <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0308" />
+          <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0309" />
+          <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0310" />
+          <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0311" />
+        </ns0:g>
+      </ns0:g>
+    </ns0:g>
+    <ns0:path d="M1009 1054 L887 1054" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0312" />
+    <ns0:g transform="translate(1171 1178)">
+      <ns0:circle cx="0" cy="0" r="11" fill="#4F9AD4" id="seed-auto-0313" />
+      <ns0:circle cx="38" cy="22" r="11" fill="#7EB43D" id="seed-auto-0314" />
+      <ns0:circle cx="39" cy="-25" r="11" fill="#4F9AD4" id="seed-auto-0315" />
+      <ns0:circle cx="76" cy="0" r="11" fill="#7EB43D" id="seed-auto-0316" />
+    </ns0:g>
+    <ns0:text x="1087" y="1233" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0317">ATP and GTP</ns0:text>
+    <ns0:g id="" transform="translate(1275 1030) scale(0.95) translate(0,0)">
+      <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0318" />
+      <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0319" />
+      <ns0:g stroke="#98CBE7" stroke-width="2">
+        <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0320" />
+        <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0321" />
+        <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0322" />
+        <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0323" />
+        <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0324" />
+        <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0325" />
+        <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0326" />
+        <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0327" />
+        <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0328" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:g id="" transform="translate(1275 1080) scale(0.95) translate(0,0)">
+      <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0329" />
+      <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0330" />
+      <ns0:g stroke="#98CBE7" stroke-width="2">
+        <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0331" />
+        <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0332" />
+        <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0333" />
+        <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0334" />
+        <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0335" />
+        <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0336" />
+        <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0337" />
+        <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0338" />
+        <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0339" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:text x="1335" y="996" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0340">DNA</ns0:text>
+    <ns0:path d="M1265 1054 L1190 1054" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0341" />
+    <ns0:g id="" transform="translate(1542 967) scale(1.15) translate(0,0)">
+      <ns0:path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5" id="seed-auto-0342" />
+      <ns0:path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5" id="seed-auto-0343" />
+      <ns0:g stroke="#98CBE7" stroke-width="2">
+        <ns0:line x1="10" y1="7" x2="10" y2="-7" id="seed-auto-0344" />
+        <ns0:line x1="25" y1="-8" x2="25" y2="8" id="seed-auto-0345" />
+        <ns0:line x1="40" y1="6" x2="40" y2="-6" id="seed-auto-0346" />
+        <ns0:line x1="55" y1="-7" x2="55" y2="7" id="seed-auto-0347" />
+        <ns0:line x1="70" y1="6" x2="70" y2="-6" id="seed-auto-0348" />
+        <ns0:line x1="85" y1="-7" x2="85" y2="7" id="seed-auto-0349" />
+        <ns0:line x1="100" y1="7" x2="100" y2="-7" id="seed-auto-0350" />
+        <ns0:line x1="115" y1="-8" x2="115" y2="8" id="seed-auto-0351" />
+        <ns0:line x1="130" y1="6" x2="130" y2="-6" id="seed-auto-0352" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:text x="1713" y="978" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0353">DNA</ns0:text>
+    <ns0:path d="M1541 1054 L1468 1054" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0354" />
+    <ns0:g transform="translate(1626 1063)" stroke="#D5412D" fill="none" stroke-width="2.2">
+      <ns0:circle r="34" id="seed-auto-0355" />
+      <ns0:circle r="14" id="seed-auto-0356" />
+      <ns0:path d="M-10 -4 q7 -10 13 0 q8 8 13 0" id="seed-auto-0357" />
+      <ns0:g>
+        <ns0:line x1="0" y1="-52" x2="0" y2="-35" id="seed-auto-0358" />
+        <ns0:circle cx="0" cy="-57" r="4" id="seed-auto-0359" />
+        <ns0:line x1="37" y1="-37" x2="25" y2="-25" id="seed-auto-0360" />
+        <ns0:circle cx="42" cy="-42" r="4" id="seed-auto-0361" />
+        <ns0:line x1="52" y1="0" x2="35" y2="0" id="seed-auto-0362" />
+        <ns0:circle cx="57" cy="0" r="4" id="seed-auto-0363" />
+        <ns0:line x1="37" y1="37" x2="25" y2="25" id="seed-auto-0364" />
+        <ns0:circle cx="42" cy="42" r="4" id="seed-auto-0365" />
+        <ns0:line x1="0" y1="52" x2="0" y2="35" id="seed-auto-0366" />
+        <ns0:circle cx="0" cy="57" r="4" id="seed-auto-0367" />
+        <ns0:line x1="-37" y1="37" x2="-25" y2="25" id="seed-auto-0368" />
+        <ns0:circle cx="-42" cy="42" r="4" id="seed-auto-0369" />
+        <ns0:line x1="-52" y1="0" x2="-35" y2="0" id="seed-auto-0370" />
+        <ns0:circle cx="-57" cy="0" r="4" id="seed-auto-0371" />
+        <ns0:line x1="-37" y1="-37" x2="-25" y2="-25" id="seed-auto-0372" />
+        <ns0:circle cx="-42" cy="-42" r="4" id="seed-auto-0373" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:text x="1712" y="1062" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0374">Retrovirus</ns0:text>
+    <ns0:g transform="translate(1662 1153)">
+      <ns0:polygon points="0,-34 32,-15 27,25 -8,34 -34,5 -25,-26" fill="#F3F8FC" stroke="#4D88C6" stroke-width="2.2" id="seed-auto-0375" />
+      <ns0:path d="M-6 -18 q13 7 8 15 q-6 8 6 17" fill="none" stroke="#2B6CAD" stroke-width="2" id="seed-auto-0376" />
+      <ns0:path d="M3 -20 q-12 6 -6 15 q8 10 -5 17" fill="none" stroke="#2B6CAD" stroke-width="2" id="seed-auto-0377" />
+    </ns0:g>
+    <ns0:text x="1712" y="1151" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0378">DNA virus</ns0:text>
+    <ns0:g transform="translate(1620 1216) rotate(-12)">
+      <ns0:rect x="-38" y="-19" width="76" height="38" rx="19" fill="#7AB43D" stroke="#3E7B29" stroke-width="2" id="seed-auto-0379" />
+      <ns0:circle cx="-18" cy="-5" r="4" fill="#3E7B29" id="seed-auto-0380" />
+      <ns0:circle cx="2" cy="6" r="4" fill="#3E7B29" id="seed-auto-0381" />
+      <ns0:circle cx="18" cy="-6" r="4" fill="#3E7B29" id="seed-auto-0382" />
+      <ns0:path d="M36 8 q36 6 48 30 q15 30 35 29" fill="none" stroke="#3E7B29" stroke-width="2" id="seed-auto-0383" />
+      <ns0:g stroke="#3E7B29" stroke-width="1.8">
+        <ns0:line x1="-28" y1="-18" x2="-35" y2="-31" id="seed-auto-0384" />
+        <ns0:line x1="-8" y1="-19" x2="-10" y2="-33" id="seed-auto-0385" />
+        <ns0:line x1="12" y1="-18" x2="16" y2="-32" id="seed-auto-0386" />
+        <ns0:line x1="29" y1="-14" x2="39" y2="-25" id="seed-auto-0387" />
+        <ns0:line x1="-28" y1="18" x2="-35" y2="31" id="seed-auto-0388" />
+        <ns0:line x1="-8" y1="19" x2="-10" y2="33" id="seed-auto-0389" />
+        <ns0:line x1="12" y1="18" x2="16" y2="32" id="seed-auto-0390" />
+      </ns0:g>
+    </ns0:g>
+    <ns0:text x="1712" y="1235" font-size="31px" font-family="Arial, Helvetica, sans-serif" fill="#111" dominant-baseline="middle" id="seed-auto-0391">Bacteria</ns0:text>
+    <ns0:path d="M1589 1070 L1468 1070" marker-end="url(#openArrow)" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" id="seed-auto-0392" />
+  </ns0:g>
+</ns0:svg>
