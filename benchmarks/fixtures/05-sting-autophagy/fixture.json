@@ -41,16 +41,19 @@
   },
   "routes": {
     "svg-seeded": {
-      "candidate": "external-seed-repaired.svg",
-      "candidate_role": "external-seed",
-      "status": "implemented"
+      "case": "examples/svg-seeded/05-sting-autophagy",
+      "immutable_seed": "external-seed-repaired.svg（prepare --seed 摄取；冻结字节哈希 cea49ffc…）",
+      "admitted_candidate": "同文件的语义盖章变体（repair_seed 产物 + freeze receipt 的 inventory_sha256 盖章；ingest 以 repair-candidate 摄取，gate accept，processing_mode=svg_repair——原 seed 在 freeze 时如实获 repair 决策）",
+      "status": "case-implemented"
     },
     "reference-only": {
+      "case": "examples/reference-only/05-sting-autophagy-reference-only",
       "candidate": null,
       "candidate_role": "reconstruction-candidate",
-      "status": "pending-visual-author",
-      "note": "reference-only 候选必须仅依据本 fixture 的 reference.png 由视觉执行者产出（项目范式：VLM/人工重绘）；基准 runner 已就绪，作者阶段完成并冻结 redraw-candidate.svg 后即可补跑该路线"
+      "status": "case-frozen-awaiting-candidate",
+      "note": "案例已 prepare+freeze（合同齐备，comparison_group=sting-autophagy-route-ab）；重绘候选必须仅依据本 fixture 的 reference.png 由视觉执行者产出（项目范式：VLM/人工重绘），候选落地后经 ingest→convert→math→check 补全"
     }
   },
-  "immutability": "本目录三份输入字节不可变；任何变更必须经 Issue 记录并同步本文件哈希"
+  "derivation_disclosure": "两案例的 regions/reference_inventory 合同集由 benchmarks/build_case05_contracts.py 从 external-seed-repaired.svg 的矢量几何确定性推导（38 text/18 arrow/335 shape，icon/brace 零计数授权），非独立视觉盘点——性能基准用途的路线隔离偏离，如实记录于 Issue #19；reference-only 案例的候选阶段因此保持待视觉作者状态，不以 seed 冒充。",
+  "immutability": "本目录三份输入字节不可变；任何变更必须经 Issue 记录并同步本文件哈希。.gitattributes 已锁定 fixtures 目录禁止 EOL 转换（hash-bound 输入）。"
 }

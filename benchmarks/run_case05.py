@@ -63,6 +63,7 @@ CASES = (
     "svg-seeded/02-thinking-diffusion",
     "svg-seeded/03-llmind",
     "svg-seeded/04-pareto-conditioned-diffusion",
+    "svg-seeded/05-sting-autophagy",
     "reference-only/01-modular-agent-reference-only",
     "reference-only/02-thinking-diffusion-reference-only",
     "reference-only/04-pareto-conditioned-diffusion-reference-only",
@@ -276,7 +277,7 @@ def render_markdown(payload: dict) -> str:
         )
     lines += [
         "",
-        "## 2. 确定性核心管线基线（7 个正式案例副本，各 1 次 cold）",
+        "## 2. 确定性核心管线基线（8 个正式案例副本，各 1 次 cold）",
         "",
         "| 案例 | convert (s) | math (s) | check (s) |",
         "|---|---|---|---|",
@@ -287,12 +288,15 @@ def render_markdown(payload: dict) -> str:
             f"| `{case_rel}` | {stages['convert']['wall_seconds']} "
             f"| {stages['math']['wall_seconds']} | {stages['check']['wall_seconds']} |"
         )
+    case_level = payload.get("case_level", {})
     lines += [
         "",
-        "## 案例级 Case05 基准状态",
+        "## 案例级 Case05 状态",
         "",
-        "case-level: `" + str(payload["case_level"]["status"]) + "` — "
-        + str(payload["case_level"]["note"]),
+        "- svg-seeded：`" + str(case_level.get("svg_seeded", {}).get("status"))
+        + "` — " + str(case_level.get("svg_seeded", {}).get("note")),
+        "- reference-only：`" + str(case_level.get("reference_only", {}).get("status"))
+        + "` — " + str(case_level.get("reference_only", {}).get("note")),
         "",
         "测量边界：" + payload["environment"]["measurement_scope"],
         "",
@@ -339,14 +343,23 @@ def main(argv: list[str] | None = None) -> int:
         },
         "tiers": tiers,
         "case_level": {
-            "status": "pending-contract-authoring",
-            "note": (
-                "案例级（建案→freeze→ingest→convert→math→check）基准需要经视觉审阅的"
-                " reference-inventory/regions/arrow-visual 合同集（zero_count_authorizations "
-                "的 basis 固定为 full-reference-review，无法在无视觉能力的会话中诚实合成）；"
-                "合同集编写完成后由本 runner 补跑案例级与 reference-only 作者阶段。"
-                "结构性发现已回写 Issue #19。"
-            ),
+            "svg_seeded": {
+                "status": "implemented",
+                "case": "examples/svg-seeded/05-sting-autophagy",
+                "note": (
+                    "完整案例已落地（prepare→合同生成→freeze 391 对象→ingest 盖章变体"
+                    " gate accept→convert→math→check standard），管线数字见 pipeline 层"
+                    " svg-seeded/05-sting-autophagy 行。"
+                ),
+            },
+            "reference_only": {
+                "status": "case-frozen-awaiting-candidate",
+                "case": "examples/reference-only/05-sting-autophagy-reference-only",
+                "note": (
+                    "案例合同已冻结；重绘候选须仅依据 fixture reference 由视觉执行者"
+                    "产出，候选落地后补跑该路线管线与作者阶段耗时（Issue #19）。"
+                ),
+            },
         },
     }
 

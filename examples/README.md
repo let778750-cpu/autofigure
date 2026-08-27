@@ -13,10 +13,12 @@
 | `reference-only` | [`01-modular-agent-reference-only/`](reference-only/01-modular-agent-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` | 2/10 | 279 |
 | `reference-only` | [`02-thinking-diffusion-reference-only/`](reference-only/02-thinking-diffusion-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` | 4/8 | — |
 | `reference-only` | [`04-pareto-conditioned-diffusion-reference-only/`](reference-only/04-pareto-conditioned-diffusion-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` | 0/28 | — |
+| `reference-only` | [`05-sting-autophagy-reference-only/`](reference-only/05-sting-autophagy-reference-only/) | `png_reconstruct` | `ready` | `not_run` | — | — |
 | `svg-seeded` | [`01-modular-agent/`](svg-seeded/01-modular-agent/) | `png_reconstruct` | `qa_failed` | `failed` | 5/12 | — |
 | `svg-seeded` | [`02-thinking-diffusion/`](svg-seeded/02-thinking-diffusion/) | `png_reconstruct` | `qa_failed` | `failed` | 18/18 | — |
 | `svg-seeded` | [`03-llmind/`](svg-seeded/03-llmind/) | `png_reconstruct` | `qa_failed` | `diagnostic` | 0/0 | — |
 | `svg-seeded` | [`04-pareto-conditioned-diffusion/`](svg-seeded/04-pareto-conditioned-diffusion/) | `svg_repair` | `qa_failed` | `failed` | 1/38 | — |
+| `svg-seeded` | [`05-sting-autophagy/`](svg-seeded/05-sting-autophagy/) | `svg_repair` | `candidate` | `diagnostic` | 0/1 | 1117 |
 <!-- AUTOFIGURE_CASE_INDEX:END -->
 
 ## 受控 ModularAgent A/B

@@ -1,0 +1,1949 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "arrow_visual_audit",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "contract_count": 18,
+  "expectation": {
+    "expected_count": 18,
+    "actual_count": 18,
+    "expected_element_ids": [
+      "seed-auto-0015",
+      "seed-auto-0020",
+      "seed-auto-0046",
+      "seed-auto-0054",
+      "seed-auto-0055",
+      "seed-auto-0061",
+      "seed-auto-0079",
+      "seed-auto-0083",
+      "seed-auto-0112",
+      "seed-auto-0145",
+      "seed-auto-0146",
+      "seed-auto-0158",
+      "seed-auto-0176",
+      "seed-auto-0222",
+      "seed-auto-0259",
+      "seed-auto-0285",
+      "seed-auto-0341",
+      "seed-auto-0392"
+    ],
+    "actual_element_ids": [
+      "seed-auto-0015",
+      "seed-auto-0020",
+      "seed-auto-0046",
+      "seed-auto-0054",
+      "seed-auto-0055",
+      "seed-auto-0061",
+      "seed-auto-0079",
+      "seed-auto-0083",
+      "seed-auto-0112",
+      "seed-auto-0145",
+      "seed-auto-0146",
+      "seed-auto-0158",
+      "seed-auto-0176",
+      "seed-auto-0222",
+      "seed-auto-0259",
+      "seed-auto-0285",
+      "seed-auto-0341",
+      "seed-auto-0392"
+    ],
+    "expected_heads": {
+      "seed-auto-0015": [
+        "end"
+      ],
+      "seed-auto-0020": [
+        "end"
+      ],
+      "seed-auto-0046": [
+        "end"
+      ],
+      "seed-auto-0054": [
+        "end"
+      ],
+      "seed-auto-0055": [
+        "end"
+      ],
+      "seed-auto-0061": [
+        "end"
+      ],
+      "seed-auto-0079": [
+        "end"
+      ],
+      "seed-auto-0083": [
+        "end"
+      ],
+      "seed-auto-0112": [
+        "end"
+      ],
+      "seed-auto-0145": [
+        "end"
+      ],
+      "seed-auto-0146": [
+        "end"
+      ],
+      "seed-auto-0158": [
+        "end"
+      ],
+      "seed-auto-0176": [
+        "end"
+      ],
+      "seed-auto-0222": [
+        "end"
+      ],
+      "seed-auto-0259": [
+        "end"
+      ],
+      "seed-auto-0285": [
+        "end"
+      ],
+      "seed-auto-0341": [
+        "end"
+      ],
+      "seed-auto-0392": [
+        "end"
+      ]
+    },
+    "actual_heads": {
+      "seed-auto-0015": [
+        "end"
+      ],
+      "seed-auto-0020": [
+        "end"
+      ],
+      "seed-auto-0046": [
+        "end"
+      ],
+      "seed-auto-0054": [
+        "end"
+      ],
+      "seed-auto-0055": [
+        "end"
+      ],
+      "seed-auto-0061": [
+        "end"
+      ],
+      "seed-auto-0079": [
+        "end"
+      ],
+      "seed-auto-0083": [
+        "end"
+      ],
+      "seed-auto-0112": [
+        "end"
+      ],
+      "seed-auto-0145": [
+        "end"
+      ],
+      "seed-auto-0146": [
+        "end"
+      ],
+      "seed-auto-0158": [
+        "end"
+      ],
+      "seed-auto-0176": [
+        "end"
+      ],
+      "seed-auto-0222": [
+        "end"
+      ],
+      "seed-auto-0259": [
+        "end"
+      ],
+      "seed-auto-0285": [
+        "end"
+      ],
+      "seed-auto-0341": [
+        "end"
+      ],
+      "seed-auto-0392": [
+        "end"
+      ]
+    },
+    "expected_contract_sha256": {
+      "seed-auto-0015": "98977d5c269dc52b13d1176a09c51480a40e92eb0da4bdb3045629c728dc83a4",
+      "seed-auto-0020": "d47546305d3ae7a7f2cadfaf953426486e5c0645e2b493b8861ab66bc8e2b8df",
+      "seed-auto-0046": "05847848bc5cb1a82d6ea1728233d59c83331a83336b59ab13a54dbaee5f2da1",
+      "seed-auto-0054": "44c0b06127904d9bc529db5ddc74946fae1e459470cefcd668acac5a39204c2d",
+      "seed-auto-0055": "e64388532273e2b3afd8a06efda47c8de9765497d8bbe39e504d0eac799153cc",
+      "seed-auto-0061": "c8e88e879fc8a2cf99141c11479cf6ccef1232608fce792ed1af092c6b8429f0",
+      "seed-auto-0079": "777f116f6a1ce5fc35e0a0cec4aad084e09ee44faa1bddd98e0c46c169ff07bc",
+      "seed-auto-0083": "fa4655f9e4784f2bb5032e995322af1cdab859fe607b7352eec1521f387ee6a7",
+      "seed-auto-0112": "406e23b07bd3f5a6e12e56b1f1d292266780ee9c7c607715998ab7fe675fb7cb",
+      "seed-auto-0145": "919fd7c65e62d081da0ea8685a646ce2ca43e3f1ab2809b6b02388a076f07c61",
+      "seed-auto-0146": "c5803939c07550ae1036b1d54d18d9e5d4112e1043902881419a446261f688d7",
+      "seed-auto-0158": "f09d4bc53d305f9417c22ab70c5f6d8ac7f2772e56a4c510bb8df4e94c064510",
+      "seed-auto-0176": "07ed0af550fd390c199f0bb201d6553318899b2ef382a07abc867fbc2b39aac9",
+      "seed-auto-0222": "ff3c9c1d8f5bdb03a13a42349ac6c7095b152c1796c08f6c4b297c7cdc5e88ff",
+      "seed-auto-0259": "5e57dc62e11f7d41459d1cb07cdab7c3a45c98817336c9730a8b789b71939966",
+      "seed-auto-0285": "f3d678d506b69e035aaca873cfec20c02f687362ab011524b731666ecc9f2c10",
+      "seed-auto-0341": "b2fd0046487065244efdfae808e6b41c28e307c11d7df1ce9a20007062578953",
+      "seed-auto-0392": "6f72069bf2e4fb4f9fc964732199ac0de1f5697963d56053e22dddf01f0dab7f"
+    },
+    "actual_contract_sha256": {
+      "seed-auto-0015": "98977d5c269dc52b13d1176a09c51480a40e92eb0da4bdb3045629c728dc83a4",
+      "seed-auto-0020": "d47546305d3ae7a7f2cadfaf953426486e5c0645e2b493b8861ab66bc8e2b8df",
+      "seed-auto-0046": "05847848bc5cb1a82d6ea1728233d59c83331a83336b59ab13a54dbaee5f2da1",
+      "seed-auto-0054": "44c0b06127904d9bc529db5ddc74946fae1e459470cefcd668acac5a39204c2d",
+      "seed-auto-0055": "e64388532273e2b3afd8a06efda47c8de9765497d8bbe39e504d0eac799153cc",
+      "seed-auto-0061": "c8e88e879fc8a2cf99141c11479cf6ccef1232608fce792ed1af092c6b8429f0",
+      "seed-auto-0079": "777f116f6a1ce5fc35e0a0cec4aad084e09ee44faa1bddd98e0c46c169ff07bc",
+      "seed-auto-0083": "fa4655f9e4784f2bb5032e995322af1cdab859fe607b7352eec1521f387ee6a7",
+      "seed-auto-0112": "406e23b07bd3f5a6e12e56b1f1d292266780ee9c7c607715998ab7fe675fb7cb",
+      "seed-auto-0145": "919fd7c65e62d081da0ea8685a646ce2ca43e3f1ab2809b6b02388a076f07c61",
+      "seed-auto-0146": "c5803939c07550ae1036b1d54d18d9e5d4112e1043902881419a446261f688d7",
+      "seed-auto-0158": "f09d4bc53d305f9417c22ab70c5f6d8ac7f2772e56a4c510bb8df4e94c064510",
+      "seed-auto-0176": "07ed0af550fd390c199f0bb201d6553318899b2ef382a07abc867fbc2b39aac9",
+      "seed-auto-0222": "ff3c9c1d8f5bdb03a13a42349ac6c7095b152c1796c08f6c4b297c7cdc5e88ff",
+      "seed-auto-0259": "5e57dc62e11f7d41459d1cb07cdab7c3a45c98817336c9730a8b789b71939966",
+      "seed-auto-0285": "f3d678d506b69e035aaca873cfec20c02f687362ab011524b731666ecc9f2c10",
+      "seed-auto-0341": "b2fd0046487065244efdfae808e6b41c28e307c11d7df1ce9a20007062578953",
+      "seed-auto-0392": "6f72069bf2e4fb4f9fc964732199ac0de1f5697963d56053e22dddf01f0dab7f"
+    },
+    "missing_element_ids": [],
+    "unexpected_element_ids": [],
+    "head_side_mismatches": [],
+    "contract_hash_mismatches": [],
+    "invalid_contract_head_ids": [],
+    "exemptions": [],
+    "exempt_element_ids": [],
+    "scene_arrow_spec_mismatches": [
+      "seed-auto-0078",
+      "seed-auto-0100",
+      "seed-auto-0109",
+      "seed-auto-0258",
+      "seed-auto-0279",
+      "seed-auto-0312",
+      "seed-auto-0354"
+    ],
+    "pass": false
+  },
+  "records": [
+    {
+      "id": "avc-seed-auto-0015",
+      "element_id": "seed-auto-0015",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        706,
+        454
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        668,
+        421,
+        745,
+        488
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0020",
+      "element_id": "seed-auto-0020",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        405,
+        234
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 1,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": true,
+      "tight_bbox": [
+        370,
+        225,
+        441,
+        244
+      ],
+      "reference_arrow": {
+        "bbox": [
+          394,
+          225,
+          18,
+          12
+        ],
+        "edges": [
+          394,
+          225,
+          411,
+          236
+        ],
+        "area_px": 165
+      },
+      "render_arrow": {
+        "bbox": [
+          384,
+          225,
+          57,
+          19
+        ],
+        "edges": [
+          384,
+          225,
+          440,
+          243
+        ],
+        "area_px": 350
+      },
+      "reference_tight_bbox_extension_pixels": 14,
+      "render_tight_bbox_extension_pixels": 22,
+      "shaft_measurement": {
+        "reference_width_px": 12.0,
+        "render_width_px": 6.0,
+        "render_error_px": 6.0,
+        "declared_width_px": 3.5,
+        "declaration_error_px": 8.5,
+        "tolerance_px": 1.5,
+        "pass": false
+      },
+      "silhouette_bbox_edge_errors_px": [
+        10.0,
+        0.0,
+        29.0,
+        7.0
+      ],
+      "silhouette_bbox_tolerance_px": 2.0,
+      "silhouette_mask_iou": 0.1625,
+      "silhouette_mask_iou_min": 0.75,
+      "silhouette_area_relative_error": 1.1212,
+      "silhouette_area_relative_tolerance": 0.2,
+      "reference_foreground_fraction": 0.1223,
+      "render_foreground_fraction": 0.2595,
+      "max_foreground_fraction": 0.8,
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0046",
+      "element_id": "seed-auto-0046",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        275,
+        568
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        258,
+        525,
+        293,
+        611
+      ],
+      "reference_arrow": {
+        "bbox": [
+          267,
+          539,
+          24,
+          53
+        ],
+        "edges": [
+          267,
+          539,
+          290,
+          591
+        ],
+        "area_px": 335
+      },
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            250,
+            591,
+            278,
+            619
+          ],
+          "expected": {
+            "bbox": [
+              270,
+              591,
+              1,
+              1
+            ],
+            "edges": [
+              270,
+              591,
+              270,
+              591
+            ],
+            "area_px": 1
+          },
+          "pass": false,
+          "error": "render head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0054",
+      "element_id": "seed-auto-0054",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        320,
+        691
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        281,
+        660,
+        359,
+        722
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0055",
+      "element_id": "seed-auto-0055",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        237,
+        717
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        156,
+        711,
+        319,
+        724
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0061",
+      "element_id": "seed-auto-0061",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        133,
+        576
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        105,
+        497,
+        161,
+        656
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0079",
+      "element_id": "seed-auto-0079",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        302,
+        793
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        257,
+        760,
+        347,
+        827
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0083",
+      "element_id": "seed-auto-0083",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        764,
+        215
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        539,
+        209,
+        990,
+        221
+      ],
+      "reference_arrow": {
+        "bbox": [
+          558,
+          215,
+          432,
+          6
+        ],
+        "edges": [
+          558,
+          215,
+          989,
+          220
+        ],
+        "area_px": 2161
+      },
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 6,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            970,
+            201,
+            998,
+            229
+          ],
+          "expected": {
+            "bbox": [
+              970,
+              216,
+              20,
+              5
+            ],
+            "edges": [
+              970,
+              216,
+              989,
+              220
+            ],
+            "area_px": 100
+          },
+          "pass": false,
+          "error": "render head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0112",
+      "element_id": "seed-auto-0112",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1389,
+        215
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1232,
+        209,
+        1546,
+        221
+      ],
+      "reference_arrow": {
+        "bbox": [
+          1232,
+          216,
+          314,
+          5
+        ],
+        "edges": [
+          1232,
+          216,
+          1545,
+          220
+        ],
+        "area_px": 1570
+      },
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 10,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "search_bbox": [
+            1526,
+            201,
+            1554,
+            229
+          ],
+          "expected": {
+            "bbox": [
+              1526,
+              216,
+              20,
+              5
+            ],
+            "edges": [
+              1526,
+              216,
+              1545,
+              220
+            ],
+            "area_px": 100
+          },
+          "pass": false,
+          "error": "render head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0145",
+      "element_id": "seed-auto-0145",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1805,
+        287
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1748,
+        229,
+        1862,
+        346
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0146",
+      "element_id": "seed-auto-0146",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        656,
+        734
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        585,
+        728,
+        728,
+        740
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0158",
+      "element_id": "seed-auto-0158",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        876,
+        734
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        791,
+        728,
+        962,
+        740
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0176",
+      "element_id": "seed-auto-0176",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1114,
+        734
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1038,
+        728,
+        1190,
+        740
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0222",
+      "element_id": "seed-auto-0222",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1421,
+        734
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1336,
+        728,
+        1506,
+        740
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0259",
+      "element_id": "seed-auto-0259",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "vertical",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1466,
+        874
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 1,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": true,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1384,
+        791,
+        1548,
+        958
+      ],
+      "reference_arrow": {
+        "bbox": [
+          1418,
+          858,
+          130,
+          78
+        ],
+        "edges": [
+          1418,
+          858,
+          1547,
+          935
+        ],
+        "area_px": 838
+      },
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 7,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0285",
+      "element_id": "seed-auto-0285",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        754,
+        1054
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        718,
+        1048,
+        790,
+        1060
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0341",
+      "element_id": "seed-auto-0341",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1227,
+        1054
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1184,
+        1048,
+        1271,
+        1060
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0392",
+      "element_id": "seed-auto-0392",
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+        "reference_hash_match": true
+      },
+      "axis": "horizontal",
+      "shaft_width_px": 3.5,
+      "shaft_seed_point": [
+        1528,
+        1070
+      ],
+      "shaft_seed_radius_px": 1,
+      "reference_seed_component_count": 0,
+      "render_seed_component_count": 0,
+      "reference_seed_center_foreground": false,
+      "render_seed_center_foreground": false,
+      "tight_bbox": [
+        1462,
+        1064,
+        1595,
+        1076
+      ],
+      "reference_arrow": null,
+      "render_arrow": null,
+      "reference_tight_bbox_extension_pixels": 0,
+      "render_tight_bbox_extension_pixels": 0,
+      "shaft_measurement_error": "shaft mask is empty",
+      "shaft_measurement": {
+        "reference_width_px": null,
+        "render_width_px": null,
+        "render_error_px": null,
+        "declared_width_px": 3.5,
+        "declaration_error_px": null,
+        "tolerance_px": null,
+        "pass": false
+      },
+      "heads": [
+        {
+          "side": "end",
+          "pass": false,
+          "error": "reference head region contains no arrow pixels"
+        }
+      ],
+      "obstacles": [],
+      "pass": false
+    }
+  ],
+  "declared_head_lengths": [],
+  "trusted_head_lengths": {},
+  "blockers": [
+    "arrow-visual:expectation:scene-arrow-spec-mismatch",
+    "arrow-visual:avc-seed-auto-0015:shaft-width",
+    "arrow-visual:avc-seed-auto-0015:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0015:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0015:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0015:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0015:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0015:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0015:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0020:reference:tight-bbox-truncates-component",
+    "arrow-visual:avc-seed-auto-0020:render:tight-bbox-truncates-component",
+    "arrow-visual:avc-seed-auto-0020:shaft-width",
+    "arrow-visual:avc-seed-auto-0020:silhouette-bbox",
+    "arrow-visual:avc-seed-auto-0020:silhouette-mask",
+    "arrow-visual:avc-seed-auto-0020:silhouette-area",
+    "arrow-visual:avc-seed-auto-0020:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0046:shaft-width",
+    "arrow-visual:avc-seed-auto-0046:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0046:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0046:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0046:end:head-search-not-tight",
+    "arrow-visual:avc-seed-auto-0046:end:missing-render-head",
+    "arrow-visual:avc-seed-auto-0054:shaft-width",
+    "arrow-visual:avc-seed-auto-0054:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0054:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0054:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0054:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0054:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0054:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0054:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0055:shaft-width",
+    "arrow-visual:avc-seed-auto-0055:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0055:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0055:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0055:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0055:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0055:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0055:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0061:shaft-width",
+    "arrow-visual:avc-seed-auto-0061:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0061:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0061:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0061:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0061:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0061:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0061:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0079:shaft-width",
+    "arrow-visual:avc-seed-auto-0079:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0079:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0079:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0079:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0079:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0079:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0079:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0083:reference:tight-bbox-truncates-component",
+    "arrow-visual:avc-seed-auto-0083:shaft-width",
+    "arrow-visual:avc-seed-auto-0083:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0083:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0083:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0083:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0083:end:head-search-not-tight",
+    "arrow-visual:avc-seed-auto-0083:end:missing-render-head",
+    "arrow-visual:avc-seed-auto-0112:reference:tight-bbox-truncates-component",
+    "arrow-visual:avc-seed-auto-0112:shaft-width",
+    "arrow-visual:avc-seed-auto-0112:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0112:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0112:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0112:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0112:end:head-search-not-tight",
+    "arrow-visual:avc-seed-auto-0112:end:missing-render-head",
+    "arrow-visual:avc-seed-auto-0145:shaft-width",
+    "arrow-visual:avc-seed-auto-0145:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0145:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0145:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0145:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0145:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0145:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0145:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0146:shaft-width",
+    "arrow-visual:avc-seed-auto-0146:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0146:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0146:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0146:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0146:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0146:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0146:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0158:shaft-width",
+    "arrow-visual:avc-seed-auto-0158:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0158:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0158:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0158:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0158:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0158:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0158:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0176:shaft-width",
+    "arrow-visual:avc-seed-auto-0176:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0176:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0176:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0176:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0176:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0176:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0176:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0222:shaft-width",
+    "arrow-visual:avc-seed-auto-0222:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0222:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0222:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0222:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0222:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0222:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0222:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0259:reference:tight-bbox-truncates-component",
+    "arrow-visual:avc-seed-auto-0259:shaft-width",
+    "arrow-visual:avc-seed-auto-0259:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0259:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0259:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0259:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0285:shaft-width",
+    "arrow-visual:avc-seed-auto-0285:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0285:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0285:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0285:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0285:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0285:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0285:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0341:shaft-width",
+    "arrow-visual:avc-seed-auto-0341:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0341:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0341:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0341:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0341:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0341:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0341:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0392:shaft-width",
+    "arrow-visual:avc-seed-auto-0392:reference:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0392:render:shaft-seed-not-unique",
+    "arrow-visual:avc-seed-auto-0392:reference:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0392:render:shaft-seed-center-not-foreground",
+    "arrow-visual:avc-seed-auto-0392:reference:missing-arrow",
+    "arrow-visual:avc-seed-auto-0392:render:missing-arrow",
+    "arrow-visual:avc-seed-auto-0392:end:reference-evidence",
+    "arrow-visual:avc-seed-auto-0015:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0015:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0015:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0015:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0015:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0020:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0020:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0046:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0046:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0054:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0054:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0054:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0054:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0054:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0055:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0055:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0055:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0055:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0055:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0061:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0061:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0061:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0061:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0079:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0079:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0079:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0079:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0079:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0083:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0083:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0083:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0112:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0112:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0112:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0145:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0145:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0145:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0145:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0145:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0146:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0146:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0146:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0146:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0158:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0158:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0158:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0158:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0176:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0176:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0176:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0176:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0222:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0222:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0222:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0222:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0259:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0259:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0259:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0259:end:scene-tangent-mismatch",
+    "arrow-visual:avc-seed-auto-0285:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0285:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0285:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0285:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0341:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0341:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0341:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0341:tight-bbox-component-coverage",
+    "arrow-visual:avc-seed-auto-0392:scene-path-binding",
+    "arrow-visual:avc-seed-auto-0392:tight-bbox-path-coverage",
+    "arrow-visual:avc-seed-auto-0392:end:scene-endpoint-coverage",
+    "arrow-visual:avc-seed-auto-0392:tight-bbox-component-coverage"
+  ],
+  "pass": false,
+  "scene_path_bindings": [
+    {
+      "id": "avc-seed-auto-0015",
+      "element_id": "seed-auto-0015",
+      "shaft_seed_point": [
+        706.5,
+        454.5
+      ],
+      "distance_to_arrow_spec_path_px": 28.2712,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            691.11328125,
+            494.32068155999997
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 22.0319,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0020",
+      "element_id": "seed-auto-0020",
+      "shaft_seed_point": [
+        405.5,
+        234.5
+      ],
+      "distance_to_arrow_spec_path_px": 1.3006,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            446.044921875,
+            236.90472498
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 30.7589,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0046",
+      "element_id": "seed-auto-0046",
+      "shaft_seed_point": [
+        275.5,
+        568.0
+      ],
+      "distance_to_arrow_spec_path_px": 5.5224,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            270.703125,
+            620.4647559
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 2.6625,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": true
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0054",
+      "element_id": "seed-auto-0054",
+      "shaft_seed_point": [
+        320.0,
+        691.0
+      ],
+      "distance_to_arrow_spec_path_px": 17.2149,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            361.962890625,
+            734.30209128
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 17.2863,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0055",
+      "element_id": "seed-auto-0055",
+      "shaft_seed_point": [
+        237.5,
+        717.5
+      ],
+      "distance_to_arrow_spec_path_px": 34.1213,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            166.11328125,
+            735.32765286
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 25.1816,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0061",
+      "element_id": "seed-auto-0061",
+      "shaft_seed_point": [
+        133.0,
+        576.5
+      ],
+      "distance_to_arrow_spec_path_px": 8.0274,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            158.935546875,
+            515.8574747399999
+          ],
+          "search_bbox_contains_endpoint": true,
+          "axis_tangent_error_deg": 42.6944,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0079",
+      "element_id": "seed-auto-0079",
+      "shaft_seed_point": [
+        302.0,
+        793.5
+      ],
+      "distance_to_arrow_spec_path_px": 13.0298,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            349.658203125,
+            785.58017028
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 16.2882,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0083",
+      "element_id": "seed-auto-0083",
+      "shaft_seed_point": [
+        764.5,
+        215.0
+      ],
+      "distance_to_arrow_spec_path_px": 5.4957,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1008.984375,
+            220.4957397
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0112",
+      "element_id": "seed-auto-0112",
+      "shaft_seed_point": [
+        1389.0,
+        215.0
+      ],
+      "distance_to_arrow_spec_path_px": 5.4957,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1579.1015625,
+            220.4957397
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0145",
+      "element_id": "seed-auto-0145",
+      "shaft_seed_point": [
+        1805.0,
+        287.5
+      ],
+      "distance_to_arrow_spec_path_px": 39.8389,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1903.125,
+            348.6909372
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 22.4669,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0146",
+      "element_id": "seed-auto-0146",
+      "shaft_seed_point": [
+        656.5,
+        734.0
+      ],
+      "distance_to_arrow_spec_path_px": 18.7622,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            740.33203125,
+            752.76219972
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0158",
+      "element_id": "seed-auto-0158",
+      "shaft_seed_point": [
+        876.5,
+        734.0
+      ],
+      "distance_to_arrow_spec_path_px": 18.7622,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            980.2734375,
+            752.76219972
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0176",
+      "element_id": "seed-auto-0176",
+      "shaft_seed_point": [
+        1114.0,
+        734.0
+      ],
+      "distance_to_arrow_spec_path_px": 18.7622,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1214.0625,
+            752.76219972
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0222",
+      "element_id": "seed-auto-0222",
+      "shaft_seed_point": [
+        1421.0,
+        734.0
+      ],
+      "distance_to_arrow_spec_path_px": 18.7622,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1538.0859375,
+            752.76219972
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0259",
+      "element_id": "seed-auto-0259",
+      "shaft_seed_point": [
+        1466.0,
+        874.5
+      ],
+      "distance_to_arrow_spec_path_px": 34.1529,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": true,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1425.29296875,
+            817.37257926
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 74.1609,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0285",
+      "element_id": "seed-auto-0285",
+      "shaft_seed_point": [
+        754.0,
+        1054.0
+      ],
+      "distance_to_arrow_spec_path_px": 26.9419,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            742.3828125,
+            1080.94190532
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0341",
+      "element_id": "seed-auto-0341",
+      "shaft_seed_point": [
+        1227.5,
+        1054.0
+      ],
+      "distance_to_arrow_spec_path_px": 26.9419,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1220.21484375,
+            1080.94190532
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "avc-seed-auto-0392",
+      "element_id": "seed-auto-0392",
+      "shaft_seed_point": [
+        1528.5,
+        1070.0
+      ],
+      "distance_to_arrow_spec_path_px": 27.3509,
+      "tolerance_px": 3.0,
+      "path_inside_tight_bbox": false,
+      "reference_component_inside_tight_bbox": false,
+      "heads": [
+        {
+          "side": "end",
+          "scene_endpoint": [
+            1505.2734375,
+            1097.3508906
+          ],
+          "search_bbox_contains_endpoint": false,
+          "axis_tangent_error_deg": 0.0,
+          "axis_tangent_tolerance_deg": 3.0,
+          "pass": false
+        }
+      ],
+      "pass": false
+    }
+  ]
+}

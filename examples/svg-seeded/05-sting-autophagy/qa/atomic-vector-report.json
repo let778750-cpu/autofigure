@@ -1,0 +1,9 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "atomic_vector_audit",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "asset_count": 0,
+  "assets": [],
+  "pass": true,
+  "blockers": []
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "reference_inventory_freeze_receipt",
+  "case": "05-sting-autophagy-reference-only",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "inventory_sha256": "9422d743ef540f11a3709b0c21c851032fe0d1ee0e43c2eaa245d342a4232673",
+  "oracle_sha256": "57b4a8c98e6fd39b67b942a7036b6df44f92e7f3d27b7d0ac4141e60e5d96165",
+  "regions_sha256": "f1c58b843d17282e082b084230a0d778786106ec873e7b0421675b8063ac271c",
+  "critical_region_expectation_sha256": "b834228609d1710607b0b9b794e9d2d6105706d5c1514f52b9e5d3268c6fc03b",
+  "region_tasks_sha256": "cc0709df436164189071c3edf45795f4a2995f9361b319b4fb5c2f8a073e83fb",
+  "object_count": 391,
+  "counts": {
+    "text": 38,
+    "formula": 0,
+    "arrow": 18,
+    "icon": 0,
+    "brace": 0,
+    "plot": 0,
+    "shape": 335
+  },
+  "frozen_at": "20260827T130708Z",
+  "status": "PASS"
+}

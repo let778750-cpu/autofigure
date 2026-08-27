@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "vector_primitive_audit",
+  "created_at": "20260827T130657Z",
+  "case": "05-sting-autophagy",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "svg_sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
+  "scene_sha256": "f18e1502a20414681cbedea986ccc278b0ec834cdd691cb4706fe1ddc44c57f3",
+  "artifact_sha256": "90a662961538b9b22d6e8a6ec40a92358e91cf2ee48dbdb64cc204070cebd152",
+  "primitive_count": 0,
+  "expectations": [
+    {
+      "kind": "[missing]",
+      "expected_count": null,
+      "actual_count": 0,
+      "expected_primitives": [],
+      "actual_primitives": [],
+      "missing_element_ids": [],
+      "unexpected_element_ids": [],
+      "duplicate_element_ids": [],
+      "hash_mismatches": [],
+      "pass": false
+    }
+  ],
+  "records": [],
+  "findings": [
+    {
+      "code": "P12_EXPECTATION",
+      "element": "[[missing]]",
+      "message": "primitive_expectations field is missing"
+    }
+  ],
+  "pass": false
+}

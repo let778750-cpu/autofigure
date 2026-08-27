@@ -1,0 +1,41 @@
+{
+  "mode": "benchmark",
+  "diagnostic_pass": false,
+  "threshold": "mean_abs_rgb_delta<=18 且 top_roi_loss<5%",
+  "sizes": {
+    "target": {
+      "w": 2100,
+      "h": 1324
+    },
+    "final": {
+      "w": 2100,
+      "h": 1324
+    }
+  },
+  "size_mismatch": false,
+  "mean_abs_rgb_delta": 13.3733,
+  "rmse_rgb_delta": 39.5374,
+  "pixels_over_delta_10_pct": 19.1475,
+  "pixels_over_delta_25_pct": 12.607,
+  "pixels_over_delta_50_pct": 8.2331,
+  "changed_pixel_ratio_pct": 29.0512,
+  "evaluated_pixel_count": 2780400,
+  "excluded_reference_preview_pixel_count": 0,
+  "excluded_reference_preview_pct": 0.0,
+  "excluded_reference_preview_bboxes": [],
+  "top_roi": {
+    "bbox": {
+      "x": 40,
+      "y": 160,
+      "w": 760,
+      "h": 640
+    },
+    "mean_abs_rgb_delta": 22.2851,
+    "loss_contribution_pct": 22.131
+  },
+  "ssim": 0.7891,
+  "notes": [],
+  "summary": "mode=benchmark | mean_abs_rgb_delta=13.3733 | top_roi_loss=22.131% | changed_pixel_ratio=29.0512% | excluded_preview=0.0% | ssim=0.7891 | diagnostic=WATCH",
+  "reference_preview_receipts": [],
+  "diff_out": "qa/diff.png"
+}

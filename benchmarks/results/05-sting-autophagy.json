@@ -2,7 +2,7 @@
   "schema_version": "1.1.0",
   "kind": "benchmark_report",
   "case": "05-sting-autophagy",
-  "generated_at_utc": "2026-08-27T12:08:31Z",
+  "generated_at_utc": "2026-08-27T13:19:04Z",
   "environment": {
     "platform": "Windows-11-10.0.26200-SP0",
     "python": "3.12.4",
@@ -35,9 +35,9 @@
           "source-gate:semantic-metadata:missing-element-ids"
         ],
         "wall_seconds_stats": {
-          "median": 0.0247,
-          "min": 0.0236,
-          "max": 0.0419
+          "median": 0.0174,
+          "min": 0.0171,
+          "max": 0.0283
         }
       },
       "repaired-seed-unstamped": {
@@ -52,9 +52,9 @@
           "source-gate:semantic-metadata:missing:case"
         ],
         "wall_seconds_stats": {
-          "median": 0.0296,
-          "min": 0.0289,
-          "max": 0.0309
+          "median": 0.0198,
+          "min": 0.0193,
+          "max": 0.0204
         }
       },
       "repaired-seed-stamped": {
@@ -62,9 +62,9 @@
         "decisions_stable": true,
         "blockers": [],
         "wall_seconds_stats": {
-          "median": 0.03,
-          "min": 0.0279,
-          "max": 0.0302
+          "median": 0.0198,
+          "min": 0.0197,
+          "max": 0.0201
         }
       }
     },
@@ -72,217 +72,255 @@
       "svg-seeded/01-modular-agent": {
         "stages": {
           "convert": {
-            "wall_seconds": 12.3752,
-            "cpu_seconds": 4.5781,
-            "peak_rss_bytes": 100335616,
+            "wall_seconds": 6.5678,
+            "cpu_seconds": 2.0469,
+            "peak_rss_bytes": 98041856,
             "read_bytes": 33940431,
-            "write_bytes": 9993147
+            "write_bytes": 9993164
           },
           "math": {
-            "wall_seconds": 8.0289,
-            "cpu_seconds": 3.2812,
-            "peak_rss_bytes": 117686272,
+            "wall_seconds": 6.6826,
+            "cpu_seconds": 2.25,
+            "peak_rss_bytes": 111308800,
             "read_bytes": 35106329,
             "write_bytes": 2940937
           },
           "check": {
-            "wall_seconds": 15.6881,
-            "cpu_seconds": 13.8281,
-            "peak_rss_bytes": 281026560,
+            "wall_seconds": 9.1707,
+            "cpu_seconds": 7.9688,
+            "peak_rss_bytes": 264155136,
             "read_bytes": 40163113,
             "write_bytes": 1289993
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "981209f7d2b21acf3be12fbda8ff4a67879e4293e000ff0d201e59d46b0ccf30",
-          "bindings.json": "4f435d330e564ac7b83e4e7a03d549b237e5f1756aa629185ba797c241136168",
+          "redraw.pptx": "981862b3d3ca418e7b8e4bb6d742de1e620d516386280e427d4397795cdba764",
+          "bindings.json": "bc70bf748d9da6bf5973140a1ac8579363c11113b78b7975fb54349315f9f2fd",
           "render.png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f"
         }
       },
       "svg-seeded/02-thinking-diffusion": {
         "stages": {
           "convert": {
-            "wall_seconds": 8.8611,
-            "cpu_seconds": 2.7656,
-            "peak_rss_bytes": 121581568,
+            "wall_seconds": 5.8701,
+            "cpu_seconds": 1.5781,
+            "peak_rss_bytes": 121245696,
             "read_bytes": 12435394,
-            "write_bytes": 4571130
+            "write_bytes": 4571147
           },
           "math": {
-            "wall_seconds": 0.1288,
-            "cpu_seconds": 0.0938,
-            "peak_rss_bytes": 121585664,
+            "wall_seconds": 0.1403,
+            "cpu_seconds": 0.1094,
+            "peak_rss_bytes": 121245696,
             "read_bytes": 716761,
             "write_bytes": 480
           },
           "check": {
-            "wall_seconds": 4.4411,
-            "cpu_seconds": 2.9062,
-            "peak_rss_bytes": 281251840,
+            "wall_seconds": 2.9337,
+            "cpu_seconds": 1.75,
+            "peak_rss_bytes": 317898752,
             "read_bytes": 16915330,
             "write_bytes": 514122
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "879ab7db8354ff273aecfbda682df43c50b0e2159f34b0f38b0eead6cb52931e",
-          "bindings.json": "95e63451211b32deb1ed1c24fe7fdeff2a578190d41ce423275aa6f869624aee",
+          "redraw.pptx": "dbbe05b3faf054571d3ef78bcd96001b3abf3059399fa93762e67528566b0aa5",
+          "bindings.json": "e3ef2b26a835c786c54226a2c18db011cfe1942c3b1c7cace83d6d1ca3263158",
           "render.png": "d1d2d0104982af397f8e7a3d2d71827a89de0b22782ba364430fa68d9cf1807f"
         }
       },
       "svg-seeded/03-llmind": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.9547,
-            "cpu_seconds": 2.4688,
-            "peak_rss_bytes": 126947328,
+            "wall_seconds": 6.2361,
+            "cpu_seconds": 2.1562,
+            "peak_rss_bytes": 126885888,
             "read_bytes": 11056284,
-            "write_bytes": 3088909
+            "write_bytes": 3088920
           },
           "math": {
-            "wall_seconds": 6.398,
-            "cpu_seconds": 2.0156,
-            "peak_rss_bytes": 129232896,
+            "wall_seconds": 6.5206,
+            "cpu_seconds": 2.5625,
+            "peak_rss_bytes": 125976576,
             "read_bytes": 11914940,
             "write_bytes": 1043624
           },
           "check": {
-            "wall_seconds": 3.9765,
-            "cpu_seconds": 2.4688,
-            "peak_rss_bytes": 311263232,
+            "wall_seconds": 4.4813,
+            "cpu_seconds": 2.9219,
+            "peak_rss_bytes": 289976320,
             "read_bytes": 12882158,
             "write_bytes": 487813
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "560108ddeff0430eefb0f37919df1f9b9bcf8bd1fd51e539fd8a0a438b7ed745",
-          "bindings.json": "278aaad5a93f35e3f415544d627289554f7a21ba9d681ccfc5675f9c659cf757",
+          "redraw.pptx": "f3546f412e99bde86433b4092bc57f3f38508216f339e1cddfaf1a02d15b51d4",
+          "bindings.json": "e9ea4e28a343cd196cc8360938d5c5ba9f422d8302bd5daf58e7bc266c688bac",
           "render.png": "f2b04423ef1c11f86bce1c6f514f113d89a8ce28ace35c16495cd693bb48bdba"
         }
       },
       "svg-seeded/04-pareto-conditioned-diffusion": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.9192,
-            "cpu_seconds": 2.6406,
-            "peak_rss_bytes": 126984192,
+            "wall_seconds": 7.4396,
+            "cpu_seconds": 3.0781,
+            "peak_rss_bytes": 123445248,
             "read_bytes": 16417503,
-            "write_bytes": 5253714
+            "write_bytes": 5253732
           },
           "math": {
-            "wall_seconds": 0.1332,
-            "cpu_seconds": 0.0938,
-            "peak_rss_bytes": 119164928,
+            "wall_seconds": 0.2025,
+            "cpu_seconds": 0.1562,
+            "peak_rss_bytes": 122810368,
             "read_bytes": 977074,
             "write_bytes": 480
           },
           "check": {
-            "wall_seconds": 5.7968,
-            "cpu_seconds": 4.0938,
-            "peak_rss_bytes": 301568000,
+            "wall_seconds": 6.6621,
+            "cpu_seconds": 5.1562,
+            "peak_rss_bytes": 297979904,
             "read_bytes": 20762689,
             "write_bytes": 736828
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "581c81f264c6950a720b664c03f3eaef7380eaa10aa71f9573c1ccbd500c0c8d",
-          "bindings.json": "7a48c6832dff5eb5e9d09fbf07e2f7a3b6ad9cb358b14dbac1fb7c6bc0806205",
+          "redraw.pptx": "6c75db7bd1be31119915336c0ea7bc5d3925b4376f564624c9e8f8f11024f1d8",
+          "bindings.json": "a37ce31694c65fefc3956ad7fe5c91bcfae154f49d1b547f9eb6d5300e9cac2e",
           "render.png": "5e14d80153e138ce2533b8bb0b586f66b35fb2c6b0bf17d198179d1589a7b83c"
+        }
+      },
+      "svg-seeded/05-sting-autophagy": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 8.0495,
+            "cpu_seconds": 3.75,
+            "peak_rss_bytes": 132833280,
+            "read_bytes": 29402117,
+            "write_bytes": 11945368
+          },
+          "math": {
+            "wall_seconds": 0.275,
+            "cpu_seconds": 0.2188,
+            "peak_rss_bytes": 136486912,
+            "read_bytes": 2881546,
+            "write_bytes": 480
+          },
+          "check": {
+            "wall_seconds": 21.1735,
+            "cpu_seconds": 20.2031,
+            "peak_rss_bytes": 582295552,
+            "read_bytes": 42119563,
+            "write_bytes": 3657510
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "dcf7c75f2aa4e493251ace07997b5c23560c6e075a4976fc40dfcccfd92aebf5",
+          "bindings.json": "ff5a420f381eeb63ab7a2df8d5b66ba36b7a0aeea6349ed71a6d019af0bb7033",
+          "render.png": "0030d801ae1be3bdac6e6601e0034dd26c9d8bed8c64c302bfa0e4a6f01daded"
         }
       },
       "reference-only/01-modular-agent-reference-only": {
         "stages": {
           "convert": {
-            "wall_seconds": 7.2519,
-            "cpu_seconds": 2.8594,
-            "peak_rss_bytes": 130355200,
+            "wall_seconds": 7.8346,
+            "cpu_seconds": 3.2969,
+            "peak_rss_bytes": 134594560,
             "read_bytes": 28466829,
-            "write_bytes": 8921634
+            "write_bytes": 8921651
           },
           "math": {
-            "wall_seconds": 7.2184,
-            "cpu_seconds": 2.75,
-            "peak_rss_bytes": 136691712,
+            "wall_seconds": 8.4539,
+            "cpu_seconds": 4.0156,
+            "peak_rss_bytes": 138743808,
             "read_bytes": 33343332,
             "write_bytes": 2678542
           },
           "check": {
-            "wall_seconds": 12.6018,
-            "cpu_seconds": 11.1406,
-            "peak_rss_bytes": 314994688,
+            "wall_seconds": 15.0846,
+            "cpu_seconds": 14.1562,
+            "peak_rss_bytes": 326443008,
             "read_bytes": 34576675,
             "write_bytes": 1320158
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "419fe746b6c4cceb9173f47f71a1d7051d31051317abb21b423e8b901bb12539",
-          "bindings.json": "e0de8daa4797978870a7cec315a92d1f849eb6614570a461c50a6821c987e490",
+          "redraw.pptx": "0f48d3f4294d7d665690409d4020c28f4b813a0d01f25a755e176c6125b92ace",
+          "bindings.json": "0d01dd8441cd3df85f2da3ff2f4660eb28f801d610176f433afbf0a88884c7a5",
           "render.png": "c18dba0d8e42bc71de8a8cf6268ea25f3558d284c9074f93d2d38e1b78207db1"
         }
       },
       "reference-only/02-thinking-diffusion-reference-only": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.9494,
-            "cpu_seconds": 2.375,
-            "peak_rss_bytes": 125001728,
+            "wall_seconds": 7.8927,
+            "cpu_seconds": 2.9844,
+            "peak_rss_bytes": 124248064,
             "read_bytes": 16070135,
-            "write_bytes": 5644125
+            "write_bytes": 5652112
           },
           "math": {
-            "wall_seconds": 0.1323,
-            "cpu_seconds": 0.0938,
-            "peak_rss_bytes": 124612608,
+            "wall_seconds": 0.1748,
+            "cpu_seconds": 0.1406,
+            "peak_rss_bytes": 120610816,
             "read_bytes": 1010310,
             "write_bytes": 480
           },
           "check": {
-            "wall_seconds": 5.9145,
-            "cpu_seconds": 4.1875,
-            "peak_rss_bytes": 312770560,
+            "wall_seconds": 7.148,
+            "cpu_seconds": 5.5312,
+            "peak_rss_bytes": 300306432,
             "read_bytes": 20295487,
             "write_bytes": 555164
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "1b5cb06634aa58021bb99fa555e719966aff68288a87216bef693fd67dc672be",
-          "bindings.json": "e7425aad51d888c6d8205623bf793372865633b24eee69bac416b110dcabd2bb",
+          "redraw.pptx": "bf81c5b4ea92ec5b5e3be9e97c8442c1a6b5846486d9588bb6e6263475c29faa",
+          "bindings.json": "63eb65db76fc949a788713cd3bb5b2f51f2fcb7336aae0308c47841df0a821e3",
           "render.png": "584fe6379574f5a8cb355655815bfaec3985786a4f51fe91d16a1688c1d3d37f"
         }
       },
       "reference-only/04-pareto-conditioned-diffusion-reference-only": {
         "stages": {
           "convert": {
-            "wall_seconds": 7.008,
-            "cpu_seconds": 2.6406,
-            "peak_rss_bytes": 124571648,
+            "wall_seconds": 7.393,
+            "cpu_seconds": 2.9844,
+            "peak_rss_bytes": 123600896,
             "read_bytes": 20729333,
-            "write_bytes": 7276840
+            "write_bytes": 7268887
           },
           "math": {
-            "wall_seconds": 0.1434,
-            "cpu_seconds": 0.1094,
-            "peak_rss_bytes": 116477952,
+            "wall_seconds": 0.1972,
+            "cpu_seconds": 0.125,
+            "peak_rss_bytes": 121241600,
             "read_bytes": 1403409,
             "write_bytes": 480
           },
           "check": {
-            "wall_seconds": 6.2824,
-            "cpu_seconds": 4.6094,
-            "peak_rss_bytes": 280641536,
+            "wall_seconds": 7.1001,
+            "cpu_seconds": 5.7031,
+            "peak_rss_bytes": 288296960,
             "read_bytes": 28358256,
             "write_bytes": 899376
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "61b8f116c5944813e27796164e8445599ca47feb6eefc0052fa2674ac30dcb09",
-          "bindings.json": "f3c044c3dea5f67bf32ce21d10362ccb0c47c205ec07f0c9c52df8264f7dc0f8",
+          "redraw.pptx": "15284a5cbf251ebc4c87ac2ecdf930b0b60197539a5a58a9c1f52222e88bbfda",
+          "bindings.json": "a4271297442716a1995a1218775f392e588aa0bf10be8d31074140f07eed5ee0",
           "render.png": "998c4a9ff40db53a341ab0b8c97fd5284572f65b61a047f528cf06a057d9fb0f"
         }
       }
     }
   },
   "case_level": {
-    "status": "pending-contract-authoring",
-    "note": "案例级（建案→freeze→ingest→convert→math→check）基准需要经视觉审阅的 reference-inventory/regions/arrow-visual 合同集（zero_count_authorizations 的 basis 固定为 full-reference-review，无法在无视觉能力的会话中诚实合成）；合同集编写完成后由本 runner 补跑案例级与 reference-only 作者阶段。结构性发现已回写 Issue #19。"
+    "svg_seeded": {
+      "status": "implemented",
+      "case": "examples/svg-seeded/05-sting-autophagy",
+      "note": "完整案例已落地（prepare→合同生成→freeze 391 对象→ingest 盖章变体 gate accept→convert→math→check standard），管线数字见 pipeline 层 svg-seeded/05-sting-autophagy 行。"
+    },
+    "reference_only": {
+      "status": "case-frozen-awaiting-candidate",
+      "case": "examples/reference-only/05-sting-autophagy-reference-only",
+      "note": "案例合同已冻结；重绘候选须仅依据 fixture reference 由视觉执行者产出，候选落地后补跑该路线管线与作者阶段耗时（Issue #19）。"
+    }
   }
 }
