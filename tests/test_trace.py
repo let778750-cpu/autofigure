@@ -10,7 +10,7 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from tools import common
+from tools.core import common
 from tools.assets.asset_spec import (
     asset_contract_sha256,
     audit_atomic_vector_assets,

@@ -120,7 +120,7 @@ def test_eligibility_rejects_unreadable_image(tmp_path: Path):
 
 def test_trace_constants_have_a_single_authoritative_definition():
     from tools.core.contracts import TRACE_ELIGIBILITY_VALUES
-    from tools.providers import _VTRACER_TRACE_DEFAULT_PARAMS
+    from tools.providers.providers import _VTRACER_TRACE_DEFAULT_PARAMS
 
     assert TRACE_ELIGIBILITY_CLASSES == TRACE_ELIGIBILITY_VALUES
     assert "mode" not in VTRACER_LOCKED_PARAMETERS

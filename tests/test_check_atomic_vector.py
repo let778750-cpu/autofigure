@@ -6,7 +6,7 @@ import hashlib
 import zipfile
 from pathlib import Path
 
-from tools.check import (
+from tools.pipeline.check import (
     ATOMIC_VECTOR_SSIM_FLOOR,
     _pptx_shape_metadata,
     audit_atomic_vector_qa,

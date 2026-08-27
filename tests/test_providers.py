@@ -101,7 +101,7 @@ def test_vtracer_health_reports_installed_engine_version(tmp_path: Path):
 
 
 def test_vtracer_health_reports_unavailable_when_import_fails(tmp_path: Path, monkeypatch):
-    monkeypatch.setattr("tools.providers._vtracer_engine_version", lambda: None)
+    monkeypatch.setattr("tools.providers.providers._vtracer_engine_version", lambda: None)
     provider = VtracerAdapter(tmp_path / "journal.json")
     health = provider.health()
     assert health["healthy"] is False

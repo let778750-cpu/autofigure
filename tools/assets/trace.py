@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from tools import common
+from tools.core import common
 from tools.assets.asset_spec import (
     ATOMIC_VECTOR_FALLBACK_SOURCE,
     ATOMIC_VECTOR_ID_PREFIX,
