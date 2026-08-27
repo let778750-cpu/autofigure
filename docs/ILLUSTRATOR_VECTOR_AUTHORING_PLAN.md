@@ -3,7 +3,7 @@
 > 状态:**Phase 0/1/2 已实现并在真实案例上验证**(vtracer 微资产真矢量通道
 > atomic-vector:provider 注册、freeze 资格预分类、`autofigure trace` 命令、convert
 > 矢量分支、check 五门门禁,真实案例 01 全链路实测);**Phase 3/4/5 未实施**,其能力
-> (Inkscape 修版会话、确定性几何整理、素材库通道)不得写入 README / SKILL.md 的能力
+> (Inkscape 修版会话、确定性几何整理、素材库通道)不得写入 README / skill（`.agents/skills/ai-autofigure/SKILL.md`）的能力
 > 描述,不得在案例 provenance 中当作已具备的来源。未验证项在本文内一律显式标注
 > `[待验证]`。
 >
@@ -37,7 +37,7 @@ Inkscape(可视修版与 CLI 清洗)+ 免费科研矢量库(bioicons / SciDraw),
   任何上游产物必须落在现有 SVG 合同子集内,超集内容 strict 失败或降级为授权位图。
 - 不引入 Ribbon 坐标点击、SendKeys、图像识别点击(沿用现行插件边界法律)。
 - 不用任何 source 侧会话替代 strict 的 PowerPoint Live finalizer 证据(交付物是 PPTX,
-  backend 侧证据不可替代;见 HIGH_FIDELITY.md「PowerPoint Live」节)。
+  backend 侧证据不可替代;见 `high-fidelity-contract.md`「PowerPoint Live」节)。
 
 ## 2. 事实基础(全部为仓库内可复核证据)
 
@@ -284,13 +284,13 @@ undo`):
 
 | 门禁项 | 判据 | 出处 |
 |---|---|---|
-| 紧边界 ink_contract | 前景 bbox、中心、面积(沿用小目标合同) | PROJECT_ARCHITECTURE.md §6 |
+| 紧边界 ink_contract | 前景 bbox、中心、面积(沿用小目标合同) | architecture.md §6 |
 | 结构相似度 | SSIM ≥ **0.80**(矢量档,经校准;使用时必须 freeze 冻结) | docs/vtracer-pilot/README.md §3(插画类描摹源像素尺寸 SSIM 0.81–0.82,0.90 档不可达);案例 01 `qa/regions-report.json`(environment-globe 矢量实测 0.8065 过档) |
-| 边缘重合 | Edge IoU ≥ **0.75**(沿用全局 critical 底线) | HIGH_FIDELITY.md;案例 01 矢量实测 0.8825 过档 |
-| 颜色 | ΔE00 探针,案例冻结采样点 | HIGH_FIDELITY.md |
-| 原生性 | 产物全部为原生 shape/freeform,无位图残留;`editable=true` 且 shape Tags 完整 | SKILL.md 转换规范 |
+| 边缘重合 | Edge IoU ≥ **0.75**(沿用全局 critical 底线) | high-fidelity-contract.md;案例 01 矢量实测 0.8825 过档 |
+| 颜色 | ΔE00 探针,案例冻结采样点 | high-fidelity-contract.md |
+| 原生性 | 产物全部为原生 shape/freeform,无位图残留;`editable=true` 且 shape Tags 完整 | skill 转换规范 |
 | 合同子集 | 无 mesh gradient / mask / 混合模式 / `<image>` / 文字转路径 | SVG_AUTHORING_CONTRACT |
-| provenance | origin、候选 SHA-256、引擎版本、会话事务 ID 留档 | SKILL.md 案例合同 |
+| provenance | origin、候选 SHA-256、引擎版本、会话事务 ID 留档 | skill 案例合同 |
 
 两点限定:
 
@@ -351,7 +351,7 @@ undo`):
   证据纪律先例);`tools/repair/repair_plan.py` — source_model/backend blocker 分类。
 - `tools/pipeline/ingest.py` — `--candidate-origin` choices、`build_region_tasks`。
 - `tools/pipeline/prepare.py` — `SVG_AUTHORING_CONTRACT`(双路线共享 SVG 输出合同)。
-- `HIGH_FIDELITY.md` / `PROJECT_ARCHITECTURE.md` / `SKILL.md` — 质量门禁、插件
+- `high-fidelity-contract.md` / `architecture.md` / `.agents/skills/ai-autofigure/SKILL.md` — 质量门禁、插件
   provider 边界、交付纪律。
 
 ### 外部项目与文献

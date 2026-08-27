@@ -243,7 +243,7 @@ standard 永远只是诊断，不授予 approved。strict 没有 critical region
 
 两条输入路线只生成统一 `ArrowSpec`，确定性编译器再选择单一 PowerPoint 对象：直线 line、真实附着 connector、固定 polyline/cubic freeform，或单一闭合块箭头 freeform。相同 ArrowSpec 的编译策略必须相同。
 
-旧“杆＋独立箭头头＋group”只允许生成 standard 诊断预览，并必须写入 `fidelity_loss`；strict 对 `arrow-group`、`arrowhead-fallback` 或一个逻辑箭头多个可见对象直接失败。PowerPoint Live 只有通过 [箭头能力规格](POWERPOINT_ARROW_CAPABILITY_SPEC.md) 的哈希绑定矩阵探针后才允许创作箭头。
+旧“杆＋独立箭头头＋group”只允许生成 standard 诊断预览，并必须写入 `fidelity_loss`；strict 对 `arrow-group`、`arrowhead-fallback` 或一个逻辑箭头多个可见对象直接失败。PowerPoint Live 只有通过 [箭头能力规格](specs/powerpoint-arrow-capability.md) 的哈希绑定矩阵探针后才允许创作箭头。
 
 brace 使用同级 `primitive_spec` 和唯一 `brace_v1`：under/left/right 只能由 canonical over/under 基式镜像或旋转得到。strict 独立检查双瓣、中央 cusp、两子路径和单一可编辑 PowerPoint freeform。
 

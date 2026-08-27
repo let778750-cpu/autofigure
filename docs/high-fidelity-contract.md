@@ -150,7 +150,7 @@ autofigure check <case> --profile strict
 
 managed session 必须显式绑定 case、project、target、revision 与幂等键。先 inspect/audit，只修改失败区域，保存、关闭重开、重新渲染并再次审计。
 
-当前 PowerPoint Live 2.1.1 标记为 `arrow_authoring_unverified`，只能检查和保存重开；具体能力矩阵与启用条件见 `POWERPOINT_ARROW_CAPABILITY_SPEC.md`。
+当前 PowerPoint Live 2.1.1 标记为 `arrow_authoring_unverified`，只能检查和保存重开；具体能力矩阵与启用条件见 [`specs/powerpoint-arrow-capability.md`](specs/powerpoint-arrow-capability.md)。
 
 “会话能打开、对象能回读、保存重开哈希一致”只证明 backend integrity。没有针对当前失败区域的 hash-bound region result 时，不得写 `live-evidence.json`，strict 保留 `live-evidence-missing`。
 

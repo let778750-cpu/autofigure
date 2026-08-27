@@ -1,0 +1,7 @@
+# Codex 项目级配置。
+# 注册与 .kimi-code/mcp.json 相同的 PowerPoint Live MCP launcher；
+# 迁移前该注册位于根 mcp.json(args: tools/mcp/powerpoint_mcp_launcher.mjs)。
+[mcp_servers.powerpoint-live]
+command = "node"
+args = ["tools/mcp/powerpoint_mcp_launcher.mjs"]
+cwd = "."

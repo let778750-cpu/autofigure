@@ -60,7 +60,7 @@ flowchart TD
 
 ## 案例展示
 
-三个真实科研图主题，每个主题都给出两条输入路线的对照。对照图中**上为原图、下为重建渲染**；指标全部取自 schema 4.0 机器证据，状态如实标注——当前没有任何案例达到 `approved`。
+三个真实科研图主题，每个主题都给出两条输入路线的对照。对照图中**上为原图、下为重建渲染**；状态如实标注——当前没有任何案例达到 `approved`。案例的关键区通过数与 blocker 去重数由 `autofigure cases --write-index` 从各案例 `qa/` 机器证据生成，入口见 [`examples/README.md`](examples/README.md) 的生成索引表；本节不手写任何易漂移指标数字。
 
 ### 主题一 · ModularAgent 架构图（同一参考图的受控 A/B）
 
@@ -68,27 +68,13 @@ flowchart TD
 
 ![svg-seeded 01 对照：上原图，下重建渲染](examples/svg-seeded/01-modular-agent/preview.png)
 
-[`01-modular-agent`](examples/svg-seeded/01-modular-agent/)：
-
-| 指标 | 值 |
-|---|---|
-| 绑定对象 / 可编辑文字 / 原生公式 | 211 / 44 / 22 |
-| ArrowSpec 编译 / 箭头视觉物理门禁 | 41 条 PASS / **FAIL** |
-| 关键区域通过 | 5/12（通过区均为授权紧边界微资产） |
-| 状态 | `qa_failed` |
+[`01-modular-agent`](examples/svg-seeded/01-modular-agent/)：对象绑定、公式与箭头门禁细节见案例内 `check-report.md` 与生成索引。
 
 **仅提供目标 PNG 重绘（reference-only，全程未读取上一案例的 SVG、PPTX、场景、绑定或坐标）**
 
 ![reference-only 01 对照：上原图，下重建渲染](examples/reference-only/01-modular-agent-reference-only/preview.png)
 
-[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/)：
-
-| 指标 | 值 |
-|---|---|
-| 绑定对象 / 可编辑文字 / 原生公式 | 185 / 45 / 22 |
-| ArrowSpec 编译 / 箭头视觉物理门禁 | 39 条 PASS / **FAIL** |
-| 关键区域通过 | 3/10（两区为授权微资产，SSIM/Edge IoU 均为 1.0） |
-| 状态 | `qa_failed` |
+[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/)：通过区为授权紧边界微资产的机器证据见案例内 `qa/`。
 
 受控 A/B 报告：[`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md)。
 
@@ -98,27 +84,13 @@ flowchart TD
 
 ![svg-seeded 02 对照：上原图，下重建渲染](examples/svg-seeded/02-thinking-diffusion/preview.png)
 
-[`02-thinking-diffusion`](examples/svg-seeded/02-thinking-diffusion/)：
-
-| 指标 | 值 |
-|---|---|
-| 绑定对象 / 可编辑文字 | 156 / 46 |
-| ArrowSpec 编译 / 箭头视觉物理门禁 | 6 条 PASS / **PASS** |
-| 关键区域通过 | **18/18 全部通过** |
-| 状态 | `qa_failed`（19 个 blocker 集中在保存重开与 Live 证据链未闭合，视觉门禁已全部通过） |
+[`02-thinking-diffusion`](examples/svg-seeded/02-thinking-diffusion/)：全部关键区与箭头物理门禁已通过，剩余 blocker 集中在保存重开与 Live 证据链，仍为 `qa_failed`。
 
 **reference-only**
 
 ![reference-only 02 对照：上原图，下重建渲染](examples/reference-only/02-thinking-diffusion-reference-only/preview.png)
 
-[`02-thinking-diffusion-reference-only`](examples/reference-only/02-thinking-diffusion-reference-only/)：
-
-| 指标 | 值 |
-|---|---|
-| 绑定对象 / 可编辑文字 | 147 / 51 |
-| ArrowSpec 编译 / 箭头视觉物理门禁 | 6 条 PASS / **FAIL** |
-| 关键区域通过 | 4/8 |
-| 状态 | `qa_failed` |
+[`02-thinking-diffusion-reference-only`](examples/reference-only/02-thinking-diffusion-reference-only/)：箭头视觉物理门禁未闭合，状态见生成索引。
 
 ### 主题三 · Pareto-Conditioned Diffusion（当前最大保真缺口）
 
@@ -126,27 +98,13 @@ flowchart TD
 
 ![svg-seeded 04 对照：上原图，下重建渲染](examples/svg-seeded/04-pareto-conditioned-diffusion/preview.png)
 
-[`04-pareto-conditioned-diffusion`](examples/svg-seeded/04-pareto-conditioned-diffusion/)：
-
-| 指标 | 值 |
-|---|---|
-| 绑定对象 / 可编辑文字 / 微资产成员读回 | 159 / 17 / 94（AssetSpec PASS） |
-| ArrowSpec 编译 / 箭头视觉物理门禁 | 5 条 PASS / **PASS** |
-| 关键区域通过 | 1/38（DNA 双螺旋区 SSIM 仅 0.11–0.14，分子与蜡烛图区 0.29–0.32） |
-| 状态 | `qa_failed`（子元素还原度 + 字体尺度合同 38 项 FAIL） |
+[`04-pareto-conditioned-diffusion`](examples/svg-seeded/04-pareto-conditioned-diffusion/)：复杂子元素（DNA 双螺旋、分子、蜡烛图）像素级还原度与字体尺度合同是主要缺口。
 
 **reference-only**
 
 ![reference-only 04 对照：上原图，下重建渲染](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/preview.png)
 
-[`04-pareto-conditioned-diffusion-reference-only`](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/)：
-
-| 指标 | 值 |
-|---|---|
-| 绑定对象 / 可编辑文字 / 微资产成员读回 | 184 / 14 / 152（AssetSpec PASS） |
-| ArrowSpec 编译 / 箭头视觉物理门禁 | 9 条 PASS / **FAIL** |
-| 关键区域通过 | 0/28 |
-| 状态 | `qa_failed` |
+[`04-pareto-conditioned-diffusion-reference-only`](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/)：关键区通过数为零的机器证据见案例内 `qa/regions-report.json`。
 
 受控 A/B 报告：[`route-comparison-pareto-conditioned-diffusion-route-ab.md`](examples/route-comparison-pareto-conditioned-diffusion-route-ab.md)。
 
@@ -253,7 +211,7 @@ autofigure cases --check
 autofigure hygiene
 ```
 
-更多细节见 [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md)、[`HIGH_FIDELITY.md`](HIGH_FIDELITY.md)、[`SKILL.md`](SKILL.md) 和 [`examples/README.md`](examples/README.md)。
+更多细节见 [`docs/architecture.md`](docs/architecture.md)、[`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md)、[`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md) 与 [`examples/README.md`](examples/README.md)；文档索引见 [`docs/README.md`](docs/README.md)。
 
 ## License
 

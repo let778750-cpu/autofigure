@@ -2,7 +2,7 @@
 
 ## 范围
 
-本项目把参考科研图重建为原生可编辑 PPTX。正式指令见 `SKILL.md`、`PROJECT_ARCHITECTURE.md` 和 `HIGH_FIDELITY.md`。`legacy/` 除公式引擎兼容入口外不维护。
+本项目把参考科研图重建为原生可编辑 PPTX。正式指令见仓库级 skill [`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md)（Kimi/Codex 项目级 skill 发现路径，两工具通用 group 均扫描 `.agents/skills/`），架构与门禁合同见 [`docs/architecture.md`](docs/architecture.md) 和 [`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md)，文档索引见 [`docs/README.md`](docs/README.md)。`legacy/` 除公式引擎兼容入口外不维护。
 
 ## 输入路线与案例
 
@@ -51,7 +51,7 @@ autofigure hygiene
 
 ## No Negative Echo
 
-本规则与 `SKILL.md` 原则 7 同源，由 `autofigure hygiene` 做确定性兜底；此处约束生成行为本身。生成最终产物及其包装时，包括标题、文件名、正文、注释、标签、commit、PR 和交付说明，只描述最终采用的状态，假设读者没看过本次会话。
+本规则与 skill 原则 7（`.agents/skills/ai-autofigure/SKILL.md`）同源，由 `autofigure hygiene` 做确定性兜底；此处约束生成行为本身。生成最终产物及其包装时，包括标题、文件名、正文、注释、标签、commit、PR 和交付说明，只描述最终采用的状态，假设读者没看过本次会话。
 
 - 会话里的否决、中间尝试和措辞纠正，只当作控制信息，不要让它们成为最终产物的命名或叙述中心。
 - 对每个交付面分别判断：不知道本次会话的读者需要这条信息吗？省略会不会导致不准确、不安全、误导或兼容性信息缺失？它是不是任务开始时已提交或用户确认状态中的真实变化，而且当前交付面需要解释它？

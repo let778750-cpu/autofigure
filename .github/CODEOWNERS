@@ -7,6 +7,7 @@
 /references/ @let778750-cpu
 /tests/ @let778750-cpu
 /.github/ @let778750-cpu
-/SKILL.md @let778750-cpu
-/HIGH_FIDELITY.md @let778750-cpu
-/PROJECT_ARCHITECTURE.md @let778750-cpu
+/.agents/ @let778750-cpu
+/.codex/ @let778750-cpu
+/.kimi-code/ @let778750-cpu
+/docs/ @let778750-cpu
