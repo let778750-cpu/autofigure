@@ -3463,9 +3463,10 @@ def _convert_in_place(run: common.Run) -> dict:
     arrow_compile_report, arrow_readback_report = write_arrow_reports(run)
     primitive_report = audit_primitives(run)
     provider_report = write_case_capabilities(run)
-    from tools.pipeline.layout import audit_layout
+    from tools.pipeline.layout import audit_layout, persist_layout_audit
 
     layout_report = audit_layout(run)
+    persist_layout_audit(run, layout_report)
     from tools.core.revisions import stamp_active_revision
 
     revision = stamp_active_revision(run)

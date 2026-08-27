@@ -730,9 +730,10 @@ def _refresh_v3_contracts_after_math(run: common.Run, candidates: list[dict]) ->
     write_arrow_reports(run)
     audit_primitives(run)
     write_case_capabilities(run)
-    from tools.pipeline.layout import audit_layout
+    from tools.pipeline.layout import audit_layout, persist_layout_audit
 
     layout_report = audit_layout(run)
+    persist_layout_audit(run, layout_report)
     transition(
         run,
         "candidate",

@@ -976,7 +976,9 @@ def _publish_live_candidate_impl(
                 )
         arrow_compile, arrow_readback = write_arrow_reports(shadow)
         primitive_report = audit_primitives(shadow)
-        audit_layout(shadow)
+        from tools.pipeline.layout import persist_layout_audit
+
+        persist_layout_audit(shadow, audit_layout(shadow))
         provider_report = write_case_capabilities(shadow)
         if not arrow_compile.get("pass"):
             raise common.fail("live candidate failed ArrowSpec compilation evidence")

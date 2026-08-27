@@ -2,7 +2,7 @@
 
 ## 范围
 
-本项目把参考科研图重建为原生可编辑 PPTX。正式指令见仓库级 skill [`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md)（Kimi/Codex 项目级 skill 发现路径，两工具通用 group 均扫描 `.agents/skills/`），架构与门禁合同见 [`docs/architecture.md`](docs/architecture.md) 和 [`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md)，文档索引见 [`docs/README.md`](docs/README.md)。`legacy/` 除公式引擎兼容入口外不维护。
+本项目把参考科研图重建为原生可编辑 PPTX。正式指令见仓库级 skill [`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md)（Kimi/Codex 项目级 skill 发现路径，两工具通用 group 均扫描 `.agents/skills/`），架构与门禁合同见 [`docs/architecture.md`](docs/architecture.md) 和 [`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md)，文档索引见 [`docs/README.md`](docs/README.md)。v1 历史归档不在当前工作树，取回方式见 [`docs/legacy-archive.md`](docs/legacy-archive.md)。
 
 ## 输入路线与案例
 

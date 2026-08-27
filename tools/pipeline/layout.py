@@ -1711,12 +1711,20 @@ def audit_layout(run: common.Run) -> dict[str, Any]:
         "findings": findings,
         "pass": not findings,
     }
-    run.qa_dir.mkdir(exist_ok=True)
+    return report
+
+
+def persist_layout_audit(run: common.Run, report: dict[str, Any]) -> None:
+    """Explicitly write the layout report into the case's qa/ evidence tree.
+
+    ``audit_layout`` 本身保持只读,便于回归测试在不改写正式案例证据的前提下
+    复核报告;落盘由本函数显式承担。
+    """
+
     run.layout_audit_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    return report
 
 
 def strict_blockers(report: dict[str, Any]) -> list[str]:
@@ -1733,7 +1741,10 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="autofigure layout", description=__doc__)
     parser.add_argument("run_dir", type=Path)
     args = parser.parse_args(argv)
-    report = audit_layout(common.open_run(args.run_dir))
+    run = common.open_run(args.run_dir)
+    report = audit_layout(run)
+    run.qa_dir.mkdir(exist_ok=True)
+    persist_layout_audit(run, report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report["pass"] else 2
 

@@ -12,6 +12,7 @@
 - [`specs/powerpoint-arrow-capability.md`](specs/powerpoint-arrow-capability.md) — PowerPoint Live provider 的箭头创作与读回能力规格。
 - [`CASE_REGRESSION_POLICY.md`](CASE_REGRESSION_POLICY.md) — 案例回归策略：影响矩阵、回归记录与 Issue 闭环条件。
 - [`TESTING.md`](TESTING.md) — 测试与证据门禁：可移植 CI、证据时效与 PowerPoint COM 条件门禁。
+- [`legacy-archive.md`](legacy-archive.md) — legacy/ 历史归档取回指引（当前 tip 不携带归档工作树）。
 
 ## 计划与试点
 
@@ -22,4 +23,3 @@
 
 - 仓库级 skill：[`../.agents/skills/ai-autofigure/SKILL.md`](../.agents/skills/ai-autofigure/SKILL.md)（Kimi/Codex 项目级发现路径）。
 - 案例索引：[`../examples/README.md`](../examples/README.md)（`autofigure cases --write-index` 生成表）。
-- 历史归档取回：`legacy-archive.md`（legacy 收口后提供）。
