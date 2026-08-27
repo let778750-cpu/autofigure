@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.1.0",
+  "kind": "benchmark_report",
+  "case": "05-sting-autophagy",
+  "generated_at_utc": "2026-08-27T12:08:31Z",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.4",
+    "cpu_count": 24,
+    "psutil": "7.2.2",
+    "measurement_scope": "当前进程及其子进程树（RSS/IO/CPU-wall）；PowerPoint COM 服务器经 RPC 激活、不在子进程树内时其资源不计入——如实记录测量边界"
+  },
+  "fixture_verification": {
+    "reference.png": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "external-seed.svg": "79683946fc2b4fa2614cc0e43072688caa8086d6563fa35dbdeb170b55828fe9",
+    "external-seed-repaired.svg": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a"
+  },
+  "tiers": {
+    "gate": {
+      "original-seed": {
+        "decision": "reject",
+        "decisions_stable": true,
+        "blockers": [
+          "source-gate:canvas:width-mismatch",
+          "source-gate:canvas:height-mismatch",
+          "source-gate:canvas:viewbox-mismatch",
+          "source-gate:semantic-metadata:missing:semantic_schema_version",
+          "source-gate:semantic-metadata:missing:reference_sha256",
+          "source-gate:semantic-metadata:missing:object_inventory_sha256",
+          "source-gate:semantic-metadata:missing:stable_element_ids",
+          "source-gate:semantic-metadata:missing:relations_exhaustive",
+          "source-gate:semantic-metadata:missing:case",
+          "source-gate:unsupported-feature:repair:style",
+          "source-gate:unsupported-feature:repair:use",
+          "source-gate:semantic-metadata:missing-element-ids"
+        ],
+        "wall_seconds_stats": {
+          "median": 0.0247,
+          "min": 0.0236,
+          "max": 0.0419
+        }
+      },
+      "repaired-seed-unstamped": {
+        "decision": "repair",
+        "decisions_stable": true,
+        "blockers": [
+          "source-gate:semantic-metadata:missing:semantic_schema_version",
+          "source-gate:semantic-metadata:missing:reference_sha256",
+          "source-gate:semantic-metadata:missing:object_inventory_sha256",
+          "source-gate:semantic-metadata:missing:stable_element_ids",
+          "source-gate:semantic-metadata:missing:relations_exhaustive",
+          "source-gate:semantic-metadata:missing:case"
+        ],
+        "wall_seconds_stats": {
+          "median": 0.0296,
+          "min": 0.0289,
+          "max": 0.0309
+        }
+      },
+      "repaired-seed-stamped": {
+        "decision": "accept",
+        "decisions_stable": true,
+        "blockers": [],
+        "wall_seconds_stats": {
+          "median": 0.03,
+          "min": 0.0279,
+          "max": 0.0302
+        }
+      }
+    },
+    "pipeline": {
+      "svg-seeded/01-modular-agent": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 12.3752,
+            "cpu_seconds": 4.5781,
+            "peak_rss_bytes": 100335616,
+            "read_bytes": 33940431,
+            "write_bytes": 9993147
+          },
+          "math": {
+            "wall_seconds": 8.0289,
+            "cpu_seconds": 3.2812,
+            "peak_rss_bytes": 117686272,
+            "read_bytes": 35106329,
+            "write_bytes": 2940937
+          },
+          "check": {
+            "wall_seconds": 15.6881,
+            "cpu_seconds": 13.8281,
+            "peak_rss_bytes": 281026560,
+            "read_bytes": 40163113,
+            "write_bytes": 1289993
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "981209f7d2b21acf3be12fbda8ff4a67879e4293e000ff0d201e59d46b0ccf30",
+          "bindings.json": "4f435d330e564ac7b83e4e7a03d549b237e5f1756aa629185ba797c241136168",
+          "render.png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f"
+        }
+      },
+      "svg-seeded/02-thinking-diffusion": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 8.8611,
+            "cpu_seconds": 2.7656,
+            "peak_rss_bytes": 121581568,
+            "read_bytes": 12435394,
+            "write_bytes": 4571130
+          },
+          "math": {
+            "wall_seconds": 0.1288,
+            "cpu_seconds": 0.0938,
+            "peak_rss_bytes": 121585664,
+            "read_bytes": 716761,
+            "write_bytes": 480
+          },
+          "check": {
+            "wall_seconds": 4.4411,
+            "cpu_seconds": 2.9062,
+            "peak_rss_bytes": 281251840,
+            "read_bytes": 16915330,
+            "write_bytes": 514122
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "879ab7db8354ff273aecfbda682df43c50b0e2159f34b0f38b0eead6cb52931e",
+          "bindings.json": "95e63451211b32deb1ed1c24fe7fdeff2a578190d41ce423275aa6f869624aee",
+          "render.png": "d1d2d0104982af397f8e7a3d2d71827a89de0b22782ba364430fa68d9cf1807f"
+        }
+      },
+      "svg-seeded/03-llmind": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.9547,
+            "cpu_seconds": 2.4688,
+            "peak_rss_bytes": 126947328,
+            "read_bytes": 11056284,
+            "write_bytes": 3088909
+          },
+          "math": {
+            "wall_seconds": 6.398,
+            "cpu_seconds": 2.0156,
+            "peak_rss_bytes": 129232896,
+            "read_bytes": 11914940,
+            "write_bytes": 1043624
+          },
+          "check": {
+            "wall_seconds": 3.9765,
+            "cpu_seconds": 2.4688,
+            "peak_rss_bytes": 311263232,
+            "read_bytes": 12882158,
+            "write_bytes": 487813
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "560108ddeff0430eefb0f37919df1f9b9bcf8bd1fd51e539fd8a0a438b7ed745",
+          "bindings.json": "278aaad5a93f35e3f415544d627289554f7a21ba9d681ccfc5675f9c659cf757",
+          "render.png": "f2b04423ef1c11f86bce1c6f514f113d89a8ce28ace35c16495cd693bb48bdba"
+        }
+      },
+      "svg-seeded/04-pareto-conditioned-diffusion": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.9192,
+            "cpu_seconds": 2.6406,
+            "peak_rss_bytes": 126984192,
+            "read_bytes": 16417503,
+            "write_bytes": 5253714
+          },
+          "math": {
+            "wall_seconds": 0.1332,
+            "cpu_seconds": 0.0938,
+            "peak_rss_bytes": 119164928,
+            "read_bytes": 977074,
+            "write_bytes": 480
+          },
+          "check": {
+            "wall_seconds": 5.7968,
+            "cpu_seconds": 4.0938,
+            "peak_rss_bytes": 301568000,
+            "read_bytes": 20762689,
+            "write_bytes": 736828
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "581c81f264c6950a720b664c03f3eaef7380eaa10aa71f9573c1ccbd500c0c8d",
+          "bindings.json": "7a48c6832dff5eb5e9d09fbf07e2f7a3b6ad9cb358b14dbac1fb7c6bc0806205",
+          "render.png": "5e14d80153e138ce2533b8bb0b586f66b35fb2c6b0bf17d198179d1589a7b83c"
+        }
+      },
+      "reference-only/01-modular-agent-reference-only": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 7.2519,
+            "cpu_seconds": 2.8594,
+            "peak_rss_bytes": 130355200,
+            "read_bytes": 28466829,
+            "write_bytes": 8921634
+          },
+          "math": {
+            "wall_seconds": 7.2184,
+            "cpu_seconds": 2.75,
+            "peak_rss_bytes": 136691712,
+            "read_bytes": 33343332,
+            "write_bytes": 2678542
+          },
+          "check": {
+            "wall_seconds": 12.6018,
+            "cpu_seconds": 11.1406,
+            "peak_rss_bytes": 314994688,
+            "read_bytes": 34576675,
+            "write_bytes": 1320158
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "419fe746b6c4cceb9173f47f71a1d7051d31051317abb21b423e8b901bb12539",
+          "bindings.json": "e0de8daa4797978870a7cec315a92d1f849eb6614570a461c50a6821c987e490",
+          "render.png": "c18dba0d8e42bc71de8a8cf6268ea25f3558d284c9074f93d2d38e1b78207db1"
+        }
+      },
+      "reference-only/02-thinking-diffusion-reference-only": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.9494,
+            "cpu_seconds": 2.375,
+            "peak_rss_bytes": 125001728,
+            "read_bytes": 16070135,
+            "write_bytes": 5644125
+          },
+          "math": {
+            "wall_seconds": 0.1323,
+            "cpu_seconds": 0.0938,
+            "peak_rss_bytes": 124612608,
+            "read_bytes": 1010310,
+            "write_bytes": 480
+          },
+          "check": {
+            "wall_seconds": 5.9145,
+            "cpu_seconds": 4.1875,
+            "peak_rss_bytes": 312770560,
+            "read_bytes": 20295487,
+            "write_bytes": 555164
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "1b5cb06634aa58021bb99fa555e719966aff68288a87216bef693fd67dc672be",
+          "bindings.json": "e7425aad51d888c6d8205623bf793372865633b24eee69bac416b110dcabd2bb",
+          "render.png": "584fe6379574f5a8cb355655815bfaec3985786a4f51fe91d16a1688c1d3d37f"
+        }
+      },
+      "reference-only/04-pareto-conditioned-diffusion-reference-only": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 7.008,
+            "cpu_seconds": 2.6406,
+            "peak_rss_bytes": 124571648,
+            "read_bytes": 20729333,
+            "write_bytes": 7276840
+          },
+          "math": {
+            "wall_seconds": 0.1434,
+            "cpu_seconds": 0.1094,
+            "peak_rss_bytes": 116477952,
+            "read_bytes": 1403409,
+            "write_bytes": 480
+          },
+          "check": {
+            "wall_seconds": 6.2824,
+            "cpu_seconds": 4.6094,
+            "peak_rss_bytes": 280641536,
+            "read_bytes": 28358256,
+            "write_bytes": 899376
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "61b8f116c5944813e27796164e8445599ca47feb6eefc0052fa2674ac30dcb09",
+          "bindings.json": "f3c044c3dea5f67bf32ce21d10362ccb0c47c205ec07f0c9c52df8264f7dc0f8",
+          "render.png": "998c4a9ff40db53a341ab0b8c97fd5284572f65b61a047f528cf06a057d9fb0f"
+        }
+      }
+    }
+  },
+  "case_level": {
+    "status": "pending-contract-authoring",
+    "note": "案例级（建案→freeze→ingest→convert→math→check）基准需要经视觉审阅的 reference-inventory/regions/arrow-visual 合同集（zero_count_authorizations 的 basis 固定为 full-reference-review，无法在无视觉能力的会话中诚实合成）；合同集编写完成后由本 runner 补跑案例级与 reference-only 作者阶段。结构性发现已回写 Issue #19。"
+  }
+}

@@ -97,6 +97,10 @@ jobs:
         run: python -m tools cases --check
       - name: 检查负面回声与过期叙述
         run: python -m tools hygiene
+      - name: 基准 fixture 与确定性修复校验
+        run: |
+          python benchmarks/repair_seed.py --check
+          python -c "import sys; sys.path.insert(0, 'benchmarks'); from run_case05 import verify_fixture; verify_fixture(); print('benchmark fixture ok')"
 
   powerpoint-live-gate:
     name: PowerPoint COM 人工门禁

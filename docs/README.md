@@ -19,6 +19,10 @@
 - [`ILLUSTRATOR_VECTOR_AUTHORING_PLAN.md`](ILLUSTRATOR_VECTOR_AUTHORING_PLAN.md) — 矢量创作车间升级计划（免费开源默认栈）。
 - [`vtracer-pilot/`](vtracer-pilot/) — vtracer 微资产描摹试点证据。
 
+## 基准
+
+- [`../benchmarks/`](../benchmarks/) — Case05 双路线性能基准：不可变 fixture、确定性 seed 修复与机器采集结果（Issue #19）。
+
 ## 其他入口
 
 - 仓库级 skill：[`../.agents/skills/ai-autofigure/SKILL.md`](../.agents/skills/ai-autofigure/SKILL.md)（Kimi/Codex 项目级发现路径）。

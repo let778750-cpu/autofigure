@@ -1,6 +1,6 @@
 # AI AutoFigure 依赖（隔离 .venv 使用，基座 D:\anaconda\python.exe 3.12）
 # PaddleOCR 不装入本环境：OCR 由独立固定解释器 D:\paddle ocr\env\python.exe
-# 执行 tools/v2/ocr_texts.py，其依赖与模型均在该环境内管理。
+# 执行 tools/assets/ocr_texts.py，其依赖与模型均在该环境内管理。
 python-pptx>=1.0        # convert/check：原生 PPTX 读写
 Pillow>=10.0            # 渲染图/微资产裁剪与像素比对
 numpy>=1.26             # regions/figure_lint 数值计算
@@ -11,5 +11,6 @@ latex2mathml>=3.81      # math 命令：LaTeX→MathML（OMML 转换用本机 Of
 pywin32>=306            # live_bridge/render_export：PowerPoint COM fresh render
 jsonschema>=4.0         # figure_lint 合同校验
 vtracer==0.6.15         # asset_trace/providers：微资产确定性描摹（锁版本，改动需重跑试点校准）
+psutil>=7.2,<8          # benchmarks：进程树 RSS/IO 采集（Case05 双路线基准）
 pytest>=8.0
 ruff>=0.6
