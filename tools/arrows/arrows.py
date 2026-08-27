@@ -1602,7 +1602,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.fix:
         new_text, fixes = fix_svg_text(svg_text, clamp_ratio=args.clamp_ratio, calibrate=calibrate)
-        run.redraw_svg.write_text(new_text, encoding="utf-8")
+        run.redraw_svg.write_text(new_text, encoding="utf-8", newline="\n")
         after = audit_svg_text(
             new_text,
             calibrate=calibrate,
