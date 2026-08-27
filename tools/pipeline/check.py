@@ -18,7 +18,7 @@ from tools.core import common
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
 PADDLE_PYTHON = Path(r"D:\paddle ocr\env\python.exe")
-OCR_CONFIG = common.PROJECT_ROOT / "legacy" / "ocr-config.json"
+OCR_CONFIG = common.PROJECT_ROOT / "config" / "ocr-config.json"
 FIGURE_LINT = common.PROJECT_ROOT / "tools" / "regions" / "figure_lint.py"
 
 
@@ -736,9 +736,10 @@ def main(argv: list[str] | None = None) -> int:
     from tools.regions.regions import evaluate_regions
 
     regions = evaluate_regions(run)
-    from tools.pipeline.layout import audit_layout
+    from tools.pipeline.layout import audit_layout, persist_layout_audit
 
     layout_report = audit_layout(run)
+    persist_layout_audit(run, layout_report)
 
     # 每次 check 都重新生成哈希绑定的像素证据。旧 arrows-audit.json 中的
     # calibrate 表可能来自 SVG 自报属性，不能作为 F2 的参考证据复用。

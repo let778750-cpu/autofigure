@@ -1,9 +1,13 @@
-"""Deterministic negative-echo scan over deliverable markdown documents.
+"""Deterministic negative-echo scan plus a fenced workspace cache cleaner.
 
-交付物只陈述最终采用且已验证的状态(SKILL.md 原则 7)。本命令扫描仓库 markdown
+交付物只陈述最终采用且已验证的状态(skill 原则 7)。本命令扫描仓库 markdown
 中的纠正过程叙事残留(修复前后对照、对已修复旧实现的批评等);修复过程与防重复
 踩坑教训的合法归宿是 history/ ADR,不在扫描范围。合同性约束(禁令/必须)与确
 定性工具指引(--fix/--calibrate)行是边界而非残留,予以豁免。
+
+``--workspace`` 切换为工作区缓存审计:只读列出项目根内允许清理的缓存/临时产物;
+``--workspace --clean`` 仅删除 allowlist 中的条目,绝不进入 ``.venv``、``history/``、
+案例输入或任何未知目录;符号链接、reparse point 与越界解析路径直接拒绝。
 """
 
 from __future__ import annotations
@@ -11,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -76,7 +81,20 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="autofigure hygiene", description=__doc__)
     parser.add_argument("--root", type=Path, default=common.PROJECT_ROOT)
     parser.add_argument("--json", action="store_true", help="以 JSON 输出发现清单")
+    parser.add_argument(
+        "--workspace",
+        action="store_true",
+        help="审计项目根内允许清理的缓存/临时产物(只读)",
+    )
+    parser.add_argument(
+        "--clean",
+        action="store_true",
+        help="与 --workspace 连用:仅删除 allowlist 条目",
+    )
     args = parser.parse_args(argv)
+
+    if args.workspace:
+        return workspace_main(args)
 
     findings = scan_root(args.root.resolve())
     if args.json:
@@ -87,6 +105,126 @@ def main(argv: list[str] | None = None) -> int:
         if not findings:
             sys.stdout.write("hygiene: no negative-echo findings\n")
     return 1 if findings else 0
+
+
+# --- workspace cache audit -----------------------------------------------------------
+
+# 目录名 allowlist:出现在任何深度都可以整体删除的缓存目录。
+WORKSPACE_CACHE_DIR_NAMES = frozenset(
+    {"__pycache__", ".pytest_cache", ".ruff_cache", ".cache"}
+)
+
+# 根级 allowlist:只匹配项目根下同名目录(git 已忽略的受控测试临时目录)。
+WORKSPACE_ROOT_DIR_PATTERNS = re.compile(r"^\.pytest-tmp-.*$")
+
+# PowerPoint Live 受控 session build 目录的相对路径后缀。
+WORKSPACE_BUILD_SUFFIX = ("qa", "powerpoint-live-case", "build")
+
+# 永不进入、永不删除的目录名(出现在路径任一层即跳过)。
+WORKSPACE_PROTECTED_DIR_NAMES = frozenset(
+    {".git", ".venv", "history", "node_modules", "legacy", "examples"}
+)
+# examples/ 整体受保护,但其 qa/powerpoint-live-case/build 子目录例外(见下)。
+
+WORKSPACE_FILE_SUFFIXES = frozenset({".pyc", ".pyo", ".pyd"})
+
+
+def _is_reparse_or_symlink(path: Path) -> bool:
+    """Windows reparse point / symlink / junction 检测;解析失败的保守视为越界。"""
+
+    try:
+        if path.is_symlink():
+            return True
+        st = path.lstat()
+        return bool(st.st_file_attributes & 0x400)  # FILE_ATTRIBUTE_REPARSE_POINT
+    except OSError:
+        return True
+
+
+def _resolve_in_root(path: Path, root: Path) -> Path | None:
+    """Resolve path 并确认仍位于 root 内;reparse 链或越界返回 None。"""
+
+    try:
+        resolved = path.resolve(strict=False)
+        resolved.relative_to(root)
+    except (OSError, ValueError):
+        return None
+    return resolved
+
+
+def discover_workspace_cache(root: Path) -> list[dict[str, object]]:
+    """枚举 root 内 allowlist 缓存条目;受保护目录整体跳过。"""
+
+    root = root.resolve()
+    entries: list[dict[str, object]] = []
+
+    def protected(parts: tuple[str, ...]) -> bool:
+        # examples/ 由专用分支处理(仅放行 PowerPoint Live session build)。
+        guard = WORKSPACE_PROTECTED_DIR_NAMES - {"examples"}
+        return any(part in guard for part in parts[:-1]) or (
+            parts and parts[0] in guard
+        )
+
+    for path in sorted(root.rglob("*")):
+        rel = path.relative_to(root)
+        parts = rel.parts
+        if not parts:
+            continue
+        if protected(parts):
+            continue
+        if parts[0] == "examples":
+            # examples/ 内只允许 PowerPoint Live session build。
+            if parts[-3:] == WORKSPACE_BUILD_SUFFIX and path.is_dir():
+                entries.append({"path": rel.as_posix(), "kind": "live-build-dir"})
+            continue
+        if path.is_dir():
+            if parts[-1] in WORKSPACE_CACHE_DIR_NAMES:
+                entries.append({"path": rel.as_posix(), "kind": "cache-dir"})
+            elif len(parts) == 1 and WORKSPACE_ROOT_DIR_PATTERNS.match(parts[0]):
+                entries.append({"path": rel.as_posix(), "kind": "pytest-tmp-dir"})
+            elif parts[-3:] == WORKSPACE_BUILD_SUFFIX:
+                entries.append({"path": rel.as_posix(), "kind": "live-build-dir"})
+        elif path.is_file() and path.suffix in WORKSPACE_FILE_SUFFIXES:
+            entries.append({"path": rel.as_posix(), "kind": "bytecode-file"})
+
+    return entries
+
+
+def workspace_main(args: argparse.Namespace) -> int:
+    root = args.root.resolve()
+    if not root.is_dir():
+        raise SystemExit(f"hygiene: root is not a directory: {root}")
+
+    entries = discover_workspace_cache(root)
+    if args.json:
+        sys.stdout.write(
+            json.dumps({"workspace": {"entries": entries, "clean": args.clean}},
+                       ensure_ascii=False, indent=2) + "\n"
+        )
+
+    if args.clean:
+        removed = 0
+        for entry in entries:
+            target = root / str(entry["path"])
+            if _is_reparse_or_symlink(target):
+                sys.stderr.write(f"SKIP reparse/symlink: {entry['path']}\n")
+                continue
+            resolved = _resolve_in_root(target, root)
+            if resolved is None:
+                sys.stderr.write(f"SKIP out-of-root resolve: {entry['path']}\n")
+                continue
+            if target.is_dir():
+                shutil.rmtree(target, ignore_errors=False)
+            else:
+                target.unlink()
+            removed += 1
+        sys.stdout.write(f"hygiene workspace: removed {removed} entr{'y' if removed == 1 else 'ies'}\n")
+        return 0
+
+    for entry in entries:
+        sys.stdout.write(f"{entry['kind']}: {entry['path']}\n")
+    sys.stdout.write(f"hygiene workspace: {len(entries)} cleanable entr{'y' if len(entries) == 1 else 'ies'} (use --clean to remove)\n")
+    return 0
 
 
 if __name__ == "__main__":

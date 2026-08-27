@@ -10,7 +10,7 @@ from pptx.util import Pt
 from tools.core import common
 from tools.core.contracts import read_json, write_json
 from tools.pipeline.convert import convert
-from tools.pipeline.layout import audit_layout, strict_blockers
+from tools.pipeline.layout import audit_layout, persist_layout_audit, strict_blockers
 from tools.arrows.pptx_arrows import refresh_bindings, write_arrow_reports
 
 
@@ -33,6 +33,25 @@ def run_factory(tmp_path: Path):
         return run
 
     return make
+
+
+def test_audit_layout_is_read_only_and_persist_is_explicit(run_factory):
+    run = run_factory(
+        '<rect id="box" x="10" y="10" width="100" height="40" fill="#eeeeee"/>'
+    )
+    convert(run)
+    # convert 持久化过一次;只读审计不得改动任何已落盘证据。
+    before = run.layout_audit_path.read_bytes()
+    stamp = run.layout_audit_path.stat().st_mtime_ns
+    report = audit_layout(run)
+    assert report["pass"] is True
+    assert run.layout_audit_path.read_bytes() == before
+    assert run.layout_audit_path.stat().st_mtime_ns == stamp
+
+    persist_layout_audit(run, report)
+    after = read_json(run.layout_audit_path)
+    assert after["pass"] is True
+    assert after["annotation_coverage"] == report["annotation_coverage"]
 
 
 def test_container_annotation_clips_selection_box_and_survives_readback(run_factory):

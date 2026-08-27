@@ -64,10 +64,18 @@ jobs:
           python -m pip install -r requirements.txt
       - name: 静态检查
         run: python -m ruff check tools tests
-      - name: 字节码编译
+      - name: 字节码编译（外部 pycache）
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/autofigure-pycache
         run: python -m compileall -q tools tests
       - name: 单元与离线集成测试
-        run: python -m pytest tests -q
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/autofigure-pycache
+        run: python -m pytest tests -q --basetemp "${{ runner.temp }}/autofigure-basetemp"
+      - name: 测试不得改写跟踪内容
+        shell: bash
+        run: git diff --exit-code
 
   case-contracts:
     name: case-contracts
