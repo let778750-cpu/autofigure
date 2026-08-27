@@ -56,7 +56,7 @@ flowchart TD
 
 ## Showcase
 
-Three real research figures, each shown as a controlled A/B across both input routes. In every comparison image the **top half is the original figure, the bottom half the reconstructed render**. All metrics come from schema 4.0 machine evidence and are reported as they are — no case has reached `approved`.
+Three real research figures, each shown as a controlled A/B across both input routes. In every comparison image the **top half is the original figure, the bottom half the reconstructed render**. No case has reached `approved`. Critical-region pass counts and deduplicated blocker counts are generated from each case's `qa/` machine evidence by `autofigure cases --write-index`; see the generated index table in [`examples/README.md`](examples/README.md). This section deliberately keeps no hand-written metric numbers.
 
 ### Theme 1 · ModularAgent architecture (same frozen reference, controlled A/B)
 
@@ -64,27 +64,13 @@ Three real research figures, each shown as a controlled A/B across both input ro
 
 ![svg-seeded case 01: original on top, reconstructed render below](examples/svg-seeded/01-modular-agent/preview.png)
 
-[`01-modular-agent`](examples/svg-seeded/01-modular-agent/):
-
-| Metric | Value |
-|---|---|
-| Bound objects / editable text / native equations | 211 / 44 / 22 |
-| ArrowSpec compile / arrow physical gate | 41 PASS / **FAIL** |
-| Critical regions passing | 5/12 (all passing regions are authorized tightly-cropped microassets) |
-| Status | `qa_failed` |
+[`01-modular-agent`](examples/svg-seeded/01-modular-agent/): binding, equation, and arrow-gate details live in the case's `check-report.md` and the generated index.
 
 **Redraw from the target PNG only (reference-only; never read the other case's SVG, PPTX, scene, bindings, or coordinates)**
 
 ![reference-only case 01: original on top, reconstructed render below](examples/reference-only/01-modular-agent-reference-only/preview.png)
 
-[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/):
-
-| Metric | Value |
-|---|---|
-| Bound objects / editable text / native equations | 185 / 45 / 22 |
-| ArrowSpec compile / arrow physical gate | 39 PASS / **FAIL** |
-| Critical regions passing | 3/10 (two are authorized microassets at SSIM/Edge IoU 1.0) |
-| Status | `qa_failed` |
+[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/): machine evidence for the authorized tightly-cropped microasset regions lives in the case's `qa/`.
 
 Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md).
 
@@ -94,27 +80,13 @@ Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/r
 
 ![svg-seeded case 02: original on top, reconstructed render below](examples/svg-seeded/02-thinking-diffusion/preview.png)
 
-[`02-thinking-diffusion`](examples/svg-seeded/02-thinking-diffusion/):
-
-| Metric | Value |
-|---|---|
-| Bound objects / editable text | 156 / 46 |
-| ArrowSpec compile / arrow physical gate | 6 PASS / **PASS** |
-| Critical regions passing | **18/18 — all pass** |
-| Status | `qa_failed` (19 blockers, all in the unclosed save/reopen and Live evidence chain; every visual gate passes) |
+[`02-thinking-diffusion`](examples/svg-seeded/02-thinking-diffusion/): all critical regions and arrow physical gates pass; remaining blockers concentrate in the unclosed save/reopen and Live evidence chain — still `qa_failed`.
 
 **reference-only**
 
 ![reference-only case 02: original on top, reconstructed render below](examples/reference-only/02-thinking-diffusion-reference-only/preview.png)
 
-[`02-thinking-diffusion-reference-only`](examples/reference-only/02-thinking-diffusion-reference-only/):
-
-| Metric | Value |
-|---|---|
-| Bound objects / editable text | 147 / 51 |
-| ArrowSpec compile / arrow physical gate | 6 PASS / **FAIL** |
-| Critical regions passing | 4/8 |
-| Status | `qa_failed` |
+[`02-thinking-diffusion-reference-only`](examples/reference-only/02-thinking-diffusion-reference-only/): the arrow visual physical gate is unclosed; see the generated index for status.
 
 ### Theme 3 · Pareto-Conditioned Diffusion (currently the largest fidelity gap)
 
@@ -122,27 +94,13 @@ Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/r
 
 ![svg-seeded case 04: original on top, reconstructed render below](examples/svg-seeded/04-pareto-conditioned-diffusion/preview.png)
 
-[`04-pareto-conditioned-diffusion`](examples/svg-seeded/04-pareto-conditioned-diffusion/):
-
-| Metric | Value |
-|---|---|
-| Bound objects / editable text / microasset member readbacks | 159 / 17 / 94 (AssetSpec PASS) |
-| ArrowSpec compile / arrow physical gate | 5 PASS / **PASS** |
-| Critical regions passing | 1/38 (DNA double-helix regions at SSIM 0.11–0.14; molecule and candlestick regions 0.29–0.32) |
-| Status | `qa_failed` (sub-element fidelity + 38 font/scale contract failures) |
+[`04-pareto-conditioned-diffusion`](examples/svg-seeded/04-pareto-conditioned-diffusion/): pixel-level fidelity of complex sub-elements (DNA double helix, molecules, candlestick charts) and the font/scale contracts are the main gaps.
 
 **reference-only**
 
 ![reference-only case 04: original on top, reconstructed render below](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/preview.png)
 
-[`04-pareto-conditioned-diffusion-reference-only`](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/):
-
-| Metric | Value |
-|---|---|
-| Bound objects / editable text / microasset member readbacks | 184 / 14 / 152 (AssetSpec PASS) |
-| ArrowSpec compile / arrow physical gate | 9 PASS / **FAIL** |
-| Critical regions passing | 0/28 |
-| Status | `qa_failed` |
+[`04-pareto-conditioned-diffusion-reference-only`](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/): machine evidence for the zero critical-region pass count lives in `qa/regions-report.json`.
 
 Controlled A/B report: [`route-comparison-pareto-conditioned-diffusion-route-ab.md`](examples/route-comparison-pareto-conditioned-diffusion-route-ab.md).
 
@@ -230,7 +188,7 @@ autofigure cases --check
 autofigure hygiene
 ```
 
-See [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md), [`HIGH_FIDELITY.md`](HIGH_FIDELITY.md), [`SKILL.md`](SKILL.md), and [`examples/README.md`](examples/README.md).
+See [`docs/architecture.md`](docs/architecture.md), [`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md), [`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md), and [`examples/README.md`](examples/README.md); the documentation index lives in [`docs/README.md`](docs/README.md).
 
 ## License
 

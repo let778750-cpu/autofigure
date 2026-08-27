@@ -250,21 +250,64 @@ def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any]
         "reference_sha256": reference_sha256,
         "comparison_group": provenance.get("comparison_group"),
         "comparison_peers": provenance.get("comparison_peers"),
+        **_case_metrics(case_dir),
+    }
+
+
+def _case_metrics(case_dir: Path) -> dict[str, Any]:
+    """Read machine metrics for the generated index; missing evidence renders as None.
+
+    critical_pass/total 来自 qa/regions-report.json(critical_regions 总数扣除 region:*
+    blocker);blocker_count 是 qa/qa-status.json 六维 blocker 的去重并集——维度间存在
+    大量重叠,求和会重复计数,禁止使用。
+    """
+
+    regions_path = case_dir / "qa" / "regions-report.json"
+    regions_report = read_json(regions_path) if regions_path.is_file() else {}
+    critical_total = regions_report.get("critical_regions")
+    critical_blockers = [
+        item for item in regions_report.get("blockers", []) if str(item).startswith("region:")
+    ]
+    critical_pass = (
+        int(critical_total) - len(critical_blockers)
+        if isinstance(critical_total, int)
+        else None
+    )
+
+    status_path = case_dir / "qa" / "qa-status.json"
+    status_report = read_json(status_path) if status_path.is_file() else {}
+    dimensions = status_report.get("dimensions", {})
+    blocker_union: set[str] = set()
+    for dimension in dimensions.values():
+        blocker_union.update(str(item) for item in dimension.get("blockers", []))
+
+    return {
+        "critical_pass": critical_pass,
+        "critical_total": critical_total,
+        "blocker_count": len(blocker_union) if dimensions else None,
     }
 
 
 def render_index(records: list[dict[str, Any]]) -> str:
     lines = [
         INDEX_START,
-        "| 输入路线 | 案例 | 当前处理模式 | 工作流 | 最近验证 |",
-        "|---|---|---|---|---|",
+        "| 输入路线 | 案例 | 当前处理模式 | 工作流 | 最近验证 | 关键区通过 | blocker 去重数 |",
+        "|---|---|---|---|---|---|---|",
     ]
     for record in sorted(records, key=lambda item: (item["input_route"], item["case"])):
         rel = f"{record['input_route']}/{record['case']}"
+        critical = record.get("critical_total")
+        critical_cell = (
+            f"{record.get('critical_pass')}/{critical}"
+            if isinstance(critical, int)
+            else "—"
+        )
+        blockers = record.get("blocker_count")
+        blocker_cell = str(blockers) if isinstance(blockers, int) else "—"
         lines.append(
             f"| `{record['input_route']}` | [`{record['case']}/`]({rel}/) | "
             f"`{record['processing_mode']}` | `{record['workflow_state']}` | "
-            f"`{record['validation_status']}` |"
+            f"`{record['validation_status']}` | {critical_cell} | {blocker_cell} |"
         )
     lines.append(INDEX_END)
     return "\n".join(lines)
