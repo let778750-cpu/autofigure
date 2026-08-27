@@ -83,6 +83,9 @@ def write_json(path: Path, value: dict[str, Any]) -> None:
     temporary.write_text(
         json.dumps(value, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
+        # newline="\n": 哈希绑定的合同/收据字节必须与仓库规范化字节（LF）一致；
+        # 缺省的平台换行翻译会让 Windows 收据绑定 CRLF 字节，跨检出即漂移。
+        newline="\n",
     )
     temporary.replace(path)
 

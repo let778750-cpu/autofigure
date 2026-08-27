@@ -39,7 +39,9 @@ def main() -> int:
         res = payload.get("res", payload)
         texts.extend(str(t) for t in res.get("rec_texts", []))
 
-    Path(out_path).write_text(json.dumps(texts, ensure_ascii=False, indent=1), encoding="utf-8")
+    Path(out_path).write_text(
+        json.dumps(texts, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n"
+    )
     return 0
 
 

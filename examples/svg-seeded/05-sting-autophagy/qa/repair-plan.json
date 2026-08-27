@@ -3,19 +3,19 @@
   "kind": "repair-plan",
   "case": "05-sting-autophagy",
   "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
-  "artifact_sha256": "90a662961538b9b22d6e8a6ec40a92358e91cf2ee48dbdb64cc204070cebd152",
+  "artifact_sha256": "ee26ed175300f6e19c918a992e7113832c1e44b476b3ff339d288ed19ac0c4dd",
   "qa_report_sha256": {
-    "arrow-compile-report.json": "193fcf6d22e6101e8e4adad3735c766b57d47e0896eb1f4b5ccd2cbfe303bf4a",
-    "arrow-visual-report.json": "73ced3c4dc9255cc691b502cdbce3513c9280e57b00150be44f1ae91564a0c8b",
-    "asset-contract-receipt.json": "abbb2e56ff7d8480969c9d01bac07fce854b08b7b0ee06643eba8652def4f657",
-    "asset-spec-audit.json": "d1c7bff08b14b597080ee7fcd66d24f745a671862650db7f24164064eaf3746e",
-    "atomic-vector-report.json": "acb22f0bc26c20c239e3bfabd2b2531bbbe46f7b97751100bfaf204524afbf7b",
-    "layout-audit.json": "ea79e57e67df6ffbb274af7c291d31fe52049a13d924198059e944d82bfa2c79",
-    "math-summary.json": "a649553549fa4e785ed7292828249a4983ab03c5f94fad87c02192dc06fa4b3c",
-    "powerpoint-arrow-readback.json": "0cd0d95201a4e01f7b542735fffe856d588bbf0975de12f9e10997392084885c",
-    "primitive-audit.json": "0756ab493d849e1c84b22c52ea6fca4da3f9d83c87fcf020e56ebe7a6ff31b50",
-    "regions-report.json": "2c6cbea826cf10332e6cc4c9309824c1c1f99dea3f1da76f9cdae7b9028a1114",
-    "visual-contracts-report.json": "b200df096ef1dee6f8b644d98af1b671594073dc03a3f01e72a6be8eb8644c2f"
+    "arrow-compile-report.json": "09dde5b301bd49202d69dd8893f9920a7a32ea01645977bcef0e57c8057e0304",
+    "arrow-visual-report.json": "ffd09bc79b8afb0b4360e608e42038ca5527cd6a3bd030d71b49acd128dd2c94",
+    "asset-contract-receipt.json": "e5c174b4c7d2d3591f7fc8133ce78a6d990324e85c4511ac9f9197f2b67bfbcb",
+    "asset-spec-audit.json": "0ba50e5df7ba24618d10dc9323153a3ac913afda47481162f8ca7d60cf4e44a7",
+    "atomic-vector-report.json": "cb952bfe0a35767dd8f460653afabb8a37b269204315609eb712006494880976",
+    "layout-audit.json": "b1795cf453fc7bafb6e0e4efe5d4c467619af6f7e52245da9ad1019f6e59f039",
+    "math-summary.json": "900fa737d314e6e5516827a5e316e2e30cfd9315ec67d10f9c831130c43e5b98",
+    "powerpoint-arrow-readback.json": "d40d2739213e488557fcb75a96cfa9dcd65d574d1d85c4f1c186629277f96d5a",
+    "primitive-audit.json": "73abc58700ac0b52e34812659972e66b138eaabca0db234bb9d9c9c749f4b166",
+    "regions-report.json": "8f30166233633b73dca867951bb28f8b9431fa3f7e28cabaef17545559acf5ca",
+    "visual-contracts-report.json": "1abab991b5da5ad1daee81ab04fda8b436e9e48da1fa0ad3d77dbe6de79de412"
   },
   "input_blockers_sha256": "e652dca604566d2456a66491f973ee506b7895e4316a1b3ec5881d0ec6a7801d",
   "blockers": [
@@ -8989,5 +8989,5 @@
   },
   "errors": [],
   "pass": true,
-  "plan_sha256": "69fa773db8dc9acaca363bdfcefa13692f617d9616869ba1155f1e91321fa1c0"
+  "plan_sha256": "188d4c29947077b9d98d8d37cedd77dfa0faf8646b258828c4457cfaad8d81fb"
 }

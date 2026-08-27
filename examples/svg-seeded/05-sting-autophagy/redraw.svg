@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="2100" height="1324" viewBox="0 0 2100 1324" data-source-schema-version="4.0.0" data-case="05-sting-autophagy" data-reference-sha256="ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240" data-object-inventory-sha256="64fadfc56943d7ead3c3b0d553341e7c91bd2817668b5c0faa4322126500d4bc" data-stable-element-ids="true" data-relations-exhaustive="true">
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="2100" height="1324" viewBox="0 0 2100 1324" data-source-schema-version="4.0.0" data-case="05-sting-autophagy" data-reference-sha256="ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240" data-object-inventory-sha256="6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae" data-stable-element-ids="true" data-relations-exhaustive="true">
   <ns0:g id="seed-canvas-rescale" transform="scale(1.025390625,1.025561580)">
     <ns0:defs>
       <ns0:marker id="openArrow" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse">

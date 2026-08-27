@@ -3500,7 +3500,7 @@ def _convert_in_place(run: common.Run) -> dict:
         **contract_summary,
     }
     (run.qa_dir / "convert-summary.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     transition(run, "candidate", "offline-conversion-complete", details=contract_summary)
     return summary

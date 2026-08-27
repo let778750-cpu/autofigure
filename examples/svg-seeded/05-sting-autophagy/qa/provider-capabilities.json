@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "kind": "provider_capabilities",
-  "created_at": "20260827T130657Z",
+  "created_at": "20260827T145516Z",
   "case": "05-sting-autophagy",
   "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
   "powerpoint_live": {

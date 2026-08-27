@@ -1619,7 +1619,9 @@ def main(argv: list[str] | None = None) -> int:
             ) if k in after},
         }
         out = run.qa_dir / "arrows-audit.json"
-        out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        out.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
+        )
         counts_b, counts_a = before["counts"], payload["counts"]
         sys.stdout.write(
             f"修复 {len(fixes)} 个 marker 定义；发现 {counts_b} → {counts_a}\n"
@@ -1628,7 +1630,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     out = run.qa_dir / "arrows-audit.json"
-    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    out.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
     sys.stdout.write(
         f"箭头单元 {payload['arrows']}，发现 {payload['counts']}；"
         f"比例中位数 {payload['ratio_stats']['median']}（带 {payload['ratio_stats']['band']}）\n"

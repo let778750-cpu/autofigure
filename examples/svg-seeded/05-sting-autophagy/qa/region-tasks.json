@@ -6,9 +6,9 @@
   "input_route": "svg-seeded",
   "processing_mode": "svg_import",
   "fidelity_profile": "editable_native",
-  "regions_sha256": "615839adcb69c8e5ec16ac22ab06ccb582e1d09bbba1447f7dd72024d1f0d8b7",
+  "regions_sha256": "26a7cc646351cdcd3fb3eec10141874c2421fd1170ba02a0652c486d91f015cb",
   "reference_inventory_status": "frozen",
-  "reference_inventory_sha256": "64fadfc56943d7ead3c3b0d553341e7c91bd2817668b5c0faa4322126500d4bc",
+  "reference_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae",
   "result_contract": {
     "accepted_kinds": [
       "scene",

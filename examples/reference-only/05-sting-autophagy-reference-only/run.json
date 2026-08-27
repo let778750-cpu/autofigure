@@ -1,6 +1,6 @@
 {
   "case": "05-sting-autophagy-reference-only",
-  "created_at": "20260827T130708Z",
+  "created_at": "20260827T145600Z",
   "source_original_name": "reference.png",
   "reference_path": "reference.png",
   "source_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
@@ -18,12 +18,12 @@
     "history": [
       {
         "state": "prepared",
-        "at": "20260827T130708Z",
+        "at": "20260827T145600Z",
         "reason": "run-created"
       },
       {
         "state": "ready",
-        "at": "20260827T130708Z",
+        "at": "20260827T145601Z",
         "reason": "reference-inventory-frozen"
       }
     ]

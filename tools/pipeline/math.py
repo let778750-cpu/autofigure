@@ -847,7 +847,7 @@ def upgrade(
             summary["notes"].append("部分公式原文为粗体：OMML 数学区不保留粗体（可接受差异）")
         _attach_math_artifact_identity(run, summary)
         (run.qa_dir / "math-summary.json").write_text(
-            json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
         )
 
     if not candidates or dry_run:
@@ -871,7 +871,7 @@ def upgrade(
             continue
         receipt_path = math_dir / f"{cand['formula_id']}.json"
         receipt_path.write_text(
-            json.dumps(receipt, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            json.dumps(receipt, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
         )
         operation = {
             "slide_index": cand["slide_index"],
@@ -900,6 +900,7 @@ def upgrade(
         json.dumps({"schema_version": "1.0", "operations": operations}, ensure_ascii=False, indent=2)
         + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     staged_pptx = run.pptx_path.with_name("redraw.math-source.pptx")
     tmp_pptx = run.pptx_path.with_name("redraw.math-tmp.pptx")

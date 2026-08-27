@@ -51,9 +51,28 @@
 | `redraw.pptx` | 当前原生可编辑候选/交付物 |
 | `scene.json` | 对象 ID、角色、几何、层级与连接拓扑 |
 | `assets.json` | 微资产来源、授权、bbox 与可编辑性 |
-| `regions.json` | 关键区域、颜色探针与验收阈值 |
+| `regions.json` | 关键区域、箭头可视合同、closed-world `reference_inventory` 与验收阈值 |
 | `bindings.json` | 场景对象到保存重开后的 PowerPoint shape 绑定 |
-| `qa/` | 区域、箭头、布局、OCR、像素、公式和 PowerPoint Live 证据 |
+| `render.png` / `preview.png` | COM fresh render / 上原图下重建的对照图（`qa/diff.png` 为差异热图） |
+
+### qa/ 机器证据分工
+
+| 文件 | 角色 | 消费者 |
+|---|---|---|
+| `reference-oracle.json` | 本案例持有的参考真值副本；同参考图全部副本必须一致（freeze 对等校验 + `cases --check` 巡检） | freeze / check / compare |
+| `reference-inventory-receipt.json` / `asset-contract-receipt.json` | 冻结动作哈希收据 | ingest / check |
+| `source-gate-report.json` | 已摄取候选的 gate 决策 | check 六维 |
+| `external-seed-source-gate-report.json` | seed 在 freeze 时的预检决策（svg-seeded） | provenance 链 |
+| `arrow-compile-report.json` / `powerpoint-arrow-readback.json` | ArrowSpec 编译 / PowerPoint 读回 | strict 门禁 |
+| `arrow-visual-report.json` | 箭头物理像素合同执行 | strict 门禁 |
+| `arrows-audit.json` | `autofigure arrows` 命令的 advisory SVG 结构审计（check 只读不写；缺失时 A/B 对比降级为 0） | compare / 人工 |
+| `regions-report.json` / `visual-contracts-report.json` / `layout-audit.json` | 区域 / 视觉合同 / 布局审计 | 六维 QA |
+| `qa-status.json` / `blockers.json` | 六维状态 / blocker 全集 | release / 索引 |
+| `qa-lineage-manifest.json` | qa 证据哈希索引 | 完整性 |
+| `math-summary.json`、`atomic-vector-report.json`、`repair-plan.json`、`provider-capabilities.json` 等 | 显式零值/快照证据（closed-world：缺席语义必须由显式零记录承载） | 六维 QA |
+
+> 双案例（A/B 双路线）各自持有一份相同合同与 oracle 副本是有意的：案例是自包含工作单元，
+> 一致性由 freeze 对等校验与 `oracle-divergence` 巡检机器保证，而非共享文件。
 
 ## 一致性检查
 

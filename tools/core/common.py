@@ -32,21 +32,6 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CASES_ROOT = PROJECT_ROOT / "examples"
 INPUT_ROUTE_DIRS = ("reference-only", "svg-seeded")
-ORACLE_DIR_NAME = "oracles"
-ORACLE_REFERENCE_PREFIX_LENGTH = 16
-
-
-def oracle_path_for(cases_root: Path, reference_sha256: str) -> Path:
-    """路线无关 reference oracle 路径（无 run.json，不被案例扫描识别）。"""
-
-    return (
-        Path(cases_root)
-        / ORACLE_DIR_NAME
-        / reference_sha256[:ORACLE_REFERENCE_PREFIX_LENGTH]
-        / "oracle.json"
-    )
-
-
 def fail(message: str) -> SystemExit:
     return SystemExit(f"error: {message}")
 
@@ -270,7 +255,7 @@ def create_run(
         "height": height,
     }
     (root / "run.json").write_text(
-        json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     run = Run(root)
     from tools.core.contracts import initialize_contracts

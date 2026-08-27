@@ -6,9 +6,9 @@
   "input_route": "reference-only",
   "processing_mode": "png_reconstruct",
   "fidelity_profile": "hybrid_fidelity",
-  "regions_sha256": "f1c58b843d17282e082b084230a0d778786106ec873e7b0421675b8063ac271c",
+  "regions_sha256": "33f200b2dd58d08821ab0e9b3fd8a65098465912b60426dd87f758d3041dd644",
   "reference_inventory_status": "frozen",
-  "reference_inventory_sha256": "9422d743ef540f11a3709b0c21c851032fe0d1ee0e43c2eaa245d342a4232673",
+  "reference_inventory_sha256": "6f1d36ae3f98016db3afde49c949b00ad3ca759094c548966e3a4d728f6831e2",
   "result_contract": {
     "accepted_kinds": [
       "scene",

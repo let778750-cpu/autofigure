@@ -1255,7 +1255,7 @@ def write_source_gate_report(report: Mapping[str, object], output_path: Path) ->
     temporary = output_path.with_suffix(output_path.suffix + ".tmp")
     serialized = json.dumps(dict(report), ensure_ascii=False, indent=2) + "\n"
     try:
-        temporary.write_text(serialized, encoding="utf-8")
+        temporary.write_text(serialized, encoding="utf-8", newline="\n")
         os.replace(temporary, output_path)
     finally:
         temporary.unlink(missing_ok=True)

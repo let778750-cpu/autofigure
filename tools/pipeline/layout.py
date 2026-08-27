@@ -1724,6 +1724,7 @@ def persist_layout_audit(run: common.Run, report: dict[str, Any]) -> None:
     run.layout_audit_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
 
 
