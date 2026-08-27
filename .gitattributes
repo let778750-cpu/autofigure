@@ -4,7 +4,11 @@
 benchmarks/fixtures/** -text
 benchmarks/fixtures/**/*.svg text eol=lf
 benchmarks/fixtures/**/*.json text eol=lf
-# Case05 evidence is produced by LF writers; pin bytes so hashes survive checkout.
-# (Historic cases 01-04 keep their committed CRLF SVG blobs untouched.)
-examples/svg-seeded/05-sting-autophagy/** text eol=lf
-examples/reference-only/05-sting-autophagy-reference-only/** text eol=lf
+# Case05 evidence is produced by LF writers; pin hash-bound text bytes so they
+# survive checkout. Scope by extension — a directory-wide `text` attribute would
+# corrupt binary evidence (PNG) via newline translation. (Historic cases 01-04
+# keep their committed CRLF SVG blobs untouched.)
+examples/svg-seeded/05-sting-autophagy/**/*.json text eol=lf
+examples/svg-seeded/05-sting-autophagy/**/*.svg text eol=lf
+examples/reference-only/05-sting-autophagy-reference-only/**/*.json text eol=lf
+examples/reference-only/05-sting-autophagy-reference-only/**/*.svg text eol=lf
