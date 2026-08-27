@@ -1,0 +1,325 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1291" viewBox="0 0 2048 1291">
+  <defs>
+    <style>
+      .lbl{font-family:Arial, Helvetica, sans-serif; font-size:31px; fill:#111; dominant-baseline:middle}
+      .blueLbl{font-family:Arial, Helvetica, sans-serif; font-size:33px; font-weight:700; fill:#243E8F; dominant-baseline:middle}
+      .redLbl{font-family:Arial, Helvetica, sans-serif; font-size:32px; font-weight:700; fill:#C82B2B; dominant-baseline:middle}
+      .step{font-family:Arial, Helvetica, sans-serif; font-size:44px; font-weight:700; fill:#222; dominant-baseline:middle}
+      .thin{stroke:#111;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .mem{fill:#BFD2EA;stroke:#5E8FCA;stroke-width:2.2;stroke-linejoin:round}
+    </style>
+    <marker id="openArrow" viewBox="0 0 10 10" refX="9.2" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L9,5 L1,9" fill="none" stroke="#111" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+
+    <!-- reusable DNA double helix -->
+    <g id="dnaHelix">
+      <path d="M0 0 C15 16,30 -16,45 0 S75 16,90 0 S120 -16,135 0" fill="none" stroke="#F28A24" stroke-width="5"/>
+      <path d="M0 0 C15 -16,30 16,45 0 S75 -16,90 0 S120 16,135 0" fill="none" stroke="#2A9ED8" stroke-width="5"/>
+      <g stroke="#98CBE7" stroke-width="2">
+        <line x1="10" y1="7" x2="10" y2="-7"/><line x1="25" y1="-8" x2="25" y2="8"/><line x1="40" y1="6" x2="40" y2="-6"/>
+        <line x1="55" y1="-7" x2="55" y2="7"/><line x1="70" y1="6" x2="70" y2="-6"/><line x1="85" y1="-7" x2="85" y2="7"/>
+        <line x1="100" y1="7" x2="100" y2="-7"/><line x1="115" y1="-8" x2="115" y2="8"/><line x1="130" y1="6" x2="130" y2="-6"/>
+      </g>
+    </g>
+
+    <!-- STING-like receptor icon -->
+    <g id="stingIcon">
+      <path d="M-15 18 C-10 5,-2 -2,0 -17 C2 -2,10 5,15 18" fill="#3F81B9" stroke="#245B93" stroke-width="2"/>
+      <path d="M-16 18 C-8 4,-4 0,0 0 C4 0,8 4,16 18" fill="#547FB5" stroke="#245B93" stroke-width="2"/>
+      <circle cx="-8" cy="-13" r="5" fill="#7FB43C"/><circle cx="8" cy="-13" r="5" fill="#7FB43C"/>
+      <path d="M0 19 c-5 9 -5 17 0 25 c5 8 5 16 0 24" fill="none" stroke="#2A63A3" stroke-width="3"/>
+    </g>
+
+    <!-- ARFGEF cluster -->
+    <g id="arfgefIcon">
+      <path d="M-18 -3 C-12 -18,2 -18,7 -5 C10 4,4 13,-8 15 C-17 17,-24 8,-18 -3Z" fill="#284E9A"/>
+      <path d="M3 -14 C13 -17,23 -7,21 4 C19 14,8 18,0 12 C8 8,11 2,3 -14Z" fill="#203D7E"/>
+      <ellipse cx="18" cy="-13" rx="12" ry="16" fill="#F9C316"/>
+    </g>
+
+    <!-- membrane STING icon -->
+    <g id="memSting">
+      <path d="M-18 8 C-13 -5,-5 -10,0 -18 C5 -10,13 -5,18 8" fill="#4E8FC2" stroke="#245B93" stroke-width="1.8"/>
+      <circle cx="-8" cy="-14" r="4.8" fill="#7FB43C"/><circle cx="8" cy="-14" r="4.8" fill="#7FB43C"/>
+      <path d="M0 9 c-4 7,-4 14,0 21" fill="none" stroke="#2A63A3" stroke-width="2.5"/>
+    </g>
+
+    <!-- small vesicle -->
+    <g id="vesicleBlue">
+      <circle r="37" fill="#C6D8ED" stroke="#5E8FCA" stroke-width="2.5"/>
+      <circle r="44" fill="none" stroke="#2B3D73" stroke-width="7" stroke-dasharray="2.5 7" stroke-linecap="round"/>
+      <use href="#memSting" transform="translate(0,-31) scale(0.8)"/>
+    </g>
+
+    <!-- LC3 dot chain -->
+    <g id="lc3dots" fill="#5A2C9C">
+      <circle cx="0" cy="0" r="5"/><circle cx="0" cy="15" r="5"/><circle cx="0" cy="30" r="5"/><circle cx="0" cy="45" r="5"/><circle cx="0" cy="60" r="5"/><circle cx="0" cy="75" r="5"/><circle cx="0" cy="90" r="5"/>
+      <circle cx="0" cy="105" r="5"/><circle cx="0" cy="120" r="5"/><circle cx="0" cy="135" r="5"/><circle cx="0" cy="150" r="5"/>
+    </g>
+
+    <!-- cGAS stacked orange protein -->
+    <g id="cgasStack">
+      <rect x="0" y="0" width="150" height="42" rx="3" fill="#F7B27F" stroke="#D7672E" stroke-width="2.2"/>
+      <rect x="0" y="42" width="150" height="42" rx="3" fill="#F7B27F" stroke="#D7672E" stroke-width="2.2"/>
+      <text x="75" y="22" text-anchor="middle" class="lbl" font-size="25">cGAS</text>
+      <text x="75" y="64" text-anchor="middle" class="lbl" font-size="25">cGAS</text>
+      <use href="#dnaHelix" transform="translate(6,-5) scale(1.02,0.72)"/>
+      <use href="#dnaHelix" transform="translate(6,90) scale(1.02,0.72)"/>
+    </g>
+
+    <!-- simple cargo icons -->
+    <g id="cargoSet">
+      <use href="#memSting" transform="translate(-55,-35) scale(0.75)"/>
+      <use href="#memSting" transform="translate(55,-35) scale(0.75)"/>
+      <use href="#dnaHelix" transform="translate(-25,-5) scale(0.38)"/>
+      <g transform="translate(-65,35)" stroke="#D8452F" fill="none" stroke-width="1.7">
+        <circle r="11"/><circle r="3"/><line x1="0" y1="-19" x2="0" y2="-12"/><line x1="13" y1="-13" x2="8" y2="-8"/><line x1="19" y1="0" x2="12" y2="0"/><line x1="13" y1="13" x2="8" y2="8"/><line x1="0" y1="19" x2="0" y2="12"/><line x1="-13" y1="13" x2="-8" y2="8"/><line x1="-19" y1="0" x2="-12" y2="0"/><line x1="-13" y1="-13" x2="-8" y2="-8"/>
+      </g>
+      <path d="M-8 42 q14 -18 26 -2 q-6 15 -15 16 q-12 0 -11 -14Z" fill="#7DB43C" stroke="#4A8121" stroke-width="1.5"/>
+      <path d="M8 56 q20 6 27 20" fill="none" stroke="#4A8121" stroke-width="2"/>
+      <path d="M55 22 l13 -7 l9 11 l-4 15 l-16 4 l-9 -10 z" fill="none" stroke="#5B8FC9" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <rect width="2048" height="1291" fill="white"/>
+
+  <!-- TOP LEFT GOLGI AREA -->
+  <text x="33" y="255" class="blueLbl">Trans Golgi</text>
+  <text x="0" y="462" class="blueLbl">Cis Golgi</text>
+
+  <!-- Golgi cisternae -->
+  <path class="mem" d="M190 279 C208 253,235 245,265 252 C354 275,431 273,515 247 C548 237,575 249,566 276 C557 303,529 316,488 327 C379 358,275 352,188 316 C165 306,166 293,190 279Z"/>
+  <path class="mem" d="M99 350 C112 320,140 312,168 323 C268 358,396 373,538 341 C603 326,646 310,668 315 C696 321,696 349,677 366 C654 388,588 405,508 416 C351 439,198 420,112 390 C81 379,83 367,99 350Z"/>
+  <path class="mem" d="M184 432 C203 419,223 417,249 421 L372 429 C396 431,405 445,396 459 C387 473,366 476,338 475 L206 470 C176 469,166 444,184 432Z"/>
+  <path class="mem" d="M425 442 C451 434,492 433,535 433 C572 433,602 429,616 437 C634 447,623 463,604 467 C569 474,516 475,467 472 C440 470,424 458,425 442Z"/>
+  <path class="mem" d="M179 486 C194 472,219 473,233 486 C247 499,241 521,224 530 C204 540,180 531,175 513 C171 503,172 494,179 486Z"/>
+  <path class="mem" d="M243 489 C265 477,289 478,314 483 C374 494,444 497,510 487 C537 483,562 482,582 486 C606 491,608 510,588 520 C563 532,530 530,486 530 L286 529 C253 529,229 507,243 489Z"/>
+  <circle cx="673" cy="428" r="12" class="mem"/>
+  <circle cx="169" cy="333" r="17" class="mem"/>
+  <circle cx="657" cy="336" r="18" class="mem"/>
+
+  <!-- Golgi right COPI budding coat -->
+  <path d="M719 332 C742 323,753 345,751 365 C748 398,724 423,689 437" class="thin" stroke-dasharray="2 8" stroke-width="8"/>
+  <path d="M739 427 C727 452,704 470,674 482" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- Top ARFGEF and STING -->
+  <use href="#arfgefIcon" transform="translate(349 294) scale(1.45)"/>
+  <text x="246" y="220" class="redLbl">ARFGEFs</text>
+  <path d="M376 238 C393 224,417 220,435 231" class="thin" marker-end="url(#openArrow)"/>
+  <use href="#memSting" transform="translate(473 213) scale(0.95)"/>
+  <path d="M498 229 C493 208,480 194,466 184 C452 172,444 160,447 147" fill="none" stroke="#2A63A3" stroke-width="3"/>
+
+  <!-- budding vesicle above trans Golgi -->
+  <g transform="translate(474 218)">
+    <circle cx="0" cy="0" r="40" fill="#C4D6ED" stroke="#5B8FC8" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="47" fill="none" stroke="#2F3E73" stroke-width="7" stroke-dasharray="2 8" stroke-linecap="round"/>
+    <use href="#memSting" transform="translate(0,-43) scale(0.86)"/>
+  </g>
+
+  <!-- mid Golgi proteins -->
+  <use href="#memSting" transform="translate(305 520) scale(0.85)"/>
+  <use href="#memSting" transform="translate(574 515) scale(0.83)"/>
+  <use href="#arfgefIcon" transform="translate(350 525) scale(0.9)"/>
+  <text x="380" y="544" class="redLbl">ARFGEFs</text>
+  <ellipse cx="348" cy="594" rx="14" ry="20" fill="#F6C11A"/>
+  <text x="357" y="608" class="redLbl">ARFs</text>
+
+  <!-- COP I path left -->
+  <path d="M287 531 C269 558,263 586,264 605" class="thin" marker-end="url(#openArrow)"/>
+  <g transform="translate(266 632)">
+    <circle r="28" fill="#F5D8C5" stroke="#D38E61" stroke-width="2"/>
+    <circle r="36" fill="none" stroke="#33447D" stroke-width="6" stroke-dasharray="2 6"/>
+    <use href="#memSting" transform="translate(12,-24) scale(0.58)"/>
+  </g>
+  <text x="150" y="577" class="blueLbl">COP I</text>
+  <path d="M287 666 C300 694,327 708,353 716" class="thin" marker-end="url(#openArrow)"/>
+  <path d="M313 718 C260 736,210 740,162 717" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- side small vesicles -->
+  <g transform="translate(132 672)"><circle r="26" fill="#F7DED2" stroke="#D99868" stroke-width="2"/><use href="#memSting" transform="translate(-10,-28) scale(0.58)"/></g>
+  <path d="M111 650 C107 592,124 536,155 503" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- ERGIC -->
+  <text x="448" y="650" class="blueLbl">ERGIC</text>
+  <path class="mem" d="M347 724 C364 707,395 707,409 716 C424 726,414 739,394 741 C371 744,344 740,347 724Z"/>
+  <path class="mem" d="M420 720 C437 706,461 710,465 722 C468 734,455 742,439 745 C420 748,407 734,420 720Z"/>
+  <path class="mem" d="M357 750 C378 741,400 746,421 752 C456 763,496 759,526 749 C547 742,567 745,571 757 C575 771,556 781,533 782 L404 781 C377 781,350 770,357 750Z"/>
+  <circle cx="524" cy="771" r="12" class="mem"/>
+  <use href="#memSting" transform="translate(484 704) scale(0.66)"/>
+
+  <!-- COP II -->
+  <text x="90" y="852" class="blueLbl">COP II</text>
+  <g transform="translate(252 851)">
+    <circle r="27" fill="#F6D5C3" stroke="#D28C60" stroke-width="2"/>
+    <circle r="35" fill="none" stroke="#D4422E" stroke-width="5" stroke-dasharray="2 5"/>
+    <use href="#memSting" transform="translate(9,-27) scale(0.55)"/>
+  </g>
+  <path d="M260 896 C255 922,257 952,279 983" class="thin" marker-end="url(#openArrow)"/>
+  <path d="M263 821 C280 795,313 774,341 766" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- STEP LABELS -->
+  <text x="798" y="153" class="step">Step 3</text>
+  <text x="673" y="634" class="step">Step 2</text>
+  <text x="671" y="975" class="step">Step 1</text>
+
+  <!-- Step3 horizontal arrow -->
+  <path d="M545 215 L984 215" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- ENDOSOME -->
+  <rect x="1000" y="183" width="178" height="63" rx="31" fill="#0D5D9E" stroke="#174982" stroke-width="2.5"/>
+  <use href="#memSting" transform="translate(1088 176) rotate(180) scale(0.66)"/>
+  <use href="#memSting" transform="translate(1056 255) scale(0.62)"/>
+  <use href="#memSting" transform="translate(1134 255) scale(0.62)"/>
+  <text x="1004" y="325" class="blueLbl">Endosome</text>
+  <ellipse cx="1166" cy="148" rx="49" ry="24" fill="#E6B7DD" stroke="#A35A9F" stroke-width="2"/>
+  <text x="1166" y="149" text-anchor="middle" class="lbl" font-size="29">TBK1</text>
+
+  <!-- TBK1 to IRF3 -->
+  <path d="M1128 127 C1152 106,1177 88,1200 77" class="thin" marker-end="url(#openArrow)"/>
+  <g transform="translate(1205 4)">
+    <rect x="0" y="0" width="95" height="42" rx="8" fill="#C9D6E7" stroke="#2873B1" stroke-width="2"/>
+    <rect x="0" y="43" width="95" height="42" rx="8" fill="#C9D6E7" stroke="#2873B1" stroke-width="2"/>
+    <text x="48" y="22" text-anchor="middle" class="lbl" font-size="26">IRF3</text><text x="48" y="64" text-anchor="middle" class="lbl" font-size="26">IRF3</text>
+    <circle cx="115" cy="22" r="16" fill="#A4C85B" stroke="#527C24" stroke-width="1.8"/><circle cx="115" cy="64" r="16" fill="#A4C85B" stroke="#527C24" stroke-width="1.8"/>
+    <path d="M110 18 q8 8 0 16" fill="none" stroke="#2B5A76" stroke-width="2"/><path d="M110 60 q8 8 0 16" fill="none" stroke="#2B5A76" stroke-width="2"/>
+  </g>
+  <path d="M1339 41 L1407 43" class="thin" marker-end="url(#openArrow)"/>
+  <text x="1455" y="25" class="lbl" font-size="30">IFN;</text>
+  <text x="1416" y="54" class="lbl" font-size="29">cytokines</text>
+
+  <!-- MVB -->
+  <path d="M1238 215 L1540 215" class="thin" marker-end="url(#openArrow)"/>
+  <path d="M1600 145 C1665 123,1723 156,1734 209 C1741 249,1718 277,1679 296 C1638 316,1604 328,1577 314 C1545 297,1544 260,1552 235 C1531 232,1533 197,1543 177 C1554 156,1571 149,1600 145Z" fill="#EFEDEB" stroke="#5E8FCA" stroke-width="2"/>
+  <text x="1484" y="312" class="blueLbl">MVB</text>
+  <!-- MVB internal vesicles -->
+  <g transform="translate(1626 198)">
+    <circle r="26" fill="none" stroke="#5E8FCA" stroke-width="2"/><use href="#memSting" transform="translate(6,-6) scale(0.5)"/>
+    <path d="M-18 -2 q10 -25 18 -14 q6 9 18 4 q-4 12 -1 21 q-9 -6 -16 4 q-12 -11 -19 -15Z" fill="none" stroke="#6794C8" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(1694 235)">
+    <circle r="26" fill="none" stroke="#5E8FCA" stroke-width="2"/><use href="#memSting" transform="translate(6,-6) scale(0.5)"/>
+    <path d="M-17 -4 q12 -23 19 -11 q5 8 17 3 q-5 12 0 19 q-10 -6 -17 4 q-12 -9 -19 -15Z" fill="none" stroke="#6794C8" stroke-width="1.5"/>
+  </g>
+
+  <!-- lysosome -->
+  <path d="M1768 326 C1819 337,1858 345,1892 362 C1942 387,1971 430,1970 480 C1969 528,1942 548,1906 558 C1870 568,1833 559,1802 536 C1778 517,1765 493,1768 465 C1750 455,1742 440,1746 421 C1750 400,1765 389,1788 389 C1773 371,1763 349,1768 326Z" fill="#FDE9A7" stroke="#648DC6" stroke-width="2"/>
+  <text x="1888" y="307" class="blueLbl">Lysosome</text>
+  <text x="1706" y="417" class="redLbl">RAB7</text>
+  <text x="1730" y="531" class="redLbl">RAB7</text>
+  <ellipse cx="1812" cy="433" rx="14" ry="9" fill="#E22A2F" transform="rotate(20 1812 433)"/>
+  <ellipse cx="1791" cy="484" rx="14" ry="9" fill="#E22A2F" transform="rotate(-18 1791 484)"/>
+  <g transform="translate(1901 412)"><circle r="31" fill="none" stroke="#5E8FCA" stroke-width="2"/><use href="#memSting" transform="translate(5,-6) scale(0.55)"/><path d="M-24 0 q13 -25 22 -13 q6 7 17 3 q-2 11 3 20 q-12 -8 -17 4 q-10 -12 -25 -14Z" fill="none" stroke="#6794C8" stroke-width="1.7"/></g>
+  <g transform="translate(1915 492)"><circle r="35" fill="none" stroke="#5E8FCA" stroke-width="2"/><use href="#memSting" transform="translate(5,-4) scale(0.55)"/><circle r="44" fill="none" stroke="#5A2C9C" stroke-width="7" stroke-dasharray="2 12" stroke-linecap="round"/></g>
+  <path d="M1754 235 C1798 250,1834 286,1856 340" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- Step2 route from ERGIC to autophagosome -->
+  <path d="M591 734 L722 734" class="thin" marker-end="url(#openArrow)"/>
+  <!-- WIPI2 membrane -->
+  <rect x="740" y="678" width="31" height="109" rx="15" fill="#D5E1F2" stroke="#5E8FCA" stroke-width="2"/>
+  <use href="#memSting" transform="translate(773 733) rotate(90) scale(0.52)"/>
+  <circle cx="793" cy="772" r="10" fill="#20A951"/>
+  <text x="737" y="812" class="redLbl">WIPI2</text>
+  <g fill="#5A2C9C"><circle cx="849" cy="777" r="8"/><circle cx="862" cy="786" r="8"/><circle cx="851" cy="793" r="8"/></g>
+  <text x="832" y="833" class="lbl" font-size="29">LC3</text>
+  <path d="M797 734 L956 734" class="thin" marker-end="url(#openArrow)"/>
+  <text x="872" y="595" class="blueLbl">Isolation membrane</text>
+
+  <!-- isolation membrane -->
+  <path d="M997 646 C965 674,955 710,957 758 C960 802,975 833,997 854" fill="#E7EEF7" stroke="#648FC7" stroke-width="2.2"/>
+  <use href="#lc3dots" transform="translate(1010 655)"/>
+  <use href="#memSting" transform="translate(1029 726) rotate(90) scale(0.6)"/>
+  <path d="M1044 734 L1184 734" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- cup-shaped autophagophore -->
+  <path d="M1247 608 C1210 640,1199 693,1204 742 C1209 791,1231 838,1273 857 C1286 863,1297 862,1304 857 C1272 832,1258 795,1256 752 C1253 704,1265 668,1299 643 C1307 636,1307 626,1300 615 C1288 597,1265 595,1247 608Z" fill="#EEF1F4" stroke="#638EC6" stroke-width="2"/>
+  <!-- LC3 along cup -->
+  <g fill="#5A2C9C">
+    <circle cx="1240" cy="631" r="5"/><circle cx="1230" cy="645" r="5"/><circle cx="1220" cy="661" r="5"/><circle cx="1213" cy="679" r="5"/><circle cx="1209" cy="699" r="5"/><circle cx="1209" cy="720" r="5"/><circle cx="1210" cy="742" r="5"/><circle cx="1215" cy="764" r="5"/><circle cx="1221" cy="785" r="5"/><circle cx="1231" cy="806" r="5"/><circle cx="1242" cy="825" r="5"/><circle cx="1256" cy="842" r="5"/>
+  </g>
+  <g transform="translate(1280 734)"><use href="#cargoSet" transform="scale(0.82)"/></g>
+  <path d="M1342 734 L1500 734" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- autophagosome -->
+  <text x="1407" y="592" class="blueLbl">Autophagosome</text>
+  <circle cx="1635" cy="733" r="126" fill="#F2F3F3" stroke="#638EC6" stroke-width="2"/>
+  <circle cx="1635" cy="733" r="106" fill="none" stroke="#5A2C9C" stroke-width="7" stroke-dasharray="2 12" stroke-linecap="round"/>
+  <g transform="translate(1635 733)"><use href="#cargoSet" transform="scale(1.05)"/></g>
+  <path d="M1750 655 C1800 630,1833 595,1854 548" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- curved arrow from DNA/pathogens into autophagosome -->
+  <path d="M1542 952 C1530 908,1503 866,1465 837 C1437 816,1415 804,1390 797" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- STEP 1 ER -->
+  <text x="44" y="1080" class="blueLbl">ER</text>
+  <path d="M119 1130 C184 1114,286 1126,351 1136 C432 1148,518 1139,586 1119 C617 1110,642 1115,650 1130 C660 1150,638 1164,606 1168 C507 1181,424 1184,347 1176 C269 1168,208 1170,155 1175 C120 1178,101 1167,103 1150 C105 1140,110 1135,119 1130Z" fill="#FBE8D9" stroke="#D79A5A" stroke-width="2.2"/>
+  <path d="M151 1187 C220 1180,280 1185,337 1187 C357 1188,365 1203,357 1216 C350 1228,333 1231,309 1231 L199 1232 C168 1232,154 1217,151 1187Z" fill="#FBE8D9" stroke="#D79A5A" stroke-width="2.2"/>
+  <path d="M454 1184 C506 1182,548 1186,602 1182 C663 1178,714 1170,759 1163 C793 1158,817 1167,819 1182 C820 1199,803 1211,777 1217 C718 1231,651 1230,585 1226 C549 1224,514 1223,484 1225 C455 1226,437 1212,441 1197 C444 1190,448 1186,454 1184Z" fill="#FBE8D9" stroke="#D79A5A" stroke-width="2.2"/>
+  <use href="#stingIcon" transform="translate(350 1040) scale(1.25)"/>
+  <use href="#stingIcon" transform="translate(493 1043) scale(1.22)"/>
+  <text x="589" y="1062" class="lbl" font-size="29">STING</text>
+
+  <!-- SAR1 / SEC24C -->
+  <rect x="240" y="1010" width="53" height="85" rx="10" fill="#FBE6D7" stroke="#D79A5A" stroke-width="2"/>
+  <text x="170" y="1068" class="redLbl">SAR1</text>
+  <circle cx="291" cy="985" r="21" fill="#D82B2B"/>
+  <text x="327" y="961" class="redLbl">SEC24C</text>
+  <path d="M299 1012 C308 1010,316 1002,320 992" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- cGAMP and cGAS -->
+  <text x="790" y="1036" class="lbl" font-size="29">cGAMP</text>
+  <g transform="translate(817 1072)">
+    <ellipse cx="-12" cy="0" rx="15" ry="10" fill="#4F9AD4"/><ellipse cx="13" cy="-8" rx="15" ry="10" fill="#7EB43D"/><ellipse cx="12" cy="14" rx="15" ry="10" fill="#7EB43D"/><ellipse cx="-15" cy="18" rx="15" ry="10" fill="#4F9AD4"/>
+  </g>
+  <path d="M784 1054 L724 1054" class="thin" marker-end="url(#openArrow)"/>
+  <use href="#cgasStack" transform="translate(1022 1010) scale(0.98)"/>
+  <path d="M1009 1054 L887 1054" class="thin" marker-end="url(#openArrow)"/>
+  <g transform="translate(1171 1178)"><circle cx="0" cy="0" r="11" fill="#4F9AD4"/><circle cx="38" cy="22" r="11" fill="#7EB43D"/><circle cx="39" cy="-25" r="11" fill="#4F9AD4"/><circle cx="76" cy="0" r="11" fill="#7EB43D"/></g>
+  <text x="1087" y="1233" class="lbl" font-size="29">ATP and GTP</text>
+
+  <!-- DNA before cGAS -->
+  <use href="#dnaHelix" transform="translate(1275 1030) scale(0.95)"/>
+  <use href="#dnaHelix" transform="translate(1275 1080) scale(0.95)"/>
+  <text x="1335" y="996" class="lbl" font-size="29">DNA</text>
+  <path d="M1265 1054 L1190 1054" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- pathogen DNA -->
+  <use href="#dnaHelix" transform="translate(1542 967) scale(1.15)"/>
+  <text x="1713" y="978" class="lbl" font-size="29">DNA</text>
+  <path d="M1541 1054 L1468 1054" class="thin" marker-end="url(#openArrow)"/>
+
+  <!-- retrovirus -->
+  <g transform="translate(1626 1063)" stroke="#D5412D" fill="none" stroke-width="2.2">
+    <circle r="34"/><circle r="14"/><path d="M-10 -4 q7 -10 13 0 q8 8 13 0"/>
+    <g>
+      <line x1="0" y1="-52" x2="0" y2="-35"/><circle cx="0" cy="-57" r="4"/>
+      <line x1="37" y1="-37" x2="25" y2="-25"/><circle cx="42" cy="-42" r="4"/>
+      <line x1="52" y1="0" x2="35" y2="0"/><circle cx="57" cy="0" r="4"/>
+      <line x1="37" y1="37" x2="25" y2="25"/><circle cx="42" cy="42" r="4"/>
+      <line x1="0" y1="52" x2="0" y2="35"/><circle cx="0" cy="57" r="4"/>
+      <line x1="-37" y1="37" x2="-25" y2="25"/><circle cx="-42" cy="42" r="4"/>
+      <line x1="-52" y1="0" x2="-35" y2="0"/><circle cx="-57" cy="0" r="4"/>
+      <line x1="-37" y1="-37" x2="-25" y2="-25"/><circle cx="-42" cy="-42" r="4"/>
+    </g>
+  </g>
+  <text x="1712" y="1062" class="lbl" font-size="29">Retrovirus</text>
+  <!-- DNA virus pentagon -->
+  <g transform="translate(1662 1153)">
+    <polygon points="0,-34 32,-15 27,25 -8,34 -34,5 -25,-26" fill="#F3F8FC" stroke="#4D88C6" stroke-width="2.2"/>
+    <path d="M-6 -18 q13 7 8 15 q-6 8 6 17" fill="none" stroke="#2B6CAD" stroke-width="2"/>
+    <path d="M3 -20 q-12 6 -6 15 q8 10 -5 17" fill="none" stroke="#2B6CAD" stroke-width="2"/>
+  </g>
+  <text x="1712" y="1151" class="lbl" font-size="29">DNA virus</text>
+  <!-- bacteria -->
+  <g transform="translate(1620 1216) rotate(-12)">
+    <rect x="-38" y="-19" width="76" height="38" rx="19" fill="#7AB43D" stroke="#3E7B29" stroke-width="2"/>
+    <circle cx="-18" cy="-5" r="4" fill="#3E7B29"/><circle cx="2" cy="6" r="4" fill="#3E7B29"/><circle cx="18" cy="-6" r="4" fill="#3E7B29"/>
+    <path d="M36 8 q36 6 48 30 q15 30 35 29" fill="none" stroke="#3E7B29" stroke-width="2"/>
+    <g stroke="#3E7B29" stroke-width="1.8"><line x1="-28" y1="-18" x2="-35" y2="-31"/><line x1="-8" y1="-19" x2="-10" y2="-33"/><line x1="12" y1="-18" x2="16" y2="-32"/><line x1="29" y1="-14" x2="39" y2="-25"/><line x1="-28" y1="18" x2="-35" y2="31"/><line x1="-8" y1="19" x2="-10" y2="33"/><line x1="12" y1="18" x2="16" y2="32"/></g>
+  </g>
+  <text x="1712" y="1235" class="lbl" font-size="29">Bacteria</text>
+
+  <!-- pathogens arrows to DNA -->
+  <path d="M1589 1070 L1468 1070" class="thin" marker-end="url(#openArrow)"/>
+
+</svg>
