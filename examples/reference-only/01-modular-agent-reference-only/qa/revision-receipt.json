@@ -4,14 +4,14 @@
   "case": "01-modular-agent-reference-only",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
   "lineage_version": "1.0.0",
-  "revision_id": "scene-188dc7595e8a72bf",
-  "scene_sha256": "188dc7595e8a72bf809989df8c9e33a1bb4d6e7bbb8964cfc6b0871fe72a4fac",
-  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "revision_id": "scene-657fc2106812f35a",
+  "scene_sha256": "657fc2106812f35af79729fc8c0beab88b4af6295ca1ae87b44bcee634e7463a",
+  "compiler_fingerprint": "a25219669b5dc716384b21f7d989ae4f7220a866b074da0ac3ed8bcfc8465b60",
   "artifacts": {
     "redraw_svg": "249813dc478b2112135638d0d3086606ce3d47e0614d7d39e11c902bcb37498c",
-    "redraw_pptx": "607ded1adc85c06d86d75b2f2bacd7ddb6510b7757629ab8aac7bf3ee706a048",
-    "render_png": "dc51d74f09839d002dc708f205a5e9a2477290997767bd14bac0dc918c1586ca",
-    "bindings": "0adbd34d19a85fc767ae54ca704bdcecfb50e6beafcfba63a332da7acc0d6b96"
+    "redraw_pptx": "8ae245b6efb256dd1db83fb15ec48dac5a844f760fb1bc2ba86c1d629415d710",
+    "render_png": "c18dba0d8e42bc71de8a8cf6268ea25f3558d284c9074f93d2d38e1b78207db1",
+    "bindings": "bc29d6fe9adeb1de2375a725ec27f1ecd6d82a6275391d92b6f17514b6ae0b73"
   },
-  "stamped_at": "20260824T153903Z"
+  "stamped_at": "20260826T154433Z"
 }

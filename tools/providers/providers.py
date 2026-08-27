@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.metadata
 import json
 import os
 import platform
@@ -14,6 +15,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
+from tools.assets.asset_trace import VTRACER_DEFAULT_MODE, VTRACER_LOCKED_PARAMETERS
 from tools.core.contracts import read_json, utc_now, write_json
 
 
@@ -39,9 +41,12 @@ class ProviderAdapter(Protocol):
     def undo(self, transaction_id: str) -> dict[str, Any]: ...
 
 
+_VTRACER_CAPABILITIES = ("trace", "svg-fragment-export", "path-normalize", "svg-contract-check")
+
 _CATALOG = (
     ProviderStatus("powerpoint-native", "core", True, True, "selected", ("shape", "connector", "freeform", "group", "align", "readback", "render"), "Primary provider; add-ins are not required."),
     ProviderStatus("powerpoint-live", "hybrid-repair", True, False, "selected-health-required", ("managed-session", "visible-canvas", "inspect", "audit", "save-reopen", "bindings"), "Invoked by an MCP-capable agent from a hash-bound repair request."),
+    ProviderStatus("vtracer", "source-authoring", False, False, "candidate-pilot", _VTRACER_CAPABILITIES, "Deterministic raster-to-SVG tracing for flat-illustration micro-assets; photographic assets stay on the atomic-raster layer."),
     ProviderStatus("onekeytools10", "isolated-pilot", False, False, "candidate-not-installed", ("vertex", "shape-split", "radial-lines", "gradient", "emf", "alignment"), "Only pilot candidate; installer/API/licensing remain unverified."),
     ProviderStatus("islide", "manual-assets", False, False, "optional-manual-only", ("components", "icons", "diagrams"), "Cloud/licensing dependency; not a button-level automation API."),
     ProviderStatus("threed-tools", "optional-3d", False, False, "on-demand-unverified", ("sphere", "cube", "3d-helper"), "Out of scope until a concrete 3D case exists."),
@@ -76,6 +81,19 @@ def _discover_powerpoint_live_server() -> Path | None:
     return max(candidates, key=lambda path: path.stat().st_mtime) if candidates else None
 
 
+def _vtracer_engine_version() -> str | None:
+    """Probe vtracer availability by import and report the installed distribution version."""
+
+    try:
+        importlib.import_module("vtracer")
+    except ImportError:
+        return None
+    try:
+        return importlib.metadata.version("vtracer")
+    except importlib.metadata.PackageNotFoundError:
+        return "unknown"
+
+
 def provider_catalog(host: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     host = host or host_health()
     result = [asdict(item) for item in _CATALOG]
@@ -88,6 +106,10 @@ def provider_catalog(host: dict[str, Any] | None = None) -> list[dict[str, Any]]
             item["status"] = (
                 "selected-external-mcp" if item["executable"] else "selected-unavailable"
             )
+        elif item["provider_id"] == "vtracer":
+            item["executable"] = _vtracer_engine_version() is not None
+            if not item["executable"]:
+                item["status"] = "candidate-pilot-unavailable"
     return result
 
 
@@ -387,6 +409,129 @@ class JournaledMockProvider:
             if transaction["idempotency_key"] == idempotency_key:
                 return transaction
         transaction = {"transaction_id": f"tx-{len(journal['transactions']) + 1}", "idempotency_key": idempotency_key, "operation": operation, "status": "applied"}
+        journal["transactions"].append(transaction)
+        write_json(self.journal_path, journal)
+        return transaction
+
+    def inspect(self, transaction_id: str) -> dict[str, Any]:
+        for transaction in read_json(self.journal_path)["transactions"]:
+            if transaction["transaction_id"] == transaction_id:
+                return transaction
+        raise KeyError(transaction_id)
+
+    def undo(self, transaction_id: str) -> dict[str, Any]:
+        journal = read_json(self.journal_path)
+        for transaction in journal["transactions"]:
+            if transaction["transaction_id"] == transaction_id:
+                transaction["status"] = "undone"
+                write_json(self.journal_path, journal)
+                return transaction
+        raise KeyError(transaction_id)
+
+
+# 锁定描摹参数的唯一定义点是 tools.asset_trace.VTRACER_LOCKED_PARAMETERS
+# (出处 docs/vtracer-pilot/README.md;改动需重跑试点校准并更新 provenance
+# 记录);mode 是独立参数,adapter 默认取 asset_trace.VTRACER_DEFAULT_MODE。
+_VTRACER_TRACE_DEFAULT_PARAMS: dict[str, Any] = {
+    **VTRACER_LOCKED_PARAMETERS,
+    "mode": VTRACER_DEFAULT_MODE,
+}
+
+_VTRACER_TRACE_PARAM_KEYS = frozenset(
+    {
+        "colormode",
+        "hierarchical",
+        "mode",
+        "filter_speckle",
+        "color_precision",
+        "layer_difference",
+        "corner_threshold",
+        "length_threshold",
+        "max_iterations",
+        "splice_threshold",
+        "path_precision",
+    }
+)
+
+
+class VtracerAdapter:
+    """Source-authoring adapter for deterministic raster-to-SVG tracing.
+
+    execute is a pure function (input PNG + parameters -> output SVG bytes);
+    undo is trivial because the adapter holds no external state.
+    """
+
+    provider_id = "vtracer"
+
+    def __init__(self, journal_path: Path):
+        self.journal_path = journal_path
+        if not journal_path.is_file():
+            write_json(journal_path, {"transactions": []})
+
+    def discover(self) -> ProviderStatus:
+        version = _vtracer_engine_version()
+        return ProviderStatus(
+            "vtracer",
+            "source-authoring",
+            False,
+            version is not None,
+            "candidate-pilot" if version is not None else "candidate-pilot-unavailable",
+            _VTRACER_CAPABILITIES,
+            "Deterministic raster-to-SVG tracing for flat-illustration micro-assets; photographic assets stay on the atomic-raster layer.",
+        )
+
+    def health(self) -> dict[str, Any]:
+        version = _vtracer_engine_version()
+        return {
+            "healthy": version is not None,
+            "engine": "vtracer",
+            "engine_version": version,
+            "foreground_switch": False,
+            "reason": None if version is not None else "vtracer-import-failed",
+        }
+
+    def capabilities(self) -> list[str]:
+        return list(_VTRACER_CAPABILITIES)
+
+    def _trace(self, operation: dict[str, Any]) -> dict[str, Any]:
+        if operation.get("op") != "trace":
+            raise ValueError(f"unsupported vtracer operation: {operation.get('op')!r}")
+        engine_version = _vtracer_engine_version()
+        if engine_version is None:
+            raise RuntimeError("vtracer is not importable in this environment")
+        input_png = Path(operation["input_png"])
+        output_svg = Path(operation["output_svg"])
+        if not input_png.is_file():
+            raise FileNotFoundError(input_png)
+        params = {**_VTRACER_TRACE_DEFAULT_PARAMS, **operation.get("params", {})}
+        unknown = sorted(set(params) - _VTRACER_TRACE_PARAM_KEYS)
+        if unknown:
+            raise ValueError(f"unsupported vtracer parameters: {unknown}")
+        import vtracer
+
+        output_svg.parent.mkdir(parents=True, exist_ok=True)
+        vtracer.convert_image_to_svg_py(str(input_png), str(output_svg), **params)
+        return {
+            "input_sha256": _file_sha256(input_png),
+            "output_svg": str(output_svg),
+            "output_sha256": _file_sha256(output_svg),
+            "engine": "vtracer",
+            "engine_version": engine_version,
+            "params": params,
+        }
+
+    def execute(self, operation: dict[str, Any], idempotency_key: str) -> dict[str, Any]:
+        journal = read_json(self.journal_path)
+        for transaction in journal["transactions"]:
+            if transaction["idempotency_key"] == idempotency_key:
+                return transaction
+        transaction = {
+            "transaction_id": f"tx-{len(journal['transactions']) + 1}",
+            "idempotency_key": idempotency_key,
+            "operation": operation,
+            "result": self._trace(operation),
+            "status": "applied",
+        }
         journal["transactions"].append(transaction)
         write_json(self.journal_path, journal)
         return transaction

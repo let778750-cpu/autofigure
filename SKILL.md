@@ -70,7 +70,7 @@ autofigure prepare <reference.png> --case <id> --input-route reference-only
 
 未指定路线必须失败。reference-only 可生成内部 SVG 载体，但 provenance role 必须是 `reconstruction-candidate`，不能是 `external-seed`。
 
-两条路线的 `prompt.md` 共享同一份 SVG 作者硬性合同（`tools/prepare.py` 的 `SVG_AUTHORING_CONTRACT`）；路线差异只体现在 wrapper：svg-seeded 是网页 VLM 交付流程，reference-only 是区域任务 + 构建隔离声明。
+两条路线的 `prompt.md` 共享同一份 SVG 作者硬性合同（`tools/pipeline/prepare.py` 的 `SVG_AUTHORING_CONTRACT`）；路线差异只体现在 wrapper：svg-seeded 是网页 VLM 交付流程，reference-only 是区域任务 + 构建隔离声明。
 
 外部 SVG 被拒绝：
 
@@ -85,7 +85,7 @@ autofigure ingest <case> --rejected --fallback png_reconstruct
 - `run.json`：`schema_version=4.0.0`、`RECONSTRUCT_1TO1`、路线、处理模式、状态和 validation。
 - `provenance.json`：参考、外部种子、候选历史、哈希、生成者、A/B 分组。
 - `scene.json`：对象 ID、几何、层级和拓扑。
-- `assets.json`：显式安全 policy、reference-derived `microasset_opportunity_map`、派生资产、来源、bbox、rights uncertainty 与可编辑性。
+- `assets.json`：显式安全 policy、reference-derived `microasset_opportunity_map`、派生资产、来源、bbox、rights uncertainty 与可编辑性；vtracer 描摹产物以 `atomic-vector` 派生条目追加（11 字段闭集合，`fallback_atomic_raster` 指回原位图条目），冻结区不因此漂移。
 - `regions.json`：critical 区域、阈值和颜色探针。
 - `bindings.json`：PowerPoint shape 绑定和保存重开证据。
 
@@ -97,7 +97,7 @@ autofigure ingest <case> --rejected --fallback png_reconstruct
 autofigure freeze <case>
 ```
 
-inventory 项必须有稳定 `id/kind/bbox/element_ids/critical_region_ids`；文字/公式有精确文本与 typography，箭头/括号/图标有对应合同引用，所有 critical region 必须声明 `relations_exhaustive=true`。`assets.json` 必须显式给出机会图（确无机会也写 `[]`），freeze 同时生成 `qa/reference-inventory-receipt.json` 与 `qa/asset-contract-receipt.json`；未冻结、receipt 过期、漏对象或未审核的零计数都不得 ingest。
+inventory 项必须有稳定 `id/kind/bbox/element_ids/critical_region_ids`；文字/公式有精确文本与 typography，箭头/括号/图标有对应合同引用，所有 critical region 必须声明 `relations_exhaustive=true`。`assets.json` 必须显式给出机会图（确无机会也写 `[]`），freeze 同时生成 `qa/reference-inventory-receipt.json` 与 `qa/asset-contract-receipt.json`，并对每个带 bbox 的机会图项实测写入 `trace_eligibility` / `trace_eligibility_statistics` 冻结字段（photographic / flat-illustration / ambiguous）；未冻结、receipt 过期、漏对象或未审核的零计数都不得 ingest。
 
 freeze 还把 inventory 绑定到路线无关 reference oracle：`examples/oracles/<reference_sha256 前 16 位>/oracle.json`（无 `run.json`，不是案例）。同一参考图哈希在所有输入路线共享同一份冻结真值——首次 freeze 创建 oracle，此后同参考图的 freeze 必须复现同一真值，不一致即拒绝（`oracle:inventory-mismatch`）；真值重授权是人工动作，删除对应 `oracle.json` 后重新 freeze，工具不提供自动覆盖。inventory receipt 以 `oracle_sha256` 绑定 oracle；strict 在 oracle 存在时校验 receipt 与 oracle 文件一致（`oracle:receipt-mismatch`），无 oracle 的案例不因此新增门禁。
 
@@ -124,6 +124,8 @@ freeze 还把 inventory 绑定到路线无关 reference oracle：`examples/oracl
   overbrace 镜像/旋转得到，并逐对象验证双瓣、中央 cusp、方向和单对象身份。
 - 容器文字/公式声明 `data-layout-container`；重复图元声明 group/axis/order。
 - 用户授权的不可约微资产可紧边界裁剪并标记 `editable=false`；禁止整图和正式结构位图化。
+- 已授权位图微资产可经 `autofigure trace <case> --asset <id>` 转为 `atomic-vector`：vtracer 锁定参数确定性描摹，产物 SVG 校验落在合同子集内，convert 编译为单个原生 freeform group（`editable=true`，不经位图嵌入），原位图条目保留为 `fallback_atomic_raster` 回退层；重裁哈希与授权记录不一致即拒，重跑幂等。
+- 微资产走双层闸门：freeze 预分类 `trace_eligibility`（photographic 直接留位图层，flat-illustration 可描摹，ambiguous 默认原生优先、描摹需显式 `--allow-ambiguous`）；执行期由 QA 测量驱动升级梯——原生重建经修复循环仍不过对象级门禁时，trace-eligible 资产才走描摹；矢量门禁（合同、原生性、区域保真 SSIM≥0.80 / Edge IoU≥0.75 + ink_contract + ΔE00、provenance、回退审计）任一失败即显式回退位图层并留痕。
 
 ## QA
 

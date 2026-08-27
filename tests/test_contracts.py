@@ -9,7 +9,10 @@ from PIL import Image
 
 from tools.core import common
 from tools.core.contracts import (
+    ASSET_REPRESENTATIONS,
+    CANDIDATE_ORIGINS,
     SCHEMA_VERSION,
+    TRACE_ELIGIBILITY_VALUES,
     ContractError,
     initialize_contracts,
     migrate_legacy_run,
@@ -235,3 +238,16 @@ def test_validation_summary_distinguishes_diagnostic_and_strict(tmp_path: Path):
     assert strict["status"] == "failed"
     passed = record_validation(run, "strict", [])
     assert passed["status"] == "passed"
+
+
+def test_atomic_vector_contract_vocabulary():
+    assert ASSET_REPRESENTATIONS == ("atomic-raster", "atomic-vector")
+    assert TRACE_ELIGIBILITY_VALUES == ("photographic", "flat-illustration", "ambiguous")
+    assert CANDIDATE_ORIGINS == (
+        "web-vlm",
+        "local-vlm",
+        "codex",
+        "human",
+        "vtracer-provider",
+        "unknown",
+    )

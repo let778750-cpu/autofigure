@@ -261,7 +261,9 @@ brace 使用同级 `primitive_spec` 和唯一 `brace_v1`：under/left/right 只�
 
 正式结构必须原生。只有用户明确授权、无法忠实分解且紧边界的微资产允许从当前案例 `reference.png` 裁剪。PowerPoint shape Tags 持久化 asset ID、源哈希、紧边界声明、不可约原因与 `editable=false`。
 
-真实 ModularAgent reference-only A/B 已证明 observation 和 environment globe 两个裁剪区能达到 SSIM/Edge IoU 1.0；这不为其余区域背书。
+三源素材策略中 vtracer 确定性描摹通道已落地（素材库与 Inkscape 修版会话仍为计划，见 `docs/ILLUSTRATOR_VECTOR_AUTHORING_PLAN.md` Phase 3/5）。已授权 `reference_crop` 位图条目可经 `autofigure trace <case> --asset <id>` 升级为 `atomic-vector`：freeze 对每个带 bbox 的机会图项实测 `trace_eligibility` 预分类（photographic 留位图层；flat-illustration 可描摹；ambiguous 需显式 `--allow-ambiguous`）；trace 按 bbox 重裁并核验 `source_sha256`，以锁定参数描摹（colormode=color、hierarchical=stacked、color_precision=6、path_precision=3，默认 spline），过合同子集校验后事务化追加 11 字段派生条目（`fallback_atomic_raster` 指回位图条目），冻结区与 receipt 不漂移。convert 把矢量片段编译为单个原生 freeform group（bindings `object_kind="atomic-vector"`、`editable=true`，不经 `add_picture`）；check 以五门门禁裁决（合同、原生性、区域保真 SSIM≥0.80 / Edge IoU≥0.75 + ink_contract + ΔE00、provenance、回退审计），任一失败给出 `atomic-vector:<id>:fallback-required` blocker，显式回退位图层属上层工作流决策。
+
+真实 ModularAgent reference-only A/B 已证明 observation 和 environment globe 两个裁剪区能达到 SSIM/Edge IoU 1.0；这不为其余区域背书。案例 01 的 environment-globe 经 trace 转 atomic-vector 后区域实测 SSIM 0.8065 / Edge IoU 0.8825：过矢量档门禁，达不到该区域冻结的位图档 0.95，区域如实 fail、案例维持 `qa_failed`，位图条目保留为回退层；「可编辑性换像素完美度」的逐资产显式授权（该区域重 freeze 到矢量档）是工作流决策，工具不自动放行。
 
 ## 8. PowerPoint Live
 
@@ -285,5 +287,7 @@ autofigure hygiene
 ## 10. 插件 provider 边界
 
 统一协议：`discover / health / capabilities / execute / inspect / undo`。原生 PowerPoint provider 最高优先级。第三方插件只有在提供独有、结构化、可回读、幂等且可撤销能力时才可进入。
+
+vtracer 以 `source-authoring` 角色注册（`candidate-pilot`、`selected=false`），承担微资产确定性描摹：纯函数转换，`execute` 幂等键去重、`undo` 平凡，`health` 如实披露引擎版本（锁定 0.6.15）。
 
 OneKeyTools10 仅隔离试点；iSlide/ThreeD Tools 按需；其余排除。禁止 Ribbon 坐标点击、SendKeys 和图像识别点击。

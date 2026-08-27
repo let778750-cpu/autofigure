@@ -7,7 +7,7 @@ from PIL import Image
 
 from tools.core import common
 from tools.core.contracts import read_json
-from tools.pipeline.prepare import main as prepare_main
+from tools.pipeline.prepare import SVG_AUTHORING_CONTRACT, main as prepare_main
 
 
 def _reference(tmp_path: Path) -> Path:
@@ -165,3 +165,10 @@ def test_svg_seeded_prepare_rejects_invalid_seed_before_case_creation(
             ]
         )
     assert not (cases_root / "svg-seeded" / "invalid-seed").exists()
+
+
+def test_svg_authoring_contract_includes_authorized_inline_atomic_vector_group():
+    assert '<g id="atomic:...">' in SVG_AUTHORING_CONTRACT
+    # Both prompt templates and the route smoke tests interpolate the contract
+    # with str.format(width=..., height=...), so no other braces may appear.
+    SVG_AUTHORING_CONTRACT.format(width=120, height=80)

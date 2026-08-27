@@ -11,7 +11,9 @@ from tools.assets.asset_spec import (
     asset_spec_sha256,
     attach_asset_specs,
     audit_asset_specs,
+    audit_atomic_vector_assets,
     validate_asset_spec,
+    validate_atomic_vector_asset,
 )
 
 
@@ -454,3 +456,162 @@ def test_malformed_attached_asset_identity_returns_blockers_instead_of_raising()
     assert "asset-spec-invalid:asset-a:asset-id" in findings
     assert "asset-spec-invalid:asset-a:topology-scope-identity" in findings
     assert "asset-spec-hash:asset-a" in findings
+
+
+VECTOR_SOURCE_SHA256 = "b" * 64
+
+
+def _atomic_vector_entry():
+    return {
+        "id": "atomic:icon-a",
+        "editable": True,
+        "source": "vtracer-trace",
+        "vector_source_svg": {"path": "assets/icon-a.svg", "sha256": VECTOR_SOURCE_SHA256},
+        "trace_method": "spline",
+        "trace_engine_version": "0.6.15",
+        "authorization_basis": "user authorized deterministic trace of the reference crop",
+        "rights_status": (
+            "unknown; authorization records workflow permission, not copyright clearance"
+        ),
+        "fallback_atomic_raster": "atomic:icon-a-raster",
+        "ink_contract_region_id": "region-icon-a",
+        "trace_eligibility": "flat-illustration",
+    }
+
+
+def _atomic_raster_entry(asset_id="atomic:icon-a-raster"):
+    return {
+        "id": asset_id,
+        "source": "reference_crop",
+        "editable": False,
+        "authorized": True,
+        "atomic_raster_unit": True,
+    }
+
+
+def _assets_document(*entries):
+    return {
+        "schema_version": "4.0.0",
+        "kind": "assets",
+        "reference_sha256": REFERENCE_SHA256,
+        "policy": {
+            "formal_content_native": True,
+            "authorized_atomic_raster_only": True,
+            "whole_reference_forbidden": True,
+        },
+        "assets": list(entries),
+        "microasset_opportunity_map": [],
+    }
+
+
+def test_atomic_vector_asset_entry_validates_clean():
+    assert validate_atomic_vector_asset(_atomic_vector_entry()) == []
+
+
+@pytest.mark.parametrize(
+    "trace_eligibility", ["photographic", "flat-illustration", "ambiguous"]
+)
+def test_atomic_vector_trace_eligibility_accepts_contract_values(trace_eligibility):
+    entry = _atomic_vector_entry()
+    entry["trace_eligibility"] = trace_eligibility
+    assert validate_atomic_vector_asset(entry) == []
+
+
+@pytest.mark.parametrize(
+    ("mutate", "error"),
+    [
+        (lambda entry: entry.pop("id"), "fields"),
+        (lambda entry: entry.update(unexpected=True), "fields"),
+        (lambda entry: entry.update(id="icon-a"), "id"),
+        (lambda entry: entry.update(id="atomic:"), "id"),
+        (lambda entry: entry.update(id=" atomic:icon-a"), "id"),
+        (lambda entry: entry.update(editable=False), "editable"),
+        (lambda entry: entry.update(source="reference_crop"), "source"),
+        (lambda entry: entry.update(vector_source_svg=None), "vector-source-svg"),
+        (
+            lambda entry: entry.update(vector_source_svg={"path": "assets/icon-a.svg"}),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(path="/abs/icon-a.svg"),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(path="C:/icon-a.svg"),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(path="assets/../icon-a.svg"),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(path="assets\\icon-a.svg"),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(path="assets/icon-a.png"),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(sha256="not-a-hash"),
+            "vector-source-svg",
+        ),
+        (
+            lambda entry: entry["vector_source_svg"].update(
+                sha256=VECTOR_SOURCE_SHA256.upper()
+            ),
+            "vector-source-svg",
+        ),
+        (lambda entry: entry.update(trace_method=""), "trace-method"),
+        (lambda entry: entry.update(trace_engine_version="  "), "trace-engine-version"),
+        (lambda entry: entry.update(authorization_basis=""), "authorization-basis"),
+        (lambda entry: entry.update(rights_status=None), "rights-status"),
+        (
+            lambda entry: entry.update(fallback_atomic_raster="icon-a-raster"),
+            "fallback-atomic-raster",
+        ),
+        (lambda entry: entry.update(ink_contract_region_id=""), "ink-contract-region-id"),
+        (lambda entry: entry.update(trace_eligibility="photo"), "trace-eligibility"),
+    ],
+)
+def test_atomic_vector_asset_entry_rejects_contract_violations(mutate, error):
+    entry = _atomic_vector_entry()
+    mutate(entry)
+    assert error in validate_atomic_vector_asset(entry)
+
+
+def test_atomic_vector_asset_rejects_non_dict():
+    assert validate_atomic_vector_asset(None) == ["atomic-vector-asset"]
+    assert validate_atomic_vector_asset(["atomic:icon-a"]) == ["atomic-vector-asset"]
+
+
+def test_audit_atomic_vector_assets_resolves_fallback_within_document():
+    assets = _assets_document(_atomic_raster_entry(), _atomic_vector_entry())
+    assert audit_atomic_vector_assets(assets) == []
+
+
+def test_audit_atomic_vector_assets_requires_resolvable_raster_fallback():
+    assets = _assets_document(_atomic_vector_entry())
+    assert audit_atomic_vector_assets(assets) == [
+        "atomic-vector-asset:atomic:icon-a:fallback-unresolved"
+    ]
+
+
+def test_audit_atomic_vector_assets_reports_invalid_entry_with_label():
+    entry = _atomic_vector_entry()
+    entry["editable"] = False
+    assets = _assets_document(_atomic_raster_entry(), entry)
+    assert audit_atomic_vector_assets(assets) == [
+        "atomic-vector-asset:atomic:icon-a:editable"
+    ]
+
+
+def test_audit_atomic_vector_assets_leaves_other_sources_to_their_own_contracts():
+    raster = _atomic_raster_entry()
+    raster["extra_field"] = "kept"
+    assert audit_atomic_vector_assets(_assets_document(raster)) == []
+
+
+def test_audit_atomic_vector_assets_requires_assets_list():
+    assert audit_atomic_vector_assets({}) == ["atomic-vector-asset:assets"]
+    assert audit_atomic_vector_assets(None) == ["atomic-vector-asset:assets"]

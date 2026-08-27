@@ -13,7 +13,7 @@
   "converter": {
     "name": "latex2mathml+office-mml2omml-xsl",
     "latex2mathml_version": "3.81.0",
-    "lxml_version": "6.1.0",
+    "lxml_version": "6.1.1",
     "latex_normalization": "single-character-mathrm-empty-group-v1",
     "xsl_path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\MML2OMML.XSL",
     "xsl_sha256": "fdbb663cbbf0ab0b8387d1c65f6691ac6771e96bbb8b4a256af251834e35ed72"

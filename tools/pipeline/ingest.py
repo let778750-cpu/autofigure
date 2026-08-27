@@ -13,6 +13,7 @@ from pathlib import Path
 
 from tools.core import common
 from tools.core.contracts import (
+    CANDIDATE_ORIGINS,
     read_json,
     record_candidate_provenance,
     set_processing_mode,
@@ -178,7 +179,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--fallback", choices=("svg_repair", "png_reconstruct"), default="png_reconstruct")
     parser.add_argument(
         "--candidate-origin",
-        choices=("web-vlm", "local-vlm", "codex", "human", "unknown"),
+        choices=CANDIDATE_ORIGINS,
         default="unknown",
         help="候选的可审计来源；未知时保留 unknown，禁止猜测模型",
     )
