@@ -10,7 +10,7 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from tools.asset_trace import (
+from tools.assets.asset_trace import (
     TRACE_ELIGIBILITY_CLASSES,
     VTRACER_DEFAULT_MODE,
     VTRACER_LOCKED_PARAMETERS,
@@ -119,8 +119,8 @@ def test_eligibility_rejects_unreadable_image(tmp_path: Path):
 
 
 def test_trace_constants_have_a_single_authoritative_definition():
-    from tools.contracts import TRACE_ELIGIBILITY_VALUES
-    from tools.providers import _VTRACER_TRACE_DEFAULT_PARAMS
+    from tools.core.contracts import TRACE_ELIGIBILITY_VALUES
+    from tools.providers.providers import _VTRACER_TRACE_DEFAULT_PARAMS
 
     assert TRACE_ELIGIBILITY_CLASSES == TRACE_ELIGIBILITY_VALUES
     assert "mode" not in VTRACER_LOCKED_PARAMETERS

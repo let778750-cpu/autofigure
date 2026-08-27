@@ -6,8 +6,8 @@ from pathlib import Path
 import pytest
 from PIL import Image, ImageDraw
 
-from tools import common
-from tools.asset_spec import (
+from tools.core import common
+from tools.assets.asset_spec import (
     ASSET_CONTRACT_KIND,
     ASSET_CONTRACT_RECEIPT_KIND,
     ASSET_CONTRACT_RECEIPT_PATH,
@@ -17,10 +17,14 @@ from tools.asset_spec import (
     canonical_asset_contract_payload,
     freeze_asset_contract,
 )
-from tools.asset_trace import compute_trace_eligibility
-from tools.contracts import read_json, write_json
-from tools.prepare import main as prepare_main
-from tools.reference_inventory import OBJECT_KINDS, canonical_sha256, freeze_inventory
+from tools.assets.asset_trace import compute_trace_eligibility
+from tools.assets.reference_inventory import (
+    OBJECT_KINDS,
+    canonical_sha256,
+    freeze_inventory,
+)
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.prepare import main as prepare_main
 
 
 def _run(tmp_path: Path, case: str, image: Image.Image | None = None) -> common.Run:

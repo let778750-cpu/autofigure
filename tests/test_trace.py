@@ -10,15 +10,15 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.asset_spec import (
+from tools.core import common
+from tools.assets.asset_spec import (
     asset_contract_sha256,
     audit_atomic_vector_assets,
     validate_atomic_vector_asset,
 )
-from tools.asset_trace import check_svg_contract_subset
-from tools.contracts import read_json, write_json
-from tools.trace import main as trace_main
+from tools.assets.asset_trace import check_svg_contract_subset
+from tools.core.contracts import read_json, write_json
+from tools.assets.trace import main as trace_main
 
 BBOX_BY_ID = {
     "atomic:flat-icon": (0, 0, 32, 64),

@@ -7,14 +7,14 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.contracts import (
+from tools.core import common
+from tools.core.contracts import (
     read_json,
     record_candidate_provenance,
     record_seed_unavailable,
     write_json,
 )
-from tools.source_gate import (
+from tools.qa.source_gate import (
     evaluate_case_source_gate,
     evaluate_source_gate,
     write_source_gate_report,

@@ -7,15 +7,15 @@ import json
 import sys
 from pathlib import Path
 
-from tools import common
-from tools.contracts import (
+from tools.core import common
+from tools.core.contracts import (
     read_json,
     record_seed_unavailable,
     transition,
     utc_now,
     write_json,
 )
-from tools.revisions import (
+from tools.core.revisions import (
     bind_canonical_svg,
     materialize_svg,
     read_svg_text_exact,

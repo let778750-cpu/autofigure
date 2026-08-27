@@ -70,7 +70,7 @@ autofigure prepare <reference.png> --case <id> --input-route reference-only
 
 未指定路线必须失败。reference-only 可生成内部 SVG 载体，但 provenance role 必须是 `reconstruction-candidate`，不能是 `external-seed`。
 
-两条路线的 `prompt.md` 共享同一份 SVG 作者硬性合同（`tools/prepare.py` 的 `SVG_AUTHORING_CONTRACT`）；路线差异只体现在 wrapper：svg-seeded 是网页 VLM 交付流程，reference-only 是区域任务 + 构建隔离声明。
+两条路线的 `prompt.md` 共享同一份 SVG 作者硬性合同（`tools/pipeline/prepare.py` 的 `SVG_AUTHORING_CONTRACT`）；路线差异只体现在 wrapper：svg-seeded 是网页 VLM 交付流程，reference-only 是区域任务 + 构建隔离声明。
 
 外部 SVG 被拒绝：
 

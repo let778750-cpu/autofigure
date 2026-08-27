@@ -15,9 +15,9 @@ from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.oxml.ns import qn
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
 
 EMU_PER_PX = 9525
 

@@ -5,11 +5,11 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.live_bridge import build_powerpoint_live_bridge
-from tools.math import upgrade
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.repair.live_bridge import build_powerpoint_live_bridge
+from tools.pipeline.math import upgrade
 
 
 XSL_PATH = Path(r"C:\Program Files\Microsoft Office\root\Office16\MML2OMML.XSL")

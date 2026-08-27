@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from tools.repair_plan import (
+from tools.repair.repair_plan import (
     CATEGORIES,
     build_repair_plan,
     classify_blocker,

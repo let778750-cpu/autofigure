@@ -6,14 +6,14 @@ import pytest
 from PIL import Image
 from pptx import Presentation
 
-from tools import common
-from tools.arrow_spec import validate_scene_arrow_specs
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.live_bridge import build_powerpoint_live_bridge
-from tools.math import upgrade
-from tools.pptx_arrows import refresh_bindings
-from tools.region_contract import audit_region_contract
+from tools.core import common
+from tools.arrows.arrow_spec import validate_scene_arrow_specs
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.repair.live_bridge import build_powerpoint_live_bridge
+from tools.pipeline.math import upgrade
+from tools.arrows.pptx_arrows import refresh_bindings
+from tools.regions.region_contract import audit_region_contract
 
 
 SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120"

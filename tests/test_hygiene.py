@@ -1,11 +1,11 @@
-"""tools.hygiene 的规则、豁免与 CLI 测试。"""
+"""tools.qa.hygiene 的规则、豁免与 CLI 测试。"""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from tools import hygiene
+from tools.qa import hygiene
 
 
 def _write(root: Path, rel: str, text: str) -> Path:

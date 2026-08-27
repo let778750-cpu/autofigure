@@ -43,7 +43,7 @@ Inkscape(可视修版与 CLI 清洗)+ 免费科研矢量库(bioicons / SciDraw),
 
 ### 2.1 几何层天花板已经被 custGeom 解决
 
-`tools/convert.py` 的 `_emit_freeform` 手写 OOXML `a:custGeom`,完整保留
+`tools/pipeline/convert.py` 的 `_emit_freeform` 手写 OOXML `a:custGeom`,完整保留
 `a:moveTo / a:lnTo / a:cubicBezTo`(三次贝塞尔);`_svg_dimension`/`_px` 保证像素坐标
 确定性换算。冻结证据:`examples/route-comparison-modular-agent-route-ab.json`
 (2026-08-23 受控 A/B 快照):svg-seeded 案例 `01-modular-agent` 196 个绑定对象
@@ -74,7 +74,7 @@ marker 枚举、混合模式),这些是 OOXML 格式约束,引入任何上游创
 | mixture-arrow-occlusion-detail SSIM | 0.5802 | — |
 | strict 状态 | qa_failed | qa_failed |
 
-这类失败归因为 source 侧(视觉测量或候选几何错误,分类见 `tools/repair_plan.py` 的
+这类失败归因为 source 侧(视觉测量或候选几何错误,分类见 `tools/repair/repair_plan.py` 的
 source_model/backend blocker 划分)。PowerPoint Live 会话只能修改 PPTX 对象,无法修正
 source SVG 本身;`live-evidence-missing` 长期存在于 blocker 列表。**source 侧
 需要一个能直接编辑矢量载体的可视会话**——这是 Phase 3 的动机。
@@ -123,7 +123,7 @@ source SVG 本身;`live-evidence-missing` 长期存在于 blocker 列表。**sou
                                                           与 Live 对偶)→ 回灌 ingest → convert → check
 ```
 
-Provider 注册表(tools/providers/ 的 `_CATALOG`,路径按 tools/ 重组后布局书写,下同)
+Provider 注册表(`tools/providers/providers.py` 的 `_CATALOG`)
 新增两行;Illustrator 等付费栈见 §5.3,不进默认注册表:
 
 | provider_id | role | 初始状态 | capabilities |
@@ -143,7 +143,7 @@ undo`):
    哈希绑定」满足 undo 与审计(与 `JournaledMockProvider` 语义对齐)。不满足 undo 的
    provider 不得进入生产栈。
 2. **幂等键**:`execute(operation, idempotency_key)`;同键重复调用返回既有事务。会话
-   显式绑定 case、reference SHA-256、revision、目标区域清单(与 `tools/repair.py`
+   显式绑定 case、reference SHA-256、revision、目标区域清单(与 `tools/repair/repair.py`
    `build_live_request` 的哈希绑定结构同构)。
 3. **前台披露**:任何会把应用切到前台的栈,`health` 必须如实报告;会话期间不得并发
    操作其他前台应用。
@@ -193,7 +193,7 @@ undo`):
 
 ### Phase 1 — Provider 注册与基础设施(已实现)
 
-- tools/providers.py `_CATALOG` 已含 `vtracer` 行(role=`source-authoring`,
+- tools/providers/providers.py `_CATALOG` 已含 `vtracer` 行(role=`source-authoring`,
   `selected=false`,`status=candidate-pilot`);`VtracerAdapter` 实现六方法协议,
   vtracer 为纯函数幂等:`execute` 按幂等键去重(同键重放返回既有事务),`undo`
   平凡幂等,`health` 经 importlib.metadata 如实披露引擎版本(当前锁定 0.6.15,
@@ -203,12 +203,12 @@ undo`):
 
 ### Phase 2 — 微资产真矢量通道(atomic-vector,已实现)
 
-- **资格预分类**(tools/asset_spec.py):freeze 时对每个带 bbox 的机会图项实测
-  `compute_trace_eligibility`(tools/asset_trace.py;4 bit 量化唯一色数为主判据:
+- **资格预分类**(tools/assets/asset_spec.py):freeze 时对每个带 bbox 的机会图项实测
+  `compute_trace_eligibility`(tools/assets/asset_trace.py;4 bit 量化唯一色数为主判据:
   ≥256 photographic、≤128 且有硬边 flat-illustration、其余 ambiguous),写入
   `trace_eligibility` + `trace_eligibility_statistics` 冻结字段(成对出现,随
   receipt 哈希绑定;旧案例无此字段只读兼容)。
-- **合同扩展**(tools/asset_spec.py + 案例内 `assets.json`):资产表示
+- **合同扩展**(tools/assets/asset_spec.py + 案例内 `assets.json`):资产表示
   `atomic-vector` 为 11 字段闭集合——`id`(`atomic:<slug>-vector`)、
   `editable=true`、`source=vtracer-trace`、`vector_source_svg`(案例内相对路径 +
   SHA-256)、`trace_method`、`trace_engine_version`、`authorization_basis`、
@@ -216,7 +216,7 @@ undo`):
   `ink_contract_region_id`、`trace_eligibility`;`validate_atomic_vector_asset` /
   `audit_atomic_vector_assets` 校验闭集合。library / conversion-service 来源值
   属 Phase 5 与 §5.3,未实现。
-- **命令形态**(tools/trace.py):`autofigure trace <case> --asset <id>
+- **命令形态**(tools/assets/trace.py):`autofigure trace <case> --asset <id>
   [--allow-ambiguous]` 只对已授权 `reference_crop` 位图条目工作;按 bbox 从本案例
   reference.png 重裁,重裁哈希与条目 `source_sha256` 不一致即拒;photographic
   一律拒(留位图层),ambiguous 需显式 `--allow-ambiguous`;事务化写入(失败全
@@ -224,10 +224,10 @@ undo`):
   (policy / microasset_opportunity_map)逐字节不动。provenance 记
   `asset_trace_history`(origin=`vtracer-provider`、候选 SHA-256、引擎版本、
   参数、eligibility 实测),`--candidate-origin` choices 已含 `vtracer-provider`。
-- **描摹执行**(tools/asset_trace.py):锁定参数 colormode=color、
+- **描摹执行**(tools/assets/asset_trace.py):锁定参数 colormode=color、
   hierarchical=stacked、color_precision=6、path_precision=3,默认 spline;
   机械补齐 viewBox;`check_svg_contract_subset` 白名单 svg/g/path,越子集即拒。
-- **convert 分支**(tools/convert.py):`_emit_atomic` 矢量分支按「条目 id==元素
+- **convert 分支**(tools/pipeline/convert.py):`_emit_atomic` 矢量分支按「条目 id==元素
   id 或 `fallback_atomic_raster`==元素 id」匹配(歧义 fail closed);片段经
   custGeom 编译为单个原生 freeform group,**不经 `add_picture`**;bindings
   `object_kind="atomic-vector"`、`editable=true`;shape Tags 记录资产 id、源哈希、
@@ -236,7 +236,7 @@ undo`):
   报告写 `qa/atomic-vector-report.json`,blocker 命名
   `atomic-vector:<id>:<reason>`;失败时明确 `fallback-required` blocker,回退到
   既有 `atomic-raster` 路径是显式、留痕的上层工作流动作。
-- **摄取合同**(tools/prepare.py):`SVG_AUTHORING_CONTRACT` 第 4 条允许经授权的
+- **摄取合同**(tools/pipeline/prepare.py):`SVG_AUTHORING_CONTRACT` 第 4 条允许经授权的
   内联矢量组 `<g id="atomic:...">`(版本化,旧案例不回改、只按建案时合同审计)。
 
 ### Phase 3 — source 侧修版会话(与 PowerPoint Live 对偶)
@@ -268,8 +268,6 @@ undo`):
   最后回退**。
 
 ## 7. 代码与合同变更清单(逐文件)
-
-> 路径按 tools/ 重组后布局书写;当前扁平布局对应 `tools/<file>.py`。
 
 | 文件 | 变更 | 阶段 |
 |---|---|---|
@@ -345,14 +343,14 @@ undo`):
 - `examples/reference-only/01-modular-agent-reference-only/assets.json` — 现行
   atomic-raster 微资产合同(editable=false、紧边界、授权依据、rights_status)。
 - `examples/svg-seeded/01-modular-agent/provenance.json` — `web-vlm` origin 纪律先例。
-- `tools/convert.py` — `_emit_freeform`(手写 `a:custGeom`,`a:moveTo/a:lnTo/a:cubicBezTo`)、
+- `tools/pipeline/convert.py` — `_emit_freeform`(手写 `a:custGeom`,`a:moveTo/a:lnTo/a:cubicBezTo`)、
   `_emit_atomic`(`add_picture` 位图路径)、`register_asset`、shape Tags。
-- `tools/providers.py` — `ProviderAdapter` 协议(六方法)、`_CATALOG`、
+- `tools/providers/providers.py` — `ProviderAdapter` 协议(六方法)、`_CATALOG`、
   `JournaledMockProvider`(幂等/undo 参照实现)。
-- `tools/repair.py` — `build_live_request` / `ingest_live_evidence`(哈希绑定请求与
-  证据纪律先例);`tools/repair_plan.py` — source_model/backend blocker 分类。
-- `tools/ingest.py` — `--candidate-origin` choices、`build_region_tasks`。
-- `tools/prepare.py` — `SVG_AUTHORING_CONTRACT`(双路线共享 SVG 输出合同)。
+- `tools/repair/repair.py` — `build_live_request` / `ingest_live_evidence`(哈希绑定请求与
+  证据纪律先例);`tools/repair/repair_plan.py` — source_model/backend blocker 分类。
+- `tools/pipeline/ingest.py` — `--candidate-origin` choices、`build_region_tasks`。
+- `tools/pipeline/prepare.py` — `SVG_AUTHORING_CONTRACT`(双路线共享 SVG 输出合同)。
 - `HIGH_FIDELITY.md` / `PROJECT_ARCHITECTURE.md` / `SKILL.md` — 质量门禁、插件
   provider 边界、交付纪律。
 

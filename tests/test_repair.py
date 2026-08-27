@@ -8,13 +8,13 @@ import pytest
 from PIL import Image
 from pptx import Presentation
 
-from tools import common
-from tools.contracts import read_json, transition, write_json
-from tools.convert import convert
-from tools.pptx_arrows import write_arrow_reports
-from tools.providers import write_case_capabilities
-from tools.regions import evaluate_regions
-from tools.repair import (
+from tools.core import common
+from tools.core.contracts import read_json, transition, write_json
+from tools.pipeline.convert import convert
+from tools.arrows.pptx_arrows import write_arrow_reports
+from tools.providers.providers import write_case_capabilities
+from tools.regions.regions import evaluate_regions
+from tools.repair.repair import (
     _inventory_sha256,
     _pptx_roundtrip_signature,
     _publish_file_set_atomically,
@@ -69,7 +69,7 @@ def test_cli_save_reopen_only_routes_to_intermediate_publisher(
         )
 
     monkeypatch.setattr(
-        "tools.repair.publish_live_save_reopen_candidate", fake_publisher
+        "tools.repair.repair.publish_live_save_reopen_candidate", fake_publisher
     )
     result = repair_main(
         [
@@ -518,7 +518,7 @@ def test_save_reopen_publication_rebinds_math_summary_to_reopened_root(
     )
     convert(run)
     Image.new("RGB", (200, 100), "white").save(run.render_png)
-    from tools.math import upgrade as upgrade_math
+    from tools.pipeline.math import upgrade as upgrade_math
 
     assert upgrade_math(run)["injected"] == 1
     request = build_live_request(run)
@@ -844,7 +844,7 @@ def test_file_set_publish_rolls_back_every_replaced_destination(
     source_two.write_text("new-two", encoding="utf-8")
     destination_one.write_text("old-one", encoding="utf-8")
     destination_two.write_text("old-two", encoding="utf-8")
-    from tools import repair
+    from tools.repair import repair
 
     real_replace = repair.os.replace
     destination_replacements = 0

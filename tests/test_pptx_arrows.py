@@ -7,11 +7,11 @@ from PIL import Image
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.arrow_spec import path_from_segments
-from tools.pptx_arrows import (
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.arrows.arrow_spec import path_from_segments
+from tools.arrows.pptx_arrows import (
     _geometry_comparison,
     _source_path_comparison,
     refresh_bindings,

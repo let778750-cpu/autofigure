@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import itertools
 
-from tools.arrow_spec import (
+from tools.arrows.arrow_spec import (
     ARROW_SPEC_VERSION,
     DASH_TO_OOXML,
     arrow_direction,

@@ -6,13 +6,13 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.normalize_source import (
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.normalize_source import (
     _frozen_text_visual_bboxes,
     normalize_source,
 )
-from tools.reference_inventory import OBJECT_KINDS, freeze_inventory
+from tools.assets.reference_inventory import OBJECT_KINDS, freeze_inventory
 
 
 SVG_NS = "{http://www.w3.org/2000/svg}"

@@ -8,9 +8,9 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools.contracts import CANDIDATE_ORIGINS
-from tools.ingest import main as ingest_main
-from tools.source_gate import evaluate_source_gate
+from tools.core.contracts import CANDIDATE_ORIGINS
+from tools.pipeline.ingest import main as ingest_main
+from tools.qa.source_gate import evaluate_source_gate
 
 
 def test_candidate_origin_choices_come_from_contracts(capsys: pytest.CaptureFixture):

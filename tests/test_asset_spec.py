@@ -4,7 +4,7 @@ import copy
 
 import pytest
 
-from tools.asset_spec import (
+from tools.assets.asset_spec import (
     ASSET_SPEC_KIND,
     ASSET_SPEC_VERSION,
     AssetSpecError,

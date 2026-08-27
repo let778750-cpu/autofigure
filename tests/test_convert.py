@@ -12,9 +12,9 @@ from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.oxml.ns import qn
 
-from tools import common
-from tools.contracts import read_json, transition, write_json
-from tools.convert import convert, write_asset_spec_audit
+from tools.core import common
+from tools.core.contracts import read_json, transition, write_json
+from tools.pipeline.convert import convert, write_asset_spec_audit
 
 VALID_DASHES = {
     "solid", "dot", "sysDash", "sysDot", "sysDashDot", "sysDashDotDot",
@@ -498,7 +498,7 @@ def test_prefrozen_asset_contract_receipt_is_shadow_published_without_rewrite(
         encoding="utf-8",
     )
     original_bytes = receipt_path.read_bytes()
-    from tools import transactions
+    from tools.core import transactions
 
     published: list[str] = []
     original_publish = transactions.publish_staged_files
@@ -846,7 +846,7 @@ def test_reconversion_clears_stale_arrow_spec_for_same_id_topology_relation(
         'data-target-id="target" data-topology-relation="association" '
         'x1="40" y1="50" x2="160" y2="50" stroke="#111111"/></svg>'
     )
-    from tools.revisions import bind_canonical_svg
+    from tools.core.revisions import bind_canonical_svg
 
     bind_canonical_svg(scene, second, source_role="test-repair")
     write_json(run.scene_path, scene)
@@ -946,7 +946,7 @@ def test_fresh_reference_reconstruction_does_not_merge_same_id_scene_annotations
             "prior_candidate_hint": "must-not-survive",
         }
     ]
-    from tools.revisions import bind_canonical_svg
+    from tools.core.revisions import bind_canonical_svg
 
     bind_canonical_svg(scene, svg, source_role="reconstruction-candidate")
     write_json(run.scene_path, scene)
@@ -981,7 +981,7 @@ def test_reconversion_refreshes_scene_and_powerpoint_z_order(run_factory):
         'width="100" height="50" fill="#EEEEEE"/><line id="edge" '
         'x1="10" y1="10" x2="90" y2="90" stroke="#777777"/></svg>'
     )
-    from tools.revisions import bind_canonical_svg
+    from tools.core.revisions import bind_canonical_svg
 
     scene = read_json(run.scene_path)
     bind_canonical_svg(scene, second, source_role="test-reconstruction")

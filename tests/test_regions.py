@@ -10,9 +10,9 @@ from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.util import Emu
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.regions import (
+from tools.core import common
+from tools.core.contracts import read_json, write_json
+from tools.regions.regions import (
     _bbox_identity_metrics,
     _edge_iou,
     _obstacle_mask_floor,

@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from tools import common
-from tools.check import _match_texts, _normalize, _qa_report_hashes, _svg_texts
+from tools.core import common
+from tools.pipeline.check import _match_texts, _normalize, _qa_report_hashes, _svg_texts
 
 
 def test_normalize_strips_case_space_and_punct():

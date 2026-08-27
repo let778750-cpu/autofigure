@@ -5,12 +5,12 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from tools import common
-from tools.check import _strict_live_blockers, main as check_main
-from tools.contracts import read_json, write_json
-from tools.ingest import main as ingest_main
-from tools.prepare import main as prepare_main
-from tools.reference_inventory import (
+from tools.core import common
+from tools.pipeline.check import _strict_live_blockers, main as check_main
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.ingest import main as ingest_main
+from tools.pipeline.prepare import main as prepare_main
+from tools.assets.reference_inventory import (
     OBJECT_KINDS,
     RECEIPT_PATH,
     freeze_inventory,

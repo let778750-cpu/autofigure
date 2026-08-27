@@ -6,12 +6,12 @@ from pathlib import Path
 
 from PIL import Image
 
-from tools import common
-from tools.check import _qa_report_hashes
-from tools.contracts import read_json, record_validation, transition, write_json
-from tools.qa_lineage import write_qa_lineage_manifest
-from tools.repair_plan import write_repair_plan
-from tools.revisions import bind_canonical_svg, materialize_svg, stamp_active_revision
+from tools.core import common
+from tools.pipeline.check import _qa_report_hashes
+from tools.core.contracts import read_json, record_validation, transition, write_json
+from tools.qa.qa_lineage import write_qa_lineage_manifest
+from tools.repair.repair_plan import write_repair_plan
+from tools.core.revisions import bind_canonical_svg, materialize_svg, stamp_active_revision
 
 SVG = (
     '<svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" '

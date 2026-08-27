@@ -9,10 +9,11 @@ from typing import Callable
 import pytest
 from PIL import Image
 
-from tools import common, pptx_arrows
-from tools.contracts import read_json, write_json
-from tools.convert import convert
-from tools.primitives import (
+from tools.core import common
+from tools.arrows import pptx_arrows
+from tools.core.contracts import read_json, write_json
+from tools.pipeline.convert import convert
+from tools.assets.primitives import (
     _command_signature,
     _segments_close,
     audit_primitives,
@@ -21,7 +22,7 @@ from tools.primitives import (
     segments_to_d,
     strict_blockers,
 )
-from tools.svggeom import parse_path_d
+from tools.core.svggeom import parse_path_d
 
 P_NS = "http://schemas.openxmlformats.org/presentationml/2006/main"
 A_NS = "http://schemas.openxmlformats.org/drawingml/2006/main"

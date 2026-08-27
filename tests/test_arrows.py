@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 
-from tools.arrows import (
+from tools.arrows.arrows import (
     _embedded_plot_axis_ids_from_payload,
     _embedded_plot_geometry_groups_from_payload,
     audit_svg_text,
