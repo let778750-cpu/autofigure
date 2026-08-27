@@ -136,7 +136,8 @@ def _is_reparse_or_symlink(path: Path) -> bool:
         if path.is_symlink():
             return True
         st = path.lstat()
-        return bool(st.st_file_attributes & 0x400)  # FILE_ATTRIBUTE_REPARSE_POINT
+        # st_file_attributes 仅 Windows 存在;其他平台恒为 0。
+        return bool(getattr(st, "st_file_attributes", 0) & 0x400)  # FILE_ATTRIBUTE_REPARSE_POINT
     except OSError:
         return True
 
