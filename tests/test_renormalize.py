@@ -5,6 +5,8 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 
+import pytest
+
 from tools.core import common
 from tools.core.contracts import read_json, write_json
 from tools.qa.renormalize import renormalize_case
@@ -207,3 +209,82 @@ def test_check_gate_flags_carrier_content_mismatch(tmp_path: Path):
     # 修复后门禁放行。
     renormalize_case(run, apply=True)
     assert "scene:carrier-content-mismatch" not in _source_gate_blockers(run)
+
+
+def test_consistent_case_is_noop_without_revision_churn(tmp_path: Path):
+    run = _run(tmp_path)
+    text = '<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" id="ok"/>\n'
+    run.redraw_svg.write_bytes(text.encode("utf-8"))
+    scene = read_json(run.scene_path)
+    _carrier(scene, text, _h(text.encode("utf-8")))
+    write_json(run.scene_path, scene)
+
+    # 首次 apply 建立完整 revision 链（首次 stamp 不算 churn）。
+    renormalize_case(run, apply=True)
+    before = run.scene_path.read_bytes()
+    before_redraw = run.redraw_svg.read_bytes()
+
+    notes = renormalize_case(run, apply=True)
+
+    # 已一致案例：零改写、零 revision churn、note 全 consistent。
+    assert "scene.canonical:consistent" in notes
+    assert not [n for n in notes if "rebound" in n or "rewritten" in n or "stale" in n]
+    assert run.scene_path.read_bytes() == before
+    assert run.redraw_svg.read_bytes() == before_redraw
+    assert renormalize_case(run, apply=False) == ["scene.canonical:consistent"]
+
+
+def test_revision_stale_is_detected_and_restamped(tmp_path: Path):
+    run = _run(tmp_path)
+    text = '<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40"/>\n'
+    run.redraw_svg.write_bytes(text.encode("utf-8"))
+    scene = read_json(run.scene_path)
+    _carrier(scene, text, _h(text.encode("utf-8")))
+    write_json(run.scene_path, scene)
+    renormalize_case(run, apply=True)  # 建立完整 revision 链
+
+    # 模拟 #26 遗留形态：指纹算法/绑定字节演进后 active_revision 未 restamp。
+    meta = run.load_meta()
+    meta["active_revision"]["compiler_fingerprint"] = "0" * 64
+    write_json(run.meta_path, meta)
+
+    notes = renormalize_case(run, apply=False)
+    assert any(n.startswith("revision:stale[") for n in notes)
+
+    notes = renormalize_case(run, apply=True)
+
+    assert any(n.startswith("revision:restamped[") for n in notes)
+    from tools.core.revisions import lineage_blockers
+
+    assert lineage_blockers(run) == []
+    assert renormalize_case(run, apply=False) == ["scene.canonical:consistent"]
+
+
+def test_rebind_guard_rejects_concurrent_carrier_change(tmp_path: Path):
+    from tools.qa.renormalize import _rebind_scene_carrier
+
+    run = _run(tmp_path)
+    current = b'<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40"/>\n'
+    run.redraw_svg.write_bytes(current)
+    scene = read_json(run.scene_path)
+    _carrier(scene, current.decode("utf-8"), _h(current))
+    write_json(run.scene_path, scene)
+
+    # expected_old_sha 与 scene 实际绑定不符（TOCTOU / 操作对象错位）→ 拒绝。
+    with pytest.raises(ValueError, match="rebind guard"):
+        _rebind_scene_carrier(run, scene, current, expected_old_sha="f" * 64)
+
+
+def test_pending_note_matching_is_bracket_aware():
+    from tools.qa.renormalize import _is_pending
+
+    # #26 退出码漏计隐患：详情段内的冒号曾使朴素 rsplit 判定失效。
+    assert _is_pending("lineage:stale[lineage:qa-report-hash-mismatch:qa/a.json]")
+    assert _is_pending("revision:stale[lineage:compiler-fingerprint-mismatch]")
+    assert _is_pending("revision:restamped[lineage:artifact-bindings-mismatch]")
+    assert _is_pending("scene.canonical:content-mismatch")
+    assert _is_pending("scene.canonical:rebound-to-current-bytes")
+    assert _is_pending("seed:real-drift")
+    assert not _is_pending("scene.canonical:consistent")
+    assert not _is_pending("regions_sha256:consistent")
+    assert not _is_pending("lineage:rebuilt")
