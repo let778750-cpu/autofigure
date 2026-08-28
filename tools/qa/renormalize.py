@@ -200,7 +200,9 @@ def renormalize_case(run: common.Run, *, apply: bool, rebind_carrier: bool = Fal
     if lineage_blockers:
         if apply:
             write_qa_lineage_manifest(run)
-        notes.append("lineage:" + ("rebuilt" if apply else "stale"))
+            notes.append("lineage:rebuilt")
+        else:
+            notes.append("lineage:stale[" + ";".join(lineage_blockers[:4]) + "]")
 
     return notes
 
