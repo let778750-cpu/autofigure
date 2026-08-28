@@ -65,9 +65,9 @@ def test_lf_bound_crlf_worktree_is_rewritten_to_lf(tmp_path: Path):
     _seed_contract(run, text, crlf=False)  # 记录绑 LF
     run.external_seed_svg.write_bytes(text.replace("\n", "\r\n").encode("utf-8"))
 
-    notes = renormalize_case(run, apply=True)
+    renormalize_case(run, apply=True)
 
-    assert "seed:rewritten-to-lf" in notes
+    # 预规范化把文件统一为 LF 后，绑定直接一致（无需 rewritten 标签）。
     assert b"\r" not in run.external_seed_svg.read_bytes()
     assert renormalize_case(run, apply=False) == ["seed:consistent"]
 

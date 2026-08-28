@@ -87,8 +87,42 @@ def _renormalize_file_binding(
     return [f"{field}:{REAL_DRIFT}"]
 
 
+def _lf_normalize_hash_bound_text(run: common.Run) -> None:
+    """把参与哈希绑定的文本证据统一为 LF 字节（仓库规范形态）。
+
+    CRLF 工作树（autocrlf 检出残影）下直接重建 lineage 会把 CRLF 哈希写入
+    manifest，而 git 入库时又规范化为 LF——跨检出必然失配。先统一 LF，
+    之后的全部绑定与重建都落在规范字节上。
+    """
+
+    targets = [
+        run.regions_path,
+        run.scene_path,
+        run.provenance_path,
+        run.bindings_path,
+        run.meta_path,
+        run.external_seed_svg,
+        run.redraw_svg,
+        run.region_tasks_path,
+    ]
+    for path in targets:
+        if path.is_file():
+            data = path.read_bytes()
+            if b"\r\n" in data:
+                path.write_bytes(data.replace(b"\r\n", b"\n"))
+    if run.qa_dir.is_dir():
+        for path in run.qa_dir.rglob("*.json"):
+            if path.name == "qa-lineage-manifest.json":
+                continue
+            data = path.read_bytes()
+            if b"\r\n" in data:
+                path.write_bytes(data.replace(b"\r\n", b"\n"))
+
+
 def renormalize_case(run: common.Run, *, apply: bool, rebind_carrier: bool = False) -> list[str]:
     notes: list[str] = []
+    if apply:
+        _lf_normalize_hash_bound_text(run)
 
     # 1) inventory receipt 的文件字节绑定
     receipt_path = run.qa_dir / "reference-inventory-receipt.json"
