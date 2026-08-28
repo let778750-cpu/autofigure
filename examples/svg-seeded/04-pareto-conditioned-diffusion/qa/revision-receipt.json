@@ -6,12 +6,12 @@
   "lineage_version": "1.0.0",
   "revision_id": "scene-3277fdec1063c13f",
   "scene_sha256": "3277fdec1063c13fe39035016e965e10101c26824d4d40f2b55896a246a5f76d",
-  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
   "artifacts": {
     "redraw_svg": "7c9af0152daf291939c305da3a167a021f668a72ba36ea3981bb1bfd12452384",
     "redraw_pptx": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
     "render_png": "5e14d80153e138ce2533b8bb0b586f66b35fb2c6b0bf17d198179d1589a7b83c",
-    "bindings": "53a2d7baa4add4c65baf06d347a4d2db863dd5ba428af7906e9552a45d383120"
+    "bindings": "9b2125b5476d185279da1c744d8ef0326a34b7fb987108c7a50ac79e9c1cd0b3"
   },
-  "stamped_at": "20260824T150526Z"
+  "stamped_at": "20260828T090928Z"
 }

@@ -3592,15 +3592,15 @@
   "task_mode": "RECONSTRUCT_1TO1",
   "active_revision": {
     "lineage_version": "1.0.0",
-    "revision_id": "scene-a0c0da23258333f3",
-    "scene_sha256": "a0c0da23258333f36846f1a730d35100202191cccaa714015ee6cccbe6c919fe",
-    "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c",
+    "revision_id": "scene-2404eeab0f51e8db",
+    "scene_sha256": "2404eeab0f51e8db347f7b4db1619d3f80e76b10aef1f254d47d83884635596c",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
     "artifacts": {
       "redraw_svg": "b0f89f05b9ee07a7d793f36a03e6f74b17e1330404ffa06d8426163708132e2a",
       "redraw_pptx": "21d037d2f8dcbaaf076256aae19f411274f30351f528d2d6b4f2f48db108db3f",
       "render_png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f",
-      "bindings": "f0884af42007ae7f99fd215bb4394ecbcc9a3da8075a9e37fb840fd0fc7dabee"
+      "bindings": "8490b9c0dea4f6b6ddb33cae7568897775ce43001a5f7a82b502cd8c1960b2ae"
     },
-    "stamped_at": "20260828T020933Z"
+    "stamped_at": "20260828T081529Z"
   }
 }

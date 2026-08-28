@@ -1834,8 +1834,8 @@
   "task_mode": "RECONSTRUCT_1TO1",
   "scene_revision": {
     "lineage_version": "1.0.0",
-    "revision_id": "scene-2628f9aff8338ed2",
-    "scene_sha256": "2628f9aff8338ed25948bdad5586c172b093b6fd3389f95d4d18dae5e3b5d556",
-    "compiler_fingerprint": "4d33d8a9c2f4c0aecb20cdd9a42cf64aba6f27869ea49c159b2d37053d4ac582"
+    "revision_id": "scene-89ef4cc6964acb70",
+    "scene_sha256": "89ef4cc6964acb70ceb6ab2bc48989df51a4036062cd970ae2ac3b73c8dc4fe9",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
   }
 }

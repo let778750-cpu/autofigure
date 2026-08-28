@@ -4576,15 +4576,15 @@
   },
   "active_revision": {
     "lineage_version": "1.0.0",
-    "revision_id": "scene-32a15a2a051817d6",
-    "scene_sha256": "32a15a2a051817d677813569d83022c04057a21e5dedf79ade02de7abc59084d",
-    "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c",
+    "revision_id": "scene-d77d7a1b1e7cddf1",
+    "scene_sha256": "d77d7a1b1e7cddf16dc5f83b9f15586b5da5958c821161ed5e6c4201b3e3d3ee",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
     "artifacts": {
       "redraw_svg": "8696146d78e0e218a09115def1ab3aacbf1fa1d49291c2418f7136b936fe9162",
       "redraw_pptx": "8ae245b6efb256dd1db83fb15ec48dac5a844f760fb1bc2ba86c1d629415d710",
       "render_png": "c18dba0d8e42bc71de8a8cf6268ea25f3558d284c9074f93d2d38e1b78207db1",
-      "bindings": "9fbed80a5942a5cf2ac44ddfa5362a02b72480a6e0ade0fa4f9976357ca3b883"
+      "bindings": "191180e2dc34e457a116f63f6e8cdf077603ab8a8a27d1396dffe66d3ee3dfe0"
     },
-    "stamped_at": "20260828T020932Z"
+    "stamped_at": "20260828T081529Z"
   }
 }

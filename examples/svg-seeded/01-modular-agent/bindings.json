@@ -2039,9 +2039,9 @@
   "package_reopened": true,
   "scene_revision": {
     "lineage_version": "1.0.0",
-    "revision_id": "scene-a0c0da23258333f3",
-    "scene_sha256": "a0c0da23258333f36846f1a730d35100202191cccaa714015ee6cccbe6c919fe",
-    "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c"
+    "revision_id": "scene-2404eeab0f51e8db",
+    "scene_sha256": "2404eeab0f51e8db347f7b4db1619d3f80e76b10aef1f254d47d83884635596c",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
   },
   "logical_group_bindings": []
 }

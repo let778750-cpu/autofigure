@@ -212,7 +212,7 @@
     },
     {
       "path": "qa/revision-receipt.json",
-      "sha256": "8f65d2edd30a0f46935ab38ac8ff2a8fe3b73b29595593c1bacc04dc10648ab0",
+      "sha256": "cb1f33a10ec15145a545209e799418f943e66d65f9c6368c693ce328c860cb6d",
       "revision_id": "scene-3277fdec1063c13f",
       "scene_sha256": "3277fdec1063c13fe39035016e965e10101c26824d4d40f2b55896a246a5f76d",
       "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"

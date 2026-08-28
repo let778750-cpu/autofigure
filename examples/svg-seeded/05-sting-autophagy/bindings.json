@@ -7515,8 +7515,8 @@
   "bindings_complete": true,
   "scene_revision": {
     "lineage_version": "1.0.0",
-    "revision_id": "scene-0a13832ea8d9c9a6",
-    "scene_sha256": "0a13832ea8d9c9a69358e9acaaf072d5ab2095f1029fa127c00901e2fc6b7884",
-    "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c"
+    "revision_id": "scene-9c0883661687e4da",
+    "scene_sha256": "9c0883661687e4da665633f92e508736a79269fcf854bbed24f2b375fd3523a1",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
   }
 }
