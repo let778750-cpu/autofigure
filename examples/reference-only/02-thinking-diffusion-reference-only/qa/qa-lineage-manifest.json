@@ -226,7 +226,7 @@
     },
     {
       "path": "qa/revision-receipt.json",
-      "sha256": "ff1b74b19b54832bd6afc12265ad3caf5ccac21d4370c4267c5cef0b0e735134",
+      "sha256": "2ff1be295e3b160f9d01e55a263dd9509e26a97ad2a7753bada4a88d229a10a6",
       "revision_id": "scene-f57ac8c9949faa13",
       "scene_sha256": "f57ac8c9949faa13ca6309d0cbd71295c9416ac3a0211381d4ac96fe4529ff54",
       "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
