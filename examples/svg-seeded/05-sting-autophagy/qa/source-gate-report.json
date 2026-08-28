@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0",
   "kind": "source_gate_report",
-  "created_at": "2026-08-27T13:06:46.642500Z",
+  "created_at": "2026-08-27T14:55:15.324601Z",
   "decision": "accept",
   "pass": true,
   "next_action": "normalize-candidate-to-scene",
@@ -14,8 +14,8 @@
     "path_base": "staging-root",
     "source_name": "stamped-repaired-seed.svg",
     "kind": "svg",
-    "sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
-    "expected_sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
+    "sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
+    "expected_sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
     "byte_count": 51956
   },
   "reference": {
@@ -69,7 +69,7 @@
     "observed": {
       "semantic_schema_version": "4.0.0",
       "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
-      "object_inventory_sha256": "64fadfc56943d7ead3c3b0d553341e7c91bd2817668b5c0faa4322126500d4bc",
+      "object_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae",
       "stable_element_ids": true,
       "relations_exhaustive": true,
       "case": "05-sting-autophagy"
@@ -136,5 +136,5 @@
   "repair_reasons": [],
   "repair_actions": [],
   "case": "05-sting-autophagy",
-  "reference_inventory_sha256": "64fadfc56943d7ead3c3b0d553341e7c91bd2817668b5c0faa4322126500d4bc"
+  "reference_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae"
 }

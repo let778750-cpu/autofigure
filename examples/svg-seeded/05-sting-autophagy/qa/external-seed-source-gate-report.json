@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0",
   "kind": "source_gate_report",
-  "created_at": "2026-08-27T13:05:54.281044Z",
+  "created_at": "2026-08-27T14:55:14.556271Z",
   "decision": "repair",
   "pass": false,
   "next_action": "repair-source-and-rerun-gate",
@@ -14,9 +14,9 @@
     "path_base": "staging-root",
     "source_name": "external-seed.svg",
     "kind": "svg",
-    "sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
-    "expected_sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
-    "byte_count": 51641
+    "sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
+    "expected_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
+    "byte_count": 51110
   },
   "reference": {
     "path_base": "case-root",
@@ -225,5 +225,5 @@
     "supply verified case metadata and rerun the gate"
   ],
   "case": "05-sting-autophagy",
-  "reference_inventory_sha256": "64fadfc56943d7ead3c3b0d553341e7c91bd2817668b5c0faa4322126500d4bc"
+  "reference_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae"
 }

@@ -131,22 +131,25 @@ def test_shared_reference_converges_on_one_oracle_across_routes(tmp_path: Path):
     _configure_text_inventory(seeded)
     seeded_receipt = freeze_inventory(seeded)
 
-    path = oracle_path(direct)
-    assert path == oracle_path(seeded)
-    assert path.is_file()
-    assert path.parent.parent.name == "oracles"
-    oracle = load_oracle(path)
-    assert oracle["kind"] == "reference_oracle"
-    assert oracle["reference_sha256"] == direct.load_meta()["source_sha256"]
-    assert direct_receipt["oracle_sha256"] == oracle["oracle_sha256"]
-    assert seeded_receipt["oracle_sha256"] == oracle["oracle_sha256"]
-    assert oracle_matches(oracle, read_json(seeded.regions_path)["reference_inventory"])
+    # oracle 以逐案例副本存放于各自 qa/，跨路线真值由对等校验保证一致。
+    direct_oracle_file = oracle_path(direct)
+    seeded_oracle_file = oracle_path(seeded)
+    assert direct_oracle_file == direct.qa_dir / "reference-oracle.json"
+    assert direct_oracle_file.is_file() and seeded_oracle_file.is_file()
+    direct_oracle = load_oracle(direct_oracle_file)
+    seeded_oracle = load_oracle(seeded_oracle_file)
+    assert direct_oracle["kind"] == "reference_oracle"
+    assert direct_oracle["reference_sha256"] == direct.load_meta()["source_sha256"]
+    assert direct_receipt["oracle_sha256"] == direct_oracle["oracle_sha256"]
+    assert seeded_receipt["oracle_sha256"] == seeded_oracle["oracle_sha256"]
+    assert direct_oracle["oracle_sha256"] == seeded_oracle["oracle_sha256"]
+    assert oracle_matches(seeded_oracle, read_json(seeded.regions_path)["reference_inventory"])
     assert inventory_blockers(direct) == []
     assert inventory_blockers(seeded) == []
 
-    # 真值未变时重 freeze 复用同一 oracle，不发生覆盖。
-    assert freeze_inventory(direct)["oracle_sha256"] == oracle["oracle_sha256"]
-    assert load_oracle(path) == oracle
+    # 真值未变时重 freeze 复用各自 oracle 副本，不发生覆盖。
+    assert freeze_inventory(direct)["oracle_sha256"] == direct_oracle["oracle_sha256"]
+    assert load_oracle(direct_oracle_file) == direct_oracle
 
 
 def test_oracle_inventory_mismatch_refuses_second_freeze(tmp_path: Path):
@@ -157,13 +160,39 @@ def test_oracle_inventory_mismatch_refuses_second_freeze(tmp_path: Path):
 
     seeded = _run(tmp_path, "oracle-b", "svg-seeded")
     _configure_text_inventory(seeded)
-    with pytest.raises(SystemExit, match="oracle:inventory-mismatch"):
+    with pytest.raises(SystemExit, match="oracle:peer-inventory-mismatch"):
         freeze_inventory(seeded)
     # 拒绝是 fail-closed 的：状态停在 prepared，不生成 receipt。
     assert seeded.load_meta()["workflow"]["state"] == "prepared"
     assert not (seeded.root / RECEIPT_PATH).exists()
-    # 已冻结案例的 inventory 与 oracle 漂移同样被 validate 检出。
+    # 已冻结案例的 inventory 与自身 oracle 副本漂移同样被 validate 检出。
     assert "oracle:inventory-mismatch" in inventory_blockers(direct)
+
+
+def test_cases_check_flags_diverged_peer_oracles(tmp_path: Path, monkeypatch):
+    from tools.qa.cases import discover_cases
+
+    direct = _run(tmp_path, "diverge-direct", "reference-only")
+    _configure_text_inventory(direct)
+    freeze_inventory(direct)
+    seeded = _run(tmp_path, "diverge-seeded", "svg-seeded")
+    _configure_text_inventory(seeded)
+    freeze_inventory(seeded)
+    for run in (direct, seeded):
+        provenance = read_json(run.provenance_path)
+        provenance["comparison_group"] = "diverge-ab"
+        write_json(run.provenance_path, provenance)
+
+    monkeypatch.setattr(common, "CASES_ROOT", tmp_path / "examples")
+    _, findings = discover_cases(tmp_path / "examples")
+    assert not any(item.startswith("oracle-divergence:") for item in findings)
+
+    _tamper_oracle_counts(seeded)
+    _, findings = discover_cases(tmp_path / "examples")
+    assert any(
+        item.startswith("oracle-divergence:") and "svg-seeded/diverge-seeded" in item
+        for item in findings
+    )
 
 
 def test_oracle_with_corrupted_self_hash_is_invalid(tmp_path: Path):

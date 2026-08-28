@@ -1204,26 +1204,41 @@ def validate_inventory(
 
 
 def _oracle_blockers(run: common.Run, inventory: dict[str, Any]) -> list[str]:
-    """Existence-gated comparison against the route-neutral reference oracle.
+    """Existence-gated comparison against per-case oracle copies and peers.
 
-    无 oracle 时不产生任何 blocker；存在即校验（真值重授权见
-    tools/reference_oracle.py 模块说明）。
+    本案例无 oracle 副本时不产生自身 blocker；存在即校验。同级同参考图案例
+    已有 oracle 副本时，本案例 inventory 必须与每一个对等副本一致
+    （oracle:peer-inventory-mismatch）；对等副本损坏即 oracle:peer-invalid。
+    真值重授权见 tools/assets/reference_oracle.py 模块说明。
     """
 
-    from tools.assets.reference_oracle import load_oracle, oracle_matches, oracle_path
+    from tools.assets.reference_oracle import (
+        load_oracle,
+        oracle_matches,
+        oracle_path,
+        peer_oracles,
+    )
 
+    blockers: list[str] = []
     path = oracle_path(run)
-    if not path.is_file():
-        return []
-    try:
-        oracle = load_oracle(path)
-    except Exception:
-        return ["oracle:invalid"]
-    if oracle["reference_sha256"] != run.load_meta().get("source_sha256"):
-        return ["oracle:inventory-mismatch"]
-    if not oracle_matches(oracle, inventory):
-        return ["oracle:inventory-mismatch"]
-    return []
+    if path.is_file():
+        try:
+            oracle = load_oracle(path)
+        except Exception:
+            blockers.append("oracle:invalid")
+        else:
+            if oracle["reference_sha256"] != run.load_meta().get("source_sha256"):
+                blockers.append("oracle:inventory-mismatch")
+            elif not oracle_matches(oracle, inventory):
+                blockers.append("oracle:inventory-mismatch")
+    for peer_id, peer in peer_oracles(run).items():
+        if peer == "invalid":
+            blockers.append(f"oracle:peer-invalid:{peer_id}")
+        elif peer["reference_sha256"] != run.load_meta().get("source_sha256"):
+            blockers.append(f"oracle:peer-inventory-mismatch:{peer_id}")
+        elif not oracle_matches(peer, inventory):
+            blockers.append(f"oracle:peer-inventory-mismatch:{peer_id}")
+    return blockers
 
 
 def _receipt_blockers(run: common.Run, report: dict[str, Any]) -> list[str]:
@@ -1368,9 +1383,11 @@ def freeze_inventory(run: common.Run) -> dict[str, Any]:
             from tools.assets.reference_oracle import oracle_path
 
             message += (
-                "; the route-neutral reference oracle is authoritative for this "
-                "reference hash — align the inventory with it, or re-authorize the "
-                f"truth by manually removing {oracle_path(run)} and re-running freeze"
+                "; the reference oracle copies are authoritative for this "
+                "reference hash — align the inventory with them, or re-authorize "
+                "the truth by manually removing the oracle copies of **every** "
+                "case of this reference and re-running freeze on each "
+                f"(this case: {oracle_path(run)})"
             )
         raise common.fail(message)
     from tools.assets.asset_spec import preflight_asset_contract

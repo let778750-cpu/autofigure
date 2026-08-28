@@ -99,7 +99,7 @@ autofigure freeze <case>
 
 inventory 项必须有稳定 `id/kind/bbox/element_ids/critical_region_ids`；文字/公式有精确文本与 typography，箭头/括号/图标有对应合同引用，所有 critical region 必须声明 `relations_exhaustive=true`。`assets.json` 必须显式给出机会图（确无机会也写 `[]`），freeze 同时生成 `qa/reference-inventory-receipt.json` 与 `qa/asset-contract-receipt.json`，并对每个带 bbox 的机会图项实测写入 `trace_eligibility` / `trace_eligibility_statistics` 冻结字段（photographic / flat-illustration / ambiguous）；未冻结、receipt 过期、漏对象或未审核的零计数都不得 ingest。
 
-freeze 还把 inventory 绑定到路线无关 reference oracle：`examples/oracles/<reference_sha256 前 16 位>/oracle.json`（无 `run.json`，不是案例）。同一参考图哈希在所有输入路线共享同一份冻结真值——首次 freeze 创建 oracle，此后同参考图的 freeze 必须复现同一真值，不一致即拒绝（`oracle:inventory-mismatch`）；真值重授权是人工动作，删除对应 `oracle.json` 后重新 freeze，工具不提供自动覆盖。inventory receipt 以 `oracle_sha256` 绑定 oracle；strict 在 oracle 存在时校验 receipt 与 oracle 文件一致（`oracle:receipt-mismatch`），无 oracle 的案例不因此新增门禁。
+freeze 还把 inventory 绑定到 reference oracle 的**案例内副本** `qa/reference-oracle.json`。同一参考图哈希在所有输入路线共享同一份冻结真值——freeze 时对同参考图其他案例的 oracle 副本做对等校验，不一致即拒绝（`oracle:peer-inventory-mismatch`）；`cases --check` 另以 `oracle-divergence` 巡检同参考图全部副本的一致性。真值重授权是人工动作：删除该参考图**全部案例**的 oracle 副本后逐案例重新 freeze，工具不提供自动覆盖。inventory receipt 以 `oracle_sha256` 绑定 oracle；strict 在 oracle 存在时校验 receipt 与本案例 oracle 副本一致（`oracle:receipt-mismatch`），无 oracle 的案例不因此新增门禁。
 
 ## reference-only 隔离重建
 

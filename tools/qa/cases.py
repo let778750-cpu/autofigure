@@ -131,8 +131,37 @@ def discover_cases(cases_root: Path = common.CASES_ROOT) -> tuple[list[dict[str,
             continue
         if not _has_duplicate_reference_contract(group):
             findings.append(f"duplicate-reference-without-ab-contract:{sha256}")
+        findings.extend(_oracle_divergence_findings(sha256, group))
 
     return records, findings
+
+
+def _oracle_divergence_findings(
+    sha256: str, group: list[dict[str, Any]]
+) -> list[str]:
+    """同参考图的全部 oracle 副本必须一致；少于两份时不强制（旧案例豁免）。"""
+
+    from tools.assets.reference_inventory import canonical_sha256
+
+    payloads: dict[str, str] = {}
+    for record in group:
+        oracle_file = Path(record["path"]) / "qa" / "reference-oracle.json"
+        if not oracle_file.is_file():
+            continue
+        try:
+            oracle = read_json(oracle_file)
+            digest = canonical_sha256(oracle.get("inventory", {}))
+        except Exception:
+            payloads[f"{record['input_route']}/{record['case']}"] = "<invalid>"
+            continue
+        payloads[f"{record['input_route']}/{record['case']}"] = digest
+    if len(payloads) < 2:
+        return []
+    distinct = sorted(set(payloads.values()))
+    if len(distinct) == 1:
+        return []
+    diverged = ",".join(f"{case}={digest[:12]}" for case, digest in sorted(payloads.items()))
+    return [f"oracle-divergence:{sha256[:16]}:{diverged}"]
 
 
 def _inspect_case(case_dir: Path, route: str) -> tuple[list[str], dict[str, Any] | None]:

@@ -51,14 +51,12 @@ def _source_gate_blockers(run: common.Run) -> list[str]:
         receipt = read_json(receipt_path)
         if report.get("reference_inventory_sha256") != receipt.get("inventory_sha256"):
             blockers.append("source-gate:inventory-mismatch")
-        from tools.assets.reference_oracle import oracle_sha256
+        from tools.assets.reference_oracle import oracle_path, oracle_sha256
 
-        oracle_path = common.oracle_path_for(
-            common.cases_root_for(run), meta["source_sha256"]
-        )
-        if oracle_path.is_file():
+        case_oracle = oracle_path(run)
+        if case_oracle.is_file():
             try:
-                actual_oracle_sha256 = oracle_sha256(read_json(oracle_path))
+                actual_oracle_sha256 = oracle_sha256(read_json(case_oracle))
             except Exception:
                 actual_oracle_sha256 = None
             if receipt.get("oracle_sha256") != actual_oracle_sha256:
@@ -672,7 +670,7 @@ def _run_figure_lint(run: common.Run) -> dict:
         raise common.fail(f"figure_lint 输出解析失败:\n{(result.stderr or '')[-500:]}") from exc
     metrics["diff_out"] = "qa/diff.png"
     (run.qa_dir / "metrics.json").write_text(
-        json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     return metrics
 
@@ -741,21 +739,12 @@ def main(argv: list[str] | None = None) -> int:
     layout_report = audit_layout(run)
     persist_layout_audit(run, layout_report)
 
-    # 每次 check 都重新生成哈希绑定的像素证据。旧 arrows-audit.json 中的
-    # calibrate 表可能来自 SVG 自报属性，不能作为 F2 的参考证据复用。
-    arrows_json = run.qa_dir / "arrows-audit.json"
+    # 每次 check 都重新生成哈希绑定的像素证据。SVG marker 的 advisory 结构审计
+    # 由专用命令 `autofigure arrows` 产出（qa/arrows-audit.json 是该命令的报告，
+    # check 不再重复生成）；A/B 对比读取该文件时按存在性降级为 0。
     from tools.arrows.arrow_visual import audit_arrow_visual_contracts
-    from tools.arrows.arrows import audit_svg_text
 
     arrow_visual = audit_arrow_visual_contracts(run)
-    # Reference measurements are output pixels, while the advisory SVG audit
-    # operates in transformed SVG user units. They must not be mixed without a
-    # complete viewBox/transform/markerUnits conversion.
-    arrow_audit = audit_svg_text(run.redraw_svg.read_text(encoding="utf-8"))
-    arrows_json.write_text(
-        json.dumps({"svg": "redraw.svg", "phase": "audit", **arrow_audit}, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
 
     # Recompute all artifact-bound evidence from the current root PPTX.  A
     # stale report from a different candidate must never satisfy strict.
@@ -833,10 +822,12 @@ def main(argv: list[str] | None = None) -> int:
         "",
     ]
 
-    if arrows_json.is_file():
+    arrows_audit_path = run.qa_dir / "arrows-audit.json"
+    if arrows_audit_path.is_file():
+        # 历史证据或 `autofigure arrows` 命令产出的 advisory 审计：check 只读不写。
         from tools.arrows.arrows import render_report
 
-        audit = json.loads(arrows_json.read_text(encoding="utf-8"))
+        audit = json.loads(arrows_audit_path.read_text(encoding="utf-8"))
         lines.extend(render_report(audit) + [""])
 
     from tools.core.contracts import read_json

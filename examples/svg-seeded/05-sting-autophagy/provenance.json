@@ -4,7 +4,7 @@
   "task_mode": "RECONSTRUCT_1TO1",
   "case": "05-sting-autophagy",
   "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
-  "updated_at": "20260827T130646Z",
+  "updated_at": "20260827T145515Z",
   "input_route": "svg-seeded",
   "reference": {
     "path": "reference.png",
@@ -17,15 +17,15 @@
     "origin": "unknown",
     "source_name": "external-seed.svg",
     "canonical_path": "external-seed.svg",
-    "sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
-    "ingested_at": "20260827T130404Z",
+    "sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
+    "ingested_at": "20260827T145513Z",
     "source_gate": {
-      "candidate_sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
+      "candidate_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
       "candidate_role": "external-seed",
       "decision": "repair",
       "pass": false,
       "next_action": "repair-source-and-rerun-gate",
-      "report_sha256": "685ad1c03ecc06a35f805d07ee1df4316b76ccc6feecfd43843b774839961828",
+      "report_sha256": "96fe2dd4b6ca67e362244f9a750c9289565c8a8f9d69ba5a91906befe3793460",
       "blockers": [
         "source-gate:semantic-metadata:missing:semantic_schema_version",
         "source-gate:semantic-metadata:missing:reference_sha256",
@@ -34,7 +34,7 @@
         "source-gate:semantic-metadata:missing:relations_exhaustive",
         "source-gate:semantic-metadata:missing:case"
       ],
-      "evaluated_at": "2026-08-27T13:05:54.281044Z"
+      "evaluated_at": "2026-08-27T14:55:14.556271Z"
     }
   },
   "candidate_history": [
@@ -44,8 +44,8 @@
       "origin": "unknown",
       "source_name": "external-seed.svg",
       "canonical_path": "external-seed.svg",
-      "sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
-      "ingested_at": "20260827T130404Z"
+      "sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
+      "ingested_at": "20260827T145513Z"
     },
     {
       "kind": "svg",
@@ -53,52 +53,52 @@
       "origin": "web-vlm",
       "source_name": "stamped-repaired-seed.svg",
       "canonical_path": "scene.json",
-      "sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
-      "ingested_at": "20260827T130646Z"
+      "sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
+      "ingested_at": "20260827T145515Z"
     }
   ],
   "events": [
     {
       "event": "candidate-ingested",
-      "at": "20260827T130404Z",
-      "candidate_sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
+      "at": "20260827T145513Z",
+      "candidate_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
       "role": "external-seed",
       "canonical_path": "external-seed.svg"
     },
     {
       "event": "source-gate-evaluated",
-      "at": "2026-08-27T13:05:54.281044Z",
-      "candidate_sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
+      "at": "2026-08-27T14:55:14.556271Z",
+      "candidate_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
       "role": "external-seed",
       "decision": "repair",
-      "report_sha256": "685ad1c03ecc06a35f805d07ee1df4316b76ccc6feecfd43843b774839961828",
+      "report_sha256": "96fe2dd4b6ca67e362244f9a750c9289565c8a8f9d69ba5a91906befe3793460",
       "immutable_external_seed": true
     },
     {
       "event": "source-gate-evaluated",
-      "at": "2026-08-27T13:06:46.642500Z",
-      "candidate_sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
+      "at": "2026-08-27T14:55:15.324601Z",
+      "candidate_sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
       "role": "repair-candidate",
       "decision": "accept",
-      "report_sha256": "c53666c8a87154373541eb74987d555f9a6e047eca56c151d908ae4080a053fc",
+      "report_sha256": "886412e43d69638725fed9a088d4492ed73a52717e34f1f36ffb73cf06d05297",
       "immutable_external_seed": false
     },
     {
       "event": "candidate-ingested",
-      "at": "20260827T130646Z",
-      "candidate_sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
+      "at": "20260827T145515Z",
+      "candidate_sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
       "role": "repair-candidate",
       "canonical_path": "scene.json"
     }
   ],
   "comparison_group": "sting-autophagy-route-ab",
   "external_seed_gate": {
-    "candidate_sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
+    "candidate_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
     "candidate_role": "external-seed",
     "decision": "repair",
     "pass": false,
     "next_action": "repair-source-and-rerun-gate",
-    "report_sha256": "685ad1c03ecc06a35f805d07ee1df4316b76ccc6feecfd43843b774839961828",
+    "report_sha256": "96fe2dd4b6ca67e362244f9a750c9289565c8a8f9d69ba5a91906befe3793460",
     "blockers": [
       "source-gate:semantic-metadata:missing:semantic_schema_version",
       "source-gate:semantic-metadata:missing:reference_sha256",
@@ -107,16 +107,16 @@
       "source-gate:semantic-metadata:missing:relations_exhaustive",
       "source-gate:semantic-metadata:missing:case"
     ],
-    "evaluated_at": "2026-08-27T13:05:54.281044Z"
+    "evaluated_at": "2026-08-27T14:55:14.556271Z"
   },
   "source_gate_history": [
     {
-      "candidate_sha256": "cea49ffc3d8ccbcf47876cda83dcc7c3aeed4eabdddf0ea0ad85b7df73cdfbd8",
+      "candidate_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
       "candidate_role": "external-seed",
       "decision": "repair",
       "pass": false,
       "next_action": "repair-source-and-rerun-gate",
-      "report_sha256": "685ad1c03ecc06a35f805d07ee1df4316b76ccc6feecfd43843b774839961828",
+      "report_sha256": "96fe2dd4b6ca67e362244f9a750c9289565c8a8f9d69ba5a91906befe3793460",
       "blockers": [
         "source-gate:semantic-metadata:missing:semantic_schema_version",
         "source-gate:semantic-metadata:missing:reference_sha256",
@@ -125,17 +125,17 @@
         "source-gate:semantic-metadata:missing:relations_exhaustive",
         "source-gate:semantic-metadata:missing:case"
       ],
-      "evaluated_at": "2026-08-27T13:05:54.281044Z"
+      "evaluated_at": "2026-08-27T14:55:14.556271Z"
     },
     {
-      "candidate_sha256": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
+      "candidate_sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
       "candidate_role": "repair-candidate",
       "decision": "accept",
       "pass": true,
       "next_action": "normalize-candidate-to-scene",
-      "report_sha256": "c53666c8a87154373541eb74987d555f9a6e047eca56c151d908ae4080a053fc",
+      "report_sha256": "886412e43d69638725fed9a088d4492ed73a52717e34f1f36ffb73cf06d05297",
       "blockers": [],
-      "evaluated_at": "2026-08-27T13:06:46.642500Z"
+      "evaluated_at": "2026-08-27T14:55:15.324601Z"
     }
   ],
   "comparison_peers": [

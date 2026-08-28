@@ -22,6 +22,7 @@ from tools.core.contracts import (
     record_validation,
     set_processing_mode,
     transition,
+    write_json,
 )
 
 
@@ -50,6 +51,22 @@ def _run(tmp_path: Path) -> common.Run:
         canonical_path="external-seed.svg",
     )
     return run
+
+
+def test_write_json_emits_repo_canonical_lf_bytes(tmp_path: Path):
+    """哈希绑定的 JSON 证据必须与仓库规范化字节（LF）一致，跨平台跨检出稳定。"""
+
+    target = tmp_path / "nested" / "evidence.json"
+    write_json(target, {"b": 1, "a": "值"})
+    raw = target.read_bytes()
+    assert b"\r" not in raw
+    assert raw.endswith(b"\n")
+
+    another = tmp_path / "another"
+    another.mkdir()
+    run = _run(another)
+    for path in (run.meta_path, run.scene_path, run.provenance_path):
+        assert b"\r" not in path.read_bytes(), f"CRLF leaked into {path.name}"
 
 
 def test_create_run_initializes_hash_bound_v4_scene_contracts(tmp_path: Path):

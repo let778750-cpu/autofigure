@@ -51,34 +51,6 @@
 - 00000
 - eQ
 
-## 箭头结构审计（arrows，advisory）
-
-- 箭头单元 25（marker 引用 25 处，marker 定义 1 个）；头/线宽比例中位数 2.29（合理带 [1.5, 4.0]）
-- F1 锚点未对齐尖端 0 处 · F2 头/线宽比例失调 0 处 · F3 端点悬空 19 处 · orient 非 auto 0 处 · 手折箭羽 0 组
-
-### 逐条发现
-- [F3] path#seed-auto-0015 end 端点 (691,494) marker=openArrow: endpoint boundary/gap error is 43.09px (limit 6.00px)
-- [F3] path#seed-auto-0055 end 端点 (166,735) marker=openArrow: endpoint boundary/gap error is 28.81px (limit 6.00px)
-- [F3] path#seed-auto-0061 end 端点 (159,516) marker=openArrow: endpoint boundary/gap error is 18.13px (limit 6.00px)
-- [F3] path#seed-auto-0078 end 端点 (286,1008) marker=openArrow: endpoint boundary/gap error is 9.05px (limit 6.00px)
-- [F3] path#seed-auto-0079 end 端点 (350,786) marker=openArrow: endpoint boundary/gap error is 16.85px (limit 6.00px)
-- [F3] path#seed-auto-0083 end 端点 (1009,220) marker=openArrow: endpoint boundary/gap error is 16.41px (limit 6.00px)
-- [F3] path#seed-auto-0109 end 端点 (1443,44) marker=openArrow: endpoint boundary/gap error is 44.10px (limit 6.00px)
-- [F3] path#seed-auto-0145 end 端点 (1903,349) marker=openArrow: endpoint boundary/gap error is 7.37px (limit 6.00px)
-- [F3] path#seed-auto-0146 end 端点 (740,753) marker=openArrow: endpoint boundary/gap error is 18.46px (limit 6.00px)
-- [F3] path#seed-auto-0176 end 端点 (1214,753) marker=openArrow: endpoint boundary/gap error is 19.80px (limit 6.00px)
-- [F3] path#seed-auto-0222 end 端点 (1538,753) marker=openArrow: endpoint boundary/gap error is 9.26px (limit 6.00px)
-- [F3] path#seed-auto-0258 end 端点 (1901,562) marker=openArrow: endpoint boundary/gap error is 11.79px (limit 6.00px)
-- [F3] path#seed-auto-0259 end 端点 (1425,817) marker=openArrow: endpoint boundary/gap error is 102.45px (limit 6.00px)
-- [F3] path#seed-auto-0279 end 端点 (328,1017) marker=openArrow: endpoint boundary/gap error is 9.07px (limit 6.00px)
-- [F3] path#seed-auto-0285 end 端点 (742,1081) marker=openArrow: endpoint boundary/gap error is 69.93px (limit 6.00px)
-- [F3] path#seed-auto-0312 end 端点 (910,1081) marker=openArrow: endpoint boundary/gap error is 44.12px (limit 6.00px)
-- [F3] path#seed-auto-0341 end 端点 (1220,1081) marker=openArrow: endpoint boundary/gap error is 21.53px (limit 6.00px)
-- [F3] path#seed-auto-0354 end 端点 (1505,1081) marker=openArrow: endpoint boundary/gap error is 99.87px (limit 6.00px)
-- [F3] path#seed-auto-0392 end 端点 (1505,1097) marker=openArrow: endpoint boundary/gap error is 99.71px (limit 6.00px)
-
-> 箭头几何为定位辅助，不以本节自动放行或拦截；修复用 autofigure arrows --fix（几何归一，不改样式），头长限幅加 --clamp-ratio，按原图实测校准加 --calibrate ID=LEN，改后需重跑 convert/math/check。
-
 
 ## 验收状态（standard）
 - blockers: 1110

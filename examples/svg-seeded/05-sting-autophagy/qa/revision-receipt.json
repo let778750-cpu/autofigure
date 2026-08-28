@@ -4,14 +4,14 @@
   "case": "05-sting-autophagy",
   "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
   "lineage_version": "1.0.0",
-  "revision_id": "scene-0039aadf56583fa5",
-  "scene_sha256": "0039aadf56583fa5a266d4c4b218d88debb9b004b98582f7ee5157e7cc6942cb",
-  "compiler_fingerprint": "72cbfeb04273c9f99a9ccd2628d156b351ba8a0a3f865eed170e68f681d6d288",
+  "revision_id": "scene-0a13832ea8d9c9a6",
+  "scene_sha256": "0a13832ea8d9c9a69358e9acaaf072d5ab2095f1029fa127c00901e2fc6b7884",
+  "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c",
   "artifacts": {
-    "redraw_svg": "c781382840173b0545bae7c48c30bfafa2061fe3a3600e2e8dfb6d1d58b6a5c7",
-    "redraw_pptx": "90a662961538b9b22d6e8a6ec40a92358e91cf2ee48dbdb64cc204070cebd152",
+    "redraw_svg": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
+    "redraw_pptx": "ee26ed175300f6e19c918a992e7113832c1e44b476b3ff339d288ed19ac0c4dd",
     "render_png": "0030d801ae1be3bdac6e6601e0034dd26c9d8bed8c64c302bfa0e4a6f01daded",
-    "bindings": "a6940a44df05175fca54c5031ed06d035041426a87e1b8f145d0714de4cb8156"
+    "bindings": "594fb09f8bb7ca257866c3e58dd6831685b8c7227c27d4cc45b4c4507ac9f157"
   },
-  "stamped_at": "20260827T130702Z"
+  "stamped_at": "20260827T145522Z"
 }

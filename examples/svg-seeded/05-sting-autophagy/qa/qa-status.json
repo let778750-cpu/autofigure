@@ -3,7 +3,7 @@
   "kind": "qa_status",
   "case": "05-sting-autophagy",
   "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
-  "artifact_sha256": "90a662961538b9b22d6e8a6ec40a92358e91cf2ee48dbdb64cc204070cebd152",
+  "artifact_sha256": "ee26ed175300f6e19c918a992e7113832c1e44b476b3ff339d288ed19ac0c4dd",
   "dimensions": {
     "offline_package_consistency": {
       "status": "fail",
@@ -13,11 +13,11 @@
       "evidence": [
         {
           "path": "bindings.json",
-          "sha256": "a6940a44df05175fca54c5031ed06d035041426a87e1b8f145d0714de4cb8156"
+          "sha256": "594fb09f8bb7ca257866c3e58dd6831685b8c7227c27d4cc45b4c4507ac9f157"
         },
         {
           "path": "qa/qa-lineage-manifest.json",
-          "sha256": "4b6fd6ff61fdb7d4cb40fb69d701225a0507b21b4f120a8fd6a07420d9f1b58b"
+          "sha256": "552c0950e7ee96fd5bea518b4dbda6ef9d157e6e61f28f86eba5c2ec5deca3a4"
         }
       ]
     },
@@ -29,7 +29,7 @@
       "evidence": [
         {
           "path": "bindings.json",
-          "sha256": "a6940a44df05175fca54c5031ed06d035041426a87e1b8f145d0714de4cb8156"
+          "sha256": "594fb09f8bb7ca257866c3e58dd6831685b8c7227c27d4cc45b4c4507ac9f157"
         }
       ]
     },
@@ -1150,19 +1150,19 @@
       "evidence": [
         {
           "path": "qa/regions-report.json",
-          "sha256": "2c6cbea826cf10332e6cc4c9309824c1c1f99dea3f1da76f9cdae7b9028a1114"
+          "sha256": "8f30166233633b73dca867951bb28f8b9431fa3f7e28cabaef17545559acf5ca"
         },
         {
           "path": "qa/layout-audit.json",
-          "sha256": "ea79e57e67df6ffbb274af7c291d31fe52049a13d924198059e944d82bfa2c79"
+          "sha256": "b1795cf453fc7bafb6e0e4efe5d4c467619af6f7e52245da9ad1019f6e59f039"
         },
         {
           "path": "qa/arrow-visual-report.json",
-          "sha256": "73ced3c4dc9255cc691b502cdbce3513c9280e57b00150be44f1ae91564a0c8b"
+          "sha256": "ffd09bc79b8afb0b4360e608e42038ca5527cd6a3bd030d71b49acd128dd2c94"
         },
         {
           "path": "qa/visual-contracts-report.json",
-          "sha256": "b200df096ef1dee6f8b644d98af1b671594073dc03a3f01e72a6be8eb8644c2f"
+          "sha256": "1abab991b5da5ad1daee81ab04fda8b436e9e48da1fa0ad3d77dbe6de79de412"
         }
       ]
     },
@@ -1172,7 +1172,7 @@
       "evidence": [
         {
           "path": "qa/repair-plan.json",
-          "sha256": "c58b3da9b2a5690e7af99956c753fe1ecbbe77a75fd85f0975b5fd901b4339ef"
+          "sha256": "4a407bb82d327f3324cf221939355a7876be8679750a5c2ffcac194c5f79e42e"
         }
       ]
     },
@@ -2293,11 +2293,11 @@
       "evidence": [
         {
           "path": "qa/blockers.json",
-          "sha256": "758a82e7202e6c5e21d38378a59f3cad0dfef31e06292ad0cede4818fedc3bd9"
+          "sha256": "c322a21d8c5899ccb8aaa9596f2af601c6532f14e007989f2be8506f20fd6b54"
         },
         {
           "path": "qa/repair-plan.json",
-          "sha256": "c58b3da9b2a5690e7af99956c753fe1ecbbe77a75fd85f0975b5fd901b4339ef"
+          "sha256": "4a407bb82d327f3324cf221939355a7876be8679750a5c2ffcac194c5f79e42e"
         }
       ],
       "execution": "open"
@@ -2314,7 +2314,7 @@
       "evidence": [
         {
           "path": "run.json",
-          "sha256": "085fa5ae13963f8671663cac93590d907a72eadb5ebffe76896fa3f71e2c4e72"
+          "sha256": "f1dc96076c21a7ef1ddd0ac138a71518dbc397aede3646abeb90e2519f604215"
         }
       ]
     }
