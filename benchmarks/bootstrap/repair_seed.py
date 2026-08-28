@@ -18,9 +18,9 @@ data-object-inventory-sha256 / data-stable-element-ids / data-relations-exhausti
 依赖建案时的冻结束缚（inventory 哈希），由基准 runner 在案例副本上盖章，不在
 本几何修复产物中携带——保证 fixture 哈希与建案解耦。
 
-用法（在本文件所在目录的上一级执行）：
-    python benchmarks/repair_seed.py            # 生成 fixtures/.../external-seed-repaired.svg
-    python benchmarks/repair_seed.py --check    # 校验已有产物与原始 seed 的确定性关系
+用法（在仓库根执行）：
+    python benchmarks/bootstrap/repair_seed.py            # 生成 fixtures/.../external-seed-repaired.svg
+    python benchmarks/bootstrap/repair_seed.py --check    # 校验已有产物与原始 seed 的确定性关系
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-FIXTURE_DIR = Path(__file__).resolve().parent / "fixtures" / "05-sting-autophagy"
+FIXTURE_DIR = Path(__file__).resolve().parent.parent / "fixtures" / "05-sting-autophagy"
 ORIGINAL = "external-seed.svg"
 REPAIRED = "external-seed-repaired.svg"
 TARGET_WIDTH = 2100
@@ -121,7 +121,7 @@ def repair_seed(raw: bytes) -> bytes:
                 replacement = None
                 if target is not None:
                     replacement = ET.Element(
-                        f"{{http://www.w3.org/2000/svg}}g",
+                        "{http://www.w3.org/2000/svg}g",
                         {"id": child.get("id", "") or ""},
                     )
                     x = float(child.get("x", "0") or 0)
@@ -201,7 +201,7 @@ def repair_seed(raw: bytes) -> bytes:
 
     # wrap original content in the explicit non-uniform rescale group.
     wrapper = ET.Element(
-        f"{{http://www.w3.org/2000/svg}}g",
+        "{http://www.w3.org/2000/svg}g",
         {"id": "seed-canvas-rescale", "transform": f"scale({scale_x:.9f},{scale_y:.9f})"},
     )
     for child in list(root):

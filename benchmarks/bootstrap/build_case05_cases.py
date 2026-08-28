@@ -9,18 +9,17 @@
 3. convert（PowerPoint COM fresh render）→ math → check(standard)
 
 用法：
-    python benchmarks/build_case05_cases.py <case_dir> ingest
-    python benchmarks/build_case05_cases.py <case_dir> pipeline
+    python benchmarks/bootstrap/build_case05_cases.py <case_dir> ingest
+    python benchmarks/bootstrap/build_case05_cases.py <case_dir> pipeline
 """
 
 from __future__ import annotations
 
-import hashlib
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-BENCH_ROOT = Path(__file__).resolve().parent
+BENCH_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BENCH_ROOT.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))

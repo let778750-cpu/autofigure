@@ -1,31 +1,38 @@
-# benchmarks/ — 性能与资源基准
+# benchmarks/ — 跨案例测量框架
 
-## Case05（STING-autophagy）
+> **Examples own truth. Benchmarks measure truth.**
+> 案例事实（reference/seed/scene/产物/qa 证据）只存在于 `examples/<case>`；
+> benchmarks 只拥有"如何测量一批案例"的方法，不拥有任何案例事实的第二份副本。
 
-- `fixtures/05-sting-autophagy/` — 不可变输入（哈希见 `fixture.json`）：
-  - `reference.png`（2100×1324，两份原始副本逐字节相同，收口为单份）
-  - `external-seed.svg`（原始 seed，2048×1291，字节未动；文件名自 `extral-seed.svg` 规范重命名）
-  - `external-seed-repaired.svg`（确定性几何修复：画布缩放、use 展开、样式内联、稳定 ID；由 `repair_seed.py` 生成，`--check` 校验确定性）
-- `repair_seed.py` — 修复生成器（纯确定性，可复跑校验）
-- `build_case05_contracts.py` — 从修复 seed 矢量几何确定性推导 regions/reference_inventory 合同集（38 text / 18 arrow / 335 shape；icon/brace 零计数授权；派生关系声明见 fixture.json `derivation_disclosure`）
-- `build_case05_cases.py` — 案例构建驱动：盖章（freeze receipt 的 inventory_sha256）→ ingest（repair-candidate，gate accept）→ convert → math → check
-- `run_case05.py` — 基准 runner：
-  1. **gate 修复阶梯**：原始（reject）→ 修复未盖章（repair）→ 修复+语义盖章（accept）各 5 次采样
-  2. **确定性核心管线基线**：8 个正式案例临时副本 convert→math→check(standard) 逐阶段计时（含 Case05 seeded）
-- `results/05-sting-autophagy.json` + 同名 `.md` — 机器采集结果（JSON 为权威，MD 确定性生成）
+## 目录职责
 
-## 正式案例（examples/）
+| 内容 | 位置 | 说明 |
+|---|---|---|
+| 案例输入与证据（reference.png / seed / scene / qa） | `examples/<case>` | 单一真值；benchmark 以 manifest 引用 + SHA 锁定 |
+| 推导链物证（原始 seed、修复 seed） | `fixtures/05-sting-autophagy/` | Case05 合同推导链的机器可验证物证：`repair_seed.py --check` 从原始件确定性重导出修复件，`verify_fixture()` 锁哈希——**CI 在役门禁，非历史归档** |
+| Case05 建案 bootstrap 工具 | `bootstrap/` | `repair_seed.py`（确定性几何修复）、`build_case05_contracts.py`（合同推导）、`build_case05_cases.py`（建案驱动）。历史建案过程 + 在役可复现校验 |
+| 跨案例基准套件 | `suites/pipeline_performance.py` | 原 `run_case05.py` 更名归位：真实职责是跨案例 runner（8 个正式案例、双路线） |
+| 观测结果 | `results/pipeline-suite.json` + `.md` | 机器采集（JSON 权威，MD 确定性生成）；单样本如实标注，不伪造分位数 |
 
-- `examples/svg-seeded/05-sting-autophagy/` — 完整案例：prepare(--seed 修复 seed) → 生成合同 → freeze(391 对象) → ingest 盖章变体(gate accept, svg_repair) → convert → math → check(standard)，QA 证据如实落盘（`qa_failed` 形态与其他案例一致）。
-- `examples/reference-only/05-sting-autophagy-reference-only/` — prepare → 生成合同 → freeze；停 ready 等待视觉执行者的重绘候选（不以 seed 冒充；候选落地后走 ingest→convert→math→check）。
+## suites/pipeline_performance.py
+
+1. **Case05 gate 修复阶梯**：原始 seed（repair）→ 修复未盖章（repair，仅剩语义）→ 修复+盖章（accept），各 5 次采样
+2. **确定性核心管线基线**：8 个正式案例临时副本 convert→math→check(standard) 逐阶段 wall/CPU/RSS/IO/产物哈希
+
+用法：`python benchmarks/suites/pipeline_performance.py [--tiers gate|pipeline]`
+
+## Case05（STING-autophagy）正式案例
+
+- `examples/svg-seeded/05-sting-autophagy/` — 完整案例（prepare→合同→freeze 391 对象→ingest 盖章变体 gate accept→convert→math→check），QA 证据如实落盘（`qa_failed` 形态与其他案例一致）
+- `examples/reference-only/05-sting-autophagy-reference-only/` — prepare→合同→freeze；停 ready 等待视觉执行者的重绘候选（**仅依据 reference.png，不以 seed 冒充**；候选落地后走 ingest→convert→math→check，Issue #19）
 
 ## 测量边界
 
 - RSS/IO/CPU-wall 覆盖当前进程及子进程树；PowerPoint COM 服务器经 RPC 激活、不在子进程树内时其资源不计入。
-- reference-only 路线的作者阶段（VLM 依 reference.png 重绘）仍未执行；候选落地后补跑该路线的管线基准与作者耗时记录（Issue #19）。
+- 本套件是 **Pipeline Performance Benchmark**（工程管线性能），不是重建智能基准；reference-only 重构质量/修复收敛等 Reconstruction Benchmark 待 Corrector/视觉作者能力落地后另行建套件（避免结构先于能力）。
 
 ## 红线
 
 - 性能基准不授予 `approved`；任何 `qa_failed`/失败如实保留。
-- 单样本标注为单样本，不以 3 次样本伪造 p95；统计仅报 median/min/max。
-- fixture 字节不可变；任何变更须经 Issue 记录并同步 `fixture.json` 哈希。
+- fixture 物证字节不可变；manifest 引用（reference.png）随案例证据的合法迁移 PR 同步更新。
+- 禁止在 benchmarks 重建案例事实副本。

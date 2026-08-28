@@ -8,8 +8,9 @@
       "width": 2100,
       "height": 1324,
       "bytes": 1396039,
-      "role": "route-neutral frozen reference; two identical copies existed in the pre-fixture workspace and were collapsed to this single copy",
-      "provenance_note": "原始输入来自工作树未跟踪目录 examples/svg-seeded/05-sting-autophagy/reference.png 与 examples/reference-only/05-sting-autophagy-reference-only/reference.png，二者逐字节相同"
+      "path": "examples/svg-seeded/05-sting-autophagy/reference.png",
+      "role": "route-neutral frozen reference; single truth owned by the formal svg-seeded case",
+      "provenance_note": "历史双副本收口（Examples own truth, Benchmarks measure truth）：benchmarks/fixtures 下字节相同的 reference.png 副本已删除，本记录以 path+sha256 引用 examples 正式案例的单一真值；案例证据的合法迁移须随迁移 PR 同步更新本哈希"
     },
     "external-seed.svg": {
       "sha256": "79683946fc2b4fa2614cc0e43072688caa8086d6563fa35dbdeb170b55828fe9",
@@ -55,5 +56,5 @@
     }
   },
   "derivation_disclosure": "两案例的 regions/reference_inventory 合同集由 benchmarks/build_case05_contracts.py 从 external-seed-repaired.svg 的矢量几何确定性推导（38 text/18 arrow/335 shape，icon/brace 零计数授权），非独立视觉盘点——性能基准用途的路线隔离偏离，如实记录于 Issue #19；reference-only 案例的候选阶段因此保持待视觉作者状态，不以 seed 冒充。",
-  "immutability": "本目录三份输入字节不可变；任何变更必须经 Issue 记录并同步本文件哈希。.gitattributes 已锁定 fixtures 目录禁止 EOL 转换（hash-bound 输入）。"
+  "immutability": "fixture 目录内推导链物证（原始/修复 seed）字节不可变，由全局 .gitattributes 字节透传与 LF 钉定保证（*.svg text eol=lf）；reference.png 为 examples 单一真值的 manifest 引用。任何变更必须经 Issue 记录并同步本文件哈希。"
 }

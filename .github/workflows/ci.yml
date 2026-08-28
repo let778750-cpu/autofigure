@@ -63,7 +63,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
       - name: 静态检查
-        run: python -m ruff check tools tests
+        run: python -m ruff check tools tests benchmarks
       - name: 字节码编译（外部 pycache）
         env:
           PYTHONPYCACHEPREFIX: ${{ runner.temp }}/autofigure-pycache
@@ -99,8 +99,8 @@ jobs:
         run: python -m tools hygiene
       - name: 基准 fixture 与确定性修复校验
         run: |
-          python benchmarks/repair_seed.py --check
-          python -c "import sys; sys.path.insert(0, 'benchmarks'); from run_case05 import verify_fixture; verify_fixture(); print('benchmark fixture ok')"
+          python benchmarks/bootstrap/repair_seed.py --check
+          python -c "from benchmarks.suites.pipeline_performance import verify_fixture; verify_fixture(); print('benchmark fixture ok')"
       - name: 案例证据哈希绑定一致性（字节透传不变量）
         run: python -m tools renormalize --all --check
 

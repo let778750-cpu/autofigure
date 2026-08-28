@@ -1,5 +1,7 @@
-"""Case05 (STING-autophagy) benchmark runner — Issue #19.
+"""Pipeline 性能基准套件（Case05 gate 阶梯 + 跨案例管线基线）— Issue #19.
 
+原 ``run_case05.py`` 更名归位：其真实职责从来不是"Case05 专属脚本"，
+而是跨案例的 pipeline benchmark runner（8 个正式案例、两条输入路线）。
 三层结构（全部在外部临时目录执行，不改写 examples/ 正式案例证据）：
 
 1. **Case05 source-gate 微基准（修复阶梯）**：三个候选变体各自过
@@ -7,7 +9,7 @@
    （几何修复、未盖章语义合同）、external-seed-repaired-stamped（盖章语义合同），
    预期决策依次为 repair→repair(仅剩语义)→accept。gate 可独立于建案执行
    （显式传入期望哈希/画布/语义元数据）。
-2. **确定性核心管线基线**：全部 7 个正式案例（两条输入路线）的临时副本上
+2. **确定性核心管线基线**：全部正式案例（两条输入路线）的临时副本上
    顺序执行 convert → math → check(standard)，记录逐阶段耗时/资源与产物哈希。
    这是"项目当前性能"的真实基线；案例级 Case05 基准见下。
 
@@ -20,8 +22,8 @@
 reference-only 路线作者候选同理。
 
 用法：
-    python benchmarks/run_case05.py                    # 全部层
-    python benchmarks/run_case05.py --tiers gate       # 仅指定层（gate/pipeline）
+    python benchmarks/suites/pipeline_performance.py                    # 全部层
+    python benchmarks/suites/pipeline_performance.py --tiers gate       # 仅指定层（gate/pipeline）
 """
 
 from __future__ import annotations
@@ -42,22 +44,25 @@ from pathlib import Path
 
 import psutil
 
-BENCH_ROOT = Path(__file__).resolve().parent
+BENCH_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BENCH_ROOT.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from tools.core import common
-from tools.core.contracts import read_json
-from tools.pipeline import check as check_mod
-from tools.pipeline import convert as convert_mod
-from tools.pipeline import math as math_mod
-from tools.pipeline.normalize_source import normalize_source
-from tools.qa.source_gate import evaluate_source_gate
+from tools.core.contracts import read_json  # noqa: E402
+from tools.pipeline import check as check_mod  # noqa: E402
+from tools.pipeline import convert as convert_mod  # noqa: E402
+from tools.pipeline import math as math_mod  # noqa: E402
+from tools.qa.source_gate import evaluate_source_gate  # noqa: E402
 
 FIXTURE_DIR = BENCH_ROOT / "fixtures" / "05-sting-autophagy"
-RESULTS_JSON = BENCH_ROOT / "results" / "05-sting-autophagy.json"
-RESULTS_MD = BENCH_ROOT / "results" / "05-sting-autophagy.md"
+RESULTS_JSON = BENCH_ROOT / "results" / "pipeline-suite.json"
+RESULTS_MD = BENCH_ROOT / "results" / "pipeline-suite.md"
 REFERENCE_SHA = "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240"
+# reference.png 的单一真值在 examples 正式案例（Examples own truth）；fixture
+# 目录的历史字节相同副本已删除，这里以 manifest 引用 + SHA 锁定。
+EXAMPLE_REFERENCE = (
+    PROJECT_ROOT / "examples" / "svg-seeded" / "05-sting-autophagy" / "reference.png"
+)
 CASES = (
     "svg-seeded/01-modular-agent",
     "svg-seeded/02-thinking-diffusion",
@@ -77,9 +82,14 @@ def sha256_file(path: Path) -> str:
 def verify_fixture() -> dict:
     fixture = read_json(FIXTURE_DIR / "fixture.json")
     for name, record in fixture["immutable_inputs"].items():
-        path = FIXTURE_DIR / name
+        # 案例事实（如 reference.png）以 path 字段引用 examples 正式案例的
+        # 单一真值（manifest 引用 + SHA 锁定）；推导链物证仍留在 fixture 目录。
+        if record.get("path"):
+            path = PROJECT_ROOT / record["path"]
+        else:
+            path = FIXTURE_DIR / name
         if not path.is_file():
-            raise SystemExit(f"benchmark: fixture missing: {name}")
+            raise SystemExit(f"benchmark: fixture missing: {name} -> {path}")
         actual = sha256_file(path)
         if actual != record["sha256"]:
             raise SystemExit(f"benchmark: fixture hash drift: {name}: {actual}")
@@ -199,7 +209,7 @@ def tier_gate(workspace: Path) -> dict:
             metrics, report = measure(
                 evaluate_source_gate,
                 candidate,
-                reference_path=FIXTURE_DIR / "reference.png",
+                reference_path=EXAMPLE_REFERENCE,
                 input_route="svg-seeded",
                 candidate_role="external-seed",
                 expected_reference_sha256=REFERENCE_SHA,
@@ -252,9 +262,9 @@ def tier_pipeline(workspace: Path) -> dict:
 
 def render_markdown(payload: dict) -> str:
     lines = [
-        "# Case05 STING-autophagy 基准报告",
+        "# Pipeline 基准报告（Case05 gate 阶梯 + 跨案例管线基线）",
         "",
-        "生成自同名 JSON；数字一律机器采集，单样本如实标注，不伪造分位数。",
+        "生成自 pipeline-suite JSON；数字一律机器采集，单样本如实标注，不伪造分位数。",
         "",
         "## Fixture 校验",
         "",
@@ -307,7 +317,7 @@ def render_markdown(payload: dict) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="run_case05", description=__doc__)
+    parser = argparse.ArgumentParser(prog="autofigure-benchmark-pipeline", description=__doc__)
     parser.add_argument("--tiers", default="gate,normalize,pipeline")
     args = parser.parse_args(argv)
 
@@ -324,9 +334,9 @@ def main(argv: list[str] | None = None) -> int:
             sys.stdout.write("benchmark: pipeline tier done\n")
 
     payload = {
-        "schema_version": "1.1.0",
+        "schema_version": "1.2.0",
         "kind": "benchmark_report",
-        "case": "05-sting-autophagy",
+        "suite": "pipeline-suite-v1",
         "generated_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "environment": {
             "platform": platform.platform(),

@@ -1,6 +1,6 @@
-# Case05 STING-autophagy 基准报告
+# Pipeline 基准报告（Case05 gate 阶梯 + 跨案例管线基线）
 
-生成自同名 JSON；数字一律机器采集，单样本如实标注，不伪造分位数。
+生成自 pipeline-suite JSON；数字一律机器采集，单样本如实标注，不伪造分位数。
 
 ## Fixture 校验
 
@@ -14,22 +14,22 @@
 
 | 候选 | 决策 | wall median (s) | min | max |
 |---|---|---|---|---|
-| original-seed | `reject` | 0.0174 | 0.0171 | 0.0283 |
-| repaired-seed-unstamped | `repair` | 0.0198 | 0.0193 | 0.0204 |
-| repaired-seed-stamped | `accept` | 0.0198 | 0.0197 | 0.0201 |
+| original-seed | `reject` | 0.0201 | 0.0192 | 0.0338 |
+| repaired-seed-unstamped | `repair` | 0.0287 | 0.0261 | 0.0291 |
+| repaired-seed-stamped | `accept` | 0.0293 | 0.0283 | 0.0297 |
 
 ## 2. 确定性核心管线基线（8 个正式案例副本，各 1 次 cold）
 
 | 案例 | convert (s) | math (s) | check (s) |
 |---|---|---|---|
-| `svg-seeded/01-modular-agent` | 6.5678 | 6.6826 | 9.1707 |
-| `svg-seeded/02-thinking-diffusion` | 5.8701 | 0.1403 | 2.9337 |
-| `svg-seeded/03-llmind` | 6.2361 | 6.5206 | 4.4813 |
-| `svg-seeded/04-pareto-conditioned-diffusion` | 7.4396 | 0.2025 | 6.6621 |
-| `svg-seeded/05-sting-autophagy` | 8.0495 | 0.275 | 21.1735 |
-| `reference-only/01-modular-agent-reference-only` | 7.8346 | 8.4539 | 15.0846 |
-| `reference-only/02-thinking-diffusion-reference-only` | 7.8927 | 0.1748 | 7.148 |
-| `reference-only/04-pareto-conditioned-diffusion-reference-only` | 7.393 | 0.1972 | 7.1001 |
+| `svg-seeded/01-modular-agent` | 7.7863 | 7.1686 | 13.8863 |
+| `svg-seeded/02-thinking-diffusion` | 6.5599 | 0.1216 | 4.151 |
+| `svg-seeded/03-llmind` | 6.852 | 6.8107 | 2.4851 |
+| `svg-seeded/04-pareto-conditioned-diffusion` | 5.8912 | 0.0977 | 4.303 |
+| `svg-seeded/05-sting-autophagy` | 6.7328 | 0.2041 | 10.8285 |
+| `reference-only/01-modular-agent-reference-only` | 6.7172 | 7.0495 | 11.2789 |
+| `reference-only/02-thinking-diffusion-reference-only` | 6.6541 | 0.1328 | 5.2419 |
+| `reference-only/04-pareto-conditioned-diffusion-reference-only` | 6.7816 | 0.1361 | 5.9655 |
 
 ## 案例级 Case05 状态
 

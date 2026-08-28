@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.2.0",
+  "kind": "benchmark_report",
+  "suite": "pipeline-suite-v1",
+  "generated_at_utc": "2026-08-28T12:54:29Z",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.4",
+    "cpu_count": 24,
+    "psutil": "7.2.1",
+    "measurement_scope": "当前进程及其子进程树（RSS/IO/CPU-wall）；PowerPoint COM 服务器经 RPC 激活、不在子进程树内时其资源不计入——如实记录测量边界"
+  },
+  "fixture_verification": {
+    "reference.png": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "external-seed.svg": "79683946fc2b4fa2614cc0e43072688caa8086d6563fa35dbdeb170b55828fe9",
+    "external-seed-repaired.svg": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a"
+  },
+  "tiers": {
+    "gate": {
+      "original-seed": {
+        "decision": "reject",
+        "decisions_stable": true,
+        "blockers": [
+          "source-gate:canvas:width-mismatch",
+          "source-gate:canvas:height-mismatch",
+          "source-gate:canvas:viewbox-mismatch",
+          "source-gate:semantic-metadata:missing:semantic_schema_version",
+          "source-gate:semantic-metadata:missing:reference_sha256",
+          "source-gate:semantic-metadata:missing:object_inventory_sha256",
+          "source-gate:semantic-metadata:missing:stable_element_ids",
+          "source-gate:semantic-metadata:missing:relations_exhaustive",
+          "source-gate:semantic-metadata:missing:case",
+          "source-gate:unsupported-feature:repair:style",
+          "source-gate:unsupported-feature:repair:use",
+          "source-gate:semantic-metadata:missing-element-ids"
+        ],
+        "wall_seconds_stats": {
+          "median": 0.0201,
+          "min": 0.0192,
+          "max": 0.0338
+        }
+      },
+      "repaired-seed-unstamped": {
+        "decision": "repair",
+        "decisions_stable": true,
+        "blockers": [
+          "source-gate:semantic-metadata:missing:semantic_schema_version",
+          "source-gate:semantic-metadata:missing:reference_sha256",
+          "source-gate:semantic-metadata:missing:object_inventory_sha256",
+          "source-gate:semantic-metadata:missing:stable_element_ids",
+          "source-gate:semantic-metadata:missing:relations_exhaustive",
+          "source-gate:semantic-metadata:missing:case"
+        ],
+        "wall_seconds_stats": {
+          "median": 0.0287,
+          "min": 0.0261,
+          "max": 0.0291
+        }
+      },
+      "repaired-seed-stamped": {
+        "decision": "accept",
+        "decisions_stable": true,
+        "blockers": [],
+        "wall_seconds_stats": {
+          "median": 0.0293,
+          "min": 0.0283,
+          "max": 0.0297
+        }
+      }
+    },
+    "pipeline": {
+      "svg-seeded/01-modular-agent": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 7.7863,
+            "cpu_seconds": 3.1406,
+            "peak_rss_bytes": 97816576,
+            "read_bytes": 33650484,
+            "write_bytes": 9816586
+          },
+          "math": {
+            "wall_seconds": 7.1686,
+            "cpu_seconds": 3.0781,
+            "peak_rss_bytes": 111841280,
+            "read_bytes": 34757363,
+            "write_bytes": 2872597
+          },
+          "check": {
+            "wall_seconds": 13.8863,
+            "cpu_seconds": 12.3594,
+            "peak_rss_bytes": 276885504,
+            "read_bytes": 39646893,
+            "write_bytes": 1252668
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "c8fe41ad169586f08318285ee1fbecd12ea74d5bd00825e17fa461e3c926ebbc",
+          "bindings.json": "c912ee5e9da0447ebc600f85ee75cf9192238aa5036cba3a5669b9a447afd4b6",
+          "render.png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f"
+        }
+      },
+      "svg-seeded/02-thinking-diffusion": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.5599,
+            "cpu_seconds": 2.2344,
+            "peak_rss_bytes": 122118144,
+            "read_bytes": 12252043,
+            "write_bytes": 4498000
+          },
+          "math": {
+            "wall_seconds": 0.1216,
+            "cpu_seconds": 0.1094,
+            "peak_rss_bytes": 122257408,
+            "read_bytes": 702297,
+            "write_bytes": 462
+          },
+          "check": {
+            "wall_seconds": 4.151,
+            "cpu_seconds": 2.6875,
+            "peak_rss_bytes": 281063424,
+            "read_bytes": 16582695,
+            "write_bytes": 497945
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "81e16a5e12101927d1db1f6a42dbdfe3eee4a5a697e8bb25226225afb029abd7",
+          "bindings.json": "3d22f7f99053d0ef82cf09b141d44fce7a0b2e346b8818e6840b45a781b33a81",
+          "render.png": "d1d2d0104982af397f8e7a3d2d71827a89de0b22782ba364430fa68d9cf1807f"
+        }
+      },
+      "svg-seeded/03-llmind": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.852,
+            "cpu_seconds": 2.375,
+            "peak_rss_bytes": 131039232,
+            "read_bytes": 10892185,
+            "write_bytes": 3054052
+          },
+          "math": {
+            "wall_seconds": 6.8107,
+            "cpu_seconds": 2.0312,
+            "peak_rss_bytes": 128307200,
+            "read_bytes": 11759685,
+            "write_bytes": 1014413
+          },
+          "check": {
+            "wall_seconds": 2.4851,
+            "cpu_seconds": 1.3281,
+            "peak_rss_bytes": 316035072,
+            "read_bytes": 12615619,
+            "write_bytes": 478918
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "4f6908b911a428bbea8545ea755672d0562d9fb015c1092cae9eeda495468ca8",
+          "bindings.json": "e498eb1bf1b1a6c36a1d44835768f9412fce02f9b546d9f00ee676c8d26de93b",
+          "render.png": "f2b04423ef1c11f86bce1c6f514f113d89a8ce28ace35c16495cd693bb48bdba"
+        }
+      },
+      "svg-seeded/04-pareto-conditioned-diffusion": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 5.8912,
+            "cpu_seconds": 1.5312,
+            "peak_rss_bytes": 129343488,
+            "read_bytes": 16156876,
+            "write_bytes": 5157377
+          },
+          "math": {
+            "wall_seconds": 0.0977,
+            "cpu_seconds": 0.0625,
+            "peak_rss_bytes": 123273216,
+            "read_bytes": 958400,
+            "write_bytes": 462
+          },
+          "check": {
+            "wall_seconds": 4.303,
+            "cpu_seconds": 3.2188,
+            "peak_rss_bytes": 251637760,
+            "read_bytes": 20722616,
+            "write_bytes": 710413
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "34e555ddb2a1d8474fc75b7aa4ccbdf45366311da7f19ae845a029e0cdcd74eb",
+          "bindings.json": "dacc0168430e44cf92f040fbf8d38b147a9bc0866129d040d231a5a17a965368",
+          "render.png": "5e14d80153e138ce2533b8bb0b586f66b35fb2c6b0bf17d198179d1589a7b83c"
+        }
+      },
+      "svg-seeded/05-sting-autophagy": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.7328,
+            "cpu_seconds": 2.4375,
+            "peak_rss_bytes": 128729088,
+            "read_bytes": 28767938,
+            "write_bytes": 11795700
+          },
+          "math": {
+            "wall_seconds": 0.2041,
+            "cpu_seconds": 0.1719,
+            "peak_rss_bytes": 124698624,
+            "read_bytes": 2839904,
+            "write_bytes": 462
+          },
+          "check": {
+            "wall_seconds": 10.8285,
+            "cpu_seconds": 9.5156,
+            "peak_rss_bytes": 561922048,
+            "read_bytes": 42321421,
+            "write_bytes": 3572661
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "cdac67c71604e053c8dd7829403851be3df497e8dbdb11ad15c9327df2f2c538",
+          "bindings.json": "8dd5d4965265a398a636ad93207f66769dfcf9610737ca254bc0a97fe6105253",
+          "render.png": "0030d801ae1be3bdac6e6601e0034dd26c9d8bed8c64c302bfa0e4a6f01daded"
+        }
+      },
+      "reference-only/01-modular-agent-reference-only": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.7172,
+            "cpu_seconds": 2.25,
+            "peak_rss_bytes": 136491008,
+            "read_bytes": 28123106,
+            "write_bytes": 8782107
+          },
+          "math": {
+            "wall_seconds": 7.0495,
+            "cpu_seconds": 2.7344,
+            "peak_rss_bytes": 143097856,
+            "read_bytes": 32954133,
+            "write_bytes": 2606486
+          },
+          "check": {
+            "wall_seconds": 11.2789,
+            "cpu_seconds": 9.7344,
+            "peak_rss_bytes": 322379776,
+            "read_bytes": 33857237,
+            "write_bytes": 1273313
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "e3179f726b28aa095b804aa24e4759ab81799ce5d26997f87455963c49c374a1",
+          "bindings.json": "f780ce42868796ed93a59dc1dfd79aba584198b29c3ed8d534ef93bd648d581f",
+          "render.png": "c18dba0d8e42bc71de8a8cf6268ea25f3558d284c9074f93d2d38e1b78207db1"
+        }
+      },
+      "reference-only/02-thinking-diffusion-reference-only": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.6541,
+            "cpu_seconds": 2.3438,
+            "peak_rss_bytes": 134565888,
+            "read_bytes": 15830216,
+            "write_bytes": 5550869
+          },
+          "math": {
+            "wall_seconds": 0.1328,
+            "cpu_seconds": 0.0938,
+            "peak_rss_bytes": 125468672,
+            "read_bytes": 989603,
+            "write_bytes": 462
+          },
+          "check": {
+            "wall_seconds": 5.2419,
+            "cpu_seconds": 3.625,
+            "peak_rss_bytes": 307855360,
+            "read_bytes": 19876284,
+            "write_bytes": 541423
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "f89514e5c79b027365fe72e66c650a1129e72552e42295fc46d9315aa85dbac2",
+          "bindings.json": "6a4a37aa456e26cf916f47beeb161271f4312485b15db5384868cef2c032dae6",
+          "render.png": "584fe6379574f5a8cb355655815bfaec3985786a4f51fe91d16a1688c1d3d37f"
+        }
+      },
+      "reference-only/04-pareto-conditioned-diffusion-reference-only": {
+        "stages": {
+          "convert": {
+            "wall_seconds": 6.7816,
+            "cpu_seconds": 2.3281,
+            "peak_rss_bytes": 130891776,
+            "read_bytes": 20436014,
+            "write_bytes": 7151317
+          },
+          "math": {
+            "wall_seconds": 0.1361,
+            "cpu_seconds": 0.0938,
+            "peak_rss_bytes": 129400832,
+            "read_bytes": 1375509,
+            "write_bytes": 462
+          },
+          "check": {
+            "wall_seconds": 5.9655,
+            "cpu_seconds": 4.3125,
+            "peak_rss_bytes": 300716032,
+            "read_bytes": 28943300,
+            "write_bytes": 864970
+          }
+        },
+        "artifact_sha256": {
+          "redraw.pptx": "9adf84e563d958b6e4dd2f26fb771bc4b0251dbb4714c44ba4e46e417a792bff",
+          "bindings.json": "9d80dc2522e105b197a8899d70e416207fde25a5b2425eef704007a01dce5679",
+          "render.png": "998c4a9ff40db53a341ab0b8c97fd5284572f65b61a047f528cf06a057d9fb0f"
+        }
+      }
+    }
+  },
+  "case_level": {
+    "svg_seeded": {
+      "status": "implemented",
+      "case": "examples/svg-seeded/05-sting-autophagy",
+      "note": "完整案例已落地（prepare→合同生成→freeze 391 对象→ingest 盖章变体 gate accept→convert→math→check standard），管线数字见 pipeline 层 svg-seeded/05-sting-autophagy 行。"
+    },
+    "reference_only": {
+      "status": "case-frozen-awaiting-candidate",
+      "case": "examples/reference-only/05-sting-autophagy-reference-only",
+      "note": "案例合同已冻结；重绘候选须仅依据 fixture reference 由视觉执行者产出，候选落地后补跑该路线管线与作者阶段耗时（Issue #19）。"
+    }
+  }
+}
