@@ -37,7 +37,7 @@
       "source": "vtracer-trace",
       "vector_source_svg": {
         "path": "assets/environment-globe-vector.svg",
-        "sha256": "e161bd1c29549ff3c2503a4047d7390685bb861693faaf45120324a44fbd3cba"
+        "sha256": "dc97af57611ffb672f3994732e9c7f357fd6c02604b53ad8ca7350581160b89d"
       },
       "trace_method": "vtracer-color-stacked-spline",
       "trace_engine_version": "0.6.15",
