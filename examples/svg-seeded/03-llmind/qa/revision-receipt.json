@@ -4,14 +4,14 @@
   "case": "03-llmind",
   "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
   "lineage_version": "1.0.0",
-  "revision_id": "scene-2628f9aff8338ed2",
-  "scene_sha256": "2628f9aff8338ed25948bdad5586c172b093b6fd3389f95d4d18dae5e3b5d556",
-  "compiler_fingerprint": "4d33d8a9c2f4c0aecb20cdd9a42cf64aba6f27869ea49c159b2d37053d4ac582",
+  "revision_id": "scene-89ef4cc6964acb70",
+  "scene_sha256": "89ef4cc6964acb70ceb6ab2bc48989df51a4036062cd970ae2ac3b73c8dc4fe9",
+  "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
   "artifacts": {
-    "redraw_svg": "a8a97e65d0fecb58a4799f6e4be3a8e60f17a8e1ef7247be22ca1df7e9de4d96",
+    "redraw_svg": "93660d3ae63d3dd3997db974460fbf7cf6bf20508755cbe496d5a7cdd895e7bb",
     "redraw_pptx": "4b876dee3231e7458ba85729ffc897a50f31b89c1f00ed4a1d74cc56c0e7d73a",
     "render_png": "bd9bdb9da643a767e41875e765de8db1e0b8816ed01649e38b3cc6edad0e3336",
-    "bindings": "240e765a8faf7258d1c11e0856cd2d1d60a706aec3af63e119349ebac7e374f3"
+    "bindings": "da3461f26cb0b80531381a1b9a112650f86f4c137970ffceb1979817464aba34"
   },
-  "stamped_at": "20260824T141317Z"
+  "stamped_at": "20260828T081530Z"
 }

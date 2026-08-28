@@ -84,13 +84,24 @@ def test_real_content_drift_is_refused_without_rebind(tmp_path: Path):
     assert record["sha256"] != _h(b'<svg width="2"/>\n')  # 记录不被改写
 
 
+def _carrier(scene: dict, text: str, sha: str) -> None:
+    """按 bind_canonical_svg 的真实形态构造 carrier（含内联 content）。"""
+    scene["canonical_svg"] = {
+        "encoding": "utf-8",
+        "content": text,
+        "sha256": sha,
+        "source_role": "external-seed-proposal",
+        "materialized_path": "redraw.svg",
+    }
+
+
 def test_carrier_rebind_syncs_revision_chain(tmp_path: Path):
     run = _run(tmp_path)
     redraw = run.redraw_svg
     old = b'<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" id="old"/>\n'
     redraw.write_bytes(old)
     scene = read_json(run.scene_path)
-    scene["canonical_svg"] = {"sha256": _h(old), "source_role": "external-seed-proposal"}
+    _carrier(scene, old.decode("utf-8"), _h(old))
     write_json(run.scene_path, scene)
 
     # 模拟历史缺口：redraw.svg 被后续流程改写，scene.canonical 未同步。
@@ -102,6 +113,10 @@ def test_carrier_rebind_syncs_revision_chain(tmp_path: Path):
     assert "scene.canonical:rebound-to-current-bytes" in notes
     scene = read_json(run.scene_path)
     assert scene["canonical_svg"]["sha256"] == _h(current)
+    # content 合同：canonical_svg_text 不再抛错，且等于载体字节。
+    from tools.core.revisions import canonical_svg_text
+
+    assert canonical_svg_text(scene).encode("utf-8") == current
     # revision 链被 stamp_active_revision 同步到新 scene 语义。
     from tools.core.revisions import revision_id, scene_sha256
 
@@ -111,3 +126,84 @@ def test_carrier_rebind_syncs_revision_chain(tmp_path: Path):
     receipt = read_json(run.revision_receipt_path)
     assert receipt["revision_id"] == revision_id(scene)
     assert renormalize_case(run, apply=False) == ["scene.canonical:consistent"]
+
+
+def test_crlf_bound_carrier_rebound_syncs_content(tmp_path: Path):
+    run = _run(tmp_path)
+    text_crlf = '<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40"/>\r\n'
+    text_lf = text_crlf.replace("\r\n", "\n")
+    # 文件已是 LF（仓库规范形态），记录绑定 CRLF 形态：#26 回归的输入形态。
+    run.redraw_svg.write_bytes(text_lf.encode("utf-8"))
+    scene = read_json(run.scene_path)
+    _carrier(scene, text_crlf, _h(text_crlf.encode("utf-8")))
+    write_json(run.scene_path, scene)
+
+    notes = renormalize_case(run, apply=True)
+
+    assert "scene.canonical:rebound" in notes
+    # 重绑必须同时把 content 规范为 LF 文本（scene.json 文件级 LF 重写从不
+    # 触碰 JSON 字符串内的 \r\n 转义），canonical_svg_text 无损通过。
+    scene = read_json(run.scene_path)
+    from tools.core.revisions import canonical_svg_text
+
+    assert canonical_svg_text(scene) == text_lf
+    assert scene["canonical_svg"]["sha256"] == _h(text_lf.encode("utf-8"))
+    assert renormalize_case(run, apply=False) == ["scene.canonical:consistent"]
+
+
+def test_content_stale_carrier_is_detected_and_repaired(tmp_path: Path):
+    run = _run(tmp_path)
+    stale = b'<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" id="stale"/>\n'
+    current = b'<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" id="current"/>\n'
+    run.redraw_svg.write_bytes(current)
+    scene = read_json(run.scene_path)
+    # file==sha256 而 content 陈旧：#26 回归的最终形态（check 门禁盲区）。
+    _carrier(scene, stale.decode("utf-8"), _h(current))
+    write_json(run.scene_path, scene)
+
+    # check 模式只报告，不改写。
+    assert "scene.canonical:content-mismatch" in renormalize_case(run, apply=False)
+
+    notes = renormalize_case(run, apply=True)
+
+    assert "scene.canonical:content-rebound" in notes
+    from tools.core.revisions import canonical_svg_text
+
+    scene = read_json(run.scene_path)
+    assert canonical_svg_text(scene).encode("utf-8") == current
+    assert renormalize_case(run, apply=False) == ["scene.canonical:consistent"]
+
+
+def test_check_gate_flags_carrier_content_mismatch(tmp_path: Path):
+    from tools.pipeline.check import _source_gate_blockers
+
+    run = _run(tmp_path)
+    stale = b'<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" id="stale"/>\n'
+    current = b'<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" id="current"/>\n'
+    run.redraw_svg.write_bytes(current)
+    scene = read_json(run.scene_path)
+    _carrier(scene, stale.decode("utf-8"), _h(current))
+    write_json(run.scene_path, scene)
+    meta = run.load_meta()
+    write_json(
+        run.source_gate_report_path,
+        {
+            "schema_version": "4.0.0",
+            "kind": "source_gate_report",
+            "route_gate": {"input_route": meta.get("input_route")},
+            "reference": {
+                "expected_sha256": meta.get("source_sha256"),
+                "actual_sha256": meta.get("source_sha256"),
+            },
+            "decision": "accept",
+        },
+    )
+
+    blockers = _source_gate_blockers(run)
+
+    assert "scene:carrier-content-mismatch" in blockers
+    assert "scene:carrier-redraw-mismatch" not in blockers  # file 与绑定一致
+
+    # 修复后门禁放行。
+    renormalize_case(run, apply=True)
+    assert "scene:carrier-content-mismatch" not in _source_gate_blockers(run)

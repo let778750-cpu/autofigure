@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import posixpath
 import re
@@ -72,6 +73,18 @@ def _source_gate_blockers(run: common.Run) -> list[str]:
     if run.redraw_svg.is_file():
         if common.sha256_file(run.redraw_svg) != carrier.get("sha256"):
             blockers.append("scene:carrier-redraw-mismatch")
+    # 载体-内容门禁：canonical_svg.content 内联文本必须满足自身哈希合同
+    # （canonical_svg_text 的 fail-closed 前置）。#26 的 renormalize 修复曾只改
+    # sha256 不重写 content，留下 file==sha 而 content 陈旧的内部不一致场景，
+    # 会在下一次 compile/materialize 时才爆炸——此门禁把检出点提前到 check。
+    # 仅拦"存在但不匹配"；content 缺失（极简 carrier，如候选未物化）留给
+    # canonical_svg_text 在消费点 fail-closed，renormalize 可从 file 补全。
+    carrier_content = carrier.get("content") if isinstance(carrier, dict) else None
+    if isinstance(carrier_content, str) and carrier.get("sha256") and (
+        hashlib.sha256(carrier_content.encode("utf-8")).hexdigest()
+        != carrier.get("sha256")
+    ):
+        blockers.append("scene:carrier-content-mismatch")
     decision = report.get("decision")
     if decision != "accept":
         reported = report.get("blockers")
