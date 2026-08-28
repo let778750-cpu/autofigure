@@ -1,14 +1,21 @@
-# Hash-bound scene, manifest, binding, and QA contracts require stable bytes.
+# Hash-bound evidence repository: byte transparency is the only self-consistent
+# default. `* -text` disables all newline translation (and overrides any
+# core.autocrlf setting on contributor machines) so checked-out bytes equal
+# committed bytes for everything not explicitly listed below.
+* -text
+
+# Textual contracts/evidence are written by LF-pinned writers and stored as LF
+# blobs; pin checkout to LF so hash bindings survive on every machine.
 *.json text eol=lf
-# Benchmark fixtures are hash-bound immutable inputs: EOL translation is forbidden.
-benchmarks/fixtures/** -text
-benchmarks/fixtures/**/*.svg text eol=lf
-benchmarks/fixtures/**/*.json text eol=lf
-# Case05 evidence is produced by LF writers; pin hash-bound text bytes so they
-# survive checkout. Scope by extension — a directory-wide `text` attribute would
-# corrupt binary evidence (PNG) via newline translation. (Historic cases 01-04
-# keep their committed CRLF SVG blobs untouched.)
-examples/svg-seeded/05-sting-autophagy/**/*.json text eol=lf
-examples/svg-seeded/05-sting-autophagy/**/*.svg text eol=lf
-examples/reference-only/05-sting-autophagy-reference-only/**/*.json text eol=lf
-examples/reference-only/05-sting-autophagy-reference-only/**/*.svg text eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.mjs text eol=lf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+
+# Binary evidence (png/pptx/…) falls through to the `* -text` default untouched.
+# Historic note: cases 01-04 SVG blobs are already LF in the object database
+# (verified by the renormalize audit), so the global LF pin does not rewrite them.

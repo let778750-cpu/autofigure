@@ -22,6 +22,7 @@ COMMANDS = {
     "cases": "tools.qa.cases",
     "compare": "tools.qa.compare",
     "hygiene": "tools.qa.hygiene",
+    "renormalize": "tools.qa.renormalize",
     "migrate-v4": "tools.migrate_v4",
     "normalize-source": "tools.pipeline.normalize_source",
 }

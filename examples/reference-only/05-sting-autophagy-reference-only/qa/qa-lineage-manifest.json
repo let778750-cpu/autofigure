@@ -1,0 +1,39 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "qa_lineage_manifest",
+  "case": "05-sting-autophagy-reference-only",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "revision_id": "scene-5496d2b54c70bc2b",
+  "scene_sha256": "5496d2b54c70bc2b2a50dcd54e581f3a769f2f1200ea3abddc19370bdd2d22ce",
+  "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c",
+  "reports": [
+    {
+      "path": "qa/asset-contract-receipt.json",
+      "sha256": "55a7e1b8c32dc5c7020a99f51f08bd45ff19c587746811c5f12163c2424bd087",
+      "revision_id": "scene-5496d2b54c70bc2b",
+      "scene_sha256": "5496d2b54c70bc2b2a50dcd54e581f3a769f2f1200ea3abddc19370bdd2d22ce",
+      "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c"
+    },
+    {
+      "path": "qa/reference-inventory-receipt.json",
+      "sha256": "de0bc3717e5ed3e824212a01304a51e027f6f5fd0fb478b71113c72cb58dd793",
+      "revision_id": "scene-5496d2b54c70bc2b",
+      "scene_sha256": "5496d2b54c70bc2b2a50dcd54e581f3a769f2f1200ea3abddc19370bdd2d22ce",
+      "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c"
+    },
+    {
+      "path": "qa/reference-oracle.json",
+      "sha256": "f4c4d501a07d9e313d60f1f236a83b0e1add398d3395fbe6f19b5bed8c240dae",
+      "revision_id": "scene-5496d2b54c70bc2b",
+      "scene_sha256": "5496d2b54c70bc2b2a50dcd54e581f3a769f2f1200ea3abddc19370bdd2d22ce",
+      "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c"
+    },
+    {
+      "path": "qa/region-tasks.json",
+      "sha256": "197dbf588710a175643681703b3825acfaccedd3d186a77f7af7253f0f189785",
+      "revision_id": "scene-5496d2b54c70bc2b",
+      "scene_sha256": "5496d2b54c70bc2b2a50dcd54e581f3a769f2f1200ea3abddc19370bdd2d22ce",
+      "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c"
+    }
+  ]
+}

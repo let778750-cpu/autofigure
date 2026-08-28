@@ -4,14 +4,14 @@
   "case": "01-modular-agent",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
   "lineage_version": "1.0.0",
-  "revision_id": "scene-7461af7e02f84eda",
-  "scene_sha256": "7461af7e02f84eda160683a01eb5aa941a4bd5f3f893be22b6d5cc533af9ad21",
-  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "revision_id": "scene-a0c0da23258333f3",
+  "scene_sha256": "a0c0da23258333f36846f1a730d35100202191cccaa714015ee6cccbe6c919fe",
+  "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c",
   "artifacts": {
-    "redraw_svg": "ce54883a823ed798bc31ed947df5503410a48396e537db327d269f29b5db54d8",
+    "redraw_svg": "b0f89f05b9ee07a7d793f36a03e6f74b17e1330404ffa06d8426163708132e2a",
     "redraw_pptx": "21d037d2f8dcbaaf076256aae19f411274f30351f528d2d6b4f2f48db108db3f",
     "render_png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f",
-    "bindings": "2c7d0ab6b8c0caa289eb03aa9f3a95b5acae95ddd687487b6cf50aea4942ca4e"
+    "bindings": "f0884af42007ae7f99fd215bb4394ecbcc9a3da8075a9e37fb840fd0fc7dabee"
   },
-  "stamped_at": "20260824T153910Z"
+  "stamped_at": "20260828T020933Z"
 }
