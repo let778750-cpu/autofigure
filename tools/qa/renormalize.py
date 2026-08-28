@@ -16,7 +16,10 @@
    file 即绑定真值，content 按 file 字节重写即无损修复；
 5. ``revision stale`` —— active_revision 链（scene 语义哈希 / artifact 哈希 /
    编译指纹）与当前文件事实不符（#26 改指纹算法与 bindings 字节后未 restamp
-   "当时看似健康"的案例）：以 ``stamp_active_revision`` 按当前事实重锚。
+   "当时看似健康"的案例）：以 ``stamp_active_revision`` 按当前事实重锚；
+6. ``asset source stale`` —— ``assets.json`` 的原子资产源绑定
+   （vector_source_svg/raster ↔ assets/* 文件字节）漂移：同一分类与无损证明
+   语义（基准套件在 fresh 检出上被 convert fail-closed 拦获后纳入）。
 
 任何 scene 载体修复（EOL 重绑 / rebind / content 重绑）都经
 ``bind_canonical_svg`` 原子重写 content+sha256+source_role，并随即
@@ -206,6 +209,50 @@ def renormalize_case(run: common.Run, *, apply: bool, rebind_carrier: bool = Fal
             notes.append("seed:" + REWRITTEN)
         else:
             notes.append("seed:" + REAL_DRIFT)
+
+    # 2.5) assets.json 的原子资产源绑定（vector_source_svg/raster ↔ assets/* 文件）。
+    #     与 receipt/seed 同一漂移分类：pipeline 基准套件曾在 fresh LF 检出上被
+    #     convert 的 fail-closed 拦截（atomic:environment-globe-vector 登记了旧
+    #     CRLF 形态哈希而 blob 已是 LF）——这对绑定此前不在本命令覆盖范围内。
+    if run.assets_path.is_file():
+        assets_doc = read_json(run.assets_path)
+        assets_dirty = False
+        for asset in assets_doc.get("assets", []):
+            if not isinstance(asset, dict):
+                continue
+            asset_id = str(asset.get("id", "asset"))
+            for field in ("vector_source_svg", "raster"):
+                record = asset.get(field)
+                if not isinstance(record, dict) or not isinstance(
+                    record.get("sha256"), str
+                ):
+                    continue
+                target = run.root / str(record.get("path", ""))
+                if not target.is_file():
+                    notes.append(f"assets:{asset_id}:{MISSING}")
+                    continue
+                data = target.read_bytes()
+                state = _classify(data, record["sha256"])
+                if state == "consistent":
+                    notes.append(f"assets:{asset_id}:{CONSISTENT}")
+                elif state == "crlf-bound-lf-bytes":
+                    if apply:
+                        record["sha256"] = _sha(data)
+                        assets_dirty = True
+                    notes.append(f"assets:{asset_id}:{REBOUND}")
+                elif state == "lf-bound-crlf-bytes":
+                    # 仅对文本资产做字节规范化重写；二进制（png 等）不具备
+                    # EOL 语义，落入 real-drift 交人工处置。
+                    if target.suffix.lower() in {".svg", ".json", ".txt"}:
+                        if apply:
+                            target.write_bytes(data.replace(b"\r\n", b"\n"))
+                        notes.append(f"assets:{asset_id}:{REWRITTEN}")
+                    else:
+                        notes.append(f"assets:{asset_id}:{REAL_DRIFT}")
+                else:
+                    notes.append(f"assets:{asset_id}:{REAL_DRIFT}")
+        if assets_dirty and apply:
+            write_json(run.assets_path, assets_doc)
 
     # 3) scene 的 canonical_svg 字节绑定（file ↔ sha256 ↔ content 三方一致）
     scene_path = run.scene_path
