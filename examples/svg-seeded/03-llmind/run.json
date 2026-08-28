@@ -5,12 +5,12 @@
   "width": 1357,
   "height": 656,
   "input_route": "svg-seeded",
-  "processing_mode": "svg_import",
+  "processing_mode": "png_reconstruct",
   "source_original_name": "03_2026_CVPR_2026_LLMind_Bio-inspired_Training-free_Adaptive_Visual_Re.png",
   "reference_path": "reference.png",
   "workflow": {
-    "state": "candidate",
-    "revision": 4,
+    "state": "qa_failed",
+    "revision": 5,
     "history": [
       {
         "state": "candidate",
@@ -49,11 +49,16 @@
           "layout_pass": true,
           "layout_findings": 0
         }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T141317Z",
+        "reason": "schema-v4-migration-unverified"
       }
     ]
   },
-  "schema_version": "3.1.0",
-  "fidelity_profile": "editable_native",
+  "schema_version": "4.0.0",
+  "fidelity_profile": "hybrid_fidelity",
   "backend_mode": "offline",
   "validation": {
     "profile": "standard",
@@ -65,5 +70,18 @@
       "asset:atomic:photo-2:authorization-unverified"
     ]
   },
-  "task_mode": "RECONSTRUCT_1TO1"
+  "task_mode": "RECONSTRUCT_1TO1",
+  "active_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-89ef4cc6964acb70",
+    "scene_sha256": "89ef4cc6964acb70ceb6ab2bc48989df51a4036062cd970ae2ac3b73c8dc4fe9",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+    "artifacts": {
+      "redraw_svg": "93660d3ae63d3dd3997db974460fbf7cf6bf20508755cbe496d5a7cdd895e7bb",
+      "redraw_pptx": "4b876dee3231e7458ba85729ffc897a50f31b89c1f00ed4a1d74cc56c0e7d73a",
+      "render_png": "bd9bdb9da643a767e41875e765de8db1e0b8816ed01649e38b3cc6edad0e3336",
+      "bindings": "da3461f26cb0b80531381a1b9a112650f86f4c137970ffceb1979817464aba34"
+    },
+    "stamped_at": "20260828T081530Z"
+  }
 }

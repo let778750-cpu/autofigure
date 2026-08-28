@@ -1,16 +1,25 @@
 # check 报告（strict） — 01-modular-agent-reference-only
 
 ## 像素诊断（figure_lint，软信号）
-- mean_abs_rgb_delta: 15.3626
-- changed_pixel_ratio: 37.0966%
-- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 31.8008, 'loss_contribution_pct': 6.8089}
-- ssim: 0.7561
+- mean_abs_rgb_delta: 15.0326
+- changed_pixel_ratio: 36.7584%
+- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 33.0635, 'loss_contribution_pct': 6.9572}
+- ssim: 0.763
 - diff 图: qa/diff.png
 - 对照预览: preview.png
-- 关键区域 strict_pass: False（6 个关键区域）
+- 关键区域 strict_pass: False（10 个关键区域）
 - 区域明细: qa/regions-report.json
 - 布局合同: PASS（0 项）
 - 布局明细: qa/layout-audit.json
+- 箭头视觉物理门禁: FAIL（39 个合同）
+- ArrowSpec 编译: PASS（39 个逻辑箭头）
+- PowerPoint 箭头读回: PASS
+- 语义图元: PASS（0 个）
+- AssetSpec 资产合同: PASS（0 个逻辑资产，0 个成员读回）
+- 冻结资产输入 receipt: FAIL（1 项）
+- 字体/图标尺度/重叠合同: PASS（0 个冻结对象）
+- PowerPoint Live 箭头创作: DISABLED / inspect-only
+- 结构证据: qa/arrow-visual-report.json、qa/arrow-compile-report.json、qa/powerpoint-arrow-readback.json、qa/primitive-audit.json、qa/asset-spec-audit.json、qa/asset-contract-receipt.json、qa/visual-contracts-report.json、qa/provider-capabilities.json、qa/atomic-vector-report.json
 
 ## 文本比对（SVG 文字 vs 参考图 OCR）
 - SVG 侧未匹配 1 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）
@@ -47,8 +56,8 @@
 
 ## 箭头结构审计（arrows，advisory）
 
-- 箭头单元 37（marker 引用 37 处，marker 定义 4 个）；头/线宽比例中位数 4.0（合理带 [1.5, 4.0]）
-- F1 锚点未对齐尖端 17 处 · F2 头/线宽比例失调 6 处 · F3 端点悬空 21 处 · orient 非 auto 0 处 · 手折箭羽 0 组
+- 箭头单元 38（marker 引用 38 处，marker 定义 8 个）；头/线宽比例中位数 4.0（合理带 [1.5, 4.0]）
+- F1 锚点未对齐尖端 11 处 · F2 头/线宽比例失调 4 处 · F3 端点悬空 14 处 · orient 非 auto 0 处 · 手折箭羽 0 组
 
 ### 逐条发现
 - [F5] line#task-input-to-encoder start 端点 (399,56): endpoint clearance is 10.00px from declared object 'task-input-box' (expected 0.00px); nearest object is 'task-input-box'
@@ -69,13 +78,13 @@
 - [F2] line#tau-to-mapping end 端点 (758,56) marker=arrow-gray: head/stroke ratio 1.43 is outside [1.5, 4]
 - [F5] line#tau-to-mapping end 端点 (758,56) marker=arrow-gray: endpoint clearance is 7.00px from declared object 'mapping-box' (expected 0.00px); nearest object is 'mapping-box'
 - [F3] line#tau-to-mapping end 端点 (758,56) marker=arrow-gray: endpoint boundary/gap error is 7.00px (limit 6.00px)
-- [F1] line#tau-to-allocator end 端点 (660,127) marker=arrow-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
+- [F1] line#tau-to-allocator end 端点 (660,127) marker=arrow-allocator-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
 - [F1] path#observation-to-mllm end 端点 (178,293) marker=arrow-orange: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F5] path#observation-to-mllm end 端点 (178,293) marker=arrow-orange: endpoint clearance is 10.00px from declared object 'mllm-encoder' (expected 0.00px); nearest object is 'mllm-encoder'
-- [F3] path#observation-to-mllm end 端点 (178,293) marker=arrow-orange: endpoint boundary/gap error is 10.00px (limit 6.00px)
+- [F5] path#observation-to-mllm end 端点 (178,293) marker=arrow-orange: endpoint clearance is 9.00px from declared object 'mllm-encoder' (expected 0.00px); nearest object is 'mllm-encoder'
+- [F3] path#observation-to-mllm end 端点 (178,293) marker=arrow-orange: endpoint boundary/gap error is 9.00px (limit 6.00px)
 - [F1] path#observation-to-wm end 端点 (180,400) marker=arrow-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F5] path#observation-to-wm end 端点 (180,400) marker=arrow-blue: endpoint clearance is 12.63px from declared object 'wm-encoder' (expected 0.00px); nearest object is 'wm-encoder'
-- [F3] path#observation-to-wm end 端点 (180,400) marker=arrow-blue: endpoint boundary/gap error is 12.63px (limit 6.00px)
+- [F5] path#observation-to-wm end 端点 (180,400) marker=arrow-blue: endpoint clearance is 12.24px from declared object 'wm-encoder' (expected 0.00px); nearest object is 'wm-encoder'
+- [F3] path#observation-to-wm end 端点 (180,400) marker=arrow-blue: endpoint boundary/gap error is 12.24px (limit 6.00px)
 - [F1] line#mllm-to-ev end 端点 (340,274) marker=arrow-orange: arrowhead tip/ref mismatch (+1.00, +0.00) px
 - [F1] line#wm-to-st end 端点 (340,435) marker=arrow-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
 - [F5] line#wm-to-st end 端点 (340,435) marker=arrow-blue: endpoint clearance is 7.00px from declared object 'st-box' (expected 0.00px); nearest object is 'st-box'
@@ -86,16 +95,6 @@
 - [F1] line#st-to-joint end 端点 (421,436) marker=arrow-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
 - [F5] line#st-to-joint end 端点 (421,436) marker=arrow-blue: endpoint clearance is 7.00px from declared object 'joint-core' (expected 0.00px); nearest object is 'joint-core'
 - [F3] line#st-to-joint end 端点 (421,436) marker=arrow-blue: endpoint boundary/gap error is 7.00px (limit 6.00px)
-- [F1] path#allocator-task1-route-1 end 端点 (618,347) marker=arrow-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F5] path#allocator-task1-route-1 end 端点 (618,347) marker=arrow-blue: endpoint clearance is 26.15px from declared object 'expert-1-dyn' (expected 0.00px); nearest object is 'expert-2-box'
-- [F3] path#allocator-task1-route-1 end 端点 (618,347) marker=arrow-blue: endpoint boundary/gap error is 26.15px (limit 6.00px)
-- [F1] path#allocator-task1-route-2 end 端点 (861,284) marker=arrow-blue: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F5] path#allocator-task1-route-2 end 端点 (861,284) marker=arrow-blue: endpoint clearance is 42.00px from declared object 'zt-top-box' (expected 0.00px); nearest object is 'expert-4-box'
-- [F3] path#allocator-task1-route-2 end 端点 (861,284) marker=arrow-blue: endpoint boundary/gap error is 42.00px (limit 6.00px)
-- [F1] path#allocator-task2-route-1 end 端点 (754,282) marker=arrow-orange: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F1] path#allocator-task2-route-2 end 端点 (862,418) marker=arrow-orange: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F5] path#allocator-task2-route-2 end 端点 (862,418) marker=arrow-orange: endpoint clearance is 41.00px from declared object 'zt-bottom-box' (expected 0.00px); nearest object is 'joint-core'
-- [F3] path#allocator-task2-route-2 end 端点 (862,418) marker=arrow-orange: endpoint boundary/gap error is 41.00px (limit 6.00px)
 - [F5] path#rollout-a2-to-next end 端点 (1304,333) marker=arrow-gold: endpoint clearance is 31.66px from declared object 'rollout-zh' (expected 0.00px); nearest object is 'action-a2'
 - [F3] path#rollout-a2-to-next end 端点 (1304,333) marker=arrow-gold: endpoint boundary/gap error is 31.66px (limit 6.00px)
 - [F5] path#mapping-to-imagination start 端点 (958,65): endpoint clearance is 7.00px from declared object 'mapping-box' (expected 0.00px); nearest object is 'mapping-box'
@@ -104,94 +103,295 @@
 - [F2] path#mapping-to-imagination end 端点 (1030,149) marker=arrow-gray: head/stroke ratio 1.43 is outside [1.5, 4]
 - [F5] path#mapping-to-imagination end 端点 (1030,149) marker=arrow-gray: endpoint clearance is 28.00px from declared object 'task-conditioned-imagination' (expected 0.00px); nearest object is 'imag-z0'
 - [F3] path#mapping-to-imagination end 端点 (1030,149) marker=arrow-gray: endpoint boundary/gap error is 28.00px (limit 6.00px)
-- [F5] line#interaction-left start 端点 (1168,573): endpoint clearance is 20.00px from declared object 'atomic:environment-globe' (expected 0.00px); nearest object is 'atomic:environment-globe'
-- [F3] line#interaction-left start 端点 (1168,573): endpoint boundary/gap error is 20.00px (limit 6.00px)
-- [F1] line#interaction-left end 端点 (1015,573) marker=arrow-gray: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F2] line#interaction-left end 端点 (1015,573) marker=arrow-gray: head/stroke ratio 1.43 is outside [1.5, 4]
-- [F5] line#interaction-left end 端点 (1015,573) marker=arrow-gray: endpoint clearance is 14.00px from declared object 'reward-action-box' (expected 0.00px); nearest object is 'reward-action-box'
-- [F3] line#interaction-left end 端点 (1015,573) marker=arrow-gray: endpoint boundary/gap error is 14.00px (limit 6.00px)
-- [F5] line#interaction-right start 端点 (1015,573): endpoint clearance is 14.00px from declared object 'reward-action-box' (expected 0.00px); nearest object is 'reward-action-box'
-- [F3] line#interaction-right start 端点 (1015,573): endpoint boundary/gap error is 14.00px (limit 6.00px)
-- [F1] line#interaction-right end 端点 (1177,573) marker=arrow-gray: arrowhead tip/ref mismatch (+1.00, +0.00) px
-- [F2] line#interaction-right end 端点 (1177,573) marker=arrow-gray: head/stroke ratio 1.43 is outside [1.5, 4]
-- [F5] line#interaction-right end 端点 (1177,573) marker=arrow-gray: endpoint clearance is 11.00px from declared object 'atomic:environment-globe' (expected 0.00px); nearest object is 'atomic:environment-globe'
-- [F3] line#interaction-right end 端点 (1177,573) marker=arrow-gray: endpoint boundary/gap error is 11.00px (limit 6.00px)
 - [F6] path#observation-to-wm path 端点 (159,383): arrow centerline intersects text box 'observation-label'
-- [F6] path#allocator-task1-route-1 path 端点 (568,276): arrow centerline intersects text box 'expert-1-sem-label'
-- [F6] path#allocator-task1-route-2 path 端点 (648,393): arrow centerline intersects text box 'expert-2-dyn-label'
-- [F6] path#allocator-task2-route-2 path 端点 (734,377): arrow centerline intersects text box 'expert-3-dyn-label'
 - [F6] line#imagination-z2-to-zh path 端点 (1295,182): arrow centerline intersects text box 'imag-dots'
-- [F9] path#allocator-task1-route-2 path 端点 (657,406): arrow path crosses 'allocator-task2-route-1'
-- [F9] path#allocator-task1-route-2 path 端点 (656,404): arrow path crosses 'allocator-task2-route-2'
 
 > 箭头几何为定位辅助，不以本节自动放行或拦截；修复用 autofigure arrows --fix（几何归一，不改样式），头长限幅加 --clamp-ratio，按原图实测校准加 --calibrate ID=LEN，改后需重跑 convert/math/check。
 
 
 ## 验收状态（strict）
-- blockers: 64
+- blockers: 267
+- repair plan coverage: FAIL
+- blocker inventory: qa/blockers.json
+- repair plan: qa/repair-plan.json
+- QA lineage: qa/qa-lineage-manifest.json
+- atomic-vector 资产门禁: FAIL（1 个资产;明细 qa/atomic-vector-report.json）
+- PowerPoint Live: REQUIRED — FAIL
 - region:task-guided-allocator-topology
+- region:encoder-peer-size-detail
+- region:expert-gap-arrow-text-detail
+- region:joint-feedback-arrow-detail
 - region:six-bicolor-state-circles
 - region:rollout-arrow-topology
+- region:environment-globe-creative-asset
 - region:observation-arrows
-- arrow:F5:task-input-to-encoder
-- arrow:F3:task-input-to-encoder
-- arrow:F1:task-input-to-encoder
-- arrow:F2:task-input-to-encoder
-- arrow:F5:task-encoder-to-tau
-- arrow:F3:task-encoder-to-tau
-- arrow:F1:task-encoder-to-tau
-- arrow:F2:task-encoder-to-tau
-- arrow:F5:tau-to-mapping
-- arrow:F3:tau-to-mapping
-- arrow:F1:tau-to-mapping
-- arrow:F2:tau-to-mapping
-- arrow:F1:tau-to-allocator
-- arrow:F1:observation-to-mllm
-- arrow:F5:observation-to-mllm
-- arrow:F3:observation-to-mllm
-- arrow:F1:observation-to-wm
-- arrow:F5:observation-to-wm
-- arrow:F3:observation-to-wm
-- arrow:F1:mllm-to-ev
-- arrow:F1:wm-to-st
-- arrow:F5:wm-to-st
-- arrow:F3:wm-to-st
-- arrow:F1:ev-to-joint
-- arrow:F5:ev-to-joint
-- arrow:F3:ev-to-joint
-- arrow:F1:st-to-joint
-- arrow:F5:st-to-joint
-- arrow:F3:st-to-joint
-- arrow:F1:allocator-task1-route-1
-- arrow:F5:allocator-task1-route-1
-- arrow:F3:allocator-task1-route-1
-- arrow:F1:allocator-task1-route-2
-- arrow:F5:allocator-task1-route-2
-- arrow:F3:allocator-task1-route-2
-- arrow:F1:allocator-task2-route-1
-- arrow:F1:allocator-task2-route-2
-- arrow:F5:allocator-task2-route-2
-- arrow:F3:allocator-task2-route-2
-- arrow:F5:rollout-a2-to-next
-- arrow:F3:rollout-a2-to-next
-- arrow:F5:mapping-to-imagination
-- arrow:F3:mapping-to-imagination
-- arrow:F1:mapping-to-imagination
-- arrow:F2:mapping-to-imagination
-- arrow:F5:interaction-left
-- arrow:F3:interaction-left
-- arrow:F1:interaction-left
-- arrow:F2:interaction-left
-- arrow:F5:interaction-right
-- arrow:F3:interaction-right
-- arrow:F1:interaction-right
-- arrow:F2:interaction-right
-- arrow:F6:observation-to-wm
-- arrow:F6:allocator-task1-route-1
-- arrow:F6:allocator-task1-route-2
-- arrow:F6:allocator-task2-route-2
-- arrow:F6:imagination-z2-to-zh
-- arrow:F9:allocator-task1-route-2
-- live-evidence-missing
+- arrow-visual:task-input-to-encoder:shaft-width
+- arrow-visual:task-input-to-encoder:silhouette-bbox
+- arrow-visual:task-input-to-encoder:silhouette-mask
+- arrow-visual:task-input-to-encoder:silhouette-area
+- arrow-visual:task-input-to-encoder:end:head-bbox
+- arrow-visual:task-input-to-encoder:end:head-width
+- arrow-visual:task-input-to-encoder:end:head-silhouette
+- arrow-visual:task-input-to-encoder:end:head-direction
+- arrow-visual:task-input-to-encoder:end:head-not-distinct-from-shaft
+- arrow-visual:task-encoder-to-tau:shaft-width
+- arrow-visual:task-encoder-to-tau:silhouette-bbox
+- arrow-visual:task-encoder-to-tau:silhouette-mask
+- arrow-visual:task-encoder-to-tau:silhouette-area
+- arrow-visual:task-encoder-to-tau:end:head-bbox
+- arrow-visual:task-encoder-to-tau:end:head-width
+- arrow-visual:task-encoder-to-tau:end:head-silhouette
+- arrow-visual:task-encoder-to-tau:end:head-direction
+- arrow-visual:task-encoder-to-tau:end:head-not-distinct-from-shaft
+- arrow-visual:tau-to-mapping:shaft-width
+- arrow-visual:tau-to-mapping:silhouette-bbox
+- arrow-visual:tau-to-mapping:silhouette-mask
+- arrow-visual:tau-to-mapping:silhouette-area
+- arrow-visual:tau-to-mapping:end:head-bbox
+- arrow-visual:tau-to-mapping:end:head-width
+- arrow-visual:tau-to-mapping:end:head-silhouette
+- arrow-visual:tau-to-mapping:end:head-direction
+- arrow-visual:tau-to-mapping:end:head-not-distinct-from-shaft
+- arrow-visual:tau-to-allocator:shaft-width
+- arrow-visual:tau-to-allocator:silhouette-bbox
+- arrow-visual:tau-to-allocator:end:head-direction
+- arrow-visual:observation-to-mllm:silhouette-bbox
+- arrow-visual:observation-to-mllm:silhouette-mask
+- arrow-visual:observation-to-mllm:silhouette-area
+- arrow-visual:observation-to-mllm:end:head-bbox
+- arrow-visual:observation-to-mllm:end:head-width
+- arrow-visual:observation-to-mllm:end:head-silhouette
+- arrow-visual:observation-to-mllm:end:head-direction
+- arrow-visual:observation-to-wm:shaft-width
+- arrow-visual:observation-to-wm:silhouette-bbox
+- arrow-visual:observation-to-wm:silhouette-mask
+- arrow-visual:observation-to-wm:silhouette-area
+- arrow-visual:observation-to-wm:end:head-bbox
+- arrow-visual:observation-to-wm:end:head-width
+- arrow-visual:observation-to-wm:end:head-silhouette
+- arrow-visual:observation-to-wm:end:head-direction
+- arrow-visual:observation-to-wm:end:head-not-distinct-from-shaft
+- arrow-visual:mllm-to-ev:shaft-width
+- arrow-visual:mllm-to-ev:silhouette-bbox
+- arrow-visual:mllm-to-ev:silhouette-mask
+- arrow-visual:mllm-to-ev:silhouette-area
+- arrow-visual:mllm-to-ev:end:head-bbox
+- arrow-visual:mllm-to-ev:end:head-width
+- arrow-visual:mllm-to-ev:end:head-silhouette
+- arrow-visual:mllm-to-ev:end:head-direction
+- arrow-visual:mllm-to-ev:end:head-not-distinct-from-shaft
+- arrow-visual:wm-to-st:shaft-width
+- arrow-visual:wm-to-st:silhouette-bbox
+- arrow-visual:wm-to-st:silhouette-mask
+- arrow-visual:wm-to-st:silhouette-area
+- arrow-visual:wm-to-st:end:head-bbox
+- arrow-visual:wm-to-st:end:head-width
+- arrow-visual:wm-to-st:end:head-silhouette
+- arrow-visual:wm-to-st:end:head-direction
+- arrow-visual:wm-to-st:end:head-not-distinct-from-shaft
+- arrow-visual:ev-to-joint:shaft-width
+- arrow-visual:ev-to-joint:silhouette-bbox
+- arrow-visual:ev-to-joint:silhouette-mask
+- arrow-visual:ev-to-joint:silhouette-area
+- arrow-visual:ev-to-joint:end:head-bbox
+- arrow-visual:ev-to-joint:end:head-width
+- arrow-visual:ev-to-joint:end:head-silhouette
+- arrow-visual:ev-to-joint:end:head-direction
+- arrow-visual:ev-to-joint:end:head-not-distinct-from-shaft
+- arrow-visual:st-to-joint:shaft-width
+- arrow-visual:st-to-joint:silhouette-bbox
+- arrow-visual:st-to-joint:silhouette-mask
+- arrow-visual:st-to-joint:silhouette-area
+- arrow-visual:st-to-joint:end:head-bbox
+- arrow-visual:st-to-joint:end:head-width
+- arrow-visual:st-to-joint:end:head-silhouette
+- arrow-visual:st-to-joint:end:head-direction
+- arrow-visual:st-to-joint:end:head-not-distinct-from-shaft
+- arrow-visual:allocator-task1-route-1:silhouette-bbox
+- arrow-visual:allocator-task1-route-1:silhouette-area
+- arrow-visual:allocator-task1-route-1:end:head-direction
+- arrow-visual:allocator-task1-route-2:shaft-width
+- arrow-visual:allocator-task1-route-2:render:shaft-seed-not-unique
+- arrow-visual:allocator-task1-route-2:render:shaft-seed-center-not-foreground
+- arrow-visual:allocator-task1-route-2:render:missing-arrow
+- arrow-visual:allocator-task1-route-2:end:missing-render-head
+- arrow-visual:allocator-task1-skip-edge:render:tight-bbox-truncates-component
+- arrow-visual:allocator-task1-skip-edge:silhouette-bbox
+- arrow-visual:allocator-task1-skip-edge:silhouette-mask
+- arrow-visual:allocator-task1-skip-edge:silhouette-area
+- arrow-visual:allocator-task1-skip-edge:end:head-silhouette
+- arrow-visual:allocator-task1-skip-edge:end:head-direction
+- arrow-visual:allocator-task1-skip-edge:end:head-not-distinct-from-shaft
+- arrow-visual:imagination-z0-to-r0:render:tight-bbox-truncates-component
+- arrow-visual:imagination-z0-to-r0:silhouette-bbox
+- arrow-visual:imagination-z0-to-r0:end:head-silhouette
+- arrow-visual:imagination-z0-to-r0:end:head-direction
+- arrow-visual:imagination-z1-to-r1:silhouette-bbox
+- arrow-visual:imagination-z1-to-r1:end:head-direction
+- arrow-visual:imagination-z2-to-r2:shaft-width
+- arrow-visual:imagination-z2-to-r2:silhouette-bbox
+- arrow-visual:imagination-z2-to-r2:end:head-direction
+- arrow-visual:rollout-z0-to-r0:silhouette-bbox
+- arrow-visual:rollout-z0-to-r0:end:head-direction
+- arrow-visual:rollout-z1-to-r1:silhouette-bbox
+- arrow-visual:rollout-z1-to-r1:end:head-direction
+- arrow-visual:rollout-z2-to-r2:silhouette-bbox
+- arrow-visual:rollout-z2-to-r2:end:head-direction
+- arrow-visual:zt-top-to-imagination:silhouette-bbox
+- arrow-visual:zt-top-to-imagination:end:head-bbox
+- arrow-visual:zt-top-to-imagination:end:head-length
+- arrow-visual:zt-top-to-imagination:end:head-silhouette
+- arrow-visual:zt-top-to-imagination:end:head-direction
+- arrow-visual:zt-bottom-to-rollout:shaft-width
+- arrow-visual:zt-bottom-to-rollout:render:shaft-seed-not-unique
+- arrow-visual:zt-bottom-to-rollout:render:shaft-seed-center-not-foreground
+- arrow-visual:zt-bottom-to-rollout:render:missing-arrow
+- arrow-visual:zt-bottom-to-rollout:end:missing-render-head
+- arrow-visual:imagination-z0-to-z1:silhouette-bbox
+- arrow-visual:imagination-z0-to-z1:end:head-bbox
+- arrow-visual:imagination-z0-to-z1:end:head-length
+- arrow-visual:imagination-z0-to-z1:end:head-silhouette
+- arrow-visual:imagination-z0-to-z1:end:head-direction
+- arrow-visual:imagination-z1-to-z2:silhouette-bbox
+- arrow-visual:imagination-z1-to-z2:silhouette-mask
+- arrow-visual:imagination-z1-to-z2:end:head-bbox
+- arrow-visual:imagination-z1-to-z2:end:head-width
+- arrow-visual:imagination-z1-to-z2:end:head-length
+- arrow-visual:imagination-z1-to-z2:end:head-silhouette
+- arrow-visual:imagination-z1-to-z2:end:head-direction
+- arrow-visual:imagination-z2-to-zh:shaft-width
+- arrow-visual:imagination-z2-to-zh:render:shaft-seed-not-unique
+- arrow-visual:imagination-z2-to-zh:render:shaft-seed-center-not-foreground
+- arrow-visual:imagination-z2-to-zh:render:missing-arrow
+- arrow-visual:imagination-z2-to-zh:end:missing-render-head
+- arrow-visual:rollout-z0-to-z1:render:tight-bbox-truncates-component
+- arrow-visual:rollout-z0-to-z1:silhouette-bbox
+- arrow-visual:rollout-z0-to-z1:end:head-bbox
+- arrow-visual:rollout-z0-to-z1:end:head-length
+- arrow-visual:rollout-z0-to-z1:end:head-silhouette
+- arrow-visual:rollout-z0-to-z1:end:head-direction
+- arrow-visual:rollout-z1-to-z2:shaft-width
+- arrow-visual:rollout-z1-to-z2:render:shaft-seed-not-unique
+- arrow-visual:rollout-z1-to-z2:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-z1-to-z2:render:missing-arrow
+- arrow-visual:rollout-z1-to-z2:end:missing-render-head
+- arrow-visual:rollout-z2-to-zh:silhouette-bbox
+- arrow-visual:rollout-z2-to-zh:silhouette-mask
+- arrow-visual:rollout-z2-to-zh:end:head-bbox
+- arrow-visual:rollout-z2-to-zh:end:head-width
+- arrow-visual:rollout-z2-to-zh:end:head-length
+- arrow-visual:rollout-z2-to-zh:end:head-silhouette
+- arrow-visual:rollout-z2-to-zh:end:head-direction
+- arrow-visual:rollout-z0-to-pi0:silhouette-bbox
+- arrow-visual:rollout-z0-to-pi0:end:head-bbox
+- arrow-visual:rollout-z0-to-pi0:end:head-length
+- arrow-visual:rollout-z0-to-pi0:end:head-silhouette
+- arrow-visual:rollout-z0-to-pi0:end:head-direction
+- arrow-visual:rollout-z1-to-pi1:silhouette-bbox
+- arrow-visual:rollout-z1-to-pi1:end:head-bbox
+- arrow-visual:rollout-z1-to-pi1:end:head-length
+- arrow-visual:rollout-z1-to-pi1:end:head-silhouette
+- arrow-visual:rollout-z1-to-pi1:end:head-direction
+- arrow-visual:rollout-z2-to-pi2:shaft-width
+- arrow-visual:rollout-z2-to-pi2:render:shaft-seed-not-unique
+- arrow-visual:rollout-z2-to-pi2:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-z2-to-pi2:render:missing-arrow
+- arrow-visual:rollout-z2-to-pi2:end:missing-render-head
+- arrow-visual:rollout-pi0-to-a0:shaft-width
+- arrow-visual:rollout-pi0-to-a0:render:shaft-seed-not-unique
+- arrow-visual:rollout-pi0-to-a0:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-pi0-to-a0:render:missing-arrow
+- arrow-visual:rollout-pi0-to-a0:end:missing-render-head
+- arrow-visual:rollout-pi1-to-a1:shaft-width
+- arrow-visual:rollout-pi1-to-a1:render:shaft-seed-not-unique
+- arrow-visual:rollout-pi1-to-a1:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-pi1-to-a1:render:missing-arrow
+- arrow-visual:rollout-pi1-to-a1:end:missing-render-head
+- arrow-visual:rollout-pi2-to-a2:shaft-width
+- arrow-visual:rollout-pi2-to-a2:render:shaft-seed-not-unique
+- arrow-visual:rollout-pi2-to-a2:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-pi2-to-a2:render:missing-arrow
+- arrow-visual:rollout-pi2-to-a2:end:missing-render-head
+- arrow-visual:rollout-a0-to-z1:reference:tight-bbox-truncates-component
+- arrow-visual:rollout-a0-to-z1:shaft-width
+- arrow-visual:rollout-a0-to-z1:render:shaft-seed-not-unique
+- arrow-visual:rollout-a0-to-z1:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-a0-to-z1:render:missing-arrow
+- arrow-visual:rollout-a0-to-z1:end:missing-render-head
+- arrow-visual:rollout-a1-to-z2:reference:tight-bbox-truncates-component
+- arrow-visual:rollout-a1-to-z2:shaft-width
+- arrow-visual:rollout-a1-to-z2:render:shaft-seed-not-unique
+- arrow-visual:rollout-a1-to-z2:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-a1-to-z2:render:missing-arrow
+- arrow-visual:rollout-a1-to-z2:end:missing-render-head
+- arrow-visual:rollout-a2-to-next:shaft-width
+- arrow-visual:rollout-a2-to-next:render:shaft-seed-not-unique
+- arrow-visual:rollout-a2-to-next:render:shaft-seed-center-not-foreground
+- arrow-visual:rollout-a2-to-next:render:missing-arrow
+- arrow-visual:rollout-a2-to-next:end:missing-render-head
+- arrow-visual:mapping-to-imagination:shaft-width
+- arrow-visual:mapping-to-imagination:silhouette-bbox
+- arrow-visual:mapping-to-imagination:silhouette-mask
+- arrow-visual:mapping-to-imagination:silhouette-area
+- arrow-visual:mapping-to-imagination:end:head-width
+- arrow-visual:mapping-to-imagination:end:head-direction
+- arrow-visual:mapping-to-imagination:end:head-not-distinct-from-shaft
+- arrow-visual:joint-loop-arrow:end:head-width
+- arrow-visual:joint-loop-arrow:end:head-direction
+- arrow-visual:interaction-exchange:start:head-direction
+- arrow-visual:interaction-exchange:end:head-direction
+- arrow-visual:allocator-task1-skip-edge:end:scene-endpoint-coverage
+- arrow-visual:rollout-pi2-to-a2:end:scene-endpoint-coverage
+- arrow-visual:rollout-a0-to-z1:scene-path-binding
+- asset-contract:inventory-missing
+- ocr:svg-text-unmatched
+- ocr:reference-text-unmatched
+- bindings:save-reopen-not-verified
+- atomic-vector:atomic:environment-globe-vector:ink-contract-missing:environment-globe-creative-asset
+- atomic-vector:atomic:environment-globe-vector:fallback-required:atomic:environment-globe
+- math-summary:declaration-empty-or-incomplete
+- math-summary:existing-readback-unverified
+- math-summary:save-reopen-unverified
+- math-summary:bindings-hash-mismatch
+- math-summary:plan-hash-mismatch
+- reference-inventory:receipt-missing
+- source-gate:isolation:read-manifest-unverified
+- live-render-finalizer-unverified
+- live-evidence-operation-receipt-mismatch
+- live-root-save-reopen-missing
+- live-candidate-hash-mismatch
+- live-reopened-hash-mismatch
+- live-binding-evidence-hash-mismatch
+- live-evidence-bindings-mismatch
+- live-evidence-scene-mismatch
+- live-evidence-source-scene-mismatch
+- live-evidence-bridge-manifest-mismatch
+- live-evidence-inventory-file-mismatch
+- live-evidence-arrow-readback-mismatch
+- live-evidence-arrow-compile-mismatch
+- live-evidence-primitive-audit-mismatch
+- live-evidence-layout-audit-mismatch
+- live-evidence-regions-mismatch
+- live-evidence-render-mismatch
+- live-evidence-math-summary-mismatch
+- live-evidence-inventory-candidate-mismatch
+- live-evidence-bridge-source-scene-mismatch
+- live-region:task-guided-allocator-topology
+- live-region:encoder-peer-size-detail
+- live-region:expert-gap-arrow-text-detail
+- live-region:joint-feedback-arrow-detail
+- live-region:six-bicolor-state-circles
+- live-region:rollout-arrow-topology
+- live-region:observation-arrows
+- repair-plan:incomplete
 
-> strict 使用关键区域、箭头结构与可选 live 回读共同门禁；全图均值不能覆盖局部失败。
+## QA 状态六维度
+- offline_package_consistency: fail（1 项 blocker）
+- saved_reopened_consistency: fail（1 项 blocker）
+- reference_fidelity: fail（228 项 blocker）
+- repair_plan_coverage: fail（5 项 blocker）
+- repair_execution: fail（268 项 blocker）
+- release_eligibility: fail（6 项 blocker）
+- 维度明细: qa/qa-status.json
+
+> strict 使用关键区域、箭头/图元结构与所声明的 Live 回读共同门禁；全图均值不能覆盖局部失败。

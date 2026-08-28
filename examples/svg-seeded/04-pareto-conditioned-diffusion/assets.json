@@ -1,0 +1,112 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "assets",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "updated_at": "20260824T150521Z",
+  "policy": {
+    "formal_content_native": true,
+    "authorized_atomic_raster_only": true,
+    "whole_reference_forbidden": true
+  },
+  "assets": [],
+  "microasset_opportunity_map": [
+    {
+      "slot_id": "molecule-left",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        164,
+        100,
+        72,
+        43
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "molecule-right",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        849,
+        502,
+        72,
+        43
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "dna-left",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        170,
+        147,
+        66,
+        65
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "dna-right",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        1110,
+        465,
+        66,
+        65
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "balance",
+      "object_kind": "icon",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        137,
+        325,
+        58,
+        46
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "candlestick-left-top",
+      "object_kind": "plot",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        351,
+        119,
+        75,
+        62
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "candlestick-right",
+      "object_kind": "plot",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        649,
+        378,
+        75,
+        62
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    },
+    {
+      "slot_id": "noise-curve",
+      "object_kind": "plot",
+      "implementation": "native_editable_vector",
+      "reference_bbox": [
+        872,
+        80,
+        300,
+        111
+      ],
+      "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+    }
+  ]
+}

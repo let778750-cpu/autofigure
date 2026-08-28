@@ -1,0 +1,412 @@
+{
+  "case": "04-pareto-conditioned-diffusion",
+  "created_at": "20260824T120910Z",
+  "source_original_name": "reference.png",
+  "reference_path": "reference.png",
+  "source_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "width": 1217,
+  "height": 609,
+  "schema_version": "4.0.0",
+  "input_route": "svg-seeded",
+  "processing_mode": "svg_repair",
+  "fidelity_profile": "editable_native",
+  "backend_mode": "hybrid",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "workflow": {
+    "state": "qa_failed",
+    "revision": 15,
+    "history": [
+      {
+        "state": "prepared",
+        "at": "20260824T120910Z",
+        "reason": "run-created"
+      },
+      {
+        "state": "ready",
+        "at": "20260824T123608Z",
+        "reason": "reference-inventory-frozen"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T123900Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "case04-seeded-repair.svg",
+          "canonical_path": "scene.json"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T123955Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T123955Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "ab392a273a18a9c7e7c83a03e590331a3e741927e2dcbd180e059b89fcfd0f6d",
+          "object_count": 155,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T125120Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "case04-seeded-repair.svg",
+          "canonical_path": "scene.json"
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T132621Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "case04-seeded-repair-final.svg",
+          "canonical_path": "scene.json"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T132744Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T132745Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "1d916ee1617812e06852747c8d2308f5fc1dd988de63ac649c135f3e09e21d32",
+          "object_count": 159,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T132940Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "case04-seeded-repair-final.svg",
+          "canonical_path": "scene.json"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T134009Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T134009Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "033d40fd5fe4f72cb66b71d14534524cf37111e4756f69e391c052bb3ff341b8",
+          "object_count": 159,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T134746Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T134746Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "18161bdf40bbea6069c0e1e336aa48d249e7cf8a6bff192b26a7bf090e0d0834",
+          "object_count": 159,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T135451Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T140058Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:region-offline-title",
+            "region:region-sampling-title",
+            "region:region-static-dataset-label",
+            "region:region-reweighted-label",
+            "region:region-train-label",
+            "region:region-left-model-title",
+            "region:region-left-model-subtitle",
+            "region:region-target-label",
+            "region:region-objectives-label",
+            "region:region-condition-label",
+            "region:region-right-model-title",
+            "region:region-right-model-subtitle",
+            "region:region-noise-label",
+            "region:region-sample-label",
+            "region:region-designs-label",
+            "region:region-dataset-formula",
+            "region:region-reweighted-formula",
+            "region:region-blue-arrow-1",
+            "region:region-blue-arrow-2",
+            "region:region-condition-arrow",
+            "region:region-noise-arrow",
+            "region:region-sample-arrow",
+            "region:region-molecule-left",
+            "region:region-dna-left",
+            "region:region-balance",
+            "region:region-molecule-right",
+            "region:region-dna-right",
+            "region:region-candlestick-left",
+            "region:region-noise-curve",
+            "region:region-candlestick-right",
+            "region:region-left-panel",
+            "region:region-right-panel",
+            "region:region-dataset-cylinder",
+            "region:region-reweighted-cylinder",
+            "region:region-left-model-box",
+            "region:region-target-box",
+            "region:region-right-model-box",
+            "visual-contract:V5:molecule-left",
+            "visual-contract:V7:molecule-left",
+            "visual-contract:V5:dna-left",
+            "visual-contract:V7:dna-left",
+            "visual-contract:V5:molecule-right",
+            "visual-contract:V7:molecule-right",
+            "visual-contract:V5:dna-right",
+            "visual-contract:V7:dna-right",
+            "visual-contract:V5:candlestick-left-top",
+            "visual-contract:V7:candlestick-left-top",
+            "visual-contract:V5:candlestick-right",
+            "visual-contract:V7:candlestick-right",
+            "visual-contract:V7:dataset-cylinder",
+            "visual-contract:V7:reweighted-cylinder",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "live-evidence-missing",
+            "repair-plan:incomplete"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T150521Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T150521Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+          "object_count": 159,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T154154Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:region-offline-title",
+            "region:region-sampling-title",
+            "region:region-static-dataset-label",
+            "region:region-reweighted-label",
+            "region:region-train-label",
+            "region:region-left-model-title",
+            "region:region-left-model-subtitle",
+            "region:region-target-label",
+            "region:region-objectives-label",
+            "region:region-condition-label",
+            "region:region-right-model-title",
+            "region:region-right-model-subtitle",
+            "region:region-noise-label",
+            "region:region-sample-label",
+            "region:region-designs-label",
+            "region:region-dataset-formula",
+            "region:region-reweighted-formula",
+            "region:region-blue-arrow-1",
+            "region:region-blue-arrow-2",
+            "region:region-condition-arrow",
+            "region:region-noise-arrow",
+            "region:region-sample-arrow",
+            "region:region-molecule-left",
+            "region:region-dna-left",
+            "region:region-balance",
+            "region:region-molecule-right",
+            "region:region-dna-right",
+            "region:region-candlestick-left",
+            "region:region-noise-curve",
+            "region:region-candlestick-right",
+            "region:region-left-panel",
+            "region:region-right-panel",
+            "region:region-dataset-cylinder",
+            "region:region-reweighted-cylinder",
+            "region:region-left-model-box",
+            "region:region-target-box",
+            "region:region-right-model-box",
+            "visual-contract:V5:molecule-left",
+            "visual-contract:V7:molecule-left",
+            "visual-contract:V5:dna-left",
+            "visual-contract:V7:dna-left",
+            "visual-contract:V5:molecule-right",
+            "visual-contract:V7:molecule-right",
+            "visual-contract:V5:dna-right",
+            "visual-contract:V7:dna-right",
+            "visual-contract:V5:candlestick-left-top",
+            "visual-contract:V7:candlestick-left-top",
+            "visual-contract:V5:candlestick-right",
+            "visual-contract:V7:candlestick-right",
+            "visual-contract:V7:dataset-cylinder",
+            "visual-contract:V7:reweighted-cylinder",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "live-evidence-missing",
+            "repair-plan:incomplete"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T154703Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:region-offline-title",
+            "region:region-sampling-title",
+            "region:region-static-dataset-label",
+            "region:region-reweighted-label",
+            "region:region-train-label",
+            "region:region-left-model-title",
+            "region:region-left-model-subtitle",
+            "region:region-target-label",
+            "region:region-objectives-label",
+            "region:region-condition-label",
+            "region:region-right-model-title",
+            "region:region-right-model-subtitle",
+            "region:region-noise-label",
+            "region:region-sample-label",
+            "region:region-designs-label",
+            "region:region-dataset-formula",
+            "region:region-reweighted-formula",
+            "region:region-blue-arrow-1",
+            "region:region-blue-arrow-2",
+            "region:region-condition-arrow",
+            "region:region-noise-arrow",
+            "region:region-sample-arrow",
+            "region:region-molecule-left",
+            "region:region-dna-left",
+            "region:region-balance",
+            "region:region-molecule-right",
+            "region:region-dna-right",
+            "region:region-candlestick-left",
+            "region:region-noise-curve",
+            "region:region-candlestick-right",
+            "region:region-left-panel",
+            "region:region-right-panel",
+            "region:region-dataset-cylinder",
+            "region:region-reweighted-cylinder",
+            "region:region-left-model-box",
+            "region:region-target-box",
+            "region:region-right-model-box",
+            "visual-contract:V5:molecule-left",
+            "visual-contract:V7:molecule-left",
+            "visual-contract:V5:dna-left",
+            "visual-contract:V7:dna-left",
+            "visual-contract:V5:molecule-right",
+            "visual-contract:V7:molecule-right",
+            "visual-contract:V5:dna-right",
+            "visual-contract:V7:dna-right",
+            "visual-contract:V5:candlestick-left-top",
+            "visual-contract:V7:candlestick-left-top",
+            "visual-contract:V5:candlestick-right",
+            "visual-contract:V7:candlestick-right",
+            "visual-contract:V7:dataset-cylinder",
+            "visual-contract:V7:reweighted-cylinder",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "live-evidence-missing"
+          ]
+        }
+      }
+    ]
+  },
+  "validation": {
+    "profile": "strict",
+    "status": "failed",
+    "checked_at": "20260824T154703Z",
+    "blockers": [
+      "region:region-offline-title",
+      "region:region-sampling-title",
+      "region:region-static-dataset-label",
+      "region:region-reweighted-label",
+      "region:region-train-label",
+      "region:region-left-model-title",
+      "region:region-left-model-subtitle",
+      "region:region-target-label",
+      "region:region-objectives-label",
+      "region:region-condition-label",
+      "region:region-right-model-title",
+      "region:region-right-model-subtitle",
+      "region:region-noise-label",
+      "region:region-sample-label",
+      "region:region-designs-label",
+      "region:region-dataset-formula",
+      "region:region-reweighted-formula",
+      "region:region-blue-arrow-1",
+      "region:region-blue-arrow-2",
+      "region:region-condition-arrow",
+      "region:region-noise-arrow",
+      "region:region-sample-arrow",
+      "region:region-molecule-left",
+      "region:region-dna-left",
+      "region:region-balance",
+      "region:region-molecule-right",
+      "region:region-dna-right",
+      "region:region-candlestick-left",
+      "region:region-noise-curve",
+      "region:region-candlestick-right",
+      "region:region-left-panel",
+      "region:region-right-panel",
+      "region:region-dataset-cylinder",
+      "region:region-reweighted-cylinder",
+      "region:region-left-model-box",
+      "region:region-target-box",
+      "region:region-right-model-box",
+      "visual-contract:V5:molecule-left",
+      "visual-contract:V7:molecule-left",
+      "visual-contract:V5:dna-left",
+      "visual-contract:V7:dna-left",
+      "visual-contract:V5:molecule-right",
+      "visual-contract:V7:molecule-right",
+      "visual-contract:V5:dna-right",
+      "visual-contract:V7:dna-right",
+      "visual-contract:V5:candlestick-left-top",
+      "visual-contract:V7:candlestick-left-top",
+      "visual-contract:V5:candlestick-right",
+      "visual-contract:V7:candlestick-right",
+      "visual-contract:V7:dataset-cylinder",
+      "visual-contract:V7:reweighted-cylinder",
+      "ocr:reference-text-unmatched",
+      "bindings:save-reopen-not-verified",
+      "live-evidence-missing"
+    ]
+  },
+  "active_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-3277fdec1063c13f",
+    "scene_sha256": "3277fdec1063c13fe39035016e965e10101c26824d4d40f2b55896a246a5f76d",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+    "artifacts": {
+      "redraw_svg": "7c9af0152daf291939c305da3a167a021f668a72ba36ea3981bb1bfd12452384",
+      "redraw_pptx": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+      "render_png": "5e14d80153e138ce2533b8bb0b586f66b35fb2c6b0bf17d198179d1589a7b83c",
+      "bindings": "9b2125b5476d185279da1c744d8ef0326a34b7fb987108c7a50ac79e9c1cd0b3"
+    },
+    "stamped_at": "20260828T090928Z"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_scene_bridge",
+  "ready": true,
+  "release_authority": "NONE",
+  "path_base": "autofigure-case-root",
+  "autofigure_case_root": ".",
+  "case_root": "qa/powerpoint-live-case",
+  "project_id": "autofigure-02-thinking-diffusion",
+  "target_id": "autofigure-pptx",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+  "source_candidate_sha256": "33d2818c41a6e2d8adec143a5c2193950c13e7f8c4668631e265a2079a6a9f05",
+  "source_bindings_sha256": "fba8f078cfa9539e50bbe675420fd2554a8b17aca44b9f8dde2b794997d05198",
+  "source_math_summary_sha256": "0d3dee2e72f8c6e025258d10e4fe6d56f16dc9fb160cd5dce0cbe43602dacba5",
+  "source_math_pptx_sha256": "33d2818c41a6e2d8adec143a5c2193950c13e7f8c4668631e265a2079a6a9f05",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "source_scene_schema_version": "3.1.0",
+  "source_scene_sha256": "9486ad97b685f6f9e08ce48a7abadc03cc51aaa5a71f0417c6a3897da2a195ae",
+  "adapter_scene_schema_version": "2.1.0",
+  "adapter_scene_sha256": "8330046a4e2b49e39cc674640615a6043243f60f154706fcfdeffd316f00daba",
+  "element_count": 156,
+  "contract_files": {
+    "project_state.json": "ba4dd399bd440ff273d8dca8890f67b74b44807bf9e68e935b63510f4a45476c",
+    "input/source_manifest.json": "8c90a68c95d6d23a886ff0dac1963922d14c0f5f526c89b508ea9a1d614ae4e5",
+    "design/scene_graph.json": "8330046a4e2b49e39cc674640615a6043243f60f154706fcfdeffd316f00daba",
+    "design/render_plan.json": "fecf9971b5ee2141e5e14413c508c827a64ccbf656ab5535eeafc9ef28d0505c",
+    "design/scientific_spec.json": "27bb54c2ba6aa7e6a229dea195685d9b9d9cb5d3b66779c76c8bd2c5c1f7b612",
+    "assets/asset_manifest.json": "d8a371fa26b5d7e77cb1fe4a5d43099b6f608e2018c78c81e326bfd57e5c3483",
+    "assets/evidence_provenance.json": "0be45cd2479be926a5d3dc1dd6da5f9b3622279c41043f361289acf1c4d94f2f"
+  },
+  "mutation_policy": {
+    "arrow_authoring_allowed": false,
+    "arrow_operations": [
+      "inspect",
+      "audit",
+      "save-reopen"
+    ],
+    "offline_compiler_is_authoritative": true
+  },
+  "provider_capability_fingerprint_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+  "arrow_spec_hashes": {
+    "arrow-left-input-to-model": "3ffe9cdc8f5f061c55ce1ec952b712fedc2dde46c96ef5708f2194d5b2fc38a4",
+    "arrow-left-model-to-early-step": "fda3382bea4aae9e54da4ff5ea82ccc618e7c9f617070db963bd908a872675ca",
+    "arrow-left-to-later-step": "814543cc03ba5312a69b42a86343b96829dbe9e87000d705708642bf3f9e55a1",
+    "arrow-right-input-to-model": "d9d2990749d4db18c0f9d45867d0fa1035aff65a9a51f3eb016c2b75d024da53",
+    "arrow-right-model-to-early-step": "ea2d49f84482f4086ef839b0e6351c249977a2d2322b9c9d68623cd4604c8b9c",
+    "arrow-right-to-later-step": "e7e136ff9f33cc6b22a45e192f198b21761f1ce4933aff86d4e706c0a497217a"
+  }
+}

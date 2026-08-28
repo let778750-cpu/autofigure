@@ -1,0 +1,936 @@
+{
+  "case": "02-thinking-diffusion-reference-only",
+  "created_at": "20260822T130717Z",
+  "source_original_name": "reference.png",
+  "reference_path": "reference.png",
+  "source_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "width": 1513,
+  "height": 554,
+  "schema_version": "4.0.0",
+  "input_route": "reference-only",
+  "processing_mode": "png_reconstruct",
+  "fidelity_profile": "hybrid_fidelity",
+  "backend_mode": "hybrid",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "workflow": {
+    "state": "qa_failed",
+    "revision": 65,
+    "history": [
+      {
+        "state": "prepared",
+        "at": "20260822T130717Z",
+        "reason": "run-created"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T132625Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T132704Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T133021Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T133043Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T133044Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "7d3768adade85d2e1533039a116bdef8641f780f8a51cf8ca0bf230b2c3772c9",
+          "object_count": 141,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T140304Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T140409Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate-fixed.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T140426Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T140427Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "b90a9f29d08c5aa7bfe1eb0d4fb0ba12ad0297d9a03b24c4f82a46b7f809851d",
+          "object_count": 145,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T141721Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T141741Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T141742Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "f9dba8e9c69c4e9019bcb24083c9f689399a5b27322fd350dd2f2bb2d998ca0c",
+          "object_count": 145,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T143356Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T143417Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T143417Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6c95f088e14973a3435ac2c10ff429ca27ffd0b079553457006a1011d0e58aca",
+          "object_count": 145,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T144228Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T144248Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T144248Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "8099eee51c3bb30423ea61be2eb58b36a24c51a49c78458e5b8140c246f1de15",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T144621Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T150409Z",
+        "reason": "ingested:svg",
+        "details": {
+          "source_name": "candidate.svg",
+          "canonical_path": "redraw.svg"
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T150421Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T150421Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "31c143984bb7957e2616295118f57135378179dfc536b2fe85f0ae4065aa4a28",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T150534Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T151336Z",
+        "reason": "powerpoint-live-evidence-ingested"
+      },
+      {
+        "state": "approved",
+        "at": "20260822T151428Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T174551Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T174608Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "2bdcb228dc51fea1125979c27b8e8c003b8510646d018383d696b4ceb8aae0dc",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T174701Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T174701Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "5dfe1d7ed3fd766d975d35a041f047adcccff23420195b1ae66f0dc3e46c667a",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260822T175139Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260822T175849Z",
+        "reason": "powerpoint-live-candidate-published"
+      },
+      {
+        "state": "approved",
+        "at": "20260822T175859Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260822T181830Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260822T182231Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T021715Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T023939Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T023940Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "83ed9751ca7b8b663622eb61f339324eda92b865b1b8a89e39cc8362951cab5a",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T024106Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T024459Z",
+        "reason": "powerpoint-live-candidate-published"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T024510Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-provider-capabilities-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T024945Z",
+        "reason": "powerpoint-live-candidate-published"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T024955Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T025609Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T032032Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T032032Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "1a652fd186fe2dfe44c290e60d72ddee5a820e2a3480e082078613bbae666c46",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T032248Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T032559Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "3e4079309b12d39a32516c72fa315ba2ee975ccbc79fc381c27fd17a0b9def92",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T032815Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T033012Z",
+        "reason": "powerpoint-live-candidate-published"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T033023Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T033358Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T034020Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "approved",
+        "at": "20260823T040113Z",
+        "reason": "strict-check-passed"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T124538Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "arrow:A12_SPEC_INVALID:left-input-to-model-arrow:schema-version",
+            "arrow:A12_SPEC_INVALID:left-model-to-early-arrow:schema-version",
+            "arrow:A12_SPEC_INVALID:left-transition-to-late-arrow:schema-version",
+            "arrow:A12_SPEC_INVALID:right-input-to-model-arrow:schema-version",
+            "arrow:A12_SPEC_INVALID:right-model-to-early-arrow:schema-version",
+            "arrow:A12_SPEC_INVALID:right-transition-to-late-arrow:schema-version",
+            "live-render-finalizer-unverified",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T124754Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T124754Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "0ff92bfece9b9bba261d1ab5efed287c92eb76da6a1790fc03746e3b7bd2ae02",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T124956Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T130030Z",
+        "reason": "powerpoint-live-save-reopen-only-published"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T130211Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "live-render-finalizer-unverified"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T181515Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T181654Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "bbdacc536a079e47ec42a7a633047eeb31ad3fcff8d3b39194197cc9f1f89aac",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T181907Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T181908Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "4875c524bef4d82ddd3be77a64001c2c393213eb53925b8ee8ae7ba3d2ad19a2",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T181951Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T182415Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:left-early-step",
+            "region:left-late-step",
+            "region:right-early-step",
+            "region:right-late-step",
+            "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+            "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+            "bindings:save-reopen-not-verified",
+            "live-render-finalizer-unverified",
+            "live-operation-receipt-binding-mismatch",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-bridge-manifest-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-render-mismatch",
+            "live-evidence-inventory-candidate-mismatch",
+            "live-evidence-bridge-source-scene-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T191650Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:left-early-step",
+            "region:left-late-step",
+            "region:right-early-step",
+            "region:right-late-step",
+            "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+            "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+            "bindings:save-reopen-not-verified",
+            "live-render-finalizer-unverified",
+            "live-operation-receipt-binding-mismatch",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-bridge-manifest-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-render-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch",
+            "live-evidence-bridge-source-scene-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T121539Z",
+        "reason": "schema-v4-migration-evidence-refreshed"
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T132551Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T132551Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6d5cf85ec2c094529752aba20aad15188a674c53ccfdcbac9f601f9be863ab42",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T132827Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:left-early-step",
+            "region:left-late-step",
+            "region:right-early-step",
+            "region:right-late-step",
+            "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+            "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:isolation:read-manifest-unverified",
+            "live-render-finalizer-unverified",
+            "live-operation-receipt-binding-mismatch",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-bridge-manifest-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-render-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch",
+            "live-evidence-bridge-source-scene-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T134019Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T134020Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "d144199463c0844e710eda0755b9e6914879738f4ca9923e2926b5b99c9ae974",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T134047Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:left-early-step",
+            "region:left-late-step",
+            "region:right-early-step",
+            "region:right-late-step",
+            "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+            "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:isolation:read-manifest-unverified",
+            "live-render-finalizer-unverified",
+            "live-operation-receipt-binding-mismatch",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-bridge-manifest-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-render-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch",
+            "live-evidence-bridge-source-scene-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T134755Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T134756Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "cbd1895a29c7101b75b46ce255b98e38e6b3df9e83ebd7e4f4ec7dae790b2c4a",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T134817Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:left-early-step",
+            "region:left-late-step",
+            "region:right-early-step",
+            "region:right-late-step",
+            "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+            "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:isolation:read-manifest-unverified",
+            "live-render-finalizer-unverified",
+            "live-operation-receipt-binding-mismatch",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-bridge-manifest-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-render-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch",
+            "live-evidence-bridge-source-scene-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T153713Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T153713Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+          "object_count": 147,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T154302Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "region:left-early-step",
+            "region:left-late-step",
+            "region:right-early-step",
+            "region:right-late-step",
+            "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+            "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+            "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+            "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+            "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+            "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+            "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+            "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+            "asset-contract:inventory-missing",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:isolation:read-manifest-unverified",
+            "live-render-finalizer-unverified",
+            "live-operation-receipt-binding-mismatch",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-bridge-manifest-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-render-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch",
+            "live-evidence-bridge-source-scene-mismatch"
+          ]
+        }
+      }
+    ]
+  },
+  "validation": {
+    "profile": "strict",
+    "status": "failed",
+    "checked_at": "20260824T154302Z",
+    "blockers": [
+      "region:left-early-step",
+      "region:left-late-step",
+      "region:right-early-step",
+      "region:right-late-step",
+      "arrow-visual:left-input-to-model-arrow-physical:silhouette-bbox",
+      "arrow-visual:left-input-to-model-arrow-physical:end:head-bbox",
+      "arrow-visual:left-input-to-model-arrow-physical:end:head-width",
+      "arrow-visual:left-input-to-model-arrow-physical:end:head-length",
+      "arrow-visual:left-input-to-model-arrow-physical:end:head-direction",
+      "arrow-visual:left-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+      "arrow-visual:left-model-to-early-arrow-physical:silhouette-bbox",
+      "arrow-visual:left-model-to-early-arrow-physical:end:head-direction",
+      "arrow-visual:left-transition-to-late-arrow-physical:silhouette-bbox",
+      "arrow-visual:left-transition-to-late-arrow-physical:end:head-direction",
+      "arrow-visual:right-input-to-model-arrow-physical:silhouette-bbox",
+      "arrow-visual:right-input-to-model-arrow-physical:end:head-bbox",
+      "arrow-visual:right-input-to-model-arrow-physical:end:head-width",
+      "arrow-visual:right-input-to-model-arrow-physical:end:head-length",
+      "arrow-visual:right-input-to-model-arrow-physical:end:head-silhouette",
+      "arrow-visual:right-input-to-model-arrow-physical:end:head-direction",
+      "arrow-visual:right-model-to-early-arrow-physical:render:tight-bbox-truncates-component",
+      "arrow-visual:right-model-to-early-arrow-physical:silhouette-bbox",
+      "arrow-visual:right-model-to-early-arrow-physical:end:head-direction",
+      "arrow-visual:right-transition-to-late-arrow-physical:render:tight-bbox-truncates-component",
+      "arrow-visual:right-transition-to-late-arrow-physical:end:head-direction",
+      "asset-contract:inventory-missing",
+      "ocr:reference-text-unmatched",
+      "bindings:save-reopen-not-verified",
+      "reference-inventory:receipt-missing",
+      "source-gate:isolation:read-manifest-unverified",
+      "live-render-finalizer-unverified",
+      "live-operation-receipt-binding-mismatch",
+      "live-root-save-reopen-missing",
+      "live-candidate-hash-mismatch",
+      "live-reopened-hash-mismatch",
+      "live-binding-evidence-hash-mismatch",
+      "live-evidence-bindings-mismatch",
+      "live-evidence-scene-mismatch",
+      "live-evidence-bridge-manifest-mismatch",
+      "live-evidence-arrow-readback-mismatch",
+      "live-evidence-arrow-compile-mismatch",
+      "live-evidence-primitive-audit-mismatch",
+      "live-evidence-layout-audit-mismatch",
+      "live-evidence-regions-mismatch",
+      "live-evidence-render-mismatch",
+      "live-evidence-math-summary-mismatch",
+      "live-evidence-inventory-candidate-mismatch",
+      "live-evidence-bridge-source-scene-mismatch"
+    ]
+  },
+  "active_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-f57ac8c9949faa13",
+    "scene_sha256": "f57ac8c9949faa13ca6309d0cbd71295c9416ac3a0211381d4ac96fe4529ff54",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+    "artifacts": {
+      "redraw_svg": "691ee11efbcc24a0c2442a3301ea53a1cf5d8610d8a903651a917c1ca6d524d9",
+      "redraw_pptx": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+      "render_png": "584fe6379574f5a8cb355655815bfaec3985786a4f51fe91d16a1688c1d3d37f",
+      "bindings": "4387341c3adf34f90a0e659e6c57a990438a7a670c180fe013c0f495df9e1246"
+    },
+    "stamped_at": "20260828T090928Z"
+  }
+}

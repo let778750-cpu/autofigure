@@ -8,30 +8,37 @@
 每个案例根都是唯一、扁平的工作单元：输入、当前候选、交付物和合同均在根目录，机器证据统一在 `qa/`；不得再创建平行版本目录。案例历史由版本控制承担。
 
 <!-- AUTOFIGURE_CASE_INDEX:START -->
-| 输入路线 | 案例 | 当前处理模式 | 工作流 | 最近验证 |
-|---|---|---|---|---|
-| `reference-only` | [`01-modular-agent-reference-only/`](reference-only/01-modular-agent-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` |
-| `svg-seeded` | [`01-modular-agent/`](svg-seeded/01-modular-agent/) | `png_reconstruct` | `qa_failed` | `failed` |
-| `svg-seeded` | [`02-thinking-diffusion/`](svg-seeded/02-thinking-diffusion/) | `svg_import` | `candidate` | `diagnostic` |
-| `svg-seeded` | [`03-llmind/`](svg-seeded/03-llmind/) | `svg_import` | `candidate` | `diagnostic` |
+| 输入路线 | 案例 | 当前处理模式 | 工作流 | 最近验证 | 关键区通过 | blocker 去重数 |
+|---|---|---|---|---|---|---|
+| `reference-only` | [`01-modular-agent-reference-only/`](reference-only/01-modular-agent-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` | 2/10 | 279 |
+| `reference-only` | [`02-thinking-diffusion-reference-only/`](reference-only/02-thinking-diffusion-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` | 4/8 | — |
+| `reference-only` | [`04-pareto-conditioned-diffusion-reference-only/`](reference-only/04-pareto-conditioned-diffusion-reference-only/) | `png_reconstruct` | `qa_failed` | `failed` | 0/28 | — |
+| `reference-only` | [`05-sting-autophagy-reference-only/`](reference-only/05-sting-autophagy-reference-only/) | `png_reconstruct` | `ready` | `not_run` | — | — |
+| `svg-seeded` | [`01-modular-agent/`](svg-seeded/01-modular-agent/) | `png_reconstruct` | `qa_failed` | `failed` | 5/12 | — |
+| `svg-seeded` | [`02-thinking-diffusion/`](svg-seeded/02-thinking-diffusion/) | `png_reconstruct` | `qa_failed` | `failed` | 18/18 | — |
+| `svg-seeded` | [`03-llmind/`](svg-seeded/03-llmind/) | `png_reconstruct` | `qa_failed` | `diagnostic` | 0/0 | — |
+| `svg-seeded` | [`04-pareto-conditioned-diffusion/`](svg-seeded/04-pareto-conditioned-diffusion/) | `svg_repair` | `qa_failed` | `failed` | 1/38 | — |
+| `svg-seeded` | [`05-sting-autophagy/`](svg-seeded/05-sting-autophagy/) | `svg_repair` | `candidate` | `diagnostic` | 0/1 | 1117 |
 <!-- AUTOFIGURE_CASE_INDEX:END -->
 
 ## 受控 ModularAgent A/B
 
 同一冻结参考图的两条真实路线：
 
-- `svg-seeded/01-modular-agent/`：历史上使用过 GPT Web SVG，当前处理模式为 `png_reconstruct`，strict 仍有 5 个 blocker。
-- `reference-only/01-modular-agent-reference-only/`：只从自己的 `reference.png` 构建，禁止读取上一个案例的 SVG、PPTX、scene、bindings、assets、裁剪文件和候选坐标。
+- `svg-seeded/01-modular-agent/`：历史上使用过 GPT Web SVG，当前处理模式为 `png_reconstruct`；关键区与 blocker 数见上方生成索引，blocker 集中在箭头视觉物理门禁、保存重开绑定和 Live evidence。
+- `reference-only/01-modular-agent-reference-only/`：只从自己的 `reference.png` 构建，禁止读取上一个案例的 SVG、PPTX、scene、bindings、assets、裁剪文件和候选坐标；关键区与 blocker 去重数见上方生成索引。
 
 统一报告：[`route-comparison-modular-agent-route-ab.md`](route-comparison-modular-agent-route-ab.md)，机器指标见同名 JSON。
 
-当前结论必须原样表述为：**reference-only 全链路真实跑通，但严格质量尚未验证成熟**。它生成了可编辑 PPTX、原生公式、对象绑定、PowerPoint 保存重开和实时画布审计证据；但只有 2/6 个关键区通过，不能标记 `approved`。通过的两区恰好是 observation 与 environment globe 的授权紧边界 PNG 微资产，二者 SSIM/Edge IoU 均为 1.0，证明“从本案例参考 PNG 裁剪微资产”的机制有效，而不是证明整图一比一完成。
+当前结论必须原样表述为：**reference-only 已生成可编辑 PPTX、原生公式和对象绑定，但当前根候选尚未闭合 PowerPoint 保存重开证据，严格质量也未达标**。关键区通过数以生成索引为准，未全通过不能标记 `approved`。通过区中 observation 与 environment globe 为授权紧边界 PNG 微资产，二者 SSIM/Edge IoU 均为 1.0，证明“从本案例参考 PNG 裁剪微资产”的机制有效，而不是证明整图一比一完成。
 
 ## 历史案例状态
 
-- `svg-seeded/01-modular-agent/`：`qa_failed`。Task-Guided 路径、六个双色圆、rollout、observation 箭头和 live evidence 仍阻断 strict；全图均值不能覆盖这些失败。
-- `svg-seeded/02-thinking-diffusion/`：`candidate`。已重新生成 v3.1 可移植合同和 PowerPoint 保存重开证据；只有 standard 诊断，没有关键区定义，不能追认为 strict approved。
-- `svg-seeded/03-llmind/`：`candidate`。已重新转换并注入 6 个原生公式；同样缺少关键区定义，只保留 standard 诊断状态。
+- `svg-seeded/01-modular-agent/`：`qa_failed`。箭头视觉物理门禁、Task-Guided 路径、六个双色圆、rollout、保存重开绑定和 live evidence 仍阻断 strict；全图均值不能覆盖这些失败。
+- `svg-seeded/02-thinking-diffusion/`：`qa_failed`。schema 4.0 下全部关键区与箭头物理门禁已通过，剩余 blocker 集中在保存重开与 Live 证据链未闭合，不能追认为 approved；具体数量见生成索引。
+- `svg-seeded/03-llmind/`：`qa_failed`（diagnostic）。已重新转换并注入 6 个原生公式；仍缺少关键区定义，只保留 standard 诊断状态。
+
+> 本文件中所有案例数字均由 `autofigure cases --write-index` 从各案例 `qa/` 机器证据生成；六维 `qa-status.json` 目前仅在部分案例上执行，未执行处显示 `—`。
 
 ## 案例文件约定
 
@@ -44,9 +51,28 @@
 | `redraw.pptx` | 当前原生可编辑候选/交付物 |
 | `scene.json` | 对象 ID、角色、几何、层级与连接拓扑 |
 | `assets.json` | 微资产来源、授权、bbox 与可编辑性 |
-| `regions.json` | 关键区域、颜色探针与验收阈值 |
+| `regions.json` | 关键区域、箭头可视合同、closed-world `reference_inventory` 与验收阈值 |
 | `bindings.json` | 场景对象到保存重开后的 PowerPoint shape 绑定 |
-| `qa/` | 区域、箭头、布局、OCR、像素、公式和 PowerPoint Live 证据 |
+| `render.png` / `preview.png` | COM fresh render / 上原图下重建的对照图（`qa/diff.png` 为差异热图） |
+
+### qa/ 机器证据分工
+
+| 文件 | 角色 | 消费者 |
+|---|---|---|
+| `reference-oracle.json` | 本案例持有的参考真值副本；同参考图全部副本必须一致（freeze 对等校验 + `cases --check` 巡检） | freeze / check / compare |
+| `reference-inventory-receipt.json` / `asset-contract-receipt.json` | 冻结动作哈希收据 | ingest / check |
+| `source-gate-report.json` | 已摄取候选的 gate 决策 | check 六维 |
+| `external-seed-source-gate-report.json` | seed 在 freeze 时的预检决策（svg-seeded） | provenance 链 |
+| `arrow-compile-report.json` / `powerpoint-arrow-readback.json` | ArrowSpec 编译 / PowerPoint 读回 | strict 门禁 |
+| `arrow-visual-report.json` | 箭头物理像素合同执行 | strict 门禁 |
+| `arrows-audit.json` | `autofigure arrows` 命令的 advisory SVG 结构审计（check 只读不写；缺失时 A/B 对比降级为 0） | compare / 人工 |
+| `regions-report.json` / `visual-contracts-report.json` / `layout-audit.json` | 区域 / 视觉合同 / 布局审计 | 六维 QA |
+| `qa-status.json` / `blockers.json` | 六维状态 / blocker 全集 | release / 索引 |
+| `qa-lineage-manifest.json` | qa 证据哈希索引 | 完整性 |
+| `math-summary.json`、`atomic-vector-report.json`、`repair-plan.json`、`provider-capabilities.json` 等 | 显式零值/快照证据（closed-world：缺席语义必须由显式零记录承载） | 六维 QA |
+
+> 双案例（A/B 双路线）各自持有一份相同合同与 oracle 副本是有意的：案例是自包含工作单元，
+> 一致性由 freeze 对等校验与 `oracle-divergence` 巡检机器保证，而非共享文件。
 
 ## 一致性检查
 

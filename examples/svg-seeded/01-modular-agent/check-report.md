@@ -1,16 +1,25 @@
 # check 报告（strict） — 01-modular-agent
 
 ## 像素诊断（figure_lint，软信号）
-- mean_abs_rgb_delta: 14.7877
-- changed_pixel_ratio: 37.1845%
-- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 31.3577, 'loss_contribution_pct': 7.1025}
-- ssim: 0.7762
+- mean_abs_rgb_delta: 14.3885
+- changed_pixel_ratio: 37.0657%
+- top_roi: {'bbox': {'x': 1000, 'y': 480, 'w': 400, 'h': 80}, 'mean_abs_rgb_delta': 31.3541, 'loss_contribution_pct': 7.2996}
+- ssim: 0.7812
 - diff 图: qa/diff.png
 - 对照预览: preview.png
-- 关键区域 strict_pass: False（6 个关键区域）
+- 关键区域 strict_pass: False（12 个关键区域）
 - 区域明细: qa/regions-report.json
 - 布局合同: PASS（0 项）
 - 布局明细: qa/layout-audit.json
+- 箭头视觉物理门禁: FAIL（41 个合同）
+- ArrowSpec 编译: PASS（41 个逻辑箭头）
+- PowerPoint 箭头读回: PASS
+- 语义图元: PASS（0 个）
+- AssetSpec 资产合同: PASS（0 个逻辑资产，0 个成员读回）
+- 冻结资产输入 receipt: FAIL（1 项）
+- 字体/图标尺度/重叠合同: PASS（0 个冻结对象）
+- PowerPoint Live 箭头创作: DISABLED / inspect-only
+- 结构证据: qa/arrow-visual-report.json、qa/arrow-compile-report.json、qa/powerpoint-arrow-readback.json、qa/primitive-audit.json、qa/asset-spec-audit.json、qa/asset-contract-receipt.json、qa/visual-contracts-report.json、qa/provider-capabilities.json
 
 ## 文本比对（SVG 文字 vs 参考图 OCR）
 - SVG 侧未匹配 1 条（可能：VLM 错字 / OCR 漏识 / 粒度差异）
@@ -47,18 +56,327 @@
 
 ## 箭头结构审计（arrows，advisory）
 
-- 箭头单元 41（marker 引用 42 处，marker 定义 8 个）；头/线宽比例中位数 5.0（合理带 [1.5, 4.0]）
-- F1 锚点未对齐尖端 0 处 · F2 头/线宽比例失调 0 处 · F3 端点悬空 0 处 · orient 非 auto 0 处 · 手折箭羽 0 组
+- 箭头单元 41（marker 引用 42 处，marker 定义 9 个）；头/线宽比例中位数 5.0（合理带 [1.5, 4.0]）
+- F1 锚点未对齐尖端 0 处 · F2 头/线宽比例失调 23 处 · F3 端点悬空 0 处 · orient 非 auto 0 处 · 手折箭羽 0 组
+
+### 逐条发现
+- [F2] line#imagination-z0-to-z1 end 端点 (1104,182) marker=arr-gold: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#imagination-z1-to-z2 end 端点 (1202,182) marker=arr-gold: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#imagination-z2-to-zh end 端点 (1334,182) marker=arr-gold: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#imagination-z0-to-r0 end 端点 (1032,226) marker=arr-mixture: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] line#imagination-z1-to-r1 end 端点 (1129,226) marker=arr-mixture: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] line#imagination-z2-to-r2 end 端点 (1228,226) marker=arr-mixture: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] path#top-mixture-to-rollout end 端点 (1009,314) marker=arr-mixture: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] path#bottom-mixture-to-rollout end 端点 (1009,326) marker=arr-mixture: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#rollout-z0-to-z1 end 端点 (1105,314) marker=arr-gold: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#rollout-z1-to-z2 end 端点 (1202,314) marker=arr-gold: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#rollout-z2-to-zh end 端点 (1333,314) marker=arr-gold: head/stroke ratio 5.00 is outside [1.5, 4]
+- [F2] line#rollout-z0-to-pi0 end 端点 (1033,407) marker=arr-gold: head/stroke ratio 5.62 is outside [1.5, 4]
+- [F2] line#rollout-z1-to-pi1 end 端点 (1131,407) marker=arr-gold: head/stroke ratio 5.62 is outside [1.5, 4]
+- [F2] line#rollout-z2-to-pi2 end 端点 (1230,407) marker=arr-gold: head/stroke ratio 5.62 is outside [1.5, 4]
+- [F2] path#rollout-pi0-to-a0 end 端点 (1083,396) marker=arr-gold: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] path#rollout-pi1-to-a1 end 端点 (1180,396) marker=arr-gold: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] path#rollout-pi2-to-a2 end 端点 (1279,396) marker=arr-gold: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] path#rollout-a0-to-z1 end 端点 (1129,333) marker=arr-gold: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] path#rollout-a1-to-z2 end 端点 (1227,333) marker=arr-gold: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] path#rollout-a2-to-next end 端点 (1303,333) marker=arr-gold: head/stroke ratio 5.29 is outside [1.5, 4]
+- [F2] line#rollout-z0-to-r0 end 端点 (1032,267) marker=arr-mixture: head/stroke ratio 5.62 is outside [1.5, 4]
+- [F2] line#rollout-z1-to-r1 end 端点 (1129,267) marker=arr-mixture: head/stroke ratio 5.62 is outside [1.5, 4]
+- [F2] line#rollout-z2-to-r2 end 端点 (1228,267) marker=arr-mixture: head/stroke ratio 5.62 is outside [1.5, 4]
 
 > 箭头几何为定位辅助，不以本节自动放行或拦截；修复用 autofigure arrows --fix（几何归一，不改样式），头长限幅加 --clamp-ratio，按原图实测校准加 --calibrate ID=LEN，改后需重跑 convert/math/check。
 
 
 ## 验收状态（strict）
-- blockers: 5
+- blockers: 284
+- repair plan coverage: PASS
+- blocker inventory: qa/blockers.json
+- repair plan: qa/repair-plan.json
+- QA lineage: qa/qa-lineage-manifest.json
+- PowerPoint Live: REQUIRED — FAIL
 - region:task-guided-allocator-topology
+- region:expert-gap-arrow-text-detail
+- region:mixture-arrow-occlusion-detail
 - region:six-bicolor-state-circles
 - region:rollout-arrow-topology
+- region:gold-arrowhead-scale-clearance
 - region:observation-arrows
-- live-evidence-missing
+- arrow-visual:task-list-to-encoder-reference-visual:shaft-width
+- arrow-visual:task-list-to-encoder-reference-visual:silhouette-bbox
+- arrow-visual:task-list-to-encoder-reference-visual:silhouette-mask
+- arrow-visual:task-list-to-encoder-reference-visual:silhouette-area
+- arrow-visual:task-list-to-encoder-reference-visual:end:head-bbox
+- arrow-visual:task-list-to-encoder-reference-visual:end:head-width
+- arrow-visual:task-list-to-encoder-reference-visual:end:head-length
+- arrow-visual:task-list-to-encoder-reference-visual:end:head-silhouette
+- arrow-visual:task-list-to-encoder-reference-visual:end:head-direction
+- arrow-visual:task-list-to-encoder-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:task-encoder-to-token-reference-visual:shaft-width
+- arrow-visual:task-encoder-to-token-reference-visual:silhouette-bbox
+- arrow-visual:task-encoder-to-token-reference-visual:silhouette-mask
+- arrow-visual:task-encoder-to-token-reference-visual:silhouette-area
+- arrow-visual:task-encoder-to-token-reference-visual:end:head-bbox
+- arrow-visual:task-encoder-to-token-reference-visual:end:head-width
+- arrow-visual:task-encoder-to-token-reference-visual:end:head-length
+- arrow-visual:task-encoder-to-token-reference-visual:end:head-silhouette
+- arrow-visual:task-encoder-to-token-reference-visual:end:head-direction
+- arrow-visual:task-encoder-to-token-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:task-token-to-mapping-reference-visual:shaft-width
+- arrow-visual:task-token-to-mapping-reference-visual:silhouette-bbox
+- arrow-visual:task-token-to-mapping-reference-visual:silhouette-mask
+- arrow-visual:task-token-to-mapping-reference-visual:silhouette-area
+- arrow-visual:task-token-to-mapping-reference-visual:end:head-bbox
+- arrow-visual:task-token-to-mapping-reference-visual:end:head-width
+- arrow-visual:task-token-to-mapping-reference-visual:end:head-length
+- arrow-visual:task-token-to-mapping-reference-visual:end:head-silhouette
+- arrow-visual:task-token-to-mapping-reference-visual:end:head-direction
+- arrow-visual:task-token-to-mapping-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:task-token-to-allocator-reference-visual:reference:tight-bbox-truncates-component
+- arrow-visual:task-token-to-allocator-reference-visual:render:tight-bbox-truncates-component
+- arrow-visual:task-token-to-allocator-reference-visual:silhouette-bbox
+- arrow-visual:task-token-to-allocator-reference-visual:end:head-bbox
+- arrow-visual:task-token-to-allocator-reference-visual:end:head-width
+- arrow-visual:task-token-to-allocator-reference-visual:end:head-length
+- arrow-visual:task-token-to-allocator-reference-visual:end:head-silhouette
+- arrow-visual:task-token-to-allocator-reference-visual:end:head-direction
+- arrow-visual:observation-to-mllm-reference-visual:shaft-width
+- arrow-visual:observation-to-mllm-reference-visual:silhouette-bbox
+- arrow-visual:observation-to-mllm-reference-visual:silhouette-mask
+- arrow-visual:observation-to-mllm-reference-visual:end:head-width
+- arrow-visual:observation-to-mllm-reference-visual:end:head-length
+- arrow-visual:observation-to-mllm-reference-visual:end:head-silhouette
+- arrow-visual:observation-to-mllm-reference-visual:end:head-direction
+- arrow-visual:observation-to-mllm-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:observation-to-wm-reference-visual:shaft-width
+- arrow-visual:observation-to-wm-reference-visual:silhouette-bbox
+- arrow-visual:observation-to-wm-reference-visual:silhouette-mask
+- arrow-visual:observation-to-wm-reference-visual:end:head-width
+- arrow-visual:observation-to-wm-reference-visual:end:head-length
+- arrow-visual:observation-to-wm-reference-visual:end:head-silhouette
+- arrow-visual:observation-to-wm-reference-visual:end:head-direction
+- arrow-visual:observation-to-wm-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:svg-line-0005-reference-visual:shaft-width
+- arrow-visual:svg-line-0005-reference-visual:silhouette-bbox
+- arrow-visual:svg-line-0005-reference-visual:silhouette-mask
+- arrow-visual:svg-line-0005-reference-visual:silhouette-area
+- arrow-visual:svg-line-0005-reference-visual:end:head-bbox
+- arrow-visual:svg-line-0005-reference-visual:end:head-length
+- arrow-visual:svg-line-0005-reference-visual:end:head-silhouette
+- arrow-visual:svg-line-0005-reference-visual:end:head-direction
+- arrow-visual:svg-line-0006-reference-visual:shaft-width
+- arrow-visual:svg-line-0006-reference-visual:silhouette-bbox
+- arrow-visual:svg-line-0006-reference-visual:silhouette-mask
+- arrow-visual:svg-line-0006-reference-visual:silhouette-area
+- arrow-visual:svg-line-0006-reference-visual:end:head-bbox
+- arrow-visual:svg-line-0006-reference-visual:end:head-width
+- arrow-visual:svg-line-0006-reference-visual:end:head-length
+- arrow-visual:svg-line-0006-reference-visual:end:head-silhouette
+- arrow-visual:svg-line-0006-reference-visual:end:head-direction
+- arrow-visual:svg-line-0006-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:svg-line-0007-reference-visual:shaft-width
+- arrow-visual:svg-line-0007-reference-visual:silhouette-bbox
+- arrow-visual:svg-line-0007-reference-visual:silhouette-mask
+- arrow-visual:svg-line-0007-reference-visual:end:head-silhouette
+- arrow-visual:svg-line-0007-reference-visual:end:head-direction
+- arrow-visual:svg-line-0008-reference-visual:shaft-width
+- arrow-visual:svg-line-0008-reference-visual:silhouette-bbox
+- arrow-visual:svg-line-0008-reference-visual:silhouette-mask
+- arrow-visual:svg-line-0008-reference-visual:silhouette-area
+- arrow-visual:svg-line-0008-reference-visual:end:head-bbox
+- arrow-visual:svg-line-0008-reference-visual:end:head-width
+- arrow-visual:svg-line-0008-reference-visual:end:head-silhouette
+- arrow-visual:svg-line-0008-reference-visual:end:head-direction
+- arrow-visual:allocator-task1-route-1-reference-visual:silhouette-bbox
+- arrow-visual:allocator-task1-route-1-reference-visual:silhouette-mask
+- arrow-visual:allocator-task1-route-1-reference-visual:silhouette-area
+- arrow-visual:allocator-task1-route-1-reference-visual:end:head-bbox
+- arrow-visual:allocator-task1-route-1-reference-visual:end:head-width
+- arrow-visual:allocator-task1-route-1-reference-visual:end:head-silhouette
+- arrow-visual:allocator-task1-route-1-reference-visual:end:head-direction
+- arrow-visual:allocator-task1-route-2-reference-visual:silhouette-bbox
+- arrow-visual:allocator-task1-route-2-reference-visual:silhouette-mask
+- arrow-visual:allocator-task1-route-2-reference-visual:silhouette-area
+- arrow-visual:allocator-task1-route-2-reference-visual:end:head-bbox
+- arrow-visual:allocator-task1-route-2-reference-visual:end:head-width
+- arrow-visual:allocator-task1-route-2-reference-visual:end:head-silhouette
+- arrow-visual:allocator-task1-route-2-reference-visual:end:head-direction
+- arrow-visual:allocator-task1-skip-edge-reference-visual:silhouette-bbox
+- arrow-visual:allocator-task1-skip-edge-reference-visual:silhouette-mask
+- arrow-visual:allocator-task1-skip-edge-reference-visual:silhouette-area
+- arrow-visual:allocator-task1-skip-edge-reference-visual:end:reference-evidence
+- arrow-visual:mapping-to-imagination-reference-visual:shaft-width
+- arrow-visual:mapping-to-imagination-reference-visual:silhouette-bbox
+- arrow-visual:mapping-to-imagination-reference-visual:silhouette-mask
+- arrow-visual:mapping-to-imagination-reference-visual:silhouette-area
+- arrow-visual:mapping-to-imagination-reference-visual:end:head-bbox
+- arrow-visual:mapping-to-imagination-reference-visual:end:head-width
+- arrow-visual:mapping-to-imagination-reference-visual:end:head-length
+- arrow-visual:mapping-to-imagination-reference-visual:end:head-silhouette
+- arrow-visual:mapping-to-imagination-reference-visual:end:head-direction
+- arrow-visual:mapping-to-imagination-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:imagination-z0-to-z1-reference-visual:silhouette-bbox
+- arrow-visual:imagination-z0-to-z1-reference-visual:end:head-bbox
+- arrow-visual:imagination-z0-to-z1-reference-visual:end:head-length
+- arrow-visual:imagination-z1-to-z2-reference-visual:silhouette-bbox
+- arrow-visual:imagination-z1-to-z2-reference-visual:end:head-bbox
+- arrow-visual:imagination-z1-to-z2-reference-visual:end:head-length
+- arrow-visual:imagination-z1-to-z2-reference-visual:end:head-silhouette
+- arrow-visual:imagination-z1-to-z2-reference-visual:end:head-direction
+- arrow-visual:imagination-z2-to-zh-reference-visual:silhouette-bbox
+- arrow-visual:imagination-z2-to-zh-reference-visual:silhouette-mask
+- arrow-visual:imagination-z2-to-zh-reference-visual:silhouette-area
+- arrow-visual:imagination-z2-to-zh-reference-visual:end:head-bbox
+- arrow-visual:imagination-z2-to-zh-reference-visual:end:head-silhouette
+- arrow-visual:imagination-z2-to-zh-reference-visual:end:head-direction
+- arrow-visual:imagination-z2-to-zh-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:top-mixture-to-rollout-reference-visual:end:head-length
+- arrow-visual:top-mixture-to-rollout-reference-visual:end:head-direction
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:silhouette-bbox
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:silhouette-mask
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-bbox
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-width
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-length
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-silhouette
+- arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-direction
+- arrow-visual:rollout-z1-to-z2-reference-visual:silhouette-bbox
+- arrow-visual:rollout-z1-to-z2-reference-visual:end:head-bbox
+- arrow-visual:rollout-z1-to-z2-reference-visual:end:head-length
+- arrow-visual:rollout-z1-to-z2-reference-visual:end:head-silhouette
+- arrow-visual:rollout-z1-to-z2-reference-visual:end:head-direction
+- arrow-visual:rollout-z2-to-zh-reference-visual:silhouette-bbox
+- arrow-visual:rollout-z2-to-zh-reference-visual:end:head-bbox
+- arrow-visual:rollout-z2-to-zh-reference-visual:end:head-length
+- arrow-visual:rollout-z2-to-zh-reference-visual:end:head-direction
+- arrow-visual:rollout-z0-to-pi0-reference-visual:silhouette-bbox
+- arrow-visual:rollout-z0-to-pi0-reference-visual:end:head-bbox
+- arrow-visual:rollout-z0-to-pi0-reference-visual:end:head-length
+- arrow-visual:rollout-z1-to-pi1-reference-visual:silhouette-bbox
+- arrow-visual:rollout-z1-to-pi1-reference-visual:silhouette-mask
+- arrow-visual:rollout-z1-to-pi1-reference-visual:end:head-bbox
+- arrow-visual:rollout-z1-to-pi1-reference-visual:end:head-length
+- arrow-visual:rollout-z2-to-pi2-reference-visual:silhouette-bbox
+- arrow-visual:rollout-z2-to-pi2-reference-visual:end:head-bbox
+- arrow-visual:rollout-z2-to-pi2-reference-visual:end:head-length
+- arrow-visual:rollout-pi0-to-a0-reference-visual:silhouette-bbox
+- arrow-visual:rollout-pi0-to-a0-reference-visual:end:head-bbox
+- arrow-visual:rollout-pi0-to-a0-reference-visual:end:head-length
+- arrow-visual:rollout-pi1-to-a1-reference-visual:silhouette-bbox
+- arrow-visual:rollout-pi1-to-a1-reference-visual:silhouette-mask
+- arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-bbox
+- arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-length
+- arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-silhouette
+- arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-direction
+- arrow-visual:rollout-pi2-to-a2-reference-visual:silhouette-bbox
+- arrow-visual:rollout-pi2-to-a2-reference-visual:silhouette-mask
+- arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-bbox
+- arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-width
+- arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-length
+- arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-silhouette
+- arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-direction
+- arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:rollout-a0-to-z1-reference-visual:shaft-width
+- arrow-visual:rollout-a0-to-z1-reference-visual:silhouette-bbox
+- arrow-visual:rollout-a0-to-z1-reference-visual:silhouette-mask
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-search-not-tight
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-bbox
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-width
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-length
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-silhouette
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-direction
+- arrow-visual:rollout-a0-to-z1-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:rollout-a1-to-z2-reference-visual:shaft-width
+- arrow-visual:rollout-a1-to-z2-reference-visual:silhouette-bbox
+- arrow-visual:rollout-a1-to-z2-reference-visual:silhouette-mask
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-search-not-tight
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-bbox
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-width
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-length
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-silhouette
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-direction
+- arrow-visual:rollout-a1-to-z2-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:rollout-a2-to-next-reference-visual:silhouette-bbox
+- arrow-visual:rollout-a2-to-next-reference-visual:silhouette-mask
+- arrow-visual:rollout-a2-to-next-reference-visual:silhouette-area
+- arrow-visual:rollout-a2-to-next-reference-visual:end:head-bbox
+- arrow-visual:rollout-a2-to-next-reference-visual:end:head-width
+- arrow-visual:rollout-a2-to-next-reference-visual:end:head-length
+- arrow-visual:rollout-a2-to-next-reference-visual:end:head-silhouette
+- arrow-visual:rollout-a2-to-next-reference-visual:end:head-direction
+- arrow-visual:rollout-a2-to-next-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:silhouette-bbox
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:silhouette-mask
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-bbox
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-width
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-length
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-silhouette
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-direction
+- arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:reward-to-joint-optimization-reference-visual:shaft-width
+- arrow-visual:reward-to-joint-optimization-reference-visual:silhouette-bbox
+- arrow-visual:reward-to-joint-optimization-reference-visual:silhouette-mask
+- arrow-visual:reward-to-joint-optimization-reference-visual:silhouette-area
+- arrow-visual:reward-to-joint-optimization-reference-visual:end:head-bbox
+- arrow-visual:reward-to-joint-optimization-reference-visual:end:head-width
+- arrow-visual:reward-to-joint-optimization-reference-visual:end:head-length
+- arrow-visual:reward-to-joint-optimization-reference-visual:end:head-silhouette
+- arrow-visual:reward-to-joint-optimization-reference-visual:end:head-direction
+- arrow-visual:reward-to-joint-optimization-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:behavior-to-reward-reference-visual:silhouette-bbox
+- arrow-visual:behavior-to-reward-reference-visual:silhouette-mask
+- arrow-visual:behavior-to-reward-reference-visual:end:head-bbox
+- arrow-visual:behavior-to-reward-reference-visual:end:head-width
+- arrow-visual:behavior-to-reward-reference-visual:end:head-length
+- arrow-visual:behavior-to-reward-reference-visual:end:head-silhouette
+- arrow-visual:behavior-to-reward-reference-visual:end:head-direction
+- arrow-visual:behavior-to-reward-reference-visual:end:head-not-distinct-from-shaft
+- arrow-visual:interaction-arrow-reference-visual:shaft-width
+- arrow-visual:interaction-arrow-reference-visual:silhouette-bbox
+- arrow-visual:interaction-arrow-reference-visual:silhouette-mask
+- arrow-visual:interaction-arrow-reference-visual:silhouette-area
+- arrow-visual:interaction-arrow-reference-visual:start:head-bbox
+- arrow-visual:interaction-arrow-reference-visual:start:head-width
+- arrow-visual:interaction-arrow-reference-visual:start:head-length
+- arrow-visual:interaction-arrow-reference-visual:start:head-silhouette
+- arrow-visual:interaction-arrow-reference-visual:start:head-direction
+- arrow-visual:interaction-arrow-reference-visual:start:head-not-distinct-from-shaft
+- arrow-visual:interaction-arrow-reference-visual:end:head-bbox
+- arrow-visual:interaction-arrow-reference-visual:end:head-width
+- arrow-visual:interaction-arrow-reference-visual:end:head-length
+- arrow-visual:interaction-arrow-reference-visual:end:head-silhouette
+- arrow-visual:interaction-arrow-reference-visual:end:head-direction
+- arrow-visual:interaction-arrow-reference-visual:end:head-not-distinct-from-shaft
+- asset-contract:inventory-missing
+- ocr:svg-text-unmatched
+- ocr:reference-text-unmatched
+- bindings:save-reopen-not-verified
+- math-summary:declaration-empty-or-incomplete
+- math-summary:existing-readback-unverified
+- math-summary:save-reopen-unverified
+- math-summary:bindings-hash-mismatch
+- math-summary:plan-hash-mismatch
+- reference-inventory:receipt-missing
+- source-gate:seed:unavailable
+- live-render-finalizer-unverified
+- live-root-save-reopen-missing
+- live-candidate-hash-mismatch
+- live-reopened-hash-mismatch
+- live-binding-evidence-hash-mismatch
+- live-evidence-bindings-mismatch
+- live-evidence-scene-mismatch
+- live-evidence-arrow-readback-mismatch
+- live-evidence-arrow-compile-mismatch
+- live-evidence-primitive-audit-mismatch
+- live-evidence-layout-audit-mismatch
+- live-evidence-regions-mismatch
+- live-evidence-render-mismatch
+- live-evidence-math-summary-mismatch
+- live-evidence-inventory-candidate-mismatch
+- live-region:task-guided-allocator-topology
+- live-region:expert-gap-arrow-text-detail
+- live-region:mixture-arrow-occlusion-detail
+- live-region:six-bicolor-state-circles
+- live-region:rollout-arrow-topology
+- live-region:gold-arrowhead-scale-clearance
+- live-region:observation-arrows
 
-> strict 使用关键区域、箭头结构与可选 live 回读共同门禁；全图均值不能覆盖局部失败。
+> strict 使用关键区域、箭头/图元结构与所声明的 Live 回读共同门禁；全图均值不能覆盖局部失败。

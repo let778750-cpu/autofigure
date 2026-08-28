@@ -1,0 +1,18 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "provenance",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "05-sting-autophagy-reference-only",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "updated_at": "20260827T145600Z",
+  "input_route": "reference-only",
+  "reference": {
+    "path": "reference.png",
+    "sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "original_name": "reference.png"
+  },
+  "external_svg_seed": null,
+  "candidate_history": [],
+  "events": [],
+  "comparison_group": "sting-autophagy-route-ab"
+}

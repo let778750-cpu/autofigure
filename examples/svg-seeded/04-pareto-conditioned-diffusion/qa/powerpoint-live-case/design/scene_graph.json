@@ -1,0 +1,2913 @@
+{
+  "schemaVersion": "2.1.0",
+  "projectId": "autofigure-04-pareto-conditioned-diffusion",
+  "version": "autofigure-cdd17c46adb5",
+  "canvas": {
+    "width": 1217,
+    "height": 609,
+    "unit": "px",
+    "profileId": "journal-double-column",
+    "backgroundToken": "white"
+  },
+  "nodes": [
+    {
+      "id": "scene-rect-001",
+      "semanticId": "scene-rect-001",
+      "kind": "shape",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1217.0,
+      "height": 609.0,
+      "editable": true,
+      "zIndex": 0
+    },
+    {
+      "id": "styles",
+      "semanticId": "styles",
+      "kind": "shape",
+      "x": 20.0,
+      "y": 5.0,
+      "width": 1177.0,
+      "height": 588.0,
+      "editable": true,
+      "zIndex": 1,
+      "composite": true,
+      "memberIds": [
+        "styles-rect-001",
+        "styles-rect-002",
+        "styles-text-001",
+        "styles-text-002",
+        "styles-text-003",
+        "molecule-left-g-001-line-001",
+        "molecule-left-g-001-line-002",
+        "molecule-left-g-001-line-003",
+        "molecule-left-g-001-line-004",
+        "molecule-left-g-001-line-005",
+        "molecule-left-g-001-line-006",
+        "molecule-left-circle-001",
+        "molecule-left-circle-002",
+        "molecule-left-circle-003",
+        "molecule-left-circle-004",
+        "molecule-left-circle-005",
+        "molecule-left-circle-006",
+        "molecule-left-circle-007",
+        "molecule-left-circle-008",
+        "molecule-left-line-001",
+        "dna-left-path-001",
+        "dna-left-path-002",
+        "dna-left-path-003",
+        "dna-left-path-004",
+        "dna-left-g-001-line-001",
+        "dna-left-g-001-line-002",
+        "dna-left-g-001-line-003",
+        "dna-left-g-001-line-004",
+        "dna-left-g-001-line-005",
+        "dna-left-g-001-line-006",
+        "dna-left-g-001-line-007",
+        "dna-left-g-001-line-008",
+        "dataset-cylinder-path-001",
+        "dataset-cylinder-ellipse-001",
+        "dataset-cylinder-text-001",
+        "candlestick-left-top-line-001",
+        "candlestick-left-top-polyline-001",
+        "candlestick-left-top-line-002",
+        "candlestick-left-top-polyline-002",
+        "candlestick-left-top-line-003",
+        "candlestick-left-top-rect-001",
+        "candlestick-left-top-line-004",
+        "candlestick-left-top-rect-002",
+        "candlestick-left-top-line-005",
+        "candlestick-left-top-rect-003",
+        "candlestick-left-top-line-006",
+        "candlestick-left-top-rect-004",
+        "candlestick-left-top-line-007",
+        "candlestick-left-top-rect-005",
+        "blue-arrow-1",
+        "styles-text-004",
+        "balance-line-001",
+        "balance-line-002",
+        "balance-line-003",
+        "balance-line-004",
+        "balance-line-005",
+        "balance-line-006",
+        "balance-line-007",
+        "balance-path-001",
+        "balance-path-002",
+        "balance-line-008",
+        "reweighted-cylinder-path-001",
+        "reweighted-cylinder-ellipse-001",
+        "reweighted-cylinder-text-001",
+        "blue-arrow-2",
+        "styles-text-005",
+        "left-model-rect-001",
+        "left-model-g-001-line-001",
+        "left-model-g-001-line-002",
+        "left-model-g-001-line-003",
+        "left-model-g-001-line-004",
+        "left-model-g-001-line-005",
+        "left-model-g-001-line-006",
+        "left-model-g-001-line-007",
+        "left-model-g-001-line-008",
+        "left-model-g-001-circle-001",
+        "left-model-g-001-circle-002",
+        "left-model-g-001-circle-003",
+        "left-model-g-001-circle-004",
+        "left-model-g-001-circle-005",
+        "left-model-g-001-circle-006",
+        "left-model-g-001-circle-007",
+        "left-model-text-001",
+        "left-model-text-002",
+        "noise-curve-line-001",
+        "noise-curve-path-001",
+        "target-box-rect-001",
+        "target-box-text-001",
+        "target-box-text-002",
+        "candlestick-right-line-001",
+        "candlestick-right-polyline-001",
+        "candlestick-right-line-002",
+        "candlestick-right-polyline-002",
+        "candlestick-right-line-003",
+        "candlestick-right-rect-001",
+        "candlestick-right-line-004",
+        "candlestick-right-rect-002",
+        "candlestick-right-line-005",
+        "candlestick-right-rect-003",
+        "candlestick-right-line-006",
+        "candlestick-right-rect-004",
+        "candlestick-right-line-007",
+        "candlestick-right-rect-005",
+        "styles-text-006",
+        "condition-arrow",
+        "right-model-rect-001",
+        "right-model-g-001-line-001",
+        "right-model-g-001-line-002",
+        "right-model-g-001-line-003",
+        "right-model-g-001-line-004",
+        "right-model-g-001-line-005",
+        "right-model-g-001-line-006",
+        "right-model-g-001-line-007",
+        "right-model-g-001-line-008",
+        "right-model-g-001-circle-001",
+        "right-model-g-001-circle-002",
+        "right-model-g-001-circle-003",
+        "right-model-g-001-circle-004",
+        "right-model-g-001-circle-005",
+        "right-model-g-001-circle-006",
+        "right-model-g-001-circle-007",
+        "right-model-text-001",
+        "right-model-text-002",
+        "noise-arrow",
+        "styles-text-007",
+        "sample-arrow",
+        "styles-text-008",
+        "designs-cuboid-polygon-001",
+        "designs-cuboid-polygon-002",
+        "designs-cuboid-rect-001",
+        "designs-cuboid-text-001",
+        "molecule-right-g-001-line-001",
+        "molecule-right-g-001-line-002",
+        "molecule-right-g-001-line-003",
+        "molecule-right-g-001-line-004",
+        "molecule-right-g-001-line-005",
+        "molecule-right-g-001-line-006",
+        "molecule-right-circle-001",
+        "molecule-right-circle-002",
+        "molecule-right-circle-003",
+        "molecule-right-circle-004",
+        "molecule-right-circle-005",
+        "molecule-right-circle-006",
+        "molecule-right-circle-007",
+        "molecule-right-circle-008",
+        "molecule-right-line-001",
+        "dna-right-path-001",
+        "dna-right-path-002",
+        "dna-right-path-003",
+        "dna-right-path-004",
+        "dna-right-g-001-line-001",
+        "dna-right-g-001-line-002",
+        "dna-right-g-001-line-003",
+        "dna-right-g-001-line-004",
+        "dna-right-g-001-line-005",
+        "dna-right-g-001-line-006",
+        "dna-right-g-001-line-007",
+        "dna-right-g-001-line-008"
+      ]
+    },
+    {
+      "id": "styles-rect-001",
+      "semanticId": "styles-rect-001",
+      "kind": "shape",
+      "x": 20.0,
+      "y": 53.0,
+      "width": 548.0,
+      "height": 540.0,
+      "editable": true,
+      "zIndex": 2
+    },
+    {
+      "id": "styles-rect-002",
+      "semanticId": "styles-rect-002",
+      "kind": "shape",
+      "x": 580.0,
+      "y": 53.0,
+      "width": 617.0,
+      "height": 540.0,
+      "editable": true,
+      "zIndex": 3
+    },
+    {
+      "id": "styles-text-001",
+      "semanticId": "styles-text-001",
+      "kind": "text",
+      "x": 140.4,
+      "y": 5.0,
+      "width": 307.2,
+      "height": 70.0,
+      "editable": true,
+      "zIndex": 4,
+      "textSpec": {
+        "text": "Offline Training",
+        "fontToken": "autofigure-font",
+        "fontSize": 30.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Offline Training",
+            "fontToken": "Arial",
+            "fontSize": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "styles-text-002",
+      "semanticId": "styles-text-002",
+      "kind": "text",
+      "x": 789.8,
+      "y": 5.0,
+      "width": 198.4,
+      "height": 70.0,
+      "editable": true,
+      "zIndex": 5,
+      "textSpec": {
+        "text": "Sampling",
+        "fontToken": "autofigure-font",
+        "fontSize": 30.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sampling",
+            "fontToken": "Arial",
+            "fontSize": 30.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "styles-text-003",
+      "semanticId": "styles-text-003",
+      "kind": "text",
+      "x": 102.0,
+      "y": 63.55,
+      "width": 448.0199,
+      "height": 58.75,
+      "editable": true,
+      "zIndex": 6,
+      "textSpec": {
+        "text": "Static Multi-Objective Dataset",
+        "fontToken": "autofigure-font",
+        "fontSize": 23.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Static Multi-Objective Dataset",
+            "fontToken": "Arial",
+            "fontSize": 23.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "molecule-left",
+      "semanticId": "molecule-left",
+      "kind": "shape",
+      "x": 168.0,
+      "y": 101.0,
+      "width": 66.0,
+      "height": 45.8,
+      "editable": true,
+      "zIndex": 7,
+      "composite": true,
+      "memberIds": [
+        "molecule-left-g-001-line-001",
+        "molecule-left-g-001-line-002",
+        "molecule-left-g-001-line-003",
+        "molecule-left-g-001-line-004",
+        "molecule-left-g-001-line-005",
+        "molecule-left-g-001-line-006",
+        "molecule-left-circle-001",
+        "molecule-left-circle-002",
+        "molecule-left-circle-003",
+        "molecule-left-circle-004",
+        "molecule-left-circle-005",
+        "molecule-left-circle-006",
+        "molecule-left-circle-007",
+        "molecule-left-circle-008",
+        "molecule-left-line-001"
+      ]
+    },
+    {
+      "id": "molecule-left-g-001",
+      "semanticId": "molecule-left-g-001",
+      "kind": "shape",
+      "x": 173.0,
+      "y": 106.0,
+      "width": 56.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 8,
+      "composite": true,
+      "memberIds": [
+        "molecule-left-g-001-line-001",
+        "molecule-left-g-001-line-002",
+        "molecule-left-g-001-line-003",
+        "molecule-left-g-001-line-004",
+        "molecule-left-g-001-line-005",
+        "molecule-left-g-001-line-006"
+      ]
+    },
+    {
+      "id": "molecule-left-circle-001",
+      "semanticId": "molecule-left-circle-001",
+      "kind": "shape",
+      "x": 168.0,
+      "y": 110.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 15
+    },
+    {
+      "id": "molecule-left-circle-002",
+      "semanticId": "molecule-left-circle-002",
+      "kind": "shape",
+      "x": 186.0,
+      "y": 113.0,
+      "width": 12.0,
+      "height": 12.0,
+      "editable": true,
+      "zIndex": 16
+    },
+    {
+      "id": "molecule-left-circle-003",
+      "semanticId": "molecule-left-circle-003",
+      "kind": "shape",
+      "x": 200.0,
+      "y": 101.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 17
+    },
+    {
+      "id": "molecule-left-circle-004",
+      "semanticId": "molecule-left-circle-004",
+      "kind": "shape",
+      "x": 206.0,
+      "y": 120.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 18
+    },
+    {
+      "id": "molecule-left-circle-005",
+      "semanticId": "molecule-left-circle-005",
+      "kind": "shape",
+      "x": 224.0,
+      "y": 113.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 19
+    },
+    {
+      "id": "molecule-left-circle-006",
+      "semanticId": "molecule-left-circle-006",
+      "kind": "shape",
+      "x": 189.0,
+      "y": 132.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 20
+    },
+    {
+      "id": "molecule-left-circle-007",
+      "semanticId": "molecule-left-circle-007",
+      "kind": "shape",
+      "x": 207.2,
+      "y": 137.2,
+      "width": 9.6,
+      "height": 9.6,
+      "editable": true,
+      "zIndex": 21
+    },
+    {
+      "id": "molecule-left-circle-008",
+      "semanticId": "molecule-left-circle-008",
+      "kind": "shape",
+      "x": 177.0,
+      "y": 129.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 22
+    },
+    {
+      "id": "dna-left",
+      "semanticId": "dna-left",
+      "kind": "shape",
+      "x": 176.0,
+      "y": 148.0,
+      "width": 61.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 24,
+      "composite": true,
+      "memberIds": [
+        "dna-left-path-001",
+        "dna-left-path-002",
+        "dna-left-path-003",
+        "dna-left-path-004",
+        "dna-left-g-001-line-001",
+        "dna-left-g-001-line-002",
+        "dna-left-g-001-line-003",
+        "dna-left-g-001-line-004",
+        "dna-left-g-001-line-005",
+        "dna-left-g-001-line-006",
+        "dna-left-g-001-line-007",
+        "dna-left-g-001-line-008"
+      ]
+    },
+    {
+      "id": "dna-left-path-001",
+      "semanticId": "dna-left-path-001",
+      "kind": "shape",
+      "x": 176.0,
+      "y": 148.0,
+      "width": 36.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 25
+    },
+    {
+      "id": "dna-left-path-002",
+      "semanticId": "dna-left-path-002",
+      "kind": "shape",
+      "x": 177.0,
+      "y": 148.0,
+      "width": 36.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 26
+    },
+    {
+      "id": "dna-left-path-003",
+      "semanticId": "dna-left-path-003",
+      "kind": "shape",
+      "x": 218.0,
+      "y": 151.0,
+      "width": 17.0,
+      "height": 57.0,
+      "editable": true,
+      "zIndex": 27
+    },
+    {
+      "id": "dna-left-path-004",
+      "semanticId": "dna-left-path-004",
+      "kind": "shape",
+      "x": 220.0,
+      "y": 151.0,
+      "width": 17.0,
+      "height": 57.0,
+      "editable": true,
+      "zIndex": 28
+    },
+    {
+      "id": "dna-left-g-001",
+      "semanticId": "dna-left-g-001",
+      "kind": "shape",
+      "x": 178.0,
+      "y": 156.0,
+      "width": 57.0,
+      "height": 42.5,
+      "editable": true,
+      "zIndex": 29,
+      "composite": true,
+      "memberIds": [
+        "dna-left-g-001-line-001",
+        "dna-left-g-001-line-002",
+        "dna-left-g-001-line-003",
+        "dna-left-g-001-line-004",
+        "dna-left-g-001-line-005",
+        "dna-left-g-001-line-006",
+        "dna-left-g-001-line-007",
+        "dna-left-g-001-line-008"
+      ]
+    },
+    {
+      "id": "dataset-cylinder",
+      "semanticId": "dataset-cylinder",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 105.5001,
+      "width": 84.0,
+      "height": 93.6999,
+      "editable": true,
+      "zIndex": 38,
+      "composite": true,
+      "memberIds": [
+        "dataset-cylinder-path-001",
+        "dataset-cylinder-ellipse-001",
+        "dataset-cylinder-text-001"
+      ]
+    },
+    {
+      "id": "dataset-cylinder-path-001",
+      "semanticId": "dataset-cylinder-path-001",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 120.0,
+      "width": 84.0,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 39
+    },
+    {
+      "id": "dataset-cylinder-ellipse-001",
+      "semanticId": "dataset-cylinder-ellipse-001",
+      "kind": "shape",
+      "x": 252.0,
+      "y": 105.5001,
+      "width": 84.0,
+      "height": 29.0,
+      "editable": true,
+      "zIndex": 40
+    },
+    {
+      "id": "dataset-cylinder-text-001",
+      "semanticId": "dataset-cylinder-text-001",
+      "kind": "text",
+      "x": 266.61,
+      "y": 136.7001,
+      "width": 54.7801,
+      "height": 62.4999,
+      "editable": true,
+      "zIndex": 41,
+      "textSpec": {
+        "text": "D",
+        "fontToken": "autofigure-font",
+        "fontSize": 25.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "D",
+            "fontToken": "Times New Roman",
+            "fontSize": 25.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "candlestick-left-top",
+      "semanticId": "candlestick-left-top",
+      "kind": "shape",
+      "x": 353.0,
+      "y": 121.0,
+      "width": 72.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 42,
+      "composite": true,
+      "memberIds": [
+        "candlestick-left-top-line-001",
+        "candlestick-left-top-polyline-001",
+        "candlestick-left-top-line-002",
+        "candlestick-left-top-polyline-002",
+        "candlestick-left-top-line-003",
+        "candlestick-left-top-rect-001",
+        "candlestick-left-top-line-004",
+        "candlestick-left-top-rect-002",
+        "candlestick-left-top-line-005",
+        "candlestick-left-top-rect-003",
+        "candlestick-left-top-line-006",
+        "candlestick-left-top-rect-004",
+        "candlestick-left-top-line-007",
+        "candlestick-left-top-rect-005"
+      ]
+    },
+    {
+      "id": "candlestick-left-top-line-001",
+      "semanticId": "candlestick-left-top-line-001",
+      "kind": "line",
+      "x": 358.0,
+      "y": 122.0,
+      "width": 0.5,
+      "height": 54.0,
+      "editable": true,
+      "zIndex": 43
+    },
+    {
+      "id": "candlestick-left-top-polyline-001",
+      "semanticId": "candlestick-left-top-polyline-001",
+      "kind": "shape",
+      "x": 353.0,
+      "y": 122.0,
+      "width": 10.0,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 44
+    },
+    {
+      "id": "candlestick-left-top-line-002",
+      "semanticId": "candlestick-left-top-line-002",
+      "kind": "line",
+      "x": 358.0,
+      "y": 176.0,
+      "width": 67.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 45
+    },
+    {
+      "id": "candlestick-left-top-polyline-002",
+      "semanticId": "candlestick-left-top-polyline-002",
+      "kind": "shape",
+      "x": 419.0,
+      "y": 171.0,
+      "width": 6.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 46
+    },
+    {
+      "id": "candlestick-left-top-line-003",
+      "semanticId": "candlestick-left-top-line-003",
+      "kind": "line",
+      "x": 368.0,
+      "y": 132.0,
+      "width": 0.5,
+      "height": 31.0,
+      "editable": true,
+      "zIndex": 47
+    },
+    {
+      "id": "candlestick-left-top-rect-001",
+      "semanticId": "candlestick-left-top-rect-001",
+      "kind": "shape",
+      "x": 364.0,
+      "y": 139.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 48
+    },
+    {
+      "id": "candlestick-left-top-line-004",
+      "semanticId": "candlestick-left-top-line-004",
+      "kind": "line",
+      "x": 381.0,
+      "y": 142.0,
+      "width": 0.5,
+      "height": 28.0,
+      "editable": true,
+      "zIndex": 49
+    },
+    {
+      "id": "candlestick-left-top-rect-002",
+      "semanticId": "candlestick-left-top-rect-002",
+      "kind": "shape",
+      "x": 377.0,
+      "y": 147.0,
+      "width": 8.0,
+      "height": 13.0,
+      "editable": true,
+      "zIndex": 50
+    },
+    {
+      "id": "candlestick-left-top-line-005",
+      "semanticId": "candlestick-left-top-line-005",
+      "kind": "line",
+      "x": 394.0,
+      "y": 127.0,
+      "width": 0.5,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 51
+    },
+    {
+      "id": "candlestick-left-top-rect-003",
+      "semanticId": "candlestick-left-top-rect-003",
+      "kind": "shape",
+      "x": 390.0,
+      "y": 134.0,
+      "width": 8.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 52
+    },
+    {
+      "id": "candlestick-left-top-line-006",
+      "semanticId": "candlestick-left-top-line-006",
+      "kind": "line",
+      "x": 408.0,
+      "y": 137.0,
+      "width": 0.5,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 53
+    },
+    {
+      "id": "candlestick-left-top-rect-004",
+      "semanticId": "candlestick-left-top-rect-004",
+      "kind": "shape",
+      "x": 404.0,
+      "y": 144.0,
+      "width": 8.0,
+      "height": 13.0,
+      "editable": true,
+      "zIndex": 54
+    },
+    {
+      "id": "candlestick-left-top-line-007",
+      "semanticId": "candlestick-left-top-line-007",
+      "kind": "line",
+      "x": 419.0,
+      "y": 121.0,
+      "width": 0.5,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 55
+    },
+    {
+      "id": "candlestick-left-top-rect-005",
+      "semanticId": "candlestick-left-top-rect-005",
+      "kind": "shape",
+      "x": 415.0,
+      "y": 127.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 56
+    },
+    {
+      "id": "styles-text-004",
+      "semanticId": "styles-text-004",
+      "kind": "text",
+      "x": 104.0,
+      "y": 287.4,
+      "width": 177.6,
+      "height": 55.0,
+      "editable": true,
+      "zIndex": 58,
+      "textSpec": {
+        "text": "Reweighted",
+        "fontToken": "autofigure-font",
+        "fontSize": 21.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Reweighted",
+            "fontToken": "Arial",
+            "fontSize": 21.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "balance",
+      "semanticId": "balance",
+      "kind": "shape",
+      "x": 138.0,
+      "y": 325.0,
+      "width": 56.0,
+      "height": 44.5,
+      "editable": true,
+      "zIndex": 59,
+      "composite": true,
+      "memberIds": [
+        "balance-line-001",
+        "balance-line-002",
+        "balance-line-003",
+        "balance-line-004",
+        "balance-line-005",
+        "balance-line-006",
+        "balance-line-007",
+        "balance-path-001",
+        "balance-path-002",
+        "balance-line-008"
+      ]
+    },
+    {
+      "id": "balance-line-001",
+      "semanticId": "balance-line-001",
+      "kind": "line",
+      "x": 166.0,
+      "y": 327.0,
+      "width": 0.5,
+      "height": 42.0,
+      "editable": true,
+      "zIndex": 60
+    },
+    {
+      "id": "balance-line-002",
+      "semanticId": "balance-line-002",
+      "kind": "line",
+      "x": 146.0,
+      "y": 332.0,
+      "width": 41.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 61
+    },
+    {
+      "id": "balance-path-001",
+      "semanticId": "balance-path-001",
+      "kind": "shape",
+      "x": 138.0,
+      "y": 353.0,
+      "width": 22.0,
+      "height": 9.3333,
+      "editable": true,
+      "zIndex": 67
+    },
+    {
+      "id": "balance-path-002",
+      "semanticId": "balance-path-002",
+      "kind": "shape",
+      "x": 172.0,
+      "y": 353.0,
+      "width": 22.0,
+      "height": 9.3333,
+      "editable": true,
+      "zIndex": 68
+    },
+    {
+      "id": "balance-line-008",
+      "semanticId": "balance-line-008",
+      "kind": "line",
+      "x": 156.0,
+      "y": 369.0,
+      "width": 20.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 69
+    },
+    {
+      "id": "reweighted-cylinder",
+      "semanticId": "reweighted-cylinder",
+      "kind": "shape",
+      "x": 251.0,
+      "y": 261.0,
+      "width": 85.5001,
+      "height": 95.1999,
+      "editable": true,
+      "zIndex": 70,
+      "composite": true,
+      "memberIds": [
+        "reweighted-cylinder-path-001",
+        "reweighted-cylinder-ellipse-001",
+        "reweighted-cylinder-text-001"
+      ]
+    },
+    {
+      "id": "reweighted-cylinder-path-001",
+      "semanticId": "reweighted-cylinder-path-001",
+      "kind": "shape",
+      "x": 251.0,
+      "y": 276.0,
+      "width": 85.0,
+      "height": 74.0,
+      "editable": true,
+      "zIndex": 71
+    },
+    {
+      "id": "reweighted-cylinder-ellipse-001",
+      "semanticId": "reweighted-cylinder-ellipse-001",
+      "kind": "shape",
+      "x": 251.5001,
+      "y": 261.0,
+      "width": 85.0,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 72
+    },
+    {
+      "id": "reweighted-cylinder-text-001",
+      "semanticId": "reweighted-cylinder-text-001",
+      "kind": "text",
+      "x": 266.61,
+      "y": 293.6999,
+      "width": 54.7801,
+      "height": 62.4999,
+      "editable": true,
+      "zIndex": 73,
+      "textSpec": {
+        "text": "D",
+        "fontToken": "autofigure-font",
+        "fontSize": 25.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "D",
+            "fontToken": "Times New Roman",
+            "fontSize": 25.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "styles-text-005",
+      "semanticId": "styles-text-005",
+      "kind": "text",
+      "x": 332.0,
+      "y": 374.4,
+      "width": 97.8,
+      "height": 55.0,
+      "editable": true,
+      "zIndex": 75,
+      "textSpec": {
+        "text": "Train",
+        "fontToken": "autofigure-font",
+        "fontSize": 21.0,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Train",
+            "fontToken": "Arial",
+            "fontSize": 21.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-model",
+      "semanticId": "left-model",
+      "kind": "shape",
+      "x": 152.0,
+      "y": 447.0,
+      "width": 283.0,
+      "height": 124.0,
+      "editable": true,
+      "zIndex": 76,
+      "composite": true,
+      "memberIds": [
+        "left-model-rect-001",
+        "left-model-g-001-line-001",
+        "left-model-g-001-line-002",
+        "left-model-g-001-line-003",
+        "left-model-g-001-line-004",
+        "left-model-g-001-line-005",
+        "left-model-g-001-line-006",
+        "left-model-g-001-line-007",
+        "left-model-g-001-line-008",
+        "left-model-g-001-circle-001",
+        "left-model-g-001-circle-002",
+        "left-model-g-001-circle-003",
+        "left-model-g-001-circle-004",
+        "left-model-g-001-circle-005",
+        "left-model-g-001-circle-006",
+        "left-model-g-001-circle-007",
+        "left-model-text-001",
+        "left-model-text-002"
+      ]
+    },
+    {
+      "id": "left-model-rect-001",
+      "semanticId": "left-model-rect-001",
+      "kind": "shape",
+      "x": 152.0,
+      "y": 447.0,
+      "width": 283.0,
+      "height": 124.0,
+      "editable": true,
+      "zIndex": 77
+    },
+    {
+      "id": "left-model-g-001",
+      "semanticId": "left-model-g-001",
+      "kind": "shape",
+      "x": 244.4999,
+      "y": 451.5001,
+      "width": 99.0,
+      "height": 113.9999,
+      "editable": true,
+      "zIndex": 78,
+      "composite": true,
+      "memberIds": [
+        "left-model-g-001-line-001",
+        "left-model-g-001-line-002",
+        "left-model-g-001-line-003",
+        "left-model-g-001-line-004",
+        "left-model-g-001-line-005",
+        "left-model-g-001-line-006",
+        "left-model-g-001-line-007",
+        "left-model-g-001-line-008",
+        "left-model-g-001-circle-001",
+        "left-model-g-001-circle-002",
+        "left-model-g-001-circle-003",
+        "left-model-g-001-circle-004",
+        "left-model-g-001-circle-005",
+        "left-model-g-001-circle-006",
+        "left-model-g-001-circle-007"
+      ]
+    },
+    {
+      "id": "left-model-g-001-line-001",
+      "semanticId": "left-model-g-001-line-001",
+      "kind": "line",
+      "x": 252.0,
+      "y": 459.0,
+      "width": 42.0,
+      "height": 26.0,
+      "editable": true,
+      "zIndex": 79
+    },
+    {
+      "id": "left-model-g-001-line-002",
+      "semanticId": "left-model-g-001-line-002",
+      "kind": "line",
+      "x": 294.0,
+      "y": 459.0,
+      "width": 42.0,
+      "height": 26.0,
+      "editable": true,
+      "zIndex": 80
+    },
+    {
+      "id": "left-model-g-001-line-003",
+      "semanticId": "left-model-g-001-line-003",
+      "kind": "line",
+      "x": 252.0,
+      "y": 485.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 81
+    },
+    {
+      "id": "left-model-g-001-line-004",
+      "semanticId": "left-model-g-001-line-004",
+      "kind": "line",
+      "x": 294.0,
+      "y": 485.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 82
+    },
+    {
+      "id": "left-model-g-001-line-005",
+      "semanticId": "left-model-g-001-line-005",
+      "kind": "line",
+      "x": 252.0,
+      "y": 510.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 83
+    },
+    {
+      "id": "left-model-g-001-line-006",
+      "semanticId": "left-model-g-001-line-006",
+      "kind": "line",
+      "x": 294.0,
+      "y": 510.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 84
+    },
+    {
+      "id": "left-model-g-001-line-007",
+      "semanticId": "left-model-g-001-line-007",
+      "kind": "line",
+      "x": 252.0,
+      "y": 535.0,
+      "width": 42.0,
+      "height": 23.0,
+      "editable": true,
+      "zIndex": 85
+    },
+    {
+      "id": "left-model-g-001-line-008",
+      "semanticId": "left-model-g-001-line-008",
+      "kind": "line",
+      "x": 294.0,
+      "y": 535.0,
+      "width": 42.0,
+      "height": 23.0,
+      "editable": true,
+      "zIndex": 86
+    },
+    {
+      "id": "left-model-g-001-circle-001",
+      "semanticId": "left-model-g-001-circle-001",
+      "kind": "shape",
+      "x": 286.4999,
+      "y": 451.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 87
+    },
+    {
+      "id": "left-model-g-001-circle-002",
+      "semanticId": "left-model-g-001-circle-002",
+      "kind": "shape",
+      "x": 244.4999,
+      "y": 477.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 88
+    },
+    {
+      "id": "left-model-g-001-circle-003",
+      "semanticId": "left-model-g-001-circle-003",
+      "kind": "shape",
+      "x": 328.4999,
+      "y": 477.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 89
+    },
+    {
+      "id": "left-model-g-001-circle-004",
+      "semanticId": "left-model-g-001-circle-004",
+      "kind": "shape",
+      "x": 286.4999,
+      "y": 502.4999,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 90
+    },
+    {
+      "id": "left-model-g-001-circle-005",
+      "semanticId": "left-model-g-001-circle-005",
+      "kind": "shape",
+      "x": 244.4999,
+      "y": 527.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 91
+    },
+    {
+      "id": "left-model-g-001-circle-006",
+      "semanticId": "left-model-g-001-circle-006",
+      "kind": "shape",
+      "x": 328.4999,
+      "y": 527.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 92
+    },
+    {
+      "id": "left-model-g-001-circle-007",
+      "semanticId": "left-model-g-001-circle-007",
+      "kind": "shape",
+      "x": 286.4999,
+      "y": 550.4999,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 93
+    },
+    {
+      "id": "left-model-text-001",
+      "semanticId": "left-model-text-001",
+      "kind": "text",
+      "x": 163.52,
+      "y": 478.35,
+      "width": 260.96,
+      "height": 53.75,
+      "editable": true,
+      "zIndex": 94,
+      "textSpec": {
+        "text": "Pareto-Conditioned",
+        "fontToken": "autofigure-font",
+        "fontSize": 20.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Pareto-Conditioned",
+            "fontToken": "Arial",
+            "fontSize": 20.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "left-model-text-002",
+      "semanticId": "left-model-text-002",
+      "kind": "text",
+      "x": 184.31,
+      "y": 508.35,
+      "width": 219.3799,
+      "height": 53.75,
+      "editable": true,
+      "zIndex": 95,
+      "textSpec": {
+        "text": "Diffusion Model",
+        "fontToken": "autofigure-font",
+        "fontSize": 20.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Diffusion Model",
+            "fontToken": "Arial",
+            "fontSize": 20.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "noise-curve",
+      "semanticId": "noise-curve",
+      "kind": "shape",
+      "x": 873.0,
+      "y": 80.0,
+      "width": 298.0,
+      "height": 109.5,
+      "editable": true,
+      "zIndex": 96,
+      "composite": true,
+      "memberIds": [
+        "noise-curve-line-001",
+        "noise-curve-path-001"
+      ]
+    },
+    {
+      "id": "noise-curve-line-001",
+      "semanticId": "noise-curve-line-001",
+      "kind": "line",
+      "x": 873.0,
+      "y": 189.0,
+      "width": 298.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 97
+    },
+    {
+      "id": "noise-curve-path-001",
+      "semanticId": "noise-curve-path-001",
+      "kind": "shape",
+      "x": 873.0,
+      "y": 80.0,
+      "width": 298.0,
+      "height": 109.0,
+      "editable": true,
+      "zIndex": 98
+    },
+    {
+      "id": "target-box",
+      "semanticId": "target-box",
+      "kind": "shape",
+      "x": 611.575,
+      "y": 260.0,
+      "width": 151.85,
+      "height": 111.0,
+      "editable": true,
+      "zIndex": 99,
+      "composite": true,
+      "memberIds": [
+        "target-box-rect-001",
+        "target-box-text-001",
+        "target-box-text-002"
+      ]
+    },
+    {
+      "id": "target-box-rect-001",
+      "semanticId": "target-box-rect-001",
+      "kind": "shape",
+      "x": 612.0,
+      "y": 260.0,
+      "width": 151.0,
+      "height": 111.0,
+      "editable": true,
+      "zIndex": 100
+    },
+    {
+      "id": "target-box-text-001",
+      "semanticId": "target-box-text-001",
+      "kind": "text",
+      "x": 634.27,
+      "y": 284.775,
+      "width": 106.4599,
+      "height": 51.875,
+      "editable": true,
+      "zIndex": 101,
+      "textSpec": {
+        "text": "Target",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.12,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Target",
+            "fontToken": "Arial",
+            "fontSize": 19.12
+          }
+        ]
+      }
+    },
+    {
+      "id": "target-box-text-002",
+      "semanticId": "target-box-text-002",
+      "kind": "text",
+      "x": 611.575,
+      "y": 316.775,
+      "width": 151.85,
+      "height": 51.875,
+      "editable": true,
+      "zIndex": 102,
+      "textSpec": {
+        "text": "Objectives",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.12,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Objectives",
+            "fontToken": "Arial",
+            "fontSize": 19.12
+          }
+        ]
+      }
+    },
+    {
+      "id": "candlestick-right",
+      "semanticId": "candlestick-right",
+      "kind": "shape",
+      "x": 651.0,
+      "y": 380.0,
+      "width": 72.0,
+      "height": 60.0,
+      "editable": true,
+      "zIndex": 103,
+      "composite": true,
+      "memberIds": [
+        "candlestick-right-line-001",
+        "candlestick-right-polyline-001",
+        "candlestick-right-line-002",
+        "candlestick-right-polyline-002",
+        "candlestick-right-line-003",
+        "candlestick-right-rect-001",
+        "candlestick-right-line-004",
+        "candlestick-right-rect-002",
+        "candlestick-right-line-005",
+        "candlestick-right-rect-003",
+        "candlestick-right-line-006",
+        "candlestick-right-rect-004",
+        "candlestick-right-line-007",
+        "candlestick-right-rect-005"
+      ]
+    },
+    {
+      "id": "candlestick-right-line-001",
+      "semanticId": "candlestick-right-line-001",
+      "kind": "line",
+      "x": 656.0,
+      "y": 381.0,
+      "width": 0.5,
+      "height": 54.0,
+      "editable": true,
+      "zIndex": 104
+    },
+    {
+      "id": "candlestick-right-polyline-001",
+      "semanticId": "candlestick-right-polyline-001",
+      "kind": "shape",
+      "x": 651.0,
+      "y": 381.0,
+      "width": 10.0,
+      "height": 6.0,
+      "editable": true,
+      "zIndex": 105
+    },
+    {
+      "id": "candlestick-right-line-002",
+      "semanticId": "candlestick-right-line-002",
+      "kind": "line",
+      "x": 656.0,
+      "y": 435.0,
+      "width": 67.0,
+      "height": 0.5,
+      "editable": true,
+      "zIndex": 106
+    },
+    {
+      "id": "candlestick-right-polyline-002",
+      "semanticId": "candlestick-right-polyline-002",
+      "kind": "shape",
+      "x": 717.0,
+      "y": 430.0,
+      "width": 6.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 107
+    },
+    {
+      "id": "candlestick-right-line-003",
+      "semanticId": "candlestick-right-line-003",
+      "kind": "line",
+      "x": 666.0,
+      "y": 391.0,
+      "width": 0.5,
+      "height": 31.0,
+      "editable": true,
+      "zIndex": 108
+    },
+    {
+      "id": "candlestick-right-rect-001",
+      "semanticId": "candlestick-right-rect-001",
+      "kind": "shape",
+      "x": 662.0,
+      "y": 398.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 109
+    },
+    {
+      "id": "candlestick-right-line-004",
+      "semanticId": "candlestick-right-line-004",
+      "kind": "line",
+      "x": 679.0,
+      "y": 401.0,
+      "width": 0.5,
+      "height": 28.0,
+      "editable": true,
+      "zIndex": 110
+    },
+    {
+      "id": "candlestick-right-rect-002",
+      "semanticId": "candlestick-right-rect-002",
+      "kind": "shape",
+      "x": 675.0,
+      "y": 406.0,
+      "width": 8.0,
+      "height": 13.0,
+      "editable": true,
+      "zIndex": 111
+    },
+    {
+      "id": "candlestick-right-line-005",
+      "semanticId": "candlestick-right-line-005",
+      "kind": "line",
+      "x": 692.0,
+      "y": 386.0,
+      "width": 0.5,
+      "height": 35.0,
+      "editable": true,
+      "zIndex": 112
+    },
+    {
+      "id": "candlestick-right-rect-003",
+      "semanticId": "candlestick-right-rect-003",
+      "kind": "shape",
+      "x": 688.0,
+      "y": 393.0,
+      "width": 8.0,
+      "height": 16.0,
+      "editable": true,
+      "zIndex": 113
+    },
+    {
+      "id": "candlestick-right-line-006",
+      "semanticId": "candlestick-right-line-006",
+      "kind": "line",
+      "x": 706.0,
+      "y": 396.0,
+      "width": 0.5,
+      "height": 30.0,
+      "editable": true,
+      "zIndex": 114
+    },
+    {
+      "id": "candlestick-right-rect-004",
+      "semanticId": "candlestick-right-rect-004",
+      "kind": "shape",
+      "x": 702.0,
+      "y": 403.0,
+      "width": 8.0,
+      "height": 13.0,
+      "editable": true,
+      "zIndex": 115
+    },
+    {
+      "id": "candlestick-right-line-007",
+      "semanticId": "candlestick-right-line-007",
+      "kind": "line",
+      "x": 717.0,
+      "y": 380.0,
+      "width": 0.5,
+      "height": 33.0,
+      "editable": true,
+      "zIndex": 116
+    },
+    {
+      "id": "candlestick-right-rect-005",
+      "semanticId": "candlestick-right-rect-005",
+      "kind": "shape",
+      "x": 713.0,
+      "y": 386.0,
+      "width": 8.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 117
+    },
+    {
+      "id": "styles-text-006",
+      "semanticId": "styles-text-006",
+      "kind": "text",
+      "x": 772.0,
+      "y": 263.675,
+      "width": 129.76,
+      "height": 49.375,
+      "editable": true,
+      "zIndex": 118,
+      "textSpec": {
+        "text": "Condition",
+        "fontToken": "autofigure-font",
+        "fontSize": 17.62,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Condition",
+            "fontToken": "Arial",
+            "fontSize": 17.62
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-model",
+      "semanticId": "right-model",
+      "kind": "shape",
+      "x": 881.0,
+      "y": 253.0,
+      "width": 282.0,
+      "height": 124.0,
+      "editable": true,
+      "zIndex": 120,
+      "composite": true,
+      "memberIds": [
+        "right-model-rect-001",
+        "right-model-g-001-line-001",
+        "right-model-g-001-line-002",
+        "right-model-g-001-line-003",
+        "right-model-g-001-line-004",
+        "right-model-g-001-line-005",
+        "right-model-g-001-line-006",
+        "right-model-g-001-line-007",
+        "right-model-g-001-line-008",
+        "right-model-g-001-circle-001",
+        "right-model-g-001-circle-002",
+        "right-model-g-001-circle-003",
+        "right-model-g-001-circle-004",
+        "right-model-g-001-circle-005",
+        "right-model-g-001-circle-006",
+        "right-model-g-001-circle-007",
+        "right-model-text-001",
+        "right-model-text-002"
+      ]
+    },
+    {
+      "id": "right-model-rect-001",
+      "semanticId": "right-model-rect-001",
+      "kind": "shape",
+      "x": 881.0,
+      "y": 253.0,
+      "width": 282.0,
+      "height": 124.0,
+      "editable": true,
+      "zIndex": 121
+    },
+    {
+      "id": "right-model-g-001",
+      "semanticId": "right-model-g-001",
+      "kind": "shape",
+      "x": 972.4999,
+      "y": 258.4999,
+      "width": 99.0,
+      "height": 113.0,
+      "editable": true,
+      "zIndex": 122,
+      "composite": true,
+      "memberIds": [
+        "right-model-g-001-line-001",
+        "right-model-g-001-line-002",
+        "right-model-g-001-line-003",
+        "right-model-g-001-line-004",
+        "right-model-g-001-line-005",
+        "right-model-g-001-line-006",
+        "right-model-g-001-line-007",
+        "right-model-g-001-line-008",
+        "right-model-g-001-circle-001",
+        "right-model-g-001-circle-002",
+        "right-model-g-001-circle-003",
+        "right-model-g-001-circle-004",
+        "right-model-g-001-circle-005",
+        "right-model-g-001-circle-006",
+        "right-model-g-001-circle-007"
+      ]
+    },
+    {
+      "id": "right-model-g-001-line-001",
+      "semanticId": "right-model-g-001-line-001",
+      "kind": "line",
+      "x": 980.0,
+      "y": 266.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 123
+    },
+    {
+      "id": "right-model-g-001-line-002",
+      "semanticId": "right-model-g-001-line-002",
+      "kind": "line",
+      "x": 1022.0,
+      "y": 266.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 124
+    },
+    {
+      "id": "right-model-g-001-line-003",
+      "semanticId": "right-model-g-001-line-003",
+      "kind": "line",
+      "x": 980.0,
+      "y": 291.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 125
+    },
+    {
+      "id": "right-model-g-001-line-004",
+      "semanticId": "right-model-g-001-line-004",
+      "kind": "line",
+      "x": 1022.0,
+      "y": 291.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 126
+    },
+    {
+      "id": "right-model-g-001-line-005",
+      "semanticId": "right-model-g-001-line-005",
+      "kind": "line",
+      "x": 980.0,
+      "y": 316.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 127
+    },
+    {
+      "id": "right-model-g-001-line-006",
+      "semanticId": "right-model-g-001-line-006",
+      "kind": "line",
+      "x": 1022.0,
+      "y": 316.0,
+      "width": 42.0,
+      "height": 25.0,
+      "editable": true,
+      "zIndex": 128
+    },
+    {
+      "id": "right-model-g-001-line-007",
+      "semanticId": "right-model-g-001-line-007",
+      "kind": "line",
+      "x": 980.0,
+      "y": 341.0,
+      "width": 42.0,
+      "height": 23.0,
+      "editable": true,
+      "zIndex": 129
+    },
+    {
+      "id": "right-model-g-001-line-008",
+      "semanticId": "right-model-g-001-line-008",
+      "kind": "line",
+      "x": 1022.0,
+      "y": 341.0,
+      "width": 42.0,
+      "height": 23.0,
+      "editable": true,
+      "zIndex": 130
+    },
+    {
+      "id": "right-model-g-001-circle-001",
+      "semanticId": "right-model-g-001-circle-001",
+      "kind": "shape",
+      "x": 1014.4999,
+      "y": 258.4999,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 131
+    },
+    {
+      "id": "right-model-g-001-circle-002",
+      "semanticId": "right-model-g-001-circle-002",
+      "kind": "shape",
+      "x": 972.4999,
+      "y": 283.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 132
+    },
+    {
+      "id": "right-model-g-001-circle-003",
+      "semanticId": "right-model-g-001-circle-003",
+      "kind": "shape",
+      "x": 1056.4999,
+      "y": 283.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 133
+    },
+    {
+      "id": "right-model-g-001-circle-004",
+      "semanticId": "right-model-g-001-circle-004",
+      "kind": "shape",
+      "x": 1014.4999,
+      "y": 308.4999,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 134
+    },
+    {
+      "id": "right-model-g-001-circle-005",
+      "semanticId": "right-model-g-001-circle-005",
+      "kind": "shape",
+      "x": 972.4999,
+      "y": 333.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 135
+    },
+    {
+      "id": "right-model-g-001-circle-006",
+      "semanticId": "right-model-g-001-circle-006",
+      "kind": "shape",
+      "x": 1056.4999,
+      "y": 333.5001,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 136
+    },
+    {
+      "id": "right-model-g-001-circle-007",
+      "semanticId": "right-model-g-001-circle-007",
+      "kind": "shape",
+      "x": 1014.4999,
+      "y": 356.4999,
+      "width": 15.0,
+      "height": 15.0,
+      "editable": true,
+      "zIndex": 137
+    },
+    {
+      "id": "right-model-text-001",
+      "semanticId": "right-model-text-001",
+      "kind": "text",
+      "x": 891.52,
+      "y": 283.35,
+      "width": 260.96,
+      "height": 53.75,
+      "editable": true,
+      "zIndex": 138,
+      "textSpec": {
+        "text": "Pareto-Conditioned",
+        "fontToken": "autofigure-font",
+        "fontSize": 20.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Pareto-Conditioned",
+            "fontToken": "Arial",
+            "fontSize": 20.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "right-model-text-002",
+      "semanticId": "right-model-text-002",
+      "kind": "text",
+      "x": 912.31,
+      "y": 314.35,
+      "width": 219.3799,
+      "height": 53.75,
+      "editable": true,
+      "zIndex": 139,
+      "textSpec": {
+        "text": "Diffusion Model",
+        "fontToken": "autofigure-font",
+        "fontSize": 20.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Diffusion Model",
+            "fontToken": "Arial",
+            "fontSize": 20.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "styles-text-007",
+      "semanticId": "styles-text-007",
+      "kind": "text",
+      "x": 1060.0,
+      "y": 201.2999,
+      "width": 97.2599,
+      "height": 52.4999,
+      "editable": true,
+      "zIndex": 141,
+      "textSpec": {
+        "text": "Noise",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Noise",
+            "fontToken": "Arial",
+            "fontSize": 19.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "styles-text-008",
+      "semanticId": "styles-text-008",
+      "kind": "text",
+      "x": 1055.0,
+      "y": 398.3001,
+      "width": 119.36,
+      "height": 52.4999,
+      "editable": true,
+      "zIndex": 143,
+      "textSpec": {
+        "text": "Sample",
+        "fontToken": "autofigure-font",
+        "fontSize": 19.5,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Sample",
+            "fontToken": "Arial",
+            "fontSize": 19.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "designs-cuboid",
+      "semanticId": "designs-cuboid",
+      "kind": "shape",
+      "x": 939.0,
+      "y": 462.0,
+      "width": 165.0,
+      "height": 109.0,
+      "editable": true,
+      "zIndex": 144,
+      "composite": true,
+      "memberIds": [
+        "designs-cuboid-polygon-001",
+        "designs-cuboid-polygon-002",
+        "designs-cuboid-rect-001",
+        "designs-cuboid-text-001"
+      ]
+    },
+    {
+      "id": "designs-cuboid-polygon-001",
+      "semanticId": "designs-cuboid-polygon-001",
+      "kind": "shape",
+      "x": 939.0,
+      "y": 462.0,
+      "width": 165.0,
+      "height": 26.0,
+      "editable": true,
+      "zIndex": 145
+    },
+    {
+      "id": "designs-cuboid-polygon-002",
+      "semanticId": "designs-cuboid-polygon-002",
+      "kind": "shape",
+      "x": 1077.0,
+      "y": 462.0,
+      "width": 27.0,
+      "height": 109.0,
+      "editable": true,
+      "zIndex": 146
+    },
+    {
+      "id": "designs-cuboid-rect-001",
+      "semanticId": "designs-cuboid-rect-001",
+      "kind": "shape",
+      "x": 939.0,
+      "y": 488.0,
+      "width": 138.0,
+      "height": 83.0,
+      "editable": true,
+      "zIndex": 147
+    },
+    {
+      "id": "designs-cuboid-text-001",
+      "semanticId": "designs-cuboid-text-001",
+      "kind": "text",
+      "x": 944.075,
+      "y": 514.35,
+      "width": 127.85,
+      "height": 53.75,
+      "editable": true,
+      "zIndex": 148,
+      "textSpec": {
+        "text": "Designs",
+        "fontToken": "autofigure-font",
+        "fontSize": 20.25,
+        "fontWeight": "normal",
+        "horizontalAlign": "center",
+        "verticalAlign": "middle",
+        "margins": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "autofit": "none",
+        "runs": [
+          {
+            "text": "Designs",
+            "fontToken": "Arial",
+            "fontSize": 20.25
+          }
+        ]
+      }
+    },
+    {
+      "id": "molecule-right",
+      "semanticId": "molecule-right",
+      "kind": "shape",
+      "x": 853.0,
+      "y": 503.0,
+      "width": 66.0,
+      "height": 45.8,
+      "editable": true,
+      "zIndex": 149,
+      "composite": true,
+      "memberIds": [
+        "molecule-right-g-001-line-001",
+        "molecule-right-g-001-line-002",
+        "molecule-right-g-001-line-003",
+        "molecule-right-g-001-line-004",
+        "molecule-right-g-001-line-005",
+        "molecule-right-g-001-line-006",
+        "molecule-right-circle-001",
+        "molecule-right-circle-002",
+        "molecule-right-circle-003",
+        "molecule-right-circle-004",
+        "molecule-right-circle-005",
+        "molecule-right-circle-006",
+        "molecule-right-circle-007",
+        "molecule-right-circle-008",
+        "molecule-right-line-001"
+      ]
+    },
+    {
+      "id": "molecule-right-g-001",
+      "semanticId": "molecule-right-g-001",
+      "kind": "shape",
+      "x": 858.0,
+      "y": 508.0,
+      "width": 56.0,
+      "height": 36.0,
+      "editable": true,
+      "zIndex": 150,
+      "composite": true,
+      "memberIds": [
+        "molecule-right-g-001-line-001",
+        "molecule-right-g-001-line-002",
+        "molecule-right-g-001-line-003",
+        "molecule-right-g-001-line-004",
+        "molecule-right-g-001-line-005",
+        "molecule-right-g-001-line-006"
+      ]
+    },
+    {
+      "id": "molecule-right-circle-001",
+      "semanticId": "molecule-right-circle-001",
+      "kind": "shape",
+      "x": 853.0,
+      "y": 512.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 157
+    },
+    {
+      "id": "molecule-right-circle-002",
+      "semanticId": "molecule-right-circle-002",
+      "kind": "shape",
+      "x": 871.0,
+      "y": 515.0,
+      "width": 12.0,
+      "height": 12.0,
+      "editable": true,
+      "zIndex": 158
+    },
+    {
+      "id": "molecule-right-circle-003",
+      "semanticId": "molecule-right-circle-003",
+      "kind": "shape",
+      "x": 885.0,
+      "y": 503.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 159
+    },
+    {
+      "id": "molecule-right-circle-004",
+      "semanticId": "molecule-right-circle-004",
+      "kind": "shape",
+      "x": 891.0,
+      "y": 522.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 160
+    },
+    {
+      "id": "molecule-right-circle-005",
+      "semanticId": "molecule-right-circle-005",
+      "kind": "shape",
+      "x": 909.0,
+      "y": 515.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 161
+    },
+    {
+      "id": "molecule-right-circle-006",
+      "semanticId": "molecule-right-circle-006",
+      "kind": "shape",
+      "x": 874.0,
+      "y": 534.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 162
+    },
+    {
+      "id": "molecule-right-circle-007",
+      "semanticId": "molecule-right-circle-007",
+      "kind": "shape",
+      "x": 892.2,
+      "y": 539.2,
+      "width": 9.6,
+      "height": 9.6,
+      "editable": true,
+      "zIndex": 163
+    },
+    {
+      "id": "molecule-right-circle-008",
+      "semanticId": "molecule-right-circle-008",
+      "kind": "shape",
+      "x": 862.0,
+      "y": 531.0,
+      "width": 10.0,
+      "height": 10.0,
+      "editable": true,
+      "zIndex": 164
+    },
+    {
+      "id": "dna-right",
+      "semanticId": "dna-right",
+      "kind": "shape",
+      "x": 1116.0,
+      "y": 466.0,
+      "width": 61.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 166,
+      "composite": true,
+      "memberIds": [
+        "dna-right-path-001",
+        "dna-right-path-002",
+        "dna-right-path-003",
+        "dna-right-path-004",
+        "dna-right-g-001-line-001",
+        "dna-right-g-001-line-002",
+        "dna-right-g-001-line-003",
+        "dna-right-g-001-line-004",
+        "dna-right-g-001-line-005",
+        "dna-right-g-001-line-006",
+        "dna-right-g-001-line-007",
+        "dna-right-g-001-line-008"
+      ]
+    },
+    {
+      "id": "dna-right-path-001",
+      "semanticId": "dna-right-path-001",
+      "kind": "shape",
+      "x": 1116.0,
+      "y": 466.0,
+      "width": 36.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 167
+    },
+    {
+      "id": "dna-right-path-002",
+      "semanticId": "dna-right-path-002",
+      "kind": "shape",
+      "x": 1117.0,
+      "y": 466.0,
+      "width": 36.0,
+      "height": 63.0,
+      "editable": true,
+      "zIndex": 168
+    },
+    {
+      "id": "dna-right-path-003",
+      "semanticId": "dna-right-path-003",
+      "kind": "shape",
+      "x": 1158.0,
+      "y": 469.0,
+      "width": 17.0,
+      "height": 57.0,
+      "editable": true,
+      "zIndex": 169
+    },
+    {
+      "id": "dna-right-path-004",
+      "semanticId": "dna-right-path-004",
+      "kind": "shape",
+      "x": 1160.0,
+      "y": 469.0,
+      "width": 17.0,
+      "height": 57.0,
+      "editable": true,
+      "zIndex": 170
+    },
+    {
+      "id": "dna-right-g-001",
+      "semanticId": "dna-right-g-001",
+      "kind": "shape",
+      "x": 1118.0,
+      "y": 474.0,
+      "width": 57.0,
+      "height": 42.5,
+      "editable": true,
+      "zIndex": 171,
+      "composite": true,
+      "memberIds": [
+        "dna-right-g-001-line-001",
+        "dna-right-g-001-line-002",
+        "dna-right-g-001-line-003",
+        "dna-right-g-001-line-004",
+        "dna-right-g-001-line-005",
+        "dna-right-g-001-line-006",
+        "dna-right-g-001-line-007",
+        "dna-right-g-001-line-008"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "molecule-left-g-001-line-001",
+      "semanticRelationIds": [
+        "rel:molecule-left-g-001-line-001"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-001",
+      "target": "molecule-left-circle-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-left-g-001-line-002",
+      "semanticRelationIds": [
+        "rel:molecule-left-g-001-line-002"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-002",
+      "target": "molecule-left-circle-003",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-left-g-001-line-003",
+      "semanticRelationIds": [
+        "rel:molecule-left-g-001-line-003"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-002",
+      "target": "molecule-left-circle-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-left-g-001-line-004",
+      "semanticRelationIds": [
+        "rel:molecule-left-g-001-line-004"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-004",
+      "target": "molecule-left-circle-005",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-left-g-001-line-005",
+      "semanticRelationIds": [
+        "rel:molecule-left-g-001-line-005"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-002",
+      "target": "molecule-left-circle-006",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-left-g-001-line-006",
+      "semanticRelationIds": [
+        "rel:molecule-left-g-001-line-006"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-006",
+      "target": "molecule-left-circle-007",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-left-line-001",
+      "semanticRelationIds": [
+        "rel:molecule-left-line-001"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-left-circle-008",
+      "target": "molecule-left-circle-006",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-001",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-001"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-001",
+      "target": "dna-left-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-002",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-002"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-001",
+      "target": "dna-left-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-003",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-003"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-001",
+      "target": "dna-left-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-004",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-004"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-001",
+      "target": "dna-left-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-005",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-005"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-003",
+      "target": "dna-left-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-006",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-006"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-003",
+      "target": "dna-left-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-007",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-007"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-003",
+      "target": "dna-left-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-left-g-001-line-008",
+      "semanticRelationIds": [
+        "rel:dna-left-g-001-line-008"
+      ],
+      "geometryOnly": false,
+      "source": "dna-left-path-003",
+      "target": "dna-left-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "blue-arrow-1",
+      "semanticRelationIds": [
+        "rel:blue-arrow-1"
+      ],
+      "geometryOnly": false,
+      "source": "dataset-cylinder",
+      "target": "reweighted-cylinder",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "balance-line-003",
+      "semanticRelationIds": [
+        "rel:balance-line-003"
+      ],
+      "geometryOnly": false,
+      "source": "balance-line-001",
+      "target": "balance-line-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "balance-line-004",
+      "semanticRelationIds": [
+        "rel:balance-line-004"
+      ],
+      "geometryOnly": false,
+      "source": "balance-line-002",
+      "target": "balance-path-001",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "balance-line-005",
+      "semanticRelationIds": [
+        "rel:balance-line-005"
+      ],
+      "geometryOnly": false,
+      "source": "balance-line-002",
+      "target": "balance-path-001",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "balance-line-006",
+      "semanticRelationIds": [
+        "rel:balance-line-006"
+      ],
+      "geometryOnly": false,
+      "source": "balance-line-002",
+      "target": "balance-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "balance-line-007",
+      "semanticRelationIds": [
+        "rel:balance-line-007"
+      ],
+      "geometryOnly": false,
+      "source": "balance-line-002",
+      "target": "balance-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "blue-arrow-2",
+      "semanticRelationIds": [
+        "rel:blue-arrow-2"
+      ],
+      "geometryOnly": false,
+      "source": "reweighted-cylinder",
+      "target": "left-model",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "condition-arrow",
+      "semanticRelationIds": [
+        "rel:condition-arrow"
+      ],
+      "geometryOnly": false,
+      "source": "target-box",
+      "target": "right-model",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "noise-arrow",
+      "semanticRelationIds": [
+        "rel:noise-arrow"
+      ],
+      "geometryOnly": false,
+      "source": "noise-curve",
+      "target": "right-model",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "sample-arrow",
+      "semanticRelationIds": [
+        "rel:sample-arrow"
+      ],
+      "geometryOnly": false,
+      "source": "right-model",
+      "target": "designs-cuboid",
+      "direction": "forward",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-g-001-line-001",
+      "semanticRelationIds": [
+        "rel:molecule-right-g-001-line-001"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-001",
+      "target": "molecule-right-circle-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-g-001-line-002",
+      "semanticRelationIds": [
+        "rel:molecule-right-g-001-line-002"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-002",
+      "target": "molecule-right-circle-003",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-g-001-line-003",
+      "semanticRelationIds": [
+        "rel:molecule-right-g-001-line-003"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-002",
+      "target": "molecule-right-circle-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-g-001-line-004",
+      "semanticRelationIds": [
+        "rel:molecule-right-g-001-line-004"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-004",
+      "target": "molecule-right-circle-005",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-g-001-line-005",
+      "semanticRelationIds": [
+        "rel:molecule-right-g-001-line-005"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-002",
+      "target": "molecule-right-circle-006",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-g-001-line-006",
+      "semanticRelationIds": [
+        "rel:molecule-right-g-001-line-006"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-006",
+      "target": "molecule-right-circle-007",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "molecule-right-line-001",
+      "semanticRelationIds": [
+        "rel:molecule-right-line-001"
+      ],
+      "geometryOnly": false,
+      "source": "molecule-right-circle-008",
+      "target": "molecule-right-circle-006",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-001",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-001"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-001",
+      "target": "dna-right-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-002",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-002"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-001",
+      "target": "dna-right-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-003",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-003"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-001",
+      "target": "dna-right-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-004",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-004"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-001",
+      "target": "dna-right-path-002",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-005",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-005"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-003",
+      "target": "dna-right-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-006",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-006"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-003",
+      "target": "dna-right-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-007",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-007"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-003",
+      "target": "dna-right-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    },
+    {
+      "id": "dna-right-g-001-line-008",
+      "semanticRelationIds": [
+        "rel:dna-right-g-001-line-008"
+      ],
+      "geometryOnly": false,
+      "source": "dna-right-path-003",
+      "target": "dna-right-path-004",
+      "direction": "none",
+      "route": "straight",
+      "styleTokens": {
+        "strokePattern": "solid"
+      }
+    }
+  ],
+  "assetSlots": []
+}

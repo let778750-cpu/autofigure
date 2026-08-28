@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "schema_v4_migration_report",
+  "case": "02-thinking-diffusion-reference-only",
+  "input_route": "reference-only",
+  "processing_mode": "png_reconstruct",
+  "imported_legacy_carrier": true,
+  "source_gate_decision": "repair",
+  "source_gate_blockers": [
+    "source-gate:isolation:read-manifest-unverified"
+  ],
+  "revision_id": "scene-8625ee033a30f1bd",
+  "scene_sha256": "8625ee033a30f1bda0ecf3d9c8ef8e67939201cd4259e9d7d044a4a0776f047c",
+  "status": "implemented_unverified",
+  "approved": false
+}

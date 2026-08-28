@@ -1,0 +1,13 @@
+# 最终责任人。develop 的普通审批与 main 的强制 CODEOWNER 审批由分支规则分别配置。
+* @let778750-cpu
+
+# 科学合同、转换器、案例证据和发布治理始终需要明确所有权。
+/tools/ @let778750-cpu
+/examples/ @let778750-cpu
+/references/ @let778750-cpu
+/tests/ @let778750-cpu
+/.github/ @let778750-cpu
+/.agents/ @let778750-cpu
+/.codex/ @let778750-cpu
+/.kimi-code/ @let778750-cpu
+/docs/ @let778750-cpu

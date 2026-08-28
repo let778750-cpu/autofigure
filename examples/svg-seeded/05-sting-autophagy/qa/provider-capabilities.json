@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "provider_capabilities",
+  "created_at": "20260827T145516Z",
+  "case": "05-sting-autophagy",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "powerpoint_live": {
+    "provider_id": "powerpoint-live",
+    "server_version": "2.1.1",
+    "server_sha256": "75002bd72d9eb15e0be243ac6e43f53790b19fb8ba4cc0f1e002b92c3b279c55",
+    "bridge_sha256": "ccd9a75706bcd4503dfc6a09d339257fb025a76a86955c9b7d84c80fc78b579c",
+    "external_probe": {
+      "verified": false,
+      "path": null,
+      "reason": "probe-evidence-missing"
+    },
+    "capability_fingerprint_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+    "known_bad_version": true,
+    "enum_mapping_verified": false,
+    "head_size_write_verified": false,
+    "head_size_readback_verified": false,
+    "required_path_kinds_verified": true,
+    "dash_matrix_verified": false,
+    "autoshape_adjustments_write_verified": false,
+    "autoshape_adjustments_readback_verified": false,
+    "autoshape_subtype_readback_verified": true,
+    "connector_true_path_readback_verified": true,
+    "mixed_freeform_path_readback_verified": true,
+    "live_matrix_probe_verified": false,
+    "required_endpoint_styles": [
+      "none",
+      "open",
+      "triangle",
+      "stealth",
+      "diamond",
+      "oval"
+    ],
+    "required_head_widths": [
+      "sm",
+      "med",
+      "lg"
+    ],
+    "required_head_lengths": [
+      "sm",
+      "med",
+      "lg"
+    ],
+    "required_dash_styles": [
+      "solid",
+      "square_dot",
+      "round_dot",
+      "dash",
+      "dash_dot",
+      "dash_dot_dot",
+      "long_dash",
+      "long_dash_dot",
+      "long_dash_dot_dot",
+      "sys_dash",
+      "sys_dot",
+      "sys_dash_dot"
+    ],
+    "required_connector_paths": [
+      "straight",
+      "elbow",
+      "curve"
+    ],
+    "arrow_authoring_allowed": false,
+    "allowed_arrow_operations": [
+      "inspect",
+      "audit",
+      "save-reopen"
+    ],
+    "deny_reasons": [
+      "known_bad_version",
+      "enum_mapping_verified",
+      "head_size_write_verified",
+      "head_size_readback_verified",
+      "dash_matrix_verified",
+      "autoshape_adjustments_write_verified",
+      "autoshape_adjustments_readback_verified",
+      "live_matrix_probe_verified"
+    ]
+  }
+}

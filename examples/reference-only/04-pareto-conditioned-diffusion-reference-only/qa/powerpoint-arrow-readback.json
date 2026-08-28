@@ -1,0 +1,1104 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_arrow_readback",
+  "created_at": "20260824T151852Z",
+  "case": "04-pareto-conditioned-diffusion-reference-only",
+  "scene_sha256": "2830a479df30fab3a36e29744f08d2e10a494b7e5c0123410e3d0a37956e56b7",
+  "artifact_sha256": "6610b8fb6b47855afee713c8b56edaa6f2ea5a7582085237267bd7494f50e16a",
+  "bindings_artifact_sha256": "6610b8fb6b47855afee713c8b56edaa6f2ea5a7582085237267bd7494f50e16a",
+  "saved_reopened": false,
+  "inventory_count": 184,
+  "arrow_count": 9,
+  "records": [
+    {
+      "element_id": "chart-offline-axis-y",
+      "arrow_spec_sha256": "62cde11af7d5b4067f57f793f98213db2b9d62b88a9dcce3e3bbeb5799e21be9",
+      "shape_id": 44,
+      "shape_name": "af-chart-offline-axis-y-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "sm",
+          "length": "sm",
+          "color": "#111111"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "sm",
+          "length": "sm"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          355.0,
+          177.0
+        ],
+        "expected_end": [
+          355.0,
+          121.0
+        ],
+        "actual_start": [
+          355.0,
+          177.0
+        ],
+        "actual_end": [
+          355.0,
+          121.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "62cde11af7d5b4067f57f793f98213db2b9d62b88a9dcce3e3bbeb5799e21be9",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "chart-offline-axis-x",
+      "arrow_spec_sha256": "b223c65645222d30fb10aecd312d35493bad33b54548aa3b441c22d7d56af8c4",
+      "shape_id": 45,
+      "shape_name": "af-chart-offline-axis-x-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "sm",
+          "length": "sm",
+          "color": "#111111"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "sm",
+          "length": "sm"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          354.0,
+          176.0
+        ],
+        "expected_end": [
+          427.0,
+          176.0
+        ],
+        "actual_start": [
+          354.0,
+          176.0
+        ],
+        "actual_end": [
+          427.0,
+          176.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "b223c65645222d30fb10aecd312d35493bad33b54548aa3b441c22d7d56af8c4",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-raw-to-reweighted",
+      "arrow_spec_sha256": "fe668c9dae3d0ebcb4fe2c891866687fbd6dad29958accce9ace23384a2cfbac",
+      "shape_id": 64,
+      "shape_name": "af-arrow-raw-to-reweighted-freeform-arrow-01",
+      "ooxml_kind": "shape",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#4A86E8",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-raw-to-reweighted"
+          }
+        },
+        "actual": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#4A86E8",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-raw-to-reweighted"
+          },
+          "representation": "embedded-silhouette",
+          "ooxml_line_end": {
+            "type": "none",
+            "width": null,
+            "length": null
+          }
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#4A86E8",
+          "width_px": 26.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#4A86E8",
+          "width_px": null,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "max_coordinate_error_px": 0.0,
+        "tolerance_px": 0.25
+      },
+      "semantic_centerline": {
+        "status": "PASS",
+        "expected_start": [
+          294.0,
+          197.0
+        ],
+        "expected_end": [
+          294.0,
+          254.0
+        ],
+        "actual_start": [
+          294.0,
+          197.0
+        ],
+        "actual_end": [
+          294.0,
+          254.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        },
+        "evidence": "saved-pptx-cNvPr-description-bound-to-read-back-silhouette"
+      },
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "fe668c9dae3d0ebcb4fe2c891866687fbd6dad29958accce9ace23384a2cfbac",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "declared",
+          "source_id": "dataset-raw-body",
+          "target_id": "dataset-reweighted-body",
+          "source_site": 0,
+          "target_site": 0
+        },
+        "actual": null,
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-reweighted-to-model",
+      "arrow_spec_sha256": "d1f695d04bf43d826a4d904a8fa12e1ba043811a8f89cd431e7a068fc031229f",
+      "shape_id": 77,
+      "shape_name": "af-arrow-reweighted-to-model-freeform-arrow-01",
+      "ooxml_kind": "shape",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#4A86E8",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-reweighted-to-model"
+          }
+        },
+        "actual": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#4A86E8",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-reweighted-to-model"
+          },
+          "representation": "embedded-silhouette",
+          "ooxml_line_end": {
+            "type": "none",
+            "width": null,
+            "length": null
+          }
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#4A86E8",
+          "width_px": 26.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#4A86E8",
+          "width_px": null,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "max_coordinate_error_px": 0.0,
+        "tolerance_px": 0.25
+      },
+      "semantic_centerline": {
+        "status": "PASS",
+        "expected_start": [
+          294.0,
+          355.0
+        ],
+        "expected_end": [
+          294.0,
+          442.0
+        ],
+        "actual_start": [
+          294.0,
+          355.0
+        ],
+        "actual_end": [
+          294.0,
+          442.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        },
+        "evidence": "saved-pptx-cNvPr-description-bound-to-read-back-silhouette"
+      },
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "d1f695d04bf43d826a4d904a8fa12e1ba043811a8f89cd431e7a068fc031229f",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "declared",
+          "source_id": "dataset-reweighted-body",
+          "target_id": "model-left-box",
+          "source_site": 0,
+          "target_site": 0
+        },
+        "actual": null,
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-noise-to-model",
+      "arrow_spec_sha256": "410b1837f754bd7889927005c2bba8ff15a31593e3d662f7eb3770de57b06e7d",
+      "shape_id": 101,
+      "shape_name": "af-arrow-noise-to-model-freeform-arrow-01",
+      "ooxml_kind": "shape",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#E69138",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-noise-to-model"
+          }
+        },
+        "actual": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#E69138",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-noise-to-model"
+          },
+          "representation": "embedded-silhouette",
+          "ooxml_line_end": {
+            "type": "none",
+            "width": null,
+            "length": null
+          }
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#E69138",
+          "width_px": 26.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#E69138",
+          "width_px": null,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "max_coordinate_error_px": 0.0,
+        "tolerance_px": 0.25
+      },
+      "semantic_centerline": {
+        "status": "PASS",
+        "expected_start": [
+          1022.0,
+          195.0
+        ],
+        "expected_end": [
+          1022.0,
+          249.0
+        ],
+        "actual_start": [
+          1022.0,
+          195.0
+        ],
+        "actual_end": [
+          1022.0,
+          249.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        },
+        "evidence": "saved-pptx-cNvPr-description-bound-to-read-back-silhouette"
+      },
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "410b1837f754bd7889927005c2bba8ff15a31593e3d662f7eb3770de57b06e7d",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "declared",
+          "source_id": "gaussian-noise-curve",
+          "target_id": "model-right-box",
+          "source_site": 0,
+          "target_site": 0
+        },
+        "actual": null,
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "chart-target-axis-y",
+      "arrow_spec_sha256": "c0257b95c8c40c21f207772dd9e4091b51d1f9bfbb2bbe56128a9bf874b7fee0",
+      "shape_id": 106,
+      "shape_name": "af-chart-target-axis-y-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "sm",
+          "length": "sm",
+          "color": "#111111"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "sm",
+          "length": "sm"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          653.0,
+          437.0
+        ],
+        "expected_end": [
+          653.0,
+          381.0
+        ],
+        "actual_start": [
+          653.0,
+          437.0
+        ],
+        "actual_end": [
+          653.0,
+          381.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "c0257b95c8c40c21f207772dd9e4091b51d1f9bfbb2bbe56128a9bf874b7fee0",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "chart-target-axis-x",
+      "arrow_spec_sha256": "2332d1a04b1752fc3e4f6bfd96c31e0ffaf613dcac5cc6cbf586a0482a9ae843",
+      "shape_id": 107,
+      "shape_name": "af-chart-target-axis-x-connector-01",
+      "ooxml_kind": "connector",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "triangle",
+          "width": "sm",
+          "length": "sm",
+          "color": "#111111"
+        },
+        "actual": {
+          "type": "triangle",
+          "ooxml_type": "triangle",
+          "width": "sm",
+          "length": "sm"
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#111111",
+          "width_px": 1.8,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "expected_start": [
+          652.0,
+          436.0
+        ],
+        "expected_end": [
+          725.0,
+          436.0
+        ],
+        "actual_start": [
+          652.0,
+          436.0
+        ],
+        "actual_end": [
+          725.0,
+          436.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        }
+      },
+      "semantic_centerline": null,
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "2332d1a04b1752fc3e4f6bfd96c31e0ffaf613dcac5cc6cbf586a0482a9ae843",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "none",
+          "source_id": null,
+          "target_id": null,
+          "source_site": null,
+          "target_site": null
+        },
+        "actual": {
+          "source_shape_id": null,
+          "source_site": null,
+          "target_shape_id": null,
+          "target_site": null
+        },
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-target-to-model",
+      "arrow_spec_sha256": "fc1c7da8aa4663d68146b5f97766ca850839db84ac1aaed58c12d1fa211132e8",
+      "shape_id": 126,
+      "shape_name": "af-arrow-target-to-model-freeform-arrow-01",
+      "ooxml_kind": "shape",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#E69138",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-target-to-model"
+          }
+        },
+        "actual": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#E69138",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-target-to-model"
+          },
+          "representation": "embedded-silhouette",
+          "ooxml_line_end": {
+            "type": "none",
+            "width": null,
+            "length": null
+          }
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#E69138",
+          "width_px": 21.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#E69138",
+          "width_px": null,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "max_coordinate_error_px": 0.0,
+        "tolerance_px": 0.25
+      },
+      "semantic_centerline": {
+        "status": "PASS",
+        "expected_start": [
+          769.0,
+          315.0
+        ],
+        "expected_end": [
+          876.0,
+          315.0
+        ],
+        "actual_start": [
+          769.0,
+          315.0
+        ],
+        "actual_end": [
+          876.0,
+          315.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        },
+        "evidence": "saved-pptx-cNvPr-description-bound-to-read-back-silhouette"
+      },
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "fc1c7da8aa4663d68146b5f97766ca850839db84ac1aaed58c12d1fa211132e8",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "declared",
+          "source_id": "target-objectives-box",
+          "target_id": "model-right-box",
+          "source_site": 0,
+          "target_site": 0
+        },
+        "actual": null,
+        "pass": true
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "arrow-model-to-designs",
+      "arrow_spec_sha256": "15586690aa180a84c1387f67d6295c58ab4dc221e82e1c3779e13b711cb553fb",
+      "shape_id": 147,
+      "shape_name": "af-arrow-model-to-designs-freeform-arrow-01",
+      "ooxml_kind": "shape",
+      "start_head": {
+        "expected": {
+          "type": "none",
+          "width": null,
+          "length": null,
+          "color": null
+        },
+        "actual": {
+          "type": "none",
+          "width": null,
+          "length": null
+        },
+        "pass": true
+      },
+      "end_head": {
+        "expected": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#E69138",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-model-to-designs"
+          }
+        },
+        "actual": {
+          "type": "custom",
+          "width": "lg",
+          "length": "sm",
+          "color": "#E69138",
+          "custom_path": {
+            "kind": "embedded-silhouette",
+            "side": "end",
+            "element_id": "arrow-model-to-designs"
+          },
+          "representation": "embedded-silhouette",
+          "ooxml_line_end": {
+            "type": "none",
+            "width": null,
+            "length": null
+          }
+        },
+        "pass": true
+      },
+      "body": {
+        "expected": {
+          "color": "#E69138",
+          "width_px": 26.0,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "actual": {
+          "color": "#E69138",
+          "width_px": null,
+          "dash": "solid",
+          "line_cap": "butt",
+          "line_join": "miter"
+        },
+        "color_pass": true,
+        "width_pass": true,
+        "dash_pass": true,
+        "line_cap_pass": true,
+        "line_join_pass": true
+      },
+      "path_geometry": {
+        "status": "PASS",
+        "max_coordinate_error_px": 0.0,
+        "tolerance_px": 0.25
+      },
+      "semantic_centerline": {
+        "status": "PASS",
+        "expected_start": [
+          1022.0,
+          382.0
+        ],
+        "expected_end": [
+          1022.0,
+          457.0
+        ],
+        "actual_start": [
+          1022.0,
+          382.0
+        ],
+        "actual_end": [
+          1022.0,
+          457.0
+        ],
+        "start_error_px": 0.0,
+        "end_error_px": 0.0,
+        "full_path_max_point_error_px": 0.0,
+        "path_signature": [
+          "straight",
+          2
+        ],
+        "start_angle_error_deg": 0.0,
+        "end_angle_error_deg": 0.0,
+        "tangents_available": true,
+        "tolerances": {
+          "endpoint_px": 3.4022,
+          "full_path_px": 4.763,
+          "angle_deg": 3.0
+        },
+        "evidence": "saved-pptx-cNvPr-description-bound-to-read-back-silhouette"
+      },
+      "autoshape": null,
+      "embedded_arrow_spec_sha256": "15586690aa180a84c1387f67d6295c58ab4dc221e82e1c3779e13b711cb553fb",
+      "embedded_tag_pass": true,
+      "topology": {
+        "expected": {
+          "mode": "declared",
+          "source_id": "model-right-box",
+          "target_id": "designs-box-front",
+          "source_site": 0,
+          "target_site": 0
+        },
+        "actual": null,
+        "pass": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

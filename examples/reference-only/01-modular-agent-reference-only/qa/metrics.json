@@ -13,12 +13,12 @@
     }
   },
   "size_mismatch": false,
-  "mean_abs_rgb_delta": 15.3626,
-  "rmse_rgb_delta": 48.6227,
-  "pixels_over_delta_10_pct": 15.283,
-  "pixels_over_delta_25_pct": 11.2954,
-  "pixels_over_delta_50_pct": 8.9901,
-  "changed_pixel_ratio_pct": 37.0966,
+  "mean_abs_rgb_delta": 15.0326,
+  "rmse_rgb_delta": 48.334,
+  "pixels_over_delta_10_pct": 14.2113,
+  "pixels_over_delta_25_pct": 10.9751,
+  "pixels_over_delta_50_pct": 8.6465,
+  "changed_pixel_ratio_pct": 36.7584,
   "evaluated_pixel_count": 895983,
   "excluded_reference_preview_pixel_count": 0,
   "excluded_reference_preview_pct": 0.0,
@@ -30,12 +30,12 @@
       "w": 400,
       "h": 80
     },
-    "mean_abs_rgb_delta": 31.8008,
-    "loss_contribution_pct": 6.8089
+    "mean_abs_rgb_delta": 33.0635,
+    "loss_contribution_pct": 6.9572
   },
-  "ssim": 0.7561,
+  "ssim": 0.763,
   "notes": [],
-  "summary": "mode=benchmark | mean_abs_rgb_delta=15.3626 | top_roi_loss=6.8089% | changed_pixel_ratio=37.0966% | excluded_preview=0.0% | ssim=0.7561 | diagnostic=WATCH",
+  "summary": "mode=benchmark | mean_abs_rgb_delta=15.0326 | top_roi_loss=6.9572% | changed_pixel_ratio=36.7584% | excluded_preview=0.0% | ssim=0.763 | diagnostic=WATCH",
   "reference_preview_receipts": [],
   "diff_out": "qa/diff.png"
 }

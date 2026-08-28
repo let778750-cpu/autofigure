@@ -1,0 +1,17 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "revision_receipt",
+  "case": "05-sting-autophagy",
+  "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+  "lineage_version": "1.0.0",
+  "revision_id": "scene-9c0883661687e4da",
+  "scene_sha256": "9c0883661687e4da665633f92e508736a79269fcf854bbed24f2b375fd3523a1",
+  "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+  "artifacts": {
+    "redraw_svg": "4e6ddd9f361094b5ca2614bc6ebafec18c70c9f70b7202fccbf5a8707362a519",
+    "redraw_pptx": "ee26ed175300f6e19c918a992e7113832c1e44b476b3ff339d288ed19ac0c4dd",
+    "render_png": "0030d801ae1be3bdac6e6601e0034dd26c9d8bed8c64c302bfa0e4a6f01daded",
+    "bindings": "5a2f9842e81371845c5d57da49f210a2ce1da16c757f619a568c3b87ea6a11cf"
+  },
+  "stamped_at": "20260828T081531Z"
+}

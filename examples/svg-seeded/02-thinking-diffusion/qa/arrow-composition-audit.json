@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_composition_audit",
+  "created_at": "20260824T153715Z",
+  "case": "02-thinking-diffusion",
+  "scene_sha256": "7edae89cca63c51a326606e47d96f827313b23ec668b5cae55096fe41162b304",
+  "artifact_sha256": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+  "source_findings": [],
+  "readback_findings": [],
+  "readback_inconclusive": [],
+  "blockers": [],
+  "pass": true
+}

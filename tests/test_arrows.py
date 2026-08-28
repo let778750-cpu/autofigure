@@ -4,7 +4,13 @@ from __future__ import annotations
 
 import re
 
-from tools.arrows import audit_svg_text, fix_svg_text, render_report
+from tools.arrows.arrows import (
+    _embedded_plot_axis_ids_from_payload,
+    _embedded_plot_geometry_groups_from_payload,
+    audit_svg_text,
+    fix_svg_text,
+    render_report,
+)
 
 SVG_HEAD = (
     '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120">'
@@ -105,6 +111,123 @@ def test_hand_drawn_feather_cluster_detected():
     assert audit["findings"][0]["endpoint"] == [1159, 255]
 
 
+def test_embedded_plot_axis_contract_excludes_attachment_and_crossing_findings():
+    svg = _svg(
+        _solid_marker("arr", 12, 12),
+        '<line id="plot-a-axis" x1="10" y1="60" x2="190" y2="60" '
+        'stroke="#111" stroke-width="4" marker-end="url(#arr)"/>'
+        '<line id="semantic-arrow" x1="100" y1="10" x2="100" y2="110" '
+        'stroke="#777" stroke-width="4" marker-end="url(#arr)"/>',
+    )
+    baseline = audit_svg_text(svg)
+    assert baseline["counts"]["F3"] == 2
+    assert baseline["counts"]["F9"] == 1
+
+    contracted = audit_svg_text(svg, embedded_plot_axis_ids={"plot-a-axis"})
+    assert contracted["counts"]["F3"] == 1
+    assert contracted["counts"].get("F9", 0) == 0
+    assert contracted["embedded_plot_axis_exemptions"] == ["plot-a-axis"]
+
+
+def test_embedded_plot_axis_contract_excludes_hand_feather_false_positive():
+    svg = _svg(
+        "",
+        '<line id="plot-a-axis" x1="50" y1="100" x2="50" y2="20" '
+        'stroke="#111" stroke-width="3"/>'
+        '<line id="tick-a" x1="50" y1="30" x2="43" y2="23" '
+        'stroke="#111" stroke-width="3"/>'
+        '<line id="tick-b" x1="50" y1="30" x2="57" y2="23" '
+        'stroke="#111" stroke-width="3"/>',
+    )
+    assert audit_svg_text(svg)["counts"]["feather"] == 1
+    contracted = audit_svg_text(svg, embedded_plot_axis_ids={"plot-a-axis"})
+    assert contracted["counts"].get("feather", 0) == 0
+
+
+def test_embedded_plot_axis_ids_come_only_from_explicit_contract_records():
+    payload = {
+        "case": "arbitrary-new-case",
+        "arrow_visual_expectation": {
+            "exemptions": [
+                {
+                    "element_id": "axis-explicit",
+                    "reason": "embedded_plot_axis",
+                },
+                {"element_id": "axis-other", "reason": "decorative_line"},
+            ]
+        },
+    }
+    assert _embedded_plot_axis_ids_from_payload(payload) == {"axis-explicit"}
+
+
+def test_candlestick_cluster_is_exempt_only_inside_eligible_plot_contract():
+    svg = _svg(
+        "",
+        '<line id="candle-wick" x1="50" y1="100" x2="50" y2="20" '
+        'stroke="#111" stroke-width="3"/>'
+        '<line id="candle-body-top" x1="50" y1="30" x2="43" y2="23" '
+        'stroke="#111" stroke-width="3"/>'
+        '<line id="candle-body-side" x1="50" y1="30" x2="57" y2="23" '
+        'stroke="#111" stroke-width="3"/>',
+    )
+    plot_object = {
+        "id": "plot-any",
+        "kind": "plot",
+        "element_ids": [
+            "plot-axis",
+            "candle-wick",
+            "candle-body-top",
+            "candle-body-side",
+        ],
+    }
+    payload = {
+        "reference_inventory": {"objects": [plot_object]},
+        "arrow_visual_expectation": {
+            "exemptions": [
+                {
+                    "element_id": "plot-axis",
+                    "reason": "embedded_plot_axis",
+                    "parent_object_id": "plot-any",
+                }
+            ]
+        },
+    }
+    groups = _embedded_plot_geometry_groups_from_payload(payload)
+    assert groups == (frozenset(plot_object["element_ids"]),)
+    contracted = audit_svg_text(
+        svg,
+        embedded_plot_geometry_groups=groups,
+    )
+    assert contracted["counts"].get("feather", 0) == 0
+
+    no_axis_exemption = {
+        **payload,
+        "arrow_visual_expectation": {"exemptions": []},
+    }
+    assert _embedded_plot_geometry_groups_from_payload(no_axis_exemption) == ()
+    assert audit_svg_text(svg)["counts"]["feather"] == 1
+
+
+def test_plot_contract_does_not_hide_cluster_with_an_external_wing():
+    svg = _svg(
+        "",
+        '<line id="candle-wick" x1="50" y1="100" x2="50" y2="20" '
+        'stroke="#111" stroke-width="3"/>'
+        '<line id="candle-body-top" x1="50" y1="30" x2="43" y2="23" '
+        'stroke="#111" stroke-width="3"/>'
+        '<line id="external-line" x1="50" y1="30" x2="57" y2="23" '
+        'stroke="#111" stroke-width="3"/>',
+    )
+    groups = (
+        frozenset({"plot-axis", "candle-wick", "candle-body-top"}),
+    )
+    contracted = audit_svg_text(
+        svg,
+        embedded_plot_geometry_groups=groups,
+    )
+    assert contracted["counts"]["feather"] == 1
+
+
 def test_icon_legs_not_mistaken_for_feathers():
     # 十字/电阻类小图标：短线互不成 ±20-75° 簇
     body = [
@@ -172,7 +295,7 @@ def test_calibrate_overrides_band():
     assert audit_svg_text(fixed, calibrate={"gold": 6.0})["counts"].get("F2", 0) == 0
 
 
-def test_element_head_length_is_per_arrow_calibration():
+def test_element_head_length_cannot_self_exempt_without_reference_evidence():
     svg = _svg(
         _solid_marker("gold", 10, 10, color="#8d6a00"),
         '<line id="a1" data-head-length="10" x1="10" y1="40" x2="146" y2="40" '
@@ -182,8 +305,20 @@ def test_element_head_length_is_per_arrow_calibration():
         + BOX,
     )
     audit = audit_svg_text(svg)
-    assert audit["counts"]["F2"] == 1
-    assert audit["calibration_scope"] == {"a1:end": "element"}
+    assert audit["counts"]["F2"] == 2
+    assert "calibration_scope" not in audit
+    assert any(
+        "no reference-bound evidence" in item["detail"]
+        for item in audit["findings"]
+        if item["code"] == "F2" and item["element"] == "a1"
+    )
+    fixed, fixes = fix_svg_text(svg)
+    assert fixed == svg
+    assert fixes == []
+
+    evidenced = audit_svg_text(svg, calibrate={"a1:end": 10.0})
+    assert evidenced["counts"]["F2"] == 1
+    assert evidenced["calibration_scope"] == {"a1:end": "reference-arrow"}
 
 
 def test_owned_ellipsis_does_not_trigger_label_collision():

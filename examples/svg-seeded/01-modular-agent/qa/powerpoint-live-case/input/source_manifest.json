@@ -22,7 +22,7 @@
       "sourceId": "candidate-pptx",
       "kind": "prior_source",
       "pathOrUrl": "input/candidate.pptx",
-      "sha256": "3031a42f9befb4bba598f93b4cbd6d2caf5e148de5325b36ecea760631154c4d",
+      "sha256": "abb05ab0af95dc1acd500cbbc695b188ca213cb832e4649cba7474a97df90ecc",
       "authority": "user_supplied",
       "licenseStatus": "unknown",
       "confidentiality": "internal",

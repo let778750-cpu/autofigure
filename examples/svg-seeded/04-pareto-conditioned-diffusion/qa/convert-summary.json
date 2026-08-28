@@ -1,0 +1,31 @@
+{
+  "svg": "redraw.svg",
+  "pptx": "redraw.pptx",
+  "slide_count": 1,
+  "shape_count": 159,
+  "textbox_with_text": 17,
+  "emitted": {
+    "rect": 17,
+    "text": 17,
+    "line": 69,
+    "ellipse": 32,
+    "freeform": 24
+  },
+  "warnings": [],
+  "layout_pass": true,
+  "layout_findings": 0,
+  "arrow_compile_pass": true,
+  "arrow_readback_pass": true,
+  "primitive_pass": true,
+  "asset_spec_pass": true,
+  "asset_spec_count": 8,
+  "asset_spec_readback_count": 94,
+  "asset_spec_findings": 0,
+  "arrow_authoring_allowed": false,
+  "revision_id": "scene-3277fdec1063c13f",
+  "scene_sha256": "3277fdec1063c13fe39035016e965e10101c26824d4d40f2b55896a246a5f76d",
+  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "pptx_sha256": "284a6bfbee52ddb91de319c32dc8ebe301ffcca58fc5a85b41bbb9958a674556",
+  "object_count": 159,
+  "bindings_complete": true
+}

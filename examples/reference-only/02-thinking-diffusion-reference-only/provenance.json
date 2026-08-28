@@ -1,0 +1,93 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "provenance",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260824T121539Z",
+  "input_route": "reference-only",
+  "reference": {
+    "path": "reference.png",
+    "sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+    "original_name": "reference.png"
+  },
+  "external_svg_seed": null,
+  "candidate_history": [
+    {
+      "kind": "svg",
+      "role": "reconstruction-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "483f9a0b30337d2dd0d8793075fd6a6da2b9b6007de2fbcf5592780d35ab95bb",
+      "ingested_at": "20260822T132625Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "a20bf27fa176f5c45d54357229e62bbd2a89ac958da889d3f15e674ffb59a74a",
+      "ingested_at": "20260822T133021Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "88ff9a0f2b1137311e41cf0cb5cd9934e1254f6f0d3e946863e4a757c0f13c2c",
+      "ingested_at": "20260822T140304Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate-fixed.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "ab9331b67640cdeb9ae53bc510dc9725777521e5247495cfa01c9ce539c91f39",
+      "ingested_at": "20260822T140409Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "759353f078ac0af1c23b626d7d0cbcc6387af2a63f0742a22e12839b785f35d7",
+      "ingested_at": "20260822T141721Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "e5bb8d08b1d673d25dc475315f368e3c63851606c7f2e91a53b7185381982737",
+      "ingested_at": "20260822T143356Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "ce7260e65fba326f0840a6d116328542e9ddce2aca08a2bf37d51492f832a705",
+      "ingested_at": "20260822T144228Z"
+    },
+    {
+      "kind": "svg",
+      "role": "repair-candidate",
+      "origin": "codex",
+      "source_name": "candidate.svg",
+      "canonical_path": "redraw.svg",
+      "sha256": "6828ceedfd99e22944530d4dfdbd30d50911c9733a6abbbb1eb4230d43d4f0f2",
+      "ingested_at": "20260822T150409Z"
+    }
+  ],
+  "comparison_group": "thinking-diffusion-route-ab",
+  "comparison_peers": [
+    "svg-seeded/02-thinking-diffusion"
+  ]
+}

@@ -1,0 +1,4482 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "bindings",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "updated_at": "20260824T153713Z",
+  "backend": "pptx-offline",
+  "bindings": [
+    {
+      "element_id": "canvas-background",
+      "shape_id": 2,
+      "shape_name": "af-canvas-background-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "canvas-background",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-image-title",
+      "shape_id": 3,
+      "shape_name": "af-left-input-image-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-input-image-title",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-image-bracket",
+      "shape_id": 4,
+      "shape_name": "af-left-input-image-bracket-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-input-image-bracket",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-image-group"
+      ],
+      "brace_spec_sha256": "c499498d76f5ee6db98a2fcaa5418c0d994d93014b2a0b3faf104130287bf83e",
+      "primitive_spec_sha256": "c499498d76f5ee6db98a2fcaa5418c0d994d93014b2a0b3faf104130287bf83e",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-input-image-token-1",
+      "shape_id": 5,
+      "shape_name": "af-left-input-image-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-image-token-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-image-token-2",
+      "shape_id": 6,
+      "shape_name": "af-left-input-image-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-image-token-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-image-token-3",
+      "shape_id": 7,
+      "shape_name": "af-left-input-image-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-image-token-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-prompt-title",
+      "shape_id": 8,
+      "shape_name": "af-left-input-prompt-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-input-prompt-title",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-prompt-bracket",
+      "shape_id": 9,
+      "shape_name": "af-left-input-prompt-bracket-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-input-prompt-bracket",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-prompt-group"
+      ],
+      "brace_spec_sha256": "2d06fa6f8ec9a25e3fc2561880374a64b285bbae8e4cf46549e7521e3da07e37",
+      "primitive_spec_sha256": "2d06fa6f8ec9a25e3fc2561880374a64b285bbae8e4cf46549e7521e3da07e37",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-input-prompt-token-1",
+      "shape_id": 10,
+      "shape_name": "af-left-input-prompt-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-prompt-token-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-prompt-token-2",
+      "shape_id": 11,
+      "shape_name": "af-left-input-prompt-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-prompt-token-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-prompt-token-3",
+      "shape_id": 12,
+      "shape_name": "af-left-input-prompt-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-prompt-token-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-title",
+      "shape_id": 13,
+      "shape_name": "af-left-input-response-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-input-response-title",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-bracket",
+      "shape_id": 14,
+      "shape_name": "af-left-input-response-bracket-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-input-response-bracket",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "brace_spec_sha256": "eb4d1a3591b40ebe6b2f1c8dc6a224ceddcb5e4a1ee7673cf0969342dcd4ab46",
+      "primitive_spec_sha256": "eb4d1a3591b40ebe6b2f1c8dc6a224ceddcb5e4a1ee7673cf0969342dcd4ab46",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-1",
+      "shape_id": 15,
+      "shape_name": "af-left-input-response-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-2",
+      "shape_id": 16,
+      "shape_name": "af-left-input-response-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-3",
+      "shape_id": 17,
+      "shape_name": "af-left-input-response-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-4",
+      "shape_id": 18,
+      "shape_name": "af-left-input-response-token-4-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-4",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-ellipsis",
+      "shape_id": 19,
+      "shape_name": "af-left-input-response-ellipsis-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-input-response-ellipsis",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-5",
+      "shape_id": 20,
+      "shape_name": "af-left-input-response-token-5-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-5",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-6",
+      "shape_id": 21,
+      "shape_name": "af-left-input-response-token-6-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-6",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-7",
+      "shape_id": 22,
+      "shape_name": "af-left-input-response-token-7-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-7",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-token-8",
+      "shape_id": 23,
+      "shape_name": "af-left-input-response-token-8-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-input-response-token-8",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-to-model-arrow",
+      "shape_id": 24,
+      "shape_name": "af-left-input-to-model-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "left-input-to-model-arrow",
+      "logical_group_ids": [
+        "left-panel",
+        "left-input-response-group"
+      ],
+      "arrow_spec_sha256": "9b04d9bcfbdd2ecd67d38ba19b42427f1e69cedb7e6a8b95ecdd5cc254f5316e",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "left-model-box",
+      "shape_id": 25,
+      "shape_name": "af-left-model-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-model-box",
+      "logical_group_ids": [
+        "left-panel",
+        "left-model-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-model-label",
+      "shape_id": 26,
+      "shape_name": "af-left-model-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-model-label",
+      "logical_group_ids": [
+        "left-panel",
+        "left-model-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-box",
+      "shape_id": 27,
+      "shape_name": "af-left-legend-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-legend-box",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-token-mask",
+      "shape_id": 28,
+      "shape_name": "af-left-legend-token-mask-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-legend-token-mask",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-label-mask",
+      "shape_id": 29,
+      "shape_name": "af-left-legend-label-mask-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-legend-label-mask",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-token-less-grounded",
+      "shape_id": 30,
+      "shape_name": "af-left-legend-token-less-grounded-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-legend-token-less-grounded",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-label-less-grounded-line-1",
+      "shape_id": 31,
+      "shape_name": "af-left-legend-label-less-grounded-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-legend-label-less-grounded-line-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-label-less-grounded-line-2",
+      "shape_id": 32,
+      "shape_name": "af-left-legend-label-less-grounded-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-legend-label-less-grounded-line-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-token-more-grounded",
+      "shape_id": 33,
+      "shape_name": "af-left-legend-token-more-grounded-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-legend-token-more-grounded",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-label-more-grounded-line-1",
+      "shape_id": 34,
+      "shape_name": "af-left-legend-label-more-grounded-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-legend-label-more-grounded-line-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-label-more-grounded-line-2",
+      "shape_id": 35,
+      "shape_name": "af-left-legend-label-more-grounded-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-legend-label-more-grounded-line-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-legend-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-model-to-early-arrow",
+      "shape_id": 36,
+      "shape_name": "af-left-model-to-early-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "left-model-to-early-arrow",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "arrow_spec_sha256": "45cce0aa133864370112a268424b669b8933b6bb671f43705b4073def0afe4bf",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-stage-title",
+      "shape_id": 37,
+      "shape_name": "af-left-early-stage-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-stage-title",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-1",
+      "shape_id": 38,
+      "shape_name": "af-left-early-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-2",
+      "shape_id": 39,
+      "shape_name": "af-left-early-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-3",
+      "shape_id": 40,
+      "shape_name": "af-left-early-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-4",
+      "shape_id": 41,
+      "shape_name": "af-left-early-token-4-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-4",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-ellipsis-dot-1",
+      "shape_id": 42,
+      "shape_name": "af-left-early-token-ellipsis-dot-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "left-early-token-ellipsis-dot-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group",
+        "left-early-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-ellipsis-dot-2",
+      "shape_id": 43,
+      "shape_name": "af-left-early-token-ellipsis-dot-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "left-early-token-ellipsis-dot-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group",
+        "left-early-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-ellipsis-dot-3",
+      "shape_id": 44,
+      "shape_name": "af-left-early-token-ellipsis-dot-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "left-early-token-ellipsis-dot-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group",
+        "left-early-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-5",
+      "shape_id": 45,
+      "shape_name": "af-left-early-token-5-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-5",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-6",
+      "shape_id": 46,
+      "shape_name": "af-left-early-token-6-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-6",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-7",
+      "shape_id": 47,
+      "shape_name": "af-left-early-token-7-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-7",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-8",
+      "shape_id": 48,
+      "shape_name": "af-left-early-token-8-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-early-token-8",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-word-answer",
+      "shape_id": 49,
+      "shape_name": "af-left-early-word-answer-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-word-answer",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-word-is",
+      "shape_id": 50,
+      "shape_name": "af-left-early-word-is-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-word-is",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-word-b",
+      "shape_id": 51,
+      "shape_name": "af-left-early-word-b-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-word-b",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-answer-underbrace",
+      "shape_id": 52,
+      "shape_name": "af-left-early-answer-underbrace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-early-answer-underbrace",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "brace_spec_sha256": "7c2cab4e47ded074c02f0f2e2ee73ca78bd4097839c099207a457e7293e49e00",
+      "primitive_spec_sha256": "7c2cab4e47ded074c02f0f2e2ee73ca78bd4097839c099207a457e7293e49e00",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-early-annotation-line-1",
+      "shape_id": 53,
+      "shape_name": "af-left-early-annotation-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-annotation-line-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-annotation-line-2",
+      "shape_id": 54,
+      "shape_name": "af-left-early-annotation-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-annotation-line-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-stage-side-brace",
+      "shape_id": 55,
+      "shape_name": "af-left-early-stage-side-brace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-early-stage-side-brace",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "brace_spec_sha256": "eda617f74b3d320bb7dd877682b918ddba3a484112a5b5c8a98682213c313059",
+      "primitive_spec_sha256": "eda617f74b3d320bb7dd877682b918ddba3a484112a5b5c8a98682213c313059",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-early-stage-side-label",
+      "shape_id": 56,
+      "shape_name": "af-left-early-stage-side-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-early-stage-side-label",
+      "logical_group_ids": [
+        "left-panel",
+        "left-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-stage-transition-ellipsis",
+      "shape_id": 57,
+      "shape_name": "af-left-stage-transition-ellipsis-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-stage-transition-ellipsis",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-transition-to-late-arrow",
+      "shape_id": 58,
+      "shape_name": "af-left-transition-to-late-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "left-transition-to-late-arrow",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "arrow_spec_sha256": "ed33b8bc0b55581bf0fd0bc2579c13abaef7e35e43fb0c6304904228abed927d",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-1",
+      "shape_id": 59,
+      "shape_name": "af-left-late-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-2",
+      "shape_id": 60,
+      "shape_name": "af-left-late-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-3",
+      "shape_id": 61,
+      "shape_name": "af-left-late-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-4",
+      "shape_id": 62,
+      "shape_name": "af-left-late-token-4-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-4",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-ellipsis-dot-1",
+      "shape_id": 63,
+      "shape_name": "af-left-late-token-ellipsis-dot-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "left-late-token-ellipsis-dot-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group",
+        "left-late-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-ellipsis-dot-2",
+      "shape_id": 64,
+      "shape_name": "af-left-late-token-ellipsis-dot-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "left-late-token-ellipsis-dot-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group",
+        "left-late-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-ellipsis-dot-3",
+      "shape_id": 65,
+      "shape_name": "af-left-late-token-ellipsis-dot-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "left-late-token-ellipsis-dot-3",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group",
+        "left-late-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-5",
+      "shape_id": 66,
+      "shape_name": "af-left-late-token-5-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-5",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-6",
+      "shape_id": 67,
+      "shape_name": "af-left-late-token-6-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-6",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-7",
+      "shape_id": 68,
+      "shape_name": "af-left-late-token-7-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-7",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-8",
+      "shape_id": 69,
+      "shape_name": "af-left-late-token-8-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "left-late-token-8",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-word-the",
+      "shape_id": 70,
+      "shape_name": "af-left-late-word-the-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-word-the",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-word-stove",
+      "shape_id": 71,
+      "shape_name": "af-left-late-word-stove-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-word-stove",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-word-broken",
+      "shape_id": 72,
+      "shape_name": "af-left-late-word-broken-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-word-broken",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-word-answer",
+      "shape_id": 73,
+      "shape_name": "af-left-late-word-answer-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-word-answer",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-word-is",
+      "shape_id": 74,
+      "shape_name": "af-left-late-word-is-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-word-is",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-word-b",
+      "shape_id": 75,
+      "shape_name": "af-left-late-word-b-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-word-b",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-rationale-underbrace",
+      "shape_id": 76,
+      "shape_name": "af-left-late-rationale-underbrace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-late-rationale-underbrace",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "brace_spec_sha256": "f4ae8790b79c932964d696bc0c454fdf621595c18c5d1c1d8fa7c09d9fd62ed6",
+      "primitive_spec_sha256": "f4ae8790b79c932964d696bc0c454fdf621595c18c5d1c1d8fa7c09d9fd62ed6",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-late-annotation-line-1",
+      "shape_id": 77,
+      "shape_name": "af-left-late-annotation-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-annotation-line-1",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-annotation-line-2",
+      "shape_id": 78,
+      "shape_name": "af-left-late-annotation-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-annotation-line-2",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-stage-side-brace",
+      "shape_id": 79,
+      "shape_name": "af-left-late-stage-side-brace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "left-late-stage-side-brace",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "brace_spec_sha256": "e9c2ada7bad5c2f03155b78642947c43bc994a794b1a20573ecc8481e407983d",
+      "primitive_spec_sha256": "e9c2ada7bad5c2f03155b78642947c43bc994a794b1a20573ecc8481e407983d",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "left-late-stage-side-label",
+      "shape_id": 80,
+      "shape_name": "af-left-late-stage-side-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-late-stage-side-label",
+      "logical_group_ids": [
+        "left-panel",
+        "left-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "left-panel-caption",
+      "shape_id": 81,
+      "shape_name": "af-left-panel-caption-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "left-panel-caption",
+      "logical_group_ids": [
+        "left-panel"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-image-title",
+      "shape_id": 82,
+      "shape_name": "af-right-input-image-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-input-image-title",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-image-bracket",
+      "shape_id": 83,
+      "shape_name": "af-right-input-image-bracket-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-input-image-bracket",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-image-group"
+      ],
+      "brace_spec_sha256": "b14e662d9ea777443627f5afa7566f697b8a437acfb6e72d9772316e021c84d8",
+      "primitive_spec_sha256": "b14e662d9ea777443627f5afa7566f697b8a437acfb6e72d9772316e021c84d8",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-input-image-token-1",
+      "shape_id": 84,
+      "shape_name": "af-right-input-image-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-image-token-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-image-token-2",
+      "shape_id": 85,
+      "shape_name": "af-right-input-image-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-image-token-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-image-token-3",
+      "shape_id": 86,
+      "shape_name": "af-right-input-image-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-image-token-3",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-image-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-prompt-title",
+      "shape_id": 87,
+      "shape_name": "af-right-input-prompt-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-input-prompt-title",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-prompt-bracket",
+      "shape_id": 88,
+      "shape_name": "af-right-input-prompt-bracket-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-input-prompt-bracket",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-prompt-group"
+      ],
+      "brace_spec_sha256": "b457231bbcd57fbed6cb717f0c0a48e12289f39c2805ab8dd52b3835214c4122",
+      "primitive_spec_sha256": "b457231bbcd57fbed6cb717f0c0a48e12289f39c2805ab8dd52b3835214c4122",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-input-prompt-token-1",
+      "shape_id": 89,
+      "shape_name": "af-right-input-prompt-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-prompt-token-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-prompt-token-2",
+      "shape_id": 90,
+      "shape_name": "af-right-input-prompt-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-prompt-token-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-prompt-token-3",
+      "shape_id": 91,
+      "shape_name": "af-right-input-prompt-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-prompt-token-3",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-prompt-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-title",
+      "shape_id": 92,
+      "shape_name": "af-right-input-response-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-input-response-title",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-bracket",
+      "shape_id": 93,
+      "shape_name": "af-right-input-response-bracket-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-input-response-bracket",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "brace_spec_sha256": "ac78a9c6e50889eb275f2beac4a560aac01c78753b148579938e60226abbd7b6",
+      "primitive_spec_sha256": "ac78a9c6e50889eb275f2beac4a560aac01c78753b148579938e60226abbd7b6",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-1",
+      "shape_id": 94,
+      "shape_name": "af-right-input-response-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-2",
+      "shape_id": 95,
+      "shape_name": "af-right-input-response-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-3",
+      "shape_id": 96,
+      "shape_name": "af-right-input-response-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-3",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-4",
+      "shape_id": 97,
+      "shape_name": "af-right-input-response-token-4-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-4",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-ellipsis",
+      "shape_id": 98,
+      "shape_name": "af-right-input-response-ellipsis-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-input-response-ellipsis",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-5",
+      "shape_id": 99,
+      "shape_name": "af-right-input-response-token-5-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-5",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-6",
+      "shape_id": 100,
+      "shape_name": "af-right-input-response-token-6-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-6",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-7",
+      "shape_id": 101,
+      "shape_name": "af-right-input-response-token-7-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-7",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-token-8",
+      "shape_id": 102,
+      "shape_name": "af-right-input-response-token-8-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-input-response-token-8",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-to-model-arrow",
+      "shape_id": 103,
+      "shape_name": "af-right-input-to-model-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "right-input-to-model-arrow",
+      "logical_group_ids": [
+        "right-panel",
+        "right-input-response-group"
+      ],
+      "arrow_spec_sha256": "9c7daeddba7b07632cd139278f406e0b44f190adab31fc6a455d6072ec4c7f1c",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "right-model-box",
+      "shape_id": 104,
+      "shape_name": "af-right-model-box-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-model-box",
+      "logical_group_ids": [
+        "right-panel",
+        "right-model-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-model-label",
+      "shape_id": 105,
+      "shape_name": "af-right-model-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-model-label",
+      "logical_group_ids": [
+        "right-panel",
+        "right-model-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-model-to-early-arrow",
+      "shape_id": 106,
+      "shape_name": "af-right-model-to-early-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "right-model-to-early-arrow",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "arrow_spec_sha256": "b9ae052b2f403658003f5e72db7b6a4e46e111694b0b52c232cb8d151aefc43e",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-stage-title",
+      "shape_id": 107,
+      "shape_name": "af-right-early-stage-title-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-early-stage-title",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-1",
+      "shape_id": 108,
+      "shape_name": "af-right-early-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-2",
+      "shape_id": 109,
+      "shape_name": "af-right-early-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-3",
+      "shape_id": 110,
+      "shape_name": "af-right-early-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-3",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-4",
+      "shape_id": 111,
+      "shape_name": "af-right-early-token-4-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-4",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-ellipsis-dot-1",
+      "shape_id": 112,
+      "shape_name": "af-right-early-token-ellipsis-dot-1-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "right-early-token-ellipsis-dot-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group",
+        "right-early-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-ellipsis-dot-2",
+      "shape_id": 113,
+      "shape_name": "af-right-early-token-ellipsis-dot-2-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "right-early-token-ellipsis-dot-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group",
+        "right-early-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-ellipsis-dot-3",
+      "shape_id": 114,
+      "shape_name": "af-right-early-token-ellipsis-dot-3-ellipse-01",
+      "object_kind": "ellipse",
+      "editable": true,
+      "semantic_group_id": "right-early-token-ellipsis-dot-3",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group",
+        "right-early-token-ellipsis"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-5",
+      "shape_id": 115,
+      "shape_name": "af-right-early-token-5-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-5",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-6",
+      "shape_id": 116,
+      "shape_name": "af-right-early-token-6-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-6",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-7",
+      "shape_id": 117,
+      "shape_name": "af-right-early-token-7-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-7",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-8",
+      "shape_id": 118,
+      "shape_name": "af-right-early-token-8-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-early-token-8",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-word-stove",
+      "shape_id": 119,
+      "shape_name": "af-right-early-word-stove-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-early-word-stove",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-word-old",
+      "shape_id": 120,
+      "shape_name": "af-right-early-word-old-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-early-word-old",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-rationale-underbrace",
+      "shape_id": 121,
+      "shape_name": "af-right-early-rationale-underbrace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-early-rationale-underbrace",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "brace_spec_sha256": "996e4680c0b8938be9d570fefcdc3b988821a8d319ab26476216da5cd4c319b8",
+      "primitive_spec_sha256": "996e4680c0b8938be9d570fefcdc3b988821a8d319ab26476216da5cd4c319b8",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-early-annotation-line-1",
+      "shape_id": 122,
+      "shape_name": "af-right-early-annotation-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-early-annotation-line-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-annotation-line-2",
+      "shape_id": 123,
+      "shape_name": "af-right-early-annotation-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-early-annotation-line-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-stage-side-brace",
+      "shape_id": 124,
+      "shape_name": "af-right-early-stage-side-brace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-early-stage-side-brace",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "brace_spec_sha256": "30a7ffc6fceeecb13f95477a179f08a4122630f769fb92b683c5c871d3d7b18d",
+      "primitive_spec_sha256": "30a7ffc6fceeecb13f95477a179f08a4122630f769fb92b683c5c871d3d7b18d",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-early-stage-side-label",
+      "shape_id": 125,
+      "shape_name": "af-right-early-stage-side-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-early-stage-side-label",
+      "logical_group_ids": [
+        "right-panel",
+        "right-early-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-stage-transition-ellipsis",
+      "shape_id": 126,
+      "shape_name": "af-right-stage-transition-ellipsis-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-stage-transition-ellipsis",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-transition-to-late-arrow",
+      "shape_id": 127,
+      "shape_name": "af-right-transition-to-late-arrow-connector-01",
+      "object_kind": "connector",
+      "editable": true,
+      "semantic_group_id": "right-transition-to-late-arrow",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "arrow_spec_sha256": "24691f56f175e158fca8a433c6d74947763e97f669cbdff4ad97f5fc2609f3b1",
+      "single_visible_object": true,
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-1",
+      "shape_id": 128,
+      "shape_name": "af-right-late-token-1-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-2",
+      "shape_id": 129,
+      "shape_name": "af-right-late-token-2-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-3",
+      "shape_id": 130,
+      "shape_name": "af-right-late-token-3-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-3",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-4",
+      "shape_id": 131,
+      "shape_name": "af-right-late-token-4-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-4",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-ellipsis",
+      "shape_id": 132,
+      "shape_name": "af-right-late-token-ellipsis-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-token-ellipsis",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-5",
+      "shape_id": 133,
+      "shape_name": "af-right-late-token-5-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-5",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-6",
+      "shape_id": 134,
+      "shape_name": "af-right-late-token-6-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-6",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-7",
+      "shape_id": 135,
+      "shape_name": "af-right-late-token-7-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-7",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-token-8",
+      "shape_id": 136,
+      "shape_name": "af-right-late-token-8-rect-01",
+      "object_kind": "rect",
+      "editable": true,
+      "semantic_group_id": "right-late-token-8",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-word-the",
+      "shape_id": 137,
+      "shape_name": "af-right-late-word-the-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-word-the",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-word-stove",
+      "shape_id": 138,
+      "shape_name": "af-right-late-word-stove-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-word-stove",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-word-is",
+      "shape_id": 139,
+      "shape_name": "af-right-late-word-is-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-word-is",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-word-old",
+      "shape_id": 140,
+      "shape_name": "af-right-late-word-old-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-word-old",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-word-answer",
+      "shape_id": 141,
+      "shape_name": "af-right-late-word-answer-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-word-answer",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-word-c",
+      "shape_id": 142,
+      "shape_name": "af-right-late-word-c-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-word-c",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-answer-underbrace",
+      "shape_id": 143,
+      "shape_name": "af-right-late-answer-underbrace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-late-answer-underbrace",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "brace_spec_sha256": "bec7aab81b1703a74f38c63095d73f2a01d22066ebc965b8df30ac543579a3f0",
+      "primitive_spec_sha256": "bec7aab81b1703a74f38c63095d73f2a01d22066ebc965b8df30ac543579a3f0",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-late-annotation-line-1",
+      "shape_id": 144,
+      "shape_name": "af-right-late-annotation-line-1-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-annotation-line-1",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-annotation-line-2",
+      "shape_id": 145,
+      "shape_name": "af-right-late-annotation-line-2-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-annotation-line-2",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-stage-side-brace",
+      "shape_id": 146,
+      "shape_name": "af-right-late-stage-side-brace-freeform-01",
+      "object_kind": "freeform",
+      "editable": true,
+      "semantic_group_id": "right-late-stage-side-brace",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "brace_spec_sha256": "b827bf16007882bb7f9e4d6301162185b3b48b8c9528d8a9ede360cd2ac7e02b",
+      "primitive_spec_sha256": "b827bf16007882bb7f9e4d6301162185b3b48b8c9528d8a9ede360cd2ac7e02b",
+      "readback_found": true,
+      "brace_spec_readback_found": true,
+      "primitive_spec_readback_found": true
+    },
+    {
+      "element_id": "right-late-stage-side-label",
+      "shape_id": 147,
+      "shape_name": "af-right-late-stage-side-label-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-late-stage-side-label",
+      "logical_group_ids": [
+        "right-panel",
+        "right-late-stage-group"
+      ],
+      "readback_found": true
+    },
+    {
+      "element_id": "right-panel-caption",
+      "shape_id": 148,
+      "shape_name": "af-right-panel-caption-text-01",
+      "object_kind": "text",
+      "editable": true,
+      "semantic_group_id": "right-panel-caption",
+      "logical_group_ids": [
+        "right-panel"
+      ],
+      "readback_found": true
+    }
+  ],
+  "artifact_sha256": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+  "saved_reopened": false,
+  "bindings_complete": true,
+  "package_reopened": true,
+  "scene_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-f57ac8c9949faa13",
+    "scene_sha256": "f57ac8c9949faa13ca6309d0cbd71295c9416ac3a0211381d4ac96fe4529ff54",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+  },
+  "logical_group_bindings": [
+    {
+      "element_id": "left-input-image-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-input-image-title",
+        "left-input-image-bracket",
+        "left-input-image-token-1",
+        "left-input-image-token-2",
+        "left-input-image-token-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "backend_object_names": [
+        "af-left-input-image-title-text-01",
+        "af-left-input-image-bracket-freeform-01",
+        "af-left-input-image-token-1-rect-01",
+        "af-left-input-image-token-2-rect-01",
+        "af-left-input-image-token-3-rect-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 3,
+          "shape_name": "af-left-input-image-title-text-01"
+        },
+        {
+          "shape_id": 4,
+          "shape_name": "af-left-input-image-bracket-freeform-01"
+        },
+        {
+          "shape_id": 5,
+          "shape_name": "af-left-input-image-token-1-rect-01"
+        },
+        {
+          "shape_id": 6,
+          "shape_name": "af-left-input-image-token-2-rect-01"
+        },
+        {
+          "shape_id": 7,
+          "shape_name": "af-left-input-image-token-3-rect-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 3,
+      "attachment_shape_name": "af-left-input-image-title-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-prompt-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-input-prompt-title",
+        "left-input-prompt-bracket",
+        "left-input-prompt-token-1",
+        "left-input-prompt-token-2",
+        "left-input-prompt-token-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "backend_object_names": [
+        "af-left-input-prompt-title-text-01",
+        "af-left-input-prompt-bracket-freeform-01",
+        "af-left-input-prompt-token-1-rect-01",
+        "af-left-input-prompt-token-2-rect-01",
+        "af-left-input-prompt-token-3-rect-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 8,
+          "shape_name": "af-left-input-prompt-title-text-01"
+        },
+        {
+          "shape_id": 9,
+          "shape_name": "af-left-input-prompt-bracket-freeform-01"
+        },
+        {
+          "shape_id": 10,
+          "shape_name": "af-left-input-prompt-token-1-rect-01"
+        },
+        {
+          "shape_id": 11,
+          "shape_name": "af-left-input-prompt-token-2-rect-01"
+        },
+        {
+          "shape_id": 12,
+          "shape_name": "af-left-input-prompt-token-3-rect-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 8,
+      "attachment_shape_name": "af-left-input-prompt-title-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-input-response-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-input-response-title",
+        "left-input-response-bracket",
+        "left-input-response-token-1",
+        "left-input-response-token-2",
+        "left-input-response-token-3",
+        "left-input-response-token-4",
+        "left-input-response-ellipsis",
+        "left-input-response-token-5",
+        "left-input-response-token-6",
+        "left-input-response-token-7",
+        "left-input-response-token-8",
+        "left-input-to-model-arrow"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "backend_object_names": [
+        "af-left-input-response-title-text-01",
+        "af-left-input-response-bracket-freeform-01",
+        "af-left-input-response-token-1-rect-01",
+        "af-left-input-response-token-2-rect-01",
+        "af-left-input-response-token-3-rect-01",
+        "af-left-input-response-token-4-rect-01",
+        "af-left-input-response-ellipsis-text-01",
+        "af-left-input-response-token-5-rect-01",
+        "af-left-input-response-token-6-rect-01",
+        "af-left-input-response-token-7-rect-01",
+        "af-left-input-response-token-8-rect-01",
+        "af-left-input-to-model-arrow-connector-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 13,
+          "shape_name": "af-left-input-response-title-text-01"
+        },
+        {
+          "shape_id": 14,
+          "shape_name": "af-left-input-response-bracket-freeform-01"
+        },
+        {
+          "shape_id": 15,
+          "shape_name": "af-left-input-response-token-1-rect-01"
+        },
+        {
+          "shape_id": 16,
+          "shape_name": "af-left-input-response-token-2-rect-01"
+        },
+        {
+          "shape_id": 17,
+          "shape_name": "af-left-input-response-token-3-rect-01"
+        },
+        {
+          "shape_id": 18,
+          "shape_name": "af-left-input-response-token-4-rect-01"
+        },
+        {
+          "shape_id": 19,
+          "shape_name": "af-left-input-response-ellipsis-text-01"
+        },
+        {
+          "shape_id": 20,
+          "shape_name": "af-left-input-response-token-5-rect-01"
+        },
+        {
+          "shape_id": 21,
+          "shape_name": "af-left-input-response-token-6-rect-01"
+        },
+        {
+          "shape_id": 22,
+          "shape_name": "af-left-input-response-token-7-rect-01"
+        },
+        {
+          "shape_id": 23,
+          "shape_name": "af-left-input-response-token-8-rect-01"
+        },
+        {
+          "shape_id": 24,
+          "shape_name": "af-left-input-to-model-arrow-connector-01"
+        }
+      ],
+      "visible_object_count": 12,
+      "attachment_shape_id": 14,
+      "attachment_shape_name": "af-left-input-response-bracket-freeform-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-model-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-model-box",
+        "left-model-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        25,
+        26
+      ],
+      "backend_object_names": [
+        "af-left-model-box-rect-01",
+        "af-left-model-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 25,
+          "shape_name": "af-left-model-box-rect-01"
+        },
+        {
+          "shape_id": 26,
+          "shape_name": "af-left-model-label-text-01"
+        }
+      ],
+      "visible_object_count": 2,
+      "attachment_shape_id": 25,
+      "attachment_shape_name": "af-left-model-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-legend-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-legend-box",
+        "left-legend-token-mask",
+        "left-legend-label-mask",
+        "left-legend-token-less-grounded",
+        "left-legend-label-less-grounded-line-1",
+        "left-legend-label-less-grounded-line-2",
+        "left-legend-token-more-grounded",
+        "left-legend-label-more-grounded-line-1",
+        "left-legend-label-more-grounded-line-2"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "backend_object_names": [
+        "af-left-legend-box-rect-01",
+        "af-left-legend-token-mask-rect-01",
+        "af-left-legend-label-mask-text-01",
+        "af-left-legend-token-less-grounded-rect-01",
+        "af-left-legend-label-less-grounded-line-1-text-01",
+        "af-left-legend-label-less-grounded-line-2-text-01",
+        "af-left-legend-token-more-grounded-rect-01",
+        "af-left-legend-label-more-grounded-line-1-text-01",
+        "af-left-legend-label-more-grounded-line-2-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 27,
+          "shape_name": "af-left-legend-box-rect-01"
+        },
+        {
+          "shape_id": 28,
+          "shape_name": "af-left-legend-token-mask-rect-01"
+        },
+        {
+          "shape_id": 29,
+          "shape_name": "af-left-legend-label-mask-text-01"
+        },
+        {
+          "shape_id": 30,
+          "shape_name": "af-left-legend-token-less-grounded-rect-01"
+        },
+        {
+          "shape_id": 31,
+          "shape_name": "af-left-legend-label-less-grounded-line-1-text-01"
+        },
+        {
+          "shape_id": 32,
+          "shape_name": "af-left-legend-label-less-grounded-line-2-text-01"
+        },
+        {
+          "shape_id": 33,
+          "shape_name": "af-left-legend-token-more-grounded-rect-01"
+        },
+        {
+          "shape_id": 34,
+          "shape_name": "af-left-legend-label-more-grounded-line-1-text-01"
+        },
+        {
+          "shape_id": 35,
+          "shape_name": "af-left-legend-label-more-grounded-line-2-text-01"
+        }
+      ],
+      "visible_object_count": 9,
+      "attachment_shape_id": 27,
+      "attachment_shape_name": "af-left-legend-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-token-ellipsis",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-early-token-ellipsis-dot-1",
+        "left-early-token-ellipsis-dot-2",
+        "left-early-token-ellipsis-dot-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        42,
+        43,
+        44
+      ],
+      "backend_object_names": [
+        "af-left-early-token-ellipsis-dot-1-ellipse-01",
+        "af-left-early-token-ellipsis-dot-2-ellipse-01",
+        "af-left-early-token-ellipsis-dot-3-ellipse-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 42,
+          "shape_name": "af-left-early-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 43,
+          "shape_name": "af-left-early-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 44,
+          "shape_name": "af-left-early-token-ellipsis-dot-3-ellipse-01"
+        }
+      ],
+      "visible_object_count": 3,
+      "attachment_shape_id": 42,
+      "attachment_shape_name": "af-left-early-token-ellipsis-dot-1-ellipse-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-early-stage-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-model-to-early-arrow",
+        "left-early-stage-title",
+        "left-early-token-1",
+        "left-early-token-2",
+        "left-early-token-3",
+        "left-early-token-4",
+        "left-early-token-ellipsis-dot-1",
+        "left-early-token-ellipsis-dot-2",
+        "left-early-token-ellipsis-dot-3",
+        "left-early-token-5",
+        "left-early-token-6",
+        "left-early-token-7",
+        "left-early-token-8",
+        "left-early-word-answer",
+        "left-early-word-is",
+        "left-early-word-b",
+        "left-early-answer-underbrace",
+        "left-early-annotation-line-1",
+        "left-early-annotation-line-2",
+        "left-early-stage-side-brace",
+        "left-early-stage-side-label"
+      ],
+      "logical_descendant_group_ids": [
+        "left-early-token-ellipsis"
+      ],
+      "backend_object_ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "backend_object_names": [
+        "af-left-model-to-early-arrow-connector-01",
+        "af-left-early-stage-title-text-01",
+        "af-left-early-token-1-rect-01",
+        "af-left-early-token-2-rect-01",
+        "af-left-early-token-3-rect-01",
+        "af-left-early-token-4-rect-01",
+        "af-left-early-token-ellipsis-dot-1-ellipse-01",
+        "af-left-early-token-ellipsis-dot-2-ellipse-01",
+        "af-left-early-token-ellipsis-dot-3-ellipse-01",
+        "af-left-early-token-5-rect-01",
+        "af-left-early-token-6-rect-01",
+        "af-left-early-token-7-rect-01",
+        "af-left-early-token-8-rect-01",
+        "af-left-early-word-answer-text-01",
+        "af-left-early-word-is-text-01",
+        "af-left-early-word-b-text-01",
+        "af-left-early-answer-underbrace-freeform-01",
+        "af-left-early-annotation-line-1-text-01",
+        "af-left-early-annotation-line-2-text-01",
+        "af-left-early-stage-side-brace-freeform-01",
+        "af-left-early-stage-side-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 36,
+          "shape_name": "af-left-model-to-early-arrow-connector-01"
+        },
+        {
+          "shape_id": 37,
+          "shape_name": "af-left-early-stage-title-text-01"
+        },
+        {
+          "shape_id": 38,
+          "shape_name": "af-left-early-token-1-rect-01"
+        },
+        {
+          "shape_id": 39,
+          "shape_name": "af-left-early-token-2-rect-01"
+        },
+        {
+          "shape_id": 40,
+          "shape_name": "af-left-early-token-3-rect-01"
+        },
+        {
+          "shape_id": 41,
+          "shape_name": "af-left-early-token-4-rect-01"
+        },
+        {
+          "shape_id": 42,
+          "shape_name": "af-left-early-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 43,
+          "shape_name": "af-left-early-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 44,
+          "shape_name": "af-left-early-token-ellipsis-dot-3-ellipse-01"
+        },
+        {
+          "shape_id": 45,
+          "shape_name": "af-left-early-token-5-rect-01"
+        },
+        {
+          "shape_id": 46,
+          "shape_name": "af-left-early-token-6-rect-01"
+        },
+        {
+          "shape_id": 47,
+          "shape_name": "af-left-early-token-7-rect-01"
+        },
+        {
+          "shape_id": 48,
+          "shape_name": "af-left-early-token-8-rect-01"
+        },
+        {
+          "shape_id": 49,
+          "shape_name": "af-left-early-word-answer-text-01"
+        },
+        {
+          "shape_id": 50,
+          "shape_name": "af-left-early-word-is-text-01"
+        },
+        {
+          "shape_id": 51,
+          "shape_name": "af-left-early-word-b-text-01"
+        },
+        {
+          "shape_id": 52,
+          "shape_name": "af-left-early-answer-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 53,
+          "shape_name": "af-left-early-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 54,
+          "shape_name": "af-left-early-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 55,
+          "shape_name": "af-left-early-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 56,
+          "shape_name": "af-left-early-stage-side-label-text-01"
+        }
+      ],
+      "visible_object_count": 21,
+      "attachment_shape_id": 56,
+      "attachment_shape_name": "af-left-early-stage-side-label-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-token-ellipsis",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-late-token-ellipsis-dot-1",
+        "left-late-token-ellipsis-dot-2",
+        "left-late-token-ellipsis-dot-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        63,
+        64,
+        65
+      ],
+      "backend_object_names": [
+        "af-left-late-token-ellipsis-dot-1-ellipse-01",
+        "af-left-late-token-ellipsis-dot-2-ellipse-01",
+        "af-left-late-token-ellipsis-dot-3-ellipse-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 63,
+          "shape_name": "af-left-late-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 64,
+          "shape_name": "af-left-late-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 65,
+          "shape_name": "af-left-late-token-ellipsis-dot-3-ellipse-01"
+        }
+      ],
+      "visible_object_count": 3,
+      "attachment_shape_id": 63,
+      "attachment_shape_name": "af-left-late-token-ellipsis-dot-1-ellipse-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-late-stage-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-stage-transition-ellipsis",
+        "left-transition-to-late-arrow",
+        "left-late-token-1",
+        "left-late-token-2",
+        "left-late-token-3",
+        "left-late-token-4",
+        "left-late-token-ellipsis-dot-1",
+        "left-late-token-ellipsis-dot-2",
+        "left-late-token-ellipsis-dot-3",
+        "left-late-token-5",
+        "left-late-token-6",
+        "left-late-token-7",
+        "left-late-token-8",
+        "left-late-word-the",
+        "left-late-word-stove",
+        "left-late-word-broken",
+        "left-late-word-answer",
+        "left-late-word-is",
+        "left-late-word-b",
+        "left-late-rationale-underbrace",
+        "left-late-annotation-line-1",
+        "left-late-annotation-line-2",
+        "left-late-stage-side-brace",
+        "left-late-stage-side-label"
+      ],
+      "logical_descendant_group_ids": [
+        "left-late-token-ellipsis"
+      ],
+      "backend_object_ids": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "backend_object_names": [
+        "af-left-stage-transition-ellipsis-text-01",
+        "af-left-transition-to-late-arrow-connector-01",
+        "af-left-late-token-1-rect-01",
+        "af-left-late-token-2-rect-01",
+        "af-left-late-token-3-rect-01",
+        "af-left-late-token-4-rect-01",
+        "af-left-late-token-ellipsis-dot-1-ellipse-01",
+        "af-left-late-token-ellipsis-dot-2-ellipse-01",
+        "af-left-late-token-ellipsis-dot-3-ellipse-01",
+        "af-left-late-token-5-rect-01",
+        "af-left-late-token-6-rect-01",
+        "af-left-late-token-7-rect-01",
+        "af-left-late-token-8-rect-01",
+        "af-left-late-word-the-text-01",
+        "af-left-late-word-stove-text-01",
+        "af-left-late-word-broken-text-01",
+        "af-left-late-word-answer-text-01",
+        "af-left-late-word-is-text-01",
+        "af-left-late-word-b-text-01",
+        "af-left-late-rationale-underbrace-freeform-01",
+        "af-left-late-annotation-line-1-text-01",
+        "af-left-late-annotation-line-2-text-01",
+        "af-left-late-stage-side-brace-freeform-01",
+        "af-left-late-stage-side-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 57,
+          "shape_name": "af-left-stage-transition-ellipsis-text-01"
+        },
+        {
+          "shape_id": 58,
+          "shape_name": "af-left-transition-to-late-arrow-connector-01"
+        },
+        {
+          "shape_id": 59,
+          "shape_name": "af-left-late-token-1-rect-01"
+        },
+        {
+          "shape_id": 60,
+          "shape_name": "af-left-late-token-2-rect-01"
+        },
+        {
+          "shape_id": 61,
+          "shape_name": "af-left-late-token-3-rect-01"
+        },
+        {
+          "shape_id": 62,
+          "shape_name": "af-left-late-token-4-rect-01"
+        },
+        {
+          "shape_id": 63,
+          "shape_name": "af-left-late-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 64,
+          "shape_name": "af-left-late-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 65,
+          "shape_name": "af-left-late-token-ellipsis-dot-3-ellipse-01"
+        },
+        {
+          "shape_id": 66,
+          "shape_name": "af-left-late-token-5-rect-01"
+        },
+        {
+          "shape_id": 67,
+          "shape_name": "af-left-late-token-6-rect-01"
+        },
+        {
+          "shape_id": 68,
+          "shape_name": "af-left-late-token-7-rect-01"
+        },
+        {
+          "shape_id": 69,
+          "shape_name": "af-left-late-token-8-rect-01"
+        },
+        {
+          "shape_id": 70,
+          "shape_name": "af-left-late-word-the-text-01"
+        },
+        {
+          "shape_id": 71,
+          "shape_name": "af-left-late-word-stove-text-01"
+        },
+        {
+          "shape_id": 72,
+          "shape_name": "af-left-late-word-broken-text-01"
+        },
+        {
+          "shape_id": 73,
+          "shape_name": "af-left-late-word-answer-text-01"
+        },
+        {
+          "shape_id": 74,
+          "shape_name": "af-left-late-word-is-text-01"
+        },
+        {
+          "shape_id": 75,
+          "shape_name": "af-left-late-word-b-text-01"
+        },
+        {
+          "shape_id": 76,
+          "shape_name": "af-left-late-rationale-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 77,
+          "shape_name": "af-left-late-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 78,
+          "shape_name": "af-left-late-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 79,
+          "shape_name": "af-left-late-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 80,
+          "shape_name": "af-left-late-stage-side-label-text-01"
+        }
+      ],
+      "visible_object_count": 24,
+      "attachment_shape_id": 80,
+      "attachment_shape_name": "af-left-late-stage-side-label-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "left-panel",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "left-input-image-title",
+        "left-input-image-bracket",
+        "left-input-image-token-1",
+        "left-input-image-token-2",
+        "left-input-image-token-3",
+        "left-input-prompt-title",
+        "left-input-prompt-bracket",
+        "left-input-prompt-token-1",
+        "left-input-prompt-token-2",
+        "left-input-prompt-token-3",
+        "left-input-response-title",
+        "left-input-response-bracket",
+        "left-input-response-token-1",
+        "left-input-response-token-2",
+        "left-input-response-token-3",
+        "left-input-response-token-4",
+        "left-input-response-ellipsis",
+        "left-input-response-token-5",
+        "left-input-response-token-6",
+        "left-input-response-token-7",
+        "left-input-response-token-8",
+        "left-input-to-model-arrow",
+        "left-model-box",
+        "left-model-label",
+        "left-legend-box",
+        "left-legend-token-mask",
+        "left-legend-label-mask",
+        "left-legend-token-less-grounded",
+        "left-legend-label-less-grounded-line-1",
+        "left-legend-label-less-grounded-line-2",
+        "left-legend-token-more-grounded",
+        "left-legend-label-more-grounded-line-1",
+        "left-legend-label-more-grounded-line-2",
+        "left-model-to-early-arrow",
+        "left-early-stage-title",
+        "left-early-token-1",
+        "left-early-token-2",
+        "left-early-token-3",
+        "left-early-token-4",
+        "left-early-token-ellipsis-dot-1",
+        "left-early-token-ellipsis-dot-2",
+        "left-early-token-ellipsis-dot-3",
+        "left-early-token-5",
+        "left-early-token-6",
+        "left-early-token-7",
+        "left-early-token-8",
+        "left-early-word-answer",
+        "left-early-word-is",
+        "left-early-word-b",
+        "left-early-answer-underbrace",
+        "left-early-annotation-line-1",
+        "left-early-annotation-line-2",
+        "left-early-stage-side-brace",
+        "left-early-stage-side-label",
+        "left-stage-transition-ellipsis",
+        "left-transition-to-late-arrow",
+        "left-late-token-1",
+        "left-late-token-2",
+        "left-late-token-3",
+        "left-late-token-4",
+        "left-late-token-ellipsis-dot-1",
+        "left-late-token-ellipsis-dot-2",
+        "left-late-token-ellipsis-dot-3",
+        "left-late-token-5",
+        "left-late-token-6",
+        "left-late-token-7",
+        "left-late-token-8",
+        "left-late-word-the",
+        "left-late-word-stove",
+        "left-late-word-broken",
+        "left-late-word-answer",
+        "left-late-word-is",
+        "left-late-word-b",
+        "left-late-rationale-underbrace",
+        "left-late-annotation-line-1",
+        "left-late-annotation-line-2",
+        "left-late-stage-side-brace",
+        "left-late-stage-side-label",
+        "left-panel-caption"
+      ],
+      "logical_descendant_group_ids": [
+        "left-input-image-group",
+        "left-input-prompt-group",
+        "left-input-response-group",
+        "left-model-group",
+        "left-legend-group",
+        "left-early-token-ellipsis",
+        "left-early-stage-group",
+        "left-late-token-ellipsis",
+        "left-late-stage-group"
+      ],
+      "backend_object_ids": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "backend_object_names": [
+        "af-left-input-image-title-text-01",
+        "af-left-input-image-bracket-freeform-01",
+        "af-left-input-image-token-1-rect-01",
+        "af-left-input-image-token-2-rect-01",
+        "af-left-input-image-token-3-rect-01",
+        "af-left-input-prompt-title-text-01",
+        "af-left-input-prompt-bracket-freeform-01",
+        "af-left-input-prompt-token-1-rect-01",
+        "af-left-input-prompt-token-2-rect-01",
+        "af-left-input-prompt-token-3-rect-01",
+        "af-left-input-response-title-text-01",
+        "af-left-input-response-bracket-freeform-01",
+        "af-left-input-response-token-1-rect-01",
+        "af-left-input-response-token-2-rect-01",
+        "af-left-input-response-token-3-rect-01",
+        "af-left-input-response-token-4-rect-01",
+        "af-left-input-response-ellipsis-text-01",
+        "af-left-input-response-token-5-rect-01",
+        "af-left-input-response-token-6-rect-01",
+        "af-left-input-response-token-7-rect-01",
+        "af-left-input-response-token-8-rect-01",
+        "af-left-input-to-model-arrow-connector-01",
+        "af-left-model-box-rect-01",
+        "af-left-model-label-text-01",
+        "af-left-legend-box-rect-01",
+        "af-left-legend-token-mask-rect-01",
+        "af-left-legend-label-mask-text-01",
+        "af-left-legend-token-less-grounded-rect-01",
+        "af-left-legend-label-less-grounded-line-1-text-01",
+        "af-left-legend-label-less-grounded-line-2-text-01",
+        "af-left-legend-token-more-grounded-rect-01",
+        "af-left-legend-label-more-grounded-line-1-text-01",
+        "af-left-legend-label-more-grounded-line-2-text-01",
+        "af-left-model-to-early-arrow-connector-01",
+        "af-left-early-stage-title-text-01",
+        "af-left-early-token-1-rect-01",
+        "af-left-early-token-2-rect-01",
+        "af-left-early-token-3-rect-01",
+        "af-left-early-token-4-rect-01",
+        "af-left-early-token-ellipsis-dot-1-ellipse-01",
+        "af-left-early-token-ellipsis-dot-2-ellipse-01",
+        "af-left-early-token-ellipsis-dot-3-ellipse-01",
+        "af-left-early-token-5-rect-01",
+        "af-left-early-token-6-rect-01",
+        "af-left-early-token-7-rect-01",
+        "af-left-early-token-8-rect-01",
+        "af-left-early-word-answer-text-01",
+        "af-left-early-word-is-text-01",
+        "af-left-early-word-b-text-01",
+        "af-left-early-answer-underbrace-freeform-01",
+        "af-left-early-annotation-line-1-text-01",
+        "af-left-early-annotation-line-2-text-01",
+        "af-left-early-stage-side-brace-freeform-01",
+        "af-left-early-stage-side-label-text-01",
+        "af-left-stage-transition-ellipsis-text-01",
+        "af-left-transition-to-late-arrow-connector-01",
+        "af-left-late-token-1-rect-01",
+        "af-left-late-token-2-rect-01",
+        "af-left-late-token-3-rect-01",
+        "af-left-late-token-4-rect-01",
+        "af-left-late-token-ellipsis-dot-1-ellipse-01",
+        "af-left-late-token-ellipsis-dot-2-ellipse-01",
+        "af-left-late-token-ellipsis-dot-3-ellipse-01",
+        "af-left-late-token-5-rect-01",
+        "af-left-late-token-6-rect-01",
+        "af-left-late-token-7-rect-01",
+        "af-left-late-token-8-rect-01",
+        "af-left-late-word-the-text-01",
+        "af-left-late-word-stove-text-01",
+        "af-left-late-word-broken-text-01",
+        "af-left-late-word-answer-text-01",
+        "af-left-late-word-is-text-01",
+        "af-left-late-word-b-text-01",
+        "af-left-late-rationale-underbrace-freeform-01",
+        "af-left-late-annotation-line-1-text-01",
+        "af-left-late-annotation-line-2-text-01",
+        "af-left-late-stage-side-brace-freeform-01",
+        "af-left-late-stage-side-label-text-01",
+        "af-left-panel-caption-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 3,
+          "shape_name": "af-left-input-image-title-text-01"
+        },
+        {
+          "shape_id": 4,
+          "shape_name": "af-left-input-image-bracket-freeform-01"
+        },
+        {
+          "shape_id": 5,
+          "shape_name": "af-left-input-image-token-1-rect-01"
+        },
+        {
+          "shape_id": 6,
+          "shape_name": "af-left-input-image-token-2-rect-01"
+        },
+        {
+          "shape_id": 7,
+          "shape_name": "af-left-input-image-token-3-rect-01"
+        },
+        {
+          "shape_id": 8,
+          "shape_name": "af-left-input-prompt-title-text-01"
+        },
+        {
+          "shape_id": 9,
+          "shape_name": "af-left-input-prompt-bracket-freeform-01"
+        },
+        {
+          "shape_id": 10,
+          "shape_name": "af-left-input-prompt-token-1-rect-01"
+        },
+        {
+          "shape_id": 11,
+          "shape_name": "af-left-input-prompt-token-2-rect-01"
+        },
+        {
+          "shape_id": 12,
+          "shape_name": "af-left-input-prompt-token-3-rect-01"
+        },
+        {
+          "shape_id": 13,
+          "shape_name": "af-left-input-response-title-text-01"
+        },
+        {
+          "shape_id": 14,
+          "shape_name": "af-left-input-response-bracket-freeform-01"
+        },
+        {
+          "shape_id": 15,
+          "shape_name": "af-left-input-response-token-1-rect-01"
+        },
+        {
+          "shape_id": 16,
+          "shape_name": "af-left-input-response-token-2-rect-01"
+        },
+        {
+          "shape_id": 17,
+          "shape_name": "af-left-input-response-token-3-rect-01"
+        },
+        {
+          "shape_id": 18,
+          "shape_name": "af-left-input-response-token-4-rect-01"
+        },
+        {
+          "shape_id": 19,
+          "shape_name": "af-left-input-response-ellipsis-text-01"
+        },
+        {
+          "shape_id": 20,
+          "shape_name": "af-left-input-response-token-5-rect-01"
+        },
+        {
+          "shape_id": 21,
+          "shape_name": "af-left-input-response-token-6-rect-01"
+        },
+        {
+          "shape_id": 22,
+          "shape_name": "af-left-input-response-token-7-rect-01"
+        },
+        {
+          "shape_id": 23,
+          "shape_name": "af-left-input-response-token-8-rect-01"
+        },
+        {
+          "shape_id": 24,
+          "shape_name": "af-left-input-to-model-arrow-connector-01"
+        },
+        {
+          "shape_id": 25,
+          "shape_name": "af-left-model-box-rect-01"
+        },
+        {
+          "shape_id": 26,
+          "shape_name": "af-left-model-label-text-01"
+        },
+        {
+          "shape_id": 27,
+          "shape_name": "af-left-legend-box-rect-01"
+        },
+        {
+          "shape_id": 28,
+          "shape_name": "af-left-legend-token-mask-rect-01"
+        },
+        {
+          "shape_id": 29,
+          "shape_name": "af-left-legend-label-mask-text-01"
+        },
+        {
+          "shape_id": 30,
+          "shape_name": "af-left-legend-token-less-grounded-rect-01"
+        },
+        {
+          "shape_id": 31,
+          "shape_name": "af-left-legend-label-less-grounded-line-1-text-01"
+        },
+        {
+          "shape_id": 32,
+          "shape_name": "af-left-legend-label-less-grounded-line-2-text-01"
+        },
+        {
+          "shape_id": 33,
+          "shape_name": "af-left-legend-token-more-grounded-rect-01"
+        },
+        {
+          "shape_id": 34,
+          "shape_name": "af-left-legend-label-more-grounded-line-1-text-01"
+        },
+        {
+          "shape_id": 35,
+          "shape_name": "af-left-legend-label-more-grounded-line-2-text-01"
+        },
+        {
+          "shape_id": 36,
+          "shape_name": "af-left-model-to-early-arrow-connector-01"
+        },
+        {
+          "shape_id": 37,
+          "shape_name": "af-left-early-stage-title-text-01"
+        },
+        {
+          "shape_id": 38,
+          "shape_name": "af-left-early-token-1-rect-01"
+        },
+        {
+          "shape_id": 39,
+          "shape_name": "af-left-early-token-2-rect-01"
+        },
+        {
+          "shape_id": 40,
+          "shape_name": "af-left-early-token-3-rect-01"
+        },
+        {
+          "shape_id": 41,
+          "shape_name": "af-left-early-token-4-rect-01"
+        },
+        {
+          "shape_id": 42,
+          "shape_name": "af-left-early-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 43,
+          "shape_name": "af-left-early-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 44,
+          "shape_name": "af-left-early-token-ellipsis-dot-3-ellipse-01"
+        },
+        {
+          "shape_id": 45,
+          "shape_name": "af-left-early-token-5-rect-01"
+        },
+        {
+          "shape_id": 46,
+          "shape_name": "af-left-early-token-6-rect-01"
+        },
+        {
+          "shape_id": 47,
+          "shape_name": "af-left-early-token-7-rect-01"
+        },
+        {
+          "shape_id": 48,
+          "shape_name": "af-left-early-token-8-rect-01"
+        },
+        {
+          "shape_id": 49,
+          "shape_name": "af-left-early-word-answer-text-01"
+        },
+        {
+          "shape_id": 50,
+          "shape_name": "af-left-early-word-is-text-01"
+        },
+        {
+          "shape_id": 51,
+          "shape_name": "af-left-early-word-b-text-01"
+        },
+        {
+          "shape_id": 52,
+          "shape_name": "af-left-early-answer-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 53,
+          "shape_name": "af-left-early-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 54,
+          "shape_name": "af-left-early-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 55,
+          "shape_name": "af-left-early-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 56,
+          "shape_name": "af-left-early-stage-side-label-text-01"
+        },
+        {
+          "shape_id": 57,
+          "shape_name": "af-left-stage-transition-ellipsis-text-01"
+        },
+        {
+          "shape_id": 58,
+          "shape_name": "af-left-transition-to-late-arrow-connector-01"
+        },
+        {
+          "shape_id": 59,
+          "shape_name": "af-left-late-token-1-rect-01"
+        },
+        {
+          "shape_id": 60,
+          "shape_name": "af-left-late-token-2-rect-01"
+        },
+        {
+          "shape_id": 61,
+          "shape_name": "af-left-late-token-3-rect-01"
+        },
+        {
+          "shape_id": 62,
+          "shape_name": "af-left-late-token-4-rect-01"
+        },
+        {
+          "shape_id": 63,
+          "shape_name": "af-left-late-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 64,
+          "shape_name": "af-left-late-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 65,
+          "shape_name": "af-left-late-token-ellipsis-dot-3-ellipse-01"
+        },
+        {
+          "shape_id": 66,
+          "shape_name": "af-left-late-token-5-rect-01"
+        },
+        {
+          "shape_id": 67,
+          "shape_name": "af-left-late-token-6-rect-01"
+        },
+        {
+          "shape_id": 68,
+          "shape_name": "af-left-late-token-7-rect-01"
+        },
+        {
+          "shape_id": 69,
+          "shape_name": "af-left-late-token-8-rect-01"
+        },
+        {
+          "shape_id": 70,
+          "shape_name": "af-left-late-word-the-text-01"
+        },
+        {
+          "shape_id": 71,
+          "shape_name": "af-left-late-word-stove-text-01"
+        },
+        {
+          "shape_id": 72,
+          "shape_name": "af-left-late-word-broken-text-01"
+        },
+        {
+          "shape_id": 73,
+          "shape_name": "af-left-late-word-answer-text-01"
+        },
+        {
+          "shape_id": 74,
+          "shape_name": "af-left-late-word-is-text-01"
+        },
+        {
+          "shape_id": 75,
+          "shape_name": "af-left-late-word-b-text-01"
+        },
+        {
+          "shape_id": 76,
+          "shape_name": "af-left-late-rationale-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 77,
+          "shape_name": "af-left-late-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 78,
+          "shape_name": "af-left-late-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 79,
+          "shape_name": "af-left-late-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 80,
+          "shape_name": "af-left-late-stage-side-label-text-01"
+        },
+        {
+          "shape_id": 81,
+          "shape_name": "af-left-panel-caption-text-01"
+        }
+      ],
+      "visible_object_count": 79,
+      "attachment_shape_id": 25,
+      "attachment_shape_name": "af-left-model-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-image-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-input-image-title",
+        "right-input-image-bracket",
+        "right-input-image-token-1",
+        "right-input-image-token-2",
+        "right-input-image-token-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "backend_object_names": [
+        "af-right-input-image-title-text-01",
+        "af-right-input-image-bracket-freeform-01",
+        "af-right-input-image-token-1-rect-01",
+        "af-right-input-image-token-2-rect-01",
+        "af-right-input-image-token-3-rect-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 82,
+          "shape_name": "af-right-input-image-title-text-01"
+        },
+        {
+          "shape_id": 83,
+          "shape_name": "af-right-input-image-bracket-freeform-01"
+        },
+        {
+          "shape_id": 84,
+          "shape_name": "af-right-input-image-token-1-rect-01"
+        },
+        {
+          "shape_id": 85,
+          "shape_name": "af-right-input-image-token-2-rect-01"
+        },
+        {
+          "shape_id": 86,
+          "shape_name": "af-right-input-image-token-3-rect-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 82,
+      "attachment_shape_name": "af-right-input-image-title-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-prompt-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-input-prompt-title",
+        "right-input-prompt-bracket",
+        "right-input-prompt-token-1",
+        "right-input-prompt-token-2",
+        "right-input-prompt-token-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "backend_object_names": [
+        "af-right-input-prompt-title-text-01",
+        "af-right-input-prompt-bracket-freeform-01",
+        "af-right-input-prompt-token-1-rect-01",
+        "af-right-input-prompt-token-2-rect-01",
+        "af-right-input-prompt-token-3-rect-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 87,
+          "shape_name": "af-right-input-prompt-title-text-01"
+        },
+        {
+          "shape_id": 88,
+          "shape_name": "af-right-input-prompt-bracket-freeform-01"
+        },
+        {
+          "shape_id": 89,
+          "shape_name": "af-right-input-prompt-token-1-rect-01"
+        },
+        {
+          "shape_id": 90,
+          "shape_name": "af-right-input-prompt-token-2-rect-01"
+        },
+        {
+          "shape_id": 91,
+          "shape_name": "af-right-input-prompt-token-3-rect-01"
+        }
+      ],
+      "visible_object_count": 5,
+      "attachment_shape_id": 87,
+      "attachment_shape_name": "af-right-input-prompt-title-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-input-response-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-input-response-title",
+        "right-input-response-bracket",
+        "right-input-response-token-1",
+        "right-input-response-token-2",
+        "right-input-response-token-3",
+        "right-input-response-token-4",
+        "right-input-response-ellipsis",
+        "right-input-response-token-5",
+        "right-input-response-token-6",
+        "right-input-response-token-7",
+        "right-input-response-token-8",
+        "right-input-to-model-arrow"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ],
+      "backend_object_names": [
+        "af-right-input-response-title-text-01",
+        "af-right-input-response-bracket-freeform-01",
+        "af-right-input-response-token-1-rect-01",
+        "af-right-input-response-token-2-rect-01",
+        "af-right-input-response-token-3-rect-01",
+        "af-right-input-response-token-4-rect-01",
+        "af-right-input-response-ellipsis-text-01",
+        "af-right-input-response-token-5-rect-01",
+        "af-right-input-response-token-6-rect-01",
+        "af-right-input-response-token-7-rect-01",
+        "af-right-input-response-token-8-rect-01",
+        "af-right-input-to-model-arrow-connector-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 92,
+          "shape_name": "af-right-input-response-title-text-01"
+        },
+        {
+          "shape_id": 93,
+          "shape_name": "af-right-input-response-bracket-freeform-01"
+        },
+        {
+          "shape_id": 94,
+          "shape_name": "af-right-input-response-token-1-rect-01"
+        },
+        {
+          "shape_id": 95,
+          "shape_name": "af-right-input-response-token-2-rect-01"
+        },
+        {
+          "shape_id": 96,
+          "shape_name": "af-right-input-response-token-3-rect-01"
+        },
+        {
+          "shape_id": 97,
+          "shape_name": "af-right-input-response-token-4-rect-01"
+        },
+        {
+          "shape_id": 98,
+          "shape_name": "af-right-input-response-ellipsis-text-01"
+        },
+        {
+          "shape_id": 99,
+          "shape_name": "af-right-input-response-token-5-rect-01"
+        },
+        {
+          "shape_id": 100,
+          "shape_name": "af-right-input-response-token-6-rect-01"
+        },
+        {
+          "shape_id": 101,
+          "shape_name": "af-right-input-response-token-7-rect-01"
+        },
+        {
+          "shape_id": 102,
+          "shape_name": "af-right-input-response-token-8-rect-01"
+        },
+        {
+          "shape_id": 103,
+          "shape_name": "af-right-input-to-model-arrow-connector-01"
+        }
+      ],
+      "visible_object_count": 12,
+      "attachment_shape_id": 93,
+      "attachment_shape_name": "af-right-input-response-bracket-freeform-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-model-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-model-box",
+        "right-model-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        104,
+        105
+      ],
+      "backend_object_names": [
+        "af-right-model-box-rect-01",
+        "af-right-model-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 104,
+          "shape_name": "af-right-model-box-rect-01"
+        },
+        {
+          "shape_id": 105,
+          "shape_name": "af-right-model-label-text-01"
+        }
+      ],
+      "visible_object_count": 2,
+      "attachment_shape_id": 104,
+      "attachment_shape_name": "af-right-model-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-token-ellipsis",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-early-token-ellipsis-dot-1",
+        "right-early-token-ellipsis-dot-2",
+        "right-early-token-ellipsis-dot-3"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        112,
+        113,
+        114
+      ],
+      "backend_object_names": [
+        "af-right-early-token-ellipsis-dot-1-ellipse-01",
+        "af-right-early-token-ellipsis-dot-2-ellipse-01",
+        "af-right-early-token-ellipsis-dot-3-ellipse-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 112,
+          "shape_name": "af-right-early-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 113,
+          "shape_name": "af-right-early-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 114,
+          "shape_name": "af-right-early-token-ellipsis-dot-3-ellipse-01"
+        }
+      ],
+      "visible_object_count": 3,
+      "attachment_shape_id": 112,
+      "attachment_shape_name": "af-right-early-token-ellipsis-dot-1-ellipse-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-early-stage-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-model-to-early-arrow",
+        "right-early-stage-title",
+        "right-early-token-1",
+        "right-early-token-2",
+        "right-early-token-3",
+        "right-early-token-4",
+        "right-early-token-ellipsis-dot-1",
+        "right-early-token-ellipsis-dot-2",
+        "right-early-token-ellipsis-dot-3",
+        "right-early-token-5",
+        "right-early-token-6",
+        "right-early-token-7",
+        "right-early-token-8",
+        "right-early-word-stove",
+        "right-early-word-old",
+        "right-early-rationale-underbrace",
+        "right-early-annotation-line-1",
+        "right-early-annotation-line-2",
+        "right-early-stage-side-brace",
+        "right-early-stage-side-label"
+      ],
+      "logical_descendant_group_ids": [
+        "right-early-token-ellipsis"
+      ],
+      "backend_object_ids": [
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "backend_object_names": [
+        "af-right-model-to-early-arrow-connector-01",
+        "af-right-early-stage-title-text-01",
+        "af-right-early-token-1-rect-01",
+        "af-right-early-token-2-rect-01",
+        "af-right-early-token-3-rect-01",
+        "af-right-early-token-4-rect-01",
+        "af-right-early-token-ellipsis-dot-1-ellipse-01",
+        "af-right-early-token-ellipsis-dot-2-ellipse-01",
+        "af-right-early-token-ellipsis-dot-3-ellipse-01",
+        "af-right-early-token-5-rect-01",
+        "af-right-early-token-6-rect-01",
+        "af-right-early-token-7-rect-01",
+        "af-right-early-token-8-rect-01",
+        "af-right-early-word-stove-text-01",
+        "af-right-early-word-old-text-01",
+        "af-right-early-rationale-underbrace-freeform-01",
+        "af-right-early-annotation-line-1-text-01",
+        "af-right-early-annotation-line-2-text-01",
+        "af-right-early-stage-side-brace-freeform-01",
+        "af-right-early-stage-side-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 106,
+          "shape_name": "af-right-model-to-early-arrow-connector-01"
+        },
+        {
+          "shape_id": 107,
+          "shape_name": "af-right-early-stage-title-text-01"
+        },
+        {
+          "shape_id": 108,
+          "shape_name": "af-right-early-token-1-rect-01"
+        },
+        {
+          "shape_id": 109,
+          "shape_name": "af-right-early-token-2-rect-01"
+        },
+        {
+          "shape_id": 110,
+          "shape_name": "af-right-early-token-3-rect-01"
+        },
+        {
+          "shape_id": 111,
+          "shape_name": "af-right-early-token-4-rect-01"
+        },
+        {
+          "shape_id": 112,
+          "shape_name": "af-right-early-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 113,
+          "shape_name": "af-right-early-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 114,
+          "shape_name": "af-right-early-token-ellipsis-dot-3-ellipse-01"
+        },
+        {
+          "shape_id": 115,
+          "shape_name": "af-right-early-token-5-rect-01"
+        },
+        {
+          "shape_id": 116,
+          "shape_name": "af-right-early-token-6-rect-01"
+        },
+        {
+          "shape_id": 117,
+          "shape_name": "af-right-early-token-7-rect-01"
+        },
+        {
+          "shape_id": 118,
+          "shape_name": "af-right-early-token-8-rect-01"
+        },
+        {
+          "shape_id": 119,
+          "shape_name": "af-right-early-word-stove-text-01"
+        },
+        {
+          "shape_id": 120,
+          "shape_name": "af-right-early-word-old-text-01"
+        },
+        {
+          "shape_id": 121,
+          "shape_name": "af-right-early-rationale-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 122,
+          "shape_name": "af-right-early-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 123,
+          "shape_name": "af-right-early-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 124,
+          "shape_name": "af-right-early-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 125,
+          "shape_name": "af-right-early-stage-side-label-text-01"
+        }
+      ],
+      "visible_object_count": 20,
+      "attachment_shape_id": 122,
+      "attachment_shape_name": "af-right-early-annotation-line-1-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-late-stage-group",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-stage-transition-ellipsis",
+        "right-transition-to-late-arrow",
+        "right-late-token-1",
+        "right-late-token-2",
+        "right-late-token-3",
+        "right-late-token-4",
+        "right-late-token-ellipsis",
+        "right-late-token-5",
+        "right-late-token-6",
+        "right-late-token-7",
+        "right-late-token-8",
+        "right-late-word-the",
+        "right-late-word-stove",
+        "right-late-word-is",
+        "right-late-word-old",
+        "right-late-word-answer",
+        "right-late-word-c",
+        "right-late-answer-underbrace",
+        "right-late-annotation-line-1",
+        "right-late-annotation-line-2",
+        "right-late-stage-side-brace",
+        "right-late-stage-side-label"
+      ],
+      "logical_descendant_group_ids": [],
+      "backend_object_ids": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+      ],
+      "backend_object_names": [
+        "af-right-stage-transition-ellipsis-text-01",
+        "af-right-transition-to-late-arrow-connector-01",
+        "af-right-late-token-1-rect-01",
+        "af-right-late-token-2-rect-01",
+        "af-right-late-token-3-rect-01",
+        "af-right-late-token-4-rect-01",
+        "af-right-late-token-ellipsis-text-01",
+        "af-right-late-token-5-rect-01",
+        "af-right-late-token-6-rect-01",
+        "af-right-late-token-7-rect-01",
+        "af-right-late-token-8-rect-01",
+        "af-right-late-word-the-text-01",
+        "af-right-late-word-stove-text-01",
+        "af-right-late-word-is-text-01",
+        "af-right-late-word-old-text-01",
+        "af-right-late-word-answer-text-01",
+        "af-right-late-word-c-text-01",
+        "af-right-late-answer-underbrace-freeform-01",
+        "af-right-late-annotation-line-1-text-01",
+        "af-right-late-annotation-line-2-text-01",
+        "af-right-late-stage-side-brace-freeform-01",
+        "af-right-late-stage-side-label-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 126,
+          "shape_name": "af-right-stage-transition-ellipsis-text-01"
+        },
+        {
+          "shape_id": 127,
+          "shape_name": "af-right-transition-to-late-arrow-connector-01"
+        },
+        {
+          "shape_id": 128,
+          "shape_name": "af-right-late-token-1-rect-01"
+        },
+        {
+          "shape_id": 129,
+          "shape_name": "af-right-late-token-2-rect-01"
+        },
+        {
+          "shape_id": 130,
+          "shape_name": "af-right-late-token-3-rect-01"
+        },
+        {
+          "shape_id": 131,
+          "shape_name": "af-right-late-token-4-rect-01"
+        },
+        {
+          "shape_id": 132,
+          "shape_name": "af-right-late-token-ellipsis-text-01"
+        },
+        {
+          "shape_id": 133,
+          "shape_name": "af-right-late-token-5-rect-01"
+        },
+        {
+          "shape_id": 134,
+          "shape_name": "af-right-late-token-6-rect-01"
+        },
+        {
+          "shape_id": 135,
+          "shape_name": "af-right-late-token-7-rect-01"
+        },
+        {
+          "shape_id": 136,
+          "shape_name": "af-right-late-token-8-rect-01"
+        },
+        {
+          "shape_id": 137,
+          "shape_name": "af-right-late-word-the-text-01"
+        },
+        {
+          "shape_id": 138,
+          "shape_name": "af-right-late-word-stove-text-01"
+        },
+        {
+          "shape_id": 139,
+          "shape_name": "af-right-late-word-is-text-01"
+        },
+        {
+          "shape_id": 140,
+          "shape_name": "af-right-late-word-old-text-01"
+        },
+        {
+          "shape_id": 141,
+          "shape_name": "af-right-late-word-answer-text-01"
+        },
+        {
+          "shape_id": 142,
+          "shape_name": "af-right-late-word-c-text-01"
+        },
+        {
+          "shape_id": 143,
+          "shape_name": "af-right-late-answer-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 144,
+          "shape_name": "af-right-late-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 145,
+          "shape_name": "af-right-late-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 146,
+          "shape_name": "af-right-late-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 147,
+          "shape_name": "af-right-late-stage-side-label-text-01"
+        }
+      ],
+      "visible_object_count": 22,
+      "attachment_shape_id": 144,
+      "attachment_shape_name": "af-right-late-annotation-line-1-text-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    },
+    {
+      "element_id": "right-panel",
+      "binding_kind": "logical-group-composite",
+      "object_kind": "logical-group",
+      "editable": true,
+      "member_element_ids": [
+        "right-input-image-title",
+        "right-input-image-bracket",
+        "right-input-image-token-1",
+        "right-input-image-token-2",
+        "right-input-image-token-3",
+        "right-input-prompt-title",
+        "right-input-prompt-bracket",
+        "right-input-prompt-token-1",
+        "right-input-prompt-token-2",
+        "right-input-prompt-token-3",
+        "right-input-response-title",
+        "right-input-response-bracket",
+        "right-input-response-token-1",
+        "right-input-response-token-2",
+        "right-input-response-token-3",
+        "right-input-response-token-4",
+        "right-input-response-ellipsis",
+        "right-input-response-token-5",
+        "right-input-response-token-6",
+        "right-input-response-token-7",
+        "right-input-response-token-8",
+        "right-input-to-model-arrow",
+        "right-model-box",
+        "right-model-label",
+        "right-model-to-early-arrow",
+        "right-early-stage-title",
+        "right-early-token-1",
+        "right-early-token-2",
+        "right-early-token-3",
+        "right-early-token-4",
+        "right-early-token-ellipsis-dot-1",
+        "right-early-token-ellipsis-dot-2",
+        "right-early-token-ellipsis-dot-3",
+        "right-early-token-5",
+        "right-early-token-6",
+        "right-early-token-7",
+        "right-early-token-8",
+        "right-early-word-stove",
+        "right-early-word-old",
+        "right-early-rationale-underbrace",
+        "right-early-annotation-line-1",
+        "right-early-annotation-line-2",
+        "right-early-stage-side-brace",
+        "right-early-stage-side-label",
+        "right-stage-transition-ellipsis",
+        "right-transition-to-late-arrow",
+        "right-late-token-1",
+        "right-late-token-2",
+        "right-late-token-3",
+        "right-late-token-4",
+        "right-late-token-ellipsis",
+        "right-late-token-5",
+        "right-late-token-6",
+        "right-late-token-7",
+        "right-late-token-8",
+        "right-late-word-the",
+        "right-late-word-stove",
+        "right-late-word-is",
+        "right-late-word-old",
+        "right-late-word-answer",
+        "right-late-word-c",
+        "right-late-answer-underbrace",
+        "right-late-annotation-line-1",
+        "right-late-annotation-line-2",
+        "right-late-stage-side-brace",
+        "right-late-stage-side-label",
+        "right-panel-caption"
+      ],
+      "logical_descendant_group_ids": [
+        "right-input-image-group",
+        "right-input-prompt-group",
+        "right-input-response-group",
+        "right-model-group",
+        "right-early-token-ellipsis",
+        "right-early-stage-group",
+        "right-late-stage-group"
+      ],
+      "backend_object_ids": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148
+      ],
+      "backend_object_names": [
+        "af-right-input-image-title-text-01",
+        "af-right-input-image-bracket-freeform-01",
+        "af-right-input-image-token-1-rect-01",
+        "af-right-input-image-token-2-rect-01",
+        "af-right-input-image-token-3-rect-01",
+        "af-right-input-prompt-title-text-01",
+        "af-right-input-prompt-bracket-freeform-01",
+        "af-right-input-prompt-token-1-rect-01",
+        "af-right-input-prompt-token-2-rect-01",
+        "af-right-input-prompt-token-3-rect-01",
+        "af-right-input-response-title-text-01",
+        "af-right-input-response-bracket-freeform-01",
+        "af-right-input-response-token-1-rect-01",
+        "af-right-input-response-token-2-rect-01",
+        "af-right-input-response-token-3-rect-01",
+        "af-right-input-response-token-4-rect-01",
+        "af-right-input-response-ellipsis-text-01",
+        "af-right-input-response-token-5-rect-01",
+        "af-right-input-response-token-6-rect-01",
+        "af-right-input-response-token-7-rect-01",
+        "af-right-input-response-token-8-rect-01",
+        "af-right-input-to-model-arrow-connector-01",
+        "af-right-model-box-rect-01",
+        "af-right-model-label-text-01",
+        "af-right-model-to-early-arrow-connector-01",
+        "af-right-early-stage-title-text-01",
+        "af-right-early-token-1-rect-01",
+        "af-right-early-token-2-rect-01",
+        "af-right-early-token-3-rect-01",
+        "af-right-early-token-4-rect-01",
+        "af-right-early-token-ellipsis-dot-1-ellipse-01",
+        "af-right-early-token-ellipsis-dot-2-ellipse-01",
+        "af-right-early-token-ellipsis-dot-3-ellipse-01",
+        "af-right-early-token-5-rect-01",
+        "af-right-early-token-6-rect-01",
+        "af-right-early-token-7-rect-01",
+        "af-right-early-token-8-rect-01",
+        "af-right-early-word-stove-text-01",
+        "af-right-early-word-old-text-01",
+        "af-right-early-rationale-underbrace-freeform-01",
+        "af-right-early-annotation-line-1-text-01",
+        "af-right-early-annotation-line-2-text-01",
+        "af-right-early-stage-side-brace-freeform-01",
+        "af-right-early-stage-side-label-text-01",
+        "af-right-stage-transition-ellipsis-text-01",
+        "af-right-transition-to-late-arrow-connector-01",
+        "af-right-late-token-1-rect-01",
+        "af-right-late-token-2-rect-01",
+        "af-right-late-token-3-rect-01",
+        "af-right-late-token-4-rect-01",
+        "af-right-late-token-ellipsis-text-01",
+        "af-right-late-token-5-rect-01",
+        "af-right-late-token-6-rect-01",
+        "af-right-late-token-7-rect-01",
+        "af-right-late-token-8-rect-01",
+        "af-right-late-word-the-text-01",
+        "af-right-late-word-stove-text-01",
+        "af-right-late-word-is-text-01",
+        "af-right-late-word-old-text-01",
+        "af-right-late-word-answer-text-01",
+        "af-right-late-word-c-text-01",
+        "af-right-late-answer-underbrace-freeform-01",
+        "af-right-late-annotation-line-1-text-01",
+        "af-right-late-annotation-line-2-text-01",
+        "af-right-late-stage-side-brace-freeform-01",
+        "af-right-late-stage-side-label-text-01",
+        "af-right-panel-caption-text-01"
+      ],
+      "backend_object_identities": [
+        {
+          "shape_id": 82,
+          "shape_name": "af-right-input-image-title-text-01"
+        },
+        {
+          "shape_id": 83,
+          "shape_name": "af-right-input-image-bracket-freeform-01"
+        },
+        {
+          "shape_id": 84,
+          "shape_name": "af-right-input-image-token-1-rect-01"
+        },
+        {
+          "shape_id": 85,
+          "shape_name": "af-right-input-image-token-2-rect-01"
+        },
+        {
+          "shape_id": 86,
+          "shape_name": "af-right-input-image-token-3-rect-01"
+        },
+        {
+          "shape_id": 87,
+          "shape_name": "af-right-input-prompt-title-text-01"
+        },
+        {
+          "shape_id": 88,
+          "shape_name": "af-right-input-prompt-bracket-freeform-01"
+        },
+        {
+          "shape_id": 89,
+          "shape_name": "af-right-input-prompt-token-1-rect-01"
+        },
+        {
+          "shape_id": 90,
+          "shape_name": "af-right-input-prompt-token-2-rect-01"
+        },
+        {
+          "shape_id": 91,
+          "shape_name": "af-right-input-prompt-token-3-rect-01"
+        },
+        {
+          "shape_id": 92,
+          "shape_name": "af-right-input-response-title-text-01"
+        },
+        {
+          "shape_id": 93,
+          "shape_name": "af-right-input-response-bracket-freeform-01"
+        },
+        {
+          "shape_id": 94,
+          "shape_name": "af-right-input-response-token-1-rect-01"
+        },
+        {
+          "shape_id": 95,
+          "shape_name": "af-right-input-response-token-2-rect-01"
+        },
+        {
+          "shape_id": 96,
+          "shape_name": "af-right-input-response-token-3-rect-01"
+        },
+        {
+          "shape_id": 97,
+          "shape_name": "af-right-input-response-token-4-rect-01"
+        },
+        {
+          "shape_id": 98,
+          "shape_name": "af-right-input-response-ellipsis-text-01"
+        },
+        {
+          "shape_id": 99,
+          "shape_name": "af-right-input-response-token-5-rect-01"
+        },
+        {
+          "shape_id": 100,
+          "shape_name": "af-right-input-response-token-6-rect-01"
+        },
+        {
+          "shape_id": 101,
+          "shape_name": "af-right-input-response-token-7-rect-01"
+        },
+        {
+          "shape_id": 102,
+          "shape_name": "af-right-input-response-token-8-rect-01"
+        },
+        {
+          "shape_id": 103,
+          "shape_name": "af-right-input-to-model-arrow-connector-01"
+        },
+        {
+          "shape_id": 104,
+          "shape_name": "af-right-model-box-rect-01"
+        },
+        {
+          "shape_id": 105,
+          "shape_name": "af-right-model-label-text-01"
+        },
+        {
+          "shape_id": 106,
+          "shape_name": "af-right-model-to-early-arrow-connector-01"
+        },
+        {
+          "shape_id": 107,
+          "shape_name": "af-right-early-stage-title-text-01"
+        },
+        {
+          "shape_id": 108,
+          "shape_name": "af-right-early-token-1-rect-01"
+        },
+        {
+          "shape_id": 109,
+          "shape_name": "af-right-early-token-2-rect-01"
+        },
+        {
+          "shape_id": 110,
+          "shape_name": "af-right-early-token-3-rect-01"
+        },
+        {
+          "shape_id": 111,
+          "shape_name": "af-right-early-token-4-rect-01"
+        },
+        {
+          "shape_id": 112,
+          "shape_name": "af-right-early-token-ellipsis-dot-1-ellipse-01"
+        },
+        {
+          "shape_id": 113,
+          "shape_name": "af-right-early-token-ellipsis-dot-2-ellipse-01"
+        },
+        {
+          "shape_id": 114,
+          "shape_name": "af-right-early-token-ellipsis-dot-3-ellipse-01"
+        },
+        {
+          "shape_id": 115,
+          "shape_name": "af-right-early-token-5-rect-01"
+        },
+        {
+          "shape_id": 116,
+          "shape_name": "af-right-early-token-6-rect-01"
+        },
+        {
+          "shape_id": 117,
+          "shape_name": "af-right-early-token-7-rect-01"
+        },
+        {
+          "shape_id": 118,
+          "shape_name": "af-right-early-token-8-rect-01"
+        },
+        {
+          "shape_id": 119,
+          "shape_name": "af-right-early-word-stove-text-01"
+        },
+        {
+          "shape_id": 120,
+          "shape_name": "af-right-early-word-old-text-01"
+        },
+        {
+          "shape_id": 121,
+          "shape_name": "af-right-early-rationale-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 122,
+          "shape_name": "af-right-early-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 123,
+          "shape_name": "af-right-early-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 124,
+          "shape_name": "af-right-early-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 125,
+          "shape_name": "af-right-early-stage-side-label-text-01"
+        },
+        {
+          "shape_id": 126,
+          "shape_name": "af-right-stage-transition-ellipsis-text-01"
+        },
+        {
+          "shape_id": 127,
+          "shape_name": "af-right-transition-to-late-arrow-connector-01"
+        },
+        {
+          "shape_id": 128,
+          "shape_name": "af-right-late-token-1-rect-01"
+        },
+        {
+          "shape_id": 129,
+          "shape_name": "af-right-late-token-2-rect-01"
+        },
+        {
+          "shape_id": 130,
+          "shape_name": "af-right-late-token-3-rect-01"
+        },
+        {
+          "shape_id": 131,
+          "shape_name": "af-right-late-token-4-rect-01"
+        },
+        {
+          "shape_id": 132,
+          "shape_name": "af-right-late-token-ellipsis-text-01"
+        },
+        {
+          "shape_id": 133,
+          "shape_name": "af-right-late-token-5-rect-01"
+        },
+        {
+          "shape_id": 134,
+          "shape_name": "af-right-late-token-6-rect-01"
+        },
+        {
+          "shape_id": 135,
+          "shape_name": "af-right-late-token-7-rect-01"
+        },
+        {
+          "shape_id": 136,
+          "shape_name": "af-right-late-token-8-rect-01"
+        },
+        {
+          "shape_id": 137,
+          "shape_name": "af-right-late-word-the-text-01"
+        },
+        {
+          "shape_id": 138,
+          "shape_name": "af-right-late-word-stove-text-01"
+        },
+        {
+          "shape_id": 139,
+          "shape_name": "af-right-late-word-is-text-01"
+        },
+        {
+          "shape_id": 140,
+          "shape_name": "af-right-late-word-old-text-01"
+        },
+        {
+          "shape_id": 141,
+          "shape_name": "af-right-late-word-answer-text-01"
+        },
+        {
+          "shape_id": 142,
+          "shape_name": "af-right-late-word-c-text-01"
+        },
+        {
+          "shape_id": 143,
+          "shape_name": "af-right-late-answer-underbrace-freeform-01"
+        },
+        {
+          "shape_id": 144,
+          "shape_name": "af-right-late-annotation-line-1-text-01"
+        },
+        {
+          "shape_id": 145,
+          "shape_name": "af-right-late-annotation-line-2-text-01"
+        },
+        {
+          "shape_id": 146,
+          "shape_name": "af-right-late-stage-side-brace-freeform-01"
+        },
+        {
+          "shape_id": 147,
+          "shape_name": "af-right-late-stage-side-label-text-01"
+        },
+        {
+          "shape_id": 148,
+          "shape_name": "af-right-panel-caption-text-01"
+        }
+      ],
+      "visible_object_count": 67,
+      "attachment_shape_id": 104,
+      "attachment_shape_name": "af-right-model-box-rect-01",
+      "attachment_policy": "largest-member-area-then-source-order",
+      "readback_found": true
+    }
+  ]
+}

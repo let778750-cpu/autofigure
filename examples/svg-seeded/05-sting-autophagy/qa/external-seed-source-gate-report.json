@@ -1,0 +1,229 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "source_gate_report",
+  "created_at": "2026-08-27T14:55:14.556271Z",
+  "decision": "repair",
+  "pass": false,
+  "next_action": "repair-source-and-rerun-gate",
+  "route_gate": {
+    "input_route": "svg-seeded",
+    "candidate_role": "external-seed",
+    "seed_gate_status": "awaiting"
+  },
+  "candidate": {
+    "path_base": "staging-root",
+    "source_name": "external-seed.svg",
+    "kind": "svg",
+    "sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
+    "expected_sha256": "a954bfd12aeb46a77345f33c6b2c8bc211c28d17532c102c79a24489e07a568a",
+    "byte_count": 51110
+  },
+  "reference": {
+    "path_base": "case-root",
+    "path": "reference.png",
+    "expected_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "actual_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "declared_sha256": null,
+    "canvas": [
+      2100,
+      1324
+    ]
+  },
+  "canvas": {
+    "expected": {
+      "width": 2100,
+      "height": 1324
+    },
+    "observed": {
+      "width": 2100.0,
+      "height": 1324.0,
+      "view_box": [
+        0.0,
+        0.0,
+        2100.0,
+        1324.0
+      ]
+    }
+  },
+  "image_usage": {
+    "count": 0,
+    "max_area_ratio": 0.5,
+    "whole_reference_forbidden": true,
+    "declared_area_ratio": 0.0,
+    "authorized_image_ids": [],
+    "items": []
+  },
+  "unsupported_features": {
+    "count": 0,
+    "items": []
+  },
+  "semantic_metadata": {
+    "required_fields": [
+      "semantic_schema_version",
+      "reference_sha256",
+      "object_inventory_sha256",
+      "stable_element_ids",
+      "relations_exhaustive",
+      "case"
+    ],
+    "observed": {},
+    "missing_fields": [
+      "semantic_schema_version",
+      "reference_sha256",
+      "object_inventory_sha256",
+      "stable_element_ids",
+      "relations_exhaustive",
+      "case"
+    ],
+    "invalid_fields": [],
+    "conflicting_fields": [],
+    "structure": {
+      "drawable_count": 391,
+      "missing_id_count": 0,
+      "duplicate_ids": [],
+      "declared_relation_count": 0,
+      "invalid_relation_count": 0,
+      "split_arrow_group_count": 0
+    }
+  },
+  "checks": [
+    {
+      "id": "source",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "route",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "hash",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "canvas",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "image",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "unsupported_feature",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "semantic_metadata",
+      "decision": "repair",
+      "finding_codes": [
+        "source-gate:semantic-metadata:missing:semantic_schema_version",
+        "source-gate:semantic-metadata:missing:reference_sha256",
+        "source-gate:semantic-metadata:missing:object_inventory_sha256",
+        "source-gate:semantic-metadata:missing:stable_element_ids",
+        "source-gate:semantic-metadata:missing:relations_exhaustive",
+        "source-gate:semantic-metadata:missing:case"
+      ],
+      "pass": false
+    }
+  ],
+  "findings": [
+    {
+      "category": "semantic_metadata",
+      "decision": "repair",
+      "code": "source-gate:semantic-metadata:missing:semantic_schema_version",
+      "message": "required source semantic metadata is missing",
+      "evidence": {
+        "field": "semantic_schema_version"
+      },
+      "action": "supply verified semantic_schema_version metadata and rerun the gate"
+    },
+    {
+      "category": "semantic_metadata",
+      "decision": "repair",
+      "code": "source-gate:semantic-metadata:missing:reference_sha256",
+      "message": "required source semantic metadata is missing",
+      "evidence": {
+        "field": "reference_sha256"
+      },
+      "action": "supply verified reference_sha256 metadata and rerun the gate"
+    },
+    {
+      "category": "semantic_metadata",
+      "decision": "repair",
+      "code": "source-gate:semantic-metadata:missing:object_inventory_sha256",
+      "message": "required source semantic metadata is missing",
+      "evidence": {
+        "field": "object_inventory_sha256"
+      },
+      "action": "supply verified object_inventory_sha256 metadata and rerun the gate"
+    },
+    {
+      "category": "semantic_metadata",
+      "decision": "repair",
+      "code": "source-gate:semantic-metadata:missing:stable_element_ids",
+      "message": "required source semantic metadata is missing",
+      "evidence": {
+        "field": "stable_element_ids"
+      },
+      "action": "supply verified stable_element_ids metadata and rerun the gate"
+    },
+    {
+      "category": "semantic_metadata",
+      "decision": "repair",
+      "code": "source-gate:semantic-metadata:missing:relations_exhaustive",
+      "message": "required source semantic metadata is missing",
+      "evidence": {
+        "field": "relations_exhaustive"
+      },
+      "action": "supply verified relations_exhaustive metadata and rerun the gate"
+    },
+    {
+      "category": "semantic_metadata",
+      "decision": "repair",
+      "code": "source-gate:semantic-metadata:missing:case",
+      "message": "required source semantic metadata is missing",
+      "evidence": {
+        "field": "case"
+      },
+      "action": "supply verified case metadata and rerun the gate"
+    }
+  ],
+  "blockers": [
+    "source-gate:semantic-metadata:missing:semantic_schema_version",
+    "source-gate:semantic-metadata:missing:reference_sha256",
+    "source-gate:semantic-metadata:missing:object_inventory_sha256",
+    "source-gate:semantic-metadata:missing:stable_element_ids",
+    "source-gate:semantic-metadata:missing:relations_exhaustive",
+    "source-gate:semantic-metadata:missing:case"
+  ],
+  "reject_reasons": [],
+  "repair_reasons": [
+    "source-gate:semantic-metadata:missing:semantic_schema_version",
+    "source-gate:semantic-metadata:missing:reference_sha256",
+    "source-gate:semantic-metadata:missing:object_inventory_sha256",
+    "source-gate:semantic-metadata:missing:stable_element_ids",
+    "source-gate:semantic-metadata:missing:relations_exhaustive",
+    "source-gate:semantic-metadata:missing:case"
+  ],
+  "repair_actions": [
+    "supply verified semantic_schema_version metadata and rerun the gate",
+    "supply verified reference_sha256 metadata and rerun the gate",
+    "supply verified object_inventory_sha256 metadata and rerun the gate",
+    "supply verified stable_element_ids metadata and rerun the gate",
+    "supply verified relations_exhaustive metadata and rerun the gate",
+    "supply verified case metadata and rerun the gate"
+  ],
+  "case": "05-sting-autophagy",
+  "reference_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae"
+}

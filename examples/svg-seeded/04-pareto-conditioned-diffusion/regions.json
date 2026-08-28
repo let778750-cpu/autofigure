@@ -1,0 +1,3408 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "regions",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "updated_at": "20260824T131605Z",
+  "defaults": {
+    "ssim_min": 0.85,
+    "edge_iou_min": 0.75
+  },
+  "critical_region_expectation": {
+    "count": 38,
+    "contracts": [
+      {
+        "id": "region-offline-title",
+        "bbox": [
+          140,
+          4,
+          310,
+          50
+        ],
+        "element_ids": [
+          "styles-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-sampling-title",
+        "bbox": [
+          793,
+          4,
+          193,
+          50
+        ],
+        "element_ids": [
+          "styles-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-static-dataset-label",
+        "bbox": [
+          96,
+          62,
+          405,
+          44
+        ],
+        "element_ids": [
+          "styles-text-003"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-reweighted-label",
+        "bbox": [
+          99,
+          285,
+          146,
+          42
+        ],
+        "element_ids": [
+          "styles-text-004"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-train-label",
+        "bbox": [
+          327,
+          372,
+          74,
+          42
+        ],
+        "element_ids": [
+          "styles-text-005"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-left-model-title",
+        "bbox": [
+          170,
+          475,
+          247,
+          40
+        ],
+        "element_ids": [
+          "left-model-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-left-model-subtitle",
+        "bbox": [
+          201,
+          506,
+          186,
+          40
+        ],
+        "element_ids": [
+          "left-model-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-target-label",
+        "bbox": [
+          646,
+          279,
+          84,
+          39
+        ],
+        "element_ids": [
+          "target-box-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-objectives-label",
+        "bbox": [
+          622,
+          311,
+          131,
+          39
+        ],
+        "element_ids": [
+          "target-box-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-condition-label",
+        "bbox": [
+          767,
+          259,
+          104,
+          39
+        ],
+        "element_ids": [
+          "styles-text-006"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-right-model-title",
+        "bbox": [
+          898,
+          279,
+          247,
+          40
+        ],
+        "element_ids": [
+          "right-model-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-right-model-subtitle",
+        "bbox": [
+          929,
+          311,
+          187,
+          40
+        ],
+        "element_ids": [
+          "right-model-text-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-noise-label",
+        "bbox": [
+          1055,
+          197,
+          78,
+          41
+        ],
+        "element_ids": [
+          "styles-text-007"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-sample-label",
+        "bbox": [
+          1050,
+          393,
+          101,
+          41
+        ],
+        "element_ids": [
+          "styles-text-008"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-designs-label",
+        "bbox": [
+          952,
+          511,
+          113,
+          42
+        ],
+        "element_ids": [
+          "designs-cuboid-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-dataset-formula",
+        "bbox": [
+          272,
+          135,
+          44,
+          48
+        ],
+        "element_ids": [
+          "dataset-cylinder-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-reweighted-formula",
+        "bbox": [
+          272,
+          291,
+          44,
+          48
+        ],
+        "element_ids": [
+          "reweighted-cylinder-text-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-blue-arrow-1",
+        "bbox": [
+          264,
+          196,
+          60,
+          62
+        ],
+        "element_ids": [
+          "blue-arrow-1",
+          "dataset-cylinder",
+          "reweighted-cylinder"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "e3405e43554beeda83e92ec3179c7200f97ae99ac59aa42d8c104417117c9d48"
+        }
+      },
+      {
+        "id": "region-blue-arrow-2",
+        "bbox": [
+          264,
+          351,
+          60,
+          95
+        ],
+        "element_ids": [
+          "blue-arrow-2",
+          "reweighted-cylinder",
+          "left-model"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "72bf021f210d33865879651f128c57a85f416407fa6d880452861c059201b5e5"
+        }
+      },
+      {
+        "id": "region-condition-arrow",
+        "bbox": [
+          765,
+          290,
+          115,
+          50
+        ],
+        "element_ids": [
+          "condition-arrow",
+          "target-box",
+          "right-model"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "40c784827dfceab1bf4272b9895d0d1275150051c7f1b83c3d2e70db6b18abd1"
+        }
+      },
+      {
+        "id": "region-noise-arrow",
+        "bbox": [
+          992,
+          191,
+          60,
+          62
+        ],
+        "element_ids": [
+          "noise-arrow",
+          "noise-curve",
+          "right-model"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "92d57e0d34cfb35b420864bb88855a0840c598f2aa3cd4878052dadb05dbfbc6"
+        }
+      },
+      {
+        "id": "region-sample-arrow",
+        "bbox": [
+          992,
+          378,
+          60,
+          83
+        ],
+        "element_ids": [
+          "sample-arrow",
+          "right-model",
+          "designs-cuboid"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "e39267c30d79d3c3395a28a73b78b4f74ba25e4f432aee89d7e081e5dc0bf601"
+        }
+      },
+      {
+        "id": "region-molecule-left",
+        "bbox": [
+          164,
+          100,
+          72,
+          43
+        ],
+        "element_ids": [
+          "molecule-left-g-001-line-001",
+          "molecule-left-g-001-line-002",
+          "molecule-left-g-001-line-003",
+          "molecule-left-g-001-line-004",
+          "molecule-left-g-001-line-005",
+          "molecule-left-g-001-line-006",
+          "molecule-left-circle-001",
+          "molecule-left-circle-002",
+          "molecule-left-circle-003",
+          "molecule-left-circle-004",
+          "molecule-left-circle-005",
+          "molecule-left-circle-006",
+          "molecule-left-circle-007",
+          "molecule-left-circle-008",
+          "molecule-left-line-001"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-dna-left",
+        "bbox": [
+          170,
+          147,
+          66,
+          65
+        ],
+        "element_ids": [
+          "dna-left-path-001",
+          "dna-left-path-002",
+          "dna-left-path-003",
+          "dna-left-path-004",
+          "dna-left-g-001-line-001",
+          "dna-left-g-001-line-002",
+          "dna-left-g-001-line-003",
+          "dna-left-g-001-line-004",
+          "dna-left-g-001-line-005",
+          "dna-left-g-001-line-006",
+          "dna-left-g-001-line-007",
+          "dna-left-g-001-line-008"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-balance",
+        "bbox": [
+          137,
+          325,
+          58,
+          46
+        ],
+        "element_ids": [
+          "balance-line-001",
+          "balance-line-002",
+          "balance-line-003",
+          "balance-line-004",
+          "balance-line-005",
+          "balance-line-006",
+          "balance-line-007",
+          "balance-line-008",
+          "balance-path-001",
+          "balance-path-002"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-molecule-right",
+        "bbox": [
+          849,
+          502,
+          72,
+          43
+        ],
+        "element_ids": [
+          "molecule-right-g-001-line-001",
+          "molecule-right-g-001-line-002",
+          "molecule-right-g-001-line-003",
+          "molecule-right-g-001-line-004",
+          "molecule-right-g-001-line-005",
+          "molecule-right-g-001-line-006",
+          "molecule-right-circle-001",
+          "molecule-right-circle-002",
+          "molecule-right-circle-003",
+          "molecule-right-circle-004",
+          "molecule-right-circle-005",
+          "molecule-right-circle-006",
+          "molecule-right-circle-007",
+          "molecule-right-circle-008",
+          "molecule-right-line-001"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-dna-right",
+        "bbox": [
+          1110,
+          465,
+          66,
+          65
+        ],
+        "element_ids": [
+          "dna-right-path-001",
+          "dna-right-path-002",
+          "dna-right-path-003",
+          "dna-right-path-004",
+          "dna-right-g-001-line-001",
+          "dna-right-g-001-line-002",
+          "dna-right-g-001-line-003",
+          "dna-right-g-001-line-004",
+          "dna-right-g-001-line-005",
+          "dna-right-g-001-line-006",
+          "dna-right-g-001-line-007",
+          "dna-right-g-001-line-008"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-candlestick-left",
+        "bbox": [
+          351,
+          119,
+          75,
+          62
+        ],
+        "element_ids": [
+          "candlestick-left-top-line-001",
+          "candlestick-left-top-polyline-001",
+          "candlestick-left-top-line-002",
+          "candlestick-left-top-polyline-002",
+          "candlestick-left-top-line-003",
+          "candlestick-left-top-rect-001",
+          "candlestick-left-top-line-004",
+          "candlestick-left-top-rect-002",
+          "candlestick-left-top-line-005",
+          "candlestick-left-top-rect-003",
+          "candlestick-left-top-line-006",
+          "candlestick-left-top-rect-004",
+          "candlestick-left-top-line-007",
+          "candlestick-left-top-rect-005"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-noise-curve",
+        "bbox": [
+          872,
+          80,
+          300,
+          111
+        ],
+        "element_ids": [
+          "noise-curve-line-001",
+          "noise-curve-path-001"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-candlestick-right",
+        "bbox": [
+          649,
+          378,
+          75,
+          62
+        ],
+        "element_ids": [
+          "candlestick-right-line-001",
+          "candlestick-right-polyline-001",
+          "candlestick-right-line-002",
+          "candlestick-right-polyline-002",
+          "candlestick-right-line-003",
+          "candlestick-right-rect-001",
+          "candlestick-right-line-004",
+          "candlestick-right-rect-002",
+          "candlestick-right-line-005",
+          "candlestick-right-rect-003",
+          "candlestick-right-line-006",
+          "candlestick-right-rect-004",
+          "candlestick-right-line-007",
+          "candlestick-right-rect-005"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "ink_contract"
+        ],
+        "gate_sha256": {
+          "ink_contract": "da225ad99051702aa982211630216061d99aad981ac899f32da0fa6febd5f876"
+        }
+      },
+      {
+        "id": "region-left-panel",
+        "bbox": [
+          20,
+          53,
+          548,
+          540
+        ],
+        "element_ids": [
+          "styles-rect-001"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-right-panel",
+        "bbox": [
+          580,
+          53,
+          617,
+          540
+        ],
+        "element_ids": [
+          "styles-rect-002"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-dataset-cylinder",
+        "bbox": [
+          247,
+          101,
+          94,
+          97
+        ],
+        "element_ids": [
+          "dataset-cylinder"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-reweighted-cylinder",
+        "bbox": [
+          246,
+          256,
+          95,
+          98
+        ],
+        "element_ids": [
+          "reweighted-cylinder"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-left-model-box",
+        "bbox": [
+          148,
+          443,
+          291,
+          132
+        ],
+        "element_ids": [
+          "left-model"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-target-box",
+        "bbox": [
+          608,
+          256,
+          159,
+          119
+        ],
+        "element_ids": [
+          "target-box"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-right-model-box",
+        "bbox": [
+          877,
+          249,
+          290,
+          132
+        ],
+        "element_ids": [
+          "right-model"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      },
+      {
+        "id": "region-designs-cuboid",
+        "bbox": [
+          935,
+          458,
+          173,
+          117
+        ],
+        "element_ids": [
+          "designs-cuboid"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {}
+      }
+    ]
+  },
+  "reference_inventory": {
+    "schema_version": "1.0.0",
+    "required": true,
+    "status": "frozen",
+    "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+    "receipt_path": "qa/reference-inventory-receipt.json",
+    "expected_counts": {
+      "text": 15,
+      "formula": 2,
+      "arrow": 5,
+      "icon": 5,
+      "brace": 0,
+      "plot": 3,
+      "shape": 8
+    },
+    "zero_count_authorizations": [
+      {
+        "kind": "brace",
+        "basis": "full-reference-review",
+        "reviewer": "codex-reference-review-2026-08-24",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+      }
+    ],
+    "objects": [
+      {
+        "id": "styles-text-001",
+        "kind": "text",
+        "bbox": [
+          145,
+          8,
+          299,
+          42
+        ],
+        "element_ids": [
+          "styles-text-001"
+        ],
+        "critical_region_ids": [
+          "region-offline-title"
+        ],
+        "typography": {
+          "exact_text": "Offline Training",
+          "font_family": "Arial",
+          "font_size_px": 40,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5,
+          "underline": true
+        }
+      },
+      {
+        "id": "styles-text-002",
+        "kind": "text",
+        "bbox": [
+          798,
+          8,
+          183,
+          42
+        ],
+        "element_ids": [
+          "styles-text-002"
+        ],
+        "critical_region_ids": [
+          "region-sampling-title"
+        ],
+        "typography": {
+          "exact_text": "Sampling",
+          "font_family": "Arial",
+          "font_size_px": 40,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5,
+          "underline": true
+        }
+      },
+      {
+        "id": "styles-text-003",
+        "kind": "text",
+        "bbox": [
+          100,
+          66,
+          397,
+          36
+        ],
+        "element_ids": [
+          "styles-text-003"
+        ],
+        "critical_region_ids": [
+          "region-static-dataset-label"
+        ],
+        "typography": {
+          "exact_text": "Static Multi-Objective Dataset",
+          "font_family": "Arial",
+          "font_size_px": 31,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "left",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "styles-text-004",
+        "kind": "text",
+        "bbox": [
+          103,
+          289,
+          138,
+          34
+        ],
+        "element_ids": [
+          "styles-text-004"
+        ],
+        "critical_region_ids": [
+          "region-reweighted-label"
+        ],
+        "typography": {
+          "exact_text": "Reweighted",
+          "font_family": "Arial",
+          "font_size_px": 28,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "left",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "styles-text-005",
+        "kind": "text",
+        "bbox": [
+          331,
+          376,
+          66,
+          34
+        ],
+        "element_ids": [
+          "styles-text-005"
+        ],
+        "critical_region_ids": [
+          "region-train-label"
+        ],
+        "typography": {
+          "exact_text": "Train",
+          "font_family": "Arial",
+          "font_size_px": 28,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "left",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "left-model-text-001",
+        "kind": "text",
+        "bbox": [
+          174,
+          479,
+          239,
+          32
+        ],
+        "element_ids": [
+          "left-model-text-001"
+        ],
+        "critical_region_ids": [
+          "region-left-model-title"
+        ],
+        "typography": {
+          "exact_text": "Pareto-Conditioned",
+          "font_family": "Arial",
+          "font_size_px": 27,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "left-model-text-002",
+        "kind": "text",
+        "bbox": [
+          205,
+          510,
+          178,
+          32
+        ],
+        "element_ids": [
+          "left-model-text-002"
+        ],
+        "critical_region_ids": [
+          "region-left-model-subtitle"
+        ],
+        "typography": {
+          "exact_text": "Diffusion Model",
+          "font_family": "Arial",
+          "font_size_px": 27,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "target-box-text-001",
+        "kind": "text",
+        "bbox": [
+          650,
+          283,
+          76,
+          31
+        ],
+        "element_ids": [
+          "target-box-text-001"
+        ],
+        "critical_region_ids": [
+          "region-target-label"
+        ],
+        "typography": {
+          "exact_text": "Target",
+          "font_family": "Arial",
+          "font_size_px": 25.5,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "target-box-text-002",
+        "kind": "text",
+        "bbox": [
+          626,
+          315,
+          123,
+          31
+        ],
+        "element_ids": [
+          "target-box-text-002"
+        ],
+        "critical_region_ids": [
+          "region-objectives-label"
+        ],
+        "typography": {
+          "exact_text": "Objectives",
+          "font_family": "Arial",
+          "font_size_px": 25.5,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "styles-text-006",
+        "kind": "text",
+        "bbox": [
+          771,
+          263,
+          96,
+          31
+        ],
+        "element_ids": [
+          "styles-text-006"
+        ],
+        "critical_region_ids": [
+          "region-condition-label"
+        ],
+        "typography": {
+          "exact_text": "Condition",
+          "font_family": "Arial",
+          "font_size_px": 23.5,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "left",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "right-model-text-001",
+        "kind": "text",
+        "bbox": [
+          902,
+          283,
+          239,
+          32
+        ],
+        "element_ids": [
+          "right-model-text-001"
+        ],
+        "critical_region_ids": [
+          "region-right-model-title"
+        ],
+        "typography": {
+          "exact_text": "Pareto-Conditioned",
+          "font_family": "Arial",
+          "font_size_px": 27,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "right-model-text-002",
+        "kind": "text",
+        "bbox": [
+          933,
+          315,
+          179,
+          32
+        ],
+        "element_ids": [
+          "right-model-text-002"
+        ],
+        "critical_region_ids": [
+          "region-right-model-subtitle"
+        ],
+        "typography": {
+          "exact_text": "Diffusion Model",
+          "font_family": "Arial",
+          "font_size_px": 27,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "styles-text-007",
+        "kind": "text",
+        "bbox": [
+          1059,
+          201,
+          70,
+          33
+        ],
+        "element_ids": [
+          "styles-text-007"
+        ],
+        "critical_region_ids": [
+          "region-noise-label"
+        ],
+        "typography": {
+          "exact_text": "Noise",
+          "font_family": "Arial",
+          "font_size_px": 26,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "left",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "styles-text-008",
+        "kind": "text",
+        "bbox": [
+          1054,
+          397,
+          93,
+          33
+        ],
+        "element_ids": [
+          "styles-text-008"
+        ],
+        "critical_region_ids": [
+          "region-sample-label"
+        ],
+        "typography": {
+          "exact_text": "Sample",
+          "font_family": "Arial",
+          "font_size_px": 26,
+          "font_weight": 400,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "left",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "designs-cuboid-text-001",
+        "kind": "text",
+        "bbox": [
+          956,
+          515,
+          105,
+          34
+        ],
+        "element_ids": [
+          "designs-cuboid-text-001"
+        ],
+        "critical_region_ids": [
+          "region-designs-label"
+        ],
+        "typography": {
+          "exact_text": "Designs",
+          "font_family": "Arial",
+          "font_size_px": 27,
+          "font_weight": 700,
+          "font_style": "normal",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "dataset-cylinder-text-001",
+        "kind": "formula",
+        "bbox": [
+          276,
+          139,
+          36,
+          40
+        ],
+        "element_ids": [
+          "dataset-cylinder-text-001"
+        ],
+        "critical_region_ids": [
+          "region-dataset-formula"
+        ],
+        "typography": {
+          "exact_text": "D",
+          "font_family": "Times New Roman",
+          "font_size_px": 34,
+          "font_weight": 400,
+          "font_style": "italic",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "reweighted-cylinder-text-001",
+        "kind": "formula",
+        "bbox": [
+          276,
+          295,
+          36,
+          40
+        ],
+        "element_ids": [
+          "reweighted-cylinder-text-001"
+        ],
+        "critical_region_ids": [
+          "region-reweighted-formula"
+        ],
+        "typography": {
+          "exact_text": "D",
+          "font_family": "Times New Roman",
+          "font_size_px": 34,
+          "font_weight": 400,
+          "font_style": "italic",
+          "line_count": 1,
+          "alignment": "center",
+          "bbox_tolerance_px": 2,
+          "font_size_tolerance_px": 0.5
+        }
+      },
+      {
+        "id": "blue-arrow-1",
+        "kind": "arrow",
+        "bbox": [
+          268,
+          200,
+          52,
+          54
+        ],
+        "element_ids": [
+          "blue-arrow-1"
+        ],
+        "critical_region_ids": [
+          "region-blue-arrow-1"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "region-blue-arrow-1",
+            "relation_id": "blue-arrow-1"
+          },
+          "arrow_visual": {
+            "contract_id": "arrow-visual-blue-arrow-1"
+          }
+        }
+      },
+      {
+        "id": "blue-arrow-2",
+        "kind": "arrow",
+        "bbox": [
+          268,
+          355,
+          52,
+          87
+        ],
+        "element_ids": [
+          "blue-arrow-2"
+        ],
+        "critical_region_ids": [
+          "region-blue-arrow-2"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "region-blue-arrow-2",
+            "relation_id": "blue-arrow-2"
+          },
+          "arrow_visual": {
+            "contract_id": "arrow-visual-blue-arrow-2"
+          }
+        }
+      },
+      {
+        "id": "condition-arrow",
+        "kind": "arrow",
+        "bbox": [
+          769,
+          294,
+          107,
+          42
+        ],
+        "element_ids": [
+          "condition-arrow"
+        ],
+        "critical_region_ids": [
+          "region-condition-arrow"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "region-condition-arrow",
+            "relation_id": "condition-arrow"
+          },
+          "arrow_visual": {
+            "contract_id": "arrow-visual-condition-arrow"
+          }
+        }
+      },
+      {
+        "id": "noise-arrow",
+        "kind": "arrow",
+        "bbox": [
+          996,
+          195,
+          52,
+          54
+        ],
+        "element_ids": [
+          "noise-arrow"
+        ],
+        "critical_region_ids": [
+          "region-noise-arrow"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "region-noise-arrow",
+            "relation_id": "noise-arrow"
+          },
+          "arrow_visual": {
+            "contract_id": "arrow-visual-noise-arrow"
+          }
+        }
+      },
+      {
+        "id": "sample-arrow",
+        "kind": "arrow",
+        "bbox": [
+          996,
+          382,
+          52,
+          75
+        ],
+        "element_ids": [
+          "sample-arrow"
+        ],
+        "critical_region_ids": [
+          "region-sample-arrow"
+        ],
+        "contract_refs": {
+          "required_relation": {
+            "region_id": "region-sample-arrow",
+            "relation_id": "sample-arrow"
+          },
+          "arrow_visual": {
+            "contract_id": "arrow-visual-sample-arrow"
+          }
+        }
+      },
+      {
+        "id": "molecule-left",
+        "kind": "icon",
+        "bbox": [
+          164,
+          100,
+          72,
+          43
+        ],
+        "element_ids": [
+          "molecule-left-g-001-line-001",
+          "molecule-left-g-001-line-002",
+          "molecule-left-g-001-line-003",
+          "molecule-left-g-001-line-004",
+          "molecule-left-g-001-line-005",
+          "molecule-left-g-001-line-006",
+          "molecule-left-circle-001",
+          "molecule-left-circle-002",
+          "molecule-left-circle-003",
+          "molecule-left-circle-004",
+          "molecule-left-circle-005",
+          "molecule-left-circle-006",
+          "molecule-left-circle-007",
+          "molecule-left-circle-008",
+          "molecule-left-line-001"
+        ],
+        "critical_region_ids": [
+          "region-molecule-left"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.05,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "bond": 7,
+            "atom": 8
+          },
+          "role_mapping": {
+            "molecule-left-g-001-line-001": "bond",
+            "molecule-left-g-001-line-002": "bond",
+            "molecule-left-g-001-line-003": "bond",
+            "molecule-left-g-001-line-004": "bond",
+            "molecule-left-g-001-line-005": "bond",
+            "molecule-left-g-001-line-006": "bond",
+            "molecule-left-line-001": "bond",
+            "molecule-left-circle-001": "atom",
+            "molecule-left-circle-002": "atom",
+            "molecule-left-circle-003": "atom",
+            "molecule-left-circle-004": "atom",
+            "molecule-left-circle-005": "atom",
+            "molecule-left-circle-006": "atom",
+            "molecule-left-circle-007": "atom",
+            "molecule-left-circle-008": "atom"
+          },
+          "required_pairs": [],
+          "relations": [
+            {
+              "id": "molecule-left-g-001-line-001",
+              "element_id": "molecule-left-g-001-line-001",
+              "source_id": "molecule-left-circle-001",
+              "target_id": "molecule-left-circle-002",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-left-g-001-line-002",
+              "element_id": "molecule-left-g-001-line-002",
+              "source_id": "molecule-left-circle-002",
+              "target_id": "molecule-left-circle-003",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-left-g-001-line-003",
+              "element_id": "molecule-left-g-001-line-003",
+              "source_id": "molecule-left-circle-002",
+              "target_id": "molecule-left-circle-004",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-left-g-001-line-004",
+              "element_id": "molecule-left-g-001-line-004",
+              "source_id": "molecule-left-circle-004",
+              "target_id": "molecule-left-circle-005",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-left-g-001-line-005",
+              "element_id": "molecule-left-g-001-line-005",
+              "source_id": "molecule-left-circle-002",
+              "target_id": "molecule-left-circle-006",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-left-g-001-line-006",
+              "element_id": "molecule-left-g-001-line-006",
+              "source_id": "molecule-left-circle-006",
+              "target_id": "molecule-left-circle-007",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-left-line-001",
+              "element_id": "molecule-left-line-001",
+              "source_id": "molecule-left-circle-008",
+              "target_id": "molecule-left-circle-006",
+              "relation": "bond"
+            }
+          ],
+          "component_count": 1
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-molecule-left"
+          }
+        }
+      },
+      {
+        "id": "dna-left",
+        "kind": "icon",
+        "bbox": [
+          170,
+          147,
+          66,
+          65
+        ],
+        "element_ids": [
+          "dna-left-path-001",
+          "dna-left-path-002",
+          "dna-left-path-003",
+          "dna-left-path-004",
+          "dna-left-g-001-line-001",
+          "dna-left-g-001-line-002",
+          "dna-left-g-001-line-003",
+          "dna-left-g-001-line-004",
+          "dna-left-g-001-line-005",
+          "dna-left-g-001-line-006",
+          "dna-left-g-001-line-007",
+          "dna-left-g-001-line-008"
+        ],
+        "critical_region_ids": [
+          "region-dna-left"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.04,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "strand": 4,
+            "rung": 8
+          },
+          "role_mapping": {
+            "dna-left-path-001": "strand",
+            "dna-left-path-002": "strand",
+            "dna-left-path-003": "strand",
+            "dna-left-path-004": "strand",
+            "dna-left-g-001-line-001": "rung",
+            "dna-left-g-001-line-002": "rung",
+            "dna-left-g-001-line-003": "rung",
+            "dna-left-g-001-line-004": "rung",
+            "dna-left-g-001-line-005": "rung",
+            "dna-left-g-001-line-006": "rung",
+            "dna-left-g-001-line-007": "rung",
+            "dna-left-g-001-line-008": "rung"
+          },
+          "required_pairs": [],
+          "relations": [
+            {
+              "id": "dna-left-g-001-line-001",
+              "element_id": "dna-left-g-001-line-001",
+              "source_id": "dna-left-path-001",
+              "target_id": "dna-left-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-002",
+              "element_id": "dna-left-g-001-line-002",
+              "source_id": "dna-left-path-001",
+              "target_id": "dna-left-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-003",
+              "element_id": "dna-left-g-001-line-003",
+              "source_id": "dna-left-path-001",
+              "target_id": "dna-left-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-004",
+              "element_id": "dna-left-g-001-line-004",
+              "source_id": "dna-left-path-001",
+              "target_id": "dna-left-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-005",
+              "element_id": "dna-left-g-001-line-005",
+              "source_id": "dna-left-path-003",
+              "target_id": "dna-left-path-004",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-006",
+              "element_id": "dna-left-g-001-line-006",
+              "source_id": "dna-left-path-003",
+              "target_id": "dna-left-path-004",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-007",
+              "element_id": "dna-left-g-001-line-007",
+              "source_id": "dna-left-path-003",
+              "target_id": "dna-left-path-004",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-left-g-001-line-008",
+              "element_id": "dna-left-g-001-line-008",
+              "source_id": "dna-left-path-003",
+              "target_id": "dna-left-path-004",
+              "relation": "base-pair"
+            }
+          ],
+          "component_count": 2
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-dna-left"
+          }
+        }
+      },
+      {
+        "id": "balance",
+        "kind": "icon",
+        "bbox": [
+          137,
+          325,
+          58,
+          46
+        ],
+        "element_ids": [
+          "balance-line-001",
+          "balance-line-002",
+          "balance-line-003",
+          "balance-line-004",
+          "balance-line-005",
+          "balance-line-006",
+          "balance-line-007",
+          "balance-line-008",
+          "balance-path-001",
+          "balance-path-002"
+        ],
+        "critical_region_ids": [
+          "region-balance"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.04,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "upright": 1,
+            "beam": 1,
+            "support": 1,
+            "tether": 4,
+            "base": 1,
+            "pan": 2
+          },
+          "role_mapping": {
+            "balance-line-001": "upright",
+            "balance-line-002": "beam",
+            "balance-line-003": "support",
+            "balance-line-004": "tether",
+            "balance-line-005": "tether",
+            "balance-line-006": "tether",
+            "balance-line-007": "tether",
+            "balance-line-008": "base",
+            "balance-path-001": "pan",
+            "balance-path-002": "pan"
+          },
+          "required_pairs": [
+            {
+              "id": "balance-base-upright",
+              "a": "balance-line-001",
+              "b": "balance-line-008"
+            }
+          ],
+          "relations": [
+            {
+              "id": "balance-line-003",
+              "element_id": "balance-line-003",
+              "source_id": "balance-line-001",
+              "target_id": "balance-line-002",
+              "relation": "supports"
+            },
+            {
+              "id": "balance-line-004",
+              "element_id": "balance-line-004",
+              "source_id": "balance-line-002",
+              "target_id": "balance-path-001",
+              "relation": "suspends"
+            },
+            {
+              "id": "balance-line-005",
+              "element_id": "balance-line-005",
+              "source_id": "balance-line-002",
+              "target_id": "balance-path-001",
+              "relation": "suspends"
+            },
+            {
+              "id": "balance-line-006",
+              "element_id": "balance-line-006",
+              "source_id": "balance-line-002",
+              "target_id": "balance-path-002",
+              "relation": "suspends"
+            },
+            {
+              "id": "balance-line-007",
+              "element_id": "balance-line-007",
+              "source_id": "balance-line-002",
+              "target_id": "balance-path-002",
+              "relation": "suspends"
+            }
+          ],
+          "component_count": 1
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-balance"
+          }
+        }
+      },
+      {
+        "id": "molecule-right",
+        "kind": "icon",
+        "bbox": [
+          849,
+          502,
+          72,
+          43
+        ],
+        "element_ids": [
+          "molecule-right-g-001-line-001",
+          "molecule-right-g-001-line-002",
+          "molecule-right-g-001-line-003",
+          "molecule-right-g-001-line-004",
+          "molecule-right-g-001-line-005",
+          "molecule-right-g-001-line-006",
+          "molecule-right-circle-001",
+          "molecule-right-circle-002",
+          "molecule-right-circle-003",
+          "molecule-right-circle-004",
+          "molecule-right-circle-005",
+          "molecule-right-circle-006",
+          "molecule-right-circle-007",
+          "molecule-right-circle-008",
+          "molecule-right-line-001"
+        ],
+        "critical_region_ids": [
+          "region-molecule-right"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.05,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "bond": 7,
+            "atom": 8
+          },
+          "role_mapping": {
+            "molecule-right-g-001-line-001": "bond",
+            "molecule-right-g-001-line-002": "bond",
+            "molecule-right-g-001-line-003": "bond",
+            "molecule-right-g-001-line-004": "bond",
+            "molecule-right-g-001-line-005": "bond",
+            "molecule-right-g-001-line-006": "bond",
+            "molecule-right-line-001": "bond",
+            "molecule-right-circle-001": "atom",
+            "molecule-right-circle-002": "atom",
+            "molecule-right-circle-003": "atom",
+            "molecule-right-circle-004": "atom",
+            "molecule-right-circle-005": "atom",
+            "molecule-right-circle-006": "atom",
+            "molecule-right-circle-007": "atom",
+            "molecule-right-circle-008": "atom"
+          },
+          "required_pairs": [],
+          "relations": [
+            {
+              "id": "molecule-right-g-001-line-001",
+              "element_id": "molecule-right-g-001-line-001",
+              "source_id": "molecule-right-circle-001",
+              "target_id": "molecule-right-circle-002",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-right-g-001-line-002",
+              "element_id": "molecule-right-g-001-line-002",
+              "source_id": "molecule-right-circle-002",
+              "target_id": "molecule-right-circle-003",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-right-g-001-line-003",
+              "element_id": "molecule-right-g-001-line-003",
+              "source_id": "molecule-right-circle-002",
+              "target_id": "molecule-right-circle-004",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-right-g-001-line-004",
+              "element_id": "molecule-right-g-001-line-004",
+              "source_id": "molecule-right-circle-004",
+              "target_id": "molecule-right-circle-005",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-right-g-001-line-005",
+              "element_id": "molecule-right-g-001-line-005",
+              "source_id": "molecule-right-circle-002",
+              "target_id": "molecule-right-circle-006",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-right-g-001-line-006",
+              "element_id": "molecule-right-g-001-line-006",
+              "source_id": "molecule-right-circle-006",
+              "target_id": "molecule-right-circle-007",
+              "relation": "bond"
+            },
+            {
+              "id": "molecule-right-line-001",
+              "element_id": "molecule-right-line-001",
+              "source_id": "molecule-right-circle-008",
+              "target_id": "molecule-right-circle-006",
+              "relation": "bond"
+            }
+          ],
+          "component_count": 1
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-molecule-right"
+          }
+        }
+      },
+      {
+        "id": "dna-right",
+        "kind": "icon",
+        "bbox": [
+          1110,
+          465,
+          66,
+          65
+        ],
+        "element_ids": [
+          "dna-right-path-001",
+          "dna-right-path-002",
+          "dna-right-path-003",
+          "dna-right-path-004",
+          "dna-right-g-001-line-001",
+          "dna-right-g-001-line-002",
+          "dna-right-g-001-line-003",
+          "dna-right-g-001-line-004",
+          "dna-right-g-001-line-005",
+          "dna-right-g-001-line-006",
+          "dna-right-g-001-line-007",
+          "dna-right-g-001-line-008"
+        ],
+        "critical_region_ids": [
+          "region-dna-right"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.04,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "strand": 4,
+            "rung": 8
+          },
+          "role_mapping": {
+            "dna-right-path-001": "strand",
+            "dna-right-path-002": "strand",
+            "dna-right-path-003": "strand",
+            "dna-right-path-004": "strand",
+            "dna-right-g-001-line-001": "rung",
+            "dna-right-g-001-line-002": "rung",
+            "dna-right-g-001-line-003": "rung",
+            "dna-right-g-001-line-004": "rung",
+            "dna-right-g-001-line-005": "rung",
+            "dna-right-g-001-line-006": "rung",
+            "dna-right-g-001-line-007": "rung",
+            "dna-right-g-001-line-008": "rung"
+          },
+          "required_pairs": [],
+          "relations": [
+            {
+              "id": "dna-right-g-001-line-001",
+              "element_id": "dna-right-g-001-line-001",
+              "source_id": "dna-right-path-001",
+              "target_id": "dna-right-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-002",
+              "element_id": "dna-right-g-001-line-002",
+              "source_id": "dna-right-path-001",
+              "target_id": "dna-right-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-003",
+              "element_id": "dna-right-g-001-line-003",
+              "source_id": "dna-right-path-001",
+              "target_id": "dna-right-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-004",
+              "element_id": "dna-right-g-001-line-004",
+              "source_id": "dna-right-path-001",
+              "target_id": "dna-right-path-002",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-005",
+              "element_id": "dna-right-g-001-line-005",
+              "source_id": "dna-right-path-003",
+              "target_id": "dna-right-path-004",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-006",
+              "element_id": "dna-right-g-001-line-006",
+              "source_id": "dna-right-path-003",
+              "target_id": "dna-right-path-004",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-007",
+              "element_id": "dna-right-g-001-line-007",
+              "source_id": "dna-right-path-003",
+              "target_id": "dna-right-path-004",
+              "relation": "base-pair"
+            },
+            {
+              "id": "dna-right-g-001-line-008",
+              "element_id": "dna-right-g-001-line-008",
+              "source_id": "dna-right-path-003",
+              "target_id": "dna-right-path-004",
+              "relation": "base-pair"
+            }
+          ],
+          "component_count": 2
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-dna-right"
+          }
+        }
+      },
+      {
+        "id": "candlestick-left-top",
+        "kind": "plot",
+        "bbox": [
+          351,
+          119,
+          75,
+          62
+        ],
+        "element_ids": [
+          "candlestick-left-top-line-001",
+          "candlestick-left-top-polyline-001",
+          "candlestick-left-top-line-002",
+          "candlestick-left-top-polyline-002",
+          "candlestick-left-top-line-003",
+          "candlestick-left-top-rect-001",
+          "candlestick-left-top-line-004",
+          "candlestick-left-top-rect-002",
+          "candlestick-left-top-line-005",
+          "candlestick-left-top-rect-003",
+          "candlestick-left-top-line-006",
+          "candlestick-left-top-rect-004",
+          "candlestick-left-top-line-007",
+          "candlestick-left-top-rect-005"
+        ],
+        "critical_region_ids": [
+          "region-candlestick-left"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.04,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "axis": 2,
+            "axis_head": 2,
+            "wick": 5,
+            "body": 5
+          },
+          "role_mapping": {
+            "candlestick-left-top-line-001": "axis",
+            "candlestick-left-top-polyline-001": "axis_head",
+            "candlestick-left-top-line-002": "axis",
+            "candlestick-left-top-polyline-002": "axis_head",
+            "candlestick-left-top-line-003": "wick",
+            "candlestick-left-top-rect-001": "body",
+            "candlestick-left-top-line-004": "wick",
+            "candlestick-left-top-rect-002": "body",
+            "candlestick-left-top-line-005": "wick",
+            "candlestick-left-top-rect-003": "body",
+            "candlestick-left-top-line-006": "wick",
+            "candlestick-left-top-rect-004": "body",
+            "candlestick-left-top-line-007": "wick",
+            "candlestick-left-top-rect-005": "body"
+          },
+          "required_pairs": [
+            {
+              "id": "candlestick-left-top-axis-corner",
+              "a": "candlestick-left-top-line-001",
+              "b": "candlestick-left-top-line-002"
+            },
+            {
+              "id": "candlestick-left-top-y-axis-head",
+              "a": "candlestick-left-top-line-001",
+              "b": "candlestick-left-top-polyline-001"
+            },
+            {
+              "id": "candlestick-left-top-x-axis-head",
+              "a": "candlestick-left-top-line-002",
+              "b": "candlestick-left-top-polyline-002"
+            },
+            {
+              "id": "candlestick-left-top-candle-001",
+              "a": "candlestick-left-top-line-003",
+              "b": "candlestick-left-top-rect-001"
+            },
+            {
+              "id": "candlestick-left-top-candle-002",
+              "a": "candlestick-left-top-line-004",
+              "b": "candlestick-left-top-rect-002"
+            },
+            {
+              "id": "candlestick-left-top-candle-003",
+              "a": "candlestick-left-top-line-005",
+              "b": "candlestick-left-top-rect-003"
+            },
+            {
+              "id": "candlestick-left-top-candle-004",
+              "a": "candlestick-left-top-line-006",
+              "b": "candlestick-left-top-rect-004"
+            },
+            {
+              "id": "candlestick-left-top-candle-005",
+              "a": "candlestick-left-top-line-007",
+              "b": "candlestick-left-top-rect-005"
+            }
+          ],
+          "relations": [],
+          "component_count": 6
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-candlestick-left"
+          }
+        }
+      },
+      {
+        "id": "noise-curve",
+        "kind": "plot",
+        "bbox": [
+          872,
+          80,
+          300,
+          111
+        ],
+        "element_ids": [
+          "noise-curve-line-001",
+          "noise-curve-path-001"
+        ],
+        "critical_region_ids": [
+          "region-noise-curve",
+          "region-noise-arrow"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.03,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "axis": 1,
+            "curve": 1
+          },
+          "role_mapping": {
+            "noise-curve-line-001": "axis",
+            "noise-curve-path-001": "curve"
+          },
+          "required_pairs": [
+            {
+              "id": "noise-curve-axis-curve",
+              "a": "noise-curve-line-001",
+              "b": "noise-curve-path-001"
+            }
+          ],
+          "relations": [],
+          "component_count": 1
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-noise-curve"
+          }
+        }
+      },
+      {
+        "id": "candlestick-right",
+        "kind": "plot",
+        "bbox": [
+          649,
+          378,
+          75,
+          62
+        ],
+        "element_ids": [
+          "candlestick-right-line-001",
+          "candlestick-right-polyline-001",
+          "candlestick-right-line-002",
+          "candlestick-right-polyline-002",
+          "candlestick-right-line-003",
+          "candlestick-right-rect-001",
+          "candlestick-right-line-004",
+          "candlestick-right-rect-002",
+          "candlestick-right-line-005",
+          "candlestick-right-rect-003",
+          "candlestick-right-line-006",
+          "candlestick-right-rect-004",
+          "candlestick-right-line-007",
+          "candlestick-right-rect-005"
+        ],
+        "critical_region_ids": [
+          "region-candlestick-right"
+        ],
+        "visual": {
+          "aspect_ratio_tolerance": 0.04,
+          "bbox_tolerance_px": 2
+        },
+        "topology_contract": {
+          "role_counts": {
+            "axis": 2,
+            "axis_head": 2,
+            "wick": 5,
+            "body": 5
+          },
+          "role_mapping": {
+            "candlestick-right-line-001": "axis",
+            "candlestick-right-polyline-001": "axis_head",
+            "candlestick-right-line-002": "axis",
+            "candlestick-right-polyline-002": "axis_head",
+            "candlestick-right-line-003": "wick",
+            "candlestick-right-rect-001": "body",
+            "candlestick-right-line-004": "wick",
+            "candlestick-right-rect-002": "body",
+            "candlestick-right-line-005": "wick",
+            "candlestick-right-rect-003": "body",
+            "candlestick-right-line-006": "wick",
+            "candlestick-right-rect-004": "body",
+            "candlestick-right-line-007": "wick",
+            "candlestick-right-rect-005": "body"
+          },
+          "required_pairs": [
+            {
+              "id": "candlestick-right-axis-corner",
+              "a": "candlestick-right-line-001",
+              "b": "candlestick-right-line-002"
+            },
+            {
+              "id": "candlestick-right-y-axis-head",
+              "a": "candlestick-right-line-001",
+              "b": "candlestick-right-polyline-001"
+            },
+            {
+              "id": "candlestick-right-x-axis-head",
+              "a": "candlestick-right-line-002",
+              "b": "candlestick-right-polyline-002"
+            },
+            {
+              "id": "candlestick-right-candle-001",
+              "a": "candlestick-right-line-003",
+              "b": "candlestick-right-rect-001"
+            },
+            {
+              "id": "candlestick-right-candle-002",
+              "a": "candlestick-right-line-004",
+              "b": "candlestick-right-rect-002"
+            },
+            {
+              "id": "candlestick-right-candle-003",
+              "a": "candlestick-right-line-005",
+              "b": "candlestick-right-rect-003"
+            },
+            {
+              "id": "candlestick-right-candle-004",
+              "a": "candlestick-right-line-006",
+              "b": "candlestick-right-rect-004"
+            },
+            {
+              "id": "candlestick-right-candle-005",
+              "a": "candlestick-right-line-007",
+              "b": "candlestick-right-rect-005"
+            }
+          ],
+          "relations": [],
+          "component_count": 6
+        },
+        "contract_refs": {
+          "ink_contract": {
+            "region_id": "region-candlestick-right"
+          }
+        }
+      },
+      {
+        "id": "styles-rect-001",
+        "kind": "shape",
+        "bbox": [
+          20,
+          53,
+          548,
+          540
+        ],
+        "element_ids": [
+          "styles-rect-001"
+        ],
+        "critical_region_ids": [
+          "region-left-panel"
+        ]
+      },
+      {
+        "id": "styles-rect-002",
+        "kind": "shape",
+        "bbox": [
+          580,
+          53,
+          617,
+          540
+        ],
+        "element_ids": [
+          "styles-rect-002"
+        ],
+        "critical_region_ids": [
+          "region-right-panel"
+        ]
+      },
+      {
+        "id": "dataset-cylinder",
+        "kind": "shape",
+        "bbox": [
+          251,
+          105,
+          86,
+          89
+        ],
+        "element_ids": [
+          "dataset-cylinder"
+        ],
+        "critical_region_ids": [
+          "region-dataset-cylinder"
+        ]
+      },
+      {
+        "id": "reweighted-cylinder",
+        "kind": "shape",
+        "bbox": [
+          250,
+          260,
+          87,
+          90
+        ],
+        "element_ids": [
+          "reweighted-cylinder"
+        ],
+        "critical_region_ids": [
+          "region-reweighted-cylinder"
+        ]
+      },
+      {
+        "id": "left-model",
+        "kind": "shape",
+        "bbox": [
+          152,
+          447,
+          283,
+          124
+        ],
+        "element_ids": [
+          "left-model"
+        ],
+        "critical_region_ids": [
+          "region-left-model-box"
+        ]
+      },
+      {
+        "id": "target-box",
+        "kind": "shape",
+        "bbox": [
+          612,
+          260,
+          151,
+          111
+        ],
+        "element_ids": [
+          "target-box"
+        ],
+        "critical_region_ids": [
+          "region-target-box"
+        ]
+      },
+      {
+        "id": "right-model",
+        "kind": "shape",
+        "bbox": [
+          881,
+          253,
+          282,
+          124
+        ],
+        "element_ids": [
+          "right-model"
+        ],
+        "critical_region_ids": [
+          "region-right-model-box"
+        ]
+      },
+      {
+        "id": "designs-cuboid",
+        "kind": "shape",
+        "bbox": [
+          939,
+          462,
+          165,
+          109
+        ],
+        "element_ids": [
+          "designs-cuboid"
+        ],
+        "critical_region_ids": [
+          "region-designs-cuboid"
+        ]
+      }
+    ],
+    "frozen_at": "20260824T131605Z"
+  },
+  "arrow_visual_contracts": [
+    {
+      "id": "arrow-visual-blue-arrow-1",
+      "element_id": "blue-arrow-1",
+      "axis": "vertical",
+      "tight_bbox": [
+        270,
+        201,
+        48,
+        52
+      ],
+      "shaft_seed_point": [
+        294,
+        214
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 24,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          74,
+          134,
+          232
+        ],
+        "tolerance": 8
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            271,
+            228,
+            47,
+            25
+          ],
+          "bbox_tolerance_px": 2,
+          "size_tolerance_px": 2
+        }
+      }
+    },
+    {
+      "id": "arrow-visual-blue-arrow-2",
+      "element_id": "blue-arrow-2",
+      "axis": "vertical",
+      "tight_bbox": [
+        270,
+        356,
+        48,
+        85
+      ],
+      "shaft_seed_point": [
+        294,
+        382
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 24,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          74,
+          134,
+          232
+        ],
+        "tolerance": 8
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            271,
+            416,
+            47,
+            25
+          ],
+          "bbox_tolerance_px": 2,
+          "size_tolerance_px": 2
+        }
+      }
+    },
+    {
+      "id": "arrow-visual-condition-arrow",
+      "element_id": "condition-arrow",
+      "axis": "horizontal",
+      "tight_bbox": [
+        769,
+        296,
+        106,
+        37
+      ],
+      "shaft_seed_point": [
+        810,
+        315
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 18,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          230,
+          145,
+          56
+        ],
+        "tolerance": 8
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            854,
+            296,
+            21,
+            37
+          ],
+          "bbox_tolerance_px": 2,
+          "size_tolerance_px": 2
+        }
+      }
+    },
+    {
+      "id": "arrow-visual-noise-arrow",
+      "element_id": "noise-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        999,
+        196,
+        46,
+        51
+      ],
+      "shaft_seed_point": [
+        1022,
+        208
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 24,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          230,
+          145,
+          56
+        ],
+        "tolerance": 8
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            999,
+            223,
+            46,
+            24
+          ],
+          "bbox_tolerance_px": 2,
+          "size_tolerance_px": 2
+        }
+      }
+    },
+    {
+      "id": "arrow-visual-sample-arrow",
+      "element_id": "sample-arrow",
+      "axis": "vertical",
+      "tight_bbox": [
+        999,
+        383,
+        47,
+        73
+      ],
+      "shaft_seed_point": [
+        1022,
+        402
+      ],
+      "shaft_seed_radius_px": 1,
+      "shaft_width_px": 24,
+      "mask": {
+        "mode": "rgb",
+        "foreground_rgb": [
+          230,
+          145,
+          56
+        ],
+        "tolerance": 8
+      },
+      "evidence": {
+        "kind": "reference_pixels",
+        "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7"
+      },
+      "heads": {
+        "end": {
+          "search_bbox": [
+            999,
+            431,
+            47,
+            25
+          ],
+          "bbox_tolerance_px": 2,
+          "size_tolerance_px": 2
+        }
+      }
+    }
+  ],
+  "arrow_visual_expectation": {
+    "count": 5,
+    "contracts": [
+      {
+        "element_id": "blue-arrow-1",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "c59d71231adb3cc3c471cc7cc348f21676d5fa603f120913aac02775adebf019"
+      },
+      {
+        "element_id": "blue-arrow-2",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "da12f14c155a916a64dff343a905dfca43e56e55120cbc227a7729a778c7f81c"
+      },
+      {
+        "element_id": "condition-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "d9d2806e95af52928932687e144cf32c76ce5d4b25c85f045dbf78475a19660e"
+      },
+      {
+        "element_id": "noise-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "42638ccba0b2e31bf6f14b7b748b46eabca6dc39e7ae39e9a563ca8643f158fa"
+      },
+      {
+        "element_id": "sample-arrow",
+        "head_sides": [
+          "end"
+        ],
+        "contract_sha256": "d57f093f32676b6cba70fd62cb962314e77df831e9ab12591086cb4c65313442"
+      }
+    ],
+    "exemptions": []
+  },
+  "primitive_expectations": [],
+  "regions": [
+    {
+      "id": "region-offline-title",
+      "label": "Offline Training title",
+      "bbox": [
+        140,
+        4,
+        310,
+        50
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-001"
+      ]
+    },
+    {
+      "id": "region-sampling-title",
+      "label": "Sampling title",
+      "bbox": [
+        793,
+        4,
+        193,
+        50
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-002"
+      ]
+    },
+    {
+      "id": "region-static-dataset-label",
+      "label": "Static Multi-Objective Dataset label",
+      "bbox": [
+        96,
+        62,
+        405,
+        44
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-003"
+      ]
+    },
+    {
+      "id": "region-reweighted-label",
+      "label": "Reweighted label",
+      "bbox": [
+        99,
+        285,
+        146,
+        42
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-004"
+      ]
+    },
+    {
+      "id": "region-train-label",
+      "label": "Train label",
+      "bbox": [
+        327,
+        372,
+        74,
+        42
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-005"
+      ]
+    },
+    {
+      "id": "region-left-model-title",
+      "label": "Left model title",
+      "bbox": [
+        170,
+        475,
+        247,
+        40
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "left-model-text-001"
+      ]
+    },
+    {
+      "id": "region-left-model-subtitle",
+      "label": "Left model subtitle",
+      "bbox": [
+        201,
+        506,
+        186,
+        40
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "left-model-text-002"
+      ]
+    },
+    {
+      "id": "region-target-label",
+      "label": "Target label",
+      "bbox": [
+        646,
+        279,
+        84,
+        39
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "target-box-text-001"
+      ]
+    },
+    {
+      "id": "region-objectives-label",
+      "label": "Objectives label",
+      "bbox": [
+        622,
+        311,
+        131,
+        39
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "target-box-text-002"
+      ]
+    },
+    {
+      "id": "region-condition-label",
+      "label": "Condition label",
+      "bbox": [
+        767,
+        259,
+        104,
+        39
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-006"
+      ]
+    },
+    {
+      "id": "region-right-model-title",
+      "label": "Right model title",
+      "bbox": [
+        898,
+        279,
+        247,
+        40
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "right-model-text-001"
+      ]
+    },
+    {
+      "id": "region-right-model-subtitle",
+      "label": "Right model subtitle",
+      "bbox": [
+        929,
+        311,
+        187,
+        40
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "right-model-text-002"
+      ]
+    },
+    {
+      "id": "region-noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1055,
+        197,
+        78,
+        41
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-007"
+      ]
+    },
+    {
+      "id": "region-sample-label",
+      "label": "Sample label",
+      "bbox": [
+        1050,
+        393,
+        101,
+        41
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-text-008"
+      ]
+    },
+    {
+      "id": "region-designs-label",
+      "label": "Designs label",
+      "bbox": [
+        952,
+        511,
+        113,
+        42
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "designs-cuboid-text-001"
+      ]
+    },
+    {
+      "id": "region-dataset-formula",
+      "label": "Dataset D formula",
+      "bbox": [
+        272,
+        135,
+        44,
+        48
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "dataset-cylinder-text-001"
+      ]
+    },
+    {
+      "id": "region-reweighted-formula",
+      "label": "Reweighted D formula",
+      "bbox": [
+        272,
+        291,
+        44,
+        48
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "reweighted-cylinder-text-001"
+      ]
+    },
+    {
+      "id": "region-blue-arrow-1",
+      "label": "Dataset to reweighted block arrow",
+      "bbox": [
+        264,
+        196,
+        60,
+        62
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "blue-arrow-1",
+        "dataset-cylinder",
+        "reweighted-cylinder"
+      ],
+      "required_relations": [
+        {
+          "id": "blue-arrow-1",
+          "source_id": "dataset-cylinder",
+          "target_id": "reweighted-cylinder",
+          "relation": "directed-flow",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ]
+    },
+    {
+      "id": "region-blue-arrow-2",
+      "label": "Reweighted to training model block arrow",
+      "bbox": [
+        264,
+        351,
+        60,
+        95
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "blue-arrow-2",
+        "reweighted-cylinder",
+        "left-model"
+      ],
+      "required_relations": [
+        {
+          "id": "blue-arrow-2",
+          "source_id": "reweighted-cylinder",
+          "target_id": "left-model",
+          "relation": "directed-flow",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ]
+    },
+    {
+      "id": "region-condition-arrow",
+      "label": "Condition block arrow",
+      "bbox": [
+        765,
+        290,
+        115,
+        50
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "condition-arrow",
+        "target-box",
+        "right-model"
+      ],
+      "required_relations": [
+        {
+          "id": "condition-arrow",
+          "source_id": "target-box",
+          "target_id": "right-model",
+          "relation": "conditioning",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ]
+    },
+    {
+      "id": "region-noise-arrow",
+      "label": "Noise block arrow",
+      "bbox": [
+        992,
+        191,
+        60,
+        62
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "noise-arrow",
+        "noise-curve",
+        "right-model"
+      ],
+      "required_relations": [
+        {
+          "id": "noise-arrow",
+          "source_id": "noise-curve",
+          "target_id": "right-model",
+          "relation": "noise-input",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ]
+    },
+    {
+      "id": "region-sample-arrow",
+      "label": "Sample block arrow",
+      "bbox": [
+        992,
+        378,
+        60,
+        83
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "sample-arrow",
+        "right-model",
+        "designs-cuboid"
+      ],
+      "required_relations": [
+        {
+          "id": "sample-arrow",
+          "source_id": "right-model",
+          "target_id": "designs-cuboid",
+          "relation": "sampling-output",
+          "direction": "forward",
+          "start_head_type": "none",
+          "end_head_type": "custom",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ]
+    },
+    {
+      "id": "region-molecule-left",
+      "label": "Left molecule microasset",
+      "bbox": [
+        164,
+        100,
+        72,
+        43
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "molecule-left-g-001-line-001",
+        "molecule-left-g-001-line-002",
+        "molecule-left-g-001-line-003",
+        "molecule-left-g-001-line-004",
+        "molecule-left-g-001-line-005",
+        "molecule-left-g-001-line-006",
+        "molecule-left-circle-001",
+        "molecule-left-circle-002",
+        "molecule-left-circle-003",
+        "molecule-left-circle-004",
+        "molecule-left-circle-005",
+        "molecule-left-circle-006",
+        "molecule-left-circle-007",
+        "molecule-left-circle-008",
+        "molecule-left-line-001"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-dna-left",
+      "label": "Left DNA microasset",
+      "bbox": [
+        170,
+        147,
+        66,
+        65
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "dna-left-path-001",
+        "dna-left-path-002",
+        "dna-left-path-003",
+        "dna-left-path-004",
+        "dna-left-g-001-line-001",
+        "dna-left-g-001-line-002",
+        "dna-left-g-001-line-003",
+        "dna-left-g-001-line-004",
+        "dna-left-g-001-line-005",
+        "dna-left-g-001-line-006",
+        "dna-left-g-001-line-007",
+        "dna-left-g-001-line-008"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-balance",
+      "label": "Balance microasset",
+      "bbox": [
+        137,
+        325,
+        58,
+        46
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "balance-line-001",
+        "balance-line-002",
+        "balance-line-003",
+        "balance-line-004",
+        "balance-line-005",
+        "balance-line-006",
+        "balance-line-007",
+        "balance-line-008",
+        "balance-path-001",
+        "balance-path-002"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-molecule-right",
+      "label": "Right molecule microasset",
+      "bbox": [
+        849,
+        502,
+        72,
+        43
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "molecule-right-g-001-line-001",
+        "molecule-right-g-001-line-002",
+        "molecule-right-g-001-line-003",
+        "molecule-right-g-001-line-004",
+        "molecule-right-g-001-line-005",
+        "molecule-right-g-001-line-006",
+        "molecule-right-circle-001",
+        "molecule-right-circle-002",
+        "molecule-right-circle-003",
+        "molecule-right-circle-004",
+        "molecule-right-circle-005",
+        "molecule-right-circle-006",
+        "molecule-right-circle-007",
+        "molecule-right-circle-008",
+        "molecule-right-line-001"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-dna-right",
+      "label": "Right DNA microasset",
+      "bbox": [
+        1110,
+        465,
+        66,
+        65
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "dna-right-path-001",
+        "dna-right-path-002",
+        "dna-right-path-003",
+        "dna-right-path-004",
+        "dna-right-g-001-line-001",
+        "dna-right-g-001-line-002",
+        "dna-right-g-001-line-003",
+        "dna-right-g-001-line-004",
+        "dna-right-g-001-line-005",
+        "dna-right-g-001-line-006",
+        "dna-right-g-001-line-007",
+        "dna-right-g-001-line-008"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-candlestick-left",
+      "label": "Left candlestick plot",
+      "bbox": [
+        351,
+        119,
+        75,
+        62
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "candlestick-left-top-line-001",
+        "candlestick-left-top-polyline-001",
+        "candlestick-left-top-line-002",
+        "candlestick-left-top-polyline-002",
+        "candlestick-left-top-line-003",
+        "candlestick-left-top-rect-001",
+        "candlestick-left-top-line-004",
+        "candlestick-left-top-rect-002",
+        "candlestick-left-top-line-005",
+        "candlestick-left-top-rect-003",
+        "candlestick-left-top-line-006",
+        "candlestick-left-top-rect-004",
+        "candlestick-left-top-line-007",
+        "candlestick-left-top-rect-005"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-noise-curve",
+      "label": "Gaussian noise plot",
+      "bbox": [
+        872,
+        80,
+        300,
+        111
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "noise-curve-line-001",
+        "noise-curve-path-001"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-candlestick-right",
+      "label": "Right candlestick plot",
+      "bbox": [
+        649,
+        378,
+        75,
+        62
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "candlestick-right-line-001",
+        "candlestick-right-polyline-001",
+        "candlestick-right-line-002",
+        "candlestick-right-polyline-002",
+        "candlestick-right-line-003",
+        "candlestick-right-rect-001",
+        "candlestick-right-line-004",
+        "candlestick-right-rect-002",
+        "candlestick-right-line-005",
+        "candlestick-right-rect-003",
+        "candlestick-right-line-006",
+        "candlestick-right-rect-004",
+        "candlestick-right-line-007",
+        "candlestick-right-rect-005"
+      ],
+      "ink_contract": {
+        "background_rgb": [
+          255,
+          255,
+          255
+        ],
+        "background_tolerance": 24,
+        "bbox_tolerance_px": 2,
+        "center_tolerance_px": 2,
+        "area_relative_tolerance": 0.2
+      }
+    },
+    {
+      "id": "region-left-panel",
+      "label": "Left dashed process panel",
+      "bbox": [
+        20,
+        53,
+        548,
+        540
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-rect-001"
+      ]
+    },
+    {
+      "id": "region-right-panel",
+      "label": "Right dashed sampling panel",
+      "bbox": [
+        580,
+        53,
+        617,
+        540
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "styles-rect-002"
+      ]
+    },
+    {
+      "id": "region-dataset-cylinder",
+      "label": "Dataset cylinder",
+      "bbox": [
+        247,
+        101,
+        94,
+        97
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "dataset-cylinder"
+      ]
+    },
+    {
+      "id": "region-reweighted-cylinder",
+      "label": "Reweighted dataset cylinder",
+      "bbox": [
+        246,
+        256,
+        95,
+        98
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "reweighted-cylinder"
+      ]
+    },
+    {
+      "id": "region-left-model-box",
+      "label": "Left diffusion model box and network",
+      "bbox": [
+        148,
+        443,
+        291,
+        132
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "left-model"
+      ]
+    },
+    {
+      "id": "region-target-box",
+      "label": "Target objectives box",
+      "bbox": [
+        608,
+        256,
+        159,
+        119
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "target-box"
+      ]
+    },
+    {
+      "id": "region-right-model-box",
+      "label": "Right diffusion model box and network",
+      "bbox": [
+        877,
+        249,
+        290,
+        132
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "right-model"
+      ]
+    },
+    {
+      "id": "region-designs-cuboid",
+      "label": "Designs cuboid",
+      "bbox": [
+        935,
+        458,
+        173,
+        117
+      ],
+      "critical": true,
+      "relations_exhaustive": true,
+      "element_ids": [
+        "designs-cuboid"
+      ]
+    },
+    {
+      "id": "whole-canvas",
+      "label": "Whole canvas (diagnostic only)",
+      "bbox": [
+        0,
+        0,
+        1217,
+        609
+      ],
+      "critical": false
+    }
+  ]
+}

@@ -1,0 +1,1735 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_compile_report",
+  "created_at": "20260824T153904Z",
+  "case": "01-modular-agent",
+  "scene_sha256": "2a4d91561e56bde3a04c4a8ccf5b1621d826f533ad6fa48b9d264ceda1e9ba12",
+  "artifact_sha256": "21d037d2f8dcbaaf076256aae19f411274f30351f528d2d6b4f2f48db108db3f",
+  "arrow_count": 41,
+  "records": [
+    {
+      "element_id": "task-list-to-encoder",
+      "arrow_spec_sha256": "58b70bd38aba7acf7f822672f4150307c871ef55b25c4b8dd36be8b968a7681c",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        9
+      ],
+      "shape_names": [
+        "af-task-list-to-encoder-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "task-encoder-to-token",
+      "arrow_spec_sha256": "b5816da5b40589951ca1e2e594a0aed4af17174de14699a247e666273cef7d53",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        13
+      ],
+      "shape_names": [
+        "af-task-encoder-to-token-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "task-token-to-mapping",
+      "arrow_spec_sha256": "1653d40a04b63df8a2922ff20c1d2027857fc6c0676d3745ab08212bbac15bd4",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        19
+      ],
+      "shape_names": [
+        "af-task-token-to-mapping-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "task-token-to-allocator",
+      "arrow_spec_sha256": "829b63109ac26cae75ffb6dfb97085b293b03b057bbe50883697602cd6a19675",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        23
+      ],
+      "shape_names": [
+        "af-task-token-to-allocator-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "observation-to-mllm",
+      "arrow_spec_sha256": "d1cea5979ed511f450c2f03b4a84292002dbcc45697611ac4ab2dc3775516d0c",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        39
+      ],
+      "shape_names": [
+        "af-observation-to-mllm-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "observation-to-wm",
+      "arrow_spec_sha256": "54848c1f1f36bdb2c8c96e760acb9047dbe51aa783cf26145ea5fe904a64615c",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        40
+      ],
+      "shape_names": [
+        "af-observation-to-wm-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "svg-line-0005",
+      "arrow_spec_sha256": "891ec0f3c800603f655d0d22ec8eec2802138972539651f26f29224df4752c07",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        47
+      ],
+      "shape_names": [
+        "af-svg-line-0005-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "svg-line-0006",
+      "arrow_spec_sha256": "076826d44320fa533f1d3797548c16208aefbb63ebebc1b3794cce591ca6ee85",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        48
+      ],
+      "shape_names": [
+        "af-svg-line-0006-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "svg-line-0007",
+      "arrow_spec_sha256": "06783bacc1d8444aed0f7bd6de53cd32a19fec26af2cbca03f060d8d9cd432b3",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        54
+      ],
+      "shape_names": [
+        "af-svg-line-0007-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "svg-line-0008",
+      "arrow_spec_sha256": "fdc220ca2c34e783cecdca26c41ea40d941556663475493a3a55878564e4fa35",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        60
+      ],
+      "shape_names": [
+        "af-svg-line-0008-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "allocator-task1-route-1",
+      "arrow_spec_sha256": "c863ab96d142a2bfe3a3bba9e7276fac334c5c9b1d8c0245fa64347f68347704",
+      "strategy": "native-connector-line-end",
+      "shape_ids": [
+        91
+      ],
+      "shape_names": [
+        "af-allocator-task1-route-1-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "allocator-task1-route-2",
+      "arrow_spec_sha256": "15b26710952b86a3001fd511a587011c3ebf764e48a33bdc3649d153c1b046e2",
+      "strategy": "native-connector-line-end",
+      "shape_ids": [
+        92
+      ],
+      "shape_names": [
+        "af-allocator-task1-route-2-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "allocator-task1-skip-edge",
+      "arrow_spec_sha256": "36be17dd4b6e1165329f9fc72ef8bb1efefe25743ca66df786734d9d06268394",
+      "strategy": "native-connector-line-end",
+      "shape_ids": [
+        93
+      ],
+      "shape_names": [
+        "af-allocator-task1-skip-edge-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "mapping-to-imagination",
+      "arrow_spec_sha256": "95804ad09c614b68c9b1518fca96ebd39602245deb13edd7d042ff43a8ab69d7",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        106
+      ],
+      "shape_names": [
+        "af-mapping-to-imagination-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "imagination-z0-to-z1",
+      "arrow_spec_sha256": "f97edf98b30fe486cc116e212fcbb126ff55ef8e80ca5028096ce3d6ee70195c",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        116
+      ],
+      "shape_names": [
+        "af-imagination-z0-to-z1-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "imagination-z1-to-z2",
+      "arrow_spec_sha256": "046256a779f282821d16393bc4d474073a279ceb7a8e16caa3cf71d764fd6668",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        117
+      ],
+      "shape_names": [
+        "af-imagination-z1-to-z2-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "imagination-z2-to-zh",
+      "arrow_spec_sha256": "8b80c5d7ee001525e445c3139c6180ba9ff881c1c94da94fa7075ba296744714",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        118
+      ],
+      "shape_names": [
+        "af-imagination-z2-to-zh-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "imagination-z0-to-r0",
+      "arrow_spec_sha256": "4f5a3ef0fa79d9f7b6661271fdc966f6dd6fa3db4063ab9ed1f5bf6aa8f321ee",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        120
+      ],
+      "shape_names": [
+        "af-imagination-z0-to-r0-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "imagination-z1-to-r1",
+      "arrow_spec_sha256": "b1fae4992791e569296aca20fb98d3ccd8e2d83f992d981074201c4682351929",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        121
+      ],
+      "shape_names": [
+        "af-imagination-z1-to-r1-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "imagination-z2-to-r2",
+      "arrow_spec_sha256": "83bf2b3318db23e7e2fd9d83bfca526570365ae5ec600331ac707a8a4759f195",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        122
+      ],
+      "shape_names": [
+        "af-imagination-z2-to-r2-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "top-mixture-to-rollout",
+      "arrow_spec_sha256": "7563923d5966d949ac9ba2c6b6055acdf8c85c83315adfb0c6144d82bc73a637",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        143
+      ],
+      "shape_names": [
+        "af-top-mixture-to-rollout-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "bottom-mixture-to-rollout",
+      "arrow_spec_sha256": "7991a91f5c591cc4599d8a89db0a0f143932482ccf91aad64dbf3fb83962334e",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        144
+      ],
+      "shape_names": [
+        "af-bottom-mixture-to-rollout-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z0-to-z1",
+      "arrow_spec_sha256": "8b6e55f41a115518f21b15bdbbde4954e72dd0b1aa01897d70441b856a22af35",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        153
+      ],
+      "shape_names": [
+        "af-rollout-z0-to-z1-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z1-to-z2",
+      "arrow_spec_sha256": "3ef48f7daefe908b2ca2f2589271eb8448e84c9d6243a48accf053f6708b7131",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        154
+      ],
+      "shape_names": [
+        "af-rollout-z1-to-z2-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z2-to-zh",
+      "arrow_spec_sha256": "c7c00006d77af121a90310bebb3cf8405fc45b2858ba3aff29166c4159155b62",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        155
+      ],
+      "shape_names": [
+        "af-rollout-z2-to-zh-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z0-to-pi0",
+      "arrow_spec_sha256": "78d80d5dd4ef041c0e25ccd4265ae55f80649d928e3a7d710571f2e281546fa6",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        169
+      ],
+      "shape_names": [
+        "af-rollout-z0-to-pi0-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z1-to-pi1",
+      "arrow_spec_sha256": "1309fd08903a475c71abaed89ac9e41193c9e7ea21d98604b45e693127af5246",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        170
+      ],
+      "shape_names": [
+        "af-rollout-z1-to-pi1-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z2-to-pi2",
+      "arrow_spec_sha256": "efdaefaab9f42f3c0a24372f44c3ad793053205eb7fa98c6a6b753db50d587f6",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        171
+      ],
+      "shape_names": [
+        "af-rollout-z2-to-pi2-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-pi0-to-a0",
+      "arrow_spec_sha256": "35b173a6af7341ddf77d7229974f9c4f4277ddbf0e4808600b5a3aa6e9ce34cd",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        172
+      ],
+      "shape_names": [
+        "af-rollout-pi0-to-a0-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-pi1-to-a1",
+      "arrow_spec_sha256": "c6d518709addcc2705c0293d07fa574886b27fc65eda0c7eee06e9962da350fe",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        173
+      ],
+      "shape_names": [
+        "af-rollout-pi1-to-a1-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-pi2-to-a2",
+      "arrow_spec_sha256": "08ba5254fda888a810eb1223f82ee3830ff6b3ae73846b56dadfdf3706e56995",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        174
+      ],
+      "shape_names": [
+        "af-rollout-pi2-to-a2-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-a0-to-z1",
+      "arrow_spec_sha256": "e83324248408173ef5be0139819c35eca469939b4cdab617eb71d56066e9fa11",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        175
+      ],
+      "shape_names": [
+        "af-rollout-a0-to-z1-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-a1-to-z2",
+      "arrow_spec_sha256": "4b6feacf29df8c6eb71a94d4658501bf2eae6f3010941dc430fc7e7ff31ca20e",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        176
+      ],
+      "shape_names": [
+        "af-rollout-a1-to-z2-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-a2-to-next",
+      "arrow_spec_sha256": "a53eb0c789b1289df0db761618f34753d23f0101e99e985b977ac324b4bf75b0",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        177
+      ],
+      "shape_names": [
+        "af-rollout-a2-to-next-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            1
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z0-to-r0",
+      "arrow_spec_sha256": "04c70a99ba16b5fb87be09063936b4a2921e021f7bdc50496505e869a7dabf11",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        178
+      ],
+      "shape_names": [
+        "af-rollout-z0-to-r0-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z1-to-r1",
+      "arrow_spec_sha256": "ba9e2825bd999467ef727efac7371e9296b2a579c4ce5320be22415d60c1e01b",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        179
+      ],
+      "shape_names": [
+        "af-rollout-z1-to-r1-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "rollout-z2-to-r2",
+      "arrow_spec_sha256": "9ed8f89d4292ee6b3800e1c9cecced5aad7e50588a2416d141f1766ad9ef3c7e",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        180
+      ],
+      "shape_names": [
+        "af-rollout-z2-to-r2-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "joint-feedback-to-modular-panel",
+      "arrow_spec_sha256": "f609287b06aa8107538d88e4e2166c949cd9dc7f7ca65211483355cfa710d1da",
+      "strategy": "native-freeform-line-end",
+      "shape_ids": [
+        185
+      ],
+      "shape_names": [
+        "af-joint-feedback-to-modular-panel-freeform-arrow-01"
+      ],
+      "object_kinds": [
+        "freeform-arrow"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            3
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "cubic",
+            3
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "reward-to-joint-optimization",
+      "arrow_spec_sha256": "df68e318f59cff777670bf61eda688055a7d70b4195f25051e9f9d32f4a755ef",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        207
+      ],
+      "shape_names": [
+        "af-reward-to-joint-optimization-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "behavior-to-reward",
+      "arrow_spec_sha256": "e16f24f59f0f086747dbd93591459f0e4dea3810b4dbca1884890b93e242db08",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        208
+      ],
+      "shape_names": [
+        "af-behavior-to-reward-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    },
+    {
+      "element_id": "interaction-arrow",
+      "arrow_spec_sha256": "3e9e8252c7b7430038b037ad59bc8a517059e4767af07e45c7fb94f51e2092b0",
+      "strategy": "native-line-line-end",
+      "shape_ids": [
+        209
+      ],
+      "shape_names": [
+        "af-interaction-arrow-connector-01"
+      ],
+      "object_kinds": [
+        "connector"
+      ],
+      "visible_object_count": 1,
+      "fallback": false,
+      "fidelity_loss": null,
+      "source_geometry": {
+        "status": "PASS",
+        "scene": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        },
+        "svg": {
+          "status": "PASS",
+          "reason": null,
+          "path_signature": [
+            "straight",
+            2
+          ],
+          "max_point_error_px": 0.0,
+          "tolerance_px": 0.0001
+        }
+      },
+      "validation_errors": [],
+      "status": "PASS"
+    }
+  ],
+  "blockers": [],
+  "pass": true
+}

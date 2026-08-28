@@ -1,0 +1,140 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "source_gate_report",
+  "created_at": "2026-08-27T14:55:15.324601Z",
+  "decision": "accept",
+  "pass": true,
+  "next_action": "normalize-candidate-to-scene",
+  "route_gate": {
+    "input_route": "svg-seeded",
+    "candidate_role": "repair-candidate",
+    "seed_gate_status": "accepted"
+  },
+  "candidate": {
+    "path_base": "staging-root",
+    "source_name": "stamped-repaired-seed.svg",
+    "kind": "svg",
+    "sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
+    "expected_sha256": "a045fcbbdd2cf04a9774ab6807fccd7d7b16280842d4c21929c37a317798b4b8",
+    "byte_count": 51956
+  },
+  "reference": {
+    "path_base": "case-root",
+    "path": "reference.png",
+    "expected_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "actual_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "declared_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+    "canvas": [
+      2100,
+      1324
+    ]
+  },
+  "canvas": {
+    "expected": {
+      "width": 2100,
+      "height": 1324
+    },
+    "observed": {
+      "width": 2100.0,
+      "height": 1324.0,
+      "view_box": [
+        0.0,
+        0.0,
+        2100.0,
+        1324.0
+      ]
+    }
+  },
+  "image_usage": {
+    "count": 0,
+    "max_area_ratio": 0.5,
+    "whole_reference_forbidden": true,
+    "declared_area_ratio": 0.0,
+    "authorized_image_ids": [],
+    "items": []
+  },
+  "unsupported_features": {
+    "count": 0,
+    "items": []
+  },
+  "semantic_metadata": {
+    "required_fields": [
+      "semantic_schema_version",
+      "reference_sha256",
+      "object_inventory_sha256",
+      "stable_element_ids",
+      "relations_exhaustive",
+      "case"
+    ],
+    "observed": {
+      "semantic_schema_version": "4.0.0",
+      "reference_sha256": "ef0e94b0ee05e3af383f0b9a6f28dea40b504daa001d8ac561dc363ee3770240",
+      "object_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae",
+      "stable_element_ids": true,
+      "relations_exhaustive": true,
+      "case": "05-sting-autophagy"
+    },
+    "missing_fields": [],
+    "invalid_fields": [],
+    "conflicting_fields": [],
+    "structure": {
+      "drawable_count": 391,
+      "missing_id_count": 0,
+      "duplicate_ids": [],
+      "declared_relation_count": 0,
+      "invalid_relation_count": 0,
+      "split_arrow_group_count": 0
+    }
+  },
+  "checks": [
+    {
+      "id": "source",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "route",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "hash",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "canvas",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "image",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "unsupported_feature",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    },
+    {
+      "id": "semantic_metadata",
+      "decision": "accept",
+      "finding_codes": [],
+      "pass": true
+    }
+  ],
+  "findings": [],
+  "blockers": [],
+  "reject_reasons": [],
+  "repair_reasons": [],
+  "repair_actions": [],
+  "case": "05-sting-autophagy",
+  "reference_inventory_sha256": "6f8c0576b33da84e91dbaab9dbbb3b8fe802f4499323a341ab760878a4bb13ae"
+}

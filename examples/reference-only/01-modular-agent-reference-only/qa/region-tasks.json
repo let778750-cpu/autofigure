@@ -15,7 +15,8 @@
     "stable_element_ids_required": true,
     "formal_content_must_remain_native": true,
     "offline_initial_render_carrier": "svg",
-    "scene_or_patch_requires": "existing render carrier or powerpoint-live provider"
+    "scene_or_patch_requires": "existing render carrier or powerpoint-live provider",
+    "svg_authoring_contract": "prompt.md"
   },
   "tasks": [
     {
@@ -28,6 +29,376 @@
         627
       ],
       "critical": false
+    },
+    {
+      "region_id": "task-guided-allocator-topology",
+      "label": "Task-Guided Expert Allocator and routing paths",
+      "bbox": [
+        425,
+        124,
+        551,
+        389
+      ],
+      "critical": true,
+      "element_ids": [
+        "allocator-box",
+        "allocator-funnel",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge",
+        "allocator-task1-propagation",
+        "allocator-task2-propagation"
+      ]
+    },
+    {
+      "region_id": "encoder-peer-size-detail",
+      "label": "MLLM and WM encoder peer-size fidelity",
+      "bbox": [
+        180,
+        235,
+        142,
+        253
+      ],
+      "critical": true,
+      "element_ids": [
+        "mllm-encoder",
+        "wm-encoder"
+      ]
+    },
+    {
+      "region_id": "expert-gap-arrow-text-detail",
+      "label": "Horizontal inter-expert arrows and rotated Sem/Dyn labels",
+      "bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "critical": true,
+      "element_ids": [
+        "expert-1-box",
+        "expert-2-box",
+        "expert-3-box",
+        "expert-4-box",
+        "expert-1-sem-label",
+        "expert-1-dyn-label",
+        "expert-2-sem-label",
+        "expert-2-dyn-label",
+        "expert-3-sem-label",
+        "expert-3-dyn-label",
+        "expert-4-sem-label",
+        "expert-4-dyn-label",
+        "allocator-task1-route-1",
+        "allocator-task1-route-2",
+        "allocator-task1-skip-edge"
+      ]
+    },
+    {
+      "region_id": "joint-feedback-arrow-detail",
+      "label": "Thick red joint-optimization feedback arrow",
+      "bbox": [
+        102,
+        514,
+        90,
+        70
+      ],
+      "critical": true,
+      "element_ids": [
+        "joint-loop-arrow"
+      ]
+    },
+    {
+      "region_id": "six-bicolor-state-circles",
+      "label": "Six independently oriented bicolor circles",
+      "bbox": [
+        898,
+        204,
+        51,
+        278
+      ],
+      "critical": true,
+      "element_ids": [
+        "zt-top-box",
+        "zt-top-1",
+        "zt-top-2",
+        "zt-top-3",
+        "zt-bottom-box",
+        "zt-bottom-1",
+        "zt-bottom-2",
+        "zt-bottom-3"
+      ]
+    },
+    {
+      "region_id": "rollout-arrow-topology",
+      "label": "Task-aware behavior rollout arrows",
+      "bbox": [
+        988,
+        116,
+        410,
+        346
+      ],
+      "critical": true,
+      "element_ids": [
+        "task-conditioned-imagination",
+        "rollout-panel",
+        "imag-z0",
+        "imag-z1",
+        "imag-z2",
+        "imag-zh",
+        "reward-r0",
+        "reward-r1",
+        "reward-r2",
+        "rollout-z0",
+        "rollout-z1",
+        "rollout-z2",
+        "rollout-zh",
+        "policy-pi0",
+        "policy-pi1",
+        "policy-pi2",
+        "action-a0",
+        "action-a1",
+        "action-a2",
+        "imagination-z0-to-z1",
+        "imagination-z1-to-z2",
+        "imagination-z2-to-zh",
+        "imagination-z0-to-r0",
+        "imagination-z1-to-r1",
+        "imagination-z2-to-r2",
+        "rollout-z0-to-r0",
+        "rollout-z1-to-r1",
+        "rollout-z2-to-r2",
+        "rollout-z0-to-z1",
+        "rollout-z1-to-z2",
+        "rollout-z2-to-zh",
+        "rollout-z0-to-pi0",
+        "rollout-z1-to-pi1",
+        "rollout-z2-to-pi2",
+        "rollout-pi0-to-a0",
+        "rollout-pi1-to-a1",
+        "rollout-pi2-to-a2",
+        "rollout-a0-to-z1",
+        "rollout-a1-to-z2",
+        "rollout-a2-to-next"
+      ],
+      "required_relations": [
+        {
+          "id": "imagination-z0-to-z1",
+          "source_id": "imag-z0",
+          "target_id": "imag-z1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z1-to-z2",
+          "source_id": "imag-z1",
+          "target_id": "imag-z2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z2-to-zh",
+          "source_id": "imag-z2",
+          "target_id": "imag-zh",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z0-to-r0",
+          "source_id": "imag-z0",
+          "target_id": "reward-r0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z1-to-r1",
+          "source_id": "imag-z1",
+          "target_id": "reward-r1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "imagination-z2-to-r2",
+          "source_id": "imag-z2",
+          "target_id": "reward-r2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z0-to-r0",
+          "source_id": "rollout-z0",
+          "target_id": "reward-r0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z1-to-r1",
+          "source_id": "rollout-z1",
+          "target_id": "reward-r1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z2-to-r2",
+          "source_id": "rollout-z2",
+          "target_id": "reward-r2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z0-to-z1",
+          "source_id": "rollout-z0",
+          "target_id": "rollout-z1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z1-to-z2",
+          "source_id": "rollout-z1",
+          "target_id": "rollout-z2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z2-to-zh",
+          "source_id": "rollout-z2",
+          "target_id": "rollout-zh",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z0-to-pi0",
+          "source_id": "rollout-z0",
+          "target_id": "policy-pi0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z1-to-pi1",
+          "source_id": "rollout-z1",
+          "target_id": "policy-pi1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-z2-to-pi2",
+          "source_id": "rollout-z2",
+          "target_id": "policy-pi2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-pi0-to-a0",
+          "source_id": "policy-pi0",
+          "target_id": "action-a0",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-pi1-to-a1",
+          "source_id": "policy-pi1",
+          "target_id": "action-a1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-pi2-to-a2",
+          "source_id": "policy-pi2",
+          "target_id": "action-a2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-a0-to-z1",
+          "source_id": "action-a0",
+          "target_id": "rollout-z1",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-a1-to-z2",
+          "source_id": "action-a1",
+          "target_id": "rollout-z2",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        },
+        {
+          "id": "rollout-a2-to-next",
+          "source_id": "action-a2",
+          "target_id": "rollout-zh",
+          "direction": "forward",
+          "end_head_type": "triangle"
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "observation-creative-asset",
+      "label": "Reference-faithful observation microasset",
+      "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
+      "critical": true,
+      "asset_id": "atomic:observation"
+    },
+    {
+      "region_id": "interaction-exchange-block-arrow",
+      "label": "Single native bidirectional interaction block arrow",
+      "bbox": [
+        1008,
+        560,
+        172,
+        25
+      ],
+      "critical": true,
+      "element_ids": [
+        "reward-action-box",
+        "interaction-label",
+        "interaction-exchange",
+        "atomic:environment-globe"
+      ],
+      "required_relations": [
+        {
+          "id": "interaction-exchange",
+          "source_id": "reward-action-box",
+          "target_id": "atomic:environment-globe",
+          "direction": "bidirectional",
+          "start_head_type": "triangle",
+          "end_head_type": "triangle",
+          "representation": "block_arrow",
+          "visible_object_count": 1
+        }
+      ],
+      "relations_exhaustive": true
+    },
+    {
+      "region_id": "environment-globe-creative-asset",
+      "label": "Reference-faithful environment globe",
+      "bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
+      "critical": true,
+      "asset_id": "atomic:environment-globe"
+    },
+    {
+      "region_id": "observation-arrows",
+      "label": "Observation to MLLM/WM arrows",
+      "bbox": [
+        132,
+        232,
+        190,
+        254
+      ],
+      "critical": true,
+      "element_ids": [
+        "observation-to-mllm",
+        "observation-to-wm"
+      ]
     }
   ]
 }

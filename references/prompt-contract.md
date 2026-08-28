@@ -12,7 +12,7 @@
    <rect id="atomic:observation-photo" x=".." y=".." width=".." height=".." fill="#EEEEEE" stroke="#999999" stroke-dasharray="4 3"/>
    ```
    `convert` 会自动从参考图裁剪该 bbox 嵌入为位图（唯一允许的位图来源）。**含文字或公式的内容、以及一切几何图形/线条/箭头，禁止占位**——文字公式必须原生可编辑，几何元素必须矢量履约。直接内嵌 `<image>`（如 base64 裁切）会被 `convert` 按 bbox 从参考图裁剪替代并记 warning；单张位图覆盖画布 ≥50% 直接拒绝（防整图截图冒充矢量）。
-5. **箭头以原图为准**：箭头的粗细、头部样式、尺寸、弯折位置与连接关系一律复刻原图实际形态，**不得套用固定风格**（一律细线开口或一律实心大三角都是违约）。表达机制：实心三角头用**填充**的 marker path 或整体轮廓 path；开放折线头用描边 marker（`orient="auto"`，`markerUnits="userSpaceOnUse"`）；块状/楔形/弯折箭头画整体轮廓 path。**几何可验证子句**（`autofigure arrows` 审计，违反会列入 check 报告）：marker 的 `refX/refY` 必须等于三角尖端的局部坐标（否则尖端越出/底边沉入端点）；头长判据以**原图实测为第一判据**（`--calibrate ID=LEN`，F2 按校准值 ±1px 判定），无实测校准时头长 / `stroke-width` 比例缺省带为 [1.5, 4]；箭头线端点距目标形状边缘 ≤6px。禁止用一束短 `<line>` 手折"箭羽"拼箭头（审计记 `feather`，不可自动修复）。
+5. **箭头以原图为准**：箭头的粗细、头部样式、尺寸、弯折位置与连接关系一律复刻原图实际形态，**不得套用固定风格**（一律细线开口或一律实心大三角都是违约）。表达机制：普通线箭头使用可归一化 marker 并编译为单一 PowerPoint 原生线端；块状/楔形箭头使用一个闭合整体轮廓，`data-*-head-type="custom"` 只保存已嵌入轮廓的语义，不再生成独立三角形。任何需要“杆身＋独立头部＋分组”才能表达的候选必须 strict fail。开放折线头用描边 marker（`orient="auto"`，`markerUnits="userSpaceOnUse"`）。**几何可验证子句**（`autofigure arrows` 与 ArrowSpec 物理门禁）：marker 的 `refX/refY` 必须等于尖端局部坐标；头长和横向头宽以**原图实测为第一判据**，短而宽的块箭头不得因轴向长度较短而被错误放大；箭头线端点距目标形状边缘 ≤6px。禁止用一束短 `<line>` 手折"箭羽"拼箭头，也禁止静默 fallback。
 6. **版面纪律**：文字与文字、文字与图形不得重叠；箭头与连接线的端点必须落在形状边缘或间隙，不得穿越或压盖文字；连接线不得与沿途文字相交；元素间距与留白以原图为准。
 7. **布局关系显式化**：容器内文字/公式必须有稳定 `id`，并声明 `data-layout-container="<容器id>"`；可用 `data-layout-padding` 指定内边距。重复圆、节点或图标必须逐个有稳定 `id`，并声明相同的 `data-repeat-group`、一致的 `data-repeat-axis="vertical|horizontal"` 和唯一的 `data-repeat-order`。默认硬门：尺寸差与横轴/纵轴中心漂移各不超过 0.25 px，连续中心距的最大差不超过 1 px（允许参考图整数像素量化）。工具同时核对 SVG 源坐标和保存重开的 PPT shape，并以包级 OOXML 检查所有绑定对象是否超出画布；不能用“转换成功”或全图均值掩盖源布局错误、转换漂移或 OMML 越界。
 8. **结构特性**：渐变用 `<linearGradient>`；虚线用 `stroke-dasharray`。
@@ -29,7 +29,3 @@
 - `<g>` 分组：当前按拍平处理（样式与变换会正确继承，但不产生原生 group 对象）。
 - `radialGradient`、`marker-mid`：暂不支持，遇到记 warning 降级。
 - `style="k:v"` 内联样式与 presentation 属性都支持；不支持 CSS 类/外部样式表。
-
-## ModularAgent 实例（2026-08-18 实测）
-
-GPT-5 按本合同对 1429×627 架构图直出的 SVG：66 个 `<text>`、公式 tspan 上下标完整（含 `ƒ_map`）、渐变楔形与中段箭头一次到位。经 `convert` 转为 255 个原生对象后，PowerPoint 渲染对参考图 mean_abs_rgb_delta=17.40（诊断口径）。

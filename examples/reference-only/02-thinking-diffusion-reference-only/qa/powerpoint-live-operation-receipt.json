@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_operation_receipt",
+  "provider": "powerpoint-live",
+  "publication_mode": "save-reopen-only",
+  "session_id": "b931e01b-1030-490d-942e-c2678cfb2f07",
+  "target_id": "autofigure-pptx",
+  "event_index_base": 0,
+  "begin_event_index": 0,
+  "operation_event_index": 1,
+  "operation_log_path": "build/sessions/powerpoint/b931e01b-1030-490d-942e-c2678cfb2f07/operation-log.ndjson",
+  "operation_log_sha256": "48a7e42ee7cddaacd266833ce8982334810aa5b8f29be65d82b32ff617c5ff11",
+  "begin_event": {
+    "event": "begin_session",
+    "revision": 0,
+    "target_id": "autofigure-pptx",
+    "scene_schema_version": "2.1.0",
+    "scene_graph_sha256": "717e183f3bdf2e5c32e3fa1235870f11d5fb7df1e573e975a526f1f1ee1ddfe1",
+    "render_plan_sha256": "0e950028094427cd92f166ffeb33ca98c740ab54c37de2280366f690311c68cc",
+    "contract_hashes": {
+      "sourceManifestSha256": "91c1811fddfdcde54fb74e1715ddd4e64f1e84f320aeb8445a631f9f7092d750",
+      "scientificSpecSha256": "94169a6e3573ca11c13351fd2a7642e17897c83577a48d4589b9d36271f7561a",
+      "sceneGraphSha256": "717e183f3bdf2e5c32e3fa1235870f11d5fb7df1e573e975a526f1f1ee1ddfe1",
+      "renderPlanSha256": "0e950028094427cd92f166ffeb33ca98c740ab54c37de2280366f690311c68cc",
+      "assetManifestSha256": "9944ead834d2ade30b63d6513948312ee45b76dac7c5002a2053a8ff40f1aac5",
+      "evidenceProvenanceSha256": "c5684ccd2dc7d21881192a6fcf4d2767391d4930eee7f6a6e1b43c8dd7295154",
+      "targetProfileSha256": "e3ea27790bb826987d72a04062f5346eea5fac67e4a16f2f35735834c9fe97df",
+      "designTokensSha256": "e7b55495947c48cf37af9f00b34eefeb164fb2e7e2ee87a791594deb8cd4f9c3"
+    }
+  },
+  "begin_event_sha256": "252ffb49b94488f505eed416b88a06e6f96f4487566d754e90b21bb5685260d0",
+  "matching_begin_event_sha256": "7d2907c5664ebd657e1d3d39b188b078a9c1022b65aa3878be37c609ea56aab3",
+  "operation_event": {
+    "event": "save_candidate",
+    "tool": "powerpoint_save_candidate",
+    "revision": 0,
+    "request_sha256": "835b8696ea487e832ca9bc5c5b463d7ef5441c43e88287d181863b8a9c0cda68",
+    "candidate_path": "build/candidates/schema11-saved.pptx",
+    "candidate_sha256": "7bcdbd6c245469932e8019870427c4a8dc7155dcd784a01fb452f139da6019ea",
+    "reopened_inventory_sha256": "90b683de6d11a2ce2fcf50a4d1fe14079a936470ae008d684ea0ece61190ef58"
+  },
+  "operation_event_sha256": "6c41f27e5ad3eea3b655f1567914189a02434f66dca0cf1d8bf1f5d8ca52ac1b",
+  "matching_operation_event_sha256": "e01c290f437ed8c342fb5d1e360d99f82a8e6f4276b411f5dffe5a4d42550e13"
+}

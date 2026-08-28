@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "arrow_composition_audit",
+  "created_at": "20260827T145516Z",
+  "case": "05-sting-autophagy",
+  "scene_sha256": "69944303a67c8c35b66b21ac1cd1d1756b7fc9c1308588c6130154eb1973c0c2",
+  "artifact_sha256": "ee26ed175300f6e19c918a992e7113832c1e44b476b3ff339d288ed19ac0c4dd",
+  "source_findings": [],
+  "readback_findings": [],
+  "readback_inconclusive": [],
+  "blockers": [],
+  "pass": true
+}

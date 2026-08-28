@@ -1,0 +1,249 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "qa_lineage_manifest",
+  "case": "02-thinking-diffusion",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "revision_id": "scene-3de3860df1266a65",
+  "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+  "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+  "reports": [
+    {
+      "path": "qa/arrow-compile-report.json",
+      "sha256": "836c0aef131ee1d090e67c61b374ba6f37fb01897dc2aff64eb503d350208420",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/arrow-composition-audit.json",
+      "sha256": "a2e76f1dd127264c5b145f5f67c8a5b988a0e3aead37b014ccc0a8b6bafae0ab",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/arrow-visual-report.json",
+      "sha256": "c918c5105d931f227d366ed17ce8e3872d805bd67d26ec1828457d59091197b3",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/arrows-audit.json",
+      "sha256": "8226a1ca6e34b4362cbf82aa1f21898c47a7daf095ea07ba1ac83143978db0be",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/asset-spec-audit.json",
+      "sha256": "a8211b440c4d9bf7e0a21c194be2e3d0e6e43ffae69e004f3da56dab29ce59ae",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/blockers.json",
+      "sha256": "d1428a71a932f9e8908191e028899834325037fc172aa82b6696a04f3dae3683",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/convert-summary.json",
+      "sha256": "5a57b4e4a73ac725ddbc60309b8cc1350031b8adba4cabd726304356123cbec4",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/layout-audit.json",
+      "sha256": "7bf7cf1cda564e4fd9681aee6d30e74781791c0f3059e62f74805ca32bf93bc5",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/live-evidence.json",
+      "sha256": "10440b57dd62a788ab03e3f3fe34bf8830322835224b4a1c4e4067e550a91451",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/live-repair-request.json",
+      "sha256": "4e01c59b84fbe452ccd3a4b693abfb3ee5c61afaff031b3609687a0a0bf19dce",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/live-save-reopen-summary.json",
+      "sha256": "071f728023893da38c71ac298956f9e48bf57cb653bfca870ad97076f62697b2",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math-summary.json",
+      "sha256": "472ef92dc73ffd71fe66c0764cd0815be189a74ecad3f8b6e298fe9215050c8e",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/metrics.json",
+      "sha256": "f0b409e18c5e6d248f744a40c2812d0edad7d77105bba3d4a86ec8340ed3aeeb",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/ocr-texts.json",
+      "sha256": "1621fe6cd9da1605fe261c7c2dfa373e4bf345f9e2efb72c06b838e09832ed90",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-arrow-readback.json",
+      "sha256": "7b9a220ccc0e41ca345aebc4dd8580e1dca7641f840560e2cf2dca4c938e7674",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-bridge.json",
+      "sha256": "962aaa234b7e614f991c6afde797ee474a127007e5a488e5101380915de7d6ca",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/assets/asset_manifest.json",
+      "sha256": "ef0de688eba33731259dc3f015b70553fa8d40ea682e60bcdc172cffa897b297",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/assets/evidence_provenance.json",
+      "sha256": "fbecb228753ef9f623f426fb88240325131f225d14fa2c0478bbd9f7c50f89f2",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/design/render_plan.json",
+      "sha256": "3f8865168ba4a6a2f2c22a55fa64d82e9d4986c9a328d0c910a7872f63adf64d",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/design/scene_graph.json",
+      "sha256": "d775ca414f3aa33eacae758651ee995bb25e5625853891b5d0ecc55941950a0a",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/design/scientific_spec.json",
+      "sha256": "9daf6fc115e89a072b53e36bf9b1132d550183b51912bd6a8a98e2d346274139",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/input/source_manifest.json",
+      "sha256": "d2c779a6fae33a669620ecd2644e204e4a3de8c5bdae5d8445f27767a7de867d",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-case/project_state.json",
+      "sha256": "c722cca295c4298150bfb0d79b6319a9bd9adff4fd0506635b04286b6518dfcd",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-inventory.json",
+      "sha256": "cfe62e44fc73850bff74f085d4c49491b98037b4743108de488ec8544a2b5f8c",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-operation-receipt.json",
+      "sha256": "7a226d4e15b55c1582925e86f8d3e3afd9689d4a18d9c362364ca4d340997ad9",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/powerpoint-live-source-scene.json",
+      "sha256": "2371adc320e0e8df24095648fdc5028d10ece7ec080fa09193556c736adf74cc",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/primitive-audit.json",
+      "sha256": "bdf9d6934d6ccf646586657a223ec234021e0ecd47afb40db53a27ae42f64882",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/provider-capabilities.json",
+      "sha256": "62b8057ec9767ff0abeb3ec7acbe35ddaab366ea3a3b3cea41e322030164b991",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/regions-report.json",
+      "sha256": "e6aafd7b4e2530c1e53d87c274a33c7197a0b1967e76eea158e312ff16e24eea",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/repair-plan.json",
+      "sha256": "ee056fa271e8b4ac09ef89dfcf7e7e9bd121e1579861a0842a633609b2b94587",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/revision-receipt.json",
+      "sha256": "9092945488aa52c9141663b1cb0fe6fc88ad742be88bb19898d087d6d40a1d73",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/schema-v4-migration-report.json",
+      "sha256": "364401cfa3d4299a85eaf0b318715e8224456c8887c08fd3725515d4f093efe1",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/source-gate-report.json",
+      "sha256": "f14b97a0d178d9fb683762da6f77d06b60c2e25a2d200fb053196d532c1fd7fb",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/visual-contracts-report.json",
+      "sha256": "0a8edc05331a66e2cb12df2c69bd3e3b152f465b15ab2eb1e5179c591a2e3c72",
+      "revision_id": "scene-3de3860df1266a65",
+      "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "reference_inventory_freeze_receipt",
+  "case": "04-pareto-conditioned-diffusion",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "inventory_sha256": "a41f291b26e14676fe4a09f23f8bf5c24cae86576b16b68509cabbe510136f11",
+  "regions_sha256": "8eb21212bbf7ece808b12eecdd1de03d1faa00763591fc7e2b880306e6a0ec4f",
+  "critical_region_expectation_sha256": "726fc29de97632b178db5a4fd3a3496e910ca5751015be7706da893b77003f42",
+  "region_tasks_sha256": "8ffc88734b7d0071c5dc2bcbe25d998c5fb75e2aa1b076bcfd6bd8faedb11f53",
+  "object_count": 38,
+  "counts": {
+    "text": 15,
+    "formula": 2,
+    "arrow": 5,
+    "icon": 5,
+    "brace": 0,
+    "plot": 3,
+    "shape": 8
+  },
+  "topology_contract_count": 8,
+  "topology_contracts_sha256": "18642dd47ca7ac50ded1eaa228cf35a7732ab559ecbda287a791294aed54e6f3",
+  "frozen_at": "20260824T131605Z",
+  "status": "PASS"
+}

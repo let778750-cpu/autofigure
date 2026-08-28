@@ -1,0 +1,2403 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "repair-plan",
+  "case": "01-modular-agent",
+  "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+  "artifact_sha256": "21d037d2f8dcbaaf076256aae19f411274f30351f528d2d6b4f2f48db108db3f",
+  "qa_report_sha256": {
+    "arrow-compile-report.json": "636267c7107d44976fb93cedae2303de8bb6d9f0d18c8da53073342b27e74c43",
+    "arrow-visual-report.json": "5bd195968b4e0816980a5512be6943d3aba8f7fea3fc44bbbf23bdcb31dce1d6",
+    "asset-spec-audit.json": "6e38228039c56c64289c9ce0797439a61ccabd69df4da8cf5617c46a2e260c46",
+    "layout-audit.json": "c9257ad57aee5b4a7e490beb8acf15a4e21d84c59cc2e779d591c4085d58b087",
+    "live-evidence.json": "2a02eac9eccd2c57752ab3fc86e58cacfbb676262bf57cb9f971840c57587d9d",
+    "math-summary.json": "0a410b73cc2c863ff139409b75fbd5269800a66e75b541616ec429f7a8ef509b",
+    "powerpoint-arrow-readback.json": "434ba05f2f57822cb917823bf5e11a4b53b892179449740377a49de0623a479d",
+    "primitive-audit.json": "4a44e93490aa207a7e0a1c1a1692d181bdf385b498860fbdc57711c97e5f6d32",
+    "regions-report.json": "fda6e18c5beb6697cfdc9f5525c23c6f81da271a2feecfb8941ed0d070510fd1",
+    "visual-contracts-report.json": "273145fe5f78312e3762de80f7a6d2ee91f53b895c25ae282fc32e5a9a3e9ad6"
+  },
+  "input_blockers_sha256": "859b080acdd6d3c9a90fdf8473745cb1d0b36aa02c3872f83b5f6bfb3d3f15fb",
+  "blockers": [
+    {
+      "id": "B0001",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0002",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0003",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0004",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0005",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0006",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0007",
+      "blocker": "arrow-visual:allocator-task1-route-1-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0008",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0009",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0010",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0011",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0012",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0013",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0014",
+      "blocker": "arrow-visual:allocator-task1-route-2-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0015",
+      "blocker": "arrow-visual:allocator-task1-skip-edge-reference-visual:end:reference-evidence",
+      "category": "source_model"
+    },
+    {
+      "id": "B0016",
+      "blocker": "arrow-visual:allocator-task1-skip-edge-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0017",
+      "blocker": "arrow-visual:allocator-task1-skip-edge-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "arrow-visual:allocator-task1-skip-edge-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0019",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0020",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0021",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0022",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0023",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0024",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0025",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0026",
+      "blocker": "arrow-visual:behavior-to-reward-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0027",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0028",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0029",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0030",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0031",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0032",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0033",
+      "blocker": "arrow-visual:bottom-mixture-to-rollout-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0034",
+      "blocker": "arrow-visual:imagination-z0-to-z1-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0035",
+      "blocker": "arrow-visual:imagination-z0-to-z1-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0036",
+      "blocker": "arrow-visual:imagination-z0-to-z1-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0037",
+      "blocker": "arrow-visual:imagination-z1-to-z2-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0038",
+      "blocker": "arrow-visual:imagination-z1-to-z2-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0039",
+      "blocker": "arrow-visual:imagination-z1-to-z2-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0040",
+      "blocker": "arrow-visual:imagination-z1-to-z2-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0041",
+      "blocker": "arrow-visual:imagination-z1-to-z2-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0042",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0043",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0044",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0045",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0046",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0047",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0048",
+      "blocker": "arrow-visual:imagination-z2-to-zh-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0049",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0050",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0051",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0052",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0053",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0054",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0055",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0056",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0057",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0058",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0059",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:start:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0060",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:start:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0061",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:start:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0062",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:start:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0063",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:start:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0064",
+      "blocker": "arrow-visual:interaction-arrow-reference-visual:start:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0065",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0066",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0067",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0068",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0069",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0070",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0071",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0072",
+      "blocker": "arrow-visual:joint-feedback-to-modular-panel-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0073",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0074",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0075",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0076",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0077",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0078",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0079",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0080",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0081",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0082",
+      "blocker": "arrow-visual:mapping-to-imagination-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0083",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0084",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0085",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0086",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0087",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0088",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0089",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0090",
+      "blocker": "arrow-visual:observation-to-mllm-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0091",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0092",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0093",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0094",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0095",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0096",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0097",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0098",
+      "blocker": "arrow-visual:observation-to-wm-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0099",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0100",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0101",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0102",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0103",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0104",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0105",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0106",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0107",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0108",
+      "blocker": "arrow-visual:reward-to-joint-optimization-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0109",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0110",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0111",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0112",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0113",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-search-not-tight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0114",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0115",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0116",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0117",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0118",
+      "blocker": "arrow-visual:rollout-a0-to-z1-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0119",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0120",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0121",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0122",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0123",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-search-not-tight",
+      "category": "source_model"
+    },
+    {
+      "id": "B0124",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0125",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0126",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0127",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0128",
+      "blocker": "arrow-visual:rollout-a1-to-z2-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0129",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0130",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0131",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0132",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0133",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0134",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0135",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0136",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0137",
+      "blocker": "arrow-visual:rollout-a2-to-next-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0138",
+      "blocker": "arrow-visual:rollout-pi0-to-a0-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0139",
+      "blocker": "arrow-visual:rollout-pi0-to-a0-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0140",
+      "blocker": "arrow-visual:rollout-pi0-to-a0-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0141",
+      "blocker": "arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0142",
+      "blocker": "arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0143",
+      "blocker": "arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0144",
+      "blocker": "arrow-visual:rollout-pi1-to-a1-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0145",
+      "blocker": "arrow-visual:rollout-pi1-to-a1-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0146",
+      "blocker": "arrow-visual:rollout-pi1-to-a1-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0147",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0148",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0149",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0150",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0151",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0152",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0153",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0154",
+      "blocker": "arrow-visual:rollout-pi2-to-a2-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0155",
+      "blocker": "arrow-visual:rollout-z0-to-pi0-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0156",
+      "blocker": "arrow-visual:rollout-z0-to-pi0-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0157",
+      "blocker": "arrow-visual:rollout-z0-to-pi0-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0158",
+      "blocker": "arrow-visual:rollout-z1-to-pi1-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0159",
+      "blocker": "arrow-visual:rollout-z1-to-pi1-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0160",
+      "blocker": "arrow-visual:rollout-z1-to-pi1-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0161",
+      "blocker": "arrow-visual:rollout-z1-to-pi1-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0162",
+      "blocker": "arrow-visual:rollout-z1-to-z2-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0163",
+      "blocker": "arrow-visual:rollout-z1-to-z2-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0164",
+      "blocker": "arrow-visual:rollout-z1-to-z2-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0165",
+      "blocker": "arrow-visual:rollout-z1-to-z2-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0166",
+      "blocker": "arrow-visual:rollout-z1-to-z2-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0167",
+      "blocker": "arrow-visual:rollout-z2-to-pi2-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0168",
+      "blocker": "arrow-visual:rollout-z2-to-pi2-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0169",
+      "blocker": "arrow-visual:rollout-z2-to-pi2-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0170",
+      "blocker": "arrow-visual:rollout-z2-to-zh-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0171",
+      "blocker": "arrow-visual:rollout-z2-to-zh-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0172",
+      "blocker": "arrow-visual:rollout-z2-to-zh-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0173",
+      "blocker": "arrow-visual:rollout-z2-to-zh-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0174",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0175",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0176",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0177",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0178",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0179",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0180",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0181",
+      "blocker": "arrow-visual:svg-line-0005-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0182",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0183",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0184",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0185",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0186",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0187",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0188",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0189",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0190",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0191",
+      "blocker": "arrow-visual:svg-line-0006-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0192",
+      "blocker": "arrow-visual:svg-line-0007-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0193",
+      "blocker": "arrow-visual:svg-line-0007-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0194",
+      "blocker": "arrow-visual:svg-line-0007-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0195",
+      "blocker": "arrow-visual:svg-line-0007-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0196",
+      "blocker": "arrow-visual:svg-line-0007-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0197",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0198",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0199",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0200",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0201",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0202",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0203",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0204",
+      "blocker": "arrow-visual:svg-line-0008-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0205",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0206",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0207",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0208",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0209",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0210",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0211",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0212",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0213",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0214",
+      "blocker": "arrow-visual:task-encoder-to-token-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0215",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0216",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0217",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0218",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0219",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0220",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0221",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0222",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0223",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0224",
+      "blocker": "arrow-visual:task-list-to-encoder-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0225",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0226",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0227",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0228",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0229",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0230",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:reference:tight-bbox-truncates-component",
+      "category": "source_model"
+    },
+    {
+      "id": "B0231",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:render:tight-bbox-truncates-component",
+      "category": "source_model"
+    },
+    {
+      "id": "B0232",
+      "blocker": "arrow-visual:task-token-to-allocator-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0233",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:end:head-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0234",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0235",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0236",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:end:head-not-distinct-from-shaft",
+      "category": "source_model"
+    },
+    {
+      "id": "B0237",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:end:head-silhouette",
+      "category": "source_model"
+    },
+    {
+      "id": "B0238",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:end:head-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0239",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:shaft-width",
+      "category": "source_model"
+    },
+    {
+      "id": "B0240",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:silhouette-area",
+      "category": "source_model"
+    },
+    {
+      "id": "B0241",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:silhouette-bbox",
+      "category": "source_model"
+    },
+    {
+      "id": "B0242",
+      "blocker": "arrow-visual:task-token-to-mapping-reference-visual:silhouette-mask",
+      "category": "source_model"
+    },
+    {
+      "id": "B0243",
+      "blocker": "arrow-visual:top-mixture-to-rollout-reference-visual:end:head-direction",
+      "category": "source_model"
+    },
+    {
+      "id": "B0244",
+      "blocker": "arrow-visual:top-mixture-to-rollout-reference-visual:end:head-length",
+      "category": "source_model"
+    },
+    {
+      "id": "B0245",
+      "blocker": "asset-contract:inventory-missing",
+      "category": "contract"
+    },
+    {
+      "id": "B0246",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0247",
+      "blocker": "live-binding-evidence-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0248",
+      "blocker": "live-candidate-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0249",
+      "blocker": "live-evidence-arrow-compile-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0250",
+      "blocker": "live-evidence-arrow-readback-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0251",
+      "blocker": "live-evidence-bindings-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0252",
+      "blocker": "live-evidence-inventory-candidate-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0253",
+      "blocker": "live-evidence-layout-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0254",
+      "blocker": "live-evidence-math-summary-mismatch",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0255",
+      "blocker": "live-evidence-primitive-audit-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0256",
+      "blocker": "live-evidence-regions-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0257",
+      "blocker": "live-evidence-render-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0258",
+      "blocker": "live-evidence-scene-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0259",
+      "blocker": "live-region:expert-gap-arrow-text-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0260",
+      "blocker": "live-region:gold-arrowhead-scale-clearance",
+      "category": "source_model"
+    },
+    {
+      "id": "B0261",
+      "blocker": "live-region:mixture-arrow-occlusion-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0262",
+      "blocker": "live-region:observation-arrows",
+      "category": "source_model"
+    },
+    {
+      "id": "B0263",
+      "blocker": "live-region:rollout-arrow-topology",
+      "category": "source_model"
+    },
+    {
+      "id": "B0264",
+      "blocker": "live-region:six-bicolor-state-circles",
+      "category": "source_model"
+    },
+    {
+      "id": "B0265",
+      "blocker": "live-region:task-guided-allocator-topology",
+      "category": "source_model"
+    },
+    {
+      "id": "B0266",
+      "blocker": "live-render-finalizer-unverified",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0267",
+      "blocker": "live-reopened-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0268",
+      "blocker": "live-root-save-reopen-missing",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0269",
+      "blocker": "math-summary:bindings-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0270",
+      "blocker": "math-summary:declaration-empty-or-incomplete",
+      "category": "compiler"
+    },
+    {
+      "id": "B0271",
+      "blocker": "math-summary:existing-readback-unverified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0272",
+      "blocker": "math-summary:plan-hash-mismatch",
+      "category": "evidence_only"
+    },
+    {
+      "id": "B0273",
+      "blocker": "math-summary:save-reopen-unverified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0274",
+      "blocker": "ocr:reference-text-unmatched",
+      "category": "source_model"
+    },
+    {
+      "id": "B0275",
+      "blocker": "ocr:svg-text-unmatched",
+      "category": "source_model"
+    },
+    {
+      "id": "B0276",
+      "blocker": "reference-inventory:receipt-missing",
+      "category": "contract"
+    },
+    {
+      "id": "B0277",
+      "blocker": "region:expert-gap-arrow-text-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0278",
+      "blocker": "region:gold-arrowhead-scale-clearance",
+      "category": "source_model"
+    },
+    {
+      "id": "B0279",
+      "blocker": "region:mixture-arrow-occlusion-detail",
+      "category": "source_model"
+    },
+    {
+      "id": "B0280",
+      "blocker": "region:observation-arrows",
+      "category": "source_model"
+    },
+    {
+      "id": "B0281",
+      "blocker": "region:rollout-arrow-topology",
+      "category": "source_model"
+    },
+    {
+      "id": "B0282",
+      "blocker": "region:six-bicolor-state-circles",
+      "category": "source_model"
+    },
+    {
+      "id": "B0283",
+      "blocker": "region:task-guided-allocator-topology",
+      "category": "source_model"
+    },
+    {
+      "id": "B0284",
+      "blocker": "source-gate:seed:unavailable",
+      "category": "contract"
+    }
+  ],
+  "actions": [
+    {
+      "id": "A-contract",
+      "category": "contract",
+      "covers": [
+        "B0245",
+        "B0276",
+        "B0284"
+      ],
+      "strategy": "rederive-and-refreeze-reference-contract",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "reference.png",
+        "input_route",
+        "current candidate"
+      ],
+      "required_verification": [
+        "reference inventory closure",
+        "contract receipt hashes",
+        "critical-region expectation closure"
+      ]
+    },
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0001",
+        "B0002",
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0008",
+        "B0009",
+        "B0010",
+        "B0011",
+        "B0012",
+        "B0013",
+        "B0014",
+        "B0015",
+        "B0016",
+        "B0017",
+        "B0018",
+        "B0019",
+        "B0020",
+        "B0021",
+        "B0022",
+        "B0023",
+        "B0024",
+        "B0025",
+        "B0026",
+        "B0027",
+        "B0028",
+        "B0029",
+        "B0030",
+        "B0031",
+        "B0032",
+        "B0033",
+        "B0034",
+        "B0035",
+        "B0036",
+        "B0037",
+        "B0038",
+        "B0039",
+        "B0040",
+        "B0041",
+        "B0042",
+        "B0043",
+        "B0044",
+        "B0045",
+        "B0046",
+        "B0047",
+        "B0048",
+        "B0049",
+        "B0050",
+        "B0051",
+        "B0052",
+        "B0053",
+        "B0054",
+        "B0055",
+        "B0056",
+        "B0057",
+        "B0058",
+        "B0059",
+        "B0060",
+        "B0061",
+        "B0062",
+        "B0063",
+        "B0064",
+        "B0065",
+        "B0066",
+        "B0067",
+        "B0068",
+        "B0069",
+        "B0070",
+        "B0071",
+        "B0072",
+        "B0073",
+        "B0074",
+        "B0075",
+        "B0076",
+        "B0077",
+        "B0078",
+        "B0079",
+        "B0080",
+        "B0081",
+        "B0082",
+        "B0083",
+        "B0084",
+        "B0085",
+        "B0086",
+        "B0087",
+        "B0088",
+        "B0089",
+        "B0090",
+        "B0091",
+        "B0092",
+        "B0093",
+        "B0094",
+        "B0095",
+        "B0096",
+        "B0097",
+        "B0098",
+        "B0099",
+        "B0100",
+        "B0101",
+        "B0102",
+        "B0103",
+        "B0104",
+        "B0105",
+        "B0106",
+        "B0107",
+        "B0108",
+        "B0109",
+        "B0110",
+        "B0111",
+        "B0112",
+        "B0113",
+        "B0114",
+        "B0115",
+        "B0116",
+        "B0117",
+        "B0118",
+        "B0119",
+        "B0120",
+        "B0121",
+        "B0122",
+        "B0123",
+        "B0124",
+        "B0125",
+        "B0126",
+        "B0127",
+        "B0128",
+        "B0129",
+        "B0130",
+        "B0131",
+        "B0132",
+        "B0133",
+        "B0134",
+        "B0135",
+        "B0136",
+        "B0137",
+        "B0138",
+        "B0139",
+        "B0140",
+        "B0141",
+        "B0142",
+        "B0143",
+        "B0144",
+        "B0145",
+        "B0146",
+        "B0147",
+        "B0148",
+        "B0149",
+        "B0150",
+        "B0151",
+        "B0152",
+        "B0153",
+        "B0154",
+        "B0155",
+        "B0156",
+        "B0157",
+        "B0158",
+        "B0159",
+        "B0160",
+        "B0161",
+        "B0162",
+        "B0163",
+        "B0164",
+        "B0165",
+        "B0166",
+        "B0167",
+        "B0168",
+        "B0169",
+        "B0170",
+        "B0171",
+        "B0172",
+        "B0173",
+        "B0174",
+        "B0175",
+        "B0176",
+        "B0177",
+        "B0178",
+        "B0179",
+        "B0180",
+        "B0181",
+        "B0182",
+        "B0183",
+        "B0184",
+        "B0185",
+        "B0186",
+        "B0187",
+        "B0188",
+        "B0189",
+        "B0190",
+        "B0191",
+        "B0192",
+        "B0193",
+        "B0194",
+        "B0195",
+        "B0196",
+        "B0197",
+        "B0198",
+        "B0199",
+        "B0200",
+        "B0201",
+        "B0202",
+        "B0203",
+        "B0204",
+        "B0205",
+        "B0206",
+        "B0207",
+        "B0208",
+        "B0209",
+        "B0210",
+        "B0211",
+        "B0212",
+        "B0213",
+        "B0214",
+        "B0215",
+        "B0216",
+        "B0217",
+        "B0218",
+        "B0219",
+        "B0220",
+        "B0221",
+        "B0222",
+        "B0223",
+        "B0224",
+        "B0225",
+        "B0226",
+        "B0227",
+        "B0228",
+        "B0229",
+        "B0230",
+        "B0231",
+        "B0232",
+        "B0233",
+        "B0234",
+        "B0235",
+        "B0236",
+        "B0237",
+        "B0238",
+        "B0239",
+        "B0240",
+        "B0241",
+        "B0242",
+        "B0243",
+        "B0244",
+        "B0259",
+        "B0260",
+        "B0261",
+        "B0262",
+        "B0263",
+        "B0264",
+        "B0265",
+        "B0274",
+        "B0275",
+        "B0277",
+        "B0278",
+        "B0279",
+        "B0280",
+        "B0281",
+        "B0282",
+        "B0283"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-compiler",
+      "category": "compiler",
+      "covers": [
+        "B0270"
+      ],
+      "strategy": "fix-deterministic-compiler-and-recompile",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "compiler report",
+        "OOXML readback",
+        "single-visible-object and binding closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0246",
+        "B0252",
+        "B0254",
+        "B0268",
+        "B0271",
+        "B0273"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    },
+    {
+      "id": "A-evidence-only",
+      "category": "evidence_only",
+      "covers": [
+        "B0247",
+        "B0248",
+        "B0249",
+        "B0250",
+        "B0251",
+        "B0253",
+        "B0255",
+        "B0256",
+        "B0257",
+        "B0258",
+        "B0266",
+        "B0267",
+        "B0269",
+        "B0272"
+      ],
+      "strategy": "regenerate-hash-bound-evidence-from-unchanged-artifact",
+      "artifact_mutation_allowed": false,
+      "protected": [
+        "redraw.svg",
+        "redraw.pptx",
+        "scene.json",
+        "bindings.json"
+      ],
+      "required_verification": [
+        "evidence artifact identity",
+        "QA report digests",
+        "finalizer-bound render receipt"
+      ]
+    }
+  ],
+  "coverage": {
+    "expected_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048",
+      "B0049",
+      "B0050",
+      "B0051",
+      "B0052",
+      "B0053",
+      "B0054",
+      "B0055",
+      "B0056",
+      "B0057",
+      "B0058",
+      "B0059",
+      "B0060",
+      "B0061",
+      "B0062",
+      "B0063",
+      "B0064",
+      "B0065",
+      "B0066",
+      "B0067",
+      "B0068",
+      "B0069",
+      "B0070",
+      "B0071",
+      "B0072",
+      "B0073",
+      "B0074",
+      "B0075",
+      "B0076",
+      "B0077",
+      "B0078",
+      "B0079",
+      "B0080",
+      "B0081",
+      "B0082",
+      "B0083",
+      "B0084",
+      "B0085",
+      "B0086",
+      "B0087",
+      "B0088",
+      "B0089",
+      "B0090",
+      "B0091",
+      "B0092",
+      "B0093",
+      "B0094",
+      "B0095",
+      "B0096",
+      "B0097",
+      "B0098",
+      "B0099",
+      "B0100",
+      "B0101",
+      "B0102",
+      "B0103",
+      "B0104",
+      "B0105",
+      "B0106",
+      "B0107",
+      "B0108",
+      "B0109",
+      "B0110",
+      "B0111",
+      "B0112",
+      "B0113",
+      "B0114",
+      "B0115",
+      "B0116",
+      "B0117",
+      "B0118",
+      "B0119",
+      "B0120",
+      "B0121",
+      "B0122",
+      "B0123",
+      "B0124",
+      "B0125",
+      "B0126",
+      "B0127",
+      "B0128",
+      "B0129",
+      "B0130",
+      "B0131",
+      "B0132",
+      "B0133",
+      "B0134",
+      "B0135",
+      "B0136",
+      "B0137",
+      "B0138",
+      "B0139",
+      "B0140",
+      "B0141",
+      "B0142",
+      "B0143",
+      "B0144",
+      "B0145",
+      "B0146",
+      "B0147",
+      "B0148",
+      "B0149",
+      "B0150",
+      "B0151",
+      "B0152",
+      "B0153",
+      "B0154",
+      "B0155",
+      "B0156",
+      "B0157",
+      "B0158",
+      "B0159",
+      "B0160",
+      "B0161",
+      "B0162",
+      "B0163",
+      "B0164",
+      "B0165",
+      "B0166",
+      "B0167",
+      "B0168",
+      "B0169",
+      "B0170",
+      "B0171",
+      "B0172",
+      "B0173",
+      "B0174",
+      "B0175",
+      "B0176",
+      "B0177",
+      "B0178",
+      "B0179",
+      "B0180",
+      "B0181",
+      "B0182",
+      "B0183",
+      "B0184",
+      "B0185",
+      "B0186",
+      "B0187",
+      "B0188",
+      "B0189",
+      "B0190",
+      "B0191",
+      "B0192",
+      "B0193",
+      "B0194",
+      "B0195",
+      "B0196",
+      "B0197",
+      "B0198",
+      "B0199",
+      "B0200",
+      "B0201",
+      "B0202",
+      "B0203",
+      "B0204",
+      "B0205",
+      "B0206",
+      "B0207",
+      "B0208",
+      "B0209",
+      "B0210",
+      "B0211",
+      "B0212",
+      "B0213",
+      "B0214",
+      "B0215",
+      "B0216",
+      "B0217",
+      "B0218",
+      "B0219",
+      "B0220",
+      "B0221",
+      "B0222",
+      "B0223",
+      "B0224",
+      "B0225",
+      "B0226",
+      "B0227",
+      "B0228",
+      "B0229",
+      "B0230",
+      "B0231",
+      "B0232",
+      "B0233",
+      "B0234",
+      "B0235",
+      "B0236",
+      "B0237",
+      "B0238",
+      "B0239",
+      "B0240",
+      "B0241",
+      "B0242",
+      "B0243",
+      "B0244",
+      "B0245",
+      "B0246",
+      "B0247",
+      "B0248",
+      "B0249",
+      "B0250",
+      "B0251",
+      "B0252",
+      "B0253",
+      "B0254",
+      "B0255",
+      "B0256",
+      "B0257",
+      "B0258",
+      "B0259",
+      "B0260",
+      "B0261",
+      "B0262",
+      "B0263",
+      "B0264",
+      "B0265",
+      "B0266",
+      "B0267",
+      "B0268",
+      "B0269",
+      "B0270",
+      "B0271",
+      "B0272",
+      "B0273",
+      "B0274",
+      "B0275",
+      "B0276",
+      "B0277",
+      "B0278",
+      "B0279",
+      "B0280",
+      "B0281",
+      "B0282",
+      "B0283",
+      "B0284"
+    ],
+    "covered_blocker_ids": [
+      "B0001",
+      "B0002",
+      "B0003",
+      "B0004",
+      "B0005",
+      "B0006",
+      "B0007",
+      "B0008",
+      "B0009",
+      "B0010",
+      "B0011",
+      "B0012",
+      "B0013",
+      "B0014",
+      "B0015",
+      "B0016",
+      "B0017",
+      "B0018",
+      "B0019",
+      "B0020",
+      "B0021",
+      "B0022",
+      "B0023",
+      "B0024",
+      "B0025",
+      "B0026",
+      "B0027",
+      "B0028",
+      "B0029",
+      "B0030",
+      "B0031",
+      "B0032",
+      "B0033",
+      "B0034",
+      "B0035",
+      "B0036",
+      "B0037",
+      "B0038",
+      "B0039",
+      "B0040",
+      "B0041",
+      "B0042",
+      "B0043",
+      "B0044",
+      "B0045",
+      "B0046",
+      "B0047",
+      "B0048",
+      "B0049",
+      "B0050",
+      "B0051",
+      "B0052",
+      "B0053",
+      "B0054",
+      "B0055",
+      "B0056",
+      "B0057",
+      "B0058",
+      "B0059",
+      "B0060",
+      "B0061",
+      "B0062",
+      "B0063",
+      "B0064",
+      "B0065",
+      "B0066",
+      "B0067",
+      "B0068",
+      "B0069",
+      "B0070",
+      "B0071",
+      "B0072",
+      "B0073",
+      "B0074",
+      "B0075",
+      "B0076",
+      "B0077",
+      "B0078",
+      "B0079",
+      "B0080",
+      "B0081",
+      "B0082",
+      "B0083",
+      "B0084",
+      "B0085",
+      "B0086",
+      "B0087",
+      "B0088",
+      "B0089",
+      "B0090",
+      "B0091",
+      "B0092",
+      "B0093",
+      "B0094",
+      "B0095",
+      "B0096",
+      "B0097",
+      "B0098",
+      "B0099",
+      "B0100",
+      "B0101",
+      "B0102",
+      "B0103",
+      "B0104",
+      "B0105",
+      "B0106",
+      "B0107",
+      "B0108",
+      "B0109",
+      "B0110",
+      "B0111",
+      "B0112",
+      "B0113",
+      "B0114",
+      "B0115",
+      "B0116",
+      "B0117",
+      "B0118",
+      "B0119",
+      "B0120",
+      "B0121",
+      "B0122",
+      "B0123",
+      "B0124",
+      "B0125",
+      "B0126",
+      "B0127",
+      "B0128",
+      "B0129",
+      "B0130",
+      "B0131",
+      "B0132",
+      "B0133",
+      "B0134",
+      "B0135",
+      "B0136",
+      "B0137",
+      "B0138",
+      "B0139",
+      "B0140",
+      "B0141",
+      "B0142",
+      "B0143",
+      "B0144",
+      "B0145",
+      "B0146",
+      "B0147",
+      "B0148",
+      "B0149",
+      "B0150",
+      "B0151",
+      "B0152",
+      "B0153",
+      "B0154",
+      "B0155",
+      "B0156",
+      "B0157",
+      "B0158",
+      "B0159",
+      "B0160",
+      "B0161",
+      "B0162",
+      "B0163",
+      "B0164",
+      "B0165",
+      "B0166",
+      "B0167",
+      "B0168",
+      "B0169",
+      "B0170",
+      "B0171",
+      "B0172",
+      "B0173",
+      "B0174",
+      "B0175",
+      "B0176",
+      "B0177",
+      "B0178",
+      "B0179",
+      "B0180",
+      "B0181",
+      "B0182",
+      "B0183",
+      "B0184",
+      "B0185",
+      "B0186",
+      "B0187",
+      "B0188",
+      "B0189",
+      "B0190",
+      "B0191",
+      "B0192",
+      "B0193",
+      "B0194",
+      "B0195",
+      "B0196",
+      "B0197",
+      "B0198",
+      "B0199",
+      "B0200",
+      "B0201",
+      "B0202",
+      "B0203",
+      "B0204",
+      "B0205",
+      "B0206",
+      "B0207",
+      "B0208",
+      "B0209",
+      "B0210",
+      "B0211",
+      "B0212",
+      "B0213",
+      "B0214",
+      "B0215",
+      "B0216",
+      "B0217",
+      "B0218",
+      "B0219",
+      "B0220",
+      "B0221",
+      "B0222",
+      "B0223",
+      "B0224",
+      "B0225",
+      "B0226",
+      "B0227",
+      "B0228",
+      "B0229",
+      "B0230",
+      "B0231",
+      "B0232",
+      "B0233",
+      "B0234",
+      "B0235",
+      "B0236",
+      "B0237",
+      "B0238",
+      "B0239",
+      "B0240",
+      "B0241",
+      "B0242",
+      "B0243",
+      "B0244",
+      "B0245",
+      "B0246",
+      "B0247",
+      "B0248",
+      "B0249",
+      "B0250",
+      "B0251",
+      "B0252",
+      "B0253",
+      "B0254",
+      "B0255",
+      "B0256",
+      "B0257",
+      "B0258",
+      "B0259",
+      "B0260",
+      "B0261",
+      "B0262",
+      "B0263",
+      "B0264",
+      "B0265",
+      "B0266",
+      "B0267",
+      "B0268",
+      "B0269",
+      "B0270",
+      "B0271",
+      "B0272",
+      "B0273",
+      "B0274",
+      "B0275",
+      "B0276",
+      "B0277",
+      "B0278",
+      "B0279",
+      "B0280",
+      "B0281",
+      "B0282",
+      "B0283",
+      "B0284"
+    ],
+    "uncovered_blocker_ids": [],
+    "multiply_covered_blocker_ids": []
+  },
+  "invalid_inputs": [],
+  "classification_counts": {
+    "contract": 3,
+    "source_model": 260,
+    "compiler": 1,
+    "host_compat": 6,
+    "evidence_only": 14
+  },
+  "errors": [],
+  "pass": true,
+  "plan_sha256": "e7f4d0cb126b703f9997dc30019dda1e66bfa3bac08414283d36164e7fa87f14"
+}

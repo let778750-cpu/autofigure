@@ -5,12 +5,12 @@
   "width": 1513,
   "height": 554,
   "input_route": "svg-seeded",
-  "processing_mode": "svg_import",
+  "processing_mode": "png_reconstruct",
   "source_original_name": "02_2026_CVPR_2026_Thinking_Diffusion_Penalize_and_Guide_Visual-Grounde.png",
   "reference_path": "reference.png",
   "workflow": {
-    "state": "candidate",
-    "revision": 2,
+    "state": "qa_failed",
+    "revision": 69,
     "history": [
       {
         "state": "candidate",
@@ -31,29 +31,644 @@
           "object_count": 156,
           "bindings_complete": true
         }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T151922Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T151922Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6e390b73d4943bbe6b4a70b59ee633a34241a4893ec3b93f7739818c483d9a07",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T151948Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T151949Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "711a6f1696f7ebd3f6cd01d1bc99e5f0b81b85274808342e07ffff5b13856567",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T152007Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T152007Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "8940747b939b88d06939271d3a8885cf1fdec7b89506b227482a1672ce01cd60",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T152532Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T152533Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "85e5a8b1915ed904f42da8ac5885d439a2e8662e4dba883bb3e89fc5d3200718",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T153053Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T153053Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "57f0ead8b22b7958c01419bc2db4eca6bcb77f4a5f96d75b45a6e61dae3a9b5f",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T153258Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T153258Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "9bd7a842d6bba7bfe72929aa2e69eb7a4206b84d29c7df936ef7550da338c59a",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T153716Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T153716Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "18cd4829e26e4f8eb59b2424318222480bb3fbd4b6f3032fe6652cc4f1b2bb9c",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T154101Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T154101Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6899f6f78e225581cf156c9ee8a2e9dd8da1871b90749eb7e3a65d2e743eff62",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T154223Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T154224Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "ce9a3273cec31893830273262ebc24e653ce5802d20e30abcc8552c8e435b885",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T154425Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T154425Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "c4ff70266799de38e3aeea212583a12c0a46e1c4f629b5186b35c0dd52c662fc",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T154545Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "bindings:save-reopen-not-verified"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T155414Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T155414Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "7f0eaa641a206175c680ee44cb65a3e9919cf70af589e7ce90b19a1fa95b607a",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T155651Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T155651Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "e4359db81cc40d9dc82bbb53afe4a845b4ef3af2678466408572c5dad03be267",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T160650Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T160650Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "8751028a3c4482e22f774345d3764275a50c4d1ee16d4a21aff753f92bd3e57a",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T160834Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T160835Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "0a0ef605b3e9071b2046431b3e3c33153b85198ada27cb4bbb6b36be8486efd8",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T160853Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T160853Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "a00fd2b5b619c8173ff79dbee648281a48a2650e53785f410dacfc3465f3fcd6",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T161137Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T161137Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "76faba4af8f54442bd21a415342a07a76db74494d89245130327e341cf59a7f0",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T164612Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T164744Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "3487e2d5c0f69fa57cf5020a9f330c9b1f158c4fcb326ec71525c1fb51a08379",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T165247Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T165248Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6e3a8e245b8dd162f414fa149840779dd66c5069cf4a9b8b5bb9935f7fe5847e",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T165650Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T171850Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "bf2002e2da046227b6bf19112145bb45ab9c25effc83bf40278e1f738028be83",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T171857Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T172025Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "ed4ade403bcf7aba0f8e054d68bfe3aa381b7cb200c4c48e1c5d3bbb206d2aa3",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T172044Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T172332Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "3c9582b204ed9c8ed3bd2bdad2f6a0281ed99e110a4009eb5e99fa4101c2dd8c",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T172339Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T173120Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "bed18fa2de68fb18be287de14a0e10fc209ab9e825547118326f4179ffba7cd1",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T173125Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T173611Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "795c50407937dfe04b308d658742adc34e05b637c13165363be5dcee8346938f",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T173616Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T174219Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "cf4e2001c8923b8edafe188848ee4d342278409cc5c9e60c8365c7b2980aeefc",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T174225Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T175612Z",
+        "reason": "powerpoint-live-save-reopen-only-published"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T175654Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "live-render-finalizer-unverified"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260823T190937Z",
+        "reason": "powerpoint-live-repair-requested"
+      },
+      {
+        "state": "candidate",
+        "at": "20260823T191108Z",
+        "reason": "powerpoint-live-save-reopen-only-published"
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T191141Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "live-render-finalizer-unverified"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260823T191636Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "live-render-finalizer-unverified"
+          ]
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T121743Z",
+        "reason": "schema-v4-migration-evidence-refreshed"
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T132705Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T132706Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "6bb8a6527dfd70400f5f5b1290bb24eaf4d16da2dc16e2528895855d678ff046",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T132841Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:seed:unavailable",
+            "live-render-finalizer-unverified",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T134128Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T134128Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "d33487dcd8d1701ef6e4786850d380ef204ecb44143cbedf3c9857fedc0c54eb",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T134141Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:seed:unavailable",
+            "live-render-finalizer-unverified",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T134855Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T134855Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "e0241a7517ca7911ffa6bd84dbbe47ed4ee5c2fc88a233d7786f144326168e3a",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T134913Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:seed:unavailable",
+            "live-render-finalizer-unverified",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch"
+          ]
+        }
+      },
+      {
+        "state": "repairing",
+        "at": "20260824T153715Z",
+        "reason": "offline-conversion-started"
+      },
+      {
+        "state": "candidate",
+        "at": "20260824T153715Z",
+        "reason": "offline-conversion-complete",
+        "details": {
+          "pptx_sha256": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+          "object_count": 156,
+          "bindings_complete": true
+        }
+      },
+      {
+        "state": "qa_failed",
+        "at": "20260824T154354Z",
+        "reason": "strict-check-failed",
+        "details": {
+          "blockers": [
+            "asset-contract:inventory-missing",
+            "ocr:reference-text-unmatched",
+            "bindings:save-reopen-not-verified",
+            "reference-inventory:receipt-missing",
+            "source-gate:seed:unavailable",
+            "live-render-finalizer-unverified",
+            "live-root-save-reopen-missing",
+            "live-candidate-hash-mismatch",
+            "live-reopened-hash-mismatch",
+            "live-binding-evidence-hash-mismatch",
+            "live-evidence-bindings-mismatch",
+            "live-evidence-scene-mismatch",
+            "live-evidence-arrow-readback-mismatch",
+            "live-evidence-arrow-compile-mismatch",
+            "live-evidence-primitive-audit-mismatch",
+            "live-evidence-layout-audit-mismatch",
+            "live-evidence-regions-mismatch",
+            "live-evidence-math-summary-mismatch",
+            "live-evidence-inventory-candidate-mismatch"
+          ]
+        }
       }
     ]
   },
-  "schema_version": "3.1.0",
-  "fidelity_profile": "editable_native",
-  "backend_mode": "offline",
+  "schema_version": "4.0.0",
+  "fidelity_profile": "hybrid_fidelity",
+  "backend_mode": "hybrid",
   "validation": {
-    "profile": "standard",
-    "status": "diagnostic",
-    "checked_at": "20260821T130750Z",
+    "profile": "strict",
+    "status": "failed",
+    "checked_at": "20260824T154354Z",
     "blockers": [
-      "regions:no-critical-regions",
-      "arrow:F1:arrow-0001",
-      "arrow:F1:arrow-0002",
-      "arrow:F3:arrow-0002",
-      "arrow:F1:arrow-0003",
-      "arrow:F3:arrow-0003",
-      "arrow:F1:arrow-0004",
-      "arrow:F1:arrow-0005",
-      "arrow:F3:arrow-0005",
-      "arrow:F1:arrow-0006",
-      "arrow:F3:arrow-0006"
+      "asset-contract:inventory-missing",
+      "ocr:reference-text-unmatched",
+      "bindings:save-reopen-not-verified",
+      "reference-inventory:receipt-missing",
+      "source-gate:seed:unavailable",
+      "live-render-finalizer-unverified",
+      "live-root-save-reopen-missing",
+      "live-candidate-hash-mismatch",
+      "live-reopened-hash-mismatch",
+      "live-binding-evidence-hash-mismatch",
+      "live-evidence-bindings-mismatch",
+      "live-evidence-scene-mismatch",
+      "live-evidence-arrow-readback-mismatch",
+      "live-evidence-arrow-compile-mismatch",
+      "live-evidence-primitive-audit-mismatch",
+      "live-evidence-layout-audit-mismatch",
+      "live-evidence-regions-mismatch",
+      "live-evidence-math-summary-mismatch",
+      "live-evidence-inventory-candidate-mismatch"
     ]
   },
-  "task_mode": "RECONSTRUCT_1TO1"
+  "task_mode": "RECONSTRUCT_1TO1",
+  "active_revision": {
+    "lineage_version": "1.0.0",
+    "revision_id": "scene-3de3860df1266a65",
+    "scene_sha256": "3de3860df1266a6552679ebba8bfc6ea3cb0ec0ddc213a4a6e4addd1e993ff1e",
+    "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+    "artifacts": {
+      "redraw_svg": "a670b517aa7b80945fa260eb1b51a71141e722c1e732a00d141babc8f807bb8a",
+      "redraw_pptx": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+      "render_png": "d1d2d0104982af397f8e7a3d2d71827a89de0b22782ba364430fa68d9cf1807f",
+      "bindings": "592d5f4eb51c28fce64ca1de650e59cb8d60f4d88b1b8ab5a8a0cfe8236975a8"
+    },
+    "stamped_at": "20260828T081530Z"
+  }
 }

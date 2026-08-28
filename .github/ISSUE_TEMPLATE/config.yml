@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 贡献与分支流程
+    url: https://github.com/let778750-cpu/autofigure/blob/develop/CONTRIBUTING.md
+    about: 提交 Issue 或 PR 前先阅读证据、分支和闭环要求。
+  - name: 安全问题
+    url: https://github.com/let778750-cpu/autofigure/security/advisories/new
+    about: 凭据泄露或可被利用的安全缺陷请使用私有 Security Advisory。

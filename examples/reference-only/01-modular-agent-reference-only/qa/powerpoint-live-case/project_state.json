@@ -9,7 +9,7 @@
   "requestedBackendIds": [
     "powerpoint"
   ],
-  "updatedAt": "2026-08-21T13:21:18.306765Z",
+  "updatedAt": "2026-08-23T19:05:21.569537Z",
   "blockedReason": null,
   "gates": {
     "environment": "PASS",
@@ -28,7 +28,7 @@
   "history": [
     {
       "state": "PLANNED",
-      "at": "2026-08-21T13:21:18.306765Z",
+      "at": "2026-08-23T19:05:21.569537Z",
       "evidence": [
         "derived from Autofigure v3 scene/bindings and current PPTX hash"
       ],

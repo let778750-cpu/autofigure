@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.2.0",
   "svg": "redraw.svg",
   "pptx": "redraw.pptx",
   "defaults_px": {
@@ -7,7 +7,11 @@
     "canvas": 0.25,
     "repeat_size": 0.25,
     "repeat_axis": 0.25,
-    "repeat_spacing": 1.0
+    "repeat_spacing": 1.0,
+    "peer_size": 0.25,
+    "peer_axis": 0.25,
+    "peer_spacing": 1.0,
+    "gap": 0.75
   },
   "canvas": {
     "backend": {
@@ -18,6 +22,606 @@
     },
     "checked_elements": 156,
     "objects": [
+      {
+        "element": "arrow-left-input-to-model",
+        "box": {
+          "x": 487.0,
+          "y": 93.0,
+          "width": 0.5,
+          "height": 23.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "arrow-left-model-to-early-step",
+        "box": {
+          "x": 487.0,
+          "y": 187.0,
+          "width": 0.5,
+          "height": 49.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "arrow-left-to-later-step",
+        "box": {
+          "x": 487.0,
+          "y": 360.0,
+          "width": 0.5,
+          "height": 23.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "arrow-right-input-to-model",
+        "box": {
+          "x": 1260.0,
+          "y": 88.0,
+          "width": 0.5,
+          "height": 24.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "arrow-right-model-to-early-step",
+        "box": {
+          "x": 1260.0,
+          "y": 182.0,
+          "width": 0.5,
+          "height": 51.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "arrow-right-to-later-step",
+        "box": {
+          "x": 1259.0,
+          "y": 355.0,
+          "width": 0.5,
+          "height": 23.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-left-early-answer-under",
+        "box": {
+          "x": 559.0,
+          "y": 291.0,
+          "width": 106.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-left-early-step-side",
+        "box": {
+          "x": 682.0,
+          "y": 205.0,
+          "width": 15.0,
+          "height": 76.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-left-later-rationale-under",
+        "box": {
+          "x": 339.0,
+          "y": 447.0,
+          "width": 106.0,
+          "height": 13.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-left-later-step-side",
+        "box": {
+          "x": 682.0,
+          "y": 363.0,
+          "width": 15.0,
+          "height": 76.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-right-early-rationale-under",
+        "box": {
+          "x": 1125.0,
+          "y": 288.0,
+          "width": 106.0,
+          "height": 14.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-right-early-step-side",
+        "box": {
+          "x": 1454.0,
+          "y": 203.0,
+          "width": 16.0,
+          "height": 76.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-right-later-answer-under",
+        "box": {
+          "x": 1329.0,
+          "y": 441.0,
+          "width": 106.0,
+          "height": 16.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-right-later-step-side",
+        "box": {
+          "x": 1454.0,
+          "y": 358.0,
+          "width": 15.0,
+          "height": 76.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-top-left-image",
+        "box": {
+          "x": 28.0,
+          "y": 40.0,
+          "width": 107.0,
+          "height": 15.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-top-left-prompt",
+        "box": {
+          "x": 170.0,
+          "y": 40.0,
+          "width": 106.0,
+          "height": 16.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-top-left-response",
+        "box": {
+          "x": 311.0,
+          "y": 40.0,
+          "width": 352.0,
+          "height": 16.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-top-right-image",
+        "box": {
+          "x": 800.0,
+          "y": 36.0,
+          "width": 106.0,
+          "height": 14.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-top-right-prompt",
+        "box": {
+          "x": 942.0,
+          "y": 35.0,
+          "width": 106.0,
+          "height": 16.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "brace-top-right-response",
+        "box": {
+          "x": 1083.0,
+          "y": 35.0,
+          "width": 352.0,
+          "height": 16.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-left-early-line1",
+        "box": {
+          "x": 523.569974,
+          "y": 302.474961,
+          "width": 177.859948,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-left-early-line2",
+        "box": {
+          "x": 525.032546,
+          "y": 326.474961,
+          "width": 174.935013,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-left-later-line1",
+        "box": {
+          "x": 297.12252,
+          "y": 453.474961,
+          "width": 189.754961,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-left-later-line2",
+        "box": {
+          "x": 308.725039,
+          "y": 477.474961,
+          "width": 166.550026,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-right-early-line1",
+        "box": {
+          "x": 1083.622467,
+          "y": 294.474961,
+          "width": 189.754961,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-right-early-line2",
+        "box": {
+          "x": 1088.302467,
+          "y": 318.474961,
+          "width": 180.394961,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-right-later-line1",
+        "box": {
+          "x": 1292.569974,
+          "y": 453.474961,
+          "width": 177.859948,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "caption-right-later-line2",
+        "box": {
+          "x": 1300.954961,
+          "y": 477.474961,
+          "width": 161.089974,
+          "height": 44.375013
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-left-later-row-dot-1",
+        "box": {
+          "x": 478.249974,
+          "y": 399.750026,
+          "width": 2.499948,
+          "height": 2.499948
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-left-later-row-dot-2",
+        "box": {
+          "x": 485.249974,
+          "y": 399.750026,
+          "width": 2.499948,
+          "height": 2.499948
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-left-later-row-dot-3",
+        "box": {
+          "x": 492.249974,
+          "y": 399.750026,
+          "width": 2.499948,
+          "height": 2.499948
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-left-transition-dot-1",
+        "box": {
+          "x": 486.0,
+          "y": 328.0,
+          "width": 2.0,
+          "height": 2.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-left-transition-dot-2",
+        "box": {
+          "x": 486.0,
+          "y": 336.0,
+          "width": 2.0,
+          "height": 2.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-left-transition-dot-3",
+        "box": {
+          "x": 486.0,
+          "y": 343.0,
+          "width": 2.0,
+          "height": 2.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-right-later-row-dot-1",
+        "box": {
+          "x": 1250.249974,
+          "y": 395.249974,
+          "width": 2.499948,
+          "height": 2.499948
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-right-later-row-dot-2",
+        "box": {
+          "x": 1257.750026,
+          "y": 395.249974,
+          "width": 2.499948,
+          "height": 2.499948
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-right-later-row-dot-3",
+        "box": {
+          "x": 1264.750026,
+          "y": 395.249974,
+          "width": 2.499948,
+          "height": 2.499948
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-right-transition-dot-1",
+        "box": {
+          "x": 1258.0,
+          "y": 324.0,
+          "width": 2.0,
+          "height": 2.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-right-transition-dot-2",
+        "box": {
+          "x": 1258.0,
+          "y": 331.0,
+          "width": 2.0,
+          "height": 2.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
+      {
+        "element": "ellipsis-right-transition-dot-3",
+        "box": {
+          "x": 1258.0,
+          "y": 338.0,
+          "width": 2.0,
+          "height": 2.0
+        },
+        "overflow_px": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0
+        }
+      },
       {
         "element": "svg-circle-0001",
         "box": {
@@ -98,96 +702,6 @@
         "box": {
           "x": 491.8,
           "y": 240.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0007",
-        "box": {
-          "x": 483.8,
-          "y": 327.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0008",
-        "box": {
-          "x": 483.8,
-          "y": 337.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0009",
-        "box": {
-          "x": 483.8,
-          "y": 347.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0010",
-        "box": {
-          "x": 475.8,
-          "y": 398.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0011",
-        "box": {
-          "x": 483.8,
-          "y": 398.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0012",
-        "box": {
-          "x": 491.8,
-          "y": 398.8,
           "width": 4.4,
           "height": 4.4
         },
@@ -280,396 +794,6 @@
           "y": 238.8,
           "width": 4.4,
           "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0019",
-        "box": {
-          "x": 1254.8,
-          "y": 329.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0020",
-        "box": {
-          "x": 1254.8,
-          "y": 339.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0021",
-        "box": {
-          "x": 1254.8,
-          "y": 349.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0022",
-        "box": {
-          "x": 1247.8,
-          "y": 396.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0023",
-        "box": {
-          "x": 1255.8,
-          "y": 396.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-circle-0024",
-        "box": {
-          "x": 1263.8,
-          "y": 396.8,
-          "width": 4.4,
-          "height": 4.4
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-line-0001",
-        "box": {
-          "x": 487.0,
-          "y": 95.0,
-          "width": 0.5,
-          "height": 23.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-line-0002",
-        "box": {
-          "x": 487.0,
-          "y": 166.0,
-          "width": 0.5,
-          "height": 34.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-line-0003",
-        "box": {
-          "x": 487.0,
-          "y": 362.0,
-          "width": 0.5,
-          "height": 22.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-line-0004",
-        "box": {
-          "x": 1244.0,
-          "y": 95.0,
-          "width": 0.5,
-          "height": 23.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-line-0005",
-        "box": {
-          "x": 1257.0,
-          "y": 166.0,
-          "width": 0.5,
-          "height": 32.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-line-0006",
-        "box": {
-          "x": 1257.0,
-          "y": 358.0,
-          "width": 0.5,
-          "height": 22.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0001",
-        "box": {
-          "x": 20.0,
-          "y": 35.0,
-          "width": 122.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0002",
-        "box": {
-          "x": 161.0,
-          "y": 35.0,
-          "width": 124.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0003",
-        "box": {
-          "x": 300.0,
-          "y": 35.0,
-          "width": 370.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0004",
-        "box": {
-          "x": 555.0,
-          "y": 287.0,
-          "width": 113.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0005",
-        "box": {
-          "x": 682.0,
-          "y": 205.0,
-          "width": 13.0,
-          "height": 77.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0006",
-        "box": {
-          "x": 305.0,
-          "y": 445.0,
-          "width": 160.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0007",
-        "box": {
-          "x": 682.0,
-          "y": 363.0,
-          "width": 13.0,
-          "height": 77.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0008",
-        "box": {
-          "x": 777.0,
-          "y": 35.0,
-          "width": 122.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0009",
-        "box": {
-          "x": 918.0,
-          "y": 35.0,
-          "width": 122.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0010",
-        "box": {
-          "x": 1057.0,
-          "y": 35.0,
-          "width": 370.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0011",
-        "box": {
-          "x": 1122.0,
-          "y": 287.0,
-          "width": 113.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0012",
-        "box": {
-          "x": 1460.0,
-          "y": 205.0,
-          "width": 13.0,
-          "height": 75.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0013",
-        "box": {
-          "x": 1327.0,
-          "y": 442.0,
-          "width": 113.0,
-          "height": 13.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-path-0014",
-        "box": {
-          "x": 1460.0,
-          "y": 363.0,
-          "width": 13.0,
-          "height": 75.0
         },
         "overflow_px": {
           "left": 0.0,
@@ -1792,39 +1916,9 @@
         "element": "svg-text-0009",
         "box": {
           "x": 656.304987,
-          "y": 235.375013,
+          "y": 214.0,
           "width": 111.390026,
-          "height": 41.249974
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0010",
-        "box": {
-          "x": 434.24,
-          "y": 295.2,
-          "width": 211.52,
-          "height": 50.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0011",
-        "box": {
-          "x": 433.04,
-          "y": 325.2,
-          "width": 207.92,
-          "height": 50.0
+          "height": 84.0
         },
         "overflow_px": {
           "left": 0.0,
@@ -1927,39 +2021,9 @@
         "element": "svg-text-0018",
         "box": {
           "x": 655.88,
-          "y": 393.375013,
+          "y": 372.0,
           "width": 112.24,
-          "height": 41.249974
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0019",
-        "box": {
-          "x": 198.92,
-          "y": 445.2,
-          "width": 226.16,
-          "height": 50.0
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0020",
-        "box": {
-          "x": 216.2,
-          "y": 475.2,
-          "width": 197.6,
-          "height": 50.0
+          "height": 84.0
         },
         "overflow_px": {
           "left": 0.0,
@@ -2167,39 +2231,9 @@
         "element": "svg-text-0034",
         "box": {
           "x": 1465.0,
-          "y": 219.375013,
+          "y": 198.0,
           "width": 48.0,
-          "height": 41.249974
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0035",
-        "box": {
-          "x": 1073.009974,
-          "y": 294.099948,
-          "width": 209.980052,
-          "height": 47.500052
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0036",
-        "box": {
-          "x": 1078.289974,
-          "y": 322.099948,
-          "width": 199.419948,
-          "height": 47.500052
+          "height": 84.0
         },
         "overflow_px": {
           "left": 0.0,
@@ -2302,39 +2336,9 @@
         "element": "svg-text-0043",
         "box": {
           "x": 1465.0,
-          "y": 377.375013,
+          "y": 356.0,
           "width": 48.0,
-          "height": 41.249974
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0044",
-        "box": {
-          "x": 1283.72,
-          "y": 454.099948,
-          "width": 196.56,
-          "height": 47.500052
-        },
-        "overflow_px": {
-          "left": 0.0,
-          "top": 0.0,
-          "right": 0.0,
-          "bottom": 0.0
-        }
-      },
-      {
-        "element": "svg-text-0045",
-        "box": {
-          "x": 1293.180052,
-          "y": 482.099948,
-          "width": 177.64,
-          "height": 47.500052
+          "height": 84.0
         },
         "overflow_px": {
           "left": 0.0,
@@ -2362,6 +2366,19 @@
   },
   "containment": [],
   "repeat_groups": [],
+  "peer_size_groups": [],
+  "peer_groups": [],
+  "annotation_coverage": {
+    "annotated_records": 0,
+    "logical_svg_groups": 0,
+    "containment_contracts": 0,
+    "repeat_groups": 0,
+    "peer_size_groups": 0,
+    "peer_groups": 0
+  },
+  "gap_arrows": [],
+  "z_order_contracts": [],
+  "text_flow_contracts": [],
   "missing_annotated_backend_objects": [],
   "findings": [],
   "pass": true

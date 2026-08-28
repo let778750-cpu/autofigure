@@ -1,15 +1,762 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "4.0.0",
   "kind": "region_evaluation",
   "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
-  "critical_regions": 6,
+  "critical_regions": 10,
   "strict_pass": false,
   "blockers": [
     "region:task-guided-allocator-topology",
+    "region:encoder-peer-size-detail",
+    "region:expert-gap-arrow-text-detail",
+    "region:joint-feedback-arrow-detail",
     "region:six-bicolor-state-circles",
     "region:rollout-arrow-topology",
+    "region:environment-globe-creative-asset",
     "region:observation-arrows"
   ],
+  "contract_audit": {
+    "schema_version": "4.0.0",
+    "kind": "region_contract_audit",
+    "reference_sha256": "792a16d4bd2c26cca9fca79668395a987825ab75eb2bc8a65f2d42a47c38a340",
+    "pass": true,
+    "blockers": [],
+    "regions": [
+      {
+        "id": "whole-canvas",
+        "critical": false,
+        "declared_element_ids": [],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "task-guided-allocator-topology",
+        "critical": true,
+        "declared_element_ids": [
+          "allocator-box",
+          "allocator-funnel",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge",
+          "allocator-task1-propagation",
+          "allocator-task2-propagation"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "encoder-peer-size-detail",
+        "critical": true,
+        "declared_element_ids": [
+          "mllm-encoder",
+          "wm-encoder"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "expert-gap-arrow-text-detail",
+        "critical": true,
+        "declared_element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "joint-feedback-arrow-detail",
+        "critical": true,
+        "declared_element_ids": [
+          "joint-loop-arrow"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "six-bicolor-state-circles",
+        "critical": true,
+        "declared_element_ids": [
+          "zt-top-box",
+          "zt-top-1",
+          "zt-top-2",
+          "zt-top-3",
+          "zt-bottom-box",
+          "zt-bottom-1",
+          "zt-bottom-2",
+          "zt-bottom-3"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "rollout-arrow-topology",
+        "critical": true,
+        "declared_element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imag-z0",
+          "imag-z1",
+          "imag-z2",
+          "imag-zh",
+          "reward-r0",
+          "reward-r1",
+          "reward-r2",
+          "rollout-z0",
+          "rollout-z1",
+          "rollout-z2",
+          "rollout-zh",
+          "policy-pi0",
+          "policy-pi1",
+          "policy-pi2",
+          "action-a0",
+          "action-a1",
+          "action-a2",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next"
+        ],
+        "required_relation_ids": [
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "observation-creative-asset",
+        "critical": true,
+        "declared_element_ids": [
+          "atomic:observation"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "interaction-exchange-block-arrow",
+        "critical": true,
+        "declared_element_ids": [
+          "reward-action-box",
+          "interaction-label",
+          "interaction-exchange",
+          "atomic:environment-globe"
+        ],
+        "required_relation_ids": [
+          "interaction-exchange"
+        ],
+        "relations_exhaustive": true,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "environment-globe-creative-asset",
+        "critical": true,
+        "declared_element_ids": [
+          "atomic:environment-globe"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      },
+      {
+        "id": "observation-arrows",
+        "critical": true,
+        "declared_element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "required_relation_ids": [],
+        "relations_exhaustive": false,
+        "pass": true,
+        "findings": []
+      }
+    ]
+  },
+  "critical_region_expectation": {
+    "expected_count": 10,
+    "actual_count": 10,
+    "expected_region_ids": [
+      "task-guided-allocator-topology",
+      "encoder-peer-size-detail",
+      "expert-gap-arrow-text-detail",
+      "joint-feedback-arrow-detail",
+      "six-bicolor-state-circles",
+      "rollout-arrow-topology",
+      "observation-creative-asset",
+      "interaction-exchange-block-arrow",
+      "environment-globe-creative-asset",
+      "observation-arrows"
+    ],
+    "actual_region_ids": [
+      "task-guided-allocator-topology",
+      "encoder-peer-size-detail",
+      "expert-gap-arrow-text-detail",
+      "joint-feedback-arrow-detail",
+      "six-bicolor-state-circles",
+      "rollout-arrow-topology",
+      "observation-creative-asset",
+      "interaction-exchange-block-arrow",
+      "environment-globe-creative-asset",
+      "observation-arrows"
+    ],
+    "missing_region_ids": [],
+    "unexpected_region_ids": [],
+    "duplicate_region_ids": [],
+    "contracts": [
+      {
+        "id": "task-guided-allocator-topology",
+        "bbox": [
+          425,
+          124,
+          551,
+          389
+        ],
+        "element_ids": [
+          "allocator-box",
+          "allocator-funnel",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge",
+          "allocator-task1-propagation",
+          "allocator-task2-propagation"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          425,
+          124,
+          551,
+          389
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "allocator-box",
+          "allocator-funnel",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge",
+          "allocator-task1-propagation",
+          "allocator-task2-propagation"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "encoder-peer-size-detail",
+        "bbox": [
+          180,
+          235,
+          142,
+          253
+        ],
+        "element_ids": [
+          "mllm-encoder",
+          "wm-encoder"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          180,
+          235,
+          142,
+          253
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "mllm-encoder",
+          "wm-encoder"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "expert-gap-arrow-text-detail",
+        "bbox": [
+          548,
+          225,
+          310,
+          245
+        ],
+        "element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          548,
+          225,
+          310,
+          245
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "expert-1-box",
+          "expert-2-box",
+          "expert-3-box",
+          "expert-4-box",
+          "expert-1-sem-label",
+          "expert-1-dyn-label",
+          "expert-2-sem-label",
+          "expert-2-dyn-label",
+          "expert-3-sem-label",
+          "expert-3-dyn-label",
+          "expert-4-sem-label",
+          "expert-4-dyn-label",
+          "allocator-task1-route-1",
+          "allocator-task1-route-2",
+          "allocator-task1-skip-edge"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "joint-feedback-arrow-detail",
+        "bbox": [
+          102,
+          514,
+          90,
+          70
+        ],
+        "element_ids": [
+          "joint-loop-arrow"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          102,
+          514,
+          90,
+          70
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "joint-loop-arrow"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "six-bicolor-state-circles",
+        "bbox": [
+          898,
+          204,
+          51,
+          278
+        ],
+        "element_ids": [
+          "zt-top-box",
+          "zt-top-1",
+          "zt-top-2",
+          "zt-top-3",
+          "zt-bottom-box",
+          "zt-bottom-1",
+          "zt-bottom-2",
+          "zt-bottom-3"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "color_probes"
+        ],
+        "gate_sha256": {
+          "color_probes": "63d2c3b215ead5b49ec11c50d427f887c0a040a3e7e965561040164d96667c01"
+        },
+        "actual_bbox": [
+          898,
+          204,
+          51,
+          278
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "zt-top-box",
+          "zt-top-1",
+          "zt-top-2",
+          "zt-top-3",
+          "zt-bottom-box",
+          "zt-bottom-1",
+          "zt-bottom-2",
+          "zt-bottom-3"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "color_probes": true
+        },
+        "actual_gate_sha256": {
+          "color_probes": "63d2c3b215ead5b49ec11c50d427f887c0a040a3e7e965561040164d96667c01"
+        },
+        "gate_hash_passes": {
+          "color_probes": true
+        },
+        "pass": true
+      },
+      {
+        "id": "rollout-arrow-topology",
+        "bbox": [
+          988,
+          116,
+          410,
+          346
+        ],
+        "element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imag-z0",
+          "imag-z1",
+          "imag-z2",
+          "imag-zh",
+          "reward-r0",
+          "reward-r1",
+          "reward-r2",
+          "rollout-z0",
+          "rollout-z1",
+          "rollout-z2",
+          "rollout-zh",
+          "policy-pi0",
+          "policy-pi1",
+          "policy-pi2",
+          "action-a0",
+          "action-a1",
+          "action-a2",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "924b793ff57266a5f05f225d637ae3e8013f516fb2d4a8c03ea98c4577f65869"
+        },
+        "actual_bbox": [
+          988,
+          116,
+          410,
+          346
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "task-conditioned-imagination",
+          "rollout-panel",
+          "imag-z0",
+          "imag-z1",
+          "imag-z2",
+          "imag-zh",
+          "reward-r0",
+          "reward-r1",
+          "reward-r2",
+          "rollout-z0",
+          "rollout-z1",
+          "rollout-z2",
+          "rollout-zh",
+          "policy-pi0",
+          "policy-pi1",
+          "policy-pi2",
+          "action-a0",
+          "action-a1",
+          "action-a2",
+          "imagination-z0-to-z1",
+          "imagination-z1-to-z2",
+          "imagination-z2-to-zh",
+          "imagination-z0-to-r0",
+          "imagination-z1-to-r1",
+          "imagination-z2-to-r2",
+          "rollout-z0-to-r0",
+          "rollout-z1-to-r1",
+          "rollout-z2-to-r2",
+          "rollout-z0-to-z1",
+          "rollout-z1-to-z2",
+          "rollout-z2-to-zh",
+          "rollout-z0-to-pi0",
+          "rollout-z1-to-pi1",
+          "rollout-z2-to-pi2",
+          "rollout-pi0-to-a0",
+          "rollout-pi1-to-a1",
+          "rollout-pi2-to-a2",
+          "rollout-a0-to-z1",
+          "rollout-a1-to-z2",
+          "rollout-a2-to-next"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "924b793ff57266a5f05f225d637ae3e8013f516fb2d4a8c03ea98c4577f65869"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "observation-creative-asset",
+        "bbox": [
+          42,
+          290,
+          106,
+          86
+        ],
+        "element_ids": [
+          "atomic:observation"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          42,
+          290,
+          106,
+          86
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "atomic:observation"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "interaction-exchange-block-arrow",
+        "bbox": [
+          1008,
+          560,
+          172,
+          25
+        ],
+        "element_ids": [
+          "reward-action-box",
+          "interaction-label",
+          "interaction-exchange",
+          "atomic:environment-globe"
+        ],
+        "required_gates": [
+          "pixel_metrics",
+          "required_relations"
+        ],
+        "gate_sha256": {
+          "required_relations": "ba9ee492dea1ca3511145f186a4906d9ea6fb8b5b893d4bc17f0dde5cd451f1d"
+        },
+        "actual_bbox": [
+          1008,
+          560,
+          172,
+          25
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "reward-action-box",
+          "interaction-label",
+          "interaction-exchange",
+          "atomic:environment-globe"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true,
+          "required_relations": true
+        },
+        "actual_gate_sha256": {
+          "required_relations": "ba9ee492dea1ca3511145f186a4906d9ea6fb8b5b893d4bc17f0dde5cd451f1d"
+        },
+        "gate_hash_passes": {
+          "required_relations": true
+        },
+        "pass": true
+      },
+      {
+        "id": "environment-globe-creative-asset",
+        "bbox": [
+          1188,
+          533,
+          80,
+          81
+        ],
+        "element_ids": [
+          "atomic:environment-globe"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          1188,
+          533,
+          80,
+          81
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "atomic:environment-globe"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      },
+      {
+        "id": "observation-arrows",
+        "bbox": [
+          132,
+          232,
+          190,
+          254
+        ],
+        "element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "required_gates": [
+          "pixel_metrics"
+        ],
+        "gate_sha256": {},
+        "actual_bbox": [
+          132,
+          232,
+          190,
+          254
+        ],
+        "actual_pixel_bbox": null,
+        "actual_element_ids": [
+          "observation-to-mllm",
+          "observation-to-wm"
+        ],
+        "gate_passes": {
+          "pixel_metrics": true
+        },
+        "actual_gate_sha256": {},
+        "gate_hash_passes": {},
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
   "regions": [
     {
       "id": "whole-canvas",
@@ -20,15 +767,23 @@
         1429,
         627
       ],
+      "pixel_bbox": [
+        0,
+        0,
+        1429,
+        627
+      ],
       "critical": false,
-      "mean_abs_rgb_delta": 15.3626,
-      "ssim": 0.7561,
-      "edge_iou": 0.8035,
+      "mean_abs_rgb_delta": 15.0326,
+      "ssim": 0.763,
+      "edge_iou": 0.7826,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
@@ -40,15 +795,107 @@
         551,
         389
       ],
+      "pixel_bbox": [
+        425,
+        124,
+        551,
+        389
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 16.5392,
-      "ssim": 0.7255,
-      "edge_iou": 0.7016,
+      "mean_abs_rgb_delta": 15.4338,
+      "ssim": 0.7414,
+      "edge_iou": 0.7463,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "encoder-peer-size-detail",
+      "label": "MLLM and WM encoder peer-size fidelity",
+      "bbox": [
+        180,
+        235,
+        142,
+        253
+      ],
+      "pixel_bbox": [
+        180,
+        235,
+        142,
+        253
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 12.4144,
+      "ssim": 0.8661,
+      "edge_iou": 0.6599,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "expert-gap-arrow-text-detail",
+      "label": "Horizontal inter-expert arrows and rotated Sem/Dyn labels",
+      "bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "pixel_bbox": [
+        548,
+        225,
+        310,
+        245
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 15.9879,
+      "ssim": 0.6964,
+      "edge_iou": 0.6512,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
+    },
+    {
+      "id": "joint-feedback-arrow-detail",
+      "label": "Thick red joint-optimization feedback arrow",
+      "bbox": [
+        102,
+        514,
+        90,
+        70
+      ],
+      "pixel_bbox": [
+        102,
+        514,
+        90,
+        70
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 9.2069,
+      "ssim": 0.8124,
+      "edge_iou": 0.7803,
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
@@ -60,10 +907,16 @@
         51,
         278
       ],
+      "pixel_bbox": [
+        898,
+        204,
+        51,
+        278
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 46.9876,
-      "ssim": 0.3902,
-      "edge_iou": 0.7746,
+      "mean_abs_rgb_delta": 47.1335,
+      "ssim": 0.3897,
+      "edge_iou": 0.7545,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
@@ -190,6 +1043,8 @@
           "pass": false
         }
       ],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
@@ -201,21 +1056,35 @@
         410,
         346
       ],
+      "pixel_bbox": [
+        988,
+        116,
+        410,
+        346
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 16.3514,
-      "ssim": 0.7067,
-      "edge_iou": 0.7831,
+      "mean_abs_rgb_delta": 16.339,
+      "ssim": 0.7135,
+      "edge_iou": 0.7899,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     },
     {
       "id": "observation-creative-asset",
       "label": "Reference-faithful observation microasset",
       "bbox": [
+        42,
+        290,
+        106,
+        86
+      ],
+      "pixel_bbox": [
         42,
         290,
         106,
@@ -230,6 +1099,36 @@
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": true
+    },
+    {
+      "id": "interaction-exchange-block-arrow",
+      "label": "Single native bidirectional interaction block arrow",
+      "bbox": [
+        1008,
+        560,
+        172,
+        25
+      ],
+      "pixel_bbox": [
+        1008,
+        560,
+        172,
+        25
+      ],
+      "critical": true,
+      "mean_abs_rgb_delta": 3.9123,
+      "ssim": 0.9267,
+      "edge_iou": 0.9826,
+      "thresholds": {
+        "ssim_min": 0.9,
+        "edge_iou_min": 0.85
+      },
+      "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": true
     },
     {
@@ -241,16 +1140,24 @@
         80,
         81
       ],
+      "pixel_bbox": [
+        1188,
+        533,
+        80,
+        81
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 0.0,
-      "ssim": 1.0,
-      "edge_iou": 1.0,
+      "mean_abs_rgb_delta": 19.2905,
+      "ssim": 0.8065,
+      "edge_iou": 0.8825,
       "thresholds": {
         "ssim_min": 0.95,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
-      "pass": true
+      "ink_contract": null,
+      "color_clearance_contracts": [],
+      "pass": false
     },
     {
       "id": "observation-arrows",
@@ -261,15 +1168,23 @@
         190,
         254
       ],
+      "pixel_bbox": [
+        132,
+        232,
+        190,
+        254
+      ],
       "critical": true,
-      "mean_abs_rgb_delta": 12.7535,
-      "ssim": 0.8383,
-      "edge_iou": 0.6583,
+      "mean_abs_rgb_delta": 11.2219,
+      "ssim": 0.868,
+      "edge_iou": 0.6249,
       "thresholds": {
         "ssim_min": 0.85,
         "edge_iou_min": 0.75
       },
       "color_probes": [],
+      "ink_contract": null,
+      "color_clearance_contracts": [],
       "pass": false
     }
   ]

@@ -1,0 +1,151 @@
+{
+  "svg": "redraw.svg",
+  "phase": "audit",
+  "audit_version": "3.0.0",
+  "arrows": 0,
+  "marker_refs": 0,
+  "marker_defs": 0,
+  "findings": [
+    {
+      "code": "feather",
+      "element": 19,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        42,
+        43
+      ],
+      "bbox": [
+        36,
+        31,
+        22,
+        18
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 20,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        56,
+        18
+      ],
+      "bbox": [
+        47,
+        12,
+        15,
+        17
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 21,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        67,
+        35
+      ],
+      "bbox": [
+        56,
+        17,
+        17,
+        24
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 22,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        29,
+        43
+      ],
+      "bbox": [
+        23,
+        30,
+        12,
+        19
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 43,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        42,
+        43
+      ],
+      "bbox": [
+        36,
+        31,
+        22,
+        18
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 44,
+      "tag": "line",
+      "side": "start",
+      "endpoint": [
+        56,
+        18
+      ],
+      "bbox": [
+        47,
+        12,
+        15,
+        17
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    },
+    {
+      "code": "feather",
+      "element": 45,
+      "tag": "line",
+      "side": "end",
+      "endpoint": [
+        67,
+        35
+      ],
+      "bbox": [
+        56,
+        17,
+        17,
+        24
+      ],
+      "marker": null,
+      "detail": "手折箭羽 2 根（无 marker 手绘箭头，建议改用 marker 定义；只审计不自动修）"
+    }
+  ],
+  "counts": {
+    "feather": 7
+  },
+  "arrow_metrics": [],
+  "embedded_plot_axis_exemptions": [],
+  "embedded_plot_geometry_groups": [],
+  "ratio_stats": {
+    "median": null,
+    "min": null,
+    "max": null,
+    "band": [
+      1.5,
+      4.0
+    ]
+  }
+}

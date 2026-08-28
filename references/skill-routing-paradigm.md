@@ -6,7 +6,7 @@
 
 ## 1. 范式陈述
 
-把"skills"理解为**预置给模型的知识包/工作指令/规范文档**（本项目的 SKILL.md、输出合同、AGENTS.md；Claude Code 的 skills/rules；Cursor 的 rules）。主张拆成三句：
+把"skills"理解为**预置给模型的知识包/工作指令/规范文档**（本项目的 skill（`.agents/skills/ai-autofigure/SKILL.md`）、输出合同、AGENTS.md；Claude Code 的 skills/rules；Cursor 的 rules）。主张拆成三句：
 
 - **S1（路由权）**：调用哪些 skills 应由任务本身（things/details/action）在开工时决定，而不是预先强制绑定。
 - **S2（可不用）**：应当允许"不用任何 skills"作为合法路径。

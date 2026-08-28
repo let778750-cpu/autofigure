@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1217" height="609" viewBox="0 0 1217 609" data-source-schema-version="4.0.0" data-case="04-pareto-conditioned-diffusion" data-reference-sha256="5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7" data-object-inventory-sha256="a41f291b26e14676fe4a09f23f8bf5c24cae86576b16b68509cabbe510136f11" data-stable-element-ids="true" data-relations-exhaustive="true">
+  <rect x="0" y="0" width="1217" height="609" fill="#ffffff" id="scene-rect-001" />
+  <g id="styles" font-family="Arial, Helvetica, sans-serif" fill="#073b68" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Panel boundaries -->
+    <rect x="20" y="53" width="548" height="540" rx="84" ry="84" fill="none" stroke="#4a86e8" stroke-width="2.7" stroke-dasharray="20 10" id="styles-rect-001" />
+    <rect x="580" y="53" width="617" height="540" rx="84" ry="84" fill="none" stroke="#ff8a00" stroke-width="2.7" stroke-dasharray="20 10" id="styles-rect-002" />
+    <!-- Titles -->
+    <text x="294" y="43" text-anchor="middle" font-size="40" font-weight="700" text-decoration="underline" fill="#185dc1" id="styles-text-001" data-visual-bbox="145 8 299 42">Offline Training</text>
+    <text x="889" y="43" text-anchor="middle" font-size="40" font-weight="700" text-decoration="underline" fill="#b45d00" id="styles-text-002" data-visual-bbox="798 8 183 42">Sampling</text>
+    <text x="102" y="93" font-size="31" font-weight="400" fill="#073b68" id="styles-text-003" data-visual-bbox="100 66 397 36">Static Multi-Objective Dataset</text>
+    <!-- Left top molecule -->
+    <g id="molecule-left" transform="translate(165 101)">
+      <g stroke="#b97a2f" stroke-width="3" id="molecule-left-g-001">
+        <line x1="8" y1="14" x2="27" y2="18" id="molecule-left-g-001-line-001" data-source-id="molecule-left-circle-001" data-target-id="molecule-left-circle-002" data-topology-relation="bond" />
+        <line x1="27" y1="18" x2="40" y2="5" id="molecule-left-g-001-line-002" data-source-id="molecule-left-circle-002" data-target-id="molecule-left-circle-003" data-topology-relation="bond" />
+        <line x1="27" y1="18" x2="46" y2="24" id="molecule-left-g-001-line-003" data-source-id="molecule-left-circle-002" data-target-id="molecule-left-circle-004" data-topology-relation="bond" />
+        <line x1="46" y1="24" x2="64" y2="17" id="molecule-left-g-001-line-004" data-source-id="molecule-left-circle-004" data-target-id="molecule-left-circle-005" data-topology-relation="bond" />
+        <line x1="27" y1="18" x2="29" y2="36" id="molecule-left-g-001-line-005" data-source-id="molecule-left-circle-002" data-target-id="molecule-left-circle-006" data-topology-relation="bond" />
+        <line x1="29" y1="36" x2="47" y2="41" id="molecule-left-g-001-line-006" data-source-id="molecule-left-circle-006" data-target-id="molecule-left-circle-007" data-topology-relation="bond" />
+      </g>
+      <circle cx="8" cy="14" r="5" fill="#f0aa2a" stroke="#d88c17" id="molecule-left-circle-001" />
+      <circle cx="27" cy="18" r="6" fill="#e4503d" stroke="#c64131" id="molecule-left-circle-002" />
+      <circle cx="40" cy="5" r="5" fill="#7abb79" stroke="#5e9a5e" id="molecule-left-circle-003" />
+      <circle cx="46" cy="24" r="5" fill="#f3a527" stroke="#d98c16" id="molecule-left-circle-004" />
+      <circle cx="64" cy="17" r="5" fill="#e35b4a" stroke="#c24538" id="molecule-left-circle-005" />
+      <circle cx="29" cy="36" r="5" fill="#74b87e" stroke="#59955f" id="molecule-left-circle-006" />
+      <circle cx="47" cy="41" r="4.8" fill="#f2a72e" stroke="#d58c18" id="molecule-left-circle-007" />
+      <circle cx="17" cy="33" r="5" fill="#77b47b" stroke="#5c955f" id="molecule-left-circle-008" />
+      <line x1="17" y1="33" x2="29" y2="36" stroke="#b97a2f" stroke-width="3" id="molecule-left-line-001" data-source-id="molecule-left-circle-008" data-target-id="molecule-left-circle-006" data-topology-relation="bond" />
+    </g>
+    <!-- Left DNA helix -->
+    <g id="dna-left" transform="translate(170 147)" fill="none">
+      <path d="M10,1 C6,8 6,13 15,18 C27,24 37,26 40,32 C42,38 35,42 26,45 C14,49 11,56 21,64" stroke="#376fc3" stroke-width="2.6" id="dna-left-path-001" />
+      <path d="M39,1 C43,8 42,13 34,18 C22,24 12,26 9,32 C7,38 14,42 23,45 C35,49 38,56 28,64" stroke="#5c9cc7" stroke-width="2.2" id="dna-left-path-002" />
+      <path d="M52,4 C48,10 49,15 57,20 C65,25 65,30 58,35 C51,40 51,45 58,50 C63,54 64,58 62,61" stroke="#729968" stroke-width="2.2" id="dna-left-path-003" />
+      <path d="M63,4 C67,10 66,15 58,20 C50,25 50,30 57,35 C64,40 64,45 57,50 C52,54 51,58 53,61" stroke="#9f6c57" stroke-width="2.2" id="dna-left-path-004" />
+      <g stroke-width="1.25" opacity="0.95" id="dna-left-g-001">
+        <line x1="8" y1="9" x2="41" y2="9" stroke="#e17b46" id="dna-left-g-001-line-001" data-source-id="dna-left-path-001" data-target-id="dna-left-path-002" data-topology-relation="base-pair" />
+        <line x1="13" y1="17" x2="36" y2="17" stroke="#66b5b3" id="dna-left-g-001-line-002" data-source-id="dna-left-path-001" data-target-id="dna-left-path-002" data-topology-relation="base-pair" />
+        <line x1="15" y1="28" x2="34" y2="28" stroke="#e17b46" id="dna-left-g-001-line-003" data-source-id="dna-left-path-001" data-target-id="dna-left-path-002" data-topology-relation="base-pair" />
+        <line x1="13" y1="47" x2="36" y2="47" stroke="#66b5b3" id="dna-left-g-001-line-004" data-source-id="dna-left-path-001" data-target-id="dna-left-path-002" data-topology-relation="base-pair" />
+        <line x1="51" y1="12" x2="65" y2="12" stroke="#9f6c57" id="dna-left-g-001-line-005" data-source-id="dna-left-path-003" data-target-id="dna-left-path-004" data-topology-relation="base-pair" />
+        <line x1="53" y1="23" x2="62" y2="23" stroke="#729968" id="dna-left-g-001-line-006" data-source-id="dna-left-path-003" data-target-id="dna-left-path-004" data-topology-relation="base-pair" />
+        <line x1="52" y1="37" x2="63" y2="37" stroke="#9f6c57" id="dna-left-g-001-line-007" data-source-id="dna-left-path-003" data-target-id="dna-left-path-004" data-topology-relation="base-pair" />
+        <line x1="53" y1="51" x2="62" y2="51" stroke="#729968" id="dna-left-g-001-line-008" data-source-id="dna-left-path-003" data-target-id="dna-left-path-004" data-topology-relation="base-pair" />
+      </g>
+    </g>
+    <!-- Left database cylinder 1 -->
+    <g id="dataset-cylinder" stroke="#d49b00" stroke-width="2.7">
+      <path d="M252,120 L252,178 C252,187 271,194 294,194 C317,194 336,187 336,178 L336,120" fill="#fff4c6" id="dataset-cylinder-path-001" />
+      <ellipse cx="294" cy="120" rx="42" ry="14.5" fill="#fff4c6" id="dataset-cylinder-ellipse-001" />
+      <text x="294" y="169" text-anchor="middle" font-size="34" font-family="Times New Roman, serif" font-style="italic" fill="#000000" stroke="none" id="dataset-cylinder-text-001" data-visual-bbox="276 139 36 40">D</text>
+    </g>
+    <!-- left candlestick chart top -->
+    <g id="candlestick-left-top" transform="translate(352 119)" stroke="#000" fill="#fff" stroke-width="3">
+      <line x1="6" y1="3" x2="6" y2="57" id="candlestick-left-top-line-001" data-pair-with="candlestick-left-top-line-002 candlestick-left-top-polyline-001" />
+      <polyline points="1,9 6,3 11,9" fill="none" id="candlestick-left-top-polyline-001" data-pair-with="candlestick-left-top-line-001" />
+      <line x1="6" y1="57" x2="73" y2="57" id="candlestick-left-top-line-002" data-pair-with="candlestick-left-top-line-001 candlestick-left-top-polyline-002" />
+      <polyline points="67,52 73,57 67,62" fill="none" id="candlestick-left-top-polyline-002" data-pair-with="candlestick-left-top-line-002" />
+      <line x1="16" y1="13" x2="16" y2="44" id="candlestick-left-top-line-003" data-pair-with="candlestick-left-top-rect-001" />
+      <rect x="12" y="20" width="8" height="15" id="candlestick-left-top-rect-001" data-pair-with="candlestick-left-top-line-003" />
+      <line x1="29" y1="23" x2="29" y2="51" id="candlestick-left-top-line-004" data-pair-with="candlestick-left-top-rect-002" />
+      <rect x="25" y="28" width="8" height="13" id="candlestick-left-top-rect-002" data-pair-with="candlestick-left-top-line-004" />
+      <line x1="42" y1="8" x2="42" y2="43" id="candlestick-left-top-line-005" data-pair-with="candlestick-left-top-rect-003" />
+      <rect x="38" y="15" width="8" height="16" id="candlestick-left-top-rect-003" data-pair-with="candlestick-left-top-line-005" />
+      <line x1="56" y1="18" x2="56" y2="48" id="candlestick-left-top-line-006" data-pair-with="candlestick-left-top-rect-004" />
+      <rect x="52" y="25" width="8" height="13" id="candlestick-left-top-rect-004" data-pair-with="candlestick-left-top-line-006" />
+      <line x1="67" y1="2" x2="67" y2="35" id="candlestick-left-top-line-007" data-pair-with="candlestick-left-top-rect-005" />
+      <rect x="63" y="8" width="8" height="15" id="candlestick-left-top-rect-005" data-pair-with="candlestick-left-top-line-007" />
+    </g>
+    <!-- Native single-object block arrow: dataset -> reweighted -->
+    <path id="blue-arrow-1" data-role="arrow" data-arrow-representation="block_arrow" data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="dataset-cylinder" data-target-id="reweighted-cylinder" data-arrow-centerline="M294 201 L294 253" data-start-head-type="none" data-end-head-type="custom" data-arrow-body-width="24" data-reference-bbox="270 201 48 52" data-inference-confidence="0.99" d="M282,201 L306,201 L306,228 L318,228 L294,253 L270,228 L282,228 Z" fill="#4a86e8" stroke="#1e5593" stroke-width="1.4" />
+    <!-- Reweighted label + balance -->
+    <text x="104" y="314" font-size="28" fill="#073b68" id="styles-text-004" data-visual-bbox="103 289 138 34">Reweighted</text>
+    <g id="balance" transform="translate(137 326)" stroke="#999" fill="none" stroke-width="2.2">
+      <line x1="29" y1="1" x2="29" y2="43" id="balance-line-001" data-pair-with="balance-line-008" />
+      <line x1="9" y1="6" x2="50" y2="6" id="balance-line-002" />
+      <line x1="29" y1="-1" x2="25" y2="6" id="balance-line-003" data-source-id="balance-line-001" data-target-id="balance-line-002" data-topology-relation="supports" />
+      <line x1="12" y1="6" x2="4" y2="27" id="balance-line-004" data-source-id="balance-line-002" data-target-id="balance-path-001" data-topology-relation="suspends" />
+      <line x1="12" y1="6" x2="20" y2="27" id="balance-line-005" data-source-id="balance-line-002" data-target-id="balance-path-001" data-topology-relation="suspends" />
+      <line x1="46" y1="6" x2="38" y2="27" id="balance-line-006" data-source-id="balance-line-002" data-target-id="balance-path-002" data-topology-relation="suspends" />
+      <line x1="46" y1="6" x2="54" y2="27" id="balance-line-007" data-source-id="balance-line-002" data-target-id="balance-path-002" data-topology-relation="suspends" />
+      <path d="M1,27 Q12,41 23,27 Z" fill="#b5b5b5" stroke="none" id="balance-path-001" />
+      <path d="M35,27 Q46,41 57,27 Z" fill="#b5b5b5" stroke="none" id="balance-path-002" />
+      <line x1="19" y1="43" x2="39" y2="43" stroke-width="3" id="balance-line-008" data-pair-with="balance-line-001" />
+    </g>
+    <!-- Left database cylinder 2 -->
+    <g id="reweighted-cylinder" stroke="#c69000" stroke-width="2.7">
+      <path d="M251,276 L251,334 C251,343 270,350 294,350 C318,350 336,343 336,334 L336,276" fill="#fff4c6" id="reweighted-cylinder-path-001" />
+      <ellipse cx="294" cy="276" rx="42.5" ry="15" fill="#fff4c6" id="reweighted-cylinder-ellipse-001" />
+      <text x="294" y="326" text-anchor="middle" font-size="34" font-family="Times New Roman, serif" font-style="italic" fill="#000000" stroke="none" id="reweighted-cylinder-text-001" data-visual-bbox="276 295 36 40">D</text>
+    </g>
+    <!-- Native single-object block arrow: reweighted -> model -->
+    <path id="blue-arrow-2" data-role="arrow" data-arrow-representation="block_arrow" data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="reweighted-cylinder" data-target-id="left-model" data-arrow-centerline="M294 356 L294 441" data-start-head-type="none" data-end-head-type="custom" data-arrow-body-width="24" data-reference-bbox="270 356 48 85" data-inference-confidence="0.99" d="M282,356 L306,356 L306,416 L318,416 L294,441 L270,416 L282,416 Z" fill="#4a86e8" stroke="#1e5593" stroke-width="1.4" />
+    <text x="332" y="401" font-size="28" fill="#073b68" id="styles-text-005" data-visual-bbox="331 376 66 34">Train</text>
+    <!-- Left model box -->
+    <g id="left-model">
+      <rect x="152" y="447" width="283" height="124" fill="#ffffff" stroke="#6ca6d9" stroke-width="4" id="left-model-rect-001" />
+      <g stroke="#d3d3d3" stroke-width="2" fill="#d3d3d3" opacity="0.75" id="left-model-g-001">
+        <line x1="294" y1="459" x2="252" y2="485" id="left-model-g-001-line-001" />
+        <line x1="294" y1="459" x2="336" y2="485" id="left-model-g-001-line-002" />
+        <line x1="252" y1="485" x2="294" y2="510" id="left-model-g-001-line-003" />
+        <line x1="336" y1="485" x2="294" y2="510" id="left-model-g-001-line-004" />
+        <line x1="294" y1="510" x2="252" y2="535" id="left-model-g-001-line-005" />
+        <line x1="294" y1="510" x2="336" y2="535" id="left-model-g-001-line-006" />
+        <line x1="252" y1="535" x2="294" y2="558" id="left-model-g-001-line-007" />
+        <line x1="336" y1="535" x2="294" y2="558" id="left-model-g-001-line-008" />
+        <circle cx="294" cy="459" r="7.5" id="left-model-g-001-circle-001" />
+        <circle cx="252" cy="485" r="7.5" id="left-model-g-001-circle-002" />
+        <circle cx="336" cy="485" r="7.5" id="left-model-g-001-circle-003" />
+        <circle cx="294" cy="510" r="7.5" id="left-model-g-001-circle-004" />
+        <circle cx="252" cy="535" r="7.5" id="left-model-g-001-circle-005" />
+        <circle cx="336" cy="535" r="7.5" id="left-model-g-001-circle-006" />
+        <circle cx="294" cy="558" r="7.5" id="left-model-g-001-circle-007" />
+      </g>
+      <text x="294" y="504" text-anchor="middle" font-size="27" font-weight="700" fill="#073b68" id="left-model-text-001" data-visual-bbox="174 479 239 32">Pareto-Conditioned</text>
+      <text x="294" y="534" text-anchor="middle" font-size="27" fill="#073b68" id="left-model-text-002" data-visual-bbox="205 510 178 32">Diffusion Model</text>
+    </g>
+    <!-- Right gaussian noise curve -->
+    <g id="noise-curve" fill="none" stroke="#8e8e8e" stroke-width="1.7">
+      <line x1="873" y1="189" x2="1171" y2="189" id="noise-curve-line-001" data-pair-with="noise-curve-path-001" />
+      <path d="M873,189 C914,189 934,186 947,173 C965,154 981,101 1008,85 C1016,80 1024,82 1032,91 C1056,118 1063,159 1093,178 C1111,189 1138,189 1171,189" id="noise-curve-path-001" data-pair-with="noise-curve-line-001" />
+    </g>
+    <!-- Target objectives box -->
+    <g id="target-box">
+      <rect x="612" y="260" width="151" height="111" fill="#c7d8f2" stroke="#1e5593" stroke-width="1.4" id="target-box-rect-001" />
+      <text x="687.5" y="309" text-anchor="middle" font-size="25.5" fill="#073b68" id="target-box-text-001" data-visual-bbox="650 283 76 31">Target</text>
+      <text x="687.5" y="341" text-anchor="middle" font-size="25.5" fill="#073b68" id="target-box-text-002" data-visual-bbox="626 315 123 31">Objectives</text>
+    </g>
+    <!-- right candlestick chart -->
+    <g id="candlestick-right" transform="translate(650 378)" stroke="#000" fill="#fff" stroke-width="3">
+      <line x1="6" y1="3" x2="6" y2="57" id="candlestick-right-line-001" data-pair-with="candlestick-right-line-002 candlestick-right-polyline-001" />
+      <polyline points="1,9 6,3 11,9" fill="none" id="candlestick-right-polyline-001" data-pair-with="candlestick-right-line-001" />
+      <line x1="6" y1="57" x2="73" y2="57" id="candlestick-right-line-002" data-pair-with="candlestick-right-line-001 candlestick-right-polyline-002" />
+      <polyline points="67,52 73,57 67,62" fill="none" id="candlestick-right-polyline-002" data-pair-with="candlestick-right-line-002" />
+      <line x1="16" y1="13" x2="16" y2="44" id="candlestick-right-line-003" data-pair-with="candlestick-right-rect-001" />
+      <rect x="12" y="20" width="8" height="15" id="candlestick-right-rect-001" data-pair-with="candlestick-right-line-003" />
+      <line x1="29" y1="23" x2="29" y2="51" id="candlestick-right-line-004" data-pair-with="candlestick-right-rect-002" />
+      <rect x="25" y="28" width="8" height="13" id="candlestick-right-rect-002" data-pair-with="candlestick-right-line-004" />
+      <line x1="42" y1="8" x2="42" y2="43" id="candlestick-right-line-005" data-pair-with="candlestick-right-rect-003" />
+      <rect x="38" y="15" width="8" height="16" id="candlestick-right-rect-003" data-pair-with="candlestick-right-line-005" />
+      <line x1="56" y1="18" x2="56" y2="48" id="candlestick-right-line-006" data-pair-with="candlestick-right-rect-004" />
+      <rect x="52" y="25" width="8" height="13" id="candlestick-right-rect-004" data-pair-with="candlestick-right-line-006" />
+      <line x1="67" y1="2" x2="67" y2="35" id="candlestick-right-line-007" data-pair-with="candlestick-right-rect-005" />
+      <rect x="63" y="8" width="8" height="15" id="candlestick-right-rect-005" data-pair-with="candlestick-right-line-007" />
+    </g>
+    <!-- Condition arrow + label -->
+    <text x="772" y="286" font-size="23.5" fill="#073b68" id="styles-text-006" data-visual-bbox="771 263 96 31">Condition</text>
+    <path id="condition-arrow" data-role="arrow" data-arrow-representation="block_arrow" data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="target-box" data-target-id="right-model" data-arrow-centerline="M769 315 L875 315" data-start-head-type="none" data-end-head-type="custom" data-arrow-body-width="18" data-reference-bbox="769 296 106 37" data-inference-confidence="0.99" d="M769,305 L854,305 L854,295 L875,315 L854,333 L854,325 L769,325 Z" fill="#e69138" stroke="#c56e11" stroke-width="1.4" />
+    <!-- Right model box -->
+    <g id="right-model">
+      <rect x="881" y="253" width="282" height="124" fill="#ffffff" stroke="#6ca6d9" stroke-width="4" id="right-model-rect-001" />
+      <g stroke="#d3d3d3" stroke-width="2" fill="#d3d3d3" opacity="0.75" id="right-model-g-001">
+        <line x1="1022" y1="266" x2="980" y2="291" id="right-model-g-001-line-001" />
+        <line x1="1022" y1="266" x2="1064" y2="291" id="right-model-g-001-line-002" />
+        <line x1="980" y1="291" x2="1022" y2="316" id="right-model-g-001-line-003" />
+        <line x1="1064" y1="291" x2="1022" y2="316" id="right-model-g-001-line-004" />
+        <line x1="1022" y1="316" x2="980" y2="341" id="right-model-g-001-line-005" />
+        <line x1="1022" y1="316" x2="1064" y2="341" id="right-model-g-001-line-006" />
+        <line x1="980" y1="341" x2="1022" y2="364" id="right-model-g-001-line-007" />
+        <line x1="1064" y1="341" x2="1022" y2="364" id="right-model-g-001-line-008" />
+        <circle cx="1022" cy="266" r="7.5" id="right-model-g-001-circle-001" />
+        <circle cx="980" cy="291" r="7.5" id="right-model-g-001-circle-002" />
+        <circle cx="1064" cy="291" r="7.5" id="right-model-g-001-circle-003" />
+        <circle cx="1022" cy="316" r="7.5" id="right-model-g-001-circle-004" />
+        <circle cx="980" cy="341" r="7.5" id="right-model-g-001-circle-005" />
+        <circle cx="1064" cy="341" r="7.5" id="right-model-g-001-circle-006" />
+        <circle cx="1022" cy="364" r="7.5" id="right-model-g-001-circle-007" />
+      </g>
+      <text x="1022" y="309" text-anchor="middle" font-size="27" font-weight="700" fill="#073b68" id="right-model-text-001" data-visual-bbox="902 283 239 32">Pareto-Conditioned</text>
+      <text x="1022" y="340" text-anchor="middle" font-size="27" fill="#073b68" id="right-model-text-002" data-visual-bbox="933 315 179 32">Diffusion Model</text>
+    </g>
+    <!-- Noise arrow -->
+    <path id="noise-arrow" data-role="arrow" data-arrow-representation="block_arrow" data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="noise-curve" data-target-id="right-model" data-arrow-centerline="M1022 196 L1022 247" data-start-head-type="none" data-end-head-type="custom" data-arrow-body-width="24" data-reference-bbox="999 196 46 51" data-inference-confidence="0.99" d="M1010,196 L1034,196 L1034,223 L1045,223 L1022,247 L999,223 L1010,223 Z" fill="#e69138" stroke="#c56e11" stroke-width="1.4" />
+    <text x="1060" y="226" font-size="26" fill="#073b68" id="styles-text-007" data-visual-bbox="1059 201 70 33">Noise</text>
+    <!-- Sample arrow -->
+    <path id="sample-arrow" data-role="arrow" data-arrow-representation="block_arrow" data-arrow-routing="fixed" data-arrow-topology="declared" data-source-id="right-model" data-target-id="designs-cuboid" data-arrow-centerline="M1022.5 383 L1022.5 456" data-start-head-type="none" data-end-head-type="custom" data-arrow-body-width="24" data-reference-bbox="999 383 47 73" data-inference-confidence="0.99" d="M1010,383 L1034,383 L1034,431 L1046,431 L1022.5,456 L999,431 L1010,431 Z" fill="#e69138" stroke="#c56e11" stroke-width="1.4" />
+    <text x="1055" y="423" font-size="26" fill="#073b68" id="styles-text-008" data-visual-bbox="1054 397 93 33">Sample</text>
+    <!-- Designs cuboid -->
+    <g id="designs-cuboid" stroke="#154f91" stroke-width="1.5">
+      <polygon points="939,488 966,462 1104,462 1077,488" fill="#d6e4f3" id="designs-cuboid-polygon-001" />
+      <polygon points="1077,488 1104,462 1104,544 1077,571" fill="#9eb9d7" id="designs-cuboid-polygon-002" />
+      <rect x="939" y="488" width="138" height="83" fill="#c8dcee" id="designs-cuboid-rect-001" />
+      <text x="1008" y="540" text-anchor="middle" font-size="27" font-weight="700" fill="#073b68" stroke="none" id="designs-cuboid-text-001" data-visual-bbox="956 515 105 34">Designs</text>
+    </g>
+    <!-- Right molecule -->
+    <g id="molecule-right" transform="translate(850 503)">
+      <g stroke="#b97a2f" stroke-width="3" id="molecule-right-g-001">
+        <line x1="8" y1="14" x2="27" y2="18" id="molecule-right-g-001-line-001" data-source-id="molecule-right-circle-001" data-target-id="molecule-right-circle-002" data-topology-relation="bond" />
+        <line x1="27" y1="18" x2="40" y2="5" id="molecule-right-g-001-line-002" data-source-id="molecule-right-circle-002" data-target-id="molecule-right-circle-003" data-topology-relation="bond" />
+        <line x1="27" y1="18" x2="46" y2="24" id="molecule-right-g-001-line-003" data-source-id="molecule-right-circle-002" data-target-id="molecule-right-circle-004" data-topology-relation="bond" />
+        <line x1="46" y1="24" x2="64" y2="17" id="molecule-right-g-001-line-004" data-source-id="molecule-right-circle-004" data-target-id="molecule-right-circle-005" data-topology-relation="bond" />
+        <line x1="27" y1="18" x2="29" y2="36" id="molecule-right-g-001-line-005" data-source-id="molecule-right-circle-002" data-target-id="molecule-right-circle-006" data-topology-relation="bond" />
+        <line x1="29" y1="36" x2="47" y2="41" id="molecule-right-g-001-line-006" data-source-id="molecule-right-circle-006" data-target-id="molecule-right-circle-007" data-topology-relation="bond" />
+      </g>
+      <circle cx="8" cy="14" r="5" fill="#f0aa2a" stroke="#d88c17" id="molecule-right-circle-001" />
+      <circle cx="27" cy="18" r="6" fill="#e4503d" stroke="#c64131" id="molecule-right-circle-002" />
+      <circle cx="40" cy="5" r="5" fill="#7abb79" stroke="#5e9a5e" id="molecule-right-circle-003" />
+      <circle cx="46" cy="24" r="5" fill="#f3a527" stroke="#d98c16" id="molecule-right-circle-004" />
+      <circle cx="64" cy="17" r="5" fill="#e35b4a" stroke="#c24538" id="molecule-right-circle-005" />
+      <circle cx="29" cy="36" r="5" fill="#74b87e" stroke="#59955f" id="molecule-right-circle-006" />
+      <circle cx="47" cy="41" r="4.8" fill="#f2a72e" stroke="#d58c18" id="molecule-right-circle-007" />
+      <circle cx="17" cy="33" r="5" fill="#77b47b" stroke="#5c955f" id="molecule-right-circle-008" />
+      <line x1="17" y1="33" x2="29" y2="36" stroke="#b97a2f" stroke-width="3" id="molecule-right-line-001" data-source-id="molecule-right-circle-008" data-target-id="molecule-right-circle-006" data-topology-relation="bond" />
+    </g>
+    <!-- Right DNA -->
+    <g id="dna-right" transform="translate(1110 465)" fill="none">
+      <path d="M10,1 C6,8 6,13 15,18 C27,24 37,26 40,32 C42,38 35,42 26,45 C14,49 11,56 21,64" stroke="#376fc3" stroke-width="2.6" id="dna-right-path-001" />
+      <path d="M39,1 C43,8 42,13 34,18 C22,24 12,26 9,32 C7,38 14,42 23,45 C35,49 38,56 28,64" stroke="#5c9cc7" stroke-width="2.2" id="dna-right-path-002" />
+      <path d="M52,4 C48,10 49,15 57,20 C65,25 65,30 58,35 C51,40 51,45 58,50 C63,54 64,58 62,61" stroke="#729968" stroke-width="2.2" id="dna-right-path-003" />
+      <path d="M63,4 C67,10 66,15 58,20 C50,25 50,30 57,35 C64,40 64,45 57,50 C52,54 51,58 53,61" stroke="#9f6c57" stroke-width="2.2" id="dna-right-path-004" />
+      <g stroke-width="1.25" opacity="0.95" id="dna-right-g-001">
+        <line x1="8" y1="9" x2="41" y2="9" stroke="#e17b46" id="dna-right-g-001-line-001" data-source-id="dna-right-path-001" data-target-id="dna-right-path-002" data-topology-relation="base-pair" />
+        <line x1="13" y1="17" x2="36" y2="17" stroke="#66b5b3" id="dna-right-g-001-line-002" data-source-id="dna-right-path-001" data-target-id="dna-right-path-002" data-topology-relation="base-pair" />
+        <line x1="15" y1="28" x2="34" y2="28" stroke="#e17b46" id="dna-right-g-001-line-003" data-source-id="dna-right-path-001" data-target-id="dna-right-path-002" data-topology-relation="base-pair" />
+        <line x1="13" y1="47" x2="36" y2="47" stroke="#66b5b3" id="dna-right-g-001-line-004" data-source-id="dna-right-path-001" data-target-id="dna-right-path-002" data-topology-relation="base-pair" />
+        <line x1="51" y1="12" x2="65" y2="12" stroke="#9f6c57" id="dna-right-g-001-line-005" data-source-id="dna-right-path-003" data-target-id="dna-right-path-004" data-topology-relation="base-pair" />
+        <line x1="53" y1="23" x2="62" y2="23" stroke="#729968" id="dna-right-g-001-line-006" data-source-id="dna-right-path-003" data-target-id="dna-right-path-004" data-topology-relation="base-pair" />
+        <line x1="52" y1="37" x2="63" y2="37" stroke="#9f6c57" id="dna-right-g-001-line-007" data-source-id="dna-right-path-003" data-target-id="dna-right-path-004" data-topology-relation="base-pair" />
+        <line x1="53" y1="51" x2="62" y2="51" stroke="#729968" id="dna-right-g-001-line-008" data-source-id="dna-right-path-003" data-target-id="dna-right-path-004" data-topology-relation="base-pair" />
+      </g>
+    </g>
+  </g>
+</svg>

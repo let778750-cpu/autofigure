@@ -4,7 +4,7 @@
 
 Reconstruct research figures as native editable PowerPoint objects, with reference hashes, scene-to-shape bindings, regional QA, and PowerPoint save/reopen evidence.
 
-> Current fact: both input routes now run end to end on a real ModularAgent figure, but both controlled cases remain `qa_failed`. A working pipeline is not the same as mature one-to-one reconstruction quality.
+> Current fact: under schema 4.0, both input routes run end to end across three real research figures (ModularAgent, Thinking Diffusion, Pareto-Conditioned Diffusion — 7 cases in total), but **every case remains `qa_failed`**. The svg-seeded Thinking Diffusion case now passes all 18 critical regions and the arrow physical gate, with only the save/reopen and Live evidence chain still open. A working pipeline is not the same as mature one-to-one reconstruction quality.
 
 ## Overall pipeline
 
@@ -56,45 +56,61 @@ flowchart TD
 
 ## Showcase
 
-Two categories by input route, one case each. In every comparison image the **top half is the original figure, the bottom half the reconstructed render**. Both cases use the same frozen reference; metrics and status are reported as they are.
+Three real research figures, each shown as a controlled A/B across both input routes. In every comparison image the **top half is the original figure, the bottom half the reconstructed render**. No case has reached `approved`. Critical-region pass counts and deduplicated blocker counts are generated from each case's `qa/` machine evidence by `autofigure cases --write-index`; see the generated index table in [`examples/README.md`](examples/README.md). This section deliberately keeps no hand-written metric numbers.
 
-### 1 · Redraw from a provided SVG (svg-seeded)
+### Theme 1 · ModularAgent architecture (same frozen reference, controlled A/B)
+
+**Redraw from a provided SVG (svg-seeded)**
 
 ![svg-seeded case 01: original on top, reconstructed render below](examples/svg-seeded/01-modular-agent/preview.png)
 
-[`01-modular-agent`](examples/svg-seeded/01-modular-agent/) (ModularAgent architecture figure; all 196 bound objects verified via save & reopen):
+[`01-modular-agent`](examples/svg-seeded/01-modular-agent/): binding, equation, and arrow-gate details live in the case's `check-report.md` and the generated index.
 
-| Metric | Value |
-|---|---|
-| Bound objects / editable text / native equations | 196 / 44 / 22 |
-| Editable arrow objects / arrow-audit findings | 46 / **0** |
-| Critical regions passing | 2/6 |
-| Status | `qa_failed` (4 region blockers + missing live evidence) |
-
-Machine evidence: [QA_STATUS.md](examples/svg-seeded/01-modular-agent/QA_STATUS.md) · [check-report.md](examples/svg-seeded/01-modular-agent/check-report.md)
-
-### 2 · Redraw from the target PNG only (reference-only)
+**Redraw from the target PNG only (reference-only; never read the other case's SVG, PPTX, scene, bindings, or coordinates)**
 
 ![reference-only case 01: original on top, reconstructed render below](examples/reference-only/01-modular-agent-reference-only/preview.png)
 
-[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/) (independent rebuild of the same reference; never read the other case's SVG, PPTX, scene, bindings, or coordinates):
+[`01-modular-agent-reference-only`](examples/reference-only/01-modular-agent-reference-only/): machine evidence for the authorized tightly-cropped microasset regions lives in the case's `qa/`.
 
-| Metric | Value |
-|---|---|
-| Bound objects / editable text / native equations | 188 / 45 / 22 |
-| Editable arrow objects / arrow-audit findings | 43 / **72** |
-| Critical regions passing | 2/6 (the two passing regions are authorized microassets at SSIM/Edge IoU 1.0) |
-| Status | `qa_failed` |
+Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md).
 
-Machine evidence: [check-report.md](examples/reference-only/01-modular-agent-reference-only/check-report.md)
+### Theme 2 · Thinking Diffusion pipeline
 
-Cross-route conclusion: with an SVG seed, arrow topology reaches zero audit findings; with PNG only, the pipeline also runs end to end, but arrow quality (72 findings) is the current main gap. Controlled A/B report: [`route-comparison-modular-agent-route-ab.md`](examples/route-comparison-modular-agent-route-ab.md).
+**svg-seeded**
 
-`02-thinking-diffusion` and `03-llmind` have standard diagnostics only (`candidate`, no critical-region contract) and are below the showcase bar; see the full case index in [`examples/README.md`](examples/README.md).
+![svg-seeded case 02: original on top, reconstructed render below](examples/svg-seeded/02-thinking-diffusion/preview.png)
+
+[`02-thinking-diffusion`](examples/svg-seeded/02-thinking-diffusion/): all critical regions and arrow physical gates pass; remaining blockers concentrate in the unclosed save/reopen and Live evidence chain — still `qa_failed`.
+
+**reference-only**
+
+![reference-only case 02: original on top, reconstructed render below](examples/reference-only/02-thinking-diffusion-reference-only/preview.png)
+
+[`02-thinking-diffusion-reference-only`](examples/reference-only/02-thinking-diffusion-reference-only/): the arrow visual physical gate is unclosed; see the generated index for status.
+
+### Theme 3 · Pareto-Conditioned Diffusion (currently the largest fidelity gap)
+
+**svg-seeded**
+
+![svg-seeded case 04: original on top, reconstructed render below](examples/svg-seeded/04-pareto-conditioned-diffusion/preview.png)
+
+[`04-pareto-conditioned-diffusion`](examples/svg-seeded/04-pareto-conditioned-diffusion/): pixel-level fidelity of complex sub-elements (DNA double helix, molecules, candlestick charts) and the font/scale contracts are the main gaps.
+
+**reference-only**
+
+![reference-only case 04: original on top, reconstructed render below](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/preview.png)
+
+[`04-pareto-conditioned-diffusion-reference-only`](examples/reference-only/04-pareto-conditioned-diffusion-reference-only/): machine evidence for the zero critical-region pass count lives in `qa/regions-report.json`.
+
+Controlled A/B report: [`route-comparison-pareto-conditioned-diffusion-route-ab.md`](examples/route-comparison-pareto-conditioned-diffusion-route-ab.md).
+
+Cross-theme conclusion: both routes run end to end and bind objects to native editable shapes; the gaps concentrate in three places — the arrow physical gate on reference-only, pixel-level fidelity of complex sub-elements (DNA, molecules, candlestick charts), and the save/reopen plus Live evidence chain shared by all cases. `03-llmind` carries standard diagnostics only and stays below the showcase bar; see the full case index in [`examples/README.md`](examples/README.md).
 
 ## Quick start
 
 Requirements: Windows, Microsoft PowerPoint, and Python 3.12. Third-party PowerPoint add-ins are not core dependencies.
+
+For a quick standalone redraw (PNG → editable SVG without the pipeline), send your figure together with the universal prompt in [`references/universal-redraw-prompt.md`](references/universal-redraw-prompt.md) to a multimodal model.
 
 ```bat
 python -m venv .venv
@@ -105,6 +121,8 @@ External SVG seed route:
 
 ```bat
 autofigure prepare reference.png --case my-case --input-route svg-seeded
+rem Inventory the current reference in regions.json, then freeze the closed-world contract
+autofigure freeze my-case
 autofigure ingest my-case candidate.svg --kind svg --candidate-role external-seed --candidate-origin web-vlm
 autofigure convert my-case
 autofigure math my-case
@@ -115,10 +133,12 @@ PNG-only route:
 
 ```bat
 autofigure prepare reference.png --case my-direct-case --input-route reference-only
+rem Inventory the current reference in regions.json, then freeze the closed-world contract
+autofigure freeze my-direct-case
 autofigure ingest my-direct-case candidate.svg --kind svg --candidate-role reconstruction-candidate --candidate-origin codex
 autofigure convert my-direct-case
 autofigure math my-direct-case
-autofigure check my-direct-case --profile strict --require-live
+autofigure check my-direct-case --profile strict
 ```
 
 `--input-route` is mandatory. The deprecated `--source-mode` option cannot substitute for it or infer historical provenance.
@@ -134,11 +154,12 @@ The case stays under `examples/svg-seeded/`; only `processing_mode` changes.
 ## Fidelity and editability
 
 - Text, equations, formal nodes, and arrows remain native editable objects.
-- Straight arrows prefer native PowerPoint connectors; curved arrows preserve editable freeform paths. Unsupported marker geometry must produce an explicit grouped fallback.
+- Straight arrows compile to one native PowerPoint line/connector and fixed curves to one editable freeform; marker geometry that cannot remain one visible object fails strict validation.
 - User-authorized irreducible microassets may be tightly cropped from that case's own `reference.png` and marked `editable=false`. Whole-reference rasterization and rasterized formal structure are forbidden.
 - Full-image metrics are diagnostic only. Any failed critical region blocks `approved`.
 - Strict validation with zero critical regions fails with `regions:no-critical-regions`.
-- PowerPoint Live can expose a visible managed canvas, inspect, audit, save/reopen, and read back objects. It has no release authority and cannot silently convert backend integrity into regional fidelity evidence.
+- Every new case starts with a required, draft `reference_inventory`. Candidate ingest is refused until `autofigure freeze` validates complete reference-derived objects, critical-region coverage, exact text/typography, and arrow/brace/icon contracts, then writes a hash-bound receipt. Any later contract or task drift invalidates the receipt.
+- Strict validation cannot skip OCR and always requires hash-bound PowerPoint Live finalizer evidence (`--require-live` remains a compatibility no-op). PowerPoint Live has no release authority and cannot silently convert backend integrity into regional fidelity evidence.
 
 ## Contracts and checks
 
@@ -151,7 +172,7 @@ autofigure compare 01-modular-agent 01-modular-agent-reference-only
 autofigure hygiene
 ```
 
-Strict acceptance defaults to SSIM ≥ 0.85 and Edge IoU ≥ 0.75 for critical regions, SSIM ≥ 0.95 for authorized raster microassets, plus color, layout, arrow-topology, binding, and optional live-evidence gates.
+Strict acceptance defaults to SSIM ≥ 0.85 and Edge IoU ≥ 0.75 for critical regions, SSIM ≥ 0.95 for authorized raster microassets, plus color, layout, arrow-topology, binding, mandatory OCR, inventory closure, and mandatory Live-finalizer gates.
 
 ## PowerPoint add-ins
 
@@ -167,7 +188,7 @@ autofigure cases --check
 autofigure hygiene
 ```
 
-See [`PROJECT_ARCHITECTURE.md`](PROJECT_ARCHITECTURE.md), [`HIGH_FIDELITY.md`](HIGH_FIDELITY.md), [`SKILL.md`](SKILL.md), and [`examples/README.md`](examples/README.md).
+See [`docs/architecture.md`](docs/architecture.md), [`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md), [`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md), and [`examples/README.md`](examples/README.md); the documentation index lives in [`docs/README.md`](docs/README.md).
 
 ## License
 

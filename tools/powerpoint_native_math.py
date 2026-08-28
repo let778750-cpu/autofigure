@@ -39,7 +39,7 @@ except ModuleNotFoundError:  # Support: python -m tools.powerpoint_native_math
     try:
         from .output_policy import OutputPolicyError, resolve_output_path
     except ImportError:  # Support importlib loading a standalone file from the project root.
-        from tools.output_policy import OutputPolicyError, resolve_output_path
+        from tools.core.output_policy import OutputPolicyError, resolve_output_path
 
 
 P_NS = "http://schemas.openxmlformats.org/presentationml/2006/main"

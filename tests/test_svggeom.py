@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 
-from tools.svggeom import Matrix, parse_path_d, parse_transform
+from tools.core.svggeom import Matrix, parse_path_d, parse_transform
 
 
 def test_parse_moveto_lineto_close():

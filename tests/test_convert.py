@@ -12,9 +12,9 @@ from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.oxml.ns import qn
 
-from tools import common
-from tools.contracts import read_json, write_json
-from tools.convert import convert
+from tools.core import common
+from tools.core.contracts import read_json, transition, write_json
+from tools.pipeline.convert import convert, write_asset_spec_audit
 
 VALID_DASHES = {
     "solid", "dot", "sysDash", "sysDot", "sysDashDot", "sysDashDotDot",
@@ -24,14 +24,18 @@ VALID_DASHES = {
 
 @pytest.fixture()
 def run_factory(tmp_path: Path):
-    def make(svg: str, size: tuple[int, int] = (200, 100)) -> common.Run:
+    def make(
+        svg: str,
+        size: tuple[int, int] = (200, 100),
+        input_route: str = "svg-seeded",
+    ) -> common.Run:
         source = tmp_path / "ref.png"
         Image.new("RGB", size, (240, 240, 240)).save(source)
         run = common.create_run(
             source,
             case="case",
             cases_root=tmp_path / "examples",
-            input_route="svg-seeded",
+            input_route=input_route,
         )
         run.qa_dir.mkdir(exist_ok=True)
         run.redraw_svg.write_text(svg, encoding="utf-8")
@@ -42,6 +46,68 @@ def run_factory(tmp_path: Path):
 
 def _shapes(run: common.Run):
     return list(Presentation(run.pptx_path).slides[0].shapes)
+
+
+def _enable_asset_spec_contract(run: common.Run) -> None:
+    reference_sha256 = run.load_meta()["source_sha256"]
+    assets = read_json(run.assets_path)
+    assets["microasset_opportunity_map"] = [
+        {
+            "slot_id": "asset-a",
+            "object_kind": "icon",
+            "implementation": "native_editable_vector",
+            "reference_bbox": [10, 12, 40, 20],
+            "reference_sha256": reference_sha256,
+        }
+    ]
+    write_json(run.assets_path, assets)
+    regions = read_json(run.regions_path)
+    regions["reference_inventory"] = {
+        "schema_version": "1.0.0",
+        "status": "frozen",
+        "reference_sha256": reference_sha256,
+        "objects": [
+            {
+                "id": "asset-a",
+                "kind": "icon",
+                "bbox": [10, 12, 40, 20],
+                "element_ids": ["edge-ab", "node-a", "node-b"],
+                "topology_contract": {
+                    "role_counts": {
+                        "edge": {"count": 1, "element_id_pattern": "edge-ab"},
+                        "source": {"count": 1, "element_id_pattern": "node-a"},
+                        "target": {"count": 1, "element_id_pattern": "node-b"},
+                    },
+                    "required_pairs": [
+                        ["node-a", "node-b"],
+                        ["edge-ab", "node-a"],
+                    ],
+                    "required_relations": [
+                        {
+                            "id": "edge-ab",
+                            "element_id": "edge-ab",
+                            "source_id": "node-a",
+                            "target_id": "node-b",
+                            "relation": "graph_edge",
+                        }
+                    ],
+                    "component_count": 1,
+                    "scope_element_id": "asset-a",
+                },
+            }
+        ],
+    }
+    write_json(run.regions_path, regions)
+
+
+ASSET_SPEC_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+    'viewBox="0 0 200 100"><g id="asset-a" data-role="icon">'
+    '<circle id="node-a" cx="25" cy="35" r="7" fill="#88AACC"/>'
+    '<circle id="node-b" cx="65" cy="35" r="7" fill="#CCAA88"/>'
+    '<line id="edge-ab" x1="32" y1="35" x2="58" y2="35" '
+    'stroke="#223344"/></g></svg>'
+)
 
 
 def test_rect_with_radius_fill_and_stroke(run_factory):
@@ -59,6 +125,9 @@ def test_rect_with_radius_fill_and_stroke(run_factory):
     sp_pr = shape._element.spPr
     tags = [child.tag for child in sp_pr]
     assert tags.index(qn("a:solidFill")) < tags.index(qn("a:effectLst"))
+    bindings = read_json(run.bindings_path)
+    assert bindings["package_reopened"] is True
+    assert bindings["saved_reopened"] is False
 
 
 def test_linear_gradient_becomes_gradfill(run_factory):
@@ -101,6 +170,29 @@ def test_text_runs_italic_bold_and_baseline_shift(run_factory):
     assert runs[2]._r.get_or_add_rPr().get("baseline") == "-25000"
 
 
+def test_positioned_tspans_become_native_lines_and_preserve_underline(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">'
+        '<text id="label" x="100" y="30" text-anchor="middle" font-family="Arial" '
+        'font-size="20" text-decoration="underline">'
+        '<tspan x="100" y="30">First</tspan>'
+        '<tspan x="100" y="55" font-weight="700">Second</tspan>'
+        '</text></svg>'
+    )
+    convert(run)
+    (shape,) = _shapes(run)
+    assert [paragraph.text for paragraph in shape.text_frame.paragraphs] == [
+        "First",
+        "Second",
+    ]
+    assert all(
+        run.font.underline
+        for paragraph in shape.text_frame.paragraphs
+        for run in paragraph.runs
+    )
+    assert shape.text_frame.paragraphs[1].runs[0].font.bold is True
+
+
 def test_text_overflow_padding_preserves_middle_anchor(run_factory):
     run = run_factory(
         '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
@@ -113,6 +205,19 @@ def test_text_overflow_padding_preserves_middle_anchor(run_factory):
     assert center_x == pytest.approx(100, abs=0.01)
     assert shape.height / 9525 == pytest.approx(40, abs=0.01)
     assert shape.width / 9525 > 32
+
+
+def test_rotated_text_supports_explicit_selection_box_height(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><text x="100" y="50" font-size="16" '
+        'text-anchor="middle" transform="rotate(-90 100 50)" '
+        'data-text-box-height="80">Early Step</text></svg>'
+    )
+    convert(run)
+    (shape,) = _shapes(run)
+    assert shape.height / 9525 == pytest.approx(80, abs=0.01)
+    assert shape.rotation == pytest.approx(270, abs=0.01)
 
 
 def test_text_padding_is_clipped_to_canvas_without_moving_start_anchor(run_factory):
@@ -138,6 +243,31 @@ def test_dasharray_maps_to_valid_ooxml_preset(run_factory):
     dash = shape._element.spPr.find(f"{qn('a:ln')}/{qn('a:prstDash')}")
     assert dash is not None
     assert dash.get("val") in VALID_DASHES  # roundDot/squareDot 曾致 PowerPoint 判损坏
+
+
+@pytest.mark.parametrize(
+    "invalid_attribute, expected_message",
+    [
+        ('stroke-width="wide"', "invalid stroke-width"),
+        ('stroke-width="nan"', "stroke-width must be finite and positive"),
+        ('stroke-opacity="bogus"', "invalid SVG stroke-opacity"),
+        ('stroke-opacity="nan"', "stroke-opacity must be finite and between 0 and 1"),
+        ('stroke-opacity="1.2"', "stroke-opacity must be finite and between 0 and 1"),
+        ('stroke-dasharray="broken value"', "invalid stroke-dasharray"),
+        ('stroke-linecap="flat"', "body-line-cap"),
+        ('data-arrow-representation="mystery"', "unsupported data-arrow-representation"),
+    ],
+)
+def test_arrow_svg_style_does_not_silently_normalize_invalid_values(
+    run_factory, invalid_attribute, expected_message
+):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><line id="edge" data-role="arrow" '
+        f'x1="10" y1="50" x2="190" y2="50" stroke="#111111" {invalid_attribute}/></svg>'
+    )
+    with pytest.raises(SystemExit, match=expected_message):
+        convert(run)
 
 
 def test_freeform_bbox_includes_bezier_control_points(run_factory):
@@ -323,6 +453,178 @@ def test_summary_counts_and_readback(run_factory):
     assert summary["shape_count"] == 2
     on_disk = json.loads((run.qa_dir / "convert-summary.json").read_text(encoding="utf-8"))
     assert on_disk["shape_count"] == 2
+    assert on_disk["asset_spec_pass"] is True
+    assert on_disk["asset_spec_count"] == 0
+    assert read_json(run.qa_dir / "asset-spec-audit.json")["no_op"] is False
+    assert not (run.qa_dir / "asset-contract-receipt.json").exists()
+
+
+def test_missing_opportunity_map_is_convert_noop_without_asset_guessing(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><g id="ordinary-group">'
+        '<rect id="panel" x="10" y="10" width="30" height="20"/>'
+        "</g></svg>"
+    )
+    assets = read_json(run.assets_path)
+    assets.pop("microasset_opportunity_map", None)
+    write_json(run.assets_path, assets)
+
+    summary = convert(run)
+
+    audit = read_json(run.qa_dir / "asset-spec-audit.json")
+    scene = read_json(run.scene_path)
+    bindings = read_json(run.bindings_path)
+    assert summary["asset_spec_count"] == 0
+    assert audit["pass"] is True
+    assert audit["no_op"] is True
+    assert audit["asset_contract_sha256"] is None
+    assert all("asset_spec" not in element for element in scene["elements"])
+    assert all("asset_group_id" not in row for row in bindings["bindings"])
+
+
+def test_prefrozen_asset_contract_receipt_is_shadow_published_without_rewrite(
+    run_factory,
+    monkeypatch,
+):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect id="panel" x="10" y="10" '
+        'width="30" height="20"/></svg>'
+    )
+    receipt_path = run.qa_dir / "asset-contract-receipt.json"
+    receipt_path.write_text(
+        '{"kind":"asset_contract_freeze_receipt","status":"PASS"}\n',
+        encoding="utf-8",
+    )
+    original_bytes = receipt_path.read_bytes()
+    from tools.core import transactions
+
+    published: list[str] = []
+    original_publish = transactions.publish_staged_files
+
+    def capture(publications, **kwargs):
+        publications = list(publications)
+        published.extend(destination.name for _, destination in publications)
+        return original_publish(publications, **kwargs)
+
+    monkeypatch.setattr(transactions, "publish_staged_files", capture)
+
+    convert(run)
+
+    assert "asset-contract-receipt.json" in published
+    assert receipt_path.read_bytes() == original_bytes
+
+
+def test_explicit_empty_opportunity_map_is_hashed_but_attaches_no_spec(run_factory):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect id="panel" x="10" y="10" '
+        'width="30" height="20"/></svg>'
+    )
+    assets = read_json(run.assets_path)
+    assets["microasset_opportunity_map"] = []
+    write_json(run.assets_path, assets)
+
+    summary = convert(run)
+
+    audit = read_json(run.qa_dir / "asset-spec-audit.json")
+    assert summary["asset_spec_count"] == 0
+    assert audit["pass"] is True
+    assert audit["no_op"] is False
+    assert audit["opportunity_count"] == 0
+    assert len(audit["asset_contract_sha256"]) == 64
+    assert len(audit["microasset_opportunity_map_sha256"]) == 64
+
+
+def test_asset_spec_projects_through_scene_bindings_and_pptx_readback(
+    run_factory,
+):
+    run = run_factory(ASSET_SPEC_SVG)
+    _enable_asset_spec_contract(run)
+
+    summary = convert(run)
+
+    scene = read_json(run.scene_path)
+    group = next(item for item in scene["elements"] if item["id"] == "asset-a")
+    spec = group["asset_spec"]
+    digest = group["asset_spec_sha256"]
+    assert spec["asset_id"] == "asset-a"
+    assert spec["member_ids"] == ["edge-ab", "node-a", "node-b"]
+    assert len(digest) == 64
+
+    bindings = read_json(run.bindings_path)
+    logical = next(
+        row
+        for row in bindings["logical_group_bindings"]
+        if row["element_id"] == "asset-a"
+    )
+    assert logical["asset_spec"] == spec
+    assert logical["asset_spec_sha256"] == digest
+    assert logical["asset_spec_readback_found"] is True
+    members = [
+        row
+        for row in bindings["bindings"]
+        if row["element_id"] in {"edge-ab", "node-a", "node-b"}
+    ]
+    assert len(members) == 3
+    assert all(row["asset_group_id"] == "asset-a" for row in members)
+    assert all(row["asset_spec_sha256"] == digest for row in members)
+    assert all(row["asset_spec_readback_found"] is True for row in members)
+    assert all("asset_spec" not in row for row in members)
+    assert bindings["bindings_complete"] is True
+
+    descriptions = []
+    for shape in _shapes(run):
+        identity = shape._element.find(f".//{qn('p:cNvPr')}")
+        assert identity is not None
+        descriptions.append(json.loads(identity.get("descr", "{}")))
+    assert {item["autofigure_element_id"] for item in descriptions} == {
+        "edge-ab",
+        "node-a",
+        "node-b",
+    }
+    assert all(item["asset_group_id"] == "asset-a" for item in descriptions)
+    assert all(item["asset_spec_sha256"] == digest for item in descriptions)
+    assert all("asset_spec" not in item for item in descriptions)
+
+    audit = read_json(run.qa_dir / "asset-spec-audit.json")
+    assert audit["pass"] is True
+    assert audit["asset_spec_count"] == 1
+    assert audit["member_binding_count"] == 3
+    assert audit["pptx_readback_count"] == 3
+    assert audit["opportunity_count"] == 1
+    assert len(audit["asset_contract_sha256"]) == 64
+    assert len(audit["microasset_opportunity_map_sha256"]) == 64
+    assert summary["asset_spec_pass"] is True
+    assert summary["asset_spec_count"] == 1
+    assert summary["asset_spec_readback_count"] == 3
+
+
+def test_asset_spec_audit_reopens_pptx_and_rejects_tampered_hash(run_factory):
+    run = run_factory(ASSET_SPEC_SVG)
+    _enable_asset_spec_contract(run)
+    convert(run)
+
+    presentation = Presentation(run.pptx_path)
+    for shape in presentation.slides[0].shapes:
+        identity = shape._element.find(f".//{qn('p:cNvPr')}")
+        assert identity is not None
+        description = json.loads(identity.get("descr", "{}"))
+        if description.get("autofigure_element_id") == "node-a":
+            description["asset_spec_sha256"] = "0" * 64
+            identity.set(
+                "descr",
+                json.dumps(description, sort_keys=True, separators=(",", ":")),
+            )
+            break
+    presentation.save(run.pptx_path)
+
+    audit = write_asset_spec_audit(run)
+
+    assert audit["pass"] is False
+    assert "asset-spec-readback-hash:node-a" in audit["blockers"]
+    assert audit["pptx_readback_count"] == 2
 
 
 def test_data_uri_image_tolerated_as_atomic_crop(run_factory):
@@ -360,7 +662,7 @@ def test_stroke_none_removes_powerpoint_default_outline(run_factory):
     assert shape._element.spPr.find(f"{qn('a:ln')}/{qn('a:noFill')}") is not None
 
 
-def test_unsupported_marker_fallback_is_physically_grouped(run_factory):
+def test_unsupported_marker_fails_closed_without_creating_pptx(run_factory):
     run = run_factory(
         '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
         'viewBox="0 0 200 100"><defs><marker id="complex" refX="8" refY="5" '
@@ -370,14 +672,53 @@ def test_unsupported_marker_fallback_is_physically_grouped(run_factory):
         '</marker></defs><line id="edge" x1="10" y1="50" x2="190" y2="50" '
         'stroke="#111111" marker-end="url(#complex)"/></svg>'
     )
-    summary = convert(run)
-    (group,) = _shapes(run)
-    assert getattr(group, "shapes", None) is not None
-    assert len(group.shapes) == 3
-    assert summary["emitted"]["arrow-group"] == 1
-    bindings = json.loads(run.bindings_path.read_text(encoding="utf-8"))["bindings"]
-    children = [item for item in bindings if item.get("group_shape_id")]
-    assert children and all(item["physically_grouped"] for item in children)
+    transition(run, "candidate", "test-candidate")
+    history_length = len(run.load_meta()["workflow"]["history"])
+    with pytest.raises(SystemExit, match="exactly one visible PowerPoint object"):
+        convert(run)
+    assert not run.pptx_path.exists()
+    assert not (run.qa_dir / "convert-summary.json").exists()
+    assert read_json(run.bindings_path)["bindings"] == []
+    workflow = run.load_meta()["workflow"]
+    assert workflow["state"] == "candidate"
+    assert len(workflow["history"]) == history_length
+
+
+@pytest.mark.parametrize(
+    "marker_defs, marker_attributes",
+    [
+        (
+            '<marker id="complex" refX="8" refY="5" orient="auto" '
+            'markerUnits="userSpaceOnUse">'
+            '<path d="M0,0 L8,5 L0,10 Z" fill="#111111"/>'
+            '<path d="M1,5 L4,5" fill="none" stroke="#FFFFFF"/>'
+            "</marker>",
+            'marker-start="url(#complex)" marker-end="url(#complex)"',
+        ),
+        (
+            '<marker id="different-color" refX="8" refY="5" orient="auto" '
+            'markerUnits="userSpaceOnUse">'
+            '<path d="M0,0 L8,5 L0,10 Z" fill="#C00000"/>'
+            "</marker>",
+            'marker-end="url(#different-color)"',
+        ),
+    ],
+    ids=["custom-double-ended", "different-head-and-shaft-colors"],
+)
+def test_marker_that_requires_multiple_visible_objects_fails_closed(
+    run_factory, marker_defs, marker_attributes
+):
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        f'viewBox="0 0 200 100"><defs>{marker_defs}</defs>'
+        '<line id="edge" x1="10" y1="50" x2="190" y2="50" '
+        f'stroke="#111111" {marker_attributes}/></svg>'
+    )
+
+    with pytest.raises(SystemExit, match="exactly one visible PowerPoint object"):
+        convert(run)
+    assert not run.pptx_path.exists()
+    assert read_json(run.bindings_path)["bindings"] == []
 
 
 def test_connector_identity_binding_and_ooxml_attachments(run_factory):
@@ -386,7 +727,7 @@ def test_connector_identity_binding_and_ooxml_attachments(run_factory):
         'viewBox="0 0 200 100">'
         '<rect id="source" x="10" y="30" width="30" height="40"/>'
         '<rect id="target" x="160" y="30" width="30" height="40"/>'
-        '<line id="edge" data-source-id="source" data-target-id="target" '
+        '<line id="edge" data-role="arrow" data-source-id="source" data-target-id="target" '
         'data-source-site="3" data-target-site="1" x1="40" y1="50" x2="160" y2="50" '
         'stroke="#111111"/></svg>'
     )
@@ -399,6 +740,167 @@ def test_connector_identity_binding_and_ooxml_attachments(run_factory):
     assert start is not None and end is not None
     assert start.get("id") != end.get("id")
     bindings = json.loads(run.bindings_path.read_text(encoding="utf-8"))
+    assert bindings["bindings_complete"] is True
+
+
+@pytest.mark.parametrize(
+    ("relation_primitive", "object_kind"),
+    [
+        (
+            '<line id="relation" x1="20" y1="45" x2="180" y2="45" '
+            'stroke="#555555"/>',
+            "line",
+        ),
+        (
+            '<path id="relation" d="M20 45 C70 20 130 70 180 45" '
+            'fill="none" stroke="#555555"/>',
+            "freeform",
+        ),
+    ],
+    ids=["native-line", "native-freeform"],
+)
+def test_topology_relation_metadata_does_not_imply_arrow_or_attachment(
+    run_factory,
+    relation_primitive: str,
+    object_kind: str,
+):
+    relation_primitive = relation_primitive.replace(
+        'id="relation"',
+        'id="relation" data-source-id="semantic-source" '
+        'data-target-id="semantic-target" data-topology-relation="association"',
+    )
+    run = run_factory(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        f'viewBox="0 0 200 100">{relation_primitive}</svg>'
+    )
+
+    summary = convert(run)
+
+    assert summary["warnings"] == []
+    scene = read_json(run.scene_path)
+    relation = next(item for item in scene["elements"] if item["id"] == "relation")
+    expected_relation = {
+        "element_id": "relation",
+        "source_id": "semantic-source",
+        "target_id": "semantic-target",
+        "relation": "association",
+    }
+    assert relation["kind"] in {"line", "path"}
+    assert relation["topology_relation"] == expected_relation
+    assert relation["topology"]["relation"] == "association"
+    assert "arrow_spec" not in relation
+    assert read_json(run.arrow_compile_report_path)["arrow_count"] == 0
+
+    bindings = read_json(run.bindings_path)
+    binding = next(item for item in bindings["bindings"] if item["element_id"] == "relation")
+    assert binding["object_kind"] == object_kind
+    assert binding["topology_relation"] == expected_relation
+    assert binding["topology_relation_readback_found"] is True
+    assert bindings["bindings_complete"] is True
+
+    shape = next(shape for shape in _shapes(run) if shape.name.startswith("af-relation-"))
+    identity = shape._element.find(f".//{qn('p:cNvPr')}")
+    assert identity is not None
+    description = json.loads(identity.get("descr", "{}"))
+    assert description["topology_relation"] == expected_relation
+    connector_properties = shape._element.find(f".//{qn('p:cNvCxnSpPr')}")
+    if connector_properties is not None:
+        assert connector_properties.find(qn("a:stCxn")) is None
+        assert connector_properties.find(qn("a:endCxn")) is None
+
+
+def test_reconversion_clears_stale_arrow_spec_for_same_id_topology_relation(
+    run_factory,
+):
+    first = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100">'
+        '<rect id="source" x="10" y="30" width="30" height="40"/>'
+        '<rect id="target" x="160" y="30" width="30" height="40"/>'
+        '<line id="stable-relation" data-role="arrow" data-source-id="source" '
+        'data-target-id="target" x1="40" y1="50" x2="160" y2="50" '
+        'stroke="#111111"/></svg>'
+    )
+    run = run_factory(first)
+    convert(run)
+    assert read_json(run.arrow_compile_report_path)["arrow_count"] == 1
+
+    scene = read_json(run.scene_path)
+    relation = next(
+        item for item in scene["elements"] if item["id"] == "stable-relation"
+    )
+    relation["model_annotations"] = {"scientific_note": "retain across repair"}
+    relation["backend"] = {"stale": True}
+    relation["native_math"] = {"stale": True}
+    relation["brace_spec"] = {"stale": True}
+    relation["primitive_spec"] = {"stale": True}
+    relation["physically_grouped"] = True
+    relation["unscoped_model_hint"] = "must not survive"
+
+    second = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100">'
+        '<rect id="source" x="10" y="30" width="30" height="40"/>'
+        '<rect id="target" x="160" y="30" width="30" height="40"/>'
+        '<line id="stable-relation" data-source-id="source" '
+        'data-target-id="target" data-topology-relation="association" '
+        'x1="40" y1="50" x2="160" y2="50" stroke="#111111"/></svg>'
+    )
+    from tools.core.revisions import bind_canonical_svg
+
+    bind_canonical_svg(scene, second, source_role="test-repair")
+    write_json(run.scene_path, scene)
+
+    summary = convert(run)
+
+    assert summary["warnings"] == []
+    refreshed_scene = read_json(run.scene_path)
+    refreshed = next(
+        item
+        for item in refreshed_scene["elements"]
+        if item["id"] == "stable-relation"
+    )
+    expected_relation = {
+        "element_id": "stable-relation",
+        "source_id": "source",
+        "target_id": "target",
+        "relation": "association",
+    }
+    assert refreshed["kind"] == "line"
+    assert refreshed["topology"] == {
+        "source": "source",
+        "target": "target",
+        "relation": "association",
+    }
+    assert refreshed["topology_relation"] == expected_relation
+    assert refreshed["model_annotations"] == {
+        "scientific_note": "retain across repair"
+    }
+    for stale_field in (
+        "arrow_spec",
+        "backend",
+        "native_math",
+        "brace_spec",
+        "primitive_spec",
+        "physically_grouped",
+        "unscoped_model_hint",
+    ):
+        assert stale_field not in refreshed
+    assert refreshed_scene["edges"] == []
+
+    arrow_report = read_json(run.arrow_compile_report_path)
+    assert arrow_report["arrow_count"] == 0
+    assert arrow_report["blockers"] == []
+    bindings = read_json(run.bindings_path)
+    binding = next(
+        item
+        for item in bindings["bindings"]
+        if item["element_id"] == "stable-relation"
+    )
+    assert binding["object_kind"] == "line"
+    assert binding["topology_relation"] == expected_relation
+    assert binding["topology_relation_readback_found"] is True
+    assert "arrow_spec_sha256" not in binding
     assert bindings["bindings_complete"] is True
 
 
@@ -425,6 +927,40 @@ def test_conversion_drops_stale_scene_elements(run_factory):
     assert "stale" not in ids
 
 
+def test_fresh_reference_reconstruction_does_not_merge_same_id_scene_annotations(
+    run_factory,
+):
+    svg = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
+        'viewBox="0 0 200 100"><rect id="current" x="10" y="10" '
+        'width="20" height="20"/></svg>'
+    )
+    run = run_factory(svg, input_route="reference-only")
+    scene = read_json(run.scene_path)
+    scene["elements"] = [
+        {
+            "id": "current",
+            "kind": "shape",
+            "editable": True,
+            "z_index": 0,
+            "prior_candidate_hint": "must-not-survive",
+        }
+    ]
+    from tools.core.revisions import bind_canonical_svg
+
+    bind_canonical_svg(scene, svg, source_role="reconstruction-candidate")
+    write_json(run.scene_path, scene)
+
+    convert(run)
+
+    (current,) = [
+        item
+        for item in read_json(run.scene_path)["elements"]
+        if item["id"] == "current"
+    ]
+    assert "prior_candidate_hint" not in current
+
+
 def test_reconversion_refreshes_scene_and_powerpoint_z_order(run_factory):
     first = (
         '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
@@ -437,15 +973,19 @@ def test_reconversion_refreshes_scene_and_powerpoint_z_order(run_factory):
     initial = {item["id"]: item for item in read_json(run.scene_path)["elements"]}
     assert initial["edge"]["z_index"] < initial["panel"]["z_index"]
 
-    # Move the edge after the panel.  Existing scene records must not override
-    # the new DOM/PowerPoint stack order during reconversion.
-    run.redraw_svg.write_text(
+    # Move the edge after the panel in the canonical scene carrier.  redraw.svg
+    # is a derived projection in schema v4 and must not become a second truth.
+    second = (
         '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" '
         'viewBox="0 0 200 100"><rect id="panel" x="50" y="40" '
         'width="100" height="50" fill="#EEEEEE"/><line id="edge" '
-        'x1="10" y1="10" x2="90" y2="90" stroke="#777777"/></svg>',
-        encoding="utf-8",
+        'x1="10" y1="10" x2="90" y2="90" stroke="#777777"/></svg>'
     )
+    from tools.core.revisions import bind_canonical_svg
+
+    scene = read_json(run.scene_path)
+    bind_canonical_svg(scene, second, source_role="test-reconstruction")
+    write_json(run.scene_path, scene)
     convert(run)
 
     refreshed = {item["id"]: item for item in read_json(run.scene_path)["elements"]}

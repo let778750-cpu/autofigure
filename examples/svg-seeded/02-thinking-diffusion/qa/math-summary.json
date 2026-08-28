@@ -8,5 +8,11 @@
   "failed": 0,
   "warnings": [],
   "notes": [],
-  "formulas": []
+  "formulas": [],
+  "pptx_sha256": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
+  "omml_count": 0,
+  "logical_formula_count": 0,
+  "raw_omml_count": 0,
+  "formula_inventory_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "native_math_inventory": []
 }

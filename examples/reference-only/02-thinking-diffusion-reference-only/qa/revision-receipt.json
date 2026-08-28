@@ -1,0 +1,17 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "revision_receipt",
+  "case": "02-thinking-diffusion-reference-only",
+  "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
+  "lineage_version": "1.0.0",
+  "revision_id": "scene-f57ac8c9949faa13",
+  "scene_sha256": "f57ac8c9949faa13ca6309d0cbd71295c9416ac3a0211381d4ac96fe4529ff54",
+  "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+  "artifacts": {
+    "redraw_svg": "691ee11efbcc24a0c2442a3301ea53a1cf5d8610d8a903651a917c1ca6d524d9",
+    "redraw_pptx": "16c834b400c53608b38a4ca824c07b3ff8392c0b993cdadf285909a7a914ba05",
+    "render_png": "584fe6379574f5a8cb355655815bfaec3985786a4f51fe91d16a1688c1d3d37f",
+    "bindings": "4387341c3adf34f90a0e659e6c57a990438a7a670c180fe013c0f495df9e1246"
+  },
+  "stamped_at": "20260828T090928Z"
+}

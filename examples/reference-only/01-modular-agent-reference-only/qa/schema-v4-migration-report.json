@@ -1,0 +1,16 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "schema_v4_migration_report",
+  "case": "01-modular-agent-reference-only",
+  "input_route": "reference-only",
+  "processing_mode": "png_reconstruct",
+  "imported_legacy_carrier": true,
+  "source_gate_decision": "repair",
+  "source_gate_blockers": [
+    "source-gate:isolation:read-manifest-unverified"
+  ],
+  "revision_id": "scene-eef0981281ac0a3e",
+  "scene_sha256": "eef0981281ac0a3e2a1aaa9d950cbb3caca9dd42eadaaeb83efe5a9b51ce581f",
+  "status": "implemented_unverified",
+  "approved": false
+}

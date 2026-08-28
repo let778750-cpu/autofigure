@@ -1,0 +1,1852 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "powerpoint_live_repair_request",
+  "created_at": "20260824T135451Z",
+  "path_base": "autofigure-case-root",
+  "case_root": "qa/powerpoint-live-case",
+  "autofigure_case_root": ".",
+  "project_id": "autofigure-04-pareto-conditioned-diffusion",
+  "task_mode": "RECONSTRUCT_1TO1",
+  "target_id": "autofigure-pptx",
+  "reference_sha256": "5641350000579de0a6112017819b281b80c32348f42fdc5816d4377eeb7c03e7",
+  "candidate_pptx": "qa/powerpoint-live-case/input/candidate.pptx",
+  "template_path": "qa/powerpoint-live-case/input/candidate.pptx",
+  "visible": true,
+  "failed_regions": [
+    "region-offline-title",
+    "region-sampling-title",
+    "region-static-dataset-label",
+    "region-reweighted-label",
+    "region-train-label",
+    "region-left-model-title",
+    "region-left-model-subtitle",
+    "region-target-label",
+    "region-objectives-label",
+    "region-condition-label",
+    "region-right-model-title",
+    "region-right-model-subtitle",
+    "region-noise-label",
+    "region-sample-label",
+    "region-designs-label",
+    "region-dataset-formula",
+    "region-reweighted-formula",
+    "region-blue-arrow-1",
+    "region-blue-arrow-2",
+    "region-condition-arrow",
+    "region-noise-arrow",
+    "region-sample-arrow",
+    "region-molecule-left",
+    "region-dna-left",
+    "region-balance",
+    "region-molecule-right",
+    "region-dna-right",
+    "region-candlestick-left",
+    "region-noise-curve",
+    "region-candlestick-right",
+    "region-left-panel",
+    "region-right-panel",
+    "region-dataset-cylinder",
+    "region-reweighted-cylinder",
+    "region-left-model-box",
+    "region-target-box",
+    "region-right-model-box"
+  ],
+  "all_blockers": [
+    {
+      "id": "B0001",
+      "blocker": "bindings:save-reopen-not-verified",
+      "category": "host_compat"
+    },
+    {
+      "id": "B0002",
+      "blocker": "region:region-balance",
+      "category": "source_model"
+    },
+    {
+      "id": "B0003",
+      "blocker": "region:region-blue-arrow-1",
+      "category": "source_model"
+    },
+    {
+      "id": "B0004",
+      "blocker": "region:region-blue-arrow-2",
+      "category": "source_model"
+    },
+    {
+      "id": "B0005",
+      "blocker": "region:region-candlestick-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0006",
+      "blocker": "region:region-candlestick-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0007",
+      "blocker": "region:region-condition-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0008",
+      "blocker": "region:region-condition-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0009",
+      "blocker": "region:region-dataset-cylinder",
+      "category": "source_model"
+    },
+    {
+      "id": "B0010",
+      "blocker": "region:region-dataset-formula",
+      "category": "source_model"
+    },
+    {
+      "id": "B0011",
+      "blocker": "region:region-designs-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0012",
+      "blocker": "region:region-dna-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0013",
+      "blocker": "region:region-dna-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0014",
+      "blocker": "region:region-left-model-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0015",
+      "blocker": "region:region-left-model-subtitle",
+      "category": "source_model"
+    },
+    {
+      "id": "B0016",
+      "blocker": "region:region-left-model-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0017",
+      "blocker": "region:region-left-panel",
+      "category": "source_model"
+    },
+    {
+      "id": "B0018",
+      "blocker": "region:region-molecule-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0019",
+      "blocker": "region:region-molecule-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0020",
+      "blocker": "region:region-noise-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0021",
+      "blocker": "region:region-noise-curve",
+      "category": "source_model"
+    },
+    {
+      "id": "B0022",
+      "blocker": "region:region-noise-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0023",
+      "blocker": "region:region-objectives-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0024",
+      "blocker": "region:region-offline-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0025",
+      "blocker": "region:region-reweighted-cylinder",
+      "category": "source_model"
+    },
+    {
+      "id": "B0026",
+      "blocker": "region:region-reweighted-formula",
+      "category": "source_model"
+    },
+    {
+      "id": "B0027",
+      "blocker": "region:region-reweighted-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0028",
+      "blocker": "region:region-right-model-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0029",
+      "blocker": "region:region-right-model-subtitle",
+      "category": "source_model"
+    },
+    {
+      "id": "B0030",
+      "blocker": "region:region-right-model-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0031",
+      "blocker": "region:region-right-panel",
+      "category": "source_model"
+    },
+    {
+      "id": "B0032",
+      "blocker": "region:region-sample-arrow",
+      "category": "source_model"
+    },
+    {
+      "id": "B0033",
+      "blocker": "region:region-sample-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0034",
+      "blocker": "region:region-sampling-title",
+      "category": "source_model"
+    },
+    {
+      "id": "B0035",
+      "blocker": "region:region-static-dataset-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0036",
+      "blocker": "region:region-target-box",
+      "category": "source_model"
+    },
+    {
+      "id": "B0037",
+      "blocker": "region:region-target-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0038",
+      "blocker": "region:region-train-label",
+      "category": "source_model"
+    },
+    {
+      "id": "B0039",
+      "blocker": "visual-contract:V5:candlestick-left-top",
+      "category": "source_model"
+    },
+    {
+      "id": "B0040",
+      "blocker": "visual-contract:V5:candlestick-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0041",
+      "blocker": "visual-contract:V5:dna-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0042",
+      "blocker": "visual-contract:V5:dna-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0043",
+      "blocker": "visual-contract:V5:molecule-left",
+      "category": "source_model"
+    },
+    {
+      "id": "B0044",
+      "blocker": "visual-contract:V5:molecule-right",
+      "category": "source_model"
+    },
+    {
+      "id": "B0045",
+      "blocker": "visual-contract:V7:candlestick-left-top",
+      "category": "compiler"
+    },
+    {
+      "id": "B0046",
+      "blocker": "visual-contract:V7:candlestick-right",
+      "category": "compiler"
+    },
+    {
+      "id": "B0047",
+      "blocker": "visual-contract:V7:dataset-cylinder",
+      "category": "compiler"
+    },
+    {
+      "id": "B0048",
+      "blocker": "visual-contract:V7:dna-left",
+      "category": "compiler"
+    },
+    {
+      "id": "B0049",
+      "blocker": "visual-contract:V7:dna-right",
+      "category": "compiler"
+    },
+    {
+      "id": "B0050",
+      "blocker": "visual-contract:V7:molecule-left",
+      "category": "compiler"
+    },
+    {
+      "id": "B0051",
+      "blocker": "visual-contract:V7:molecule-right",
+      "category": "compiler"
+    },
+    {
+      "id": "B0052",
+      "blocker": "visual-contract:V7:reweighted-cylinder",
+      "category": "compiler"
+    }
+  ],
+  "repair_actions": [
+    {
+      "id": "A-source-model",
+      "category": "source_model",
+      "covers": [
+        "B0002",
+        "B0003",
+        "B0004",
+        "B0005",
+        "B0006",
+        "B0007",
+        "B0008",
+        "B0009",
+        "B0010",
+        "B0011",
+        "B0012",
+        "B0013",
+        "B0014",
+        "B0015",
+        "B0016",
+        "B0017",
+        "B0018",
+        "B0019",
+        "B0020",
+        "B0021",
+        "B0022",
+        "B0023",
+        "B0024",
+        "B0025",
+        "B0026",
+        "B0027",
+        "B0028",
+        "B0029",
+        "B0030",
+        "B0031",
+        "B0032",
+        "B0033",
+        "B0034",
+        "B0035",
+        "B0036",
+        "B0037",
+        "B0038",
+        "B0039",
+        "B0040",
+        "B0041",
+        "B0042",
+        "B0043",
+        "B0044"
+      ],
+      "strategy": "repair-or-regenerate-failed-source-regions",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "passing regions",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "region pixel and ink gates",
+        "OCR and visual contracts",
+        "scene topology closure"
+      ]
+    },
+    {
+      "id": "A-compiler",
+      "category": "compiler",
+      "covers": [
+        "B0045",
+        "B0046",
+        "B0047",
+        "B0048",
+        "B0049",
+        "B0050",
+        "B0051",
+        "B0052"
+      ],
+      "strategy": "fix-deterministic-compiler-and-recompile",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "frozen reference contracts"
+      ],
+      "required_verification": [
+        "compiler report",
+        "OOXML readback",
+        "single-visible-object and binding closure"
+      ]
+    },
+    {
+      "id": "A-host-compat",
+      "category": "host_compat",
+      "covers": [
+        "B0001"
+      ],
+      "strategy": "reproduce-in-powerpoint-and-fix-host-compatibility",
+      "artifact_mutation_allowed": true,
+      "protected": [
+        "source scene semantics",
+        "unsupported live-authoring capabilities"
+      ],
+      "required_verification": [
+        "PowerPoint open-save-close-reopen",
+        "reopened inventory equality",
+        "reopened bindings and native-object readback"
+      ]
+    }
+  ],
+  "repair_plan": {
+    "path": "qa/repair-plan.json",
+    "sha256": "4f7ab1e1bbaf712b33481848c93f5e07bbec0d1af3ec834916ea1f76a0085474",
+    "plan_sha256": "73c7ae60e78b057fd4f871400e0be7b67495f0edc1e7752e6500da50a59f5aa1"
+  },
+  "execution_permitted": false,
+  "execution_blocked_by_categories": [
+    "compiler",
+    "source_model"
+  ],
+  "execution_policy": "PowerPoint Live may inspect/save/reopen/finalize only after contract, source_model, and compiler actions are closed through scene/compiler.",
+  "failed_region_tasks": [
+    {
+      "region_id": "region-offline-title",
+      "label": "Offline Training title",
+      "bbox": [
+        140,
+        4,
+        310,
+        50
+      ],
+      "allowed_element_ids": [
+        "styles-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.793,
+        "edge_iou": 0.8365,
+        "mean_abs_rgb_delta": 20.4335
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-sampling-title",
+      "label": "Sampling title",
+      "bbox": [
+        793,
+        4,
+        193,
+        50
+      ],
+      "allowed_element_ids": [
+        "styles-text-002"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8113,
+        "edge_iou": 0.851,
+        "mean_abs_rgb_delta": 19.8193
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-static-dataset-label",
+      "label": "Static Multi-Objective Dataset label",
+      "bbox": [
+        96,
+        62,
+        405,
+        44
+      ],
+      "allowed_element_ids": [
+        "styles-text-003"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.3541,
+        "edge_iou": 0.6692,
+        "mean_abs_rgb_delta": 39.4216
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-reweighted-label",
+      "label": "Reweighted label",
+      "bbox": [
+        99,
+        285,
+        146,
+        42
+      ],
+      "allowed_element_ids": [
+        "styles-text-004"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4128,
+        "edge_iou": 0.7925,
+        "mean_abs_rgb_delta": 34.34
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-train-label",
+      "label": "Train label",
+      "bbox": [
+        327,
+        372,
+        74,
+        42
+      ],
+      "allowed_element_ids": [
+        "styles-text-005"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4869,
+        "edge_iou": 0.8895,
+        "mean_abs_rgb_delta": 27.9098
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-left-model-title",
+      "label": "Left model title",
+      "bbox": [
+        170,
+        475,
+        247,
+        40
+      ],
+      "allowed_element_ids": [
+        "left-model-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.3048,
+        "edge_iou": 0.6345,
+        "mean_abs_rgb_delta": 44.6214
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-left-model-subtitle",
+      "label": "Left model subtitle",
+      "bbox": [
+        201,
+        506,
+        186,
+        40
+      ],
+      "allowed_element_ids": [
+        "left-model-text-002"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.2392,
+        "edge_iou": 0.6319,
+        "mean_abs_rgb_delta": 41.7927
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-target-label",
+      "label": "Target label",
+      "bbox": [
+        646,
+        279,
+        84,
+        39
+      ],
+      "allowed_element_ids": [
+        "target-box-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.673,
+        "edge_iou": 0.9901,
+        "mean_abs_rgb_delta": 17.8236
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-objectives-label",
+      "label": "Objectives label",
+      "bbox": [
+        622,
+        311,
+        131,
+        39
+      ],
+      "allowed_element_ids": [
+        "target-box-text-002"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.432,
+        "edge_iou": 0.9148,
+        "mean_abs_rgb_delta": 27.5779
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-condition-label",
+      "label": "Condition label",
+      "bbox": [
+        767,
+        259,
+        104,
+        39
+      ],
+      "allowed_element_ids": [
+        "styles-text-006"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.3835,
+        "edge_iou": 0.8227,
+        "mean_abs_rgb_delta": 31.8542
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-right-model-title",
+      "label": "Right model title",
+      "bbox": [
+        898,
+        279,
+        247,
+        40
+      ],
+      "allowed_element_ids": [
+        "right-model-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.3019,
+        "edge_iou": 0.6456,
+        "mean_abs_rgb_delta": 44.1689
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-right-model-subtitle",
+      "label": "Right model subtitle",
+      "bbox": [
+        929,
+        311,
+        187,
+        40
+      ],
+      "allowed_element_ids": [
+        "right-model-text-002"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.2395,
+        "edge_iou": 0.6294,
+        "mean_abs_rgb_delta": 41.7853
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-noise-label",
+      "label": "Noise label",
+      "bbox": [
+        1055,
+        197,
+        78,
+        41
+      ],
+      "allowed_element_ids": [
+        "styles-text-007"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8371,
+        "edge_iou": 0.987,
+        "mean_abs_rgb_delta": 11.0141
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-sample-label",
+      "label": "Sample label",
+      "bbox": [
+        1050,
+        393,
+        101,
+        41
+      ],
+      "allowed_element_ids": [
+        "styles-text-008"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7787,
+        "edge_iou": 0.9625,
+        "mean_abs_rgb_delta": 15.1634
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-designs-label",
+      "label": "Designs label",
+      "bbox": [
+        952,
+        511,
+        113,
+        42
+      ],
+      "allowed_element_ids": [
+        "designs-cuboid-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.65,
+        "edge_iou": 0.9297,
+        "mean_abs_rgb_delta": 24.458
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-dataset-formula",
+      "label": "Dataset D formula",
+      "bbox": [
+        272,
+        135,
+        44,
+        48
+      ],
+      "allowed_element_ids": [
+        "dataset-cylinder-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6427,
+        "edge_iou": 0.7124,
+        "mean_abs_rgb_delta": 21.3717
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-reweighted-formula",
+      "label": "Reweighted D formula",
+      "bbox": [
+        272,
+        291,
+        44,
+        48
+      ],
+      "allowed_element_ids": [
+        "reweighted-cylinder-text-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4879,
+        "edge_iou": 0.5763,
+        "mean_abs_rgb_delta": 28.7964
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-blue-arrow-1",
+      "label": "Dataset to reweighted block arrow",
+      "bbox": [
+        264,
+        196,
+        60,
+        62
+      ],
+      "allowed_element_ids": [
+        "blue-arrow-1",
+        "dataset-cylinder",
+        "reweighted-cylinder"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7767,
+        "edge_iou": 0.8125,
+        "mean_abs_rgb_delta": 7.8093
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-blue-arrow-2",
+      "label": "Reweighted to training model block arrow",
+      "bbox": [
+        264,
+        351,
+        60,
+        95
+      ],
+      "allowed_element_ids": [
+        "blue-arrow-2",
+        "reweighted-cylinder",
+        "left-model"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7703,
+        "edge_iou": 0.6567,
+        "mean_abs_rgb_delta": 9.3098
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-condition-arrow",
+      "label": "Condition block arrow",
+      "bbox": [
+        765,
+        290,
+        115,
+        50
+      ],
+      "allowed_element_ids": [
+        "condition-arrow",
+        "target-box",
+        "right-model"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7382,
+        "edge_iou": 0.5722,
+        "mean_abs_rgb_delta": 9.1639
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-noise-arrow",
+      "label": "Noise block arrow",
+      "bbox": [
+        992,
+        191,
+        60,
+        62
+      ],
+      "allowed_element_ids": [
+        "noise-arrow",
+        "noise-curve",
+        "right-model"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6514,
+        "edge_iou": 0.6222,
+        "mean_abs_rgb_delta": 11.6739
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-sample-arrow",
+      "label": "Sample block arrow",
+      "bbox": [
+        992,
+        378,
+        60,
+        83
+      ],
+      "allowed_element_ids": [
+        "sample-arrow",
+        "right-model",
+        "designs-cuboid"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7095,
+        "edge_iou": 0.5793,
+        "mean_abs_rgb_delta": 10.951
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-molecule-left",
+      "label": "Left molecule microasset",
+      "bbox": [
+        164,
+        100,
+        72,
+        43
+      ],
+      "allowed_element_ids": [
+        "molecule-left-g-001-line-001",
+        "molecule-left-g-001-line-002",
+        "molecule-left-g-001-line-003",
+        "molecule-left-g-001-line-004",
+        "molecule-left-g-001-line-005",
+        "molecule-left-g-001-line-006",
+        "molecule-left-circle-001",
+        "molecule-left-circle-002",
+        "molecule-left-circle-003",
+        "molecule-left-circle-004",
+        "molecule-left-circle-005",
+        "molecule-left-circle-006",
+        "molecule-left-circle-007",
+        "molecule-left-circle-008",
+        "molecule-left-line-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.2871,
+        "edge_iou": 0.4466,
+        "mean_abs_rgb_delta": 38.4621
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-dna-left",
+      "label": "Left DNA microasset",
+      "bbox": [
+        170,
+        147,
+        66,
+        65
+      ],
+      "allowed_element_ids": [
+        "dna-left-path-001",
+        "dna-left-path-002",
+        "dna-left-path-003",
+        "dna-left-path-004",
+        "dna-left-g-001-line-001",
+        "dna-left-g-001-line-002",
+        "dna-left-g-001-line-003",
+        "dna-left-g-001-line-004",
+        "dna-left-g-001-line-005",
+        "dna-left-g-001-line-006",
+        "dna-left-g-001-line-007",
+        "dna-left-g-001-line-008"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.1418,
+        "edge_iou": 0.4164,
+        "mean_abs_rgb_delta": 40.0828
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-balance",
+      "label": "Balance microasset",
+      "bbox": [
+        137,
+        325,
+        58,
+        46
+      ],
+      "allowed_element_ids": [
+        "balance-line-001",
+        "balance-line-002",
+        "balance-line-003",
+        "balance-line-004",
+        "balance-line-005",
+        "balance-line-006",
+        "balance-line-007",
+        "balance-line-008",
+        "balance-path-001",
+        "balance-path-002"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.4169,
+        "edge_iou": 0.9,
+        "mean_abs_rgb_delta": 22.6675
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-molecule-right",
+      "label": "Right molecule microasset",
+      "bbox": [
+        849,
+        502,
+        72,
+        43
+      ],
+      "allowed_element_ids": [
+        "molecule-right-g-001-line-001",
+        "molecule-right-g-001-line-002",
+        "molecule-right-g-001-line-003",
+        "molecule-right-g-001-line-004",
+        "molecule-right-g-001-line-005",
+        "molecule-right-g-001-line-006",
+        "molecule-right-circle-001",
+        "molecule-right-circle-002",
+        "molecule-right-circle-003",
+        "molecule-right-circle-004",
+        "molecule-right-circle-005",
+        "molecule-right-circle-006",
+        "molecule-right-circle-007",
+        "molecule-right-circle-008",
+        "molecule-right-line-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.3237,
+        "edge_iou": 0.5329,
+        "mean_abs_rgb_delta": 36.5992
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-dna-right",
+      "label": "Right DNA microasset",
+      "bbox": [
+        1110,
+        465,
+        66,
+        65
+      ],
+      "allowed_element_ids": [
+        "dna-right-path-001",
+        "dna-right-path-002",
+        "dna-right-path-003",
+        "dna-right-path-004",
+        "dna-right-g-001-line-001",
+        "dna-right-g-001-line-002",
+        "dna-right-g-001-line-003",
+        "dna-right-g-001-line-004",
+        "dna-right-g-001-line-005",
+        "dna-right-g-001-line-006",
+        "dna-right-g-001-line-007",
+        "dna-right-g-001-line-008"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.1062,
+        "edge_iou": 0.3915,
+        "mean_abs_rgb_delta": 43.2267
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-candlestick-left",
+      "label": "Left candlestick plot",
+      "bbox": [
+        351,
+        119,
+        75,
+        62
+      ],
+      "allowed_element_ids": [
+        "candlestick-left-top-line-001",
+        "candlestick-left-top-polyline-001",
+        "candlestick-left-top-line-002",
+        "candlestick-left-top-polyline-002",
+        "candlestick-left-top-line-003",
+        "candlestick-left-top-rect-001",
+        "candlestick-left-top-line-004",
+        "candlestick-left-top-rect-002",
+        "candlestick-left-top-line-005",
+        "candlestick-left-top-rect-003",
+        "candlestick-left-top-line-006",
+        "candlestick-left-top-rect-004",
+        "candlestick-left-top-line-007",
+        "candlestick-left-top-rect-005"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.3009,
+        "edge_iou": 0.6406,
+        "mean_abs_rgb_delta": 69.8484
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-noise-curve",
+      "label": "Gaussian noise plot",
+      "bbox": [
+        872,
+        80,
+        300,
+        111
+      ],
+      "allowed_element_ids": [
+        "noise-curve-line-001",
+        "noise-curve-path-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8458,
+        "edge_iou": 0.4512,
+        "mean_abs_rgb_delta": 5.9173
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-candlestick-right",
+      "label": "Right candlestick plot",
+      "bbox": [
+        649,
+        378,
+        75,
+        62
+      ],
+      "allowed_element_ids": [
+        "candlestick-right-line-001",
+        "candlestick-right-polyline-001",
+        "candlestick-right-line-002",
+        "candlestick-right-polyline-002",
+        "candlestick-right-line-003",
+        "candlestick-right-rect-001",
+        "candlestick-right-line-004",
+        "candlestick-right-rect-002",
+        "candlestick-right-line-005",
+        "candlestick-right-rect-003",
+        "candlestick-right-line-006",
+        "candlestick-right-rect-004",
+        "candlestick-right-line-007",
+        "candlestick-right-rect-005"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.2855,
+        "edge_iou": 0.6314,
+        "mean_abs_rgb_delta": 71.0041
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-left-panel",
+      "label": "Left dashed process panel",
+      "bbox": [
+        20,
+        53,
+        548,
+        540
+      ],
+      "allowed_element_ids": [
+        "styles-rect-001"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8156,
+        "edge_iou": 0.6932,
+        "mean_abs_rgb_delta": 11.1149
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-right-panel",
+      "label": "Right dashed sampling panel",
+      "bbox": [
+        580,
+        53,
+        617,
+        540
+      ],
+      "allowed_element_ids": [
+        "styles-rect-002"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.8458,
+        "edge_iou": 0.7236,
+        "mean_abs_rgb_delta": 9.0565
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-dataset-cylinder",
+      "label": "Dataset cylinder",
+      "bbox": [
+        247,
+        101,
+        94,
+        97
+      ],
+      "allowed_element_ids": [
+        "dataset-cylinder"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7153,
+        "edge_iou": 0.9326,
+        "mean_abs_rgb_delta": 16.1616
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-reweighted-cylinder",
+      "label": "Reweighted dataset cylinder",
+      "bbox": [
+        246,
+        256,
+        95,
+        98
+      ],
+      "allowed_element_ids": [
+        "reweighted-cylinder"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6739,
+        "edge_iou": 0.9036,
+        "mean_abs_rgb_delta": 19.5364
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-left-model-box",
+      "label": "Left diffusion model box and network",
+      "bbox": [
+        148,
+        443,
+        291,
+        132
+      ],
+      "allowed_element_ids": [
+        "left-model"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6035,
+        "edge_iou": 0.7652,
+        "mean_abs_rgb_delta": 22.673
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-target-box",
+      "label": "Target objectives box",
+      "bbox": [
+        608,
+        256,
+        159,
+        119
+      ],
+      "allowed_element_ids": [
+        "target-box"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.7281,
+        "edge_iou": 0.9739,
+        "mean_abs_rgb_delta": 16.6907
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    },
+    {
+      "region_id": "region-right-model-box",
+      "label": "Right diffusion model box and network",
+      "bbox": [
+        877,
+        249,
+        290,
+        132
+      ],
+      "allowed_element_ids": [
+        "right-model"
+      ],
+      "all_other_elements_protected": true,
+      "manual_scope_required": false,
+      "current_metrics": {
+        "ssim": 0.6157,
+        "edge_iou": 0.7693,
+        "mean_abs_rgb_delta": 22.2611
+      },
+      "thresholds": {
+        "ssim_min": 0.85,
+        "edge_iou_min": 0.75
+      }
+    }
+  ],
+  "required_capabilities": [
+    "managed-session",
+    "visible-canvas",
+    "native-connector",
+    "freeform",
+    "inspect",
+    "audit",
+    "save-reopen",
+    "finalize-target",
+    "object-bindings"
+  ],
+  "mutation_policy": {
+    "arrow_authoring": false,
+    "arrow_authoring_capability_sha256": "74851341b366664fa7253169f3c6094148305daa79580910b26e3438e08d18a4",
+    "arrow_updates_must_return_to_offline_compiler": true
+  },
+  "scene_element_ids": [
+    "scene-rect-001",
+    "styles",
+    "styles-rect-001",
+    "styles-rect-002",
+    "styles-text-001",
+    "styles-text-002",
+    "styles-text-003",
+    "molecule-left",
+    "molecule-left-g-001",
+    "molecule-left-g-001-line-001",
+    "molecule-left-g-001-line-002",
+    "molecule-left-g-001-line-003",
+    "molecule-left-g-001-line-004",
+    "molecule-left-g-001-line-005",
+    "molecule-left-g-001-line-006",
+    "molecule-left-circle-001",
+    "molecule-left-circle-002",
+    "molecule-left-circle-003",
+    "molecule-left-circle-004",
+    "molecule-left-circle-005",
+    "molecule-left-circle-006",
+    "molecule-left-circle-007",
+    "molecule-left-circle-008",
+    "molecule-left-line-001",
+    "dna-left",
+    "dna-left-path-001",
+    "dna-left-path-002",
+    "dna-left-path-003",
+    "dna-left-path-004",
+    "dna-left-g-001",
+    "dna-left-g-001-line-001",
+    "dna-left-g-001-line-002",
+    "dna-left-g-001-line-003",
+    "dna-left-g-001-line-004",
+    "dna-left-g-001-line-005",
+    "dna-left-g-001-line-006",
+    "dna-left-g-001-line-007",
+    "dna-left-g-001-line-008",
+    "dataset-cylinder",
+    "dataset-cylinder-path-001",
+    "dataset-cylinder-ellipse-001",
+    "dataset-cylinder-text-001",
+    "candlestick-left-top",
+    "candlestick-left-top-line-001",
+    "candlestick-left-top-polyline-001",
+    "candlestick-left-top-line-002",
+    "candlestick-left-top-polyline-002",
+    "candlestick-left-top-line-003",
+    "candlestick-left-top-rect-001",
+    "candlestick-left-top-line-004",
+    "candlestick-left-top-rect-002",
+    "candlestick-left-top-line-005",
+    "candlestick-left-top-rect-003",
+    "candlestick-left-top-line-006",
+    "candlestick-left-top-rect-004",
+    "candlestick-left-top-line-007",
+    "candlestick-left-top-rect-005",
+    "blue-arrow-1",
+    "styles-text-004",
+    "balance",
+    "balance-line-001",
+    "balance-line-002",
+    "balance-line-003",
+    "balance-line-004",
+    "balance-line-005",
+    "balance-line-006",
+    "balance-line-007",
+    "balance-path-001",
+    "balance-path-002",
+    "balance-line-008",
+    "reweighted-cylinder",
+    "reweighted-cylinder-path-001",
+    "reweighted-cylinder-ellipse-001",
+    "reweighted-cylinder-text-001",
+    "blue-arrow-2",
+    "styles-text-005",
+    "left-model",
+    "left-model-rect-001",
+    "left-model-g-001",
+    "left-model-g-001-line-001",
+    "left-model-g-001-line-002",
+    "left-model-g-001-line-003",
+    "left-model-g-001-line-004",
+    "left-model-g-001-line-005",
+    "left-model-g-001-line-006",
+    "left-model-g-001-line-007",
+    "left-model-g-001-line-008",
+    "left-model-g-001-circle-001",
+    "left-model-g-001-circle-002",
+    "left-model-g-001-circle-003",
+    "left-model-g-001-circle-004",
+    "left-model-g-001-circle-005",
+    "left-model-g-001-circle-006",
+    "left-model-g-001-circle-007",
+    "left-model-text-001",
+    "left-model-text-002",
+    "noise-curve",
+    "noise-curve-line-001",
+    "noise-curve-path-001",
+    "target-box",
+    "target-box-rect-001",
+    "target-box-text-001",
+    "target-box-text-002",
+    "candlestick-right",
+    "candlestick-right-line-001",
+    "candlestick-right-polyline-001",
+    "candlestick-right-line-002",
+    "candlestick-right-polyline-002",
+    "candlestick-right-line-003",
+    "candlestick-right-rect-001",
+    "candlestick-right-line-004",
+    "candlestick-right-rect-002",
+    "candlestick-right-line-005",
+    "candlestick-right-rect-003",
+    "candlestick-right-line-006",
+    "candlestick-right-rect-004",
+    "candlestick-right-line-007",
+    "candlestick-right-rect-005",
+    "styles-text-006",
+    "condition-arrow",
+    "right-model",
+    "right-model-rect-001",
+    "right-model-g-001",
+    "right-model-g-001-line-001",
+    "right-model-g-001-line-002",
+    "right-model-g-001-line-003",
+    "right-model-g-001-line-004",
+    "right-model-g-001-line-005",
+    "right-model-g-001-line-006",
+    "right-model-g-001-line-007",
+    "right-model-g-001-line-008",
+    "right-model-g-001-circle-001",
+    "right-model-g-001-circle-002",
+    "right-model-g-001-circle-003",
+    "right-model-g-001-circle-004",
+    "right-model-g-001-circle-005",
+    "right-model-g-001-circle-006",
+    "right-model-g-001-circle-007",
+    "right-model-text-001",
+    "right-model-text-002",
+    "noise-arrow",
+    "styles-text-007",
+    "sample-arrow",
+    "styles-text-008",
+    "designs-cuboid",
+    "designs-cuboid-polygon-001",
+    "designs-cuboid-polygon-002",
+    "designs-cuboid-rect-001",
+    "designs-cuboid-text-001",
+    "molecule-right",
+    "molecule-right-g-001",
+    "molecule-right-g-001-line-001",
+    "molecule-right-g-001-line-002",
+    "molecule-right-g-001-line-003",
+    "molecule-right-g-001-line-004",
+    "molecule-right-g-001-line-005",
+    "molecule-right-g-001-line-006",
+    "molecule-right-circle-001",
+    "molecule-right-circle-002",
+    "molecule-right-circle-003",
+    "molecule-right-circle-004",
+    "molecule-right-circle-005",
+    "molecule-right-circle-006",
+    "molecule-right-circle-007",
+    "molecule-right-circle-008",
+    "molecule-right-line-001",
+    "dna-right",
+    "dna-right-path-001",
+    "dna-right-path-002",
+    "dna-right-path-003",
+    "dna-right-path-004",
+    "dna-right-g-001",
+    "dna-right-g-001-line-001",
+    "dna-right-g-001-line-002",
+    "dna-right-g-001-line-003",
+    "dna-right-g-001-line-004",
+    "dna-right-g-001-line-005",
+    "dna-right-g-001-line-006",
+    "dna-right-g-001-line-007",
+    "dna-right-g-001-line-008"
+  ],
+  "bound_element_ids": [
+    "scene-rect-001",
+    "styles-rect-001",
+    "styles-rect-002",
+    "styles-text-001",
+    "styles-text-002",
+    "styles-text-003",
+    "molecule-left-g-001-line-001",
+    "molecule-left-g-001-line-002",
+    "molecule-left-g-001-line-003",
+    "molecule-left-g-001-line-004",
+    "molecule-left-g-001-line-005",
+    "molecule-left-g-001-line-006",
+    "molecule-left-circle-001",
+    "molecule-left-circle-002",
+    "molecule-left-circle-003",
+    "molecule-left-circle-004",
+    "molecule-left-circle-005",
+    "molecule-left-circle-006",
+    "molecule-left-circle-007",
+    "molecule-left-circle-008",
+    "molecule-left-line-001",
+    "dna-left-path-001",
+    "dna-left-path-002",
+    "dna-left-path-003",
+    "dna-left-path-004",
+    "dna-left-g-001-line-001",
+    "dna-left-g-001-line-002",
+    "dna-left-g-001-line-003",
+    "dna-left-g-001-line-004",
+    "dna-left-g-001-line-005",
+    "dna-left-g-001-line-006",
+    "dna-left-g-001-line-007",
+    "dna-left-g-001-line-008",
+    "dataset-cylinder-path-001",
+    "dataset-cylinder-ellipse-001",
+    "dataset-cylinder-text-001",
+    "candlestick-left-top-line-001",
+    "candlestick-left-top-polyline-001",
+    "candlestick-left-top-line-002",
+    "candlestick-left-top-polyline-002",
+    "candlestick-left-top-line-003",
+    "candlestick-left-top-rect-001",
+    "candlestick-left-top-line-004",
+    "candlestick-left-top-rect-002",
+    "candlestick-left-top-line-005",
+    "candlestick-left-top-rect-003",
+    "candlestick-left-top-line-006",
+    "candlestick-left-top-rect-004",
+    "candlestick-left-top-line-007",
+    "candlestick-left-top-rect-005",
+    "blue-arrow-1",
+    "styles-text-004",
+    "balance-line-001",
+    "balance-line-002",
+    "balance-line-003",
+    "balance-line-004",
+    "balance-line-005",
+    "balance-line-006",
+    "balance-line-007",
+    "balance-path-001",
+    "balance-path-002",
+    "balance-line-008",
+    "reweighted-cylinder-path-001",
+    "reweighted-cylinder-ellipse-001",
+    "reweighted-cylinder-text-001",
+    "blue-arrow-2",
+    "styles-text-005",
+    "left-model-rect-001",
+    "left-model-g-001-line-001",
+    "left-model-g-001-line-002",
+    "left-model-g-001-line-003",
+    "left-model-g-001-line-004",
+    "left-model-g-001-line-005",
+    "left-model-g-001-line-006",
+    "left-model-g-001-line-007",
+    "left-model-g-001-line-008",
+    "left-model-g-001-circle-001",
+    "left-model-g-001-circle-002",
+    "left-model-g-001-circle-003",
+    "left-model-g-001-circle-004",
+    "left-model-g-001-circle-005",
+    "left-model-g-001-circle-006",
+    "left-model-g-001-circle-007",
+    "left-model-text-001",
+    "left-model-text-002",
+    "noise-curve-line-001",
+    "noise-curve-path-001",
+    "target-box-rect-001",
+    "target-box-text-001",
+    "target-box-text-002",
+    "candlestick-right-line-001",
+    "candlestick-right-polyline-001",
+    "candlestick-right-line-002",
+    "candlestick-right-polyline-002",
+    "candlestick-right-line-003",
+    "candlestick-right-rect-001",
+    "candlestick-right-line-004",
+    "candlestick-right-rect-002",
+    "candlestick-right-line-005",
+    "candlestick-right-rect-003",
+    "candlestick-right-line-006",
+    "candlestick-right-rect-004",
+    "candlestick-right-line-007",
+    "candlestick-right-rect-005",
+    "styles-text-006",
+    "condition-arrow",
+    "right-model-rect-001",
+    "right-model-g-001-line-001",
+    "right-model-g-001-line-002",
+    "right-model-g-001-line-003",
+    "right-model-g-001-line-004",
+    "right-model-g-001-line-005",
+    "right-model-g-001-line-006",
+    "right-model-g-001-line-007",
+    "right-model-g-001-line-008",
+    "right-model-g-001-circle-001",
+    "right-model-g-001-circle-002",
+    "right-model-g-001-circle-003",
+    "right-model-g-001-circle-004",
+    "right-model-g-001-circle-005",
+    "right-model-g-001-circle-006",
+    "right-model-g-001-circle-007",
+    "right-model-text-001",
+    "right-model-text-002",
+    "noise-arrow",
+    "styles-text-007",
+    "sample-arrow",
+    "styles-text-008",
+    "designs-cuboid-polygon-001",
+    "designs-cuboid-polygon-002",
+    "designs-cuboid-rect-001",
+    "designs-cuboid-text-001",
+    "molecule-right-g-001-line-001",
+    "molecule-right-g-001-line-002",
+    "molecule-right-g-001-line-003",
+    "molecule-right-g-001-line-004",
+    "molecule-right-g-001-line-005",
+    "molecule-right-g-001-line-006",
+    "molecule-right-circle-001",
+    "molecule-right-circle-002",
+    "molecule-right-circle-003",
+    "molecule-right-circle-004",
+    "molecule-right-circle-005",
+    "molecule-right-circle-006",
+    "molecule-right-circle-007",
+    "molecule-right-circle-008",
+    "molecule-right-line-001",
+    "dna-right-path-001",
+    "dna-right-path-002",
+    "dna-right-path-003",
+    "dna-right-path-004",
+    "dna-right-g-001-line-001",
+    "dna-right-g-001-line-002",
+    "dna-right-g-001-line-003",
+    "dna-right-g-001-line-004",
+    "dna-right-g-001-line-005",
+    "dna-right-g-001-line-006",
+    "dna-right-g-001-line-007",
+    "dna-right-g-001-line-008",
+    "molecule-left-g-001",
+    "molecule-left",
+    "dna-left-g-001",
+    "dna-left",
+    "dataset-cylinder",
+    "candlestick-left-top",
+    "balance",
+    "reweighted-cylinder",
+    "left-model-g-001",
+    "left-model",
+    "noise-curve",
+    "target-box",
+    "candlestick-right",
+    "right-model-g-001",
+    "right-model",
+    "designs-cuboid",
+    "molecule-right-g-001",
+    "molecule-right",
+    "dna-right-g-001",
+    "dna-right",
+    "styles"
+  ],
+  "scene_compatibility": {
+    "source_schema_version": "4.0.0",
+    "adapter_schema_version": "2.1.0",
+    "adapter_scene_sha256": "06e4a60d9cdf0a04bd32ccd5df133423c6fa21e84e9a07cdf4a2e298639608d4",
+    "bridge_manifest": "qa/powerpoint-live-bridge.json",
+    "direct_scene_v3_submission_forbidden": true
+  },
+  "completion_contract": {
+    "saved_reopened": true,
+    "bindings_complete": true,
+    "root_candidate_hash_must_equal_reopened_hash": true,
+    "arrow_readback_required": true,
+    "render_must_be_finalizer_bound": true,
+    "region_results_required": [
+      "region-offline-title",
+      "region-sampling-title",
+      "region-static-dataset-label",
+      "region-reweighted-label",
+      "region-train-label",
+      "region-left-model-title",
+      "region-left-model-subtitle",
+      "region-target-label",
+      "region-objectives-label",
+      "region-condition-label",
+      "region-right-model-title",
+      "region-right-model-subtitle",
+      "region-noise-label",
+      "region-sample-label",
+      "region-designs-label",
+      "region-dataset-formula",
+      "region-reweighted-formula",
+      "region-blue-arrow-1",
+      "region-blue-arrow-2",
+      "region-condition-arrow",
+      "region-noise-arrow",
+      "region-sample-arrow",
+      "region-molecule-left",
+      "region-dna-left",
+      "region-balance",
+      "region-molecule-right",
+      "region-dna-right",
+      "region-candlestick-left",
+      "region-noise-curve",
+      "region-candlestick-right",
+      "region-left-panel",
+      "region-right-panel",
+      "region-dataset-cylinder",
+      "region-reweighted-cylinder",
+      "region-left-model-box",
+      "region-target-box",
+      "region-right-model-box"
+    ],
+    "automatic_release_authority": "NONE"
+  }
+}

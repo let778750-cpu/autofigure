@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "powerpoint-live": {
+      "command": "node",
+      "args": ["tools/mcp/powerpoint_mcp_launcher.mjs"],
+      "cwd": "."
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 ## 范围
 
-本项目把参考科研图重建为原生可编辑 PPTX。正式指令见 `SKILL.md`、`PROJECT_ARCHITECTURE.md` 和 `HIGH_FIDELITY.md`。`legacy/` 除公式引擎兼容入口外不维护。
+本项目把参考科研图重建为原生可编辑 PPTX。正式指令见仓库级 skill [`.agents/skills/ai-autofigure/SKILL.md`](.agents/skills/ai-autofigure/SKILL.md)（Kimi/Codex 项目级 skill 发现路径，两工具通用 group 均扫描 `.agents/skills/`），架构与门禁合同见 [`docs/architecture.md`](docs/architecture.md) 和 [`docs/high-fidelity-contract.md`](docs/high-fidelity-contract.md)，文档索引见 [`docs/README.md`](docs/README.md)。v1 历史归档不在当前工作树，取回方式见 [`docs/legacy-archive.md`](docs/legacy-archive.md)。
 
 ## 输入路线与案例
 
@@ -24,6 +24,9 @@
 - strict 无 critical region 必须失败。
 - 保存重开、bindings、区域、箭头、布局或 live evidence 任一 blocker 均保持 `qa_failed`。
 - 不得把 candidate/qa_failed 宣传为完成；人审不等于机器自动 approved。
+- `check` 把验收状态拆成六维度写入 `qa/qa-status.json`；六维度全 pass 等价 strict approved。
+- 六维度全 pass 才能 `release` 生成案例根 `release-manifest.json`；`release --check` 重算哈希与维度，漂移即失败。
+- 非 approved 存在 release manifest、或 approved 缺 manifest，`cases --check` 均检出。
 
 ## 运行环境
 
@@ -45,3 +48,14 @@ autofigure hygiene
 ```
 
 测试临时目录必须位于受控外部 basetemp，结束后删除；正式案例不得残留 mock、缓存、临时 candidate 或 PowerPoint Live session build。
+
+## No Negative Echo
+
+本规则与 skill 原则 7（`.agents/skills/ai-autofigure/SKILL.md`）同源，由 `autofigure hygiene` 做确定性兜底；此处约束生成行为本身。生成最终产物及其包装时，包括标题、文件名、正文、注释、标签、commit、PR 和交付说明，只描述最终采用的状态，假设读者没看过本次会话。
+
+- 会话里的否决、中间尝试和措辞纠正，只当作控制信息，不要让它们成为最终产物的命名或叙述中心。
+- 对每个交付面分别判断：不知道本次会话的读者需要这条信息吗？省略会不会导致不准确、不安全、误导或兼容性信息缺失？它是不是任务开始时已提交或用户确认状态中的真实变化，而且当前交付面需要解释它？
+- 「不要提 X」不是让你写「无 X」。标题、文件名、开篇和标签应从正向目标重新生成，不要逐词修改被否文案。
+- 保留真实的基线变化、已经执行的外部操作，以及必要的技术名称、诊断、测试和快照。任务开始前已有的用户改动不算被否内容。
+- 不要把与本任务无关的改动写进本次 commit、PR 或交付说明。对比、引用、审计和迁移说明，只在用户要求或当前交付面确实需要时保留。
+- 写完后通读全部用户可见内容及其包装，包括文件名、元数据和 hook 改写。内容发生变化后重新检查，不要另加「已清理」或「无残留」类声明。
