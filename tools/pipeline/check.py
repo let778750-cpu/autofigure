@@ -67,6 +67,11 @@ def _source_gate_blockers(run: common.Run) -> list[str]:
     carrier = scene.get("canonical_svg", {})
     if carrier.get("sha256") != report.get("candidate", {}).get("sha256"):
         blockers.append("source-gate:candidate-mismatch")
+    # 载体-文件门禁：redraw.svg 必须逐字节等于 scene.canonical 绑定的载体。
+    # 历史缺口（01/02 案例修复流程更新 redraw.svg 后未 rebind scene）由此拦截。
+    if run.redraw_svg.is_file():
+        if common.sha256_file(run.redraw_svg) != carrier.get("sha256"):
+            blockers.append("scene:carrier-redraw-mismatch")
     decision = report.get("decision")
     if decision != "accept":
         reported = report.get("blockers")

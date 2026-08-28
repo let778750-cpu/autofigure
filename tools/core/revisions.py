@@ -51,7 +51,12 @@ def revision_id(scene: dict[str, Any]) -> str:
 
 
 def compiler_fingerprint() -> str:
-    """Hash deterministic compiler modules that materially affect artifacts."""
+    """Hash deterministic compiler modules that materially affect artifacts.
+
+    模块字节先规范化为 LF 再哈希：开发机 ``core.autocrlf`` 可能把工作树检出
+    成 CRLF，而 fresh checkout/CI 是 LF——指纹必须 EOL 无关，否则 lineage
+    manifest 绑定的工作树指纹跨机器必然失配（qa-compiler-fingerprint-mismatch）。
+    """
 
     digest = hashlib.sha256()
     for name, subpackage in (
@@ -64,7 +69,7 @@ def compiler_fingerprint() -> str:
     ):
         path = Path(__file__).parent.parent / subpackage / name
         digest.update(name.encode("utf-8"))
-        digest.update(path.read_bytes())
+        digest.update(path.read_bytes().replace(b"\r\n", b"\n"))
     return digest.hexdigest()
 
 

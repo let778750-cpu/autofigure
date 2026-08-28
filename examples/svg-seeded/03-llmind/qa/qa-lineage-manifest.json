@@ -1,0 +1,130 @@
+{
+  "schema_version": "4.0.0",
+  "kind": "qa_lineage_manifest",
+  "case": "03-llmind",
+  "reference_sha256": "997a8f665b52cec1113cfe0c5507e0bd4b44217329f93b101bf79f2118bf3953",
+  "revision_id": "scene-1db5a9c79d21a9b7",
+  "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+  "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1",
+  "reports": [
+    {
+      "path": "qa/arrows-audit.json",
+      "sha256": "544008be72e2eaa86a9437c7bd7423f14a7e6b297576f1689e44a0e8e1200c44",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/convert-summary.json",
+      "sha256": "2ade53e9c5233e6f7b7ae1127470a0ce14da84f5a763037c52555e8deac791a2",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/layout-audit.json",
+      "sha256": "17f2cdfdc02acff8401ecd8cf1273620cddaeba70ff37d96ef97041857b0a053",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math-summary.json",
+      "sha256": "d3dc65ac592fc1f1be4bbb577e3332821ce8590b93b44ec06c46ae8408285b91",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/EQ001.json",
+      "sha256": "209f8ca75b8c5796aba009dc83b0ed4c27459570288d45ba2254de9e839a42cd",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/EQ002.json",
+      "sha256": "80c3b2d5cb0d43afd9b1ed407d0b5a579cd4b6df985312700d86822959a80f29",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/EQ003.json",
+      "sha256": "2060fd1bb15d2038b50c76144cc924bb62f1b61805587889add3f251e49b41c6",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/EQ004.json",
+      "sha256": "0f46ce986a9d40965ed1dd89d63c456257693a6ace0ae2d6e0dbcff87c494d1e",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/EQ005.json",
+      "sha256": "5c9c28164effa05394e41149c559046881e4c0b20d7e3e982102156a50a182f2",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/EQ006.json",
+      "sha256": "8ab0cd5288ed299edf1e021d4fd1ee79a676da62e36fb7ffaf8fc54c077149f7",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/math/plan.json",
+      "sha256": "10a60a21935437855e66a971c91cb4a3f11546437d79b71bbf211a764ee7e84e",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/metrics.json",
+      "sha256": "19a63efb70cc06e0f465b50e841b720f41d78ca50f32b6b6d3bae2e94b6ac6d9",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/ocr-texts.json",
+      "sha256": "6b6e6960c57da10d57f9a7f77e1a186e4a6786a219ed7b50024a25a49aac040b",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/regions-report.json",
+      "sha256": "a7375b910609a9a158d16393904ca6028d83d39bbe327847261f098662235ea8",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/revision-receipt.json",
+      "sha256": "c9c88f19a03d821f5de35ed10eb9518d51fa33d685ef7bed32de2b01bc9a5f7c",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/schema-v4-migration-report.json",
+      "sha256": "c07c3a658129ab504f8af6a0e38866b4aff73a7cb668af88389e911e2a626514",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    },
+    {
+      "path": "qa/source-gate-report.json",
+      "sha256": "328f8bd9ea075e1792f44e5d70f992ea78fa32ecb7f3cb686dc9e1c0b9db1248",
+      "revision_id": "scene-1db5a9c79d21a9b7",
+      "scene_sha256": "1db5a9c79d21a9b73fd09572ee268cbfa6afe877091336829b0eeba09a75be39",
+      "compiler_fingerprint": "8236d436cea9dd3787fe718a0ab66870429cb5432d65efdfbd78c9bc1a912da1"
+    }
+  ]
+}

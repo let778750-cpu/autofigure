@@ -4,14 +4,14 @@
   "case": "02-thinking-diffusion",
   "reference_sha256": "3e66655ae080dc92cc04d3c011f908a3aec83ca1ad89cf0559f503c81c970b54",
   "lineage_version": "1.0.0",
-  "revision_id": "scene-e1d4925a5e75c847",
-  "scene_sha256": "e1d4925a5e75c847a1781364adbcbed9e4918ceabfe1603bf9fbfb745945ecde",
-  "compiler_fingerprint": "a0367d09e3b94d092aa8f38d74da539e1048ab4f857045d32bece0e85ed72462",
+  "revision_id": "scene-3c68406dcf24293d",
+  "scene_sha256": "3c68406dcf24293d60f0ace1c0b03d5304c6ee3956131b00998adfd5faec1d09",
+  "compiler_fingerprint": "11cff773da6572125c65dc010d27f8e4baaad31762b03167f71b6a804c665e1c",
   "artifacts": {
-    "redraw_svg": "437abc85c281e4dc700fac0bffdf21c7e95aa14982e4a682b8b2add7ab95d97c",
+    "redraw_svg": "a670b517aa7b80945fa260eb1b51a71141e722c1e732a00d141babc8f807bb8a",
     "redraw_pptx": "b94740edd59753054727b55dcc35bbd5d2ab80dd016780b82349c6bd73314d22",
     "render_png": "d1d2d0104982af397f8e7a3d2d71827a89de0b22782ba364430fa68d9cf1807f",
-    "bindings": "7e13eef49612af40878816a043b9691126633faac6435325a148a210d3d51cba"
+    "bindings": "0b1267a0d7cb69775ceb62b791d4fe571f160e27b8576c45409ecdbf159f51fb"
   },
-  "stamped_at": "20260824T153801Z"
+  "stamped_at": "20260828T020933Z"
 }

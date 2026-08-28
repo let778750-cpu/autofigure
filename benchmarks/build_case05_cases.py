@@ -43,7 +43,11 @@ def stamp_candidate(case_dir: Path, target: Path) -> Path:
     root.set("data-stable-element-ids", "true")
     root.set("data-relations-exhaustive", "true")
     body = ET.tostring(root, encoding="unicode")
-    target.write_text('<?xml version="1.0" encoding="UTF-8"?>\n' + body + "\n", encoding="utf-8")
+    target.write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n' + body + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
     return target
 
 
