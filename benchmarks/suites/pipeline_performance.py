@@ -374,10 +374,10 @@ def main(argv: list[str] | None = None) -> int:
     }
 
     RESULTS_JSON.parent.mkdir(parents=True, exist_ok=True)
-    RESULTS_JSON.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    RESULTS_JSON.write_bytes(
+        (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     )
-    RESULTS_MD.write_text(render_markdown(payload), encoding="utf-8")
+    RESULTS_MD.write_bytes(render_markdown(payload).encode("utf-8") + b"\n")
     sys.stdout.write(f"benchmark: wrote {RESULTS_JSON}\nbenchmark: wrote {RESULTS_MD}\n")
     return 0
 

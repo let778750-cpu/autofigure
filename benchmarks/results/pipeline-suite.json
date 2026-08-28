@@ -2,7 +2,7 @@
   "schema_version": "1.2.0",
   "kind": "benchmark_report",
   "suite": "pipeline-suite-v1",
-  "generated_at_utc": "2026-08-28T12:54:29Z",
+  "generated_at_utc": "2026-08-28T12:59:56Z",
   "environment": {
     "platform": "Windows-11-10.0.26200-SP0",
     "python": "3.12.4",
@@ -35,9 +35,9 @@
           "source-gate:semantic-metadata:missing-element-ids"
         ],
         "wall_seconds_stats": {
-          "median": 0.0201,
-          "min": 0.0192,
-          "max": 0.0338
+          "median": 0.0242,
+          "min": 0.0226,
+          "max": 0.0405
         }
       },
       "repaired-seed-unstamped": {
@@ -52,9 +52,9 @@
           "source-gate:semantic-metadata:missing:case"
         ],
         "wall_seconds_stats": {
-          "median": 0.0287,
-          "min": 0.0261,
-          "max": 0.0291
+          "median": 0.0301,
+          "min": 0.0293,
+          "max": 0.0309
         }
       },
       "repaired-seed-stamped": {
@@ -62,9 +62,9 @@
         "decisions_stable": true,
         "blockers": [],
         "wall_seconds_stats": {
-          "median": 0.0293,
-          "min": 0.0283,
-          "max": 0.0297
+          "median": 0.0292,
+          "min": 0.0278,
+          "max": 0.0298
         }
       }
     },
@@ -72,240 +72,240 @@
       "svg-seeded/01-modular-agent": {
         "stages": {
           "convert": {
-            "wall_seconds": 7.7863,
-            "cpu_seconds": 3.1406,
-            "peak_rss_bytes": 97816576,
+            "wall_seconds": 7.4089,
+            "cpu_seconds": 2.9531,
+            "peak_rss_bytes": 97718272,
             "read_bytes": 33650484,
             "write_bytes": 9816586
           },
           "math": {
-            "wall_seconds": 7.1686,
-            "cpu_seconds": 3.0781,
-            "peak_rss_bytes": 111841280,
+            "wall_seconds": 7.4337,
+            "cpu_seconds": 2.9062,
+            "peak_rss_bytes": 111837184,
             "read_bytes": 34757363,
             "write_bytes": 2872597
           },
           "check": {
-            "wall_seconds": 13.8863,
-            "cpu_seconds": 12.3594,
-            "peak_rss_bytes": 276885504,
+            "wall_seconds": 12.427,
+            "cpu_seconds": 10.875,
+            "peak_rss_bytes": 279961600,
             "read_bytes": 39646893,
             "write_bytes": 1252668
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "c8fe41ad169586f08318285ee1fbecd12ea74d5bd00825e17fa461e3c926ebbc",
-          "bindings.json": "c912ee5e9da0447ebc600f85ee75cf9192238aa5036cba3a5669b9a447afd4b6",
+          "redraw.pptx": "f5673f65989ed227d03c078db18cd2916b961085c6b011568da0fb0c418a4434",
+          "bindings.json": "434bc48083e0164fc56bdd68c714db240347f8a0d91da669f7cc029f0a0933f6",
           "render.png": "458128e877947ec61396b9f4a1871505c2c92c5898aae97e28fffb179a2bd16f"
         }
       },
       "svg-seeded/02-thinking-diffusion": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.5599,
-            "cpu_seconds": 2.2344,
-            "peak_rss_bytes": 122118144,
+            "wall_seconds": 6.3895,
+            "cpu_seconds": 1.9375,
+            "peak_rss_bytes": 122867712,
             "read_bytes": 12252043,
             "write_bytes": 4498000
           },
           "math": {
-            "wall_seconds": 0.1216,
-            "cpu_seconds": 0.1094,
-            "peak_rss_bytes": 122257408,
+            "wall_seconds": 0.1287,
+            "cpu_seconds": 0.0938,
+            "peak_rss_bytes": 122916864,
             "read_bytes": 702297,
             "write_bytes": 462
           },
           "check": {
-            "wall_seconds": 4.151,
-            "cpu_seconds": 2.6875,
-            "peak_rss_bytes": 281063424,
+            "wall_seconds": 3.4727,
+            "cpu_seconds": 2.2031,
+            "peak_rss_bytes": 321081344,
             "read_bytes": 16582695,
             "write_bytes": 497945
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "81e16a5e12101927d1db1f6a42dbdfe3eee4a5a697e8bb25226225afb029abd7",
-          "bindings.json": "3d22f7f99053d0ef82cf09b141d44fce7a0b2e346b8818e6840b45a781b33a81",
+          "redraw.pptx": "c430e3b76333981acd6b91df7aecc81ac833d01b9f325c9a442eda6ef9545b48",
+          "bindings.json": "962b3b56a007ed34d2f2775e40456653b2034fec39bb5d5345f4a0a95c1ab68e",
           "render.png": "d1d2d0104982af397f8e7a3d2d71827a89de0b22782ba364430fa68d9cf1807f"
         }
       },
       "svg-seeded/03-llmind": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.852,
-            "cpu_seconds": 2.375,
-            "peak_rss_bytes": 131039232,
+            "wall_seconds": 6.0087,
+            "cpu_seconds": 1.8906,
+            "peak_rss_bytes": 132255744,
             "read_bytes": 10892185,
             "write_bytes": 3054052
           },
           "math": {
-            "wall_seconds": 6.8107,
-            "cpu_seconds": 2.0312,
-            "peak_rss_bytes": 128307200,
+            "wall_seconds": 6.068,
+            "cpu_seconds": 1.875,
+            "peak_rss_bytes": 129290240,
             "read_bytes": 11759685,
             "write_bytes": 1014413
           },
           "check": {
-            "wall_seconds": 2.4851,
-            "cpu_seconds": 1.3281,
-            "peak_rss_bytes": 316035072,
+            "wall_seconds": 3.5614,
+            "cpu_seconds": 2.0312,
+            "peak_rss_bytes": 305233920,
             "read_bytes": 12615619,
             "write_bytes": 478918
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "4f6908b911a428bbea8545ea755672d0562d9fb015c1092cae9eeda495468ca8",
-          "bindings.json": "e498eb1bf1b1a6c36a1d44835768f9412fce02f9b546d9f00ee676c8d26de93b",
+          "redraw.pptx": "8cb86cb86064051e99f178f2d91dc8d355965f88cbf9abcacf4760ceeff06db9",
+          "bindings.json": "37d6cf2ffe319587437b58874aa14922602a57bc5c9243bf04aad020c4b0ae21",
           "render.png": "f2b04423ef1c11f86bce1c6f514f113d89a8ce28ace35c16495cd693bb48bdba"
         }
       },
       "svg-seeded/04-pareto-conditioned-diffusion": {
         "stages": {
           "convert": {
-            "wall_seconds": 5.8912,
-            "cpu_seconds": 1.5312,
-            "peak_rss_bytes": 129343488,
+            "wall_seconds": 6.7639,
+            "cpu_seconds": 2.3594,
+            "peak_rss_bytes": 130007040,
             "read_bytes": 16156876,
             "write_bytes": 5157377
           },
           "math": {
-            "wall_seconds": 0.0977,
-            "cpu_seconds": 0.0625,
-            "peak_rss_bytes": 123273216,
+            "wall_seconds": 0.1261,
+            "cpu_seconds": 0.1094,
+            "peak_rss_bytes": 122724352,
             "read_bytes": 958400,
             "write_bytes": 462
           },
           "check": {
-            "wall_seconds": 4.303,
-            "cpu_seconds": 3.2188,
-            "peak_rss_bytes": 251637760,
+            "wall_seconds": 4.5475,
+            "cpu_seconds": 2.9219,
+            "peak_rss_bytes": 302411776,
             "read_bytes": 20722616,
             "write_bytes": 710413
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "34e555ddb2a1d8474fc75b7aa4ccbdf45366311da7f19ae845a029e0cdcd74eb",
-          "bindings.json": "dacc0168430e44cf92f040fbf8d38b147a9bc0866129d040d231a5a17a965368",
+          "redraw.pptx": "90578557692dce9c769699466381ef76dbcc6318f3f3e7bca9afed5b4ef970c2",
+          "bindings.json": "90cde59164f4cc017c0193835579d7ce2146abc9e0cededee2884dc79a9b082f",
           "render.png": "5e14d80153e138ce2533b8bb0b586f66b35fb2c6b0bf17d198179d1589a7b83c"
         }
       },
       "svg-seeded/05-sting-autophagy": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.7328,
-            "cpu_seconds": 2.4375,
-            "peak_rss_bytes": 128729088,
+            "wall_seconds": 7.016,
+            "cpu_seconds": 2.6094,
+            "peak_rss_bytes": 132452352,
             "read_bytes": 28767938,
             "write_bytes": 11795700
           },
           "math": {
-            "wall_seconds": 0.2041,
-            "cpu_seconds": 0.1719,
-            "peak_rss_bytes": 124698624,
+            "wall_seconds": 0.21,
+            "cpu_seconds": 0.1875,
+            "peak_rss_bytes": 131575808,
             "read_bytes": 2839904,
             "write_bytes": 462
           },
           "check": {
-            "wall_seconds": 10.8285,
-            "cpu_seconds": 9.5156,
-            "peak_rss_bytes": 561922048,
+            "wall_seconds": 14.2606,
+            "cpu_seconds": 12.8594,
+            "peak_rss_bytes": 620007424,
             "read_bytes": 42321421,
             "write_bytes": 3572661
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "cdac67c71604e053c8dd7829403851be3df497e8dbdb11ad15c9327df2f2c538",
-          "bindings.json": "8dd5d4965265a398a636ad93207f66769dfcf9610737ca254bc0a97fe6105253",
+          "redraw.pptx": "4dd2217b9c45d17a3e26f588b224b463f1e33c730c85477cc404595283cf79f2",
+          "bindings.json": "350e4c27ee66ad39b627ca22a1aa540b4c2df06cae736a5ae6ad98d29b542aab",
           "render.png": "0030d801ae1be3bdac6e6601e0034dd26c9d8bed8c64c302bfa0e4a6f01daded"
         }
       },
       "reference-only/01-modular-agent-reference-only": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.7172,
-            "cpu_seconds": 2.25,
-            "peak_rss_bytes": 136491008,
+            "wall_seconds": 6.7022,
+            "cpu_seconds": 2.125,
+            "peak_rss_bytes": 133701632,
             "read_bytes": 28123106,
             "write_bytes": 8782107
           },
           "math": {
-            "wall_seconds": 7.0495,
-            "cpu_seconds": 2.7344,
-            "peak_rss_bytes": 143097856,
+            "wall_seconds": 6.7799,
+            "cpu_seconds": 2.625,
+            "peak_rss_bytes": 139182080,
             "read_bytes": 32954133,
             "write_bytes": 2606486
           },
           "check": {
-            "wall_seconds": 11.2789,
-            "cpu_seconds": 9.7344,
-            "peak_rss_bytes": 322379776,
+            "wall_seconds": 8.8954,
+            "cpu_seconds": 7.375,
+            "peak_rss_bytes": 302993408,
             "read_bytes": 33857237,
             "write_bytes": 1273313
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "e3179f726b28aa095b804aa24e4759ab81799ce5d26997f87455963c49c374a1",
-          "bindings.json": "f780ce42868796ed93a59dc1dfd79aba584198b29c3ed8d534ef93bd648d581f",
+          "redraw.pptx": "f99e2506d44c971ae52211cb393ff13fe07ca0ad1e54c4308a76a66a1c8af5cc",
+          "bindings.json": "51358ba616f42e1107771d04ce293b25999bfffa8e4a3efaf8b96e64e0fe68d3",
           "render.png": "c18dba0d8e42bc71de8a8cf6268ea25f3558d284c9074f93d2d38e1b78207db1"
         }
       },
       "reference-only/02-thinking-diffusion-reference-only": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.6541,
-            "cpu_seconds": 2.3438,
-            "peak_rss_bytes": 134565888,
+            "wall_seconds": 6.5509,
+            "cpu_seconds": 2.0781,
+            "peak_rss_bytes": 125685760,
             "read_bytes": 15830216,
             "write_bytes": 5550869
           },
           "math": {
-            "wall_seconds": 0.1328,
-            "cpu_seconds": 0.0938,
-            "peak_rss_bytes": 125468672,
+            "wall_seconds": 0.1082,
+            "cpu_seconds": 0.0781,
+            "peak_rss_bytes": 120365056,
             "read_bytes": 989603,
             "write_bytes": 462
           },
           "check": {
-            "wall_seconds": 5.2419,
-            "cpu_seconds": 3.625,
-            "peak_rss_bytes": 307855360,
+            "wall_seconds": 4.1424,
+            "cpu_seconds": 2.7344,
+            "peak_rss_bytes": 292151296,
             "read_bytes": 19876284,
             "write_bytes": 541423
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "f89514e5c79b027365fe72e66c650a1129e72552e42295fc46d9315aa85dbac2",
-          "bindings.json": "6a4a37aa456e26cf916f47beeb161271f4312485b15db5384868cef2c032dae6",
+          "redraw.pptx": "9f1a0a001bcf2c5cd5d84e065fdef099ccd432ba35e8cf81a84b0bf6383ab0b6",
+          "bindings.json": "81211e576119d2b1fb1d8ffa34376ce2752e666a3bbd419e4578d7a183f21e11",
           "render.png": "584fe6379574f5a8cb355655815bfaec3985786a4f51fe91d16a1688c1d3d37f"
         }
       },
       "reference-only/04-pareto-conditioned-diffusion-reference-only": {
         "stages": {
           "convert": {
-            "wall_seconds": 6.7816,
-            "cpu_seconds": 2.3281,
-            "peak_rss_bytes": 130891776,
+            "wall_seconds": 6.6011,
+            "cpu_seconds": 1.8594,
+            "peak_rss_bytes": 130387968,
             "read_bytes": 20436014,
             "write_bytes": 7151317
           },
           "math": {
-            "wall_seconds": 0.1361,
-            "cpu_seconds": 0.0938,
-            "peak_rss_bytes": 129400832,
+            "wall_seconds": 0.0946,
+            "cpu_seconds": 0.0781,
+            "peak_rss_bytes": 120475648,
             "read_bytes": 1375509,
             "write_bytes": 462
           },
           "check": {
-            "wall_seconds": 5.9655,
-            "cpu_seconds": 4.3125,
-            "peak_rss_bytes": 300716032,
+            "wall_seconds": 3.9272,
+            "cpu_seconds": 2.5781,
+            "peak_rss_bytes": 272969728,
             "read_bytes": 28943300,
             "write_bytes": 864970
           }
         },
         "artifact_sha256": {
-          "redraw.pptx": "9adf84e563d958b6e4dd2f26fb771bc4b0251dbb4714c44ba4e46e417a792bff",
-          "bindings.json": "9d80dc2522e105b197a8899d70e416207fde25a5b2425eef704007a01dce5679",
+          "redraw.pptx": "584c18f851080a7cf73c5c368267bf84a582f71f15296fc2ad78d7b6cdf6a251",
+          "bindings.json": "3ec9fa35e858d42ba8723af19cd4d8ec40235b8e94c93c5f95f2cfb2ab00d41a",
           "render.png": "998c4a9ff40db53a341ab0b8c97fd5284572f65b61a047f528cf06a057d9fb0f"
         }
       }
