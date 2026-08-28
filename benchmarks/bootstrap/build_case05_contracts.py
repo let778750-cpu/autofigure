@@ -17,7 +17,7 @@ regions.json：
 用途为性能基准案例；已在 fixture.json、benchmarks/README 与 Issue #19 如实记录。
 
 用法：
-    python benchmarks/build_case05_contracts.py <run_dir>
+    python benchmarks/bootstrap/build_case05_contracts.py <run_dir>
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-BENCH_ROOT = Path(__file__).resolve().parent
+BENCH_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BENCH_ROOT.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))

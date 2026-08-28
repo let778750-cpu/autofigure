@@ -288,3 +288,72 @@ def test_pending_note_matching_is_bracket_aware():
     assert not _is_pending("scene.canonical:consistent")
     assert not _is_pending("regions_sha256:consistent")
     assert not _is_pending("lineage:rebuilt")
+
+
+def test_asset_source_binding_eol_drift_is_rebound(tmp_path: Path):
+    run = _run(tmp_path)
+    svg = b'<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"/>\n'
+    assets_dir = run.root / "assets"
+    assets_dir.mkdir()
+    vector = assets_dir / "globe-vector.svg"
+    vector.write_bytes(svg)
+    # 登记旧 CRLF 形态哈希（历史工作树产物），文件已是 LF——基准套件曾在
+    # fresh 检出上被 convert 的 fail-closed 拦获的同一形态。
+    write_json(
+        run.assets_path,
+        {
+            "schema_version": "4.0.0",
+            "kind": "assets",
+            "assets": [
+                {
+                    "id": "atomic:globe-vector",
+                    "vector_source_svg": {
+                        "path": "assets/globe-vector.svg",
+                        "sha256": _h(svg.replace(b"\n", b"\r\n")),
+                    },
+                }
+            ],
+        },
+    )
+
+    notes = renormalize_case(run, apply=False)
+    assert "assets:atomic:globe-vector:rebound" in notes
+
+    notes = renormalize_case(run, apply=True)
+
+    assert "assets:atomic:globe-vector:rebound" in notes
+    record = read_json(run.assets_path)["assets"][0]["vector_source_svg"]
+    assert record["sha256"] == _h(vector.read_bytes())
+    assert renormalize_case(run, apply=False) == [
+        "assets:atomic:globe-vector:consistent"
+    ]
+
+
+def test_asset_source_real_drift_is_refused(tmp_path: Path):
+    run = _run(tmp_path)
+    assets_dir = run.root / "assets"
+    assets_dir.mkdir()
+    vector = assets_dir / "globe-vector.svg"
+    vector.write_bytes(b'<svg width="1"/>\n')
+    write_json(
+        run.assets_path,
+        {
+            "schema_version": "4.0.0",
+            "kind": "assets",
+            "assets": [
+                {
+                    "id": "atomic:globe-vector",
+                    "vector_source_svg": {
+                        "path": "assets/globe-vector.svg",
+                        "sha256": _h(b'<svg width="2"/>\n'),  # 内容真实不同
+                    },
+                }
+            ],
+        },
+    )
+
+    notes = renormalize_case(run, apply=True)
+
+    assert "assets:atomic:globe-vector:real-drift" in notes
+    record = read_json(run.assets_path)["assets"][0]["vector_source_svg"]
+    assert record["sha256"] == _h(b'<svg width="2"/>\n')  # 登记不被改写

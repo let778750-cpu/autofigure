@@ -1,6 +1,6 @@
-# Case05 STING-autophagy 基准报告
+# Pipeline 基准报告（Case05 gate 阶梯 + 跨案例管线基线）
 
-生成自同名 JSON；数字一律机器采集，单样本如实标注，不伪造分位数。
+生成自 pipeline-suite JSON；数字一律机器采集，单样本如实标注，不伪造分位数。
 
 ## Fixture 校验
 
@@ -14,22 +14,22 @@
 
 | 候选 | 决策 | wall median (s) | min | max |
 |---|---|---|---|---|
-| original-seed | `reject` | 0.0174 | 0.0171 | 0.0283 |
-| repaired-seed-unstamped | `repair` | 0.0198 | 0.0193 | 0.0204 |
-| repaired-seed-stamped | `accept` | 0.0198 | 0.0197 | 0.0201 |
+| original-seed | `reject` | 0.0242 | 0.0226 | 0.0405 |
+| repaired-seed-unstamped | `repair` | 0.0301 | 0.0293 | 0.0309 |
+| repaired-seed-stamped | `accept` | 0.0292 | 0.0278 | 0.0298 |
 
 ## 2. 确定性核心管线基线（8 个正式案例副本，各 1 次 cold）
 
 | 案例 | convert (s) | math (s) | check (s) |
 |---|---|---|---|
-| `svg-seeded/01-modular-agent` | 6.5678 | 6.6826 | 9.1707 |
-| `svg-seeded/02-thinking-diffusion` | 5.8701 | 0.1403 | 2.9337 |
-| `svg-seeded/03-llmind` | 6.2361 | 6.5206 | 4.4813 |
-| `svg-seeded/04-pareto-conditioned-diffusion` | 7.4396 | 0.2025 | 6.6621 |
-| `svg-seeded/05-sting-autophagy` | 8.0495 | 0.275 | 21.1735 |
-| `reference-only/01-modular-agent-reference-only` | 7.8346 | 8.4539 | 15.0846 |
-| `reference-only/02-thinking-diffusion-reference-only` | 7.8927 | 0.1748 | 7.148 |
-| `reference-only/04-pareto-conditioned-diffusion-reference-only` | 7.393 | 0.1972 | 7.1001 |
+| `svg-seeded/01-modular-agent` | 7.4089 | 7.4337 | 12.427 |
+| `svg-seeded/02-thinking-diffusion` | 6.3895 | 0.1287 | 3.4727 |
+| `svg-seeded/03-llmind` | 6.0087 | 6.068 | 3.5614 |
+| `svg-seeded/04-pareto-conditioned-diffusion` | 6.7639 | 0.1261 | 4.5475 |
+| `svg-seeded/05-sting-autophagy` | 7.016 | 0.21 | 14.2606 |
+| `reference-only/01-modular-agent-reference-only` | 6.7022 | 6.7799 | 8.8954 |
+| `reference-only/02-thinking-diffusion-reference-only` | 6.5509 | 0.1082 | 4.1424 |
+| `reference-only/04-pareto-conditioned-diffusion-reference-only` | 6.6011 | 0.0946 | 3.9272 |
 
 ## 案例级 Case05 状态
 
@@ -39,3 +39,4 @@
 测量边界：当前进程及其子进程树（RSS/IO/CPU-wall）；PowerPoint COM 服务器经 RPC 激活、不在子进程树内时其资源不计入——如实记录测量边界
 
 性能基准不授予 `approved`；任何失败如实保留。
+
