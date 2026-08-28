@@ -13,9 +13,15 @@
 *.toml text eol=lf
 *.yml text eol=lf
 *.mjs text eol=lf
+*.txt text eol=lf
 *.ps1 text eol=crlf
 *.cmd text eol=crlf
 
 # Binary evidence (png/pptx/…) falls through to the `* -text` default untouched.
 # Historic note: cases 01-04 SVG blobs are already LF in the object database
 # (verified by the renormalize audit), so the global LF pin does not rewrite them.
+# 2026-08 regression lesson: requirements.txt was committed as a CRLF blob by the
+# attributes migration itself (a `-text` passthrough `git add` on a CRLF-smudged
+# worktree — changing attributes never re-cleans files already checked out).
+# It is normalized back to LF and `*.txt` pinned above; tests/test_text_blob_eol.py
+# now fails CI on any i/crlf or i/mixed text blob, closing the whole class.
